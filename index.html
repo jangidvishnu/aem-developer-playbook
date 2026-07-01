@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head><!--
+VERSION 3.0.0
+Preserved all original content.
+Removed visible draft/editor cards.
+Added print CSS.
+Added dark mode persistence.
+Added chapter metadata placeholder.
+Added company model placeholder.
+Next: filters, company explorer, global search.
+-->
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Enterprise Digital Experience Engineering Playbook</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+html{scroll-behavior:smooth}
+body{font-family:Inter,sans-serif}
+.section{scroll-margin-top:90px}
+.callout{border-left:4px solid #2563eb}
+code{background:#eef2ff;padding:.1rem .3rem;border-radius:.25rem}
+
+@media print{aside,header,#themeToggle,#search{display:none!important}section{box-shadow:none!important;break-inside:avoid-page}}</style>
+<!--
+================================================================================
+PROJECT CONSTITUTION
+================================================================================
+Project:
+Enterprise Digital Experience Engineering Playbook
+
+Purpose:
+Build a long-term, publication-quality knowledge base for Enterprise Digital
+Experience Engineers. This project must remain useful as both a personal career
+operating system and a future public handbook.
+
+SOURCE OF TRUTH
+- This HTML file is the primary editable artifact.
+- Keep everything self-contained.
+- Avoid unnecessary external dependencies.
+
+AI ROLES
+Every AI updating this file acts as:
+- Editor-in-Chief
+- Technical Writer
+- Information Architect
+- Research Analyst
+- Career Strategist
+- QA Reviewer
+
+NON-NEGOTIABLE RULES
+1. Improve the whole document, not only the requested section.
+2. Preserve consistency.
+3. Never duplicate information.
+4. Archive instead of delete.
+5. Explain recommendations.
+6. Prefer evidence over assumptions.
+7. Mark opinion vs verified fact.
+8. Every addition must improve readability, maintainability or usefulness.
+9. Use reusable components.
+10. Maintain publication quality.
+
+WRITING STYLE
+- Professional
+- Timeless
+- Vendor neutral where possible
+- Actionable
+- Concise but complete
+
+CHANGE PROCESS
+Research -> Verify -> Integrate -> Cross-link -> Update changelog -> Update roadmap
+
+VERSION HISTORY
+2.1.0
+- Switched from Word-first architecture to HTML-first.
+- Introduced project constitution.
+- Added editorial governance.
+- Added reusable UI sections.
+- Single-file offline-friendly architecture.
+
+FUTURE ROADMAP
+- Global company database
+- Salary intelligence
+- Interview repository
+- Visa intelligence
+- Search index
+- Print optimization
+- Mermaid diagrams
+================================================================================
+-->
+</head>
+<body class="bg-slate-100 text-slate-800">
+<header class="sticky top-0 z-50 bg-white border-b">
+<div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+<div>
+<h1 class="text-2xl font-extrabold">Enterprise Digital Experience Engineering Playbook</h1>
+<p class="text-sm text-slate-500">Publication Draft • Version 4.0.0</p>
+</div>
+<input class="border rounded-lg px-3 py-2 w-64" id="search" placeholder="Search chapters..."/>
+<button class="ml-3 border rounded px-3 py-2" id="themeToggle">🌙</button></div>
+</header>
+<div class="max-w-7xl mx-auto flex gap-6 p-6">
+<aside class="w-72 shrink-0 bg-white rounded-xl shadow p-5 sticky top-24 h-[82vh] overflow-auto">
+<h2 class="font-bold mb-3">Contents</h2>
+<div id="toc"></div>
+<div class="mt-8 text-sm">
+<h3 class="font-semibold">Project Status</h3>
+<ul class="list-disc ml-5 mt-2">
+<li>Architecture ✓</li>
+<li>Governance ✓</li>
+<li>Content Migration ⏳</li>
+<li>Research Ongoing</li>
+</ul>
+</div>
+</aside>
+<main class="flex-1 space-y-6" id="main">
+<section class="bg-gradient-to-r from-blue-700 to-sky-600 text-white rounded-2xl p-8">
+<h2 class="text-4xl font-bold">Welcome</h2>
+<p class="mt-4 text-lg">
+A living handbook focused on career growth for Enterprise Digital Experience Engineers.
+Designed for long-term maintainability and future publication.
+</p>
+</section>
+</main>
+</div>
+<script>
+const PLAYBOOK={
+chapters:[
+{title:"Mission",summary:"Purpose and principles.",reading:"2 min",tags:["Governance"],body:`<div class='callout bg-blue-50 p-4 rounded'><p><strong>Mission</strong><br>Create the definitive career guide for Enterprise Digital Experience Engineers.</p></div><ul class='list-disc ml-6 mt-4'><li>Evidence over assumptions</li><li>Long-term value</li><li>Publication quality</li><li>Continuous improvement</li></ul>`},
+{title:"Career Strategy",summary:"Long-term direction.",reading:"4 min",tags:["Career"],body:`<ul class='list-disc ml-6'><li>Target Product Companies and GCCs.</li><li>Build modern AEM, Java and Cloud expertise.</li><li>Optimize personal branding before applications.</li></ul>`},
+{title:"Professional Branding",summary:"Positioning.",reading:"2 min",tags:["Branding"],body:`Position yourself as an <strong>Enterprise Digital Experience Engineer</strong> rather than only an AEM Developer.`},
+{title:"Core Skills",summary:"Priority technologies.",reading:"3 min",tags:["Skills"],body:`AEM • AEM Sites • AEMaaCS • Java • Dispatcher • Sling • OSGi • HTL • Core Components • Spring Boot • React`},
+{title:"Learning Roadmap",summary:"Immediate priorities.",reading:"5 min",tags:["Learning"],body:`<ol class='list-decimal ml-6'><li>Edge Delivery Services</li><li>Universal Editor</li><li>GraphQL</li><li>Advanced Content Fragments</li><li>Adobe Experience Platform</li></ol>`},
+{title:"Target Companies",summary:"Priority employers.",reading:"8 min",tags:["Companies"],companyTable:true},
+{title:"Career Command Center",summary:"Planned modules.",reading:"3 min",tags:["Planning"],body:`<ul class='list-disc ml-6'><li>Master Company Database</li><li>Recruiter CRM</li><li>Application Tracker</li><li>Interview Tracker</li><li>Learning Tracker</li><li>Decision Log</li></ul>`},
+{title:"Living Roadmap",summary:"Future work.",reading:"2 min",tags:["Roadmap"],body:`This handbook will expand into interviews, salary, visa opportunities, Adobe Partners, templates and references.`}
+],
+companies:[
+{priority:"★★★★★",company:"Adobe",type:"Product",india:"Yes",aem:"Owner",careers:"https://careers.adobe.com/",search:"https://careers.adobe.com/us/en/search-results?keywords=AEM",visa:"Yes"},
+{priority:"★★★★★",company:"Workday",type:"Product",india:"Yes",aem:"Public",careers:"https://workday.wd5.myworkdayjobs.com/Workday",search:"Search AEM",visa:"Limited"},
+{priority:"★★★★★",company:"ServiceNow",type:"Product",india:"Yes",aem:"Public",careers:"https://careers.servicenow.com/",search:"Search AEM",visa:"Limited"},
+{priority:"★★★★★",company:"Cisco",type:"Product",india:"Yes",aem:"Public",careers:"https://jobs.cisco.com/",search:"Search AEM",visa:"Limited"}
+]};
+
+const toc=document.getElementById('toc');
+const main=document.getElementById('main');
+toc.innerHTML='';
+PLAYBOOK.chapters.forEach((c,i)=>{
+ const id='ch'+i;
+ toc.innerHTML+=`<a href="#${id}" class="block px-3 py-2 rounded hover:bg-slate-100">${c.title}</a>`;
+ let body=c.body||'';
+ if(c.companyTable){
+   body=`<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr><th class="p-2">Priority</th><th class="p-2">Company</th><th class="p-2">Type</th><th class="p-2">India</th><th class="p-2">AEM</th><th class="p-2">Careers</th><th class="p-2">AEM Jobs</th><th class="p-2">Visa</th></tr></thead><tbody>${
+PLAYBOOK.companies.map(x=>`<tr class="border-t"><td class="p-2">${x.priority}</td><td class="p-2 font-semibold">${x.company}</td><td class="p-2">${x.type}</td><td class="p-2">${x.india}</td><td class="p-2">${x.aem}</td><td class="p-2"><a class="text-blue-600 underline" target="_blank" href="${x.careers}">Careers</a></td><td class="p-2">${x.search.startsWith('http')?`<a class="text-blue-600 underline" target="_blank" href="${x.search}">Search</a>`:x.search}</td><td class="p-2">${x.visa}</td></tr>`).join('')
+}</tbody></table></div>`;
+ }
+ main.innerHTML+=`<section id="${id}" class="section bg-white rounded-xl shadow p-8"><h2 class="text-3xl font-bold">${c.title}</h2><div class="text-xs text-slate-500 mt-1">⏱ ${c.reading} • ${c.tags.join(', ')}</div><p class="text-slate-500 mb-4">${c.summary}</p>${body}<details class="mt-6"><summary class="cursor-pointer font-semibold">📌 Summary</summary><div class="mt-2 text-slate-600">${c.summary}</div></details></section>`;
+});
+document.getElementById('search').oninput=e=>{
+ const q=e.target.value.toLowerCase();
+ document.querySelectorAll('main section').forEach(s=>s.style.display=s.innerText.toLowerCase().includes(q)?'block':'none');
+}
+const b=document.body;document.getElementById('themeToggle').onclick=()=>{document.documentElement.classList.toggle('dark');if(document.documentElement.classList.contains('dark')){b.className='bg-slate-900 text-slate-100';localStorage.theme='dark';}else{b.className='bg-slate-100 text-slate-800';localStorage.theme='light';}};if(localStorage.theme==='dark')document.getElementById('themeToggle').click();
+</script>
+</body>
+</html>
