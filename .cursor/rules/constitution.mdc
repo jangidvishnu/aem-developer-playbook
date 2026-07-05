@@ -1,0 +1,35 @@
+---
+description: Core non-negotiable rules for this repository — always loaded so they don't need to be re-read from a file every session
+alwaysApply: true
+---
+
+# Constitution (Enterprise Digital Experience Engineering Playbook)
+
+Full detail: `.playbook/00_PROJECT_OVERVIEW.md` (read it before any non-trivial change). This rule is the compact,
+always-loaded version.
+
+## Non-negotiable rules
+
+1. Never delete information — archive it instead (`.playbook/12_DECISIONS.md`).
+2. Preserve backwards compatibility. Never rewrite working content without a stated reason.
+3. Never hardcode company/content data inside HTML — use `data/*.json` (`.playbook/09_DATA_MODEL.md`).
+4. Keep content separate from rendering.
+5. Vanilla JavaScript + Tailwind CSS only. No frameworks, no build step, no unnecessary dependencies.
+6. Every change stays GitHub Pages compatible, offline compatible, responsive, accessible, print-friendly.
+7. Prefer evidence over assumption; mark opinion vs. verified fact.
+8. Never duplicate information — one topic, one authoritative home.
+9. Use reusable render functions, not copy-pasted markup.
+10. Maintain publication quality — no placeholder content presented as finished.
+
+## Process
+
+- One milestone/release at a time. Never start the next until the current one is explicitly reviewed and accepted.
+- Architectural changes follow: Analyze → Plan → Synchronize docs → Review technical debt → Implement →
+  Self-review → PR summary → Commit message.
+- Only commit when the user explicitly asks for a commit.
+- If the repository is in an unexpected state (missing files, conflicting content, signs of concurrent edits) —
+  stop and report before continuing. Do not silently fix or overwrite.
+
+## Escalation
+
+If uncertain, or a decision is irreversible/architecturally significant, ask before proceeding.

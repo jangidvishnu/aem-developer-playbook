@@ -5,13 +5,21 @@ for every change, however small.
 
 ## Read before making ANY change
 
+If you're working in Cursor, `.cursor/rules/` already loads the core constitution and current-state pointers
+automatically, plus topic-specific rules that auto-attach based on which files you're editing — you don't need to
+manually read the list below every time. For any other agent (including this file's primary audience, GitHub
+Copilot, which doesn't use Cursor's rule system), read in order:
+
 1. `.playbook/MASTER_BOOTSTRAP_PROMPT.md` — the operating constitution (goals, non-negotiable rules, data model).
-2. `.playbook/01_AI_CONSTITUTION.md` — AI roles and non-negotiable rules.
-3. `.playbook/02_PROJECT_MEMORY.md` — current state and key facts.
-4. `.playbook/03_ARCHITECTURE.md` — how the system is structured today.
-5. `.playbook/09_DATA_MODEL.md` — the JSON data contracts content must conform to.
-6. `.playbook/14_ROADMAP.md` — which milestone is active, and what is explicitly out of scope right now.
-7. `.playbook/19_CURRENT_SPRINT.md` — what is actively being worked on.
+2. `.playbook/00_PROJECT_OVERVIEW.md` — merged Project Overview, AI Constitution, and Project Memory (current state
+   and key facts). This one file replaces what used to be three separate reads.
+3. `.playbook/14_ROADMAP.md` — which milestone is active, and what is explicitly out of scope right now (full
+   historical detail for completed milestones is in `.playbook/25_ROADMAP_ARCHIVE.md` — not needed for routine work).
+4. `.playbook/19_CURRENT_SPRINT.md` — what is actively being worked on.
+
+Read `.playbook/03_ARCHITECTURE.md` and `.playbook/09_DATA_MODEL.md` only when the task actually touches
+`index.html`, `scripts/`, or `data/` — they're no longer mandatory for every change (see `12_DECISIONS.md` DR-004
+for why this list was shortened).
 
 ## Non-negotiable rules
 

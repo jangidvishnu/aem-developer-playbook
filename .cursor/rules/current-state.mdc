@@ -1,0 +1,20 @@
+---
+description: Where to find current project state — always loaded, points to the live docs instead of inlining them
+alwaysApply: true
+---
+
+# Current State Pointers
+
+Before starting work, check (don't assume — these change often):
+
+- **What's active right now:** `.playbook/19_CURRENT_SPRINT.md`
+- **What's next, in what order:** `.playbook/14_ROADMAP.md` (active milestone only; completed milestones'
+  full detail is in `.playbook/25_ROADMAP_ARCHIVE.md`)
+- **Full project overview, constitution, and living-state memory:** `.playbook/00_PROJECT_OVERVIEW.md`
+- **Why something was decided:** `.playbook/12_DECISIONS.md`
+- **What changed, and when:** `.playbook/13_CHANGELOG.md`
+
+Every other `.playbook/` document (coding standard, style guide, data model, company schema, accessibility,
+security, performance, etc.) is topic-specific reference material — read it when the task actually touches that
+topic, not by default. Several are also auto-attached via other rules in this directory based on which files you're
+editing.

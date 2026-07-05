@@ -2,14 +2,24 @@
 
 ## Active objective
 
-A full remediation pass has resolved every outstanding item from the Milestone 1 PR review and the pre-Milestone-2
-technical debt report, plus completed the Accessibility and Performance reviews Milestone 2 was initially missing.
-**Do not start Milestone 3** until this is explicitly reviewed and accepted by the project owner.
+Two things happened since Milestone 2's remediation: (1) it was committed, and (2) `.playbook/` was restructured
+for AI token efficiency — see `12_DECISIONS.md` DR-004. **Do not start Milestone 3** until Milestone 2 is
+explicitly reviewed and accepted by the project owner.
+
+## `.playbook/` restructuring (this entry) — complete
+
+- [x] Merged `00_PROJECT_OVERVIEW.md` + `01_AI_CONSTITUTION.md` + `02_PROJECT_MEMORY.md` into one file
+      (`00_PROJECT_OVERVIEW.md`); the latter two are now short pointer stubs, not deleted
+- [x] Archived Milestones 1–2's full historical detail out of `14_ROADMAP.md` into `25_ROADMAP_ARCHIVE.md`
+- [x] Added `.cursor/rules/` (2 always-on rules + 4 glob-scoped rules) so Cursor sessions get relevant context
+      automatically instead of a manual "read these 7 files" instruction
+- [x] Updated `.github/copilot-instructions.md` to match
+- [x] Recorded `12_DECISIONS.md` DR-004
 
 ## Milestone 1 — Repository Foundation: status
 
 **Implemented, all review follow-ups resolved.** Both blocking items from the Lead-Architect PR review are closed:
-content-preservation gap (archived into `02_PROJECT_MEMORY.md`) and stale status docs (fixed earlier).
+content-preservation gap (archived into `00_PROJECT_OVERVIEW.md`, Part 3) and stale status docs (fixed earlier).
 
 ## Milestone 2 — Render Function Extraction: status
 

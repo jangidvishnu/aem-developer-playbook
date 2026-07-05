@@ -6,6 +6,35 @@ mark the old one as superseded.
 
 ---
 
+## DR-004 — Restructure `.playbook/` for AI token efficiency: merge core docs, archive roadmap history, add Cursor rules
+
+**Date:** Post-Milestone-2
+**Context:** Measuring every `.playbook/` file directly showed the 26 governance documents total ~28,000 tokens,
+and `.github/copilot-instructions.md` mandated reading 7 of them in full (`MASTER_BOOTSTRAP_PROMPT.md`,
+`01_AI_CONSTITUTION.md`, `02_PROJECT_MEMORY.md`, `03_ARCHITECTURE.md`, `09_DATA_MODEL.md`, `14_ROADMAP.md`,
+`19_CURRENT_SPRINT.md`) before *any* change, regardless of relevance — roughly 10,000 tokens paid on every session
+even for a trivial, unrelated task. `14_ROADMAP.md` alone had grown to ~3,400 tokens by keeping full historical
+detail for every completed milestone forever.
+**Decision:**
+1. Merge `00_PROJECT_OVERVIEW.md`, `01_AI_CONSTITUTION.md`, and `02_PROJECT_MEMORY.md` into one file
+   (`00_PROJECT_OVERVIEW.md`), deduplicating overlapping content. The other two are kept as short pointer stubs
+   (not deleted) so every existing cross-reference across `.playbook/` continues to resolve.
+2. Move completed milestones' full Goal/Scope/Estimates/Acceptance-Criteria/Definition-of-Done/review detail out of
+   `14_ROADMAP.md` into a new `25_ROADMAP_ARCHIVE.md`. The active roadmap keeps only the milestone sequence table
+   and a short summary + link per completed milestone.
+3. Add `.cursor/rules/` (`constitution.mdc`, `current-state.mdc` — both `alwaysApply: true` — plus
+   `coding-standard.mdc`, `architecture.mdc`, `company-data.mdc`, `editorial-style.mdc`, each scoped with `globs:`
+   to only auto-attach when relevant files are open) so Cursor sessions get the right context automatically instead
+   of a manual "read these N files" instruction.
+4. Update `.github/copilot-instructions.md` to reflect the new structure and note that Cursor users get most of
+   this automatically via rules.
+**Trade-off accepted:** An extra indirection (stub files, an archive file) to navigate for anyone specifically
+looking for the old `01_AI_CONSTITUTION.md`/`02_PROJECT_MEMORY.md` files or historical milestone detail, in
+exchange for an estimated ~68% reduction in the token cost paid on every session (~10,000 → ~3,200 tokens for a
+typical code-touching task, less for anything that doesn't touch code).
+**Follow-up:** None open. No information was deleted — this is pure reorganization; full historical and
+constitutional content still exists, just relocated and no longer force-read by default.
+
 ## DR-003 — Split Milestone 2 into a smaller "Render Function Extraction" step, deferring data migration to Milestone 3
 
 **Date:** Post-Milestone-1 (pre-Milestone-2 planning)

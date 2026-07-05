@@ -4,7 +4,34 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
-## Full remediation pass — Milestone 1 & 2 review follow-ups (this entry)
+## `.playbook/` restructuring for AI token efficiency (this entry)
+
+### Changed
+
+- Merged `00_PROJECT_OVERVIEW.md`, `01_AI_CONSTITUTION.md`, and `02_PROJECT_MEMORY.md` into one file
+  (`00_PROJECT_OVERVIEW.md`). The latter two are now short pointer stubs — not deleted, so every existing
+  cross-reference to them still resolves.
+- Moved completed milestones' full historical detail (Goal/Scope/Estimates/Acceptance-Criteria/Definition-of-Done/
+  review outcomes for Milestones 1 and 2) out of `14_ROADMAP.md` into a new `25_ROADMAP_ARCHIVE.md`. The active
+  roadmap now keeps only the sequence table and short summaries.
+- Updated `.github/copilot-instructions.md` to reflect both changes.
+
+### Added
+
+- `.cursor/rules/constitution.mdc` and `.cursor/rules/current-state.mdc` (`alwaysApply: true`) — the core
+  non-negotiable rules and state pointers, loaded automatically instead of via a manual "read these files"
+  instruction.
+- `.cursor/rules/coding-standard.mdc`, `architecture.mdc`, `company-data.mdc`, `editorial-style.mdc` — glob-scoped
+  rules that auto-attach only when relevant files (`index.html`, `scripts/**`, `data/**`, `md/**`, `.playbook/**`)
+  are open, rather than being force-read on every task regardless of relevance.
+- `12_DECISIONS.md` DR-004, documenting the measured token costs and the reasoning behind this restructuring.
+
+### Result
+
+Estimated ~68% reduction in the token cost paid on every session (~10,000 → ~3,200 tokens for a typical
+code-touching task). No information deleted — this is pure reorganization.
+
+## Full remediation pass — Milestone 1 & 2 review follow-ups
 
 Resolved every open item from the Milestone 1 PR review, the pre-Milestone-2 technical debt report, and the
 retroactive Milestone 2 release-checklist gap, in one disciplined pass.

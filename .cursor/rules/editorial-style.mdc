@@ -1,0 +1,19 @@
+---
+description: Editorial voice and structure conventions for .playbook docs and md/ content
+globs: .playbook/**,md/**
+alwaysApply: false
+---
+
+# Editorial Style
+
+Full detail: `.playbook/05_STYLE_GUIDE.md`.
+
+- Professional, timeless, vendor-neutral where possible, actionable, concise but complete. Active voice. Lead with
+  the point.
+- Mark verified facts distinctly from opinion/inference — phrase inference explicitly ("likely uses," "publicly
+  unconfirmed") rather than as fact.
+- Headings sentence case. Numbered lists for sequences, bullets for unordered collections. Tables for anything
+  with more than 3 comparable attributes per item.
+- Don't introduce a new term for a concept that already has an entry in `05_STYLE_GUIDE.md`'s terminology table
+  (e.g. "Adobe Experience Manager (AEM)" not "Adobe AEM").
+- Don't pad a section to look thorough without adding information density.
