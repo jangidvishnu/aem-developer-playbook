@@ -30,8 +30,8 @@ with duplicate constitutions, dead references, and stub documentation in a singl
 
 | # | Milestone | Theme | Status |
 |---|-----------|-------|--------|
-| 1 | Repository Foundation | Fix broken state, real governance docs, folder skeleton | **Implemented — 1 required follow-up open before formal acceptance** |
-| 2 | Render Function Extraction | Extract `renderSidebar` / `renderChapter` / `renderCompanyTable` as pure functions; data stays inline in `index.html` | **Implemented — pending review** |
+| 1 | Repository Foundation | Fix broken state, real governance docs, folder skeleton | **Implemented — all review follow-ups resolved** |
+| 2 | Render Function Extraction | Extract `renderSidebar` / `renderChapter` / `renderCompanyTable` as pure functions; data stays inline in `index.html` | **Implemented, remediated, and fully reviewed — pending final acceptance** |
 | 3 | Data Model | Populate `data/*.json` per `09_DATA_MODEL.md`, including migrating `PLAYBOOK.chapters`/`PLAYBOOK.companies` out of `index.html` and updating Milestone 2's render functions to consume fetched data instead of inline data | Not started |
 | 4 | Renderer | Extend the render-function set to the remaining content types (hero, roadmap, dashboard, footer, search) once Milestone 3 gives them a data source | Not started |
 | 5 | Search | Ranked, multi-source search per `07_RESEARCH_GUIDE.md` / `08_UI_GUIDELINES.md` search spec | Not started |
@@ -62,8 +62,8 @@ governance document with real, useful foundational content — without touching 
 
 ### Scope (out — deferred to later milestones)
 
-- Extracting `PLAYBOOK.chapters` / `PLAYBOOK.companies` out of `index.html` into JSON (→ Milestone 2 and 3).
-- Building the named render functions (→ Milestone 4).
+- Extracting `PLAYBOOK.chapters` / `PLAYBOOK.companies` out of `index.html` into JSON (→ Milestone 3).
+- Building the named render functions (→ Milestone 2, done; the remaining ones → Milestone 4).
 - Verifying and merging the `md/` research reports into a real company database (→ Milestone 6).
 - Any change to the visible UI, search behavior, or dark-mode logic in `index.html`.
 
@@ -85,19 +85,18 @@ describe systems not yet built (`09_DATA_MODEL.md`, `10_COMPONENT_LIBRARY.md`, `
 target design taken directly from `MASTER_BOOTSTRAP_PROMPT.md` — they will be revisited and expanded once the
 corresponding milestone actually builds that system, so they stay accurate rather than speculative.
 
-### Follow-ups required before formal acceptance
+### Follow-ups required before formal acceptance — all resolved
 
-A Lead-Architect PR review of this milestone found that all 5 acceptance criteria above pass, but identified one
-blocking item not yet resolved as of this writing:
+A Lead-Architect PR review of this milestone found two blocking items. Both are now resolved:
 
-- **Content preservation gap:** the old `index.html` constitution comment's `FUTURE ROADMAP` / `VERSION HISTORY`
-  content was removed without being fully archived. "Salary intelligence" and "Mermaid diagrams" (two items from
-  that list) are not yet referenced anywhere in `.playbook/`, and the 2.1.0 version-history note is not reflected in
-  `13_CHANGELOG.md`. This is a direct violation of `01_AI_CONSTITUTION.md` rule 1 ("never delete information") and
-  must be fixed before Milestone 1 is considered formally reviewed and accepted.
+- **Content preservation gap** (resolved): the old `index.html` constitution comment's `FUTURE ROADMAP` /
+  `VERSION HISTORY` content was removed without being fully archived. "Salary intelligence" and "Mermaid diagrams"
+  are now recorded in `02_PROJECT_MEMORY.md`'s "Archived" section with candidate future homes, and the 2.1.0
+  version-history note is preserved there too.
+- **Stale status docs** (resolved earlier): `19_CURRENT_SPRINT.md` and `README.md` were brought in sync with actual
+  progress during the Milestone 2 documentation-synchronization pass.
 
-(The review's second blocking item — stale status in `19_CURRENT_SPRINT.md` and `README.md` — was resolved in the
-same documentation-synchronization pass that added this note.)
+Milestone 1 is now formally clear of blocking review items.
 
 ## Milestone 2 — Render Function Extraction
 
@@ -116,6 +115,10 @@ is scoped narrower than the original roadmap draft.
 - Replace the existing `forEach` body with calls to these three functions.
 - Update `10_COMPONENT_LIBRARY.md` to mark these three functions "Implemented" instead of "Planned" once the code
   lands.
+
+*(As implemented, these functions were namespaced as `Render.sidebar`/`Render.chapter`/`Render.companyTable` rather
+than separate bare globals — see the "Technical debt carried forward" table below and `10_COMPONENT_LIBRARY.md`'s
+"Module boundary" rule, both added during post-review remediation.)*
 
 ### Scope (out — deferred to later milestones)
 
@@ -156,30 +159,41 @@ is scoped narrower than the original roadmap draft.
 - `10_COMPONENT_LIBRARY.md`, `13_CHANGELOG.md`, and `19_CURRENT_SPRINT.md` updated in the same change.
 - Milestone presented for review; Milestone 3 not started until this is explicitly accepted.
 
-### Status: implemented, with a release-checklist gap
+### Status: implemented, fully remediated, release checklist complete
 
 Milestone 2 was implemented and self-reviewed before `MASTER_BOOTSTRAP_PROMPT.md`'s Release Philosophy section
-existed. It included a self-review, PR summary, commit message, and changelog update, but **not** a dedicated
-Accessibility Review or Performance Review as that section now requires for every release. Rather than backfill
-these retroactively without being asked, this is logged as an explicit open item in `19_CURRENT_SPRINT.md`. Every
-milestone from Milestone 3 onward follows the full `15_RELEASE_PROCESS.md` checklist from the start.
+existed, so it initially shipped without a dedicated Accessibility Review or Performance Review. Both were
+completed in a follow-up remediation pass:
 
-### Technical debt carried forward (from the pre-Milestone-2 report)
+- **Accessibility Review** — see `20_ACCESSIBILITY.md`. Fixed: `aria-label`s on the theme toggle and search input,
+  a skip-to-content link, and a newly-discovered Critical dark-mode contrast bug (header/sidebar/chapter-card text
+  inheriting a toggling color while sitting on fixed white backgrounds).
+- **Performance Review** — see `23_PERFORMANCE.md`. No regression; one real improvement (`+=` accumulation →
+  `.map().join()`, removing an O(n²) pattern).
 
-| Item | Severity | Status after Milestone 2 |
+Milestone 2, including this remediation, now satisfies the full `15_RELEASE_PROCESS.md` checklist. Every milestone
+from Milestone 3 onward follows it from the start rather than retrofitting it afterward.
+
+### Technical debt carried forward (from the pre-Milestone-2 report) — remediation complete
+
+| Item | Severity | Final status |
 |---|---|---|
-| `14_ROADMAP.md` self-contradiction in the Milestone 1 section | Critical | **Still open** — deliberately not fixed, per "do not expand scope" |
-| No HTML-escaping utility | High | **Still open** — deliberately deferred |
-| `renderCompanyTable`/`renderCompanyCard` naming ambiguity | High | **Resolved** — implemented as `renderCompanyRow`, distinct from the still-unbuilt `renderCompanyCard` |
-| `renderChapter` coupling to `PLAYBOOK.companies` | High | **Still open** — preserved as pre-existing behavior, not fixed |
-| Global `PLAYBOOK` read instead of parameter (purity) | High | **Partially resolved** — `renderSidebar`/`renderCompanyTable`/`renderCompanyRow` are pure; `renderChapter` still reads `PLAYBOOK.companies` directly |
-| No committed snapshot/diff tooling | Medium | **Partially resolved** — a verification harness was built and run, but deleted after use rather than committed for reuse |
-| Bare global functions, no module boundary | Medium | **Still open** |
-| `id` duplication risk between sidebar/chapter | Medium | **Resolved** — both now derive from the same `.map()` index over the same array |
-| `innerHTML +=` O(n²) accumulation pattern | Medium | **Resolved as a side effect** — new functions build via `.map().join('')` and assign/append once |
-| `01_AI_CONSTITUTION.md` missing the Architecture Workflow | Medium | **Resolved** in this pass (see below) |
-| `renderCompanyTable` has no scalability note for 100+ rows | Low | Still open |
-| `assets/js/` folder has no owning milestone | Low | Still open |
+| `14_ROADMAP.md` self-contradiction in the Milestone 1 section | Critical | **Resolved** — Milestone 1's "Scope (out)" bullets corrected |
+| No HTML-escaping utility | High | **Resolved** — `Render.escapeHtml()` added, applied to every interpolated text/attribute value except the documented raw-HTML `body` exception |
+| `renderCompanyTable`/`renderCompanyCard` naming ambiguity | High | **Resolved** — implemented as `Render.companyRow`, distinct from the still-unbuilt `Render.companyCard` |
+| `renderChapter` coupling to `PLAYBOOK.companies` | High | **Resolved** — `Render.chapter` now receives `companies` as an explicit parameter |
+| Global `PLAYBOOK` read instead of parameter (purity) | High | **Resolved** — all four implemented functions are now pure with respect to their arguments |
+| No committed snapshot/diff tooling | Medium | **Resolved** — `scripts/verify-render.js` committed, documented in `17_TESTING_GUIDE.md` |
+| Bare global functions, no module boundary | Medium | **Resolved** — all render functions moved onto a single `Render` namespace object |
+| `id` duplication risk between sidebar/chapter | Medium | **Resolved** |
+| `innerHTML +=` O(n²) accumulation pattern | Medium | **Resolved** |
+| `01_AI_CONSTITUTION.md` missing the Architecture Workflow | Medium | **Resolved** |
+| `renderCompanyTable` has no scalability note for 100+ rows | Low | **Resolved** — inline code comment added in `Render.companyTable` |
+| `assets/js/` folder has no owning milestone | Low | **Resolved** — assigned to Milestone 4 (moving the `Render` namespace out of `index.html`), see `03_ARCHITECTURE.md` and `10_COMPONENT_LIBRARY.md` |
+
+All 12 items from the pre-Milestone-2 technical debt report are now resolved. The escaping, parameter-passing, and
+namespace changes were verified byte-identical to the pre-Milestone-1 rendering baseline via
+`node scripts/verify-render.js` before being accepted.
 
 ---
 

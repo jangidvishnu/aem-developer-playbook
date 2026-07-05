@@ -40,7 +40,7 @@ independently loadable and has one clear owner topic.
   "references": ["string (URL or citation)", "..."],
   "relatedChapters": ["chapter id", "..."],
   "lastUpdated": "ISO date string",
-  "content": "string or structured content block, rendered by renderChapter()"
+  "content": "string or structured content block, rendered by Render.chapter()"
 }
 ```
 

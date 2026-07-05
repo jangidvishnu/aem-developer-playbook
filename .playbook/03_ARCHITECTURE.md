@@ -1,38 +1,45 @@
 # Architecture
 
-## Current architecture (as of Milestone 1)
+## Current architecture (as of Milestone 2 + remediation)
 
 ```
 index.html   Markup + Tailwind (CDN) + inline <style> + inline <script>
-             The <script> block defines a PLAYBOOK object (chapters + companies),
-             then builds the sidebar TOC and main content sections directly as
-             template-literal HTML strings assigned to innerHTML.
+             The <script> block defines a PLAYBOOK object (chapters + companies) and a
+             Render namespace (Render.sidebar, Render.chapter, Render.companyTable,
+             Render.companyRow, Render.escapeHtml). index.html calls Render's functions
+             to build the sidebar TOC and main content sections; data still lives inline.
+scripts/     Dev-only tooling, never shipped to the site (e.g. verify-render.js — a
+             regression check for the render functions above; see 17_TESTING_GUIDE.md).
 md/          Raw, unverified research markdown — not consumed by index.html today.
 data/        Empty skeleton — target location for JSON content sources (Milestone 3+).
-assets/      Empty skeleton — target location for static assets (Milestone 2+).
-assets/js/   Empty skeleton — target location for extracted JS modules (Milestone 2+).
+assets/      Empty skeleton — target location for static assets (Milestone 4+).
+assets/js/   Empty skeleton — target location for the Render namespace once it moves out
+             of index.html (Milestone 4, alongside the remaining render functions).
 .playbook/   Documentation and governance (this directory).
 .github/     Repository automation and AI-agent instructions.
 ```
 
-## Known architecture violation (tracked, not yet fixed)
+## Known architecture gap (tracked, not yet fixed)
 
-`index.html` currently hardcodes all content (chapters and companies) directly in JavaScript, and builds the DOM
-with one inline loop rather than named render functions. This directly contradicts the target architecture below
-and the "never hardcode content" rule in `01_AI_CONSTITUTION.md`. It is intentionally left as-is in Milestone 1.
-Per `12_DECISIONS.md` DR-003, this is fixed in two separate steps rather than one: Milestone 2 replaces the inline
-loop with named render functions while the data stays exactly where it is, and Milestone 3 moves that data out of
-`index.html` into `data/*.json`. Doing both in one milestone would violate the "one milestone at a time" rule.
+`index.html` still hardcodes all content (chapters and companies) directly in JavaScript — the data-separation half
+of the original "known architecture violation" here. The rendering half (named functions instead of one inline
+loop, and no function reading global state it wasn't given) was resolved in Milestone 2 and its post-review
+remediation: `Render.chapter` now receives `companies` as an explicit parameter rather than reading
+`PLAYBOOK.companies` itself. Per `12_DECISIONS.md` DR-003, the data-separation half is Milestone 3's job — moving
+`PLAYBOOK.chapters`/`PLAYBOOK.companies` into `data/*.json`. Doing both in one milestone would have violated the
+"one milestone at a time" rule.
 
-## Target architecture (Milestones 2–4)
+## Target architecture (Milestones 3–4)
 
 ```
 data/*.json         Structured content: chapters, companies, technologies, roadmaps,
                      resources, career_paths, glossary, templates, interviews.
                      Schemas defined in 09_DATA_MODEL.md and 11_COMPANY_SCHEMA.md.
-assets/js/render.js  Named render functions (renderSidebar, renderChapter, renderHero,
-                     renderRoadmap, renderCompanyTable, renderCompanyCard, renderSearch,
-                     renderFooter, renderDashboard). Contract defined in 10_COMPONENT_LIBRARY.md.
+assets/js/render.js  The Render namespace (Render.sidebar, Render.chapter, Render.hero,
+                     Render.roadmap, Render.companyTable, Render.companyCard, Render.search,
+                     Render.footer, Render.dashboard, Render.escapeHtml). Contract defined
+                     in 10_COMPONENT_LIBRARY.md. Moves here from inline index.html in
+                     Milestone 4.
 index.html           Thin shell: markup skeleton, fetch() calls into data/*.json,
                      calls into assets/js/render.js. No content, no business logic.
 ```
@@ -40,7 +47,7 @@ index.html           Thin shell: markup skeleton, fetch() calls into data/*.json
 ### Data flow (target state)
 
 1. `index.html` loads and calls `fetch()` against the relevant `data/*.json` file(s) for the current view.
-2. Fetched data is passed into the matching render function (e.g. `renderChapter(chapterData)`).
+2. Fetched data is passed into the matching render function (e.g. `Render.chapter(chapterData)`).
 3. Render functions return or inject HTML into designated container elements — they do not own or mutate the
    underlying data.
 4. Global search (`08_UI_GUIDELINES.md`, Milestone 5) indexes the same `data/*.json` sources directly, rather than

@@ -4,6 +4,51 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Full remediation pass — Milestone 1 & 2 review follow-ups (this entry)
+
+Resolved every open item from the Milestone 1 PR review, the pre-Milestone-2 technical debt report, and the
+retroactive Milestone 2 release-checklist gap, in one disciplined pass.
+
+### Fixed (documentation)
+
+- `14_ROADMAP.md`'s self-contradicting Milestone 1 "Scope (out)" bullets (Critical debt item).
+- Archived the `FUTURE ROADMAP`/`VERSION HISTORY` content lost from `index.html`'s old constitution comment
+  ("Salary intelligence," "Mermaid diagrams," the 2.1.0 history note) into `02_PROJECT_MEMORY.md` — closes the
+  Milestone 1 PR review's remaining blocking item.
+
+### Fixed (code)
+
+- `Render.chapter` now receives `companies` as an explicit parameter instead of reading `PLAYBOOK.companies`
+  directly — closes the High-severity coupling/purity debt items.
+- Added `Render.escapeHtml()`, applied to every interpolated text/attribute value across all render functions
+  (chapter `body` deliberately left unescaped — it is intentional raw HTML).
+- Wrapped all render functions in a single `Render` namespace object instead of bare top-level functions — closes
+  the Medium-severity module-boundary debt item.
+- Added an inline scalability note in `Render.companyTable`; assigned the `assets/js/` extraction to Milestone 4.
+- **Accessibility fixes:** `aria-label`s on the theme toggle and search input; a skip-to-content link; and a fix
+  for a newly-discovered Critical dark-mode contrast bug (header, sidebar, and every chapter card had text
+  inheriting a toggling color while sitting on a fixed white background, rendering near-invisible in dark mode).
+
+### Added
+
+- `scripts/verify-render.js` — a committed, reusable Node regression check comparing current render output against
+  the pre-Milestone-1 baseline. Closes the "no committed snapshot tooling" debt item.
+- Formal Accessibility Review (`20_ACCESSIBILITY.md`) and Performance Review (`23_PERFORMANCE.md`) for the current
+  state — the two reviews Milestone 2 initially shipped without, per the Release Philosophy added to
+  `MASTER_BOOTSTRAP_PROMPT.md` after Milestone 2's implementation.
+
+### Verified
+
+- Every code change re-verified via `node scripts/verify-render.js`. The escaping, parameter-passing, and namespace
+  changes produced byte-identical output to the pre-Milestone-1 baseline. The accessibility color-class fix
+  produced an exact, expected +120-character diff (`text-slate-800` × 8 chapter sections) — confirmed via the
+  script's diff output to be the *only* change, nothing else shifted.
+
+### Result
+
+All 12 items from the pre-Milestone-2 technical debt report are resolved. Both Milestone 1 PR review blocking
+items are resolved. Milestone 2 now satisfies the full `15_RELEASE_PROCESS.md` release checklist retroactively.
+
 ## Documentation sync — Release Philosophy (post-Milestone-2)
 
 ### Changed
@@ -53,7 +98,7 @@ entry noting the reversal.
 - Full scope, acceptance criteria, and estimates recorded in `14_ROADMAP.md`.
 - `03_ARCHITECTURE.md` and `10_COMPONENT_LIBRARY.md` updated to match the new Milestone 2/3/4 split.
 
-## Milestone 1 — Repository Foundation (implemented — 1 follow-up pending)
+## Milestone 1 — Repository Foundation (implemented, all follow-ups resolved)
 
 ### Added
 

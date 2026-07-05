@@ -16,6 +16,33 @@ experience. Do not trade any of those away for a performance micro-optimization.
 - Search is a synchronous DOM scan (`innerText.includes()`) — fine at current content volume, will not scale
   past a few dozen sections without becoming noticeably slow (tracked for Milestone 5).
 
+## Performance review (post-Milestone-2)
+
+Measured directly against the file, since no deployed instance or browser profiling tooling exists yet:
+
+- **`index.html` size:** 10,455 bytes (~10.2 KB) as of this review — trivial by any web-performance standard;
+  download time is negligible on any connection.
+- **External requests:** 3 — the Tailwind CDN script, a Google Fonts preconnect, and the Google Fonts stylesheet
+  (which triggers further font-file requests). This is unchanged by Milestone 2's work and remains the dominant
+  cost on a cold load; no new requests were added.
+- **Render-blocking script (known, accepted trade-off):** the Tailwind CDN `<script>` tag in `<head>` has no
+  `defer`/`async` and blocks first paint until it downloads and JIT-compiles the page's utility classes. This is
+  inherent to using the CDN build rather than a precompiled stylesheet, and is an explicit, already-documented
+  trade-off for staying build-step-free — not a regression from this milestone, and not something to "fix" without
+  a decision record, since the alternative (a precompiled Tailwind build) requires a build step.
+- **Rendering algorithm — improved this milestone:** the pre-Milestone-1 code built markup via repeated
+  `main.innerHTML += ...` inside a loop (each `+=` re-parses the accumulated string — effectively O(n²) for n
+  chapters). Milestone 2's `Render.chapter` functions build via `.map().join('')` and assign/append once, which is
+  O(n). Not measurable as a user-facing win at 8 chapters, but removes a pattern that would have degraded
+  noticeably once Milestone 6+ grows the content volume.
+- **Escaping overhead:** `Render.escapeHtml()` (added in this remediation pass) runs one regex replace per
+  interpolated field. At today's volume (8 chapters, 4 companies) this is unmeasurably fast; worth re-profiling
+  once Milestone 6 populates 100+ companies, though a per-field regex is unlikely to be the bottleneck even then.
+
+**Verdict:** no performance regression from Milestone 2 or its remediation; one real algorithmic improvement
+(`+=` → `.map().join()`); the dominant cost (Tailwind CDN, ~un-optimized by design) is unchanged and explicitly
+accepted per the no-build-step constraint.
+
 ## Budgets (targets, to be measured once tooling exists)
 
 - Initial render should not visibly block on anything beyond the Tailwind CDN script and font load.

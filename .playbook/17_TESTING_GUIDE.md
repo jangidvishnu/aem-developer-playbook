@@ -2,10 +2,19 @@
 
 ## Current state
 
-No automated tests exist yet (expected — there is no build tooling, and the product is a single static HTML file).
-Verification today is manual. Milestone 2 introduces named, pure render functions (still inside `index.html`).
-Automated unit tests become practical once those functions move into standalone modules under `assets/js/` — a
-later milestone, not yet numbered — without violating the no-build-step rule for the shipped site.
+No formal test suite exists yet (expected — there is no build tooling, and the product is a single static HTML
+file). There is, however, one committed verification script: `scripts/verify-render.js` (Node, no dependencies).
+Run it with `node scripts/verify-render.js` any time `index.html`'s `Render` namespace changes — it re-implements
+the pre-Milestone-1 baseline rendering logic and diffs it against a manually-kept-in-sync copy of the current logic,
+reporting a byte-for-byte match/mismatch on the `toc` and `main` output. It is a regression check, not a full test
+suite, and it is dev-only tooling — never referenced by `index.html`, so it does not affect the shipped site.
+
+**Keeping it useful:** the script contains its own copy of the current render logic (by design, so it has no
+dependency on `index.html`'s file structure). Whenever `Render`'s methods change in `index.html`, update
+`runCurrent()` in the script to match, or it will silently compare against stale logic.
+
+Beyond this script, verification remains manual. Full automated unit tests become practical once render functions
+move into standalone modules under `assets/js/` (planned for Milestone 4 — see `10_COMPONENT_LIBRARY.md`).
 
 ## Manual smoke test (run before any release, and after any structural change)
 
