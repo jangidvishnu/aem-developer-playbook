@@ -1,0 +1,31 @@
+{
+  "id": "site",
+  "documentTitle": "Enterprise Digital Experience Engineering Playbook",
+  "header": {
+    "title": "Enterprise Digital Experience Engineering Playbook",
+    "versionLabel": "Publication Draft • Version 4.0.0"
+  },
+  "hero": {
+    "title": "Welcome",
+    "body": "A living handbook focused on career growth for Enterprise Digital Experience Engineers. Designed for long-term maintainability and future publication."
+  },
+  "sidebar": {
+    "contentsLabel": "Contents"
+  },
+  "dashboard": {
+    "title": "Project Status",
+    "items": [
+      "Architecture ✓",
+      "Governance ✓",
+      "Content Migration ⏳",
+      "Research Ongoing"
+    ]
+  },
+  "search": {
+    "placeholder": "Search chapters...",
+    "ariaLabel": "Search chapters"
+  },
+  "footer": {
+    "text": "Enterprise Digital Experience Engineering Playbook — personal career operating system."
+  }
+}

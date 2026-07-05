@@ -4,7 +4,40 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
-## Milestone 3 — Data Model (this entry)
+## Milestone 4 — accepted
+
+Accepted by the project owner after a real browser check at `http://localhost:3456` — full detail moved to
+`25_ROADMAP_ARCHIVE.md`; `14_ROADMAP.md` and `19_CURRENT_SPRINT.md` updated accordingly. Milestone 5 has not been
+scoped yet.
+
+## Milestone 4 — Renderer
+
+### Added
+
+- `assets/js/render.js` — full `Render` namespace moved out of `index.html`; loaded via `<script src>` and
+  `require()`'d by `scripts/verify-render.js`.
+- `data/site.json` — site chrome (header, hero, dashboard, footer, search config) previously hardcoded in
+  `index.html`.
+- `data/roadmaps.json` — minimal learning-path seed for `Render.roadmap`.
+- `Render.pageHeader`, `Render.hero`, `Render.dashboard`, `Render.roadmap`, `Render.footer`, and
+  `Render.search` (header chrome only).
+- `scripts/milestone-3-render-golden.json` — regression snapshot for chapter/sidebar output.
+
+### Changed
+
+- `index.html` is now a thin shell: structural markup containers, fetch boot script, and event wiring (theme toggle,
+  naive search filter) only — no render methods inline.
+- `scripts/verify-render.js` requires `assets/js/render.js` directly; compares chapter/sidebar output against the
+  Milestone 3 golden snapshot instead of the pre-Milestone-1 baseline.
+
+## Milestone 3 — accepted
+
+Accepted by the project owner after a real browser check (served over HTTP, per `12_DECISIONS.md` DR-005) —
+the first milestone confirmed with actual human verification rather than programmatic checks alone. Full detail
+moved to `25_ROADMAP_ARCHIVE.md`; `14_ROADMAP.md` and `19_CURRENT_SPRINT.md` updated accordingly. Milestone 4 has
+not been scoped yet.
+
+## Milestone 3 — Data Model
 
 The first milestone run under the full `15_RELEASE_PROCESS.md` checklist from the start (Architecture,
 Documentation, Accessibility, and Performance reviews, not retrofitted afterward).

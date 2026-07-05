@@ -101,14 +101,13 @@ conflicting content, evidence of concurrent edits) — stop and report before co
 A living snapshot of what is true right now. Update this section whenever the state of the project changes
 materially — it exists so a new session never has to reconstruct context from scratch.
 
-**Current state:** `index.html` is a single self-contained file (Tailwind via CDN, vanilla JS, inline data). It
-renders a sidebar table of contents, a searchable set of content sections, dark mode with persistence, and print
-styling. Rendering logic lives in a `Render` namespace of pure functions (`Render.sidebar`, `Render.chapter`,
-`Render.companyTable`, `Render.companyRow`) — Milestone 2 extracted these from a single inline loop. Content
-(chapters, companies) is still hardcoded inline as the `PLAYBOOK` object; moving it to `data/*.json` is Milestone 3.
+**Current state:** `index.html` is a thin shell (Tailwind via CDN, vanilla JS boot script, structural markup only).
+It fetches `data/chapters.json`, `data/companies.json`, `data/site.json`, and `data/roadmaps.json` in parallel and
+calls the `Render` namespace in `assets/js/render.js` to populate header, sidebar, main, and footer. Theme toggle
+and a naive search filter remain as event wiring in `index.html`. Regression check:
+`scripts/verify-render.js` (requires `render.js`, diffs chapter/sidebar against a Milestone 3 golden snapshot).
 Four raw research reports exist in `md/` with ~100+ candidate AEM-employer companies — unverified source material,
-the seed for Milestone 6. `data/`, `assets/`, and `assets/js/` exist as empty skeleton directories. A committed
-regression-check tool exists at `scripts/verify-render.js`.
+the seed for Milestone 6.
 
 **Key incident on record:** early on, 20 previously-committed `.playbook` documents and `.github/copilot-instructions.md`
 were found deleted from the working tree with no corresponding action from the reviewing session; circumstantial
@@ -127,7 +126,7 @@ evidence pointed to a separate, concurrent AI coding session. See `12_DECISIONS.
 
 **Open threads carried into future milestones:**
 
-- `index.html` content is not yet data-driven (Milestone 3).
+- Ranked multi-source search (Milestone 5).
 - The `md/` research reports contain unverified claims that must be checked before becoming part of the published
   company database (Milestone 6).
 - No automated tests or CI exist yet (`17_TESTING_GUIDE.md`, `18_GITHUB_WORKFLOW.md` define the target state).

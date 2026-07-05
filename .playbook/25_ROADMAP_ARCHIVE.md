@@ -144,3 +144,109 @@ completed in a follow-up remediation pass:
 All 12 items from the pre-Milestone-2 technical debt report were resolved. The escaping, parameter-passing, and
 namespace changes were verified byte-identical to the pre-Milestone-1 rendering baseline via
 `node scripts/verify-render.js` before being accepted.
+
+## Milestone 3 — Data Model (complete, accepted)
+
+### Goal
+
+Move `PLAYBOOK.chapters` and `PLAYBOOK.companies` out of `index.html` into `data/chapters.json` and
+`data/companies.json`, fetched at load and passed into Milestone 2's existing `Render` functions exactly as before
+— same rendered output, same fields, just relocated. The first milestone run under the full `15_RELEASE_PROCESS.md`
+checklist from the start — see `12_DECISIONS.md` DR-005 for the one significant trade-off this milestone introduced.
+
+### Scope (in)
+
+- Create `data/chapters.json` and `data/companies.json` — same fields as the former inline objects, moved as-is,
+  plus a stable `id` per record.
+- `index.html` fetches both files on load (in parallel) and passes the results into `Render.sidebar` /
+  `Render.chapter` / `Render.companyTable` unchanged.
+- A minimal, accessible loading state (`role="status"`) and error state (`role="alert"`) for the async gap.
+- `17_TESTING_GUIDE.md`'s smoke test updated to require a local server (`fetch()` against `file://` is blocked by
+  browser CORS policy — see `12_DECISIONS.md` DR-005).
+- `scripts/verify-render.js` rewritten to read the real `data/*.json` files from disk, proving they're a faithful
+  transcription of the original inline data.
+
+### Scope (out — deferred to later milestones)
+
+- Full ~40-field company schema (`11_COMPANY_SCHEMA.md`) or full chapter schema fields (`slug`, `difficulty`,
+  `references`, `relatedChapters`, `lastUpdated`) — deferred to whichever milestone next adds real content
+  (Milestone 6 for companies), so schema expansion and real data entry happen together rather than as two
+  separate touches of the same file.
+- Any visible/behavioral change beyond the data now loading asynchronously (plus the necessary loading state).
+- Search and theme-toggle logic — untouched.
+- Moving the `Render` namespace to `assets/js/render.js` — Milestone 4.
+
+### Acceptance criteria (independently testable) — all passed
+
+1. `data/chapters.json` and `data/companies.json` exist and are valid JSON containing the same data as the
+   removed inline `PLAYBOOK` object (verified via `scripts/verify-render.js`).
+2. `index.html` contains no hardcoded chapter or company content — only a `fetch()` call and the `Render` functions.
+3. Rendered output identical to pre-Milestone-3 once served over HTTP — verified via `scripts/verify-render.js`
+   feeding the real JSON files through the same `Render` functions and comparing against the pre-Milestone-1
+   baseline (only known diff: the Milestone 2 dark-mode fix).
+4. Loading state visible and screen-reader-announced during the fetch, removed once content renders.
+5. Manual smoke test (`17_TESTING_GUIDE.md`, updated for a local server) passed, **confirmed by the project owner
+   in an actual browser** — not just programmatic verification.
+
+### Definition of Done — met
+
+- All 5 acceptance criteria pass, including a real human browser check (not just `scripts/verify-render.js`).
+- Architecture, Documentation, Accessibility, and Performance reviews all completed (`03_ARCHITECTURE.md`,
+  `20_ACCESSIBILITY.md`, `23_PERFORMANCE.md`).
+- `13_CHANGELOG.md` and `19_CURRENT_SPRINT.md` updated in the same change.
+- PR summary and commit message generated; committed as `03f949e`.
+
+### Trade-off accepted (see `12_DECISIONS.md` DR-005)
+
+Local viewing now requires a server — `fetch()` against `file://` is blocked by browser CORS. Flagged to and
+accepted by the project owner *before* implementation began. Production (GitHub Pages) is unaffected.
+
+### Honest Performance Review outcome
+
+`index.html` shrank 10,455 → 8,330 bytes; two new parallel requests added (2,585 + 1,026 bytes). Total payload is
+marginally larger than before, and there is a genuine, small time-to-first-content cost from the fetch round trip.
+Accepted because the project's priority order ranks Maintainability/Scalability above Performance — not glossed
+over as a free win.
+
+## Milestone 4 — Renderer (complete, accepted)
+
+### Goal
+
+Complete the render layer started in Milestone 2: every recurring UI region has a named, pure `Render` method backed
+by `data/*.json`, the whole `Render` namespace lives in `assets/js/render.js`, and `index.html` becomes a thin shell
+(fetch + event wiring only). Visual output for chapters, sidebar TOC, and company table must not regress; new regions
+(hero, project-status panel, footer, roadmap seed) are data-driven for the first time.
+
+### Scope (in) — all delivered
+
+- `assets/js/render.js` — full `Render` namespace, loaded via `<script src>` and `require()`'d by verify script.
+- `data/site.json`, `data/roadmaps.json` — site chrome and minimal learning-path seed.
+- New render functions: `pageHeader`, `search` (chrome only), `hero`, `dashboard`, `roadmap`, `footer`.
+- `index.html` thin shell; `scripts/verify-render.js` + `milestone-3-render-golden.json` for regression.
+
+### Acceptance criteria — all passed
+
+1. `assets/js/render.js` loaded by `index.html`; no inline render methods.
+2. No hardcoded content strings in `index.html`.
+3. Chapter/sidebar output byte-identical to Milestone 3 (`node scripts/verify-render.js`).
+4. Hero, dashboard, header, footer, roadmap render from JSON — confirmed in browser at `http://localhost:3456`.
+5. Search filter, dark mode, print layout unchanged.
+6. Verify script requires `render.js` directly — no duplicate `Render` copy.
+
+### Definition of Done — met
+
+- All 6 acceptance criteria pass, including project-owner browser check.
+- Architecture, Documentation, Accessibility, and Performance reviews completed.
+- `13_CHANGELOG.md` and `19_CURRENT_SPRINT.md` updated.
+
+### Owner decisions (pre-implementation)
+
+1. `data/site.json` — approved as single home for site chrome.
+2. Roadmap seed — approved in `data/roadmaps.json`.
+3. `Render.pageHeader` — approved as separate render function.
+
+### Performance Review outcome
+
+Fetch fan-out grew from 2 → 4 parallel requests (`site.json`, `roadmaps.json` added). Payload remains small;
+`index.html` shrank further by moving render logic to `assets/js/render.js`. No measurable regression in owner
+browser check. Accepted per priority order (Maintainability/Scalability above Performance).

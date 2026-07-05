@@ -43,7 +43,8 @@ this file — update .playbook/ and reference it instead.
       aside,
       header,
       #themeToggle,
-      #search {
+      #search,
+      #site-footer {
         display: none !important
       }
 
@@ -61,109 +62,82 @@ this file — update .playbook/ and reference it instead.
     to content</a>
   <header class="sticky top-0 z-50 bg-white border-b">
     <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
-      <div>
-        <h1 class="text-2xl font-extrabold text-slate-800">Enterprise Digital Experience Engineering Playbook</h1>
-        <p class="text-sm text-slate-500">Publication Draft • Version 4.0.0</p>
+      <div id="page-header"></div>
+      <div class="flex items-center">
+        <div id="search-container"></div>
+        <button class="ml-3 border rounded px-3 py-2 bg-white" id="themeToggle"
+          aria-label="Toggle dark mode">🌙</button>
       </div>
-      <input class="border rounded-lg px-3 py-2 w-64 bg-white text-slate-800" id="search"
-        placeholder="Search chapters..." aria-label="Search chapters" />
-      <button class="ml-3 border rounded px-3 py-2 bg-white" id="themeToggle"
-        aria-label="Toggle dark mode">🌙</button>
     </div>
   </header>
   <div class="max-w-7xl mx-auto flex gap-6 p-6">
     <aside class="w-72 shrink-0 bg-white rounded-xl shadow p-5 sticky top-24 h-[82vh] overflow-auto text-slate-800">
-      <h2 class="font-bold mb-3">Contents</h2>
+      <h2 class="font-bold mb-3" id="sidebar-contents-label"></h2>
       <div id="toc"></div>
-      <div class="mt-8 text-sm">
-        <h3 class="font-semibold">Project Status</h3>
-        <ul class="list-disc ml-5 mt-2">
-          <li>Architecture ✓</li>
-          <li>Governance ✓</li>
-          <li>Content Migration ⏳</li>
-          <li>Research Ongoing</li>
-        </ul>
-      </div>
+      <div class="mt-8 text-sm" id="dashboard"></div>
     </aside>
-    <main class="flex-1 space-y-6" id="main">
-      <section class="bg-gradient-to-r from-blue-700 to-sky-600 text-white rounded-2xl p-8">
-        <h2 class="text-4xl font-bold">Welcome</h2>
-        <p class="mt-4 text-lg">
-          A living handbook focused on career growth for Enterprise Digital Experience Engineers.
-          Designed for long-term maintainability and future publication.
-        </p>
-      </section>
-    </main>
+    <main class="flex-1 space-y-6" id="main"></main>
   </div>
+  <div id="site-footer"></div>
+  <script src="assets/js/render.js"></script>
   <script>
-    // Content data lives in data/chapters.json and data/companies.json (Milestone 3 —
-    // see 12_DECISIONS.md DR-005). Fetching local files requires a server; opening this
-    // file directly via file:// will trigger the error state below (see 17_TESTING_GUIDE.md).
+    // Content data lives in data/*.json (Milestones 3–4 — see 12_DECISIONS.md DR-005).
+    // Render functions live in assets/js/render.js (Milestone 4 — see 10_COMPONENT_LIBRARY.md).
+    // Fetching local files requires a server; file:// triggers the error state below.
     const toc = document.getElementById('toc');
     const main = document.getElementById('main');
-
-    // Render: single namespace for all render functions (see 10_COMPONENT_LIBRARY.md).
-    // Every function is pure: it reads its arguments and returns a markup string; it
-    // never fetches data or reaches into outer-scope state on its own.
-    const Render = {
-      escapeHtml(value) {
-        return String(value).replace(/[&<>"']/g, ch => ({
-          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-        }[ch]));
-      },
-
-      sidebar(chapters) {
-        return chapters.map((c, i) => `<a href="#ch${i}" class="block px-3 py-2 rounded hover:bg-slate-100">${Render.escapeHtml(c.title)}</a>`).join('');
-      },
-
-      companyRow(x) {
-        const search = x.search.startsWith('http')
-          ? `<a class="text-blue-600 underline" target="_blank" href="${Render.escapeHtml(x.search)}">Search</a>`
-          : Render.escapeHtml(x.search);
-        return `<tr class="border-t"><td class="p-2">${Render.escapeHtml(x.priority)}</td><td class="p-2 font-semibold">${Render.escapeHtml(x.company)}</td><td class="p-2">${Render.escapeHtml(x.type)}</td><td class="p-2">${Render.escapeHtml(x.india)}</td><td class="p-2">${Render.escapeHtml(x.aem)}</td><td class="p-2"><a class="text-blue-600 underline" target="_blank" href="${Render.escapeHtml(x.careers)}">Careers</a></td><td class="p-2">${search}</td><td class="p-2">${Render.escapeHtml(x.visa)}</td></tr>`;
-      },
-
-      companyTable(companies) {
-        // Renders every row inline. If this grows well beyond today's handful of
-        // companies (the md/ research implies 100+ eventually), revisit
-        // pagination/virtualization before Milestone 6 populates it fully.
-        return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr><th class="p-2">Priority</th><th class="p-2">Company</th><th class="p-2">Type</th><th class="p-2">India</th><th class="p-2">AEM</th><th class="p-2">Careers</th><th class="p-2">AEM Jobs</th><th class="p-2">Visa</th></tr></thead><tbody>${companies.map(Render.companyRow).join('')}</tbody></table></div>`;
-      },
-
-      // chapter() takes companies explicitly rather than reading PLAYBOOK.companies
-      // itself, so it stays pure with respect to its arguments (10_COMPONENT_LIBRARY.md).
-      chapter(chapter, index, companies) {
-        const id = 'ch' + index;
-        let body = chapter.body || '';
-        if (chapter.companyTable) {
-          body = Render.companyTable(companies);
-        }
-        return `<section id="${id}" class="section bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-3xl font-bold">${Render.escapeHtml(chapter.title)}</h2><div class="text-xs text-slate-500 mt-1">⏱ ${Render.escapeHtml(chapter.reading)} • ${Render.escapeHtml(chapter.tags.join(', '))}</div><p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p>${body}<details class="mt-6"><summary class="cursor-pointer font-semibold">📌 Summary</summary><div class="mt-2 text-slate-600">${Render.escapeHtml(chapter.summary)}</div></details></section>`;
-      }
-    };
-
     const loadingId = 'data-loading';
-    main.innerHTML += `<p id="${loadingId}" class="text-slate-500 p-4" role="status">Loading content…</p>`;
+
+    main.innerHTML = `<p id="${loadingId}" class="text-slate-500 p-4" role="status">Loading content…</p>`;
+
+    function wireSearch() {
+      document.getElementById('search').oninput = e => {
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll('main section').forEach(s => {
+          s.style.display = s.innerText.toLowerCase().includes(q) ? 'block' : 'none';
+        });
+      };
+    }
+
+    function wireTheme() {
+      const b = document.body;
+      document.getElementById('themeToggle').onclick = () => {
+        document.documentElement.classList.toggle('dark');
+        if (document.documentElement.classList.contains('dark')) {
+          b.className = 'bg-slate-900 text-slate-100';
+          localStorage.theme = 'dark';
+        } else {
+          b.className = 'bg-slate-100 text-slate-800';
+          localStorage.theme = 'light';
+        }
+      };
+      if (localStorage.theme === 'dark') document.getElementById('themeToggle').click();
+    }
 
     Promise.all([
       fetch('data/chapters.json').then(r => r.json()),
-      fetch('data/companies.json').then(r => r.json())
-    ]).then(([chapters, companies]) => {
-      document.getElementById(loadingId).remove();
+      fetch('data/companies.json').then(r => r.json()),
+      fetch('data/site.json').then(r => r.json()),
+      fetch('data/roadmaps.json').then(r => r.json())
+    ]).then(([chapters, companies, site, roadmaps]) => {
+      document.title = site.documentTitle;
+      document.getElementById('page-header').innerHTML = Render.pageHeader(site.header);
+      document.getElementById('search-container').innerHTML = Render.search(site.search);
+      document.getElementById('sidebar-contents-label').textContent = site.sidebar.contentsLabel;
+      document.getElementById('dashboard').innerHTML = Render.dashboard(site.dashboard);
       toc.innerHTML = Render.sidebar(chapters);
-      main.innerHTML += chapters.map((c, i) => Render.chapter(c, i, companies)).join('');
+      const chaptersHtml = chapters.map((c, i) => Render.chapter(c, i, companies)).join('');
+      main.innerHTML = Render.hero(site.hero) + Render.roadmap(roadmaps[0]) + chaptersHtml;
+      document.getElementById('site-footer').innerHTML = Render.footer(site.footer);
+      wireSearch();
+      wireTheme();
     }).catch(err => {
       const el = document.getElementById(loadingId);
       el.setAttribute('role', 'alert');
       el.textContent = 'Failed to load content. If you opened this file directly (file://), serve it from a local server instead — see .playbook/17_TESTING_GUIDE.md.';
       console.error(err);
+      wireTheme();
     });
-
-    document.getElementById('search').oninput = e => {
-      const q = e.target.value.toLowerCase();
-      document.querySelectorAll('main section').forEach(s => s.style.display = s.innerText.toLowerCase().includes(q) ? 'block' : 'none');
-    }
-    const b = document.body; document.getElementById('themeToggle').onclick = () => { document.documentElement.classList.toggle('dark'); if (document.documentElement.classList.contains('dark')) { b.className = 'bg-slate-900 text-slate-100'; localStorage.theme = 'dark'; } else { b.className = 'bg-slate-100 text-slate-800'; localStorage.theme = 'light'; } }; if (localStorage.theme === 'dark') document.getElementById('themeToggle').click();
   </script>
 </body>
 

@@ -32,8 +32,8 @@ review before the next one starts.
 |---|-----------|-------|--------|
 | 1 | Repository Foundation | Fix broken state, real governance docs, folder skeleton | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 2 | Render Function Extraction | Extract `Render.sidebar` / `Render.chapter` / `Render.companyTable` as pure functions; data stays inline in `index.html` | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 3 | Data Model | Populate `data/*.json` per `09_DATA_MODEL.md`, including migrating `PLAYBOOK.chapters`/`PLAYBOOK.companies` out of `index.html` and updating Milestone 2's render functions to consume fetched data instead of inline data | **In progress** |
-| 4 | Renderer | Extend the render-function set to the remaining content types (hero, roadmap, dashboard, footer, search) once Milestone 3 gives them a data source; also move the `Render` namespace into `assets/js/render.js` | Not started |
+| 3 | Data Model | Populate `data/*.json` per `09_DATA_MODEL.md`, including migrating `PLAYBOOK.chapters`/`PLAYBOOK.companies` out of `index.html` and updating Milestone 2's render functions to consume fetched data instead of inline data | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
+| 4 | Renderer | Extend the render-function set to the remaining content types (hero, roadmap, dashboard, footer, search) once Milestone 3 gives them a data source; also move the `Render` namespace into `assets/js/render.js` | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 5 | Search | Ranked, multi-source search per `07_RESEARCH_GUIDE.md` / `08_UI_GUIDELINES.md` search spec | Not started |
 | 6 | Company Intelligence Database | Verify and merge `md/deep-research-report*.md` into `data/companies.json` | Not started |
 | 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | Not started |
@@ -57,61 +57,21 @@ verified byte-identical output. All 12 items from the pre-Milestone-2 technical 
 newly-discovered Critical dark-mode contrast bug. Accessibility and Performance reviews completed retroactively;
 Milestone 2 now satisfies the full `15_RELEASE_PROCESS.md` checklist. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-## Milestone 3 — Data Model
+## Milestone 3 — Data Model: complete, accepted
 
-### Goal
+Moved `PLAYBOOK.chapters`/`PLAYBOOK.companies` out of `index.html` into `data/chapters.json`/`data/companies.json`,
+fetched at load and passed into Milestone 2's `Render` functions unchanged. First milestone run under the full
+`15_RELEASE_PROCESS.md` checklist from the start. Accepted by the project owner after a real browser check (not
+just programmatic verification) — see `19_CURRENT_SPRINT.md`. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-Move `PLAYBOOK.chapters` and `PLAYBOOK.companies` out of `index.html` into `data/chapters.json` and
-`data/companies.json`, fetched at load and passed into Milestone 2's existing `Render` functions exactly as before
-— same rendered output, same fields, just relocated. This is the first milestone run under the full
-`15_RELEASE_PROCESS.md` checklist (Architecture, Documentation, Accessibility, and Performance reviews, not just a
-self-review) — see `12_DECISIONS.md` DR-005 for the one significant trade-off this milestone introduces.
+## Milestone 4 — Renderer: complete, accepted
 
-### Scope (in)
-
-- Create `data/chapters.json` and `data/companies.json` — same fields as today's inline objects, moved as-is.
-- `index.html` fetches both files on load and passes the results into `Render.sidebar` / `Render.chapter` /
-  `Render.companyTable` unchanged.
-- Add a minimal, accessible loading state for the async gap between page load and data arriving (see
-  `20_ACCESSIBILITY.md`).
-- Update `17_TESTING_GUIDE.md`'s smoke test to require a local server (`fetch()` against `file://` is blocked by
-  browser CORS policy — see `12_DECISIONS.md` DR-005).
-- Update `scripts/verify-render.js` to verify the JSON files are a faithful transcription of the original inline
-  data (same rendered output when passed through the same `Render` functions).
-
-### Scope (out — deferred to later milestones)
-
-- Expanding to the full ~40-field company schema (`11_COMPANY_SCHEMA.md`) or full chapter schema
-  (`09_DATA_MODEL.md`'s `id`/`slug`/`difficulty`/`references`/`relatedChapters`/`lastUpdated`). Fabricating
-  "Unknown" values for ~30 fields per company now, only to overwrite them with real data in Milestone 6, means
-  touching the same file twice for no benefit — schema expansion happens together with real data population.
-- Any visible/behavioral change beyond the data now loading asynchronously (plus the new loading state, which is
-  a direct, necessary consequence of that change, not scope creep).
-- Search and theme-toggle logic — untouched, unrelated concern.
-- Moving the `Render` namespace to `assets/js/render.js` — Milestone 4.
-
-### Acceptance criteria (independently testable)
-
-1. `data/chapters.json` and `data/companies.json` exist and are valid JSON containing the same data as the
-   removed inline `PLAYBOOK` object (verified via `scripts/verify-render.js`).
-2. `index.html` contains no hardcoded chapter or company content — only a `fetch()` call and the `Render` functions.
-3. Once served over HTTP and loaded, rendered output is identical to pre-Milestone-3 (same sections, same company
-   table, same text) — verified via `scripts/verify-render.js` feeding the JSON files through the same `Render`
-   functions and comparing against the pre-Milestone-1 baseline.
-4. A loading state is visible (and screen-reader-announced) during the fetch, and is removed once content renders.
-5. Manual smoke test (`17_TESTING_GUIDE.md`, updated for a local server) passes: dark mode, print mode, search,
-   and keyboard tab order all identical to before.
-
-### Definition of Done
-
-- All 5 acceptance criteria pass.
-- Architecture Review, Documentation Review, Accessibility Review, and Performance Review all completed (see
-  `20_ACCESSIBILITY.md` and `23_PERFORMANCE.md` for the latter two).
-- `13_CHANGELOG.md` and `19_CURRENT_SPRINT.md` updated in the same change.
-- PR summary and commit message generated.
-- Milestone presented for review; Milestone 4 not started until this is explicitly accepted.
+Moved the full `Render` namespace to `assets/js/render.js`, added `data/site.json` and `data/roadmaps.json`, and
+extracted all remaining hardcoded chrome into named render functions. Chapter/sidebar output verified byte-identical
+to Milestone 3. Accepted by the project owner after a real browser check at `http://localhost:3456` — see
+`19_CURRENT_SPRINT.md`. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 ---
 
-*Milestones 4–8 will be scoped in detail immediately before they start, per the "one milestone at a time" rule in
+*Milestone 5 will be scoped in detail immediately before it starts, per the "one milestone at a time" rule in
 `MASTER_BOOTSTRAP_PROMPT.md`.*

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "aem-foundation",
+    "title": "AEM foundation path",
+    "summary": "Core skills for enterprise digital experience engineering — expanded in Milestone 7.",
+    "steps": [
+      {
+        "id": "aem-architecture",
+        "title": "AEM architecture fundamentals",
+        "status": "in progress"
+      },
+      {
+        "id": "sling-htl",
+        "title": "Sling, HTL, and component development",
+        "status": "planned"
+      },
+      {
+        "id": "cloud-eds",
+        "title": "Cloud Service and Edge Delivery",
+        "status": "planned"
+      }
+    ]
+  }
+]

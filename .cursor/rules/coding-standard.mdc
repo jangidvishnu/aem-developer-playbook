@@ -1,23 +1,22 @@
 ---
-description: Coding conventions for index.html and dev scripts
-globs: index.html,scripts/**
+description: Coding conventions for index.html, render.js, and dev scripts
+globs: index.html,assets/js/**,scripts/**
 alwaysApply: false
 ---
 
-# Coding Standard (index.html / scripts/)
+# Coding Standard (index.html / assets/js / scripts/)
 
 Full detail: `.playbook/04_CODING_STANDARD.md`, `.playbook/10_COMPONENT_LIBRARY.md`.
 
 - Vanilla JS + Tailwind CSS only. No build step, no framework, no new external dependency without a decision
   record in `.playbook/12_DECISIONS.md`.
-- All render functions live as methods on the single `Render` namespace object in `index.html` — never as bare
-  top-level `function` declarations.
+- All render functions live as methods on the single `Render` namespace in `assets/js/render.js` — never as bare
+  top-level `function` declarations in `index.html`.
 - Every interpolated text/attribute value must go through `Render.escapeHtml()` first, except a chapter's `body`
   field, which is intentionally raw HTML and must never be escaped.
 - Render functions are pure: read their arguments, return markup, never `fetch()` and never reach into outer-scope
   state directly if the data could instead be passed as a parameter.
-- Whenever `Render`'s methods change, keep `scripts/verify-render.js`'s `runCurrent()` in sync and run
-  `node scripts/verify-render.js` to confirm the output diff is exactly what you intended (see
-  `.playbook/17_TESTING_GUIDE.md`).
-- No content hardcoded in JS — as of Milestone 3, all content lives in `data/*.json`, fetched at load. Adding new
-  content means editing a `data/*.json` file, never `index.html`.
+- Whenever `Render`'s methods change, run `node scripts/verify-render.js` (it `require()`s `assets/js/render.js`
+  directly — see `.playbook/17_TESTING_GUIDE.md`).
+- No content hardcoded in HTML or JS — all content lives in `data/*.json`, fetched at load. Adding new content
+  means editing a `data/*.json` file, not `index.html` or `render.js`.

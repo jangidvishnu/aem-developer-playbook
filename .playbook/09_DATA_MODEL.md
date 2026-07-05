@@ -2,13 +2,11 @@
 
 ## Status
 
-This document specifies the **target** data model per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 3,
-`data/chapters.json` and `data/companies.json` exist and are fetched by `index.html`, but deliberately do **not**
-yet conform to the full field sets below — they're a faithful, as-is migration of the previous inline data (plus a
-stable `id` per record, added because it's foundational rather than research-dependent). Fabricating ~30 "Unknown"
-company fields now, only to overwrite them with real data in Milestone 6, would mean touching the same file twice
-for no benefit — full schema conformance happens together with real data population in Milestone 6. See
-`12_DECISIONS.md` and `14_ROADMAP.md`'s Milestone 3 scope for the reasoning.
+This document specifies the **target** data model per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 4,
+`data/chapters.json`, `data/companies.json`, `data/site.json`, and `data/roadmaps.json` exist and are fetched by
+`index.html`. Chapters and companies deliberately do **not** yet conform to their full field sets below — they're a
+faithful, as-is migration of the previous inline data (plus stable `id`s). Full schema conformance for companies
+happens with real data population in Milestone 6; full roadmap content in Milestone 7.
 
 ## Principle
 
@@ -17,17 +15,48 @@ independently loadable and has one clear owner topic.
 
 ## Planned data files
 
-| File | Purpose |
-|---|---|
-| `data/companies.json` | Target-employer database — see `11_COMPANY_SCHEMA.md` for the full field list |
-| `data/chapters.json` | Handbook chapters/content — schema below |
-| `data/technologies.json` | Technology/skill reference entries (AEM, Sling, HTL, EDS, etc.) |
-| `data/roadmaps.json` | Learning roadmaps (ordered skill/topic sequences) |
-| `data/resources.json` | External links, courses, docs worth referencing |
-| `data/career_paths.json` | Career progression tracks and milestones |
-| `data/glossary.json` | Term definitions, cross-linked from chapters |
-| `data/templates.json` | Reusable templates (resume bullets, interview answers, etc.) |
-| `data/interviews.json` | Interview questions/prep material, tagged by company/technology |
+| File | Purpose | Status |
+|---|---|---|
+| `data/site.json` | Site chrome: header meta, hero, sidebar labels, dashboard stats, footer, search config | **Live** (Milestone 4) |
+| `data/companies.json` | Target-employer database — see `11_COMPANY_SCHEMA.md` for the full field list | **Live** (Milestone 3) |
+| `data/chapters.json` | Handbook chapters/content — schema below | **Live** (Milestone 3) |
+| `data/roadmaps.json` | Learning roadmaps (ordered skill/topic sequences) | **Seed** (Milestone 4; full content → Milestone 7) |
+| `data/technologies.json` | Technology/skill reference entries (AEM, Sling, HTL, EDS, etc.) | Planned |
+| `data/resources.json` | External links, courses, docs worth referencing | Planned |
+| `data/career_paths.json` | Career progression tracks and milestones | Planned |
+| `data/glossary.json` | Term definitions, cross-linked from chapters | Planned |
+| `data/templates.json` | Reusable templates (resume bullets, interview answers, etc.) | Planned |
+| `data/interviews.json` | Interview questions/prep material, tagged by company/technology | Planned |
+
+## Site schema (`data/site.json`) — Milestone 4
+
+```json
+{
+  "id": "site",
+  "documentTitle": "string — <title> element and browser tab",
+  "header": { "title": "string", "versionLabel": "string" },
+  "hero": { "title": "string", "body": "string" },
+  "sidebar": { "contentsLabel": "string" },
+  "dashboard": { "title": "string", "items": ["string", "..."] },
+  "search": { "placeholder": "string", "ariaLabel": "string" },
+  "footer": { "text": "string" }
+}
+```
+
+## Roadmap schema (`data/roadmaps.json`) — seed in Milestone 4
+
+Array of roadmap objects. Milestone 4 ships one minimal seed; full learning paths are Milestone 7.
+
+```json
+{
+  "id": "string, stable unique identifier",
+  "title": "string",
+  "summary": "string",
+  "steps": [
+    { "id": "string", "title": "string", "status": "string, e.g. 'planned' | 'in progress' | 'complete'" }
+  ]
+}
+```
 
 ## Chapter schema (`data/chapters.json`)
 
