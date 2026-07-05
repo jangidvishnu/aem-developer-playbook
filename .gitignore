@@ -1,0 +1,21 @@
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Editor swap/temp files
+*.swp
+*.swo
+*~
+
+# Node (only used for dev-only tooling in scripts/ — no build step for the shipped site)
+node_modules/
+npm-debug.log*
+
+# Logs
+*.log
