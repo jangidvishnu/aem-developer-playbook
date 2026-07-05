@@ -18,6 +18,7 @@ And every release must include, before it is considered accepted:
 5. Pull Request Summary
 6. Conventional Commit Message
 7. Changelog Update
+8. **Milestone test plan published** — see below and `17_TESTING_GUIDE.md`
 
 **Never start the next release until the current one has been accepted.** This is a non-negotiable constraint, not
 a suggestion — see the escalation rule in `01_AI_CONSTITUTION.md`.
@@ -66,5 +67,36 @@ repository contents.
 - [ ] Conventional Commit Message generated.
 - [ ] `13_CHANGELOG.md` updated with a dated, reader-facing summary.
 - [ ] Version number consistent everywhere it appears.
-- [ ] Manual smoke test per `17_TESTING_GUIDE.md`.
+- [ ] **Milestone test plan** added or updated in `17_TESTING_GUIDE.md` (see "Milestone test plans" there).
+- [ ] `19_CURRENT_SPRINT.md` links to that test plan and states what the project owner must verify.
+- [ ] When reporting completion to the project owner, include the test steps inline (automated commands + browser
+  checklist) — do not only say "run the smoke test."
+- [ ] Manual smoke test per `17_TESTING_GUIDE.md` (baseline + milestone-specific steps).
 - [ ] Explicitly presented for review — next release/milestone does not start until this one is accepted.
+
+## Milestone test plan (required when implementation is complete)
+
+When a milestone's code changes are done and the release is **pending acceptance**, the agent (human or AI) must
+publish a concrete test plan before asking the project owner to sign off. This is separate from acceptance criteria
+in `14_ROADMAP.md` — those define *what* must be true; the test plan defines *how to verify it*.
+
+**Where it lives (one topic, one home):**
+
+| What | Authoritative location |
+|---|---|
+| Full step-by-step test plan (automated + browser) | `17_TESTING_GUIDE.md` → **Milestone test plans** → subsection for that milestone |
+| Pointer + owner action while pending | `19_CURRENT_SPRINT.md` → milestone section with link to the subsection above |
+| Historical copy after acceptance | `25_ROADMAP_ARCHIVE.md` → milestone entry (add "Test plan" bullet summarizing what was run) |
+
+**What every milestone test plan must include:**
+
+1. **Automated checks** — exact shell commands (e.g. `node scripts/verify-search.js`) and expected pass output.
+2. **How to serve locally** — HTTP only (`file://` fails after Milestone 3); list options that work on this machine
+   (Cursor Live Preview, `npx serve`, `python -m http.server`, or a one-line Node static server).
+3. **Browser checklist** — numbered steps the project owner can follow without reading the codebase, including at
+   least one check per milestone-specific acceptance criterion that requires human verification.
+4. **Regression checks** — baseline items from the manual smoke test in `17_TESTING_GUIDE.md` that still apply
+   (dark mode, print preview, etc.).
+
+**When presenting completion to the project owner**, paste or summarize sections 1–3 in the chat/PR — do not rely on
+them discovering steps only in `.playbook/`.

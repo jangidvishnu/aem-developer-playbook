@@ -11,13 +11,13 @@ Experience League. Not marketing-site flashy — optimized for long-form reading
 |---|---|
 | Dark mode (persisted) | Implemented (`localStorage` + toggle button) |
 | Print mode | Implemented (`@media print` rules hide chrome, avoid page-break-inside) |
-| Keyboard navigation | Not yet implemented — planned for Milestone 4/5 |
+| Keyboard navigation | Partial — search results panel (Arrow/Enter/Escape) in Milestone 5; full-site nav deferred |
 | Responsive design | Partially implemented (Tailwind responsive utilities used sparingly today) |
 | Sticky navigation | Implemented (sticky header, sticky sidebar) |
 | Breadcrumbs | Not yet implemented |
 | Collapsible sections | Partially implemented (per-chapter `<details>` summary) |
 | Reading progress | Not yet implemented |
-| Search | Implemented as a naive `innerText` scan; ranked multi-source search is Milestone 5 |
+| Search | Ranked multi-source search via `assets/js/search.js`; keyboard nav in search box (Milestone 5) |
 
 ## Layout conventions
 

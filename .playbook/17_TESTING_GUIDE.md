@@ -2,28 +2,84 @@
 
 ## Current state
 
-No formal test suite exists yet (expected — there is no build tooling, and the product is a single static HTML
-file). There is, however, one committed verification script: `scripts/verify-render.js` (Node, no dependencies).
-Run it with `node scripts/verify-render.js` any time `assets/js/render.js` or `data/*.json` changes — it
-`require()`s the real `Render` namespace and diffs chapter/sidebar output against
-`scripts/milestone-3-render-golden.json`. It is a regression check, not a full test
-suite, and it is dev-only tooling — never referenced by `index.html`, so it does not affect the shipped site.
+No formal test suite exists yet. Committed verification scripts (Node, no dependencies):
 
-**Keeping it useful:** as of Milestone 4, the script `require()`s `assets/js/render.js` directly — no hand-copied
-duplicate. The golden snapshot (`scripts/milestone-3-render-golden.json`) guards chapter/sidebar regression only;
-new site-chrome render functions are sanity-checked separately.
+- `node scripts/verify-render.js` — chapter/sidebar regression vs. Milestone 3 golden snapshot.
+- `node scripts/verify-search.js` — ranked search assertions over real `data/*.json` (Milestone 5).
 
-Beyond this script, verification remains manual. Full automated unit tests become practical now that render
-functions live in `assets/js/render.js` (Milestone 4 — see `10_COMPONENT_LIBRARY.md`).
+Run both after changes to `assets/js/render.js`, `assets/js/search.js`, or `data/*.json`.
 
-## Manual smoke test (run before any release, and after any structural change)
+## Milestone test plans
+
+When a milestone's implementation is complete and pending acceptance, a **milestone-specific test plan** must exist
+here (required by `15_RELEASE_PROCESS.md`). Each subsection lists automated commands and a browser checklist the
+project owner can run without reading the code. `19_CURRENT_SPRINT.md` links to the active milestone's subsection.
+
+After acceptance, a short "Test plan" summary is archived in `25_ROADMAP_ARCHIVE.md`; this subsection stays as the
+historical record of exact steps used.
+
+### Baseline (run for every milestone acceptance)
+
+Serve `index.html` over HTTP — `file://` will not load `data/*.json` (see `12_DECISIONS.md` DR-005).
+
+**Serve options (use any one):**
+
+- Cursor / VS Code **Live Preview** (configured in this repo's `.vscode/settings.json`)
+- `npx serve` then open the URL shown
+- `python -m http.server 3456` then `http://localhost:3456`
+- One-line Node server: `node -e "require('http').createServer((q,r)=>{const f=require('fs'),p=require('path');let u=q.url==='/'?'/index.html':q.url;f.readFile(p.join('.',u.split('?')[0]),(e,d)=>{r.writeHead(e?404:200);r.end(e?'404':d);});}).listen(3456,()=>console.log('http://localhost:3456'))"`
+
+**Baseline browser checks:**
+
+1. Page loads with no console errors; chapters, hero, and sidebar render.
+2. Dark mode toggles and persists after reload.
+3. Print preview hides header, sidebar, search, and footer; sections do not break awkwardly.
+4. Tab through search, theme toggle, TOC links, and `<details>` — focus visible on each.
+
+---
+
+### Milestone 5 — Search (pending acceptance)
+
+**Automated (run from repository root):**
+
+```bash
+node scripts/verify-search.js
+node scripts/verify-render.js
+```
+
+Expected: `All search tests passed.` and `Chapter/sidebar output matches the Milestone 3 golden snapshot.` — both
+exit code 0.
+
+**Browser — search-specific:**
+
+1. Open the served site. Confirm the search placeholder reads **Search playbook…**.
+2. Type **`Adobe`** — results panel opens; top result is **Company · Adobe**; other chapters remain visible.
+3. Press **Enter** (or click the result) — page scrolls to **Target Companies**; brief blue highlight on section.
+4. Clear search. Type **`mission`** — **Chapter · Mission** is top result; only matching chapter sections stay
+   visible in `<main>` (others hidden).
+5. Clear search — all chapter sections visible again; results panel hidden.
+6. Type **`Welcome`** — **Site · Welcome** result; activating scrolls to the hero banner.
+7. Type **`AEM foundation`** — **Roadmap** result for the learning-path panel.
+8. With results open: **Arrow Down** / **Arrow Up** changes the highlighted row; **Enter** activates and
+   **closes** the panel; **Escape** or the **×** clear button clears the query.
+9. Click outside the search box — results panel closes (query text remains until cleared).
+10. Confirm results list follows **page order** (hero → roadmap → chapters top-to-bottom) when multiple sections match.
+11. Re-run baseline checks 2–4 above (dark mode, print, keyboard tab order).
+
+**Sign-off:** Project owner confirms all automated and browser steps pass → Milestone 5 can be marked accepted in
+`14_ROADMAP.md` / `19_CURRENT_SPRINT.md` and committed if not already.
+
+---
+
+## Manual smoke test (baseline — always run after structural change)
 
 1. **Serve the site over HTTP** (e.g. `npx serve`, `python -m http.server`, or an editor's Live Preview) and open
    `index.html` — confirm it renders with no console errors. As of Milestone 3, opening the file directly via
    `file://` will fail: browsers block `fetch()` against local files, so `data/chapters.json`/`data/companies.json`
    won't load and the error state (`20_ACCESSIBILITY.md`) will show instead — see `12_DECISIONS.md` DR-005.
 2. Toggle dark mode — confirm it persists after a page reload.
-3. Type into the search box — confirm sections filter as expected and un-filter when cleared.
+3. Type into the search box — confirm ranked results appear (e.g. "Adobe" → company), chapter sections filter when
+   chapter results match, Arrow/Enter/Escape work, and clearing restores all sections.
 4. Use the browser's print preview — confirm the header, sidebar, search box, and theme toggle are hidden, and
    sections don't break awkwardly across page boundaries.
 5. Resize the viewport to a typical mobile width — confirm the layout remains usable (this is a known gap; see
@@ -52,5 +108,10 @@ Planned coverage, once applicable:
 
 ## Definition of done for a milestone
 
-A milestone is not complete until its own acceptance criteria (`14_ROADMAP.md`) pass the manual smoke test above at
-minimum, in addition to any milestone-specific verification it defines.
+A milestone is not complete until:
+
+1. Its acceptance criteria in `14_ROADMAP.md` pass.
+2. A **milestone test plan** exists under [Milestone test plans](#milestone-test-plans) above (and is linked from
+   `19_CURRENT_SPRINT.md`).
+3. The project owner has run that plan (automated + browser) — programmatic checks alone are not sufficient from
+   Milestone 3 onward (`12_DECISIONS.md` DR-005 pattern).

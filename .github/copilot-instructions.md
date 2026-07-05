@@ -37,6 +37,10 @@ for why this list was shortened).
 Understand → Analyze → Plan → Implement → Review → Test → Document → Commit. Never skip planning. Use Conventional
 Commits with small, single-responsibility commits — but only commit when the user explicitly asks you to.
 
+When a milestone's implementation is complete, publish its test plan in `.playbook/17_TESTING_GUIDE.md` (section
+**Milestone test plans**), link it from `.playbook/19_CURRENT_SPRINT.md`, and include the automated commands plus
+browser checklist in your completion message to the project owner — see `.playbook/15_RELEASE_PROCESS.md`.
+
 ## If you find the repository in an inconsistent state
 
 If tracked files referenced by this document or by `README.md` are missing from disk, stop and report this before

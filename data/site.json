@@ -22,8 +22,9 @@
     ]
   },
   "search": {
-    "placeholder": "Search chapters...",
-    "ariaLabel": "Search chapters"
+    "placeholder": "Search playbook…",
+    "ariaLabel": "Search playbook",
+    "clearLabel": "Clear search"
   },
   "footer": {
     "text": "Enterprise Digital Experience Engineering Playbook — personal career operating system."

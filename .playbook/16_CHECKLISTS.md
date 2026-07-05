@@ -35,6 +35,9 @@ source document disagree, the source document wins — update this file to match
 - [ ] Conventional Commit Message generated.
 - [ ] `13_CHANGELOG.md` updated.
 - [ ] `19_CURRENT_SPRINT.md` updated to reflect completion.
+- [ ] **Milestone test plan** published in `17_TESTING_GUIDE.md` and linked from `19_CURRENT_SPRINT.md`
+  (`15_RELEASE_PROCESS.md`).
+- [ ] Completion message to project owner includes automated commands + browser checklist (not "run smoke test" only).
 - [ ] Explicitly stop and request review — do not start the next milestone/release unprompted.
 
 ## Before committing

@@ -43,7 +43,7 @@ this file — update .playbook/ and reference it instead.
       aside,
       header,
       #themeToggle,
-      #search,
+      #search-wrap,
       #site-footer {
         display: none !important
       }
@@ -80,6 +80,7 @@ this file — update .playbook/ and reference it instead.
   </div>
   <div id="site-footer"></div>
   <script src="assets/js/render.js"></script>
+  <script src="assets/js/search.js"></script>
   <script>
     // Content data lives in data/*.json (Milestones 3–4 — see 12_DECISIONS.md DR-005).
     // Render functions live in assets/js/render.js (Milestone 4 — see 10_COMPONENT_LIBRARY.md).
@@ -90,13 +91,163 @@ this file — update .playbook/ and reference it instead.
 
     main.innerHTML = `<p id="${loadingId}" class="text-slate-500 p-4" role="status">Loading content…</p>`;
 
-    function wireSearch() {
-      document.getElementById('search').oninput = e => {
-        const q = e.target.value.toLowerCase();
-        document.querySelectorAll('main section').forEach(s => {
-          s.style.display = s.innerText.toLowerCase().includes(q) ? 'block' : 'none';
+    function wireSearch(searchIndex, chapters) {
+      const wrap = document.getElementById('search-wrap');
+      const input = document.getElementById('search');
+      const clearBtn = document.getElementById('search-clear');
+      const panel = document.getElementById('search-results');
+      const status = document.getElementById('search-status');
+      let results = [];
+      let activeIndex = -1;
+      let panelOpen = false;
+
+      function chapterSections() {
+        return document.querySelectorAll('main section[id^="ch"]');
+      }
+
+      function showAllChapters() {
+        chapterSections().forEach(s => { s.style.display = ''; });
+      }
+
+      function applyChapterFilter() {
+        const chapterHits = results.filter(r => r.source === 'chapter');
+        if (!chapterHits.length) {
+          showAllChapters();
+          return;
+        }
+        const matched = new Set(chapterHits.map(r => r.chapterIndex));
+        chapterSections().forEach(s => {
+          const idx = parseInt(s.id.replace('ch', ''), 10);
+          s.style.display = matched.has(idx) ? '' : 'none';
         });
-      };
+      }
+
+      function updateClearButton() {
+        clearBtn.classList.toggle('hidden', !input.value.trim());
+      }
+
+      function closePanel() {
+        panelOpen = false;
+        panel.classList.add('hidden');
+        input.setAttribute('aria-expanded', 'false');
+      }
+
+      function openPanel() {
+        const q = input.value.trim();
+        if (!q || !results.length) {
+          closePanel();
+          return;
+        }
+        panelOpen = true;
+        panel.classList.remove('hidden');
+        input.setAttribute('aria-expanded', 'true');
+      }
+
+      function renderPanel() {
+        const q = input.value;
+        panel.innerHTML = Render.searchResults(results, q, activeIndex);
+        updateClearButton();
+        if (panelOpen && q.trim()) {
+          panel.classList.remove('hidden');
+          input.setAttribute('aria-expanded', 'true');
+        } else if (!q.trim()) {
+          closePanel();
+        }
+        status.textContent = q.trim()
+          ? (results.length ? results.length + ' result' + (results.length === 1 ? '' : 's') : 'No results')
+          : '';
+        panel.querySelectorAll('[role="option"]').forEach((btn, i) => {
+          btn.onclick = e => {
+            e.stopPropagation();
+            activateResult(i);
+          };
+        });
+      }
+
+      function activateResult(i) {
+        if (i < 0 || i >= results.length) return;
+        const r = results[i];
+        const el = document.querySelector(r.anchor);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          el.classList.add('ring-2', 'ring-blue-400');
+          setTimeout(() => el.classList.remove('ring-2', 'ring-blue-400'), 2000);
+        }
+        closePanel();
+        input.blur();
+      }
+
+      function clearSearch() {
+        input.value = '';
+        results = [];
+        activeIndex = -1;
+        showAllChapters();
+        closePanel();
+        renderPanel();
+        input.focus();
+      }
+
+      function runQuery() {
+        const q = input.value.trim();
+        updateClearButton();
+        if (!q) {
+          results = [];
+          activeIndex = -1;
+          showAllChapters();
+          closePanel();
+          renderPanel();
+          return;
+        }
+        results = Search.query(searchIndex, q);
+        activeIndex = results.length ? 0 : -1;
+        panelOpen = true;
+        applyChapterFilter();
+        renderPanel();
+      }
+
+      clearBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        clearSearch();
+      });
+
+      input.addEventListener('input', runQuery);
+
+      input.addEventListener('focus', () => {
+        if (input.value.trim() && results.length) {
+          panelOpen = true;
+          openPanel();
+          renderPanel();
+        }
+      });
+
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          if (input.value.trim()) {
+            clearSearch();
+          } else {
+            closePanel();
+            input.blur();
+          }
+          return;
+        }
+        if (!results.length || !panelOpen) return;
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          activeIndex = Math.min(activeIndex + 1, results.length - 1);
+          renderPanel();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          activeIndex = Math.max(activeIndex - 1, 0);
+          renderPanel();
+        } else if (e.key === 'Enter' && activeIndex >= 0) {
+          e.preventDefault();
+          activateResult(activeIndex);
+        }
+      });
+
+      document.addEventListener('click', e => {
+        if (!wrap.contains(e.target)) closePanel();
+      });
     }
 
     function wireTheme() {
@@ -129,7 +280,8 @@ this file — update .playbook/ and reference it instead.
       const chaptersHtml = chapters.map((c, i) => Render.chapter(c, i, companies)).join('');
       main.innerHTML = Render.hero(site.hero) + Render.roadmap(roadmaps[0]) + chaptersHtml;
       document.getElementById('site-footer').innerHTML = Render.footer(site.footer);
-      wireSearch();
+      const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site });
+      wireSearch(searchIndex, chapters);
       wireTheme();
     }).catch(err => {
       const el = document.getElementById(loadingId);

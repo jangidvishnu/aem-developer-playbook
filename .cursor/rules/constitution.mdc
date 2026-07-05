@@ -27,6 +27,8 @@ always-loaded version.
 - Architectural changes follow: Analyze → Plan → Synchronize docs → Review technical debt → Implement →
   Self-review → PR summary → Commit message.
 - Only commit when the user explicitly asks for a commit.
+- When a milestone's implementation is complete, publish its test plan in `17_TESTING_GUIDE.md` and share the steps
+  with the project owner (see `15_RELEASE_PROCESS.md`).
 - If the repository is in an unexpected state (missing files, conflicting content, signs of concurrent edits) —
   stop and report before continuing. Do not silently fix or overwrite.
 

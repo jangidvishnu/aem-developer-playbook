@@ -14,7 +14,20 @@ const Render = {
   },
 
   search(config) {
-    return `<input class="border rounded-lg px-3 py-2 w-64 bg-white text-slate-800" id="search" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" />`;
+    return `<div class="relative flex items-center" id="search-wrap"><input class="border rounded-lg pl-3 pr-9 py-2 w-64 bg-white text-slate-800" id="search" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list" autocomplete="off" /><button type="button" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-lg leading-none px-1" id="search-clear" aria-label="${Render.escapeHtml(config.clearLabel || 'Clear search')}" title="${Render.escapeHtml(config.clearLabel || 'Clear search')}">×</button><div id="search-results" class="hidden absolute z-50 top-full left-0 right-0 mt-1 bg-white border rounded-lg shadow-lg max-h-72 overflow-auto text-slate-800" role="listbox"></div><p id="search-status" class="sr-only" aria-live="polite"></p></div>`;
+  },
+
+  searchResults(results, query, activeIndex) {
+    if (!query || !query.trim()) return '';
+    if (!results.length) {
+      return `<p class="px-3 py-2 text-sm text-slate-500">No results</p>`;
+    }
+    const typeLabel = { chapter: 'Chapter', company: 'Company', roadmap: 'Roadmap', 'roadmap-step': 'Roadmap step', site: 'Site' };
+    return results.map((r, i) => {
+      const active = i === activeIndex ? ' bg-blue-50' : '';
+      const label = typeLabel[r.source] || r.source;
+      return `<button type="button" class="block w-full text-left px-3 py-2 text-sm hover:bg-slate-100${active}" role="option" data-anchor="${Render.escapeHtml(r.anchor)}" data-chapter-index="${r.chapterIndex != null ? r.chapterIndex : ''}" aria-selected="${i === activeIndex}"><span class="text-xs text-slate-400 uppercase">${Render.escapeHtml(label)}</span><span class="font-semibold block">${Render.escapeHtml(r.title)}</span><span class="text-slate-500 text-xs">${Render.escapeHtml(r.snippet)}</span></button>`;
+    }).join('');
   },
 
   sidebar(chapters) {
@@ -27,14 +40,14 @@ const Render = {
   },
 
   hero(content) {
-    return `<section class="bg-gradient-to-r from-blue-700 to-sky-600 text-white rounded-2xl p-8"><h2 class="text-4xl font-bold">${Render.escapeHtml(content.title)}</h2><p class="mt-4 text-lg">${Render.escapeHtml(content.body)}</p></section>`;
+    return `<section id="hero" class="bg-gradient-to-r from-blue-700 to-sky-600 text-white rounded-2xl p-8"><h2 class="text-4xl font-bold">${Render.escapeHtml(content.title)}</h2><p class="mt-4 text-lg">${Render.escapeHtml(content.body)}</p></section>`;
   },
 
   roadmap(roadmap) {
     const steps = roadmap.steps.map(s =>
       `<li><span class="text-slate-500 text-sm">${Render.escapeHtml(s.status)}</span> — ${Render.escapeHtml(s.title)}</li>`
     ).join('');
-    return `<section class="bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-2xl font-bold">${Render.escapeHtml(roadmap.title)}</h2><p class="text-slate-500 mt-2 mb-4">${Render.escapeHtml(roadmap.summary)}</p><ol class="list-decimal ml-6 space-y-2">${steps}</ol></section>`;
+    return `<section id="roadmap" class="bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-2xl font-bold">${Render.escapeHtml(roadmap.title)}</h2><p class="text-slate-500 mt-2 mb-4">${Render.escapeHtml(roadmap.summary)}</p><ol class="list-decimal ml-6 space-y-2">${steps}</ol></section>`;
   },
 
   companyRow(x) {

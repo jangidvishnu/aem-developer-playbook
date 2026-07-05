@@ -250,3 +250,29 @@ by `data/*.json`, the whole `Render` namespace lives in `assets/js/render.js`, a
 Fetch fan-out grew from 2 → 4 parallel requests (`site.json`, `roadmaps.json` added). Payload remains small;
 `index.html` shrank further by moving render logic to `assets/js/render.js`. No measurable regression in owner
 browser check. Accepted per priority order (Maintainability/Scalability above Performance).
+
+## Milestone 5 — Search (complete, accepted)
+
+### Goal
+
+Replace naive DOM `innerText` search with data-indexed, ranked search over `data/*.json`, with keyboard navigation
+and accessible results UI.
+
+### Scope (in) — all delivered
+
+- `assets/js/search.js` — `Search.buildIndex`, `Search.query`, page-order sorting with relevance tiebreaker.
+- `Render.searchResults`, search clear (×) button, dismiss on select/outside click.
+- `scripts/verify-search.js`; milestone test plan in `17_TESTING_GUIDE.md`.
+
+### Acceptance criteria — all passed
+
+1.–7. Per `14_ROADMAP.md` (automated scripts + owner browser check).
+
+### Test plan
+
+Automated: `node scripts/verify-search.js`, `node scripts/verify-render.js`. Browser: see
+`17_TESTING_GUIDE.md` → Milestone 5 — Search (owner confirmed).
+
+### Definition of Done — met
+
+Full `15_RELEASE_PROCESS.md` checklist; accepted by project owner after browser verification.

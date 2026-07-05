@@ -2,27 +2,38 @@
 
 ## Active objective
 
-Milestones 1–4 are complete and accepted. **Milestone 5 has not been scoped yet** — per the "one milestone at a
-time" rule, it will be scoped in detail before any implementation starts.
+**Milestone 5 (Search)** — implementation complete. Awaiting project-owner browser check and formal acceptance.
+Milestone 6 must not start until Milestone 5 is accepted.
 
-## Milestone 4 — Renderer: accepted
+## Milestone 5 — Search: pending acceptance
 
-Accepted by the project owner, confirmed via a real browser check at `http://localhost:3456` (not just
-`scripts/verify-render.js`) — see `12_DECISIONS.md` DR-005 pattern. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
+Replaced the naive DOM `innerText` scan with `assets/js/search.js` (data-indexed, ranked) and
+`Render.searchResults` (accessible dropdown + keyboard nav).
 
-## Milestone 3 — Data Model: accepted
+**Test plan (authoritative):** `.playbook/17_TESTING_GUIDE.md` → **Milestone test plans → Milestone 5 — Search**
 
-Accepted by the project owner, confirmed via a real browser check. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
+**Quick start for owner:**
 
-## Milestones 1 & 2: accepted
+```bash
+node scripts/verify-search.js
+node scripts/verify-render.js
+```
 
-Both complete and accepted. See `14_ROADMAP.md` and `25_ROADMAP_ARCHIVE.md`.
+Then serve `index.html` over HTTP and run the browser checklist in that section (Adobe, mission, Welcome, keyboard,
+baseline dark mode / print / tab order).
+
+## Milestone 6 — Company Intelligence Database: scoped, not started
+
+Starts only after Milestone 5 is accepted. See `14_ROADMAP.md`.
+
+## Milestones 1–4: accepted
+
+See `14_ROADMAP.md` and `25_ROADMAP_ARCHIVE.md`.
 
 ## Explicitly not started
 
-Milestone 5 (Search) and everything after it. No implementation should begin until Milestone 5 is scoped and
-that scope is reviewed.
+Milestone 6 implementation, Milestones 7–8.
 
 ## Blockers / open questions for the project owner
 
-- None currently open.
+- Milestone 5: run test plan in `17_TESTING_GUIDE.md` and confirm acceptance.

@@ -6,6 +6,19 @@ mark the old one as superseded.
 
 ---
 
+## DR-006 — Milestone 6 verification defaults (25 verified, 100-row cap, pagination 25)
+
+**Date:** Milestone 6 (start)
+**Context:** Milestone 6 open questions (verified minimum, unverified ingest cap, pagination size) were scoped with
+default proposals. The project owner accepted Milestone 5 and directed work to proceed to Milestone 6 without
+explicitly re-stating each default.
+**Decision:** Adopt the scoped defaults: (1) acceptance requires **25 `Status: "Verified"`** companies with
+`Evidence` and `LastVerified`; (2) additional candidates may be ingested as `Status: "Unverified"` up to **100
+total rows** in `data/companies.json`; (3) company table pagination at **25 rows per page**.
+**Trade-off accepted:** Verification work is front-loaded into Milestone 6 and may span multiple sessions; unverified
+rows are visible in search/table but clearly marked and never `usesAEM: true` without evidence.
+**Follow-up:** None open unless the owner overrides any of the three numbers.
+
 ## DR-005 — Accept that local viewing requires a server once Milestone 3 introduces `fetch()`
 
 **Date:** Milestone 3

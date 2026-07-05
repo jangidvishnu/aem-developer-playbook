@@ -4,11 +4,36 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Process — milestone test plans
+
+Release process now requires a published test plan in `17_TESTING_GUIDE.md` (and a link in `19_CURRENT_SPRINT.md`)
+whenever a milestone is pending acceptance; completion messages must include automated commands and browser steps
+(`15_RELEASE_PROCESS.md`, `16_CHECKLISTS.md`, `copilot-instructions.md`).
+
+## Milestone 5 — accepted
+
+Accepted by the project owner after browser verification. Full detail in `25_ROADMAP_ARCHIVE.md`. Milestone 6
+started per `12_DECISIONS.md` DR-006.
+
+## Milestone 5 — Search
+
+### Added
+
+- `assets/js/search.js` — `Search.buildIndex`, `Search.query`, `Search.rank` over chapters, companies, roadmaps,
+  and site hero copy.
+- `Render.searchResults` — accessible results listbox; `Render.search` now wraps input + results container.
+- `scripts/verify-search.js` — five fixed query assertions plus ranking sanity check.
+- `id="hero"` and `id="roadmap"` on rendered sections for search anchors.
+
+### Changed
+
+- `index.html` search wiring uses JSON index (no `innerText` DOM scan); keyboard Arrow/Enter/Escape supported.
+- `data/site.json` search placeholder broadened to "Search playbook…".
+
 ## Milestone 4 — accepted
 
-Accepted by the project owner after a real browser check at `http://localhost:3456` — full detail moved to
-`25_ROADMAP_ARCHIVE.md`; `14_ROADMAP.md` and `19_CURRENT_SPRINT.md` updated accordingly. Milestone 5 has not been
-scoped yet.
+Accepted by the project owner after a real browser check at `http://localhost:3456` — full detail in
+`25_ROADMAP_ARCHIVE.md`.
 
 ## Milestone 4 — Renderer
 

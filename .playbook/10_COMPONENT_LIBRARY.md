@@ -2,13 +2,9 @@
 
 ## Status
 
-This document specifies the rendering contract per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 4, the full
-`Render` namespace lives in `assets/js/render.js` (loaded via `<script src>` — still no build step) and is also
-`require()`'d by `scripts/verify-render.js`. All site-chrome and content render functions listed below are
-**implemented** except `Render.companyCard` (no UI or data source yet — Milestone 6 or later).
-
-`Render.search` is implemented for **header chrome only** in Milestone 4 (the `<input>` markup). Ranked,
-multi-source search results are Milestone 5 — see the `Render.search` row below.
+This document specifies the rendering contract per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 5, the `Render`
+namespace lives in `assets/js/render.js` and ranked search lives in `assets/js/search.js` (both loaded via
+`<script src>` — still no build step). `Render.companyCard` remains planned (Milestone 6 or later).
 
 ## Principle
 
@@ -20,7 +16,8 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 | Function | Input | Responsibility | Status |
 |---|---|---|---|
 | `Render.pageHeader(meta)` | `{ title, versionLabel }` | Header `<h1>` and version line | **Implemented** |
-| `Render.search(config)` | `{ placeholder, ariaLabel }` | Search `<input>` markup only (Milestone 4); ranked results → Milestone 5 | **Implemented** (chrome) |
+| `Render.search(config)` | `{ placeholder, ariaLabel }` | Search input + results panel wrapper | **Implemented** |
+| `Render.searchResults(results, query, activeIndex)` | ranked results array, query string, active index | Accessible results listbox markup | **Implemented** |
 | `Render.sidebar(chapters)` | array of chapter summaries | Table of contents links | **Implemented** |
 | `Render.dashboard(stats)` | `{ title, items[] }` | Sidebar project-status panel | **Implemented** |
 | `Render.hero(content)` | `{ title, body }` | Welcome/intro banner section | **Implemented** |
@@ -45,16 +42,23 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 - **Escaping:** any interpolated value that is plain text or goes into an HTML attribute must be passed through
   `Render.escapeHtml()` first. The one documented exception is a chapter's `body` field, which is intentionally raw
   HTML content (see `09_DATA_MODEL.md`) and must never be escaped.
-- **Module boundary:** all render functions live as methods on the single `Render` object in `assets/js/render.js` —
-  never as additional bare top-level functions/globals.
+- **Module boundary:** render functions live on `Render` in `assets/js/render.js`; search indexing/querying lives
+  on `Search` in `assets/js/search.js` — never as additional bare globals.
+
+## Search module (`assets/js/search.js`)
+
+| Function | Responsibility | Status |
+|---|---|---|
+| `Search.buildIndex(sources)` | Build in-memory index from fetched `data/*.json` | **Implemented** |
+| `Search.query(index, query)` | Return ranked result objects with scores | **Implemented** |
+| `Search.rank(tokens, entry)` | Score one index entry (title > summary/tags > body) | **Implemented** |
 
 ## Current state
 
-`index.html` is a thin shell: it fetches `data/chapters.json`, `data/companies.json`, `data/site.json`, and
-`data/roadmaps.json` in parallel, then calls the matching `Render` methods to populate header, sidebar, main, and
-footer containers. Theme toggle and the naive search filter (`oninput` over `main section` text) remain event wiring
-in `index.html` — not render functions. Chapter/sidebar output is verified against a Milestone 3 golden snapshot
-via `scripts/verify-render.js` (see `17_TESTING_GUIDE.md`).
+`index.html` fetches JSON, builds a search index once via `Search.buildIndex`, and wires input/keyboard events to
+`Search.query` + `Render.searchResults`. Chapter sections filter in-place when chapter results exist; company/roadmap
+matches scroll without hiding unrelated chapters. Verified via `scripts/verify-search.js` and
+`scripts/verify-render.js`.
 
 ## Anti-patterns
 
@@ -71,4 +75,4 @@ via `scripts/verify-render.js` (see `17_TESTING_GUIDE.md`).
 2. ~~**Post-Milestone-2 remediation:** `Render.escapeHtml`, explicit `companies` param, namespace wrapper.~~ Done.
 3. ~~**Milestone 4:** hero, roadmap, dashboard, footer, search chrome, `pageHeader`; move namespace to
    `assets/js/render.js`.~~ Done.
-4. **Milestone 5:** evolve `Render.search` to accept a search index and render ranked results.
+4. ~~**Milestone 5:** `Search` module + `Render.searchResults`; ranked multi-source search.~~ Done.
