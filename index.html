@@ -101,27 +101,6 @@ this file — update .playbook/ and reference it instead.
       let activeIndex = -1;
       let panelOpen = false;
 
-      function chapterSections() {
-        return document.querySelectorAll('main section[id^="ch"]');
-      }
-
-      function showAllChapters() {
-        chapterSections().forEach(s => { s.style.display = ''; });
-      }
-
-      function applyChapterFilter() {
-        const chapterHits = results.filter(r => r.source === 'chapter');
-        if (!chapterHits.length) {
-          showAllChapters();
-          return;
-        }
-        const matched = new Set(chapterHits.map(r => r.chapterIndex));
-        chapterSections().forEach(s => {
-          const idx = parseInt(s.id.replace('ch', ''), 10);
-          s.style.display = matched.has(idx) ? '' : 'none';
-        });
-      }
-
       function updateClearButton() {
         clearBtn.classList.toggle('hidden', !input.value.trim());
       }
@@ -181,7 +160,6 @@ this file — update .playbook/ and reference it instead.
         input.value = '';
         results = [];
         activeIndex = -1;
-        showAllChapters();
         closePanel();
         renderPanel();
         input.focus();
@@ -193,7 +171,6 @@ this file — update .playbook/ and reference it instead.
         if (!q) {
           results = [];
           activeIndex = -1;
-          showAllChapters();
           closePanel();
           renderPanel();
           return;
@@ -201,7 +178,6 @@ this file — update .playbook/ and reference it instead.
         results = Search.query(searchIndex, q);
         activeIndex = results.length ? 0 : -1;
         panelOpen = true;
-        applyChapterFilter();
         renderPanel();
       }
 
@@ -250,6 +226,22 @@ this file — update .playbook/ and reference it instead.
       });
     }
 
+    function wireCompanyPagination(companies) {
+      const container = document.getElementById('company-table-container');
+      if (!container) return;
+      let page = 1;
+      function render() {
+        container.innerHTML = Render.companyTable(companies, { page });
+        container.querySelectorAll('[data-company-page]').forEach(btn => {
+          btn.onclick = () => {
+            page = parseInt(btn.getAttribute('data-company-page'), 10);
+            render();
+          };
+        });
+      }
+      render();
+    }
+
     function wireTheme() {
       const b = document.body;
       document.getElementById('themeToggle').onclick = () => {
@@ -282,6 +274,7 @@ this file — update .playbook/ and reference it instead.
       document.getElementById('site-footer').innerHTML = Render.footer(site.footer);
       const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site });
       wireSearch(searchIndex, chapters);
+      wireCompanyPagination(companies);
       wireTheme();
     }).catch(err => {
       const el = document.getElementById(loadingId);

@@ -38,7 +38,7 @@ Serve `index.html` over HTTP — `file://` will not load `data/*.json` (see `12_
 
 ---
 
-### Milestone 5 — Search (pending acceptance)
+### Milestone 5 — Search (accepted)
 
 **Automated (run from repository root):**
 
@@ -55,9 +55,9 @@ exit code 0.
 1. Open the served site. Confirm the search placeholder reads **Search playbook…**.
 2. Type **`Adobe`** — results panel opens; top result is **Company · Adobe**; other chapters remain visible.
 3. Press **Enter** (or click the result) — page scrolls to **Target Companies**; brief blue highlight on section.
-4. Clear search. Type **`mission`** — **Chapter · Mission** is top result; only matching chapter sections stay
-   visible in `<main>` (others hidden).
-5. Clear search — all chapter sections visible again; results panel hidden.
+4. Clear search. Type **`mission`** — **Chapter · Mission** is top result; **all chapter sections remain visible**
+   in `<main>` (search does not hide page content).
+5. Clear search — results panel hidden; page content unchanged.
 6. Type **`Welcome`** — **Site · Welcome** result; activating scrolls to the hero banner.
 7. Type **`AEM foundation`** — **Roadmap** result for the learning-path panel.
 8. With results open: **Arrow Down** / **Arrow Up** changes the highlighted row; **Enter** activates and
@@ -66,8 +66,33 @@ exit code 0.
 10. Confirm results list follows **page order** (hero → roadmap → chapters top-to-bottom) when multiple sections match.
 11. Re-run baseline checks 2–4 above (dark mode, print, keyboard tab order).
 
-**Sign-off:** Project owner confirms all automated and browser steps pass → Milestone 5 can be marked accepted in
-`14_ROADMAP.md` / `19_CURRENT_SPRINT.md` and committed if not already.
+**Sign-off:** Accepted by project owner (`58644a9`). See `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+### Milestone 6 — Company Intelligence Database (accepted)
+
+**Automated (run from repository root):**
+
+```bash
+node scripts/build-companies-m6.js   # optional — regenerates data/companies.json from seeds
+node scripts/verify-companies.js
+node scripts/verify-search.js
+node scripts/verify-render.js
+```
+
+Expected: schema validation passes with **25+ Verified** companies; search and render scripts exit 0.
+
+**Browser — company table and pagination:**
+
+1. Serve the site over HTTP and open the home page with no console errors.
+2. Scroll to **Target Companies** — table shows **Status** column; **Adobe** and **Cisco** appear as Verified.
+3. With 40+ rows, confirm **pagination** controls appear (25 rows per page); **Next** loads page 2 without full-page reload hang.
+4. Search **`HDFC`** or **`Spark`** — company results appear; activating scrolls to the company table section.
+5. Search **`Philips`** — Verified company with AEM evidence in data.
+6. Re-run baseline smoke checks (dark mode, print preview, keyboard tab to search).
+
+**Sign-off:** Accepted by project owner after browser verification. See `25_ROADMAP_ARCHIVE.md`.
 
 ---
 
@@ -78,8 +103,8 @@ exit code 0.
    `file://` will fail: browsers block `fetch()` against local files, so `data/chapters.json`/`data/companies.json`
    won't load and the error state (`20_ACCESSIBILITY.md`) will show instead — see `12_DECISIONS.md` DR-005.
 2. Toggle dark mode — confirm it persists after a page reload.
-3. Type into the search box — confirm ranked results appear (e.g. "Adobe" → company), chapter sections filter when
-   chapter results match, Arrow/Enter/Escape work, and clearing restores all sections.
+3. Type into the search box — confirm ranked results appear (e.g. "Adobe" → company), all page sections stay
+   visible while typing, Arrow/Enter/Escape work, and clearing closes the results panel.
 4. Use the browser's print preview — confirm the header, sidebar, search box, and theme toggle are hidden, and
    sections don't break awkwardly across page boundaries.
 5. Resize the viewport to a typical mobile width — confirm the layout remains usable (this is a known gap; see

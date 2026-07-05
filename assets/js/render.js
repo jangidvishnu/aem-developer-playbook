@@ -50,25 +50,52 @@ const Render = {
     return `<section id="roadmap" class="bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-2xl font-bold">${Render.escapeHtml(roadmap.title)}</h2><p class="text-slate-500 mt-2 mb-4">${Render.escapeHtml(roadmap.summary)}</p><ol class="list-decimal ml-6 space-y-2">${steps}</ol></section>`;
   },
 
-  companyRow(x) {
-    const search = x.search.startsWith('http')
-      ? `<a class="text-blue-600 underline" target="_blank" href="${Render.escapeHtml(x.search)}">Search</a>`
-      : Render.escapeHtml(x.search);
-    return `<tr class="border-t"><td class="p-2">${Render.escapeHtml(x.priority)}</td><td class="p-2 font-semibold">${Render.escapeHtml(x.company)}</td><td class="p-2">${Render.escapeHtml(x.type)}</td><td class="p-2">${Render.escapeHtml(x.india)}</td><td class="p-2">${Render.escapeHtml(x.aem)}</td><td class="p-2"><a class="text-blue-600 underline" target="_blank" href="${Render.escapeHtml(x.careers)}">Careers</a></td><td class="p-2">${search}</td><td class="p-2">${Render.escapeHtml(x.visa)}</td></tr>`;
+  companyName(x) {
+    return x.name || x.company || '';
   },
 
-  companyTable(companies) {
-    // Renders every row inline. If this grows well beyond today's handful of
-    // companies (the md/ research implies 100+ eventually), revisit
-    // pagination/virtualization before Milestone 6 populates it fully.
-    return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr><th class="p-2">Priority</th><th class="p-2">Company</th><th class="p-2">Type</th><th class="p-2">India</th><th class="p-2">AEM</th><th class="p-2">Careers</th><th class="p-2">AEM Jobs</th><th class="p-2">Visa</th></tr></thead><tbody>${companies.map(Render.companyRow).join('')}</tbody></table></div>`;
+  companyRow(x) {
+    const name = Render.companyName(x);
+    const jobs = String(x.directJobSearch || x.search || 'Unknown');
+    const jobCell = jobs.startsWith('http')
+      ? `<a class="text-blue-600 underline" target="_blank" href="${Render.escapeHtml(jobs)}">Search</a>`
+      : Render.escapeHtml(jobs);
+    const careers = String(x.careersUrl || x.careers || 'Unknown');
+    const careerCell = careers.startsWith('http')
+      ? `<a class="text-blue-600 underline" target="_blank" href="${Render.escapeHtml(careers)}">Careers</a>`
+      : Render.escapeHtml(careers);
+    const aem = x.usesAEM === true ? 'Yes' : (x.aem || 'No');
+    const india = x.indiaPresence != null ? x.indiaPresence : (x.india || 'Unknown');
+    const type = x.companyType || x.type || 'Unknown';
+    const priority = x.priority != null ? x.priority : '';
+    const status = x.Status || 'Unknown';
+    return `<tr class="border-t"><td class="p-2">${Render.escapeHtml(priority)}</td><td class="p-2 font-semibold">${Render.escapeHtml(name)}</td><td class="p-2">${Render.escapeHtml(type)}</td><td class="p-2">${Render.escapeHtml(india)}</td><td class="p-2">${Render.escapeHtml(aem)}</td><td class="p-2">${Render.escapeHtml(status)}</td><td class="p-2">${careerCell}</td><td class="p-2">${jobCell}</td><td class="p-2">${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
+  },
+
+  companyTable(companies, options = {}) {
+    const pageSize = options.pageSize || 25;
+    const page = options.page || 1;
+    const total = companies.length;
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    const safePage = Math.min(Math.max(1, page), totalPages);
+    const slice = companies.slice((safePage - 1) * pageSize, safePage * pageSize);
+    let pagination = '';
+    if (totalPages > 1) {
+      const buttons = [];
+      for (let p = 1; p <= totalPages; p++) {
+        const active = p === safePage ? ' bg-blue-100 font-semibold' : '';
+        buttons.push(`<button type="button" data-company-page="${p}" class="px-2 py-1 border rounded hover:bg-slate-100${active}">${p}</button>`);
+      }
+      pagination = `<nav class="mt-3 flex flex-wrap gap-2 items-center text-sm" aria-label="Company table pages">${buttons.join('')}<span class="text-slate-500 ml-2">${total} companies · page ${safePage} of ${totalPages}</span></nav>`;
+    }
+    return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr><th class="p-2">Priority</th><th class="p-2">Company</th><th class="p-2">Type</th><th class="p-2">India</th><th class="p-2">AEM</th><th class="p-2">Status</th><th class="p-2">Careers</th><th class="p-2">AEM Jobs</th><th class="p-2">Visa</th></tr></thead><tbody>${slice.map(Render.companyRow).join('')}</tbody></table></div>${pagination}`;
   },
 
   chapter(chapter, index, companies) {
     const id = 'ch' + index;
     let body = chapter.body || '';
     if (chapter.companyTable) {
-      body = Render.companyTable(companies);
+      body = `<div id="company-table-container">${Render.companyTable(companies, { page: 1 })}</div>`;
     }
     return `<section id="${id}" class="section bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-3xl font-bold">${Render.escapeHtml(chapter.title)}</h2><div class="text-xs text-slate-500 mt-1">⏱ ${Render.escapeHtml(chapter.reading)} • ${Render.escapeHtml(chapter.tags.join(', '))}</div><p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p>${body}<details class="mt-6"><summary class="cursor-pointer font-semibold">📌 Summary</summary><div class="mt-2 text-slate-600">${Render.escapeHtml(chapter.summary)}</div></details></section>`;
   },

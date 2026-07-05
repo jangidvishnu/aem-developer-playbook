@@ -50,14 +50,14 @@ const Search = {
         source: 'company',
         id: co.id,
         title: name,
-        snippet: [co.type, co.india, co.aem].filter(Boolean).join(' · '),
+        snippet: [co.companyType || co.type, co.indiaPresence || co.india, co.Status, co.industry].filter(Boolean).join(' · '),
         anchor: companyAnchor,
         pageOrder: 1000 + companyChapterIndex + (i + 1) * 0.01,
         fields: {
           title: name.toLowerCase(),
-          summary: [co.type, co.india, co.aem, co.visa].filter(Boolean).join(' ').toLowerCase(),
-          tags: '',
-          body: ''
+          summary: [co.industry, co.companyType, co.Status, co.Notes].filter(Boolean).join(' ').toLowerCase(),
+          tags: (co.TypicalRoles || []).join(' ').toLowerCase(),
+          body: [co.usesAEM ? 'aem' : '', co.AEMVersion, co.MigrationStatus].filter(v => v && v !== 'Unknown').join(' ').toLowerCase()
         }
       });
     });

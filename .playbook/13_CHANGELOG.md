@@ -10,6 +10,26 @@ Release process now requires a published test plan in `17_TESTING_GUIDE.md` (and
 whenever a milestone is pending acceptance; completion messages must include automated commands and browser steps
 (`15_RELEASE_PROCESS.md`, `16_CHECKLISTS.md`, `copilot-instructions.md`).
 
+## Milestone 6 — accepted
+
+Accepted by the project owner after browser verification. Full detail in `25_ROADMAP_ARCHIVE.md`.
+
+## Milestone 6 — Company Intelligence Database
+
+### Added
+
+- `scripts/company-schema.js`, `scripts/company-verified-records.js`, `scripts/build-companies-m6.js`,
+  `scripts/verify-companies.js`, `scripts/ingest-company-candidates.js` (stdout manifest only).
+- 25 `Status: "Verified"` companies in `data/companies.json` with Tier-2 Adobe case-study `Evidence` URLs (DR-006).
+- Client-side company-table pagination (25 rows/page) and Status column in `Render.companyTable`.
+
+### Changed
+
+- `data/companies.json` migrated to `11_COMPANY_SCHEMA.md` shape (46 records total).
+- `assets/js/search.js` indexes `name`, `industry`, `Status`, `Notes`, `TypicalRoles`.
+- `scripts/milestone-3-render-golden.json` updated after intentional company-table markup change.
+- Milestone 6 test plan in `17_TESTING_GUIDE.md`; search no longer hides chapter sections while typing.
+
 ## Milestone 5 — accepted
 
 Accepted by the project owner after browser verification. Full detail in `25_ROADMAP_ARCHIVE.md`. Milestone 6

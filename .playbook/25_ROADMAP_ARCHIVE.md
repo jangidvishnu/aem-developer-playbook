@@ -276,3 +276,34 @@ Automated: `node scripts/verify-search.js`, `node scripts/verify-render.js`. Bro
 ### Definition of Done — met
 
 Full `15_RELEASE_PROCESS.md` checklist; accepted by project owner after browser verification.
+
+## Milestone 6 — Company Intelligence Database (complete, accepted)
+
+### Goal
+
+Migrate `data/companies.json` onto `11_COMPANY_SCHEMA.md`, verify companies from `md/deep-research-report*.md` per
+`07_RESEARCH_GUIDE.md`, and scale the company table for 100+ rows.
+
+### Scope (in) — all delivered
+
+- 46 records in `data/companies.json`: **25 Verified** (Adobe case-study `Evidence`, DR-006), 2 Needs review, 19
+  Tier-1 Unverified.
+- `Render.companyTable` / `companyRow` schema fields, Status column, client-side pagination (25/page).
+- `scripts/company-schema.js`, `company-verified-records.js`, `build-companies-m6.js`, `verify-companies.js`,
+  `ingest-company-candidates.js` (stdout manifest).
+- `Search.buildIndex` indexes `name`, `industry`, `Status`, `Notes`, `TypicalRoles`.
+- Render golden snapshot updated; search UX fix — page sections stay visible while typing.
+
+### Acceptance criteria — all passed
+
+1.–8. Per `14_ROADMAP.md` (`verify-companies.js`, `verify-search.js`, `verify-render.js`, owner browser check).
+
+### Test plan
+
+Automated: `node scripts/verify-companies.js`, `verify-search.js`, `verify-render.js`. Browser: see
+`17_TESTING_GUIDE.md` → Milestone 6 (owner confirmed).
+
+### Owner decisions (pre-implementation)
+
+Resolved in `12_DECISIONS.md` DR-006: 25 Verified minimum, 100-row cap, 25 rows/page pagination.
+

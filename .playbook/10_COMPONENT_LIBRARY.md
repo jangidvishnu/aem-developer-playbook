@@ -56,8 +56,8 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 ## Current state
 
 `index.html` fetches JSON, builds a search index once via `Search.buildIndex`, and wires input/keyboard events to
-`Search.query` + `Render.searchResults`. Chapter sections filter in-place when chapter results exist; company/roadmap
-matches scroll without hiding unrelated chapters. Verified via `scripts/verify-search.js` and
+`Search.query` + `Render.searchResults`. Page sections stay visible while searching; activating a result scrolls to
+the target. Verified via `scripts/verify-search.js` and
 `scripts/verify-render.js`.
 
 ## Anti-patterns
