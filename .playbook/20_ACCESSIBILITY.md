@@ -68,6 +68,23 @@ Manual: keyboard-only pass and a screen-reader spot-check (e.g. VoiceOver/NVDA) 
 - Placeholder text used as a label substitute for form inputs.
 - Emoji or icon-only buttons without an accessible name.
 
+## Accessibility Review — Milestone 3 (Data Model)
+
+Milestone 3 introduces an async gap between page load and content appearing (waiting on `fetch()`), which didn't
+exist when content was inline. This is a new accessibility surface, not a pre-existing one:
+
+- **Loading state is announced.** `<p id="data-loading" role="status">Loading content…</p>` is inserted before the
+  fetch starts. `role="status"` carries an implicit `aria-live="polite"` and `aria-atomic="true"`, so screen readers
+  announce it without needing an explicit `aria-live` attribute. It's removed once content renders.
+- **Errors are announced more urgently.** If the fetch fails (e.g. `index.html` was opened via `file://` instead of
+  served — see `12_DECISIONS.md` DR-005), the same element's `role` is switched to `alert` (implicit
+  `aria-live="assertive"`) and its text explains the likely cause and points to `17_TESTING_GUIDE.md`.
+- **Keyboard users on a slow connection:** tabbing into the page before data arrives will skip past an empty
+  sidebar/main to the theme toggle/search box (both still present immediately) — this is a normal, acceptable
+  characteristic of async-loaded content and not treated as a regression; the loading announcement covers the
+  screen-reader case, which is the more significant risk.
+- **No heading-order or landmark changes** — the structure once rendered is identical to before Milestone 3.
+
 ## Backlog (remaining)
 
 - `aria-live` region for search result count changes — tracked for Milestone 5 (Search), since it depends on the

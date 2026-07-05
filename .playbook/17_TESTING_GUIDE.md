@@ -18,7 +18,10 @@ move into standalone modules under `assets/js/` (planned for Milestone 4 — see
 
 ## Manual smoke test (run before any release, and after any structural change)
 
-1. Open `index.html` directly in a browser (double-click, no server) — confirm it renders with no console errors.
+1. **Serve the site over HTTP** (e.g. `npx serve`, `python -m http.server`, or an editor's Live Preview) and open
+   `index.html` — confirm it renders with no console errors. As of Milestone 3, opening the file directly via
+   `file://` will fail: browsers block `fetch()` against local files, so `data/chapters.json`/`data/companies.json`
+   won't load and the error state (`20_ACCESSIBILITY.md`) will show instead — see `12_DECISIONS.md` DR-005.
 2. Toggle dark mode — confirm it persists after a page reload.
 3. Type into the search box — confirm sections filter as expected and un-filter when cleared.
 4. Use the browser's print preview — confirm the header, sidebar, search box, and theme toggle are hidden, and

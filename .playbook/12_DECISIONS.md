@@ -6,6 +6,24 @@ mark the old one as superseded.
 
 ---
 
+## DR-005 — Accept that local viewing requires a server once Milestone 3 introduces `fetch()`
+
+**Date:** Milestone 3
+**Context:** Milestone 3 moves `PLAYBOOK.chapters`/`PLAYBOOK.companies` into `data/*.json`, fetched via
+`fetch()` at load time. Browsers block `fetch()` against `file://` URLs under their default CORS policy, which
+means `index.html` can no longer be viewed by double-clicking it locally — it must be served over HTTP (any static
+server: `npx serve`, `python -m http.server`, the VS Code/Cursor Live Preview extension already configured in this
+repo's `.vscode/settings.json`, etc.). This changes a workflow that has been true since the project's first commit.
+**Decision:** Accept the trade-off rather than avoid it (e.g. via a `data/chapters.js` global-variable wrapper
+instead of `.json` + `fetch()`), because `MASTER_BOOTSTRAP_PROMPT.md` explicitly mandates JSON as the primary data
+source, and because the deployed site (GitHub Pages) is entirely unaffected — this only changes local development,
+not production. `17_TESTING_GUIDE.md`'s smoke test is updated accordingly.
+**Trade-off accepted:** Contributors must run one command (or use an editor's built-in live-preview feature) before
+viewing local changes, instead of double-clicking `index.html`. In exchange, the data layer conforms to the
+constitution's explicit JSON mandate and unlocks the same `fetch()`-based pattern for every future data file
+(`technologies.json`, `roadmaps.json`, etc. in later milestones).
+**Follow-up:** None open. Flagged to and accepted by the project owner before implementation began.
+
 ## DR-004 — Restructure `.playbook/` for AI token efficiency: merge core docs, archive roadmap history, add Cursor rules
 
 **Date:** Post-Milestone-2

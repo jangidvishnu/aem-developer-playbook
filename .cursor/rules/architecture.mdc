@@ -11,9 +11,10 @@ Full detail: `.playbook/03_ARCHITECTURE.md`, `.playbook/09_DATA_MODEL.md`.
 - Target shape: `data/*.json` (structured content) → `Render` namespace (in `assets/js/render.js` once it moves
   there in Milestone 4) → `index.html` (thin shell, `fetch()` + markup skeleton only).
 - Renderer reads data; UI never owns data. Data and presentation stay separable at every layer.
-- `PLAYBOOK.chapters`/`PLAYBOOK.companies` are still inline in `index.html` as of Milestone 2 — moving them to
-  `data/*.json` is Milestone 3's job specifically. Don't do both a rendering change and a data-location change in
-  the same milestone.
+- As of Milestone 3, content lives in `data/chapters.json` and `data/companies.json`, fetched at load. `index.html`
+  must be served over HTTP for local testing (`fetch()` against `file://` is blocked by CORS — see `12_DECISIONS.md`
+  DR-005); it is never double-clicked directly anymore.
 - Every `data/*.json` file has a stable `id` per record, unknown fields explicitly `null`/`"Unknown"` (never
   omitted), and dates as ISO 8601 strings.
-- No build step — the site must run by opening `index.html` directly or serving static files as-is.
+- No build step — no bundler/transpiler required; the site is still plain static files, just served rather than
+  opened directly.

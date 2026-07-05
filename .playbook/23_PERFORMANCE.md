@@ -10,9 +10,8 @@ experience. Do not trade any of those away for a performance micro-optimization.
 
 - Single HTML file, Tailwind loaded from CDN (a full utility-class engine compiled at runtime in-browser — heavier
   than a purged/precompiled Tailwind build, but consistent with the "no build step" constraint).
-- All content (small today) is inline in the JS bundle-equivalent (the `<script>` block), so there's no additional
-  network request for content — this will change once `data/*.json` fetches are introduced (Milestone 3), trading
-  a larger inline payload for smaller, cacheable, incremental requests.
+- As of Milestone 3, content is fetched from `data/chapters.json` and `data/companies.json` in parallel rather than
+  inlined — see the Milestone 3 review below for the specific trade-off this introduces.
 - Search is a synchronous DOM scan (`innerText.includes()`) — fine at current content volume, will not scale
   past a few dozen sections without becoming noticeably slow (tracked for Milestone 5).
 
@@ -42,6 +41,31 @@ Measured directly against the file, since no deployed instance or browser profil
 **Verdict:** no performance regression from Milestone 2 or its remediation; one real algorithmic improvement
 (`+=` → `.map().join()`); the dominant cost (Tailwind CDN, ~un-optimized by design) is unchanged and explicitly
 accepted per the no-build-step constraint.
+
+## Performance review — Milestone 3 (Data Model)
+
+Measured directly against the files:
+
+- **`index.html` shrank:** 10,455 → 8,330 bytes, since content moved out into `data/*.json`.
+- **Two new requests added:** `data/chapters.json` (2,585 bytes) and `data/companies.json` (1,026 bytes), fetched
+  in parallel via `Promise.all`. Combined payload across all three files (11,941 bytes) is marginally larger than
+  the old single-file total (10,455 bytes) due to JSON syntax overhead — negligible in absolute terms at this
+  content volume, but worth knowing this trade doesn't shrink total bytes, it trades a single larger inline
+  payload for smaller, independently-cacheable, independently-editable files.
+- **Real, honest trade-off: slower time-to-first-content.** Inline data rendered synchronously the instant the
+  script ran — no network round trip. Fetched data now requires: HTML parse → script execute → two parallel HTTP
+  requests → JSON parse → render. On any reasonable connection this is small in absolute terms (kilobyte-sized
+  local files), but it is objectively slower than before, and worth stating plainly rather than glossing over. This
+  is accepted because the project's own priority order (`MASTER_BOOTSTRAP_PROMPT.md`) ranks Maintainability and
+  Scalability above Performance — this change serves both of the former at a small, honest cost to the latter.
+- **User-visible mitigation:** the loading state (`20_ACCESSIBILITY.md`) means the delay is never a blank,
+  unexplained pause — there's always something rendered immediately (header, hero, loading message).
+- **Fetches run in parallel, not sequentially** (`Promise.all`, not two chained `.then()`s) — avoids doubling the
+  network wait unnecessarily.
+
+**Verdict:** a small, deliberate, honestly-documented performance cost in exchange for real maintainability and
+scalability gains (data now editable independent of code, cacheable independent of markup). No regression beyond
+what's inherent to the fetch-based architecture the constitution mandates.
 
 ## Budgets (targets, to be measured once tooling exists)
 

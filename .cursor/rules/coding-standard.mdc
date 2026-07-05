@@ -14,9 +14,10 @@ Full detail: `.playbook/04_CODING_STANDARD.md`, `.playbook/10_COMPONENT_LIBRARY.
   top-level `function` declarations.
 - Every interpolated text/attribute value must go through `Render.escapeHtml()` first, except a chapter's `body`
   field, which is intentionally raw HTML and must never be escaped.
-- Render functions are pure: read their arguments, return markup, never `fetch()` and never reach into `PLAYBOOK`
-  directly if the data could instead be passed as a parameter.
+- Render functions are pure: read their arguments, return markup, never `fetch()` and never reach into outer-scope
+  state directly if the data could instead be passed as a parameter.
 - Whenever `Render`'s methods change, keep `scripts/verify-render.js`'s `runCurrent()` in sync and run
   `node scripts/verify-render.js` to confirm the output diff is exactly what you intended (see
   `.playbook/17_TESTING_GUIDE.md`).
-- No content hardcoded in JS that belongs in `data/*.json` (once Milestone 3 lands).
+- No content hardcoded in JS — as of Milestone 3, all content lives in `data/*.json`, fetched at load. Adding new
+  content means editing a `data/*.json` file, never `index.html`.

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "adobe",
+    "priority": "★★★★★",
+    "company": "Adobe",
+    "type": "Product",
+    "india": "Yes",
+    "aem": "Owner",
+    "careers": "https://careers.adobe.com/",
+    "search": "https://careers.adobe.com/us/en/search-results?keywords=AEM",
+    "visa": "Yes"
+  },
+  {
+    "id": "workday",
+    "priority": "★★★★★",
+    "company": "Workday",
+    "type": "Product",
+    "india": "Yes",
+    "aem": "Public",
+    "careers": "https://workday.wd5.myworkdayjobs.com/Workday",
+    "search": "Search AEM",
+    "visa": "Limited"
+  },
+  {
+    "id": "servicenow",
+    "priority": "★★★★★",
+    "company": "ServiceNow",
+    "type": "Product",
+    "india": "Yes",
+    "aem": "Public",
+    "careers": "https://careers.servicenow.com/",
+    "search": "Search AEM",
+    "visa": "Limited"
+  },
+  {
+    "id": "cisco",
+    "priority": "★★★★★",
+    "company": "Cisco",
+    "type": "Product",
+    "india": "Yes",
+    "aem": "Public",
+    "careers": "https://jobs.cisco.com/",
+    "search": "Search AEM",
+    "visa": "Limited"
+  }
+]

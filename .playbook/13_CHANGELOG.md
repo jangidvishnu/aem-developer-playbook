@@ -4,7 +4,51 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
-## `.playbook/` restructuring for AI token efficiency (this entry)
+## Milestone 3 — Data Model (this entry)
+
+The first milestone run under the full `15_RELEASE_PROCESS.md` checklist from the start (Architecture,
+Documentation, Accessibility, and Performance reviews, not retrofitted afterward).
+
+### Added
+
+- `data/chapters.json` and `data/companies.json` — content previously hardcoded in `index.html`, now fetched at
+  load. Includes a stable `id` per record (foundational, added ahead of full schema conformance).
+- A loading state (`role="status"`) and error state (`role="alert"`) in `index.html` for the new async data-fetch
+  gap.
+- `12_DECISIONS.md` DR-005, recording the `fetch()`/CORS trade-off (local viewing now requires a server) — flagged
+  to and accepted by the project owner before implementation began.
+
+### Changed
+
+- `index.html` no longer contains any hardcoded content data — only markup, styling, and the `Render` rendering
+  logic. Satisfies `01_AI_CONSTITUTION.md`'s "never hardcode content" rule in full for the first time.
+- `scripts/verify-render.js` now reads the real `data/*.json` files from disk instead of a hardcoded copy, so it
+  proves those files are correct, not just that a copy of them is self-consistent.
+- `17_TESTING_GUIDE.md`'s smoke test now requires serving `index.html` over HTTP rather than opening it directly.
+- `03_ARCHITECTURE.md`, `09_DATA_MODEL.md`, `.cursor/rules/architecture.mdc` updated to reflect the new data flow.
+
+### Reviewed
+
+- **Accessibility:** loading/error states are screen-reader announced via implicit ARIA live regions
+  (`role="status"` / `role="alert"`); no heading-order or landmark changes.
+- **Performance:** `index.html` shrank 10,455 → 8,330 bytes; two new parallel requests added
+  (`chapters.json` 2,585 bytes, `companies.json` 1,026 bytes). Honestly documents a small time-to-first-content
+  cost from the fetch round-trip, accepted per the project's priority order (Maintainability/Scalability rank
+  above Performance).
+
+### Verified
+
+- `node scripts/verify-render.js`: output identical to the pre-Milestone-1 baseline except the already-known
+  Milestone 2 dark-mode fix — confirms the JSON data is a byte-faithful transcription and the new `id` fields
+  don't leak into rendered markup.
+
+### Deliberately not done (see `09_DATA_MODEL.md`)
+
+- Full ~40-field company schema conformance and full chapter schema fields (`slug`, `difficulty`, `references`,
+  `relatedChapters`, `lastUpdated`) — deferred to whichever milestone next adds real content to these files
+  (Milestone 6 for companies), so schema expansion and real data entry happen together.
+
+## `.playbook/` restructuring for AI token efficiency
 
 ### Changed
 

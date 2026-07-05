@@ -2,53 +2,48 @@
 
 ## Active objective
 
-Two things happened since Milestone 2's remediation: (1) it was committed, and (2) `.playbook/` was restructured
-for AI token efficiency — see `12_DECISIONS.md` DR-004. **Do not start Milestone 3** until Milestone 2 is
-explicitly reviewed and accepted by the project owner.
+Milestone 3 (Data Model) is implemented and fully reviewed under the complete `15_RELEASE_PROCESS.md` checklist —
+the first milestone to follow it from the start rather than retrofitting it afterward. **Do not start Milestone 4**
+until this is explicitly reviewed and accepted by the project owner.
 
-## `.playbook/` restructuring (this entry) — complete
+## Milestone 3 — Data Model: status
 
-- [x] Merged `00_PROJECT_OVERVIEW.md` + `01_AI_CONSTITUTION.md` + `02_PROJECT_MEMORY.md` into one file
-      (`00_PROJECT_OVERVIEW.md`); the latter two are now short pointer stubs, not deleted
-- [x] Archived Milestones 1–2's full historical detail out of `14_ROADMAP.md` into `25_ROADMAP_ARCHIVE.md`
-- [x] Added `.cursor/rules/` (2 always-on rules + 4 glob-scoped rules) so Cursor sessions get relevant context
-      automatically instead of a manual "read these 7 files" instruction
-- [x] Updated `.github/copilot-instructions.md` to match
-- [x] Recorded `12_DECISIONS.md` DR-004
+**Implemented, fully reviewed, pending final acceptance.**
 
-## Milestone 1 — Repository Foundation: status
+- [x] `data/chapters.json` and `data/companies.json` created — faithful transcription of the former inline
+      `PLAYBOOK` object, plus a stable `id` per record (not full schema conformance — deliberately deferred, see
+      `09_DATA_MODEL.md`)
+- [x] `index.html` now contains zero content data — fetches both files in parallel via `Promise.all` and passes
+      results into the unchanged `Render` functions
+- [x] Loading state added (`role="status"`, screen-reader announced) and error state (`role="alert"`) for the
+      `file://`/CORS failure case
+- [x] `scripts/verify-render.js` rewritten to read the real `data/*.json` files from disk (not a hardcoded copy),
+      proving they're a faithful transcription — confirmed the only diff from the pre-Milestone-1 baseline is the
+      already-known Milestone 2 accessibility fix; the new `id` fields don't leak into rendered output
+      (byte-verified)
+- [x] Architecture Review, Accessibility Review, and Performance Review all completed (`03_ARCHITECTURE.md`,
+      `20_ACCESSIBILITY.md`, `23_PERFORMANCE.md`) — Performance Review honestly documents a small, deliberate
+      time-to-first-content cost in exchange for maintainability/scalability gains
+- [x] `17_TESTING_GUIDE.md` updated: smoke test now requires a local server, not a direct `file://` open
+- [x] `12_DECISIONS.md` DR-005 records the `fetch()`/CORS trade-off, flagged to and accepted by the project owner
+      before implementation began
+- [ ] Presented for review — **do not start Milestone 4 until this is explicitly accepted**
 
-**Implemented, all review follow-ups resolved.** Both blocking items from the Lead-Architect PR review are closed:
-content-preservation gap (archived into `00_PROJECT_OVERVIEW.md`, Part 3) and stale status docs (fixed earlier).
+## Milestone 1 & 2: status
 
-## Milestone 2 — Render Function Extraction: status
-
-**Implemented, remediated, fully reviewed.**
-
-- [x] `Render.sidebar`, `Render.chapter`, `Render.companyTable`, `Render.companyRow` implemented as methods on a
-      single namespace (not bare globals)
-- [x] All 12 items from the pre-Milestone-2 technical debt report resolved (see `14_ROADMAP.md`'s debt table)
-- [x] `Render.chapter` now receives `companies` as an explicit parameter (fixes the `PLAYBOOK.companies` coupling)
-- [x] `Render.escapeHtml()` added and applied to every interpolated text/attribute value (chapter `body` correctly
-      left unescaped, since it's intentionally raw HTML)
-- [x] `scripts/verify-render.js` committed — reusable regression check, not a throwaway
-- [x] Accessibility Review completed (`20_ACCESSIBILITY.md`) — fixed `aria-label`s, a skip link, and a
-      newly-discovered Critical dark-mode contrast bug across the header, sidebar, and every chapter card
-- [x] Performance Review completed (`23_PERFORMANCE.md`) — no regression; one real algorithmic improvement
-- [x] All fixes verified byte-identical (or precisely, intentionally different by only the documented amount)
-      against the pre-Milestone-1 rendering baseline via `node scripts/verify-render.js`
-- [ ] Presented for review — **do not start Milestone 3 until this is explicitly accepted**
+Both complete, fully reviewed, and committed. See `14_ROADMAP.md` and `25_ROADMAP_ARCHIVE.md` for full detail.
 
 ## Explicitly not started
 
-Milestone 3 and everything after it.
+Milestone 4 and everything after it.
 
 ## Blockers / open questions for the project owner
 
 - Was another agent session or IDE window open against this same working directory during the Milestone 1
-  investigation? Still unresolved (informational only at this point — no further symptoms observed since).
-- The dark-mode contrast bug fix changed `Render.chapter`'s output (added one CSS class per chapter section) and
-  the static header/sidebar markup (added a skip link, `aria-label`s, and color classes). This is a visible-in-code
-  but not visible-in-light-mode change — dark mode itself now looks meaningfully different (readable) where it was
-  previously broken (illegible). Flagging explicitly since "no visual change" no longer strictly holds for dark
-  mode, even though it was never usable there before.
+  investigation? Still unresolved (informational only — no further symptoms observed since).
+- **Local viewing now requires a server.** Double-clicking `index.html` will show the error state, not the site —
+  this is expected per `12_DECISIONS.md` DR-005, not a bug. Use `npx serve`, `python -m http.server`, or an
+  editor's Live Preview feature.
+- A real, in-browser manual smoke test (per the updated `17_TESTING_GUIDE.md`) has not yet been performed by a
+  human — everything so far has been verified programmatically (`scripts/verify-render.js`) or by careful code
+  reading. Recommended before treating Milestone 3 as fully accepted.

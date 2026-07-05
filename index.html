@@ -96,31 +96,15 @@ this file — update .playbook/ and reference it instead.
     </main>
   </div>
   <script>
-    const PLAYBOOK = {
-      chapters: [
-        { title: "Mission", summary: "Purpose and principles.", reading: "2 min", tags: ["Governance"], body: `<div class='callout bg-blue-50 p-4 rounded'><p><strong>Mission</strong><br>Create the definitive career guide for Enterprise Digital Experience Engineers.</p></div><ul class='list-disc ml-6 mt-4'><li>Evidence over assumptions</li><li>Long-term value</li><li>Publication quality</li><li>Continuous improvement</li></ul>` },
-        { title: "Career Strategy", summary: "Long-term direction.", reading: "4 min", tags: ["Career"], body: `<ul class='list-disc ml-6'><li>Target Product Companies and GCCs.</li><li>Build modern AEM, Java and Cloud expertise.</li><li>Optimize personal branding before applications.</li></ul>` },
-        { title: "Professional Branding", summary: "Positioning.", reading: "2 min", tags: ["Branding"], body: `Position yourself as an <strong>Enterprise Digital Experience Engineer</strong> rather than only an AEM Developer.` },
-        { title: "Core Skills", summary: "Priority technologies.", reading: "3 min", tags: ["Skills"], body: `AEM • AEM Sites • AEMaaCS • Java • Dispatcher • Sling • OSGi • HTL • Core Components • Spring Boot • React` },
-        { title: "Learning Roadmap", summary: "Immediate priorities.", reading: "5 min", tags: ["Learning"], body: `<ol class='list-decimal ml-6'><li>Edge Delivery Services</li><li>Universal Editor</li><li>GraphQL</li><li>Advanced Content Fragments</li><li>Adobe Experience Platform</li></ol>` },
-        { title: "Target Companies", summary: "Priority employers.", reading: "8 min", tags: ["Companies"], companyTable: true },
-        { title: "Career Command Center", summary: "Planned modules.", reading: "3 min", tags: ["Planning"], body: `<ul class='list-disc ml-6'><li>Master Company Database</li><li>Recruiter CRM</li><li>Application Tracker</li><li>Interview Tracker</li><li>Learning Tracker</li><li>Decision Log</li></ul>` },
-        { title: "Living Roadmap", summary: "Future work.", reading: "2 min", tags: ["Roadmap"], body: `This handbook will expand into interviews, salary, visa opportunities, Adobe Partners, templates and references.` }
-      ],
-      companies: [
-        { priority: "★★★★★", company: "Adobe", type: "Product", india: "Yes", aem: "Owner", careers: "https://careers.adobe.com/", search: "https://careers.adobe.com/us/en/search-results?keywords=AEM", visa: "Yes" },
-        { priority: "★★★★★", company: "Workday", type: "Product", india: "Yes", aem: "Public", careers: "https://workday.wd5.myworkdayjobs.com/Workday", search: "Search AEM", visa: "Limited" },
-        { priority: "★★★★★", company: "ServiceNow", type: "Product", india: "Yes", aem: "Public", careers: "https://careers.servicenow.com/", search: "Search AEM", visa: "Limited" },
-        { priority: "★★★★★", company: "Cisco", type: "Product", india: "Yes", aem: "Public", careers: "https://jobs.cisco.com/", search: "Search AEM", visa: "Limited" }
-      ]
-    };
-
+    // Content data lives in data/chapters.json and data/companies.json (Milestone 3 —
+    // see 12_DECISIONS.md DR-005). Fetching local files requires a server; opening this
+    // file directly via file:// will trigger the error state below (see 17_TESTING_GUIDE.md).
     const toc = document.getElementById('toc');
     const main = document.getElementById('main');
 
     // Render: single namespace for all render functions (see 10_COMPONENT_LIBRARY.md).
     // Every function is pure: it reads its arguments and returns a markup string; it
-    // never fetches data or reaches into PLAYBOOK on its own.
+    // never fetches data or reaches into outer-scope state on its own.
     const Render = {
       escapeHtml(value) {
         return String(value).replace(/[&<>"']/g, ch => ({
@@ -158,8 +142,23 @@ this file — update .playbook/ and reference it instead.
       }
     };
 
-    toc.innerHTML = Render.sidebar(PLAYBOOK.chapters);
-    main.innerHTML += PLAYBOOK.chapters.map((c, i) => Render.chapter(c, i, PLAYBOOK.companies)).join('');
+    const loadingId = 'data-loading';
+    main.innerHTML += `<p id="${loadingId}" class="text-slate-500 p-4" role="status">Loading content…</p>`;
+
+    Promise.all([
+      fetch('data/chapters.json').then(r => r.json()),
+      fetch('data/companies.json').then(r => r.json())
+    ]).then(([chapters, companies]) => {
+      document.getElementById(loadingId).remove();
+      toc.innerHTML = Render.sidebar(chapters);
+      main.innerHTML += chapters.map((c, i) => Render.chapter(c, i, companies)).join('');
+    }).catch(err => {
+      const el = document.getElementById(loadingId);
+      el.setAttribute('role', 'alert');
+      el.textContent = 'Failed to load content. If you opened this file directly (file://), serve it from a local server instead — see .playbook/17_TESTING_GUIDE.md.';
+      console.error(err);
+    });
+
     document.getElementById('search').oninput = e => {
       const q = e.target.value.toLowerCase();
       document.querySelectorAll('main section').forEach(s => s.style.display = s.innerText.toLowerCase().includes(q) ? 'block' : 'none');

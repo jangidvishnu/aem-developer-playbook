@@ -1,0 +1,66 @@
+[
+  {
+    "id": "mission",
+    "title": "Mission",
+    "summary": "Purpose and principles.",
+    "reading": "2 min",
+    "tags": ["Governance"],
+    "body": "<div class='callout bg-blue-50 p-4 rounded'><p><strong>Mission</strong><br>Create the definitive career guide for Enterprise Digital Experience Engineers.</p></div><ul class='list-disc ml-6 mt-4'><li>Evidence over assumptions</li><li>Long-term value</li><li>Publication quality</li><li>Continuous improvement</li></ul>"
+  },
+  {
+    "id": "career-strategy",
+    "title": "Career Strategy",
+    "summary": "Long-term direction.",
+    "reading": "4 min",
+    "tags": ["Career"],
+    "body": "<ul class='list-disc ml-6'><li>Target Product Companies and GCCs.</li><li>Build modern AEM, Java and Cloud expertise.</li><li>Optimize personal branding before applications.</li></ul>"
+  },
+  {
+    "id": "professional-branding",
+    "title": "Professional Branding",
+    "summary": "Positioning.",
+    "reading": "2 min",
+    "tags": ["Branding"],
+    "body": "Position yourself as an <strong>Enterprise Digital Experience Engineer</strong> rather than only an AEM Developer."
+  },
+  {
+    "id": "core-skills",
+    "title": "Core Skills",
+    "summary": "Priority technologies.",
+    "reading": "3 min",
+    "tags": ["Skills"],
+    "body": "AEM • AEM Sites • AEMaaCS • Java • Dispatcher • Sling • OSGi • HTL • Core Components • Spring Boot • React"
+  },
+  {
+    "id": "learning-roadmap",
+    "title": "Learning Roadmap",
+    "summary": "Immediate priorities.",
+    "reading": "5 min",
+    "tags": ["Learning"],
+    "body": "<ol class='list-decimal ml-6'><li>Edge Delivery Services</li><li>Universal Editor</li><li>GraphQL</li><li>Advanced Content Fragments</li><li>Adobe Experience Platform</li></ol>"
+  },
+  {
+    "id": "target-companies",
+    "title": "Target Companies",
+    "summary": "Priority employers.",
+    "reading": "8 min",
+    "tags": ["Companies"],
+    "companyTable": true
+  },
+  {
+    "id": "career-command-center",
+    "title": "Career Command Center",
+    "summary": "Planned modules.",
+    "reading": "3 min",
+    "tags": ["Planning"],
+    "body": "<ul class='list-disc ml-6'><li>Master Company Database</li><li>Recruiter CRM</li><li>Application Tracker</li><li>Interview Tracker</li><li>Learning Tracker</li><li>Decision Log</li></ul>"
+  },
+  {
+    "id": "living-roadmap",
+    "title": "Living Roadmap",
+    "summary": "Future work.",
+    "reading": "2 min",
+    "tags": ["Roadmap"],
+    "body": "This handbook will expand into interviews, salary, visa opportunities, Adobe Partners, templates and references."
+  }
+]

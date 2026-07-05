@@ -2,10 +2,13 @@
 
 ## Status
 
-This document specifies the **target** data model per `MASTER_BOOTSTRAP_PROMPT.md`. None of the `data/*.json` files
-exist yet — they are created in Milestone 3. `index.html` currently hardcodes an early, partial version of the
-chapter and company shapes directly in JavaScript; those in-code shapes should converge toward this spec when
-extracted.
+This document specifies the **target** data model per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 3,
+`data/chapters.json` and `data/companies.json` exist and are fetched by `index.html`, but deliberately do **not**
+yet conform to the full field sets below — they're a faithful, as-is migration of the previous inline data (plus a
+stable `id` per record, added because it's foundational rather than research-dependent). Fabricating ~30 "Unknown"
+company fields now, only to overwrite them with real data in Milestone 6, would mean touching the same file twice
+for no benefit — full schema conformance happens together with real data population in Milestone 6. See
+`12_DECISIONS.md` and `14_ROADMAP.md`'s Milestone 3 scope for the reasoning.
 
 ## Principle
 
@@ -66,8 +69,11 @@ headquarters), AEM/Adobe-stack fields (usesAEM, AEMVersion, AEMaaCS, EdgeDeliver
 Renderer functions (`10_COMPONENT_LIBRARY.md`) take a data object or array in this shape and return/inject markup.
 They must not fetch data themselves and must not mutate the input.
 
-## Migration note (Milestone 3)
+## Migration note — Milestone 3, completed with a deliberate scope limit
 
-When `PLAYBOOK.chapters` and `PLAYBOOK.companies` are extracted from `index.html` into these JSON files, field names
-should be normalized to match this schema exactly, even where the current inline object uses shorthand (e.g.
-today's `reading` field becomes `readingTime`).
+`PLAYBOOK.chapters` and `PLAYBOOK.companies` were extracted from `index.html` into `data/chapters.json` and
+`data/companies.json` in Milestone 3, but field names were **not** normalized to this schema yet (e.g. `reading`
+was kept as-is rather than renamed to `readingTime`, and `slug`/`difficulty`/`references`/`relatedChapters`/
+`lastUpdated` were not added). Full normalization is deferred to whichever milestone next touches this data with
+real content (`06_EDITOR_GUIDE.md`/Milestone 7 for chapters, Milestone 6 for companies), so field renames and real
+content additions happen together rather than as two separate touches of the same file.
