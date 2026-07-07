@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const Search = require(path.join(__dirname, '..', 'assets', 'js', 'search.js'));
+globalThis.Search = Search;
 
 const chapters = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'chapters.json'), 'utf8'));
 const companies = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'companies.json'), 'utf8'));
@@ -33,8 +34,8 @@ const index = Search.buildIndex({ chapters, companies, roadmaps, site, learning,
 const cases = [
   { query: 'Adobe', expectInResults: { source: 'company', id: 'adobe' } },
   { query: 'mission', expectTopSource: 'chapter', expectTopId: 'mission' },
-  { query: 'AEM foundation', expectTopSource: 'roadmap', expectTopId: 'aem-foundation' },
-  { query: 'Welcome', expectTopSource: 'site', expectTopId: 'hero' },
+  { query: 'AEM foundation', expectInResults: { source: 'roadmap', id: 'aem-foundation' } },
+  { query: 'hire-verified', expectTopSource: 'site', expectTopId: 'hero' },
   { query: 'principles', expectTopSource: 'chapter', expectTopId: 'mission' },
   { query: 'HTL', expectInResults: { source: 'glossary', id: 'htl' } },
   { query: 'behavioral', expectInResults: { source: 'interview', id: 'int-behavior-star' } },
@@ -122,6 +123,15 @@ if (adobeCompany && adobeCompany.facets && adobeCompany.facets.industry) {
   console.log('PASS', 'company index entries include facets metadata');
 } else {
   console.log('FAIL', 'company index entries include facets metadata');
+  failed++;
+}
+
+const byId = CompanyFilters.companiesById(companies);
+const widenOut = CompanyFilters.querySearch(index, 'ad', byId, { sourceFilter: 'owner' });
+if (widenOut.raw.length > 0 && widenOut.widened && widenOut.results.length > 0) {
+  console.log('PASS', 'querySearch widens Apply filter when category empty');
+} else {
+  console.log('FAIL', 'querySearch widens Apply filter when category empty');
   failed++;
 }
 

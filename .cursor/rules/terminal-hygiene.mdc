@@ -1,0 +1,32 @@
+---
+description: Keep shell usage minimal — no leftover background terminals or dev servers
+alwaysApply: true
+---
+
+# Terminal hygiene
+
+Agents must not leave a pile of open terminals or orphan processes after finishing work.
+
+## Rules
+
+1. **Prefer foreground for short commands** — `npm run verify`, `node scripts/verify-*.js`, and one-off checks should run to completion in the foreground with a sufficient `block_until_ms`. Do not background them unless they are genuinely long-running.
+
+2. **One dev server at a time** — Before starting `npx serve` or `npm run ui-smoke`, assume port **3456** may already be in use. `npm run ui-smoke` already starts and stops its own server; do not leave extra `serve` instances running.
+
+3. **Always clean up after background work** — If you background a server or long job:
+   - Stop it when done (kill the process / `serve.kill` in scripts).
+   - Do not start duplicate smoke tests or servers in parallel.
+   - After UI smoke or manual `serve`, confirm nothing is still listening on 3456.
+
+4. **No terminal sprawl** — Do not open a new shell for every tiny command when the previous one finished. Reuse the same session when practical.
+
+5. **Windows cleanup** (when orphan `serve` / `ui-smoke` processes accumulate):
+   ```powershell
+   Get-CimInstance Win32_Process -Filter "name='node.exe'" |
+     Where-Object { $_.CommandLine -match 'serve\\build\\main|run-ui-smoke|ui-smoke-search|run ui-smoke' } |
+     ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
+   ```
+
+## What the user sees
+
+Cursor may still show many **terminal tabs** from past agent runs. Closing tabs is a UI action (Terminal panel → kill/close). Killing orphan **processes** (above) stops wasted CPU/port conflicts; the agent should do that proactively after dev-server or smoke-test work.

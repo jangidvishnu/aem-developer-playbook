@@ -69,7 +69,7 @@ const parsed = CompanyFilters.parseUrlState(serialized);
 assert('URL round-trip type', parsed.state.companyType === 'Agency');
 assert('URL round-trip industry', parsed.state.industry === 'Consulting');
 assert('URL round-trip india', parsed.state.hiringIndia === true);
-assert('URL round-trip source', parsed.state.sourceFilter === 'company');
+assert('search category not in URL (session-only)', parsed.state.sourceFilter === '' && !serialized.includes('sf_source'));
 assert('URL round-trip search q', parsed.searchQuery === 'aem');
 
 assert('hasShareableState when filtered', CompanyFilters.hasShareableState(state, 'aem'));

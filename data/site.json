@@ -1,16 +1,26 @@
 {
   "id": "site",
+  "mode": "product",
   "documentTitle": "Enterprise Digital Experience Engineering Playbook",
   "header": {
     "title": "Enterprise Digital Experience Engineering Playbook",
-    "versionLabel": "Publication Draft • Version 4.0.0"
+    "shortTitle": "EDE Playbook",
+    "versionLabel": "Publication Draft • Version 4.0.0",
+    "githubUrl": ""
+  },
+  "disclaimer": {
+    "message": "Company and hiring data is based on our research and public sources. It is not guaranteed to be complete or current and will be expanded over time.",
+    "contributing": "Know a correction or addition? Submit a pull request to update the data.",
+    "contributingUrl": ""
   },
   "hero": {
-    "title": "Welcome",
-    "body": "A living handbook focused on career growth for Enterprise Digital Experience Engineers. Designed for long-term maintainability and future publication."
+    "title": "AEM employers hiring now",
+    "body": "Hire-verified companies — filter by hiring intensity, India presence, and AEM Cloud. Open careers pages in seconds, then see how I apply.",
+    "ctaCompanies": "Browse companies",
+    "ctaApply": "How I apply"
   },
   "sidebar": {
-    "contentsLabel": "Contents"
+    "contentsLabel": "Browse playbook"
   },
   "dashboard": {
     "title": "Project Status",
@@ -21,15 +31,69 @@
       "Learning system ✓",
       "Company pipeline (M8) — 119 hire-verified",
       "Discovery filters (M9) ✓",
-      "Owner playbook (M10) — pending acceptance"
+      "Owner playbook (M10) ✓"
     ]
   },
   "search": {
-    "placeholder": "Search playbook…",
-    "ariaLabel": "Search playbook",
+    "placeholder": "Search companies, steps, glossary…",
+    "ariaLabel": "Search companies, apply steps, and learning content",
     "clearLabel": "Clear search"
   },
   "footer": {
-    "text": "Enterprise Digital Experience Engineering Playbook — personal career operating system."
+    "text": "Enterprise Digital Experience Engineering Playbook — AEM hiring intelligence and apply workflow."
+  },
+  "seo": {
+    "description": "Hire-verified AEM and Adobe Experience Manager employers, filterable company list, and a step-by-step apply workflow for Enterprise Digital Experience Engineers.",
+    "keywords": [
+      "AEM jobs",
+      "Adobe Experience Manager hiring",
+      "enterprise digital experience engineer",
+      "AEM careers India",
+      "DXP jobs"
+    ],
+    "ogType": "website",
+    "ogLocale": "en_US",
+    "twitterCard": "summary",
+    "themeColor": "#2563eb",
+    "ogImage": ""
+  },
+  "navigation": {
+    "productChapterIds": [
+      "target-companies",
+      "how-i-apply",
+      "career-strategy",
+      "professional-branding",
+      "learning-roadmap",
+      "core-skills",
+      "glossary",
+      "interview-prep"
+    ],
+    "devOnlyChapterIds": [
+      "mission",
+      "career-command-center",
+      "living-roadmap"
+    ],
+    "groups": [
+      {
+        "id": "companies",
+        "label": "Companies",
+        "chapterIds": ["target-companies"]
+      },
+      {
+        "id": "career",
+        "label": "Career",
+        "chapterIds": ["how-i-apply", "career-strategy", "professional-branding"]
+      },
+      {
+        "id": "learning",
+        "label": "Learning",
+        "chapterIds": ["learning-roadmap", "core-skills", "glossary"]
+      },
+      {
+        "id": "interview",
+        "label": "Interview",
+        "chapterIds": ["interview-prep"]
+      }
+    ]
   }
 }

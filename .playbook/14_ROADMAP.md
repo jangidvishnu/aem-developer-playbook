@@ -39,8 +39,8 @@ review before the next one starts.
 | 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 8 | Company Pipeline & Hiring Gate | Fresh research, hiring gate, filter/sort, BuiltWith manifest; **hire-verified employers only** | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | **Implemented — pending acceptance** |
-| 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | Not started |
+| 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
+| 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | **Pending acceptance** — see `17_TESTING_GUIDE.md` |
 | 12 | Publishing | GitHub Pages, print handbook, PDF export pipeline | Not started |
 
 **Revision note:** Milestones 2 and 4 were re-scoped from the original plan per `12_DECISIONS.md` DR-003, splitting
@@ -116,22 +116,15 @@ bar and search panel. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 ---
 
-## Milestones 11–12 (planned — M10 pending acceptance)
+## Milestone 10 — Owner Playbook: complete, accepted
 
-### Milestone 10 — Owner Playbook (implemented, pending acceptance)
+Personal apply strategy in `data/owner_playbook.json`, **How I Apply** chapter, search Apply facet.
+Accepted by the project owner after browser verification (commit `46e45f6`). **Full detail:**
+`25_ROADMAP_ARCHIVE.md`.
 
-**Goal:** Capture **your** methods — how you apply, what you learn, from where — separate from generic templates in
-Milestone 7.
+---
 
-**Scope (in) — delivered:**
-
-- [`data/owner_playbook.json`](data/owner_playbook.json) — five sections (`apply-workflow`, `outreach`,
-  `learning-sources`, `weekly-rhythm`, `tools`); `audience: "owner"`.
-- **How I Apply** chapter (`how-i-apply`) with `ownerPlaybookEmbed` after Target Companies.
-- `Render.ownerPlaybook`, search index (`source: 'owner'`), **Apply** facet chip in search panel.
-- `scripts/verify-owner-playbook.js`, `owner-playbook-schema.js`.
-
-**Scope (out):** Recruiter CRM UI; automated job applications.
+## Milestone 11 — Minimal Product UI (pending acceptance)
 
 ### Milestone 11 — Minimal Product UI
 
@@ -140,14 +133,28 @@ to apply, how to apply — without project-status noise.
 
 **Scope (in):**
 
-- **Mobile layout** — collapsible nav, readable tables (cards on narrow viewports), touch-friendly pagination/filters.
-- **IA default** — landing emphasis: **Hiring companies** (sorted by `HiringIntensity` / priority) → **How I apply**
-  (Owner Playbook) → Learn (roadmaps/glossary) — governance/mission de-emphasized or moved to footer/about.
-- Remove or hide for public mode: sidebar “Project Status” dashboard, version draft labels (config in `site.json`:
-  `mode: "product" | "dev"`).
+- **Mobile layout** — off-canvas nav drawer, company **cards** on narrow viewports, touch-friendly pagination/filters.
+- **IA default (product mode)** — hero CTAs → **Target Companies** (default sort: hiring intensity) → **How I Apply**
+  → learning chapters; roadmaps inside Learning Roadmap only.
+- **`site.json` product mode** — hides Project Status, version label, Mission, Career Command Center, Living Roadmap;
+  `?mode=dev` restores full handbook.
+- **SEO** — description, Open Graph, Twitter, JSON-LD; `Render.applyHeadMeta`.
+- **`assets/css/site.css`** — drawer, cards, filter chips, owner step timeline.
 - Accessibility + performance pass (`20_ACCESSIBILITY.md`, `23_PERFORMANCE.md`).
 
-**Scope (out):** SPA framework; login/auth; company card grid (unless folded in here).
+**Scope (out):** SPA framework; login/auth; desktop company card grid as default.
+
+**Acceptance criteria:**
+
+1. Phone width: company list within one scroll; filters usable without horizontal panning.
+2. How I Apply is second in nav with numbered step timeline and in-chapter anchor nav.
+3. Product mode shows no Project Status, version label, or dev-only chapters.
+4. View source includes description + Open Graph meta.
+5. `?mode=dev` restores prior handbook chrome.
+6. Shareable filter URLs (M9) still work.
+7. `node scripts/verify-render.js`, `verify-search.js`, `verify-filters.js` pass.
+
+**Test plan:** `17_TESTING_GUIDE.md` → Milestone 11.
 
 ### Milestone 12 — Publishing
 
@@ -164,4 +171,4 @@ GitHub Pages deploy, print stylesheet polish, PDF/export path. **Last** — publ
 | 11 Product UI | Mobile, minimal, jobs-first before going public |
 | 12 Publishing | Ship when data, filters, owner content, and UI are ready |
 
-**Immediate next step:** Owner browser verification for **Milestone 10** (Owner Playbook). See `17_TESTING_GUIDE.md`.
+**Immediate next step:** Owner browser verification for **Milestone 11** per `17_TESTING_GUIDE.md`.

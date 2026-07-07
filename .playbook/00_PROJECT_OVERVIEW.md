@@ -101,13 +101,10 @@ conflicting content, evidence of concurrent edits) — stop and report before co
 A living snapshot of what is true right now. Update this section whenever the state of the project changes
 materially — it exists so a new session never has to reconstruct context from scratch.
 
-**Current state:** `index.html` is a thin shell (Tailwind via CDN, vanilla JS boot script, structural markup only).
-It fetches `data/chapters.json`, `data/companies.json`, `data/site.json`, and `data/roadmaps.json` in parallel and
-calls the `Render` namespace in `assets/js/render.js` to populate header, sidebar, main, and footer. Theme toggle
-and a naive search filter remain as event wiring in `index.html`. Regression check:
-`scripts/verify-render.js` (requires `render.js`, diffs chapter/sidebar against a Milestone 3 golden snapshot).
-Four raw research reports exist in `md/` with ~100+ candidate AEM-employer companies — unverified source material,
-the seed for Milestone 6.
+**Current state:** `index.html` is a thin shell (Tailwind CDN + `assets/css/site.css`, vanilla JS boot script).
+Default **product mode** (`data/site.json` `mode: "product"`) renders jobs-first IA: hero → Target Companies → How I Apply
+→ learning chapters. Mobile drawer nav and company cards ship in Milestone 11. Append `?mode=dev` for full handbook
+chrome. Regression: `scripts/verify-render.js`, `verify-search.js`, `verify-filters.js`.
 
 **Key incident on record:** early on, 20 previously-committed `.playbook` documents and `.github/copilot-instructions.md`
 were found deleted from the working tree with no corresponding action from the reviewing session; circumstantial

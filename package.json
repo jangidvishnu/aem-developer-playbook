@@ -1,0 +1,14 @@
+{
+  "name": "enterprise-digital-experience-playbook",
+  "private": true,
+  "description": "Dev-time tooling only — not loaded by index.html (see .playbook/17_TESTING_GUIDE.md).",
+  "scripts": {
+    "verify": "node scripts/verify-render.js && node scripts/verify-search.js && node scripts/verify-filters.js && node scripts/verify-owner-playbook.js",
+    "ui-smoke": "node scripts/run-ui-smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.51.0",
+    "serve": "^14.2.4",
+    "wait-on": "^8.0.3"
+  }
+}

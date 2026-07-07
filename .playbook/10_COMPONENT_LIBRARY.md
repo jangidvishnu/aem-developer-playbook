@@ -15,11 +15,20 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 
 | Function | Input | Responsibility | Status |
 |---|---|---|---|
-| `Render.pageHeader(meta)` | `{ title, versionLabel }` | Header `<h1>` and version line | **Implemented** |
+| `Render.pageHeader(meta, options)` | `{ title, shortTitle, versionLabel }` | Header wordmark; version line in dev only | **Implemented** |
+| `Render.disclaimer(content, header)` | disclaimer object + header | Research data notice + optional PR link | **Implemented** (M11) |
 | `Render.search(config)` | `{ placeholder, ariaLabel }` | Search input, facet bar, and results panel wrapper | **Implemented** (M9 facets) |
 | `Render.searchFacets(state)` | filter state object | Source-type chips + active table-filter hint in search panel | **Implemented** (M9) |
 | `Render.searchResults(results, query, activeIndex)` | ranked results array, query string, active index | Accessible results listbox markup | **Implemented** |
 | `Render.sidebar(chapters)` | array of chapter summaries | Table of contents links | **Implemented** |
+| `Render.sidebarGrouped(chapters, groups)` | chapters + nav groups | Grouped sidebar with collapsible sections | **Implemented** (M11) |
+| `Render.companyStats(companies)` | companies array | Hero stat card counts | **Implemented** (M11) |
+| `Render.uiSelect(key, label, options, current)` | filter key, label, options | Custom dropdown markup + hidden input | **Implemented** (M11) |
+| `Render.companySection(companies, options)` | filtered companies + opts | Unified explorer card (metrics, toolbar, body, pagination) | **Implemented** (M11) |
+| `Render.companyDataBody(companies, options)` | page slice | Table + cards with pad rows | **Implemented** (M11) |
+| `Render.companyPagination(page, total, attr)` | page state | Single Prev/Next bar | **Implemented** (M11) |
+| `Render.companyCard(company)` | one company object | Mobile card view | **Implemented** (M11) |
+| `Render.icon(name)` | icon id | Delegates to `Icons.svg` when loaded | **Implemented** (M11) |
 | `Render.dashboard(stats)` | `{ title, items[] }` | Sidebar project-status panel | **Implemented** |
 | `Render.hero(content)` | `{ title, body }` | Welcome/intro banner section | **Implemented** |
 | `Render.roadmap(roadmap)` | one roadmap object | Single learning-path panel (delegates to `roadmapPanel`) | **Implemented** |
@@ -35,7 +44,6 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 | `Render.chapter(chapter, index, ctx)` | chapter, index, `{ companies, learning }` | Full chapter section + embeds | **Implemented** |
 | `Render.companyTable(companies)` | array of company objects | Table view, delegating rows to `companyRow` | **Implemented** |
 | `Render.companyRow(company)` | one company object | Single table row | **Implemented** |
-| `Render.companyCard(company)` | one company object | Compact card view (grid/detail) | Planned |
 | `Render.footer(footer)` | `{ text }` | Site footer | **Implemented** |
 | `Render.escapeHtml(value)` | any value | Shared HTML-escaping helper | **Implemented** |
 
@@ -74,13 +82,31 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 | `CompanyFilters.parseUrlState(search)` / `serializeUrlState(state, q)` | Shareable URL round-trip | **Implemented** (M9) |
 | `CompanyFilters.apply(companies, state)` | Filter + sort | **Implemented** |
 
+## UI module (`assets/js/ui.js`)
+
+| Function | Responsibility | Status |
+|---|---|---|
+| `UI.initTheme(toggleId)` | `data-theme` light/dark + `localStorage` | **Implemented** (M11) |
+| `UI.wireScrollSpy()` | Active `.doc-nav__link` from section visibility | **Implemented** (M11) |
+| `UI.wireSelects(root)` | Custom select open/close + hidden input sync | **Implemented** (M11) |
+| `UI.wireNavDrawer()` | Mobile sidebar toggle + backdrop | **Implemented** (M11) |
+| `UI.wireNavGroups()` | Collapsible sidebar groups | **Implemented** (M11) |
+| `UI.wireCommandPalette(ctx)` | Ctrl/Cmd+K modal search | **Implemented** (M11) |
+
+## Icons module (`assets/js/icons.js`)
+
+| Function | Responsibility | Status |
+|---|---|---|
+| `Icons.svg(name, className)` | Inline Lucide-style SVG string | **Implemented** (M11) |
+
 ## Current state
 
 `index.html` fetches JSON, builds a search index once via `Search.buildIndex`, and wires input/keyboard events to
-`Search.query` + `CompanyFilters.filterSearchResults` + `Render.searchResults`. A shared `filterState` drives both
-the company table filter bar and search-panel facets; changes sync to the URL via `history.replaceState` (M9).
-Page sections stay visible while searching; activating a result scrolls to the target. Verified via
-`scripts/verify-filters.js`, `scripts/verify-search.js`, and `scripts/verify-render.js`.
+`Search.query` + `CompanyFilters.filterSearchResults` + `Render.searchResults`. Desktop and mobile search instances use
+distinct element IDs (`Render.search` optional `idSuffix`). `UI.wireCommandPalette` provides a second search surface.
+A shared `filterState` drives both the company explorer toolbar and search-panel facets; changes sync to the URL via
+`history.replaceState` (M9). Page sections stay visible while searching; activating a result scrolls to the target.
+Verified via `scripts/verify-filters.js`, `scripts/verify-search.js`, and `scripts/verify-render.js`.
 
 ## Anti-patterns
 

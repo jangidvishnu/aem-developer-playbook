@@ -21,7 +21,48 @@ M8 now includes fresh evidence-based research (md reference-only), no company co
 filter/sort, and curated domain seeds (paid BuiltWith API removed DR-012). Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
 and `14_ROADMAP.md`.
 
-## Milestone 10 — Owner Playbook (implemented, pending acceptance)
+## Milestone 11 — Minimal Product UI (pending acceptance)
+
+### Added
+
+- `data/site.json` — `mode`, `seo`, `navigation`, product hero CTAs, updated search/footer copy.
+- `assets/css/site.css` — token-driven layout, dark mode, doc header, grouped nav, company explorer, command palette.
+- `assets/js/icons.js`, `assets/js/ui.js` — inline icons, theme, scroll-spy, custom selects, command palette (DR-015).
+- `assets/icons/favicon.svg`.
+- Product mode: jobs-first chapter order, unified company explorer, mobile cards, SEO meta + JSON-LD.
+- `Render.applyHeadMeta`, `Render.chaptersForMode`, `Render.companySection`, `Render.sidebarGrouped`, `Render.uiSelect`.
+- `?mode=dev` URL override for full handbook (DR-014).
+- Search anchors use stable `chapter.id` (`#target-companies`, `#how-i-apply`, etc.).
+
+### Changed
+
+- Hero: stat cards + action-oriented copy; roadmaps inside Learning Roadmap in product mode (accordion, no step status).
+- Company table: **10 rows/page**, single pagination footer, padded tbody, custom filter selects.
+- Owner playbook: step timeline; removed “Method N” prefixes from step copy; Owner badge hidden in product mode.
+- Doc shell: grouped sidebar with scroll-spy active link; mobile search row; icon action buttons.
+- Top-of-page **data disclaimer** (`site.json` `disclaimer`) — research-based, not guaranteed; invites PRs.
+- Replaced broken Tailwind utility classes with `site.css` tokens (Tailwind CDN not loaded).
+- Playwright UI smoke (`npm run ui-smoke`) + GitHub Actions CI (`.github/workflows/ci.yml`).
+- `scripts/verify-search.js` — hero query updated for new copy.
+- `scripts/milestone-3-render-golden.json` updated for chapter `id` anchors and product markup.
+- `UI.wireSiteSearch`, `UI.wireInPageAnchors`, `UI.wireOwnerPlaybookNav` — shared search wiring and anchor scroll.
+- `CompanyFilters.querySearch` — widens empty category filters; search facet chips session-only (not in URL).
+- `.cursor/rules/terminal-hygiene.mdc` — avoid orphan `serve` / smoke-test processes.
+
+### Fixed
+
+- Search panel not opening on desktop (ID suffix mismatch in old `wireSearch`; replaced by class-based wiring).
+- Search icon overlapping text and duplicate native/custom clear buttons.
+- How I Apply sub-nav not sticking and clipping section titles (`overflow:hidden` on playbook card).
+- Sidebar / hash navigation scrolling sections too far down (duplicate `scroll-padding` + `scroll-margin`).
+- Header title click to `#hero` and sidebar section jumps aligned below sticky header.
+
+### Changed (continued)
+
+- Sidebar contents label: **Browse playbook** (was “On this page”).
+- Product-mode header shows short title only; search placeholder shortened.
+
+## Milestone 10 — Owner Playbook (accepted)
 
 ### Added
 

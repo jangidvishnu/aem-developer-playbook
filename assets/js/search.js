@@ -43,22 +43,27 @@ const Search = {
     return Search.findChapterIndex(chapters, 'companyTable');
   },
 
-  learningAnchor(chapters, flag) {
-    return '#ch' + Search.findChapterIndex(chapters, flag);
+  chapterAnchor(ch, index) {
+    return '#' + (ch.id || ('ch' + index));
+  },
+
+  anchorForChapterFlag(chapters, flag) {
+    const ch = chapters.find(c => c[flag]);
+    return ch ? '#' + ch.id : '#main';
   },
 
   buildIndex(sources) {
     const { chapters, companies, roadmaps, site, learning = {}, ownerPlaybook } = sources;
     const entries = [];
     const companyChapterIndex = Search.findCompanyChapterIndex(chapters);
-    const companyAnchor = '#ch' + companyChapterIndex;
-    const glossaryAnchor = Search.learningAnchor(chapters, 'glossaryEmbed');
-    const techAnchor = Search.learningAnchor(chapters, 'technologyEmbed');
-    const careerAnchor = Search.learningAnchor(chapters, 'careerPathEmbed');
-    const interviewAnchor = Search.learningAnchor(chapters, 'interviewEmbed');
-    const templateAnchor = Search.learningAnchor(chapters, 'templateEmbed');
-    const resourceAnchor = Search.learningAnchor(chapters, 'resourceEmbed');
-    const ownerAnchor = Search.learningAnchor(chapters, 'ownerPlaybookEmbed');
+    const companyAnchor = Search.anchorForChapterFlag(chapters, 'companyTable');
+    const glossaryAnchor = Search.anchorForChapterFlag(chapters, 'glossaryEmbed');
+    const techAnchor = Search.anchorForChapterFlag(chapters, 'technologyEmbed');
+    const careerAnchor = Search.anchorForChapterFlag(chapters, 'careerPathEmbed');
+    const interviewAnchor = Search.anchorForChapterFlag(chapters, 'interviewEmbed');
+    const templateAnchor = Search.anchorForChapterFlag(chapters, 'templateEmbed');
+    const resourceAnchor = Search.anchorForChapterFlag(chapters, 'resourceEmbed');
+    const ownerAnchor = Search.anchorForChapterFlag(chapters, 'ownerPlaybookEmbed');
 
     chapters.forEach((ch, i) => {
       entries.push({
@@ -66,7 +71,7 @@ const Search = {
         id: ch.id,
         title: ch.title,
         snippet: ch.summary,
-        anchor: '#ch' + i,
+        anchor: Search.chapterAnchor(ch, i),
         chapterIndex: i,
         pageOrder: 1000 + i,
         fields: {

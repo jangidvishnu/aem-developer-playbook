@@ -9,10 +9,10 @@
       "audience": "owner",
       "summary": "Build the resume and align LinkedIn and Naukri before I apply anywhere.",
       "steps": [
-        "Step 1 — Build resume (ChatGPT or any agent): Explain your full experience — companies, technologies, education, projects, employment history. State what AEM role you want (backend, frontend, campaign, etc.) and what kind of companies you are targeting. Share your skills. Ask for a tailored resume with ATS keywords that highlight your profile for those roles.",
-        "Step 2 — Do not use that export as-is. Go to Overleaf, pick a one-column resume template. Manually copy-paste content from the ChatGPT draft into LaTeX (easier than trusting ChatGPT-generated LaTeX — it often has errors). Fix any section that does not read right. Do not list GitHub, HackerRank, or other profile links unless you are actually active on them.",
-        "Step 3 — Upload your Overleaf PDF to ChatGPT and a few free ATS checker sites. If the score is above 70, that is good enough to proceed.",
-        "Step 4 — Upload the resume to ChatGPT and ask for steps to update LinkedIn and Naukri so they match the resume. Recruiters find you by keywords — skills and headline matter most. Share screenshots of each profile section and ask what to fill in (especially skills). Share your LinkedIn profile for a review. Spend real time on both profiles — they are mandatory. Use the same resume and profile details on any other job platforms. Update LWD, location, CTC, and other details accurately."
+        "Build resume (ChatGPT or any agent): Explain your full experience — companies, technologies, education, projects, employment history. State what AEM role you want (backend, frontend, campaign, etc.) and what kind of companies you are targeting. Share your skills. Ask for a tailored resume with ATS keywords that highlight your profile for those roles.",
+        "Do not use that export as-is. Go to Overleaf, pick a one-column resume template. Manually copy-paste content from the ChatGPT draft into LaTeX (easier than trusting ChatGPT-generated LaTeX — it often has errors). Fix any section that does not read right. Do not list GitHub, HackerRank, or other profile links unless you are actually active on them.",
+        "Upload your Overleaf PDF to ChatGPT and a few free ATS checker sites. If the score is above 70, that is good enough to proceed.",
+        "Upload the resume to ChatGPT and ask for steps to update LinkedIn and Naukri so they match the resume. Recruiters find you by keywords — skills and headline matter most. Share screenshots of each profile section and ask what to fill in (especially skills). Share your LinkedIn profile for a review. Spend real time on both profiles — they are mandatory. Use the same resume and profile details on any other job platforms. Update LWD, location, CTC, and other details accurately."
       ],
       "body": "I do not start applying until the resume passes ATS checks and LinkedIn and Naukri are aligned with it. Profile quality matters as much as the PDF."
     },
@@ -22,9 +22,9 @@
       "audience": "owner",
       "summary": "Referrals, HR posts, and connection requests — not blind apply when I can reach a human.",
       "steps": [
-        "LinkedIn posts (Method 3): Search AEM (or your role keyword), filter type to Posts. First pass — wider time window; after that — last 1 day only. Look for HR or hiring posts for your role. Often an email is in the post — send your application there. This works well because your profile goes directly to HR.",
+        "LinkedIn posts: Search AEM (or your role keyword), filter type to Posts. First pass — wider time window; after that — last 1 day only. Look for HR or hiring posts for your role. Often an email is in the post — send your application there. This works well because your profile goes directly to HR.",
         "Gmail cover-letter template: For LinkedIn Invites or Naukri invites, keep a reusable Gmail template — short cover letter with skills, experience, LWD if applicable, contact details, and resume attached. Reuse for every invite-style apply.",
-        "Referral before direct apply (Method 5): If I see a job on LinkedIn or Naukri, I do not apply immediately. I search that company on LinkedIn, find people in the same role (or close enough), and send a connection request. After they accept, I ask for a referral — not bluntly (\"could you refer me?\"). I use a ChatGPT-drafted template that mentions my role, experience, and why I fit. I wait for their reply. If referral works, great; if not, I can still apply later.",
+        "Referral before direct apply: If I see a job on LinkedIn or Naukri, I do not apply immediately. I search that company on LinkedIn, find people in the same role (or close enough), and send a connection request. After they accept, I ask for a referral — not bluntly (\"could you refer me?\"). I use a ChatGPT-drafted template that mentions my role, experience, and why I fit. I wait for their reply. If referral works, great; if not, I can still apply later.",
         "Recruiter direct: If the post lists a recruiter email or contact info, reaching out there often beats a generic portal apply."
       ],
       "body": "I treat outreach as higher signal than one-click apply. Templates live in Gmail; referral and HR-post wording I refine with ChatGPT once, then reuse."
@@ -48,12 +48,12 @@
       "audience": "owner",
       "summary": "How I search and apply on LinkedIn and Naukri after profiles are ready.",
       "steps": [
-        "Method 1 (first pass, one-time): On LinkedIn and Naukri, search your relevant role, set time filter to last 30 days, and apply only to postings that genuinely fit — batch this once when you start.",
-        "Method 2 (ongoing): After the 30-day backlog is cleared, search the same role with last 1 day only — apply daily to new listings.",
-        "Method 3 (posts): LinkedIn — search AEM (or your keyword), type Posts, wider window first then last 1 day on repeat visits. Check HR hiring posts and email applications (see Outreach).",
-        "Method 4 (platform hygiene): Same search strategy on LinkedIn and Naukri. Update your availability on Naukri at least every 15 days. Keep refreshing or updating the Naukri profile — activity improves search visibility."
+        "First pass (one-time): On LinkedIn and Naukri, search your relevant role, set time filter to last 30 days, and apply only to postings that genuinely fit — batch this once when you start.",
+        "Ongoing daily search: After the 30-day backlog is cleared, search the same role with last 1 day only — apply daily to new listings.",
+        "LinkedIn posts: Search AEM (or your keyword), type Posts, wider window first then last 1 day on repeat visits. Check HR hiring posts and email applications (see Outreach).",
+        "Platform hygiene: Same search strategy on LinkedIn and Naukri. Update your availability on Naukri at least every 15 days. Keep refreshing or updating the Naukri profile — activity improves search visibility."
       ],
-      "body": "Step 5 in my pipeline starts here: only after resume ATS pass and LinkedIn/Naukri are done. I combine portal apply (Methods 1–2) with posts and referrals (Method 3 + Outreach)."
+      "body": "Only after resume ATS pass and LinkedIn/Naukri are done. I combine portal apply with posts and referrals."
     },
     {
       "id": "tools",

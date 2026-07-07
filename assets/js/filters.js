@@ -134,6 +134,24 @@ const CompanyFilters = {
     });
   },
 
+  searchOnlyState(state) {
+    return { sourceFilter: (state && state.sourceFilter) || '' };
+  },
+
+  /** Ranked search with optional category filter; widens to All when category is empty. */
+  querySearch(index, query, companiesById, searchFacetState) {
+    const search = typeof Search !== 'undefined' ? Search : globalThis.Search;
+    const raw = search.query(index, query);
+    const narrow = CompanyFilters.searchOnlyState(searchFacetState);
+    let results = CompanyFilters.filterSearchResults(raw, companiesById, narrow);
+    let widened = false;
+    if (!results.length && raw.length && narrow.sourceFilter) {
+      results = CompanyFilters.filterSearchResults(raw, companiesById, { sourceFilter: '' });
+      widened = true;
+    }
+    return { raw, results, widened };
+  },
+
   parseUrlState(search) {
     const params = new URLSearchParams(
       typeof search === 'string' ? search.replace(/^\?/, '') : ''
@@ -148,7 +166,6 @@ const CompanyFilters = {
     if (params.get('cf_aem') === '1') state.hiringAEM = true;
     if (params.get('cf_cloud') === '1') state.aemaaCS = true;
     if (params.get('cf_verified') === '1') state.verifiedOnly = true;
-    if (params.has('sf_source')) state.sourceFilter = params.get('sf_source') || '';
     return { state, searchQuery: params.get('q') || '' };
   },
 
@@ -165,7 +182,6 @@ const CompanyFilters = {
     if (s.hiringAEM) params.set('cf_aem', '1');
     if (s.aemaaCS) params.set('cf_cloud', '1');
     if (s.verifiedOnly) params.set('cf_verified', '1');
-    if (s.sourceFilter) params.set('sf_source', s.sourceFilter);
     const qs = params.toString();
     return qs ? '?' + qs : '';
   },

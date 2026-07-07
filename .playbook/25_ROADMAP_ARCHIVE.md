@@ -411,7 +411,7 @@ Automated: `node scripts/verify-filters.js`, `verify-search.js`, `verify-render.
 
 `12_DECISIONS.md` DR-013 (query-param URL format).
 
-## Milestone 10 — Owner Playbook (implemented, pending acceptance)
+## Milestone 10 — Owner Playbook (complete, accepted)
 
 ### Goal
 
@@ -419,7 +419,7 @@ Capture the owner's personal apply/learn methods — separate from generic Miles
 
 ### Scope (in) — all delivered
 
-- `data/owner_playbook.json` with five `audience: "owner"` sections.
+- `data/owner_playbook.json` with owner apply strategy (resume, LinkedIn, Naukri, outreach).
 - `how-i-apply` chapter with `ownerPlaybookEmbed` after Target Companies.
 - `Render.ownerPlaybook`, search index (`source: 'owner'`), Apply search facet.
 - `verify-owner-playbook.js`, `owner-playbook-schema.js`.
@@ -428,12 +428,16 @@ Capture the owner's personal apply/learn methods — separate from generic Miles
 
 Recruiter CRM UI; automated job applications.
 
-### Acceptance criteria
+### Acceptance criteria — passed
 
-Verify scripts exit 0 including `verify-owner-playbook.js`; owner browser verification pending.
+Owner content provided; verify scripts exit 0; accepted with commit `46e45f6` after owner browser verification.
 
 ### Test plan
 
 Automated + browser: `17_TESTING_GUIDE.md` → Milestone 10.
+
+### Owner decisions
+
+Personal apply workflow content in `owner_playbook.json`.
 
 

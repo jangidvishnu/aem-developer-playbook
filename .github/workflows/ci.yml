@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  verify:
+    name: Verify scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Run programmatic checks
+        run: |
+          node scripts/verify-render.js
+          node scripts/verify-search.js
+          node scripts/verify-filters.js
+          node scripts/verify-owner-playbook.js
+
+  ui-smoke:
+    name: UI smoke (Playwright search)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dev dependencies
+        run: npm ci
+      - name: Install Chromium
+        run: npx playwright install chromium --with-deps
+      - name: Search UI smoke test
+        run: npm run ui-smoke

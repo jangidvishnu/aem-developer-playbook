@@ -183,7 +183,7 @@ Expected: all scripts exit 0; filter tests include industry, migration band, URL
 
 ---
 
-### Milestone 10 — Owner Playbook (pending acceptance)
+### Milestone 10 — Owner Playbook (accepted)
 
 **Automated (run from repository root):**
 
@@ -206,6 +206,76 @@ Expected: owner playbook validation passes (5 sections, `how-i-apply` embed); se
 4. Search **`outreach`** — **Apply · Outreach** result; activates scroll to How I Apply chapter.
 5. Search facet **Apply** — narrows to owner sections only.
 6. Re-run baseline smoke checks.
+
+**Sign-off:** Accepted by project owner. See `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+### Milestone 11 — Minimal Product UI (pending acceptance)
+
+**Automated (run from repository root):**
+
+```bash
+node scripts/verify-render.js
+node scripts/verify-search.js
+node scripts/verify-filters.js
+node scripts/verify-owner-playbook.js
+```
+
+Expected: all exit code 0.
+
+**Optional — automated UI smoke (Playwright, dev-time only):**
+
+One-time setup:
+
+```bash
+npm install
+npx playwright install chromium
+```
+
+Run (starts a local server, tests desktop search, then stops):
+
+```bash
+npm run ui-smoke
+```
+
+Expected: `run-ui-smoke: PASS` and `UI smoke search: PASS (Adobe + AEM with All filter)`.
+
+With the site already running on port 3456:
+
+```bash
+npx serve -p 3456
+# other terminal:
+node scripts/ui-smoke-search.mjs
+```
+
+CI runs the same checks on push/PR via `.github/workflows/ci.yml` (`verify` + `ui-smoke` jobs).
+
+**Browser — product mode (default):**
+
+1. Serve at `http://localhost:3456` (no `?mode=dev`).
+2. Favicon appears in tab; view source — `meta description`, `og:title`, `theme-color` present.
+3. Hero shows stat cards, **Browse companies** and **How I apply** CTAs — no version label in header.
+4. Sidebar — grouped nav (**Target Companies** first, **How I Apply** second); scroll a chapter — active link highlights.
+5. Target Companies — unified explorer card (metrics + filters + table in one panel); **one** Prev/Next pagination bar.
+6. Table shows **10 rows** (or fewer + empty pad rows); height stable when paging.
+7. Custom dropdowns for Sort / Type / Industry / Migration — not native OS selects; keyboard operable.
+8. Dark mode toggle — surfaces, table, and explorer readable; reload persists theme.
+9. Copy-link icon on filters — paste in new tab; filters restore.
+10. Resize to ~375px — hamburger nav; search in header second row (not colliding with title); company **cards** replace table.
+11. **Data disclaimer** — slim banner below header states research-based data is not guaranteed; mentions pull requests.
+12. **How I Apply** — sticky section nav; numbered steps without “Method 1/3/5” prefixes; no Owner badges.
+13. **Ctrl+K** (Cmd+K on Mac) — command palette opens; search **`outreach`** scrolls to How I Apply.
+14. Search **`hire-verified`** — scrolls to hero; **`Adobe`** with **All** selected shows company results (not **Apply** alone for short queries like `ad`).
+
+**Browser — dev mode:**
+
+15. Open `?mode=dev` — version label, Project Status, Mission, Living Roadmap, roadmap step status labels return.
+
+**Accessibility spot-check:**
+
+16. Tab to hamburger, filter chips, custom selects, card Careers buttons, command palette — visible focus.
+17. Filter count updates announced (`aria-live` on company count).
 
 **Sign-off:** Pending project owner browser verification.
 

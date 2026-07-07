@@ -10,6 +10,33 @@ mark the old one as superseded.
 
 ---
 
+## DR-015 — Presentation polish without a build step (Milestone 11)
+
+**Date:** 2026-07-07
+**Context:** Post–M11 browser review surfaced duplicate pagination, native dropdown styling, text-only icon actions,
+and inconsistent dark-mode tokens. Phases A–E aimed for GitBook/MS Learn–grade presentation while keeping vanilla JS
+and GitHub Pages compatibility.
+**Decision:** Add `assets/js/icons.js` (inline Lucide-style SVG helper), `assets/js/ui.js` (theme via `data-theme`,
+custom `UI.select`, scroll-spy, command palette), and a token-driven `assets/css/site.css` layout (~1700px max width).
+Company discovery uses a unified `.company-explorer` card, **10 rows/page** with padded tbody for stable height, and
+custom selects instead of native `<select>` for filter dropdowns. Favicon at `assets/icons/favicon.svg`.
+**Trade-off accepted:** More bespoke CSS/JS to maintain; no icon font or component framework. Glossary/interview tables
+keep 25 rows/page (company table only uses 10).
+**Follow-up:** Owner browser sign-off per `17_TESTING_GUIDE.md` Milestone 11 before Milestone 12.
+
+## DR-014 — Product vs dev visibility split (Milestone 11)
+
+**Date:** 2026-07-07
+**Context:** Milestone 11 ships a jobs-first public UI while the owner still needs the full handbook (Project Status,
+Mission, version label, all chapters) for maintenance.
+**Decision:** `data/site.json` field `mode: "product" | "dev"` controls visibility. Default **product** hides dev-only
+chapters (`navigation.devOnlyChapterIds`), Project Status dashboard, version label, and roadmap panels above companies.
+Append **`?mode=dev`** to the URL to restore the full handbook without a separate deployment. Custom layout/CSS in
+`assets/css/site.css` supplements Tailwind; no build step.
+**Trade-off accepted:** Two experiences share one `index.html`; chapter section anchors use stable `chapter.id` values
+instead of `#ch0`…`#chN` (search index updated accordingly).
+**Follow-up:** Browser test plan in `17_TESTING_GUIDE.md` Milestone 11.
+
 ## DR-013 — Shareable discovery filter URLs use query params (Milestone 9)
 
 **Date:** 2026-07-07

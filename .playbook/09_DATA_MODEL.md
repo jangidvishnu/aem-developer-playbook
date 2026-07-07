@@ -28,20 +28,40 @@ independently loadable and has one clear owner topic.
 | `data/templates.json` | Reusable templates (resume bullets, interview answers, etc.) | **Live** (Milestone 7) |
 | `data/interviews.json` | Interview questions/prep material, tagged by company/technology | **Live** (Milestone 7) |
 
-## Site schema (`data/site.json`) — Milestone 4
+## Site schema (`data/site.json`) — Milestones 4 + 11
 
 ```json
 {
   "id": "site",
+  "mode": "product | dev",
   "documentTitle": "string — <title> element and browser tab",
-  "header": { "title": "string", "versionLabel": "string" },
-  "hero": { "title": "string", "body": "string" },
+  "header": { "title": "string", "versionLabel": "string — hidden in product mode" },
+  "hero": {
+    "title": "string",
+    "body": "string",
+    "ctaCompanies": "string (optional, product mode)",
+    "ctaApply": "string (optional, product mode)"
+  },
   "sidebar": { "contentsLabel": "string" },
   "dashboard": { "title": "string", "items": ["string", "..."] },
-  "search": { "placeholder": "string", "ariaLabel": "string" },
-  "footer": { "text": "string" }
+  "search": { "placeholder": "string", "ariaLabel": "string", "clearLabel": "string" },
+  "footer": { "text": "string" },
+  "seo": {
+    "description": "string",
+    "keywords": ["string", "..."],
+    "ogType": "website",
+    "ogLocale": "en_US",
+    "twitterCard": "summary"
+  },
+  "navigation": {
+    "productChapterIds": ["chapter id", "..."],
+    "devOnlyChapterIds": ["chapter id", "..."]
+  }
 }
 ```
+
+Product mode chapter order follows `navigation.productChapterIds`. Dev-only chapters remain in `data/chapters.json`
+but are not rendered when `mode` is `product` (unless `?mode=dev`).
 
 ## Roadmap schema (`data/roadmaps.json`) — Milestone 7
 

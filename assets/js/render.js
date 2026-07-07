@@ -2,19 +2,124 @@
  * Render namespace — pure markup builders (see 10_COMPONENT_LIBRARY.md).
  * Loaded by index.html via <script src>; also require()'d by scripts/verify-render.js.
  */
+const COMPANY_PAGE_SIZE = 10;
+
 const Render = {
+  pageSize: COMPANY_PAGE_SIZE,
+
+  icon(name, className) {
+    if (typeof Icons !== 'undefined') return Icons.svg(name, className || 'icon');
+    return '';
+  },
+
   escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, ch => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     }[ch]));
   },
 
-  pageHeader(meta) {
-    return `<h1 class="text-2xl font-extrabold text-slate-800">${Render.escapeHtml(meta.title)}</h1><p class="text-sm text-slate-500">${Render.escapeHtml(meta.versionLabel)}</p>`;
+  isProductMode(options) {
+    return options && options.productMode === true;
   },
 
-  search(config) {
-    return `<div class="relative" id="search-wrap"><div class="flex items-center relative"><input class="border rounded-lg pl-3 pr-9 py-2 w-64 bg-white text-slate-800" id="search" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list" autocomplete="off" /><button type="button" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-lg leading-none px-1" id="search-clear" aria-label="${Render.escapeHtml(config.clearLabel || 'Clear search')}" title="${Render.escapeHtml(config.clearLabel || 'Clear search')}">×</button></div><div id="search-panel" class="hidden absolute z-50 top-full left-0 right-0 mt-1 bg-white border rounded-lg shadow-lg text-slate-800 min-w-[18rem]"><div id="search-facets" class="px-2 pt-2 pb-1 border-b" role="group" aria-label="Filter search results"></div><div id="search-results" class="max-h-72 overflow-auto" role="listbox"></div></div><p id="search-status" class="sr-only" aria-live="polite"></p></div>`;
+  setMetaTag(name, content, attr) {
+    if (!content) return;
+    const key = attr || 'name';
+    let el = document.querySelector(`meta[${key}="${name}"]`);
+    if (!el) {
+      el = document.createElement('meta');
+      el.setAttribute(key, name);
+      document.head.appendChild(el);
+    }
+    el.setAttribute('content', content);
+  },
+
+  applyHeadMeta(site) {
+    if (typeof document === 'undefined' || !site) return;
+    const title = site.documentTitle || '';
+    const seo = site.seo || {};
+    const desc = seo.description || '';
+    document.title = title;
+    Render.setMetaTag('description', desc);
+    if (seo.keywords && seo.keywords.length) {
+      Render.setMetaTag('keywords', seo.keywords.join(', '));
+    }
+    Render.setMetaTag('og:title', title, 'property');
+    Render.setMetaTag('og:description', desc, 'property');
+    Render.setMetaTag('og:type', seo.ogType || 'website', 'property');
+    Render.setMetaTag('og:locale', seo.ogLocale || 'en_US', 'property');
+    if (typeof location !== 'undefined' && location.href) {
+      Render.setMetaTag('og:url', location.href.split('#')[0], 'property');
+    }
+    Render.setMetaTag('twitter:card', seo.twitterCard || 'summary');
+    Render.setMetaTag('twitter:title', title);
+    Render.setMetaTag('twitter:description', desc);
+    if (seo.themeColor) Render.setMetaTag('theme-color', seo.themeColor);
+    if (seo.ogImage) Render.setMetaTag('og:image', seo.ogImage, 'property');
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    if (typeof location !== 'undefined') {
+      canonical.href = location.href.split('#')[0].split('?')[0];
+    }
+    let ld = document.getElementById('site-json-ld');
+    if (!ld) {
+      ld = document.createElement('script');
+      ld.id = 'site-json-ld';
+      ld.type = 'application/ld+json';
+      document.head.appendChild(ld);
+    }
+    const base = typeof location !== 'undefined' ? location.origin + location.pathname : '';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: title,
+      description: desc,
+      url: base,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: base + '?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    });
+  },
+
+  pageHeader(meta, options) {
+    const short = meta.shortTitle || meta.title;
+    const product = Render.isProductMode(options);
+    const fullTitle = product
+      ? ''
+      : `<div class="doc-wordmark__full">${Render.escapeHtml(meta.title)}</div>`;
+    const version = product
+      ? ''
+      : `<span class="doc-wordmark__full">${Render.escapeHtml(meta.versionLabel || '')}</span>`;
+    const compactClass = product ? ' doc-wordmark--compact' : '';
+    return `<a href="#hero" class="doc-wordmark${compactClass}"><div class="doc-wordmark__title">${Render.escapeHtml(short)}</div>${fullTitle}${version}</a>`;
+  },
+
+  disclaimer(content, header) {
+    if (!content || !content.message) return '';
+    let cta = '';
+    if (content.contributing) {
+      const url = content.contributingUrl
+        || (header && header.githubUrl ? String(header.githubUrl).replace(/\/$/, '') + '/pulls' : '');
+      if (url) {
+        cta = ` <a href="${Render.escapeHtml(url)}" class="site-disclaimer__link">${Render.escapeHtml(content.contributing)}</a>`;
+      } else {
+        cta = ` ${Render.escapeHtml(content.contributing)}`;
+      }
+    }
+    return `<aside class="site-disclaimer" role="note" aria-label="Data disclaimer"><p class="site-disclaimer__text">${Render.escapeHtml(content.message)}${cta}</p></aside>`;
+  },
+
+  search(config, wrapId, idSuffix) {
+    const id = wrapId || 'search-wrap';
+    const s = idSuffix || '';
+    const i = (base) => base + s;
+    return `<div class="search-wrap" id="${id}"><div class="search-wrap__field search-wrap__field--icon"><span class="search-wrap__icon" aria-hidden="true">${Render.icon('search')}</span><span class="sr-only">${Render.escapeHtml(config.ariaLabel)}</span><input id="${i('search')}" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" aria-controls="${i('search-results')}" aria-expanded="false" aria-autocomplete="list" autocomplete="off" type="text" role="searchbox" inputmode="search" /><button type="button" class="search-clear hidden" id="${i('search-clear')}" aria-label="${Render.escapeHtml(config.clearLabel || 'Clear search')}">${Render.icon('x')}</button></div><div id="${i('search-panel')}" class="search-panel hidden"><div id="${i('search-facets')}" class="search-facets" role="group" aria-label="Filter search results"></div><div id="${i('search-results')}" class="search-results" role="listbox"></div></div><p id="${i('search-status')}" class="sr-only" aria-live="polite"></p></div>`;
   },
 
   searchFacets(state) {
@@ -26,30 +131,33 @@ const Render = {
       { id: 'learning', label: 'Learning' }
     ];
     const sourceChips = sources.map(s => {
-      const active = (state.sourceFilter || '') === s.id ? ' bg-blue-100 border-blue-400 font-semibold' : ' bg-white hover:bg-slate-50';
-      return `<button type="button" class="text-xs px-2 py-0.5 border rounded-full${active}" data-search-facet="sourceFilter" data-value="${Render.escapeHtml(s.id)}">${Render.escapeHtml(s.label)}</button>`;
+      const active = (state.sourceFilter || '') === s.id ? ' search-facet-chip--active' : '';
+      return `<button type="button" class="search-facet-chip${active}" data-search-facet="sourceFilter" data-value="${Render.escapeHtml(s.id)}">${Render.escapeHtml(s.label)}</button>`;
     }).join('');
-    const active = [];
-    if (state.companyType) active.push(`Type: ${state.companyType}`);
-    if (state.industry) active.push(`Industry: ${state.industry}`);
-    if (state.migrationBand) {
-      const band = { cloud: 'Cloud', migrating: 'Migrating', unknown: 'Unknown migration' }[state.migrationBand] || state.migrationBand;
-      active.push(`Migration: ${band}`);
-    }
-    if (state.hiringIndia) active.push('India hiring');
-    if (state.hiringAEM) active.push('Hiring AEM');
-    if (state.aemaaCS) active.push('AEM Cloud');
-    if (state.verifiedOnly) active.push('Verified');
-    const hint = active.length
-      ? `<span class="text-xs text-slate-500 ml-1">Table filters: ${active.map(Render.escapeHtml).join(' · ')}</span>`
-      : '';
-    return `<div class="flex flex-wrap gap-1 items-center justify-between w-full gap-y-1"><div class="flex flex-wrap gap-1 items-center">${sourceChips}${hint}</div><div class="flex items-center gap-1 shrink-0"><button type="button" data-copy-discovery-link class="text-xs px-2 py-0.5 border rounded bg-white hover:bg-slate-50" title="Copy link to this filtered view">Copy link</button><span data-copy-link-status class="text-xs text-green-700 hidden" aria-live="polite">Copied!</span></div></div>`;
+    return `<div class="search-facets-bar"><div class="search-facets-chips">${sourceChips}</div><div class="company-explorer__footer-copy"><button type="button" data-copy-discovery-link class="copy-link-btn">${Render.icon('copy')} Copy link</button><span data-copy-link-status class="copy-toast hidden" aria-live="polite">Copied!</span></div></div>`;
   },
 
-  searchResults(results, query, activeIndex) {
+  searchEmptyMessage(query, meta) {
+    if (!query || !query.trim()) return 'No results';
+    if (meta && meta.widened) {
+      return `No results in ${meta.categoryLabel || 'that category'} for “${query.trim()}”. Showing all categories instead.`;
+    }
+    if (meta && meta.rawCount > 0 && meta.sourceFilter) {
+      const labels = { company: 'Companies', owner: 'Apply', chapter: 'Chapters', learning: 'Learning' };
+      const label = labels[meta.sourceFilter] || meta.sourceFilter;
+      return `No results in ${label} for “${query.trim()}”. Try All or another category.`;
+    }
+    return 'No results';
+  },
+
+  searchResults(results, query, activeIndex, meta) {
     if (!query || !query.trim()) return '';
     if (!results.length) {
-      return `<p class="px-3 py-2 text-sm text-slate-500">No results</p>`;
+      const msg = Render.searchEmptyMessage(query, meta);
+      const tryAll = meta && meta.rawCount > 0 && meta.sourceFilter
+        ? ' <button type="button" class="search-facet-chip search-reset-facet" data-search-facet="sourceFilter" data-value="">Search all</button>'
+        : '';
+      return `<p class="search-empty">${Render.escapeHtml(msg)}${tryAll}</p>`;
     }
     const typeLabel = {
       chapter: 'Chapter', company: 'Company', owner: 'Apply', roadmap: 'Roadmap', 'roadmap-step': 'Roadmap step', site: 'Site',
@@ -57,14 +165,51 @@ const Render = {
       template: 'Template', resource: 'Resource'
     };
     return results.map((r, i) => {
-      const active = i === activeIndex ? ' bg-blue-50' : '';
+      const active = i === activeIndex ? ' search-result--active' : '';
       const label = typeLabel[r.source] || r.source;
-      return `<button type="button" class="block w-full text-left px-3 py-2 text-sm hover:bg-slate-100${active}" role="option" data-anchor="${Render.escapeHtml(r.anchor)}" data-chapter-index="${r.chapterIndex != null ? r.chapterIndex : ''}" aria-selected="${i === activeIndex}"><span class="text-xs text-slate-400 uppercase">${Render.escapeHtml(label)}</span><span class="font-semibold block">${Render.escapeHtml(r.title)}</span><span class="text-slate-500 text-xs">${Render.escapeHtml(r.snippet)}</span></button>`;
+      return `<button type="button" class="search-result${active}" role="option" data-anchor="${Render.escapeHtml(r.anchor)}" data-chapter-index="${r.chapterIndex != null ? r.chapterIndex : ''}" aria-selected="${i === activeIndex}"><span class="search-result__type">${Render.escapeHtml(label)}</span><span class="search-result__title">${Render.escapeHtml(r.title)}</span><span class="search-result__snippet">${Render.escapeHtml(r.snippet)}</span></button>`;
     }).join('');
   },
 
   sidebar(chapters) {
-    return chapters.map((c, i) => `<a href="#ch${i}" class="block px-3 py-2 rounded hover:bg-slate-100">${Render.escapeHtml(c.title)}</a>`).join('');
+    return chapters.map(c => {
+      const anchor = c.id ? `#${Render.escapeHtml(c.id)}` : '#main';
+      return `<a href="${anchor}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id || '')}">${Render.escapeHtml(c.title)}</a>`;
+    }).join('');
+  },
+
+  sidebarGrouped(chapters, groups) {
+    if (!groups || !groups.length) return Render.sidebar(chapters);
+    const byId = new Map(chapters.map(c => [c.id, c]));
+    const used = new Set();
+    let html = '';
+    groups.forEach(g => {
+      const items = (g.chapterIds || []).map(id => byId.get(id)).filter(Boolean);
+      if (!items.length) return;
+      items.forEach(c => used.add(c.id));
+      const links = items.map(c => {
+        const anchor = `#${Render.escapeHtml(c.id)}`;
+        return `<a href="${anchor}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id)}">${Render.escapeHtml(c.title)}</a>`;
+      }).join('');
+      html += `<details class="doc-nav__group" data-nav-group="${Render.escapeHtml(g.id)}" open><summary>${Render.escapeHtml(g.label)}</summary><div class="doc-nav__links">${links}</div></details>`;
+    });
+    chapters.filter(c => !used.has(c.id)).forEach(c => {
+      html += `<a href="#${Render.escapeHtml(c.id)}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id)}">${Render.escapeHtml(c.title)}</a>`;
+    });
+    return html;
+  },
+
+  companyStats(companies) {
+    const list = companies || [];
+    return {
+      total: list.length,
+      verified: list.filter(c => c.Status === 'Verified').length,
+      hiring: list.filter(c => c.HiringAEM === true).length,
+      india: list.filter(c => c.HiringIndia === 'Yes').length,
+      cloud: list.filter(c => c.AEMaaCS === true).length,
+      product: list.filter(c => c.companyType === 'Product').length,
+      gcc: list.filter(c => c.companyType === 'GCC').length
+    };
   },
 
   dashboard(stats) {
@@ -72,27 +217,78 @@ const Render = {
     return `<h3 class="font-semibold">${Render.escapeHtml(stats.title)}</h3><ul class="list-disc ml-5 mt-2">${items}</ul>`;
   },
 
-  hero(content) {
-    return `<section id="hero" class="bg-gradient-to-r from-blue-700 to-sky-600 text-white rounded-2xl p-8"><h2 class="text-4xl font-bold">${Render.escapeHtml(content.title)}</h2><p class="mt-4 text-lg">${Render.escapeHtml(content.body)}</p></section>`;
+  hero(content, options, stats) {
+    if (Render.isProductMode(options) && stats) {
+      const ctas = `<div class="hero-cta-row">${content.ctaCompanies ? `<a class="hero-cta" href="#target-companies">${Render.escapeHtml(content.ctaCompanies)}</a>` : ''}${content.ctaApply ? `<a class="hero-cta hero-cta--secondary" href="#how-i-apply">${Render.escapeHtml(content.ctaApply)}</a>` : ''}</div>`;
+      const statCards = [
+        { v: stats.total, l: 'Verified employers' },
+        { v: stats.hiring, l: 'Hiring AEM' },
+        { v: stats.india, l: 'Hiring India' },
+        { v: stats.cloud, l: 'AEM Cloud' }
+      ].map(s => `<div class="stat-card"><div class="stat-card__value">${s.v}</div><div class="stat-card__label">${Render.escapeHtml(s.l)}</div></div>`).join('');
+      return `<section id="hero" class="doc-hero"><h2>${Render.escapeHtml(content.title)}</h2><p class="doc-hero__desc">${Render.escapeHtml(content.body)}</p><div class="doc-hero__stats">${statCards}</div>${ctas}</section>`;
+    }
+    let ctas = '';
+    if (Render.isProductMode(options) && (content.ctaCompanies || content.ctaApply)) {
+      const browse = content.ctaCompanies ? `<a class="hero-cta" href="#target-companies">${Render.escapeHtml(content.ctaCompanies)}</a>` : '';
+      const apply = content.ctaApply ? `<a class="hero-cta hero-cta--secondary" href="#how-i-apply">${Render.escapeHtml(content.ctaApply)}</a>` : '';
+      ctas = `<div class="hero-cta-row">${browse}${apply}</div>`;
+    }
+    return `<section id="hero" class="doc-hero"><h2>${Render.escapeHtml(content.title)}</h2><p class="doc-hero__desc">${Render.escapeHtml(content.body)}</p>${ctas}</section>`;
   },
 
-  roadmap(roadmap) {
-    return Render.roadmapPanel(roadmap);
+  roadmap(roadmap, options) {
+    return Render.roadmapPanel(roadmap, options);
   },
 
-  roadmapList(roadmaps) {
-    return (roadmaps || []).map(rm => Render.roadmapPanel(rm)).join('');
+  roadmapList(roadmaps, options) {
+    return (roadmaps || []).map(rm => Render.roadmapPanel(rm, options)).join('');
   },
 
-  roadmapPanel(roadmap) {
+  roadmapPanel(roadmap, options) {
+    const hideStatus = Render.isProductMode(options);
     const steps = (roadmap.steps || []).map(s => {
-      const desc = s.description
-        ? `<p class="text-sm text-slate-600 mt-1 ml-6">${Render.escapeHtml(s.description)}</p>`
-        : '';
-      const hours = s.estimatedHours ? ` <span class="text-xs text-slate-400">(~${s.estimatedHours}h)</span>` : '';
-      return `<li id="roadmap-step-${Render.escapeHtml(s.id)}"><span class="text-slate-500 text-sm">${Render.escapeHtml(s.status)}</span> — <strong>${Render.escapeHtml(s.title)}</strong>${hours}${desc}</li>`;
+      const desc = s.description ? `<p class="text-sm mt-1">${Render.escapeHtml(s.description)}</p>` : '';
+      const hours = s.estimatedHours ? ` <span class="text-xs">(~${s.estimatedHours}h)</span>` : '';
+      const status = hideStatus ? '' : `<span class="text-slate-500 text-sm">${Render.escapeHtml(s.status)}</span> — `;
+      return `<li id="roadmap-step-${Render.escapeHtml(s.id)}">${status}<strong>${Render.escapeHtml(s.title)}</strong>${hours}${desc}</li>`;
     }).join('');
-    return `<section id="roadmap-${Render.escapeHtml(roadmap.id)}" class="section bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-2xl font-bold">${Render.escapeHtml(roadmap.title)}</h2><p class="text-slate-500 mt-2 mb-4">${Render.escapeHtml(roadmap.summary)}</p><ol class="list-decimal ml-6 space-y-3">${steps}</ol></section>`;
+    if (hideStatus) {
+      return `<details class="roadmap-accordion" id="roadmap-${Render.escapeHtml(roadmap.id)}"><summary>${Render.escapeHtml(roadmap.title)}</summary><div class="roadmap-accordion__body"><p class="text-sm mb-3">${Render.escapeHtml(roadmap.summary)}</p><ol>${steps}</ol></div></details>`;
+    }
+    return `<section id="roadmap-${Render.escapeHtml(roadmap.id)}" class="section"><h2>${Render.escapeHtml(roadmap.title)}</h2><p class="text-slate-500 mt-2 mb-4">${Render.escapeHtml(roadmap.summary)}</p><ol class="list-decimal ml-6 space-y-3">${steps}</ol></section>`;
+  },
+
+  uiSelect(filterKey, label, options, current, extraClass) {
+    const opts = options.map(o => {
+      const sel = o.id === current ? ' ui-select__option--active' : '';
+      const aria = o.id === current ? 'true' : 'false';
+      return `<li role="option" class="ui-select__option${sel}" data-value="${Render.escapeHtml(o.id)}" aria-selected="${aria}">${Render.escapeHtml(o.label)}</li>`;
+    }).join('');
+    const cur = options.find(o => o.id === current) || options[0];
+    const cls = extraClass ? `ui-select ${extraClass}` : 'ui-select';
+    return `<div class="${cls}" data-ui-select><span class="ui-select__label">${Render.escapeHtml(label)}</span><button type="button" class="ui-select__trigger" aria-haspopup="listbox" aria-expanded="false"><span class="ui-select__value">${Render.escapeHtml(cur.label)}</span>${Render.icon('chevronDown')}</button><ul class="ui-select__list hidden" role="listbox">${opts}</ul><input type="hidden" data-company-filter="${Render.escapeHtml(filterKey)}" value="${Render.escapeHtml(current || '')}" /></div>`;
+  },
+
+  companyPagination(page, totalItems, pageAttr) {
+    const pageSize = COMPANY_PAGE_SIZE;
+    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+    const safePage = Math.min(Math.max(1, page), totalPages);
+    if (totalPages <= 1) return '';
+    const prev = safePage <= 1 ? 'disabled' : '';
+    const next = safePage >= totalPages ? 'disabled' : '';
+    return `<nav class="explorer-pagination" aria-label="Company pages"><button type="button" data-${pageAttr}-prev="${safePage}" ${prev}>${Render.icon('chevronLeft')} Prev</button><span class="explorer-pagination__info">Page ${safePage} of ${totalPages}</span><button type="button" data-${pageAttr}-next="${safePage}" ${next}>Next ${Render.icon('chevronRight')}</button></nav>`;
+  },
+
+  companyCountLabel(page, filtered, totalAll, pageSize) {
+    const ps = pageSize || COMPANY_PAGE_SIZE;
+    if (!filtered) return `0 of ${totalAll} employers`;
+    const totalPages = Math.max(1, Math.ceil(filtered / ps));
+    const safePage = Math.min(Math.max(1, page), totalPages);
+    const start = (safePage - 1) * ps + 1;
+    const end = Math.min(safePage * ps, filtered);
+    const suffix = filtered < totalAll ? ` (from ${totalAll} total)` : '';
+    return `Showing ${start}–${end} of ${filtered}${suffix}`;
   },
 
   paginatedTable(items, options, renderRow, headers, pageAttr) {
@@ -106,40 +302,90 @@ const Render = {
     if (totalPages > 1) {
       const buttons = [];
       for (let p = 1; p <= totalPages; p++) {
-        const active = p === safePage ? ' bg-blue-100 font-semibold' : '';
-        buttons.push(`<button type="button" data-${pageAttr}-page="${p}" class="px-2 py-1 border rounded hover:bg-slate-100${active}">${p}</button>`);
+        const active = p === safePage ? ' explorer-page-btn--active' : '';
+        buttons.push(`<button type="button" data-${pageAttr}-page="${p}" class="explorer-page-btn${active}">${p}</button>`);
       }
-      pagination = `<nav class="mt-3 flex flex-wrap gap-2 items-center text-sm" aria-label="${Render.escapeHtml(pageAttr)} pages">${buttons.join('')}<span class="text-slate-500 ml-2">${total} items · page ${safePage} of ${totalPages}</span></nav>`;
+      pagination = `<nav class="explorer-pagination explorer-pagination--numbered" aria-label="${Render.escapeHtml(pageAttr)} pages">${buttons.join('')}<span class="explorer-pagination__info">${total} items · page ${safePage} of ${totalPages}</span></nav>`;
     }
-    const head = headers.map(h => `<th class="p-2 text-left">${Render.escapeHtml(h)}</th>`).join('');
-    return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr>${head}</tr></thead><tbody>${slice.map(renderRow).join('')}</tbody></table></div>${pagination}`;
+    const head = headers.map(h => `<th>${Render.escapeHtml(h)}</th>`).join('');
+    return `<div class="data-table-wrap"><table class="data-table"><thead><tr>${head}</tr></thead><tbody>${slice.map(renderRow).join('')}</tbody></table></div>${pagination}`;
   },
 
   companyName(x) {
     return x.name || x.company || '';
   },
 
-  companyRow(x) {
+  companyLink(url, label) {
+    const href = String(url || '');
+    if (href.startsWith('http')) {
+      return `<a class="text-blue-600 underline" target="_blank" rel="noopener noreferrer" href="${Render.escapeHtml(href)}">${Render.escapeHtml(label)}</a>`;
+    }
+    return Render.escapeHtml(href || 'Unknown');
+  },
+
+  companyActionBtn(url, label) {
+    const href = String(url || '');
+    if (!href.startsWith('http')) return `<span class="text-muted">—</span>`;
+    return `<a class="action-btn" href="${Render.escapeHtml(href)}" target="_blank" rel="noopener noreferrer" aria-label="${Render.escapeHtml(label)}">${Render.icon('external-link')}</a>`;
+  },
+
+  companyRow(x, options) {
     const name = Render.companyName(x);
-    const jobs = String(x.directJobSearch || x.search || 'Unknown');
-    const jobCell = jobs.startsWith('http')
-      ? `<a class="text-blue-600 underline" target="_blank" href="${Render.escapeHtml(jobs)}">Search</a>`
-      : Render.escapeHtml(jobs);
-    const careers = String(x.careersUrl || x.careers || 'Unknown');
-    const careerCell = careers.startsWith('http')
-      ? `<a class="text-blue-600 underline" target="_blank" href="${Render.escapeHtml(careers)}">Careers</a>`
-      : Render.escapeHtml(careers);
+    const jobs = String(x.directJobSearch || x.search || '');
+    const careers = String(x.careersUrl || x.careers || '');
     const aem = x.usesAEM === true ? 'Yes' : (x.aem || 'No');
     const india = x.indiaPresence != null ? x.indiaPresence : (x.india || 'Unknown');
     const type = x.companyType || x.type || 'Unknown';
     const priority = x.priority != null ? x.priority : '';
     const status = x.Status || 'Unknown';
-    const hiring = x.HiringAEM === true ? 'Yes' : 'No';
+    const hiring = x.HiringAEM === true;
     const intensity = x.HiringIntensity || 'Unknown';
-    return `<tr class="border-t"><td class="p-2">${Render.escapeHtml(priority)}</td><td class="p-2 font-semibold">${Render.escapeHtml(name)}</td><td class="p-2">${Render.escapeHtml(type)}</td><td class="p-2">${Render.escapeHtml(india)}</td><td class="p-2">${Render.escapeHtml(hiring)}</td><td class="p-2">${Render.escapeHtml(intensity)}</td><td class="p-2">${Render.escapeHtml(aem)}</td><td class="p-2">${Render.escapeHtml(status)}</td><td class="p-2">${careerCell}</td><td class="p-2">${jobCell}</td><td class="p-2">${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
+    if (Render.isProductMode(options)) {
+      const badges = `${x.Status === 'Verified' ? '<span class="badge badge--verified">Verified</span> ' : ''}${hiring ? '<span class="badge badge--hiring">Hiring</span>' : '<span class="badge badge--idle">Idle</span>'}${x.AEMaaCS ? ' <span class="badge badge--cloud">Cloud</span>' : ''}`;
+      return `<tr><td><strong>${Render.escapeHtml(name)}</strong> ${badges}</td><td>${Render.escapeHtml(type)}</td><td>${Render.escapeHtml(india)}</td><td>${Render.escapeHtml(intensity)}</td><td>${Render.escapeHtml(aem)}</td><td>${Render.companyActionBtn(careers, 'Careers at ' + name)}</td><td>${Render.companyActionBtn(jobs, 'AEM jobs at ' + name)}</td></tr>`;
+    }
+    const jobCell = Render.companyLink(jobs, 'Search');
+    const careerCell = Render.companyLink(careers, 'Careers');
+    return `<tr><td>${Render.escapeHtml(priority)}</td><td><strong>${Render.escapeHtml(name)}</strong></td><td>${Render.escapeHtml(type)}</td><td>${Render.escapeHtml(india)}</td><td>${hiring ? 'Yes' : 'No'}</td><td>${Render.escapeHtml(intensity)}</td><td>${Render.escapeHtml(aem)}</td><td>${Render.escapeHtml(status)}</td><td>${careerCell}</td><td>${jobCell}</td><td>${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
   },
 
-  companyFilterBar(state, total, filtered, industries) {
+  companyCard(x) {
+    const name = Render.companyName(x);
+    const hiring = x.HiringAEM === true;
+    const pill = hiring ? '<span class="badge badge--hiring">Hiring AEM</span>' : '<span class="badge badge--idle">Idle</span>';
+    const intensity = x.HiringIntensity || 'Unknown';
+    const type = x.companyType || x.type || 'Unknown';
+    const india = x.indiaPresence != null ? x.indiaPresence : (x.india || 'Unknown');
+    const jobs = String(x.directJobSearch || x.search || '');
+    const careers = String(x.careersUrl || x.careers || '');
+    const jobsBtn = jobs.startsWith('http') ? `<a class="company-card__btn" href="${Render.escapeHtml(jobs)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link')} AEM jobs</a>` : '';
+    const careersBtn = careers.startsWith('http') ? `<a class="company-card__btn company-card__btn--secondary" href="${Render.escapeHtml(careers)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link')} Careers</a>` : '';
+    return `<article class="company-card"><div class="company-card__header"><span class="company-card__name">${Render.escapeHtml(name)}</span>${pill}</div><div class="company-card__meta"><span>${Render.escapeHtml(intensity)}</span><span>${Render.escapeHtml(type)}</span><span>India: ${Render.escapeHtml(india)}</span></div><div class="company-card__actions">${careersBtn}${jobsBtn}</div></article>`;
+  },
+
+  companyDataBody(companies, options) {
+    const pageSize = COMPANY_PAGE_SIZE;
+    const page = options.page || 1;
+    const total = companies.length;
+    if (!total) return '<div class="company-empty">No companies match your filters.</div>';
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    const safePage = Math.min(Math.max(1, page), totalPages);
+    const slice = companies.slice((safePage - 1) * pageSize, safePage * pageSize);
+    const product = Render.isProductMode(options);
+    const headers = product
+      ? ['Company', 'Type', 'India', 'Intensity', 'AEM', 'Careers', 'Jobs']
+      : ['Priority', 'Company', 'Type', 'India', 'Hiring', 'Intensity', 'AEM', 'Status', 'Careers', 'Jobs', 'Visa'];
+    const head = headers.map(h => `<th>${Render.escapeHtml(h)}</th>`).join('');
+    const rows = slice.map(c => Render.companyRow(c, options)).join('');
+  const pad = Math.max(0, pageSize - slice.length);
+    const emptyRows = Array(pad).fill('<tr class="company-table__pad"><td colspan="' + headers.length + '"></td></tr>').join('');
+    const table = `<div class="company-table-desktop company-explorer__table-wrap"><table class="company-table"><thead><tr>${head}</tr></thead><tbody>${rows}${emptyRows}</tbody></table></div>`;
+    const cards = `<div class="company-cards">${slice.map(Render.companyCard).join('')}</div>`;
+    return table + cards;
+  },
+
+  companyFilterBar(state, total, filtered, industries, options) {
+    const product = Render.isProductMode(options);
     const types = ['', 'Product', 'GCC', 'Agency', 'Enterprise'];
     const migrationBands = [
       { id: '', label: 'All migration' },
@@ -147,94 +393,90 @@ const Render = {
       { id: 'migrating', label: 'Migrating to cloud' },
       { id: 'unknown', label: 'Unknown migration' }
     ];
-    const sortOptions = [
-      { id: 'priority-desc', label: 'Priority (high first)' },
-      { id: 'priority-asc', label: 'Priority (low first)' },
-      { id: 'name-asc', label: 'Name (A–Z)' },
-      { id: 'name-desc', label: 'Name (Z–A)' },
-      { id: 'hiring-desc', label: 'Hiring intensity' }
-    ];
-    const typeOpts = types
-      .map(t => {
-        const sel = state.companyType === t ? ' selected' : '';
-        const label = t || 'All types';
-        return `<option value="${Render.escapeHtml(t)}"${sel}>${Render.escapeHtml(label)}</option>`;
-      })
-      .join('');
+    const sortOptions = product
+      ? [
+        { id: 'hiring-desc', label: 'Most active hiring first' },
+        { id: 'priority-desc', label: 'Priority (high first)' },
+        { id: 'name-asc', label: 'Name (A–Z)' },
+        { id: 'name-desc', label: 'Name (Z–A)' }
+      ]
+      : [
+        { id: 'priority-desc', label: 'Priority (high first)' },
+        { id: 'priority-asc', label: 'Priority (low first)' },
+        { id: 'name-asc', label: 'Name (A–Z)' },
+        { id: 'name-desc', label: 'Name (Z–A)' },
+        { id: 'hiring-desc', label: 'Hiring intensity' }
+      ];
     const industryList = industries || [];
-    const industryOpts = [''].concat(industryList)
-      .map(ind => {
-        const sel = state.industry === ind ? ' selected' : '';
-        const label = ind || 'All industries';
-        return `<option value="${Render.escapeHtml(ind)}"${sel}>${Render.escapeHtml(label)}</option>`;
-      })
-      .join('');
-    const migOpts = migrationBands.map(b => {
-      const sel = state.migrationBand === b.id ? ' selected' : '';
-      return `<option value="${Render.escapeHtml(b.id)}"${sel}>${Render.escapeHtml(b.label)}</option>`;
-    }).join('');
-    const sortOpts = sortOptions.map(o => {
-      const sel = state.sort === o.id ? ' selected' : '';
-      return `<option value="${Render.escapeHtml(o.id)}"${sel}>${Render.escapeHtml(o.label)}</option>`;
-    }).join('');
+    const typeOptions = types.map(t => ({ id: t, label: t || 'All types' }));
+    const industryOptions = [''].concat(industryList).map(ind => ({ id: ind, label: ind || 'All industries' }));
+    const migOptions = migrationBands;
+    const chip = (key, label) => {
+      const active = state[key] ? ' filter-chip--active' : '';
+      const pressed = state[key] ? 'true' : 'false';
+      return `<button type="button" class="filter-chip${active}" data-company-filter="${key}" data-chip="true" aria-pressed="${pressed}">${Render.escapeHtml(label)}</button>`;
+    };
     const chk = (key, label) => {
       const on = state[key] ? ' checked' : '';
       return `<label class="inline-flex items-center gap-1 text-sm"><input type="checkbox" data-company-filter="${key}"${on} /> ${Render.escapeHtml(label)}</label>`;
     };
-    return `<div class="company-filters mb-4 p-3 border rounded-lg bg-slate-50 dark:bg-slate-800 space-y-3" role="search" aria-label="Filter companies">
-      <div class="flex flex-wrap gap-3 items-end">
-        <label class="text-sm flex flex-col gap-1">Search name<input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Company name…" class="border rounded px-2 py-1 min-w-[10rem]" /></label>
-        <label class="text-sm flex flex-col gap-1">Type<select data-company-filter="companyType" class="border rounded px-2 py-1">${typeOpts}</select></label>
-        <label class="text-sm flex flex-col gap-1">Industry<select data-company-filter="industry" class="border rounded px-2 py-1">${industryOpts}</select></label>
-        <label class="text-sm flex flex-col gap-1">Migration<select data-company-filter="migrationBand" class="border rounded px-2 py-1">${migOpts}</select></label>
-        <label class="text-sm flex flex-col gap-1">Sort<select data-company-filter="sort" class="border rounded px-2 py-1">${sortOpts}</select></label>
-      </div>
-      <div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('hiringAEM', 'Hiring AEM')}${chk('aemaaCS', 'AEM Cloud')}${chk('verifiedOnly', 'Verified only')}</div>
-      <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-200">
-        <p class="text-xs text-slate-500">${filtered} of ${total} companies shown</p>
-        <div class="flex items-center gap-2">
-          <span class="text-xs text-slate-500">Share this filtered view</span>
-          <button type="button" data-copy-discovery-link class="text-xs px-2 py-1 border rounded bg-white hover:bg-slate-50" title="Copy link to this filtered view">Copy link</button>
-          <span data-copy-link-status class="text-xs text-green-700 hidden" aria-live="polite">Copied!</span>
-        </div>
-      </div>
+    const quickChips = product
+      ? `<div class="filter-chips" role="group" aria-label="Quick filters">${chip('hiringAEM', 'Hiring AEM roles')}${chip('hiringIndia', 'Hiring in India')}${chip('verifiedOnly', 'Verified employers')}${chip('aemaaCS', 'AEM Cloud Service')}</div>`
+      : `<div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('hiringAEM', 'Hiring AEM')}${chk('aemaaCS', 'AEM Cloud')}${chk('verifiedOnly', 'Verified only')}</div>`;
+    const essentials = product
+      ? `<div class="company-filters__essentials">
+          <label class="company-filters__search">Company name
+            <input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Search company name…" />
+          </label>
+          ${Render.uiSelect('sort', 'Sort', sortOptions, state.sort || 'hiring-desc', 'ui-select--sort')}
+        </div>`
+      : `<div class="company-filters__essentials">
+          <label class="company-filters__search">Search<input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Company name…" /></label>
+          ${Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '')}
+          ${Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '')}
+          ${Render.uiSelect('migrationBand', 'Migration', migOptions, state.migrationBand || '')}
+          ${Render.uiSelect('sort', 'Sort', sortOptions, state.sort || 'priority-desc')}
+        </div>`;
+    const moreFilters = product
+      ? `<details class="company-filters__more"><summary class="company-filters__more-toggle"><span>More filters</span></summary><div class="company-filters__more-grid">
+          ${Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '')}
+          ${Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '')}
+          ${Render.uiSelect('migrationBand', 'Migration', migOptions, state.migrationBand || '')}
+        </div><p class="company-filters__hint">Migration: whether the employer runs AEM as a Cloud Service or is migrating.</p></details>`
+      : '';
+    return `<div class="company-explorer__toolbar" role="search" aria-label="Filter companies">
+      ${quickChips}
+      ${essentials}
+      ${moreFilters}
     </div>`;
-  },
-
-  companyTable(companies, options = {}) {
-    const pageSize = options.pageSize || 25;
-    const page = options.page || 1;
-    const total = companies.length;
-    const totalPages = Math.max(1, Math.ceil(total / pageSize));
-    const safePage = Math.min(Math.max(1, page), totalPages);
-    const slice = companies.slice((safePage - 1) * pageSize, safePage * pageSize);
-    let pagination = '';
-    if (totalPages > 1) {
-      const buttons = [];
-      for (let p = 1; p <= totalPages; p++) {
-        const active = p === safePage ? ' bg-blue-100 font-semibold' : '';
-        buttons.push(`<button type="button" data-company-page="${p}" class="px-2 py-1 border rounded hover:bg-slate-100${active}">${p}</button>`);
-      }
-      pagination = `<nav class="mt-3 flex flex-wrap gap-2 items-center text-sm" aria-label="Company table pages">${buttons.join('')}<span class="text-slate-500 ml-2">${total} companies · page ${safePage} of ${totalPages}</span></nav>`;
-    }
-    return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr><th class="p-2">Priority</th><th class="p-2">Company</th><th class="p-2">Type</th><th class="p-2">India</th><th class="p-2">Hiring</th><th class="p-2">Intensity</th><th class="p-2">AEM</th><th class="p-2">Status</th><th class="p-2">Careers</th><th class="p-2">AEM Jobs</th><th class="p-2">Visa</th></tr></thead><tbody>${slice.map(Render.companyRow).join('')}</tbody></table></div>${pagination}`;
   },
 
   companySection(companies, options = {}) {
     const state = options.filterState || {};
     const total = options.totalCount != null ? options.totalCount : companies.length;
     const filtered = companies.length;
-    const filters = options.showFilters
-      ? Render.companyFilterBar(state, total, filtered, options.industries)
-      : '';
-    return `${filters}<div class="company-table-wrap">${Render.companyTable(companies, options)}</div>`;
+    const page = options.page || 1;
+    const stats = Render.companyStats(options.allCompanies || companies);
+    const metrics = Render.isProductMode(options)
+      ? ''
+      : `<div class="company-explorer__metrics"><span><strong>${stats.total}</strong> employers</span><span><strong>${stats.hiring}</strong> hiring AEM</span><span><strong>${stats.india}</strong> India hiring</span><span><strong>${stats.cloud}</strong> AEM Cloud</span></div>`;
+    const toolbar = options.showFilters ? Render.companyFilterBar(state, total, filtered, options.industries, options) : '';
+    const body = Render.companyDataBody(companies, options);
+    const pagination = Render.companyPagination(page, filtered, 'company');
+    const countLabel = Render.companyCountLabel(page, filtered, total, COMPANY_PAGE_SIZE);
+    const footer = `<div class="company-explorer__footer"><p data-company-count aria-live="polite">${countLabel}</p><div class="company-explorer__footer-copy"><button type="button" data-copy-discovery-link class="copy-link-btn">${Render.icon('copy')} Copy link</button><span data-copy-link-status class="copy-toast hidden" aria-live="polite">Copied!</span></div><div data-company-pagination>${pagination}</div></div>`;
+    return `<div class="company-explorer">${metrics}${toolbar}<div class="company-table-wrap">${body}</div>${footer}</div>`;
+  },
+
+  companyTable(companies, options = {}) {
+    return Render.companyDataBody(companies, options) + Render.companyPagination(options.page || 1, companies.length, 'company');
   },
 
   glossaryTable(terms, options = {}) {
     return Render.paginatedTable(
       terms,
       options,
-      g => `<tr class="border-t"><td class="p-2 font-semibold">${Render.escapeHtml(g.term)}</td><td class="p-2">${Render.escapeHtml(g.definition)}</td><td class="p-2 text-slate-500 text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
+      g => `<tr><td class="font-semibold">${Render.escapeHtml(g.term)}</td><td>${Render.escapeHtml(g.definition)}</td><td class="text-muted text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
       ['Term', 'Definition', 'Related'],
       'glossary'
     );
@@ -244,7 +486,7 @@ const Render = {
     return Render.paginatedTable(
       technologies,
       options,
-      t => `<tr class="border-t"><td class="p-2 font-semibold">${Render.escapeHtml(t.name)}</td><td class="p-2">${Render.escapeHtml(t.category)}</td><td class="p-2">${Render.escapeHtml(t.difficulty)}</td><td class="p-2">${Render.escapeHtml(t.summary)}</td></tr>`,
+      t => `<tr><td class="font-semibold">${Render.escapeHtml(t.name)}</td><td>${Render.escapeHtml(t.category)}</td><td>${Render.escapeHtml(t.difficulty)}</td><td>${Render.escapeHtml(t.summary)}</td></tr>`,
       ['Technology', 'Category', 'Level', 'Summary'],
       'technology'
     );
@@ -263,7 +505,7 @@ const Render = {
     return Render.paginatedTable(
       items,
       options,
-      q => `<tr class="border-t align-top"><td class="p-2">${Render.escapeHtml(q.category)}</td><td class="p-2">${Render.escapeHtml(q.difficulty)}</td><td class="p-2 font-semibold">${Render.escapeHtml(q.question)}</td><td class="p-2 text-slate-600 text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
+      q => `<tr><td>${Render.escapeHtml(q.category)}</td><td>${Render.escapeHtml(q.difficulty)}</td><td class="font-semibold">${Render.escapeHtml(q.question)}</td><td class="text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
       ['Category', 'Level', 'Question', 'Guidance'],
       'interview'
     );
@@ -275,22 +517,33 @@ const Render = {
     ).join('');
   },
 
-  ownerPlaybook(playbook) {
+  ownerPlaybookNav(sections) {
+    const links = sections.map(s =>
+      `<a href="#owner-${Render.escapeHtml(s.id)}">${Render.escapeHtml(s.title)}</a>`
+    ).join('');
+    return `<nav class="owner-playbook-nav" aria-label="Apply sections">${links}</nav>`;
+  },
+
+  ownerPlaybook(playbook, options) {
     if (!playbook || !playbook.sections) return '';
-    return playbook.sections.map(sec => {
-      const badge = sec.audience === 'owner'
+    const product = Render.isProductMode(options);
+    const nav = product ? Render.ownerPlaybookNav(playbook.sections) : '';
+    const articles = playbook.sections.map(sec => {
+      const badge = !product && sec.audience === 'owner'
         ? '<span class="text-xs uppercase text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5">Owner</span>'
         : '';
       const steps = Array.isArray(sec.steps) && sec.steps.length
-        ? `<ol class="list-decimal ml-6 mt-3 space-y-2">${sec.steps.map(s =>
-            `<li class="text-slate-700">${Render.escapeHtml(s)}</li>`
+        ? `<ol class="owner-step-timeline">${sec.steps.map((s, i) =>
+            `<li data-step="${i + 1}">${Render.escapeHtml(s)}</li>`
           ).join('')}</ol>`
         : '';
       const body = sec.body
         ? `<p class="mt-3 text-slate-600 text-sm">${Render.escapeHtml(sec.body)}</p>`
         : '';
-      return `<article id="owner-${Render.escapeHtml(sec.id)}" class="border rounded-lg p-4 mb-4"><div class="flex flex-wrap items-center gap-2"><h3 class="font-bold text-lg">${Render.escapeHtml(sec.title)}</h3>${badge}</div><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(sec.summary)}</p>${steps}${body}</article>`;
+      return `<article id="owner-${Render.escapeHtml(sec.id)}" class="owner-section"><div class="flex flex-wrap items-center gap-2"><h3 class="font-bold text-lg">${Render.escapeHtml(sec.title)}</h3>${badge}</div><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(sec.summary)}</p>${steps}${body}</article>`;
     }).join('');
+    const productClass = product ? ' owner-playbook--product' : '';
+    return `<div class="owner-playbook${productClass}">${nav}<div class="owner-playbook__sections">${articles}</div></div>`;
   },
 
   resourcesList(resources) {
@@ -300,14 +553,23 @@ const Render = {
   },
 
   chapter(chapter, index, ctx) {
-    const id = 'ch' + index;
+    const id = chapter.id || ('ch' + index);
     const companies = ctx.companies || [];
     const learning = ctx.learning || {};
-    let body = chapter.body || '';
+    const renderOpts = { productMode: ctx.productMode };
+    const productApply = ctx.productMode && chapter.ownerPlaybookEmbed;
+    let body = productApply ? '' : (chapter.body || '');
     if (chapter.companyTable) {
-      body = `<div id="company-table-container">${Render.companySection(companies, { page: 1, showFilters: true, filterState: {}, totalCount: companies.length })}</div>`;
+      body = `<div id="company-table-container">${Render.companySection(companies, {
+        page: 1,
+        showFilters: true,
+        filterState: {},
+        totalCount: companies.length,
+        allCompanies: companies,
+        productMode: ctx.productMode
+      })}</div>`;
     } else if (chapter.ownerPlaybookEmbed && ctx.ownerPlaybook) {
-      body += `<div class="mt-4">${Render.ownerPlaybook(ctx.ownerPlaybook)}</div>`;
+      body += `<div class="owner-playbook-wrap">${Render.ownerPlaybook(ctx.ownerPlaybook, renderOpts)}</div>`;
     } else if (chapter.glossaryEmbed && learning.glossary) {
       body += `<div id="glossary-table-container" class="mt-4">${Render.glossaryTable(learning.glossary, { page: 1 })}</div>`;
     } else if (chapter.technologyEmbed && learning.technologies) {
@@ -321,12 +583,47 @@ const Render = {
     } else if (chapter.resourceEmbed && learning.resources) {
       body += `<div class="mt-4">${Render.resourcesList(learning.resources)}</div>`;
     }
+    if (chapter.id === 'learning-roadmap' && ctx.productMode && ctx.roadmaps) {
+      body += `<div class="mt-6 space-y-4">${Render.roadmapList(ctx.roadmaps, renderOpts)}</div>`;
+    }
     const reading = chapter.reading || chapter.readingTime || '';
-    return `<section id="${id}" class="section bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-3xl font-bold">${Render.escapeHtml(chapter.title)}</h2><div class="text-xs text-slate-500 mt-1">⏱ ${Render.escapeHtml(reading)} • ${Render.escapeHtml(chapter.tags.join(', '))}</div><p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p>${body}<details class="mt-6"><summary class="cursor-pointer font-semibold">📌 Summary</summary><div class="mt-2 text-slate-600">${Render.escapeHtml(chapter.summary)}</div></details></section>`;
+    const metaLine = ctx.productMode
+      ? ''
+      : `<div class="text-xs text-slate-500 mt-1">⏱ ${Render.escapeHtml(reading)} • ${Render.escapeHtml(chapter.tags.join(', '))}</div>`;
+    const summaryBlock = ctx.productMode
+      ? (productApply
+        ? `<p class="section-lead">${Render.escapeHtml(chapter.summary)}</p>`
+        : `<p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p>`)
+      : `<p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p><details class="mt-6"><summary class="cursor-pointer font-semibold">📌 Summary</summary><div class="mt-2 text-slate-600">${Render.escapeHtml(chapter.summary)}</div></details>`;
+    return `<section id="${Render.escapeHtml(id)}" class="section"><h2>${Render.escapeHtml(chapter.title)}</h2>${metaLine}${summaryBlock}${body}</section>`;
   },
 
   footer(footer) {
-    return `<footer class="max-w-7xl mx-auto p-6 text-sm text-slate-500 text-center border-t mt-6">${Render.escapeHtml(footer.text)}</footer>`;
+    return `<footer class="site-footer">${Render.escapeHtml(footer.text)}</footer>`;
+  },
+
+  resolveProductMode(site) {
+    if (!site) return false;
+    if (typeof location !== 'undefined') {
+      const params = new URLSearchParams(location.search);
+      if (params.get('mode') === 'dev') return false;
+    }
+    return site.mode !== 'dev';
+  },
+
+  chaptersForMode(allChapters, site) {
+    const nav = site.navigation || {};
+    const devOnly = new Set(nav.devOnlyChapterIds || []);
+    const product = Render.resolveProductMode(site);
+    if (!product) return allChapters.slice();
+    const order = nav.productChapterIds || [];
+    const byId = new Map(allChapters.map(c => [c.id, c]));
+    const ordered = order.map(id => byId.get(id)).filter(Boolean);
+    const included = new Set(ordered.map(c => c.id));
+    allChapters.forEach(c => {
+      if (!devOnly.has(c.id) && !included.has(c.id)) ordered.push(c);
+    });
+    return ordered;
   }
 };
 
