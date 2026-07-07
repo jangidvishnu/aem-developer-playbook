@@ -7,7 +7,7 @@
 
 ## Milestone 8 — accepted
 
-Commit pending (this release). **119** hire-verified employers, hiring gate, company table filters/sort, BuiltWith seed
+Commit `e201d00`. **119** hire-verified employers, hiring gate, company table filters/sort, BuiltWith seed
 manifest (no paid API). **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 **Verify (regression):**
