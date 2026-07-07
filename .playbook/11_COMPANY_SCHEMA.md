@@ -48,6 +48,12 @@ informal version of this shape hardcoded inline — it will be migrated onto thi
 | `References` | array of strings (URLs) | Supplementary sources |
 | `LastVerified` | ISO date string | When evidence was last checked |
 | `Status` | string | e.g. "Verified", "Unverified", "Needs review" |
+| `HiringAEM` | boolean | Explicit gate: actively hires AEM/DXP roles (Milestone 8) |
+| `AEMHiringEvidence` | array of strings (URLs) | Job posting(s) or careers search proving hire |
+| `AEMWorkFocus` | array of strings | e.g. `Sites`, `Cloud migration`, `EDS`, `Headless` |
+| `HiringIntensity` | string | `High` / `Medium` / `Low` / `Unknown` — owner-judged from postings |
+| `AdobeSpend` | string | Only if sourced; default `Unknown` |
+| `LastHiringVerified` | ISO date string \| null | When `AEMHiringEvidence` was last checked |
 | `Wishlist` | boolean | Personal tracking: interested |
 | `Applied` | boolean | Personal tracking: application submitted |
 | `Interview` | boolean | Personal tracking: in interview process |
@@ -59,6 +65,8 @@ informal version of this shape hardcoded inline — it will be migrated onto thi
 - Unknown values are the explicit string `"Unknown"` or `null` (per the field's type) — never an omitted key.
 - `usesAEM: true` requires at least one entry in `Evidence`, per `07_RESEARCH_GUIDE.md`. If evidence can't be found,
   set `Status: "Unverified"` rather than asserting `usesAEM: true` unsupported.
+- **Public table (Milestone 8):** every row in `companies.json` must have `HiringAEM: true`, non-empty
+  `AEMHiringEvidence`, and an http `careersUrl`. Rows that fail the gate are archived to `data/manifests/company-candidates.json`.
 - The five personal-tracking booleans (`Wishlist` through `Rejected`) are mutually informative but not mutually
   exclusive over time (e.g. `Applied` and `Interview` can both be true) — they represent a progression, not a
   single enum, so do not collapse them into one `status` field.

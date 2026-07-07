@@ -105,7 +105,44 @@ const Render = {
     const type = x.companyType || x.type || 'Unknown';
     const priority = x.priority != null ? x.priority : '';
     const status = x.Status || 'Unknown';
-    return `<tr class="border-t"><td class="p-2">${Render.escapeHtml(priority)}</td><td class="p-2 font-semibold">${Render.escapeHtml(name)}</td><td class="p-2">${Render.escapeHtml(type)}</td><td class="p-2">${Render.escapeHtml(india)}</td><td class="p-2">${Render.escapeHtml(aem)}</td><td class="p-2">${Render.escapeHtml(status)}</td><td class="p-2">${careerCell}</td><td class="p-2">${jobCell}</td><td class="p-2">${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
+    const hiring = x.HiringAEM === true ? 'Yes' : 'No';
+    const intensity = x.HiringIntensity || 'Unknown';
+    return `<tr class="border-t"><td class="p-2">${Render.escapeHtml(priority)}</td><td class="p-2 font-semibold">${Render.escapeHtml(name)}</td><td class="p-2">${Render.escapeHtml(type)}</td><td class="p-2">${Render.escapeHtml(india)}</td><td class="p-2">${Render.escapeHtml(hiring)}</td><td class="p-2">${Render.escapeHtml(intensity)}</td><td class="p-2">${Render.escapeHtml(aem)}</td><td class="p-2">${Render.escapeHtml(status)}</td><td class="p-2">${careerCell}</td><td class="p-2">${jobCell}</td><td class="p-2">${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
+  },
+
+  companyFilterBar(state, total, filtered) {
+    const types = ['', 'Product', 'GCC', 'Agency', 'Enterprise'];
+    const sortOptions = [
+      { id: 'priority-desc', label: 'Priority (high first)' },
+      { id: 'priority-asc', label: 'Priority (low first)' },
+      { id: 'name-asc', label: 'Name (A–Z)' },
+      { id: 'name-desc', label: 'Name (Z–A)' },
+      { id: 'hiring-desc', label: 'Hiring intensity' }
+    ];
+    const typeOpts = types
+      .map(t => {
+        const sel = state.companyType === t ? ' selected' : '';
+        const label = t || 'All types';
+        return `<option value="${Render.escapeHtml(t)}"${sel}>${Render.escapeHtml(label)}</option>`;
+      })
+      .join('');
+    const sortOpts = sortOptions.map(o => {
+      const sel = state.sort === o.id ? ' selected' : '';
+      return `<option value="${Render.escapeHtml(o.id)}"${sel}>${Render.escapeHtml(o.label)}</option>`;
+    }).join('');
+    const chk = (key, label) => {
+      const on = state[key] ? ' checked' : '';
+      return `<label class="inline-flex items-center gap-1 text-sm"><input type="checkbox" data-company-filter="${key}"${on} /> ${Render.escapeHtml(label)}</label>`;
+    };
+    return `<div class="company-filters mb-4 p-3 border rounded-lg bg-slate-50 dark:bg-slate-800 space-y-3" role="search" aria-label="Filter companies">
+      <div class="flex flex-wrap gap-3 items-end">
+        <label class="text-sm flex flex-col gap-1">Search name<input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Company name…" class="border rounded px-2 py-1 min-w-[10rem]" /></label>
+        <label class="text-sm flex flex-col gap-1">Type<select data-company-filter="companyType" class="border rounded px-2 py-1">${typeOpts}</select></label>
+        <label class="text-sm flex flex-col gap-1">Sort<select data-company-filter="sort" class="border rounded px-2 py-1">${sortOpts}</select></label>
+      </div>
+      <div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('hiringAEM', 'Hiring AEM')}${chk('aemaaCS', 'AEM Cloud')}${chk('verifiedOnly', 'Verified only')}</div>
+      <p class="text-xs text-slate-500">${filtered} of ${total} companies shown</p>
+    </div>`;
   },
 
   companyTable(companies, options = {}) {
@@ -124,7 +161,17 @@ const Render = {
       }
       pagination = `<nav class="mt-3 flex flex-wrap gap-2 items-center text-sm" aria-label="Company table pages">${buttons.join('')}<span class="text-slate-500 ml-2">${total} companies · page ${safePage} of ${totalPages}</span></nav>`;
     }
-    return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr><th class="p-2">Priority</th><th class="p-2">Company</th><th class="p-2">Type</th><th class="p-2">India</th><th class="p-2">AEM</th><th class="p-2">Status</th><th class="p-2">Careers</th><th class="p-2">AEM Jobs</th><th class="p-2">Visa</th></tr></thead><tbody>${slice.map(Render.companyRow).join('')}</tbody></table></div>${pagination}`;
+    return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr><th class="p-2">Priority</th><th class="p-2">Company</th><th class="p-2">Type</th><th class="p-2">India</th><th class="p-2">Hiring</th><th class="p-2">Intensity</th><th class="p-2">AEM</th><th class="p-2">Status</th><th class="p-2">Careers</th><th class="p-2">AEM Jobs</th><th class="p-2">Visa</th></tr></thead><tbody>${slice.map(Render.companyRow).join('')}</tbody></table></div>${pagination}`;
+  },
+
+  companySection(companies, options = {}) {
+    const state = options.filterState || {};
+    const total = options.totalCount != null ? options.totalCount : companies.length;
+    const filtered = companies.length;
+    const filters = options.showFilters
+      ? Render.companyFilterBar(state, total, filtered)
+      : '';
+    return `${filters}<div class="company-table-wrap">${Render.companyTable(companies, options)}</div>`;
   },
 
   glossaryTable(terms, options = {}) {
@@ -184,7 +231,7 @@ const Render = {
     const learning = ctx.learning || {};
     let body = chapter.body || '';
     if (chapter.companyTable) {
-      body = `<div id="company-table-container">${Render.companyTable(companies, { page: 1 })}</div>`;
+      body = `<div id="company-table-container">${Render.companySection(companies, { page: 1, showFilters: true, filterState: {}, totalCount: companies.length })}</div>`;
     } else if (chapter.glossaryEmbed && learning.glossary) {
       body += `<div id="glossary-table-container" class="mt-4">${Render.glossaryTable(learning.glossary, { page: 1 })}</div>`;
     } else if (chapter.technologyEmbed && learning.technologies) {

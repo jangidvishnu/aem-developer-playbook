@@ -1,0 +1,5 @@
+{
+  "note": "Archived — paid BuiltWith Lists API was removed per DR-012. Seeds live in data/company-sources.json; run node scripts/ingest-builtwith-candidates.js and node scripts/build-companies.js.",
+  "archivedAt": "2026-07-07",
+  "supersededBy": "data/company-sources.json"
+}

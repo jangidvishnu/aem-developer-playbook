@@ -80,6 +80,7 @@ this file — update .playbook/ and reference it instead.
   </div>
   <div id="site-footer"></div>
   <script src="assets/js/render.js"></script>
+  <script src="assets/js/filters.js"></script>
   <script src="assets/js/search.js"></script>
   <script>
     // Content data lives in data/*.json (Milestones 3–4 — see 12_DECISIONS.md DR-005).
@@ -243,20 +244,87 @@ this file — update .playbook/ and reference it instead.
       render();
     }
 
-    function wireCompanyPagination(companies) {
+    function wireCompanyPagination(allCompanies) {
       const container = document.getElementById('company-table-container');
       if (!container) return;
       let page = 1;
-      function render() {
-        container.innerHTML = Render.companyTable(companies, { page });
+      let filterState = CompanyFilters.defaultState();
+
+      function readStateFromDom() {
+        const bar = container.querySelector('.company-filters');
+        if (!bar) return filterState;
+        const q = bar.querySelector('[data-company-filter="query"]');
+        const type = bar.querySelector('[data-company-filter="companyType"]');
+        const sort = bar.querySelector('[data-company-filter="sort"]');
+        filterState = {
+          query: q ? q.value : '',
+          companyType: type ? type.value : '',
+          sort: sort ? sort.value : 'priority-desc',
+          hiringIndia: !!bar.querySelector('[data-company-filter="hiringIndia"]')?.checked,
+          hiringAEM: !!bar.querySelector('[data-company-filter="hiringAEM"]')?.checked,
+          aemaaCS: !!bar.querySelector('[data-company-filter="aemaaCS"]')?.checked,
+          verifiedOnly: !!bar.querySelector('[data-company-filter="verifiedOnly"]')?.checked
+        };
+        return filterState;
+      }
+
+      function updateCount(filteredLen) {
+        const countEl = container.querySelector('.company-filters p.text-xs');
+        if (countEl) {
+          countEl.textContent = `${filteredLen} of ${allCompanies.length} companies shown`;
+        }
+      }
+
+      function wirePageButtons() {
         container.querySelectorAll('[data-company-page]').forEach(btn => {
           btn.onclick = () => {
             page = parseInt(btn.getAttribute('data-company-page'), 10);
-            render();
+            renderTable();
           };
         });
       }
-      render();
+
+      /** Update table + pagination only — keep filter bar in DOM so search input keeps focus. */
+      function renderTable() {
+        readStateFromDom();
+        const filtered = CompanyFilters.apply(allCompanies, filterState);
+        const totalPages = Math.max(1, Math.ceil(filtered.length / 25));
+        if (page > totalPages) page = 1;
+        const wrap = container.querySelector('.company-table-wrap');
+        if (wrap) {
+          wrap.innerHTML = Render.companyTable(filtered, { page });
+        }
+        updateCount(filtered.length);
+        wirePageButtons();
+      }
+
+      function init() {
+        filterState = CompanyFilters.defaultState();
+        page = 1;
+        const filtered = CompanyFilters.apply(allCompanies, filterState);
+        container.innerHTML = Render.companySection(filtered, {
+          page,
+          showFilters: true,
+          filterState,
+          totalCount: allCompanies.length
+        });
+        wirePageButtons();
+        const bar = container.querySelector('.company-filters');
+        if (bar) {
+          bar.addEventListener('input', e => {
+            if (!e.target.matches('[data-company-filter]')) return;
+            if (e.target.type === 'checkbox') return;
+            page = 1;
+            renderTable();
+          });
+          bar.addEventListener('change', e => {
+            if (!e.target.matches('[data-company-filter]')) return;
+            page = 1;
+            renderTable();
+          });
+        }
+      }
+      init();
     }
 
     function wireTheme() {

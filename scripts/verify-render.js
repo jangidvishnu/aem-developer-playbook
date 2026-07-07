@@ -10,6 +10,7 @@
  * no hand-copied duplicate of the Render namespace.
  *
  * Usage: node scripts/verify-render.js
+ *        node scripts/verify-render.js --update-golden   (after intentional render changes)
  */
 
 const fs = require('fs');
@@ -70,6 +71,12 @@ function loadOrCreateM3Golden() {
 
 const golden = loadOrCreateM3Golden();
 const current = runChaptersAndToc();
+
+if (process.argv.includes('--update-golden')) {
+  fs.writeFileSync(M3_GOLDEN_PATH, JSON.stringify(current, null, 2) + '\n');
+  console.log('Updated', path.relative(process.cwd(), M3_GOLDEN_PATH));
+  process.exit(0);
+}
 
 const tocMatch = golden.toc === current.toc;
 const chaptersMatch = golden.chapters === current.chapters;

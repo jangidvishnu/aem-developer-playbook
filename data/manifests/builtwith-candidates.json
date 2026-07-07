@@ -1,0 +1,510 @@
+{
+  "note": "Curated AEM employer seeds (DR-011). Public builtwith.com profile URLs are optional Tier-4 reference links. Seeds live in data/company-sources.json.",
+  "ingestedAt": "2026-07-07",
+  "stats": {
+    "total": 50,
+    "seed": 50
+  },
+  "candidates": [
+    {
+      "id": "alliance-bernstein",
+      "domain": "alliancebernstein.com",
+      "name": "AllianceBernstein",
+      "builtwithUrl": "https://builtwith.com/alliancebernstein.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "american-express",
+      "domain": "americanexpress.com",
+      "name": "American Express",
+      "builtwithUrl": "https://builtwith.com/americanexpress.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "asian-paints",
+      "domain": "asianpaints.com",
+      "name": "Asian Paints",
+      "builtwithUrl": "https://builtwith.com/asianpaints.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "atcs",
+      "domain": "athenahealth.com",
+      "name": "ATCS (Athena Technology)",
+      "builtwithUrl": "https://builtwith.com/athenahealth.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "avalara",
+      "domain": "avalara.com",
+      "name": "Avalara",
+      "builtwithUrl": "https://builtwith.com/avalara.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "bajaj-finserv",
+      "domain": "bajajfinserv.in",
+      "name": "Bajaj Finserv",
+      "builtwithUrl": "https://builtwith.com/bajajfinserv.in",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "bank-of-america",
+      "domain": "bankofamerica.com",
+      "name": "Bank of America",
+      "builtwithUrl": "https://builtwith.com/bankofamerica.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "bmw",
+      "domain": "bmw.com",
+      "name": "BMW Group",
+      "builtwithUrl": "https://builtwith.com/bmw.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "bosch",
+      "domain": "bosch.com",
+      "name": "Bosch",
+      "builtwithUrl": "https://builtwith.com/bosch.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "citrix",
+      "domain": "citrix.com",
+      "name": "Citrix (Cloud Software Group)",
+      "builtwithUrl": "https://builtwith.com/citrix.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "code-and-theory",
+      "domain": "codeandtheory.com",
+      "name": "Code and Theory",
+      "builtwithUrl": "https://builtwith.com/codeandtheory.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "colgate-palmolive",
+      "domain": "colgatepalmolive.com",
+      "name": "Colgate-Palmolive",
+      "builtwithUrl": "https://builtwith.com/colgatepalmolive.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "delta-air-lines",
+      "domain": "delta.com",
+      "name": "Delta Air Lines",
+      "builtwithUrl": "https://builtwith.com/delta.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "ezest",
+      "domain": "ezest.com",
+      "name": "e-Zest Solutions",
+      "builtwithUrl": "https://builtwith.com/ezest.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "e-on",
+      "domain": "eon.com",
+      "name": "E.ON",
+      "builtwithUrl": "https://builtwith.com/eon.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "emirates",
+      "domain": "emirates.com",
+      "name": "Emirates",
+      "builtwithUrl": "https://builtwith.com/emirates.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "epsilon",
+      "domain": "epsilon.com",
+      "name": "Epsilon (Publicis)",
+      "builtwithUrl": "https://builtwith.com/epsilon.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "etihad-airways",
+      "domain": "etihad.com",
+      "name": "Etihad Airways",
+      "builtwithUrl": "https://builtwith.com/etihad.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "fedex",
+      "domain": "fedex.com",
+      "name": "FedEx",
+      "builtwithUrl": "https://builtwith.com/fedex.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "ge-healthcare",
+      "domain": "gehealthcare.com",
+      "name": "GE HealthCare",
+      "builtwithUrl": "https://builtwith.com/gehealthcare.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "hilton",
+      "domain": "hilton.com",
+      "name": "Hilton",
+      "builtwithUrl": "https://builtwith.com/hilton.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "icici-bank",
+      "domain": "icicibank.com",
+      "name": "ICICI Bank",
+      "builtwithUrl": "https://builtwith.com/icicibank.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "ikea",
+      "domain": "ikea.com",
+      "name": "IKEA",
+      "builtwithUrl": "https://builtwith.com/ikea.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "indusind-bank",
+      "domain": "indusind.com",
+      "name": "IndusInd Bank",
+      "builtwithUrl": "https://builtwith.com/indusind.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "insight-global",
+      "domain": "insightglobal.com",
+      "name": "Insight Global",
+      "builtwithUrl": "https://builtwith.com/insightglobal.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "jpmorgan-chase",
+      "domain": "jpmorganchase.com",
+      "name": "JPMorgan Chase",
+      "builtwithUrl": "https://builtwith.com/jpmorganchase.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "linkedin",
+      "domain": "linkedin.com",
+      "name": "LinkedIn",
+      "builtwithUrl": "https://builtwith.com/linkedin.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "lufthansa",
+      "domain": "lufthansa.com",
+      "name": "Lufthansa Group",
+      "builtwithUrl": "https://builtwith.com/lufthansa.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "marriott",
+      "domain": "marriott.com",
+      "name": "Marriott International",
+      "builtwithUrl": "https://builtwith.com/marriott.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "mastercard",
+      "domain": "mastercard.com",
+      "name": "Mastercard",
+      "builtwithUrl": "https://builtwith.com/mastercard.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "medtronic",
+      "domain": "medtronic.com",
+      "name": "Medtronic",
+      "builtwithUrl": "https://builtwith.com/medtronic.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "mercedes-benz",
+      "domain": "mercedes-benz.com",
+      "name": "Mercedes-Benz Group",
+      "builtwithUrl": "https://builtwith.com/mercedes-benz.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "merck",
+      "domain": "merck.com",
+      "name": "Merck",
+      "builtwithUrl": "https://builtwith.com/merck.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "microsoft",
+      "domain": "microsoft.com",
+      "name": "Microsoft",
+      "builtwithUrl": "https://builtwith.com/microsoft.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "nike",
+      "domain": "nike.com",
+      "name": "Nike",
+      "builtwithUrl": "https://builtwith.com/nike.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "qatar-airways",
+      "domain": "qatarairways.com",
+      "name": "Qatar Airways",
+      "builtwithUrl": "https://builtwith.com/qatarairways.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "roche",
+      "domain": "roche.com",
+      "name": "Roche",
+      "builtwithUrl": "https://builtwith.com/roche.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "sap",
+      "domain": "sap.com",
+      "name": "SAP",
+      "builtwithUrl": "https://builtwith.com/sap.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "servicenow",
+      "domain": "servicenow.com",
+      "name": "ServiceNow",
+      "builtwithUrl": "https://builtwith.com/servicenow.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "siemens",
+      "domain": "siemens.com",
+      "name": "Siemens",
+      "builtwithUrl": "https://builtwith.com/siemens.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "spark-new-zealand",
+      "domain": "spark.co.nz",
+      "name": "Spark New Zealand",
+      "builtwithUrl": "https://builtwith.com/spark.co.nz",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "suncorp",
+      "domain": "suncorp.com.au",
+      "name": "Suncorp Group",
+      "builtwithUrl": "https://builtwith.com/suncorp.com.au",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "target",
+      "domain": "target.com",
+      "name": "Target",
+      "builtwithUrl": "https://builtwith.com/target.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "telstra",
+      "domain": "telstra.com.au",
+      "name": "Telstra",
+      "builtwithUrl": "https://builtwith.com/telstra.com.au",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "disney",
+      "domain": "disney.com",
+      "name": "The Walt Disney Company",
+      "builtwithUrl": "https://builtwith.com/disney.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "unicredit",
+      "domain": "unicreditgroup.eu",
+      "name": "UniCredit",
+      "builtwithUrl": "https://builtwith.com/unicreditgroup.eu",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "united-airlines",
+      "domain": "united.com",
+      "name": "United Airlines",
+      "builtwithUrl": "https://builtwith.com/united.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "verizon",
+      "domain": "verizon.com",
+      "name": "Verizon",
+      "builtwithUrl": "https://builtwith.com/verizon.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "wells-fargo",
+      "domain": "wellsfargo.com",
+      "name": "Wells Fargo",
+      "builtwithUrl": "https://builtwith.com/wellsfargo.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    },
+    {
+      "id": "workday",
+      "domain": "workday.com",
+      "name": "Workday",
+      "builtwithUrl": "https://builtwith.com/workday.com",
+      "source": "seed",
+      "mapped": true,
+      "hasCareers": true,
+      "ingestedAt": "2026-07-07"
+    }
+  ]
+}

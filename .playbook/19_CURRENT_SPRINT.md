@@ -2,28 +2,30 @@
 
 ## Active objective
 
-**Milestone 8 (Company Pipeline, Hiring Gate & Table Discovery)** — not started. See `14_ROADMAP.md` and
-`12_DECISIONS.md` DR-008 / DR-010.
+**Milestone 9 (Discovery Filters)** — not started. Search-panel facets and shareable filter state. See
+`14_ROADMAP.md`.
 
-## Milestone 7 — Learning System: accepted
+## Milestone 8 — accepted
 
-Accepted by project owner. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
+Commit pending (this release). **119** hire-verified employers, hiring gate, company table filters/sort, BuiltWith seed
+manifest (no paid API). **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 **Verify (regression):**
 
 ```bash
-node scripts/verify-learning.js
+node scripts/build-companies.js
+node scripts/verify-companies.js
+node scripts/verify-filters.js
 node scripts/verify-search.js
 node scripts/verify-render.js
-node scripts/verify-companies.js
+node scripts/verify-learning.js
 ```
 
-## Milestone 8 — next up
+**Ongoing (post-M8):** grow company list via fresh research + `data/company-sources.json` (no count cap per DR-010).
 
-1. Hiring gate schema + scripts (`hiring-gate.js`, `build-companies-m8.js`, manifests)
-2. `assets/js/filters.js` — company table filter/sort by type, priority, India hiring, cloud
-3. Fresh research batches — Adobe stories, careers search, India GCC (md reference only)
-4. BuiltWith manifest ingest; optional paid API adapter
+## Milestone 7 — accepted
+
+Commit `7984ec4`. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 ## Milestones 1–6: accepted
 

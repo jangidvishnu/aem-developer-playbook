@@ -337,3 +337,43 @@ Browser: `17_TESTING_GUIDE.md` → Milestone 7 (owner confirmed).
 
 `12_DECISIONS.md` DR-007 — content minimums, roadmap ids, new chapters, generic templates.
 
+## Milestone 8 — Company Pipeline, Hiring Gate & Table Discovery (complete, accepted)
+
+### Goal
+
+Build the core company product — hire-verified AEM employers with apply-ready data (careers links, AEM usage proof,
+hiring proof), client-side filter/sort on the company table, and BuiltWith manifest ingest (curated seed map only;
+paid API removed DR-012).
+
+### Scope (in) — all delivered
+
+- Hiring gate: `scripts/hiring-gate.js`, `build-companies.js`, `verify-companies.js` enforcement (DR-008).
+- Consolidated seeds: `data/company-sources.json`, `company-records.js`, `company-overrides.js`.
+- Manifests: `company-candidates.json` (33 archived), `builtwith-candidates.json` (50 seeds), `research-queue.json`.
+- `scripts/ingest-builtwith-candidates.js` (seed-only; no paid API per DR-012).
+- **119** hire-verified rows in `data/companies.json` (product, service, India agency/GCC, referral, BuiltWith
+  watchlist batches per DR-010/DR-011).
+- M8 schema fields: `HiringAEM`, `AEMHiringEvidence`, `AEMWorkFocus`, `HiringIntensity`, `AdobeSpend`,
+  `LastHiringVerified`.
+- `assets/js/filters.js`, `verify-filters.js`; company table filter/sort bar; Hiring and Intensity columns.
+- Search index extended with `companyType`, `HiringAEM`; company name search focus bug fixed in `index.html`.
+- Docs: `07_RESEARCH_GUIDE.md`, `11_COMPANY_SCHEMA.md`, `17_TESTING_GUIDE.md` M8 section.
+
+### Scope (out) — deferred to M9
+
+Search-panel facet chips, shareable filter URLs, remaining search facets (`industry`, `MigrationStatus`).
+
+### Acceptance criteria — all passed
+
+Per `14_ROADMAP.md` Milestone 8 list; `build-companies.js`, `verify-companies.js`, `verify-filters.js`,
+`verify-search.js`, `verify-render.js`, `verify-learning.js` exit 0.
+
+### Test plan
+
+Automated: `node scripts/build-companies.js`, `verify-companies.js`, `verify-filters.js`, `verify-search.js`,
+`verify-render.js`, `verify-learning.js`. Browser: `17_TESTING_GUIDE.md` → Milestone 8 (owner confirmed).
+
+### Owner decisions
+
+`12_DECISIONS.md` DR-008 (hiring gate), DR-010 (expanded scope, no count cap), DR-011 (BuiltWith watchlist),
+DR-012 (no paid BuiltWith API).

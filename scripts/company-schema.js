@@ -1,7 +1,9 @@
 /**
- * Shared company record shape for Milestone 6 (see 11_COMPANY_SCHEMA.md).
+ * Shared company record shape for Milestone 6+8 (see 11_COMPANY_SCHEMA.md).
  * Dev-only — never loaded by index.html.
  */
+
+const { validateHiringGate } = require('./hiring-gate');
 
 const REQUIRED_KEYS = [
   'id', 'name', 'priority', 'industry', 'companyType', 'headquarters', 'indiaPresence',
@@ -10,7 +12,8 @@ const REQUIRED_KEYS = [
   'Forms', 'Assets', 'Sites', 'MigrationStatus', 'EngineeringCulture', 'Compensation',
   'WorkLifeBalance', 'VisaSupport', 'HiringIndia', 'HiringGlobal', 'InterviewDifficulty',
   'TypicalRoles', 'Recruiters', 'Notes', 'Evidence', 'References', 'LastVerified', 'Status',
-  'Wishlist', 'Applied', 'Interview', 'Offer', 'Rejected'
+  'HiringAEM', 'AEMHiringEvidence', 'AEMWorkFocus', 'HiringIntensity', 'AdobeSpend',
+  'LastHiringVerified', 'Wishlist', 'Applied', 'Interview', 'Offer', 'Rejected'
 ];
 
 function emptyCompany(overrides = {}) {
@@ -53,6 +56,12 @@ function emptyCompany(overrides = {}) {
     References: [],
     LastVerified: null,
     Status: 'Unverified',
+    HiringAEM: false,
+    AEMHiringEvidence: [],
+    AEMWorkFocus: [],
+    HiringIntensity: 'Unknown',
+    AdobeSpend: 'Unknown',
+    LastHiringVerified: null,
     Wishlist: false,
     Applied: false,
     Interview: false,
@@ -85,6 +94,8 @@ function validateCompany(co, index) {
   if (co.Status === 'Verified' && (!Array.isArray(co.Evidence) || co.Evidence.length === 0)) {
     errors.push(`${label}: Status Verified requires non-empty Evidence`);
   }
+
+  errors.push(...validateHiringGate(co, label));
 
   return errors;
 }

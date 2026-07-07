@@ -25,13 +25,45 @@ jobs-first mobile UI are in place.
 
 **Date:** Milestone 8 planning (post–M7)
 **Context:** Owner wants the fullest hire-verified company list possible, fresh evidence (not md copy-paste), India-first
-priority, client-side filter/sort on the company table, and BuiltWith integration where a paid API exists.
+priority, client-side filter/sort on the company table, and curated BuiltWith-style domain seeds (no paid API).
 **Decision:** Expand Milestone 8 to include: (1) fresh research workflow with `md/` reference-only; (2) no row-count cap;
-(3) `assets/js/filters.js` + company table filter/sort (folded from planned M9 table work); (4) BuiltWith manifest +
-optional paid API adapter; (5) `LastHiringVerified` on schema. Milestone 9 retains search-panel facets and shareable
+(3) `assets/js/filters.js` + company table filter/sort (folded from planned M9 table work); (4) curated domain-map
+manifest (paid BuiltWith API removed per DR-012); (5) `LastHiringVerified` on schema. Milestone 9 retains search-panel facets and shareable
 filter URLs only.
 **Trade-off accepted:** M8 is larger and research-heavy; M9 scope reduced accordingly.
 **Follow-up:** Implement per `14_ROADMAP.md` Milestone 8 section.
+
+---
+
+## DR-012 — No paid BuiltWith API (accepted — Milestone 8, owner-directed)
+
+**Date:** 2026-07-07
+**Context:** Owner will not purchase BuiltWith Lists API subscription.
+**Decision:** Remove `scripts/builtwith-api.js` and all `BUILTWITH_API_KEY` / Lists API ingest paths. Keep curated
+`data/company-sources.json` seed list and optional public `builtwith.com/{domain}` reference URLs in `Evidence` (manual
+lookup only). Grow the company list via fresh research and expanding the domain map — not bulk API ingest.
+**Trade-off accepted:** No automated discovery of thousands of AEM domains; seed map remains maintainable by hand.
+**Supersedes (partial):** DR-010 item (4) optional paid API adapter; DR-011 API manifest merge path.
+**Follow-up:** Archive `data/manifests/builtwith-input.json` config; seed-only `ingest-builtwith-candidates.js`.
+
+## DR-011 — BuiltWith watchlist promotion (accepted — Milestone 8, owner-directed)
+
+**Date:** 2026-07-07
+**Context:** Owner noted many AEM employers are missed when requiring Tier 1–2 Adobe evidence only; service firms
+have hundreds of AEM clients; product employers often hire AEM talent in low capacity but still offer viable roles.
+BuiltWith Lists API can surface thousands of AEM CMS domains.
+**Decision:** Add a **watchlist promotion path** alongside DR-008: rows may enter `companies.json` when (1) BuiltWith
+or equivalent Tier-4 tech detection is recorded in `Evidence` with explicit tier labelling in `Notes`, (2) an official
+`careersUrl` exists, and (3) `HiringIntensity` is `Low` (or `Medium` when Tier-2 evidence is also present). Tier-4-only
+rows remain `Status: Verified` but must not be presented as Adobe case-study confirmed — upgrade `Evidence` when
+Tier 1–2 is found. Curated seeds live in `data/company-sources.json` and `data/manifests/builtwith-candidates.json`
+(paid API removed per DR-012).
+**Trade-off accepted:** Larger public list with more inference-labelled rows; user filters by `HiringIntensity` to
+separate steady vs sporadic employers.
+**Supersedes (partial):** DR-008 “Tier 4 never sufficient for `usesAEM`” for **promotion** only — Tier 4 + careers is
+now sufficient at Low intensity. DR-008 archive rules unchanged for rows without careers/hiring URLs.
+**Follow-up:** `data/company-sources.json`, `scripts/company-records.js`, `ingest-builtwith-candidates.js`,
+`scripts/build-companies.js`, `07_RESEARCH_GUIDE.md`.
 
 ## DR-008 — Company hiring gate + BuiltWith ingest (accepted — Milestone 8)
 

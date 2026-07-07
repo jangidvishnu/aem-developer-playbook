@@ -37,7 +37,7 @@ review before the next one starts.
 | 5 | Search | Ranked, multi-source search per `07_RESEARCH_GUIDE.md` / `08_UI_GUIDELINES.md` search spec | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 6 | Company Intelligence Database | Verify and merge `md/deep-research-report*.md` into `data/companies.json` | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 8 | Company Pipeline & Hiring Gate | Fresh research, hiring gate, filter/sort, BuiltWith manifest; **hire-verified employers only** | Not started |
+| 8 | Company Pipeline & Hiring Gate | Fresh research, hiring gate, filter/sort, BuiltWith manifest; **hire-verified employers only** | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | Not started |
 | 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | Not started |
 | 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | Not started |
@@ -100,58 +100,19 @@ indexing, and `verify-learning.js`. Accepted by the project owner after verifica
 
 ---
 
-## Milestones 8–12 (planned — M8 next)
+## Milestone 8 — Company Pipeline, Hiring Gate & Table Discovery: complete, accepted
 
-Full detail for Milestone 8 is written here now that M7 is accepted (per DR-004). Order is fixed: finish and accept
+Hiring gate and build pipeline (`hiring-gate.js`, `build-companies.js`), **119** hire-verified employers in
+`data/companies.json`, consolidated `data/company-sources.json`, manifests for archived/watchlist candidates, company
+table filter/sort UI with Hiring and Intensity columns, and `verify-filters.js`. Accepted by the project owner after
+browser verification. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+## Milestones 9–12 (planned — M9 next)
+
+Full detail for Milestone 9 is written here now that M8 is accepted (per DR-004). Order is fixed: finish and accept
 the current milestone before starting the next.
-
-### Milestone 8 — Company Pipeline, Hiring Gate & Table Discovery
-
-**Goal:** Build the **core company product** — the largest possible list of **hire-verified** AEM employers with
-apply-ready data (careers links, AEM usage proof, hiring proof), client-side filter/sort on the company table, and
-BuiltWith manifest ingest (optional paid API).
-
-**Research policy (DR-010):**
-
-- **Fresh public data** — re-verify careers pages, job postings, and Adobe case studies at promotion time.
-- [`md/deep-research-report*.md`](md/) — **reference only** for candidate names; never sole `Evidence`.
-- **No company count cap** — grow the list continuously; rows that fail the gate are archived, not deleted.
-- **India-first** — prioritize `HiringIndia: Yes` and India GCC when scoring `priority`; include strong global AEM
-  employers where evidenced.
-
-**Publish rule (DR-008):** A company appears in `data/companies.json` only if **all** of:
-
-1. **AEM usage evidenced** — Tier 1–2 (Adobe case study, careers/engineering mention); BuiltWith/W3Techs alone never
-   sufficient for `usesAEM: true`.
-2. **Hiring signal** — AEM-titled roles, `TypicalRoles` + careers search, or `HiringIndia` / `HiringGlobal` = Yes with
-   evidence URL.
-3. **No hire, no row** — Tier-4-only candidates stay in manifests until verified.
-
-**Per-row completeness (public table):**
-
-| Field | Required |
-|---|---|
-| `careersUrl` | Official careers http URL |
-| `directJobSearch` | Keyword-filtered search when ATS supports it; else `Unknown` + note |
-| `Evidence` | Tier 1–2 AEM usage URL(s) |
-| `HiringAEM` + `AEMHiringEvidence` | Hiring proof URL(s) |
-| `TypicalRoles`, `LastVerified`, `LastHiringVerified` | Set on promotion |
-| `AEMWorkFocus`, `HiringIntensity`, `AdobeSpend` | M8 schema fields (`Unknown` if unsourced) |
-
-**Scope (in):**
-
-- Hiring gate: `scripts/hiring-gate.js`, `build-companies-m8.js`, `verify-companies.js` enforcement
-- Manifests: `data/manifests/company-candidates.json`, `research-queue.json`, `builtwith-input.json`
-- `scripts/ingest-builtwith-candidates.js`; optional `builtwith-api.js` if `BUILTWITH_API_KEY` in local env (paid API;
-  free tier = single-site lookup only)
-- **Fresh research batches** — Adobe customer stories, careers keyword passes, India GCC/agencies (evidence required)
-- **`assets/js/filters.js`** — client-side filter/sort on company table: `companyType`, priority, `HiringIndia`,
-  `AEMaaCS`, `HiringAEM`, name search; `verify-filters.js`
-- Company table columns: Hiring, Intensity; extend search index with `companyType`, `HiringAEM`
-- Docs: `07_RESEARCH_GUIDE.md`, `11_COMPANY_SCHEMA.md`, `17_TESTING_GUIDE.md` M8 section
-
-**Scope (out):** Auto-scraping at scale without review; claiming spend without source; non-hiring domains “for
-completeness”; search-panel facet chips and shareable filter URLs → **Milestone 9**.
 
 ### Milestone 9 — Discovery Filters (search integration)
 
@@ -212,4 +173,4 @@ GitHub Pages deploy, print stylesheet polish, PDF/export path. **Last** — publ
 | 11 Product UI | Mobile, minimal, jobs-first before going public |
 | 12 Publishing | Ship when data, filters, owner content, and UI are ready |
 
-**Immediate next step:** Implement **Milestone 8** (Company Pipeline, Hiring Gate & Table Discovery). M7 accepted.
+**Immediate next step:** Implement **Milestone 9** (Discovery Filters). M8 accepted.

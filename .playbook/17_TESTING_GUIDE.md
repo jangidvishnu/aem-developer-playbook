@@ -126,9 +126,30 @@ Expected: `All learning records pass schema validation and minimum counts.` and 
 
 ---
 
-### Milestone 8 — Company Pipeline (pending — not started)
+### Milestone 8 — Company Pipeline (accepted)
 
-Test plan to be added when M8 implementation is complete. See `14_ROADMAP.md`.
+**Automated (run from repository root):**
+
+```bash
+node scripts/build-companies.js
+node scripts/verify-companies.js
+node scripts/verify-filters.js
+node scripts/verify-search.js
+node scripts/verify-render.js
+node scripts/verify-learning.js
+```
+
+Expected: 119 hire-verified companies; all scripts exit 0.
+
+**Browser — company filters and hiring columns:**
+
+1. Serve at `http://localhost:3456` — **Target Companies** shows filter bar (type, sort, India hiring, AEM cloud).
+2. Select **Agency** — Accenture, Cognizant appear; count updates ("N of M companies shown").
+3. Table columns include **Hiring** and **Intensity**; **Careers** and **AEM Jobs** links open in new tab.
+4. Search **`Accenture`** — company result; sections remain visible while typing.
+5. Re-run baseline smoke checks.
+
+**Sign-off:** Accepted by project owner. See `25_ROADMAP_ARCHIVE.md`.
 
 ---
 

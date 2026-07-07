@@ -64,12 +64,12 @@ const Search = {
         source: 'company',
         id: co.id,
         title: name,
-        snippet: [co.companyType || co.type, co.indiaPresence || co.india, co.Status, co.industry].filter(Boolean).join(' · '),
+        snippet: [co.companyType || co.type, co.indiaPresence || co.india, co.Status, co.industry, co.HiringAEM ? 'hiring' : '', co.HiringIntensity].filter(Boolean).join(' · '),
         anchor: companyAnchor,
         pageOrder: 1000 + companyChapterIndex + (i + 1) * 0.01,
         fields: {
           title: name.toLowerCase(),
-          summary: [co.industry, co.companyType, co.Status, co.Notes].filter(Boolean).join(' ').toLowerCase(),
+          summary: [co.industry, co.companyType, co.Status, co.HiringIntensity, co.Notes].filter(Boolean).join(' ').toLowerCase(),
           tags: (co.TypicalRoles || []).join(' ').toLowerCase(),
           body: [co.usesAEM ? 'aem' : '', co.AEMVersion, co.MigrationStatus].filter(v => v && v !== 'Unknown').join(' ').toLowerCase()
         }

@@ -1,0 +1,203 @@
+{
+  "note": "Research queue — pending | researched | promoted | archived",
+  "items": [
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "sap",
+      "name": "SAP",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "servicenow",
+      "name": "ServiceNow",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "workday",
+      "name": "Workday",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "american-express",
+      "name": "American Express",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "dell",
+      "name": "Dell Technologies",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "intuit",
+      "name": "Intuit",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "jpmorgan-chase",
+      "name": "JPMorgan Chase",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "mastercard",
+      "name": "MasterCard",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "samsung",
+      "name": "Samsung",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "siemens",
+      "name": "Siemens",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "us-bank",
+      "name": "U.S. Bank",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "volkswagen",
+      "name": "Volkswagen Group",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "akzonobel",
+      "name": "AkzoNobel",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "best-buy",
+      "name": "Best Buy",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "boots",
+      "name": "Boots",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "bosch",
+      "name": "Bosch",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "ericsson",
+      "name": "Ericsson",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "fidelity",
+      "name": "Fidelity Investments",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "hp",
+      "name": "HP",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "intel",
+      "name": "Intel",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "lowes",
+      "name": "Lowe's",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "national-bank-of-canada",
+      "name": "National Bank of Canada",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "nokia",
+      "name": "Nokia",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "prudential-financial",
+      "name": "Prudential Financial",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "signify",
+      "name": "Signify",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "sony",
+      "name": "Sony (Interactive Entertainment)",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "tsb",
+      "name": "TSB",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "vmware",
+      "name": "VMware (Broadcom)",
+      "status": "archived",
+      "reason": "no_aem_evidence"
+    },
+    {
+      "id": "pethealth",
+      "name": "Pethealth",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    },
+    {
+      "id": "spark-nz",
+      "name": "Spark New Zealand",
+      "status": "archived",
+      "reason": "no_hiring_signal"
+    }
+  ]
+}

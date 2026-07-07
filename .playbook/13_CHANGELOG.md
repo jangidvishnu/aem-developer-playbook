@@ -18,8 +18,33 @@ Publishing moved from Milestone 8 → **12**. New order: Company Pipeline (8), D
 ## Milestone 8 scope expanded (planning)
 
 M8 now includes fresh evidence-based research (md reference-only), no company count cap, client-side company table
-filter/sort, and optional BuiltWith API. Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
+filter/sort, and curated domain seeds (paid BuiltWith API removed DR-012). Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
 and `14_ROADMAP.md`.
+
+## Milestone 8 — Company Pipeline (accepted)
+
+### Changed
+
+- Consolidated nine `company-m8-*` / `builtwith-domain-map` scripts into `data/company-sources.json`,
+  `scripts/company-records.js`, `scripts/company-overrides.js`, and `scripts/build-companies.js`.
+
+### Added
+
+- `scripts/hiring-gate.js`, `build-companies.js`, `company-records.js`, `company-overrides.js`,
+  `verify-filters.js`; `assets/js/filters.js`.
+- M8 schema fields: `HiringAEM`, `AEMHiringEvidence`, `AEMWorkFocus`, `HiringIntensity`, `AdobeSpend`,
+  `LastHiringVerified`.
+- `data/companies.json` — **119** hire-verified rows (product employers prioritized); **33** archived to `data/manifests/company-candidates.json`.
+- Product batch 1: Ford, MG Motor India, CEAT, Volvo Group, Volkswagen, Sony, Under Armour, Best Buy, AkzoNobel, Signify, Boots.
+- Product batch 2: Vodafone Idea (Vi), Lenovo, UPS, Prudential Financial, Dow, DICK'S Sporting Goods.
+- Occasional hirer: Ericsson (incl. Vonage) — Low intensity, monitor Greenhouse AEM requisitions.
+- Service batch: Deloitte Digital, Publicis Sapient, Virtusa, EPAM, IBM (Adobe Practice), Tech Mahindra.
+- India agency/GCC batch: Accenture, Cognizant, TCS, Wipro, HCLTech, Infosys, Capgemini.
+- Referral batch (user hire/approach list + airlines/banks): Persistent, Coforge, Mphasis, LTIMindtree, Hexaware, KPMG India, Perficient, Rightpoint, TO THE NEW, Photon, Wissen, ValueLabs, UST, Emids, Ranosys, Accion Labs; Air India, Malaysia Airlines; Maruti Suzuki; HDFC Bank, Standard Chartered; T-Mobile, Informatica, Optum (UHG), Micron.
+- BuiltWith watchlist batch (DR-011): 50 employers in `data/company-sources.json` (`builtwithSeeds`).
+- Company table: filter/sort bar, Hiring and Intensity columns.
+
+BuiltWith seed map only (paid API removed per DR-012).
 
 ## Milestone 7 — Learning System (accepted)
 
