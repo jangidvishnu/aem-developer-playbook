@@ -226,6 +226,23 @@ this file — update .playbook/ and reference it instead.
       });
     }
 
+    function wirePaginatedContainer(containerId, renderFn, data, pageAttr) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      let page = 1;
+      const attr = pageAttr || containerId.replace('-table-container', '');
+      function render() {
+        container.innerHTML = renderFn(data, { page });
+        container.querySelectorAll(`[data-${attr}-page]`).forEach(btn => {
+          btn.onclick = () => {
+            page = parseInt(btn.getAttribute(`data-${attr}-page`), 10);
+            render();
+          };
+        });
+      }
+      render();
+    }
+
     function wireCompanyPagination(companies) {
       const container = document.getElementById('company-table-container');
       if (!container) return;
@@ -261,20 +278,30 @@ this file — update .playbook/ and reference it instead.
       fetch('data/chapters.json').then(r => r.json()),
       fetch('data/companies.json').then(r => r.json()),
       fetch('data/site.json').then(r => r.json()),
-      fetch('data/roadmaps.json').then(r => r.json())
-    ]).then(([chapters, companies, site, roadmaps]) => {
+      fetch('data/roadmaps.json').then(r => r.json()),
+      fetch('data/glossary.json').then(r => r.json()),
+      fetch('data/technologies.json').then(r => r.json()),
+      fetch('data/career_paths.json').then(r => r.json()),
+      fetch('data/interviews.json').then(r => r.json()),
+      fetch('data/templates.json').then(r => r.json()),
+      fetch('data/resources.json').then(r => r.json())
+    ]).then(([chapters, companies, site, roadmaps, glossary, technologies, careerPaths, interviews, templates, resources]) => {
+      const learning = { glossary, technologies, careerPaths, interviews, templates, resources };
+      const ctx = { companies, learning };
       document.title = site.documentTitle;
       document.getElementById('page-header').innerHTML = Render.pageHeader(site.header);
       document.getElementById('search-container').innerHTML = Render.search(site.search);
       document.getElementById('sidebar-contents-label').textContent = site.sidebar.contentsLabel;
       document.getElementById('dashboard').innerHTML = Render.dashboard(site.dashboard);
       toc.innerHTML = Render.sidebar(chapters);
-      const chaptersHtml = chapters.map((c, i) => Render.chapter(c, i, companies)).join('');
-      main.innerHTML = Render.hero(site.hero) + Render.roadmap(roadmaps[0]) + chaptersHtml;
+      const chaptersHtml = chapters.map((c, i) => Render.chapter(c, i, ctx)).join('');
+      main.innerHTML = Render.hero(site.hero) + Render.roadmapList(roadmaps) + chaptersHtml;
       document.getElementById('site-footer').innerHTML = Render.footer(site.footer);
-      const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site });
+      const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site, learning });
       wireSearch(searchIndex, chapters);
       wireCompanyPagination(companies);
+      wirePaginatedContainer('glossary-table-container', Render.glossaryTable, glossary, 'glossary');
+      wirePaginatedContainer('interview-table-container', Render.interviewList, interviews, 'interview');
       wireTheme();
     }).catch(err => {
       const el = document.getElementById(loadingId);

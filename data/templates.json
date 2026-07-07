@@ -1,0 +1,32 @@
+[
+  {
+    "id": "resume-bullet-aem",
+    "title": "Resume bullet — AEM delivery impact",
+    "category": "resume",
+    "body": "Delivered [feature/migration] on AEM as a Cloud Service for [brand/program], improving [metric: e.g. publish lead time / cache hit ratio / Core Web Vitals] by [X%] through [Dispatcher tuning / pipeline automation / component refactor]."
+  },
+  {
+    "id": "resume-bullet-headless",
+    "title": "Resume bullet — headless / GraphQL",
+    "category": "resume",
+    "body": "Implemented headless content APIs using AEM Content Fragments and persisted GraphQL queries, enabling [web/mobile] teams to ship [feature] without duplicate content entry."
+  },
+  {
+    "id": "star-production",
+    "title": "STAR story frame — production incident",
+    "category": "interview",
+    "body": "Situation: [outage/symptom]. Task: [your role]. Action: [triage steps, collaboration, fix]. Result: [restored SLA, post-mortem, preventive change]."
+  },
+  {
+    "id": "linkedin-summary",
+    "title": "LinkedIn summary pattern — DXP engineer",
+    "category": "branding",
+    "body": "Enterprise Digital Experience Engineer specializing in AEM [Sites/Assets/Cloud] and [Edge/headless/personalization]. I help product and marketing teams ship faster, safer content on Adobe Experience Cloud — background in [Java/frontend/platform] and [industry]."
+  },
+  {
+    "id": "outreach-recruiter",
+    "title": "Recruiter outreach — AEM roles",
+    "category": "networking",
+    "body": "Hi [Name], I am an AEM [level] engineer with experience in [Cloud Service / Dispatcher / headless]. I am exploring [company/sector] roles where Adobe Experience Manager is central to the stack. Open to a brief call if you are hiring for [team/location]."
+  }
+]

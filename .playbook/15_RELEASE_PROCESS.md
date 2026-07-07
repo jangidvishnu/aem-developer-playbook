@@ -30,10 +30,10 @@ update — but this release-philosophy section was added to `MASTER_BOOTSTRAP_PR
 Milestone 2 did **not** include a dedicated Accessibility Review or Performance Review. This is logged as an open
 gap in `19_CURRENT_SPRINT.md` rather than backfilled silently. From Milestone 3 onward, all 7 items above are
 required before a milestone/release can be marked accepted. A real *published* release process (tagging, GitHub
-Pages deploy) is still scheduled alongside Milestone 8 (Publishing) — this section governs the review discipline
+Pages deploy) is scheduled for **Milestone 12 (Publishing)** — this section governs the review discipline
 around each milestone, which applies starting immediately.
 
-## Target process (from Milestone 8 onward)
+## Target process (from Milestone 12 onward)
 
 1. Work lands on the default branch only after its milestone is reviewed and accepted (see `14_ROADMAP.md`).
 2. A release bumps the version shown in `index.html` and adds a dated entry to `13_CHANGELOG.md` summarizing what

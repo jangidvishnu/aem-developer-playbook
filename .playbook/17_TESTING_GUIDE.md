@@ -5,7 +5,8 @@
 No formal test suite exists yet. Committed verification scripts (Node, no dependencies):
 
 - `node scripts/verify-render.js` — chapter/sidebar regression vs. Milestone 3 golden snapshot.
-- `node scripts/verify-search.js` — ranked search assertions over real `data/*.json` (Milestone 5).
+- `node scripts/verify-search.js` — ranked search assertions over real `data/*.json` (Milestone 5+).
+- `node scripts/verify-learning.js` — learning data schema and minimum counts (Milestone 7).
 
 Run both after changes to `assets/js/render.js`, `assets/js/search.js`, or `data/*.json`.
 
@@ -93,6 +94,41 @@ Expected: schema validation passes with **25+ Verified** companies; search and r
 6. Re-run baseline smoke checks (dark mode, print preview, keyboard tab to search).
 
 **Sign-off:** Accepted by project owner after browser verification. See `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+### Milestone 7 — Learning System (pending acceptance)
+
+**Automated (run from repository root):**
+
+```bash
+node scripts/build-learning-m7.js   # optional — regenerates learning JSON from seeds
+node scripts/verify-learning.js
+node scripts/verify-search.js
+node scripts/verify-render.js
+node scripts/verify-companies.js
+```
+
+Expected: `All learning records pass schema validation and minimum counts.` and all other scripts exit 0.
+
+**Browser — learning embeds:**
+
+1. Serve at `http://localhost:3456` (or similar) — no console errors; **three roadmap panels** appear below the hero.
+2. **Core Skills** — technology table with 15 rows (AEM Sites, HTL, Dispatcher, etc.).
+3. **Career Strategy** — two career path cards (IC engineer + architect tracks).
+4. **Professional Branding** — five template cards (resume, STAR, LinkedIn, outreach).
+5. **Glossary** — 30 terms; page 2 pagination if visible; **Interview Prep** — 20 questions table.
+6. **Living Roadmap** — curated Adobe documentation links list.
+7. Search **`HTL`** → Glossary result; **`behavioral`** → Interview result; **`cloud-eds`** → scrolls to second roadmap panel.
+8. Re-run baseline smoke checks (dark mode, print, search keyboard nav).
+
+**Sign-off:** Accepted by project owner. See `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+### Milestone 8 — Company Pipeline (pending — not started)
+
+Test plan to be added when M8 implementation is complete. See `14_ROADMAP.md`.
 
 ---
 

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "aem",
+    "term": "Adobe Experience Manager (AEM)",
+    "definition": "Enterprise content management system for websites, assets, forms, and headless content. Core product in the Adobe Experience Cloud for digital experience engineering.",
+    "relatedTerms": [
+      "dxp",
+      "aem-cloud"
+    ],
+    "chapterId": "core-skills"
+  },
+  {
+    "id": "dxp",
+    "term": "Digital Experience Platform (DXP)",
+    "definition": "Integrated suite of products (CMS, DAM, analytics, personalization) used to design and deliver customer experiences across channels.",
+    "relatedTerms": [
+      "aem",
+      "aep"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "aem-cloud",
+    "term": "AEM as a Cloud Service (AEMaaCS)",
+    "definition": "Cloud-hosted AEM with continuous delivery, auto-scaling, and Adobe-managed infrastructure. Replaces self-hosted 6.5 for new programs.",
+    "relatedTerms": [
+      "cloud-manager",
+      "dispatcher"
+    ],
+    "chapterId": "learning-roadmap"
+  },
+  {
+    "id": "cloud-manager",
+    "term": "Cloud Manager",
+    "definition": "Adobe pipeline tool for building, deploying, and monitoring AEM Cloud Service environments (dev, stage, prod).",
+    "relatedTerms": [
+      "aem-cloud"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "sling",
+    "term": "Apache Sling",
+    "definition": "RESTful OSGi framework AEM uses to map URLs to resources and scripts (JCR nodes).",
+    "relatedTerms": [
+      "osgi",
+      "jcr"
+    ],
+    "chapterId": "core-skills"
+  },
+  {
+    "id": "osgi",
+    "term": "OSGi",
+    "definition": "Java module system for AEM bundles: services, components, and configuration with hot deploy semantics.",
+    "relatedTerms": [
+      "sling"
+    ],
+    "chapterId": "core-skills"
+  },
+  {
+    "id": "jcr",
+    "term": "JCR (Java Content Repository)",
+    "definition": "Hierarchical content store (Apache Jackrabbit Oak in AEM) holding pages, assets, and configurations.",
+    "relatedTerms": [
+      "sling"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "htl",
+    "term": "HTL (HTML Template Language)",
+    "definition": "AEM templating language (formerly Sightly) that separates presentation from logic with automatic XSS context.",
+    "relatedTerms": [
+      "core-components"
+    ],
+    "chapterId": "core-skills"
+  },
+  {
+    "id": "core-components",
+    "term": "Core Components",
+    "definition": "Adobe-supported AEM component library with versioning, accessibility, and Cloud Service compatibility.",
+    "relatedTerms": [
+      "htl"
+    ],
+    "chapterId": "core-skills"
+  },
+  {
+    "id": "dispatcher",
+    "term": "Dispatcher",
+    "definition": "Caching reverse proxy and security filter in front of AEM publish; invalidation and filter rules are critical ops skills.",
+    "relatedTerms": [
+      "cdn",
+      "aem-cloud"
+    ],
+    "chapterId": "core-skills"
+  },
+  {
+    "id": "cdn",
+    "term": "CDN",
+    "definition": "Content delivery network caching static and dynamic edge responses; pairs with Dispatcher and EDS.",
+    "relatedTerms": [
+      "dispatcher",
+      "eds"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "eds",
+    "term": "Edge Delivery Services (EDS)",
+    "definition": "Adobe edge architecture for ultra-fast sites using document-based authoring and automated performance optimization.",
+    "relatedTerms": [
+      "universal-editor"
+    ],
+    "chapterId": "learning-roadmap"
+  },
+  {
+    "id": "universal-editor",
+    "term": "Universal Editor",
+    "definition": "Cross-surface visual editor connecting AEM content to any front-end experience.",
+    "relatedTerms": [
+      "eds",
+      "headless"
+    ],
+    "chapterId": "learning-roadmap"
+  },
+  {
+    "id": "headless",
+    "term": "Headless CMS",
+    "definition": "Content authored in AEM and delivered via APIs (GraphQL, Content Fragments) to SPAs and native apps.",
+    "relatedTerms": [
+      "content-fragments",
+      "graphql-aem"
+    ],
+    "chapterId": "learning-roadmap"
+  },
+  {
+    "id": "content-fragments",
+    "term": "Content Fragment",
+    "definition": "Structured, channel-neutral content unit with defined models and variations for headless use.",
+    "relatedTerms": [
+      "experience-fragments",
+      "graphql-aem"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "experience-fragments",
+    "term": "Experience Fragment",
+    "definition": "Reusable experience block combining layout and content for consistent omnichannel delivery.",
+    "relatedTerms": [
+      "content-fragments"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "graphql-aem",
+    "term": "AEM GraphQL",
+    "definition": "Persisted GraphQL API layer over Content Fragment models for efficient headless queries.",
+    "relatedTerms": [
+      "headless",
+      "content-fragments"
+    ],
+    "chapterId": "learning-roadmap"
+  },
+  {
+    "id": "aep",
+    "term": "Adobe Experience Platform (AEP)",
+    "definition": "Real-time customer data platform unifying profiles, segments, and activation across Adobe solutions.",
+    "relatedTerms": [
+      "dxp",
+      "cdp"
+    ],
+    "chapterId": "learning-roadmap"
+  },
+  {
+    "id": "cdp",
+    "term": "Customer Data Platform",
+    "definition": "System of record for first-party customer data used in personalization and analytics.",
+    "relatedTerms": [
+      "aep"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "target",
+    "term": "Adobe Target",
+    "definition": "A/B testing and personalization engine integrated with AEM and Analytics.",
+    "relatedTerms": [
+      "analytics"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "analytics",
+    "term": "Adobe Analytics",
+    "definition": "Digital analytics product measuring content and conversion performance on AEM sites.",
+    "relatedTerms": [
+      "target"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "msm",
+    "term": "Multi Site Manager (MSM)",
+    "definition": "AEM feature to roll out blueprint sites to regional/live copies with inheritance controls.",
+    "relatedTerms": [
+      "aem-sites"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "live-copy",
+    "term": "Live Copy",
+    "definition": "Site hierarchy synchronized from a blueprint with configurable inheritance of content and components.",
+    "relatedTerms": [
+      "msm"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "cq-wcm",
+    "term": "WCM (Web Content Management)",
+    "definition": "Traditional page-centric authoring in AEM Sites as opposed to headless fragment delivery.",
+    "relatedTerms": [
+      "aem-sites"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "dam",
+    "term": "DAM (Digital Asset Management)",
+    "definition": "AEM Assets capability for storing, transforming, and governing rich media.",
+    "relatedTerms": [
+      "aem-assets"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "aem-assets",
+    "term": "AEM Assets",
+    "definition": "Adobe DAM product within AEM for images, video, metadata, and brand portals.",
+    "relatedTerms": [
+      "dam"
+    ],
+    "chapterId": "core-skills"
+  },
+  {
+    "id": "gcc",
+    "term": "Global Capability Center (GCC)",
+    "definition": "Enterprise captive center (often in India) building digital platforms for the parent company.",
+    "relatedTerms": [],
+    "chapterId": "career-strategy"
+  },
+  {
+    "id": "sling-model",
+    "term": "Sling Model",
+    "definition": "Java annotation-driven API adapting request resources for HTL and JSON exporters.",
+    "relatedTerms": [
+      "htl",
+      "java-aem"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "service-user",
+    "term": "Service User",
+    "definition": "Dedicated JCR system user for OSGi services performing repository operations with least privilege.",
+    "relatedTerms": [
+      "osgi"
+    ],
+    "chapterId": null
+  },
+  {
+    "id": "indexer",
+    "term": "Oak Index",
+    "definition": "Lucene or property index definition in Oak/JCR affecting query performance in AEM.",
+    "relatedTerms": [
+      "jcr"
+    ],
+    "chapterId": null
+  }
+]

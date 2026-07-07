@@ -6,6 +6,54 @@ mark the old one as superseded.
 
 ---
 
+---
+
+---
+
+## DR-009 — Resequence Milestones 8–12: product before publish
+
+**Date:** Post–Milestone 7 planning
+**Context:** Owner requested company pipeline, filters, owner playbook, and minimal product UI **before** GitHub
+Pages / publishing. Original plan had Publishing as Milestone 8.
+**Decision:** New order: **8** Company Pipeline & Hiring Gate → **9** Discovery Filters → **10** Owner Playbook →
+**11** Minimal Product UI → **12** Publishing. Publish only after hire-focused data, filters, owner content, and
+jobs-first mobile UI are in place.
+**Trade-off accepted:** No public URL until Milestone 12; local serve remains the dev workflow until then.
+**Follow-up:** Update `21_PUBLISHING.md` and `15_RELEASE_PROCESS.md` milestone references.
+
+## DR-010 — Milestone 8 expanded: fresh research, no cap, table filters
+
+**Date:** Milestone 8 planning (post–M7)
+**Context:** Owner wants the fullest hire-verified company list possible, fresh evidence (not md copy-paste), India-first
+priority, client-side filter/sort on the company table, and BuiltWith integration where a paid API exists.
+**Decision:** Expand Milestone 8 to include: (1) fresh research workflow with `md/` reference-only; (2) no row-count cap;
+(3) `assets/js/filters.js` + company table filter/sort (folded from planned M9 table work); (4) BuiltWith manifest +
+optional paid API adapter; (5) `LastHiringVerified` on schema. Milestone 9 retains search-panel facets and shareable
+filter URLs only.
+**Trade-off accepted:** M8 is larger and research-heavy; M9 scope reduced accordingly.
+**Follow-up:** Implement per `14_ROADMAP.md` Milestone 8 section.
+
+## DR-008 — Company hiring gate + BuiltWith ingest (accepted — Milestone 8)
+
+**Date:** Milestone 8 planning
+**Context:** Owner wants hire-focused employers only; BuiltWith and similar sources are candidate ingest, not proof.
+**Decision:** Ingest BuiltWith into review manifests only. Promote to `companies.json` when AEM usage is Tier 1–2 and
+`HiringAEM` is true with `AEMHiringEvidence` URL(s). Non-hiring rows archived to `data/manifests/company-candidates.json`.
+**Trade-off accepted:** Smaller public list than raw tech-detect lists; manual verification per promotion.
+**Follow-up:** `scripts/hiring-gate.js`, `verify-companies.js`, `11_COMPANY_SCHEMA.md`.
+
+## DR-007 — Milestone 7 learning content defaults
+
+**Date:** Milestone 7 (start)
+**Context:** Milestone 7 open questions (content minimums, roadmap titles, new chapters, templates tone, field
+rename) were scoped with default proposals. The project owner directed work to start on Milestone 7.
+**Decision:** Adopt scoped defaults: minimum counts (30 glossary, 15 technologies, 2 career paths, 20 interviews,
+5 templates, 10 resources, 3 roadmaps); roadmap ids `aem-foundation`, `cloud-eds`, `experience-platform`; add
+`glossary` and `interview-prep` chapters; generic templates only; defer `reading` → `readingTime` rename.
+**Trade-off accepted:** Content is seed-quality reference material (official-doc sourced) — expandable in later
+milestones without schema changes.
+**Follow-up:** None open unless the owner overrides minimums or roadmap split.
+
 ## DR-006 — Milestone 6 verification defaults (25 verified, 100-row cap, pagination 25)
 
 **Date:** Milestone 6 (start)

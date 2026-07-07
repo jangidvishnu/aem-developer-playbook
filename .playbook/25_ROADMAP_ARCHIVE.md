@@ -307,3 +307,33 @@ Automated: `node scripts/verify-companies.js`, `verify-search.js`, `verify-rende
 
 Resolved in `12_DECISIONS.md` DR-006: 25 Verified minimum, 100-row cap, 25 rows/page pagination.
 
+## Milestone 7 — Learning System (complete, accepted)
+
+### Goal
+
+Structured learning content in `data/*.json` — glossary, technologies, career paths, interview prep, templates,
+resources — with render embeds, three roadmap paths, and search indexing.
+
+### Scope (in) — all delivered
+
+- Six new learning JSON files + expanded `roadmaps.json` (30 glossary, 15 technologies, 2 career paths, 20 interviews,
+  5 templates, 12 resources, 3 roadmaps).
+- `Render.roadmapList`, glossary/technology/career/interview/template/resource renderers; chapter embed flags.
+- `scripts/learning-schema.js`, `learning-seed-data.js`, `build-learning-m7.js`, `verify-learning.js`.
+- Chapters `glossary`, `interview-prep`; embeds on career-strategy, core-skills, professional-branding, living-roadmap.
+- Search indexes all learning sources; `site.json` dashboard updated.
+
+### Acceptance criteria — all passed
+
+Per `14_ROADMAP.md` Milestone 7 list; `verify-learning.js`, `verify-search.js`, `verify-render.js`,
+`verify-companies.js` exit 0.
+
+### Test plan
+
+Automated: `node scripts/verify-learning.js`, `verify-search.js`, `verify-render.js`, `verify-companies.js`.
+Browser: `17_TESTING_GUIDE.md` → Milestone 7 (owner confirmed).
+
+### Owner decisions
+
+`12_DECISIONS.md` DR-007 — content minimums, roadmap ids, new chapters, generic templates.
+

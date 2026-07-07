@@ -96,5 +96,5 @@ what's inherent to the fetch-based architecture the constitution mandates.
 
 ## Measurement (target state)
 
-Once the site is deployed to GitHub Pages (Milestone 8), run it through a standard tool (e.g. Lighthouse) and
+Once the site is deployed to GitHub Pages (Milestone 12), run it through a standard tool (e.g. Lighthouse) and
 record a baseline in `13_CHANGELOG.md`. No baseline exists yet since there is no deployed instance.

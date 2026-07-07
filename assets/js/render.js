@@ -22,7 +22,11 @@ const Render = {
     if (!results.length) {
       return `<p class="px-3 py-2 text-sm text-slate-500">No results</p>`;
     }
-    const typeLabel = { chapter: 'Chapter', company: 'Company', roadmap: 'Roadmap', 'roadmap-step': 'Roadmap step', site: 'Site' };
+    const typeLabel = {
+      chapter: 'Chapter', company: 'Company', roadmap: 'Roadmap', 'roadmap-step': 'Roadmap step', site: 'Site',
+      glossary: 'Glossary', technology: 'Technology', career: 'Career path', interview: 'Interview',
+      template: 'Template', resource: 'Resource'
+    };
     return results.map((r, i) => {
       const active = i === activeIndex ? ' bg-blue-50' : '';
       const label = typeLabel[r.source] || r.source;
@@ -44,10 +48,42 @@ const Render = {
   },
 
   roadmap(roadmap) {
-    const steps = roadmap.steps.map(s =>
-      `<li><span class="text-slate-500 text-sm">${Render.escapeHtml(s.status)}</span> — ${Render.escapeHtml(s.title)}</li>`
-    ).join('');
-    return `<section id="roadmap" class="bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-2xl font-bold">${Render.escapeHtml(roadmap.title)}</h2><p class="text-slate-500 mt-2 mb-4">${Render.escapeHtml(roadmap.summary)}</p><ol class="list-decimal ml-6 space-y-2">${steps}</ol></section>`;
+    return Render.roadmapPanel(roadmap);
+  },
+
+  roadmapList(roadmaps) {
+    return (roadmaps || []).map(rm => Render.roadmapPanel(rm)).join('');
+  },
+
+  roadmapPanel(roadmap) {
+    const steps = (roadmap.steps || []).map(s => {
+      const desc = s.description
+        ? `<p class="text-sm text-slate-600 mt-1 ml-6">${Render.escapeHtml(s.description)}</p>`
+        : '';
+      const hours = s.estimatedHours ? ` <span class="text-xs text-slate-400">(~${s.estimatedHours}h)</span>` : '';
+      return `<li id="roadmap-step-${Render.escapeHtml(s.id)}"><span class="text-slate-500 text-sm">${Render.escapeHtml(s.status)}</span> — <strong>${Render.escapeHtml(s.title)}</strong>${hours}${desc}</li>`;
+    }).join('');
+    return `<section id="roadmap-${Render.escapeHtml(roadmap.id)}" class="section bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-2xl font-bold">${Render.escapeHtml(roadmap.title)}</h2><p class="text-slate-500 mt-2 mb-4">${Render.escapeHtml(roadmap.summary)}</p><ol class="list-decimal ml-6 space-y-3">${steps}</ol></section>`;
+  },
+
+  paginatedTable(items, options, renderRow, headers, pageAttr) {
+    const pageSize = options.pageSize || 25;
+    const page = options.page || 1;
+    const total = items.length;
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    const safePage = Math.min(Math.max(1, page), totalPages);
+    const slice = items.slice((safePage - 1) * pageSize, safePage * pageSize);
+    let pagination = '';
+    if (totalPages > 1) {
+      const buttons = [];
+      for (let p = 1; p <= totalPages; p++) {
+        const active = p === safePage ? ' bg-blue-100 font-semibold' : '';
+        buttons.push(`<button type="button" data-${pageAttr}-page="${p}" class="px-2 py-1 border rounded hover:bg-slate-100${active}">${p}</button>`);
+      }
+      pagination = `<nav class="mt-3 flex flex-wrap gap-2 items-center text-sm" aria-label="${Render.escapeHtml(pageAttr)} pages">${buttons.join('')}<span class="text-slate-500 ml-2">${total} items · page ${safePage} of ${totalPages}</span></nav>`;
+    }
+    const head = headers.map(h => `<th class="p-2 text-left">${Render.escapeHtml(h)}</th>`).join('');
+    return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr>${head}</tr></thead><tbody>${slice.map(renderRow).join('')}</tbody></table></div>${pagination}`;
   },
 
   companyName(x) {
@@ -91,13 +127,79 @@ const Render = {
     return `<div class="overflow-auto"><table class="min-w-full text-sm border"><thead class="bg-slate-100"><tr><th class="p-2">Priority</th><th class="p-2">Company</th><th class="p-2">Type</th><th class="p-2">India</th><th class="p-2">AEM</th><th class="p-2">Status</th><th class="p-2">Careers</th><th class="p-2">AEM Jobs</th><th class="p-2">Visa</th></tr></thead><tbody>${slice.map(Render.companyRow).join('')}</tbody></table></div>${pagination}`;
   },
 
-  chapter(chapter, index, companies) {
+  glossaryTable(terms, options = {}) {
+    return Render.paginatedTable(
+      terms,
+      options,
+      g => `<tr class="border-t"><td class="p-2 font-semibold">${Render.escapeHtml(g.term)}</td><td class="p-2">${Render.escapeHtml(g.definition)}</td><td class="p-2 text-slate-500 text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
+      ['Term', 'Definition', 'Related'],
+      'glossary'
+    );
+  },
+
+  technologyTable(technologies, options = {}) {
+    return Render.paginatedTable(
+      technologies,
+      options,
+      t => `<tr class="border-t"><td class="p-2 font-semibold">${Render.escapeHtml(t.name)}</td><td class="p-2">${Render.escapeHtml(t.category)}</td><td class="p-2">${Render.escapeHtml(t.difficulty)}</td><td class="p-2">${Render.escapeHtml(t.summary)}</td></tr>`,
+      ['Technology', 'Category', 'Level', 'Summary'],
+      'technology'
+    );
+  },
+
+  careerPaths(paths) {
+    return paths.map(p => {
+      const milestones = (p.milestones || []).map(m =>
+        `<li class="mt-2"><strong>${Render.escapeHtml(m.title)}</strong> — ${Render.escapeHtml(m.description)}</li>`
+      ).join('');
+      return `<article class="border rounded-lg p-4 mb-4"><h3 class="font-bold text-lg">${Render.escapeHtml(p.title)}</h3><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(p.summary)}</p><ol class="list-decimal ml-6 mt-3">${milestones}</ol></article>`;
+    }).join('');
+  },
+
+  interviewList(items, options = {}) {
+    return Render.paginatedTable(
+      items,
+      options,
+      q => `<tr class="border-t align-top"><td class="p-2">${Render.escapeHtml(q.category)}</td><td class="p-2">${Render.escapeHtml(q.difficulty)}</td><td class="p-2 font-semibold">${Render.escapeHtml(q.question)}</td><td class="p-2 text-slate-600 text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
+      ['Category', 'Level', 'Question', 'Guidance'],
+      'interview'
+    );
+  },
+
+  templatesList(templates) {
+    return templates.map(t =>
+      `<article class="border rounded-lg p-4 mb-4"><h3 class="font-bold">${Render.escapeHtml(t.title)}</h3><p class="text-xs text-slate-500 uppercase mt-1">${Render.escapeHtml(t.category)}</p><p class="mt-2 text-slate-700 whitespace-pre-wrap">${Render.escapeHtml(t.body)}</p></article>`
+    ).join('');
+  },
+
+  resourcesList(resources) {
+    return `<ul class="list-disc ml-6 space-y-2">${resources.map(r =>
+      `<li><a class="text-blue-600 underline" href="${Render.escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(r.title)}</a> <span class="text-xs text-slate-500">(${Render.escapeHtml(r.type)})</span></li>`
+    ).join('')}</ul>`;
+  },
+
+  chapter(chapter, index, ctx) {
     const id = 'ch' + index;
+    const companies = ctx.companies || [];
+    const learning = ctx.learning || {};
     let body = chapter.body || '';
     if (chapter.companyTable) {
       body = `<div id="company-table-container">${Render.companyTable(companies, { page: 1 })}</div>`;
+    } else if (chapter.glossaryEmbed && learning.glossary) {
+      body += `<div id="glossary-table-container" class="mt-4">${Render.glossaryTable(learning.glossary, { page: 1 })}</div>`;
+    } else if (chapter.technologyEmbed && learning.technologies) {
+      body += `<div id="technology-table-container" class="mt-4">${Render.technologyTable(learning.technologies, { page: 1 })}</div>`;
+    } else if (chapter.careerPathEmbed && learning.careerPaths) {
+      body += `<div class="mt-4">${Render.careerPaths(learning.careerPaths)}</div>`;
+    } else if (chapter.templateEmbed && learning.templates) {
+      body += `<div class="mt-4">${Render.templatesList(learning.templates)}</div>`;
+    } else if (chapter.interviewEmbed && learning.interviews) {
+      body += `<div id="interview-table-container" class="mt-4">${Render.interviewList(learning.interviews, { page: 1 })}</div>`;
+    } else if (chapter.resourceEmbed && learning.resources) {
+      body += `<div class="mt-4">${Render.resourcesList(learning.resources)}</div>`;
     }
-    return `<section id="${id}" class="section bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-3xl font-bold">${Render.escapeHtml(chapter.title)}</h2><div class="text-xs text-slate-500 mt-1">⏱ ${Render.escapeHtml(chapter.reading)} • ${Render.escapeHtml(chapter.tags.join(', '))}</div><p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p>${body}<details class="mt-6"><summary class="cursor-pointer font-semibold">📌 Summary</summary><div class="mt-2 text-slate-600">${Render.escapeHtml(chapter.summary)}</div></details></section>`;
+    const reading = chapter.reading || chapter.readingTime || '';
+    return `<section id="${id}" class="section bg-white text-slate-800 rounded-xl shadow p-8"><h2 class="text-3xl font-bold">${Render.escapeHtml(chapter.title)}</h2><div class="text-xs text-slate-500 mt-1">⏱ ${Render.escapeHtml(reading)} • ${Render.escapeHtml(chapter.tags.join(', '))}</div><p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p>${body}<details class="mt-6"><summary class="cursor-pointer font-semibold">📌 Summary</summary><div class="mt-2 text-slate-600">${Render.escapeHtml(chapter.summary)}</div></details></section>`;
   },
 
   footer(footer) {

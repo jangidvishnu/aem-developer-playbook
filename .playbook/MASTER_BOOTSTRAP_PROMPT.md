@@ -111,6 +111,18 @@ Milestone 7
 Learning System
 
 Milestone 8
+Company Pipeline & Hiring Gate
+
+Milestone 9
+Discovery Filters
+
+Milestone 10
+Owner Playbook
+
+Milestone 11
+Minimal Product UI
+
+Milestone 12
 Publishing
 
 etc.

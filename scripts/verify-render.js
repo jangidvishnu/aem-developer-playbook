@@ -22,13 +22,28 @@ const companies = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 
 const site = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'site.json'), 'utf8'));
 const roadmaps = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'roadmaps.json'), 'utf8'));
 
+function loadLearning() {
+  const load = name => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', name), 'utf8'));
+  return {
+    glossary: load('glossary.json'),
+    technologies: load('technologies.json'),
+    careerPaths: load('career_paths.json'),
+    interviews: load('interviews.json'),
+    templates: load('templates.json'),
+    resources: load('resources.json')
+  };
+}
+
+const learning = loadLearning();
+const ctx = { companies, learning };
+
 // Milestone 3 golden: toc + chapter markup only (sidebar and main content sections).
 const M3_GOLDEN_PATH = path.join(__dirname, 'milestone-3-render-golden.json');
 
 function runChaptersAndToc() {
   return {
     toc: Render.sidebar(chapters),
-    chapters: chapters.map((c, i) => Render.chapter(c, i, companies)).join('')
+    chapters: chapters.map((c, i) => Render.chapter(c, i, ctx)).join('')
   };
 }
 
@@ -38,7 +53,7 @@ function runSiteChrome() {
     hero: Render.hero(site.hero),
     dashboard: Render.dashboard(site.dashboard),
     search: Render.search(site.search),
-    roadmap: Render.roadmap(roadmaps[0]),
+    roadmap: Render.roadmapList(roadmaps),
     footer: Render.footer(site.footer)
   };
 }

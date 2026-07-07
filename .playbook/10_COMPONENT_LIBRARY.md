@@ -2,9 +2,9 @@
 
 ## Status
 
-This document specifies the rendering contract per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 5, the `Render`
+This document specifies the rendering contract per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 7, the `Render`
 namespace lives in `assets/js/render.js` and ranked search lives in `assets/js/search.js` (both loaded via
-`<script src>` — still no build step). `Render.companyCard` remains planned (Milestone 6 or later).
+`<script src>` — still no build step). `Render.companyCard` remains planned.
 
 ## Principle
 
@@ -21,8 +21,16 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 | `Render.sidebar(chapters)` | array of chapter summaries | Table of contents links | **Implemented** |
 | `Render.dashboard(stats)` | `{ title, items[] }` | Sidebar project-status panel | **Implemented** |
 | `Render.hero(content)` | `{ title, body }` | Welcome/intro banner section | **Implemented** |
-| `Render.roadmap(roadmap)` | one roadmap object | Ordered learning-path panel | **Implemented** |
-| `Render.chapter(chapter, index, companies)` | one chapter, its index, companies array | Full chapter section | **Implemented** |
+| `Render.roadmap(roadmap)` | one roadmap object | Single learning-path panel (delegates to `roadmapPanel`) | **Implemented** |
+| `Render.roadmapList(roadmaps)` | array of roadmap objects | All learning paths with `#roadmap-{id}` anchors | **Implemented** (M7) |
+| `Render.roadmapPanel(roadmap)` | one roadmap object | One roadmap section markup | **Implemented** (M7) |
+| `Render.glossaryTable(terms, options)` | glossary array | Paginated term table | **Implemented** (M7) |
+| `Render.technologyTable(technologies, options)` | technologies array | Paginated technology reference | **Implemented** (M7) |
+| `Render.careerPaths(paths)` | career_paths array | Career track cards | **Implemented** (M7) |
+| `Render.interviewList(items, options)` | interviews array | Paginated interview prep table | **Implemented** (M7) |
+| `Render.templatesList(templates)` | templates array | Template cards | **Implemented** (M7) |
+| `Render.resourcesList(resources)` | resources array | Curated link list | **Implemented** (M7) |
+| `Render.chapter(chapter, index, ctx)` | chapter, index, `{ companies, learning }` | Full chapter section + embeds | **Implemented** |
 | `Render.companyTable(companies)` | array of company objects | Table view, delegating rows to `companyRow` | **Implemented** |
 | `Render.companyRow(company)` | one company object | Single table row | **Implemented** |
 | `Render.companyCard(company)` | one company object | Compact card view (grid/detail) | Planned |
@@ -76,3 +84,4 @@ the target. Verified via `scripts/verify-search.js` and
 3. ~~**Milestone 4:** hero, roadmap, dashboard, footer, search chrome, `pageHeader`; move namespace to
    `assets/js/render.js`.~~ Done.
 4. ~~**Milestone 5:** `Search` module + `Render.searchResults`; ranked multi-source search.~~ Done.
+5. **Milestone 7:** learning data files, chapter embeds, `verify-learning.js` — in progress.

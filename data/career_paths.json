@@ -1,0 +1,68 @@
+[
+  {
+    "id": "aem-ic-engineer",
+    "title": "Individual Contributor — AEM Engineer",
+    "summary": "Progress from component developer to senior platform engineer owning delivery pipelines and non-functional requirements.",
+    "milestones": [
+      {
+        "title": "Foundation",
+        "description": "HTL, Core Components, basic Sling Models, author/publish topology.",
+        "technologyIds": [
+          "htl",
+          "core-components",
+          "aem-sites"
+        ]
+      },
+      {
+        "title": "Platform depth",
+        "description": "Dispatcher, caching, OSGi services, Cloud Manager pipelines.",
+        "technologyIds": [
+          "dispatcher",
+          "osgi",
+          "aem-cloud"
+        ]
+      },
+      {
+        "title": "Senior scope",
+        "description": "Headless fragments, GraphQL, performance budgets, cross-team technical leadership.",
+        "technologyIds": [
+          "content-fragments",
+          "graphql-aem",
+          "edge-delivery"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aem-solution-architect",
+    "title": "Solution / Platform Architect",
+    "summary": "Shape multi-brand rollouts, integration patterns, and Experience Cloud alignment for enterprise programs.",
+    "milestones": [
+      {
+        "title": "Integration patterns",
+        "description": "AEM ↔ Analytics, Target, AEP; identity and consent architecture.",
+        "technologyIds": [
+          "aep",
+          "aem-sites"
+        ]
+      },
+      {
+        "title": "Scale & governance",
+        "description": "MSM blueprints, content supply chain, CI/CD and environment strategy.",
+        "technologyIds": [
+          "aem-cloud",
+          "dispatcher"
+        ]
+      },
+      {
+        "title": "Modern experience stack",
+        "description": "EDS, Universal Editor, composable commerce and personalization at edge.",
+        "technologyIds": [
+          "edge-delivery",
+          "universal-editor",
+          "graphql-aem"
+        ]
+      }
+    ]
+  }
+]

@@ -2,11 +2,11 @@
 
 ## Status
 
-This document specifies the **target** data model per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 4,
-`data/chapters.json`, `data/companies.json`, `data/site.json`, and `data/roadmaps.json` exist and are fetched by
-`index.html`. Chapters and companies deliberately do **not** yet conform to their full field sets below — they're a
-faithful, as-is migration of the previous inline data (plus stable `id`s). Full schema conformance for companies
-happens with real data population in Milestone 6; full roadmap content in Milestone 7.
+This document specifies the **target** data model per `MASTER_BOOTSTRAP_PROMPT.md`. As of Milestone 7,
+`data/chapters.json`, `data/companies.json`, `data/site.json`, `data/roadmaps.json`, and six learning reference
+files (`glossary`, `technologies`, `career_paths`, `interviews`, `templates`, `resources`) are live and fetched by
+`index.html`. Companies conform to `11_COMPANY_SCHEMA.md` (Milestone 6). Chapters still use the Milestone 3 field
+names (`reading`, not `readingTime`) — full chapter normalization deferred.
 
 ## Principle
 
@@ -20,13 +20,13 @@ independently loadable and has one clear owner topic.
 | `data/site.json` | Site chrome: header meta, hero, sidebar labels, dashboard stats, footer, search config | **Live** (Milestone 4) |
 | `data/companies.json` | Target-employer database — see `11_COMPANY_SCHEMA.md` for the full field list | **Live** (Milestone 3) |
 | `data/chapters.json` | Handbook chapters/content — schema below | **Live** (Milestone 3) |
-| `data/roadmaps.json` | Learning roadmaps (ordered skill/topic sequences) | **Seed** (Milestone 4; full content → Milestone 7) |
-| `data/technologies.json` | Technology/skill reference entries (AEM, Sling, HTL, EDS, etc.) | Planned |
-| `data/resources.json` | External links, courses, docs worth referencing | Planned |
-| `data/career_paths.json` | Career progression tracks and milestones | Planned |
-| `data/glossary.json` | Term definitions, cross-linked from chapters | Planned |
-| `data/templates.json` | Reusable templates (resume bullets, interview answers, etc.) | Planned |
-| `data/interviews.json` | Interview questions/prep material, tagged by company/technology | Planned |
+| `data/roadmaps.json` | Learning roadmaps (ordered skill/topic sequences) | **Live** (Milestone 7 — 3 paths) |
+| `data/technologies.json` | Technology/skill reference entries (AEM, Sling, HTL, EDS, etc.) | **Live** (Milestone 7) |
+| `data/resources.json` | External links, courses, docs worth referencing | **Live** (Milestone 7) |
+| `data/career_paths.json` | Career progression tracks and milestones | **Live** (Milestone 7) |
+| `data/glossary.json` | Term definitions, cross-linked from chapters | **Live** (Milestone 7) |
+| `data/templates.json` | Reusable templates (resume bullets, interview answers, etc.) | **Live** (Milestone 7) |
+| `data/interviews.json` | Interview questions/prep material, tagged by company/technology | **Live** (Milestone 7) |
 
 ## Site schema (`data/site.json`) — Milestone 4
 
@@ -43,9 +43,9 @@ independently loadable and has one clear owner topic.
 }
 ```
 
-## Roadmap schema (`data/roadmaps.json`) — seed in Milestone 4
+## Roadmap schema (`data/roadmaps.json`) — Milestone 7
 
-Array of roadmap objects. Milestone 4 ships one minimal seed; full learning paths are Milestone 7.
+Array of roadmap objects.
 
 ```json
 {
@@ -53,10 +53,106 @@ Array of roadmap objects. Milestone 4 ships one minimal seed; full learning path
   "title": "string",
   "summary": "string",
   "steps": [
-    { "id": "string", "title": "string", "status": "string, e.g. 'planned' | 'in progress' | 'complete'" }
+    {
+      "id": "string",
+      "title": "string",
+      "status": "planned | in progress | complete",
+      "description": "string (optional)",
+      "technologyIds": ["technology id", "..."],
+      "resourceIds": ["resource id", "..."],
+      "estimatedHours": "number (optional)"
+    }
   ]
 }
 ```
+
+Rendered via `Render.roadmapList` with anchors `#roadmap-{id}`.
+
+## Glossary schema (`data/glossary.json`)
+
+```json
+{
+  "id": "string",
+  "term": "string",
+  "definition": "string",
+  "relatedTerms": ["glossary id", "..."],
+  "chapterId": "chapter id or null"
+}
+```
+
+## Technology schema (`data/technologies.json`)
+
+```json
+{
+  "id": "string",
+  "name": "string",
+  "category": "string",
+  "difficulty": "Beginner | Intermediate | Advanced",
+  "summary": "string",
+  "prerequisites": ["technology id", "..."],
+  "resourceIds": ["resource id", "..."]
+}
+```
+
+## Career path schema (`data/career_paths.json`)
+
+```json
+{
+  "id": "string",
+  "title": "string",
+  "summary": "string",
+  "milestones": [
+    { "title": "string", "description": "string", "technologyIds": ["..."] }
+  ]
+}
+```
+
+## Interview schema (`data/interviews.json`)
+
+```json
+{
+  "id": "string",
+  "question": "string",
+  "category": "technical | behavioral | system-design",
+  "difficulty": "Beginner | Intermediate | Advanced",
+  "technologies": ["technology id", "..."],
+  "guidance": "string"
+}
+```
+
+## Template schema (`data/templates.json`)
+
+```json
+{
+  "id": "string",
+  "title": "string",
+  "category": "resume | interview | branding | networking",
+  "body": "string"
+}
+```
+
+## Resource schema (`data/resources.json`)
+
+```json
+{
+  "id": "string",
+  "title": "string",
+  "url": "string (URL)",
+  "type": "official-docs | course | ..."
+}
+```
+
+## Chapter embed flags (`data/chapters.json`)
+
+| Flag | Renders |
+|---|---|
+| `companyTable` | `Render.companyTable` |
+| `glossaryEmbed` | `Render.glossaryTable` |
+| `technologyEmbed` | `Render.technologyTable` |
+| `careerPathEmbed` | `Render.careerPaths` |
+| `interviewEmbed` | `Render.interviewList` |
+| `templateEmbed` | `Render.templatesList` |
+| `resourceEmbed` | `Render.resourcesList` |
 
 ## Chapter schema (`data/chapters.json`)
 

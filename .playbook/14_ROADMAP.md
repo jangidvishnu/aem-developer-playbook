@@ -36,8 +36,12 @@ review before the next one starts.
 | 4 | Renderer | Extend the render-function set to the remaining content types (hero, roadmap, dashboard, footer, search) once Milestone 3 gives them a data source; also move the `Render` namespace into `assets/js/render.js` | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 5 | Search | Ranked, multi-source search per `07_RESEARCH_GUIDE.md` / `08_UI_GUIDELINES.md` search spec | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 6 | Company Intelligence Database | Verify and merge `md/deep-research-report*.md` into `data/companies.json` | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | Not started |
-| 8 | Publishing | GitHub Pages, print handbook, PDF export pipeline | Not started |
+| 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
+| 8 | Company Pipeline & Hiring Gate | Fresh research, hiring gate, filter/sort, BuiltWith manifest; **hire-verified employers only** | Not started |
+| 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | Not started |
+| 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | Not started |
+| 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | Not started |
+| 12 | Publishing | GitHub Pages, print handbook, PDF export pipeline | Not started |
 
 **Revision note:** Milestones 2 and 4 were re-scoped from the original plan per `12_DECISIONS.md` DR-003, splitting
 one overloaded "Architecture Refactor" milestone into a small render-function-extraction step (2), the data
@@ -85,3 +89,127 @@ Accepted by the project owner after browser verification. **Full detail:** `25_R
 Migrated `data/companies.json` to `11_COMPANY_SCHEMA.md` (46 records: 25 Verified with Adobe case-study evidence),
 paginated company table, `verify-companies.js`, and search index updates. Accepted by the project owner after
 browser verification. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+## Milestone 7 — Learning System: complete, accepted
+
+Six learning data files, three roadmap paths, glossary and interview-prep chapters, learning render embeds, search
+indexing, and `verify-learning.js`. Accepted by the project owner after verification. **Full detail:**
+`25_ROADMAP_ARCHIVE.md`.
+
+---
+
+## Milestones 8–12 (planned — M8 next)
+
+Full detail for Milestone 8 is written here now that M7 is accepted (per DR-004). Order is fixed: finish and accept
+the current milestone before starting the next.
+
+### Milestone 8 — Company Pipeline, Hiring Gate & Table Discovery
+
+**Goal:** Build the **core company product** — the largest possible list of **hire-verified** AEM employers with
+apply-ready data (careers links, AEM usage proof, hiring proof), client-side filter/sort on the company table, and
+BuiltWith manifest ingest (optional paid API).
+
+**Research policy (DR-010):**
+
+- **Fresh public data** — re-verify careers pages, job postings, and Adobe case studies at promotion time.
+- [`md/deep-research-report*.md`](md/) — **reference only** for candidate names; never sole `Evidence`.
+- **No company count cap** — grow the list continuously; rows that fail the gate are archived, not deleted.
+- **India-first** — prioritize `HiringIndia: Yes` and India GCC when scoring `priority`; include strong global AEM
+  employers where evidenced.
+
+**Publish rule (DR-008):** A company appears in `data/companies.json` only if **all** of:
+
+1. **AEM usage evidenced** — Tier 1–2 (Adobe case study, careers/engineering mention); BuiltWith/W3Techs alone never
+   sufficient for `usesAEM: true`.
+2. **Hiring signal** — AEM-titled roles, `TypicalRoles` + careers search, or `HiringIndia` / `HiringGlobal` = Yes with
+   evidence URL.
+3. **No hire, no row** — Tier-4-only candidates stay in manifests until verified.
+
+**Per-row completeness (public table):**
+
+| Field | Required |
+|---|---|
+| `careersUrl` | Official careers http URL |
+| `directJobSearch` | Keyword-filtered search when ATS supports it; else `Unknown` + note |
+| `Evidence` | Tier 1–2 AEM usage URL(s) |
+| `HiringAEM` + `AEMHiringEvidence` | Hiring proof URL(s) |
+| `TypicalRoles`, `LastVerified`, `LastHiringVerified` | Set on promotion |
+| `AEMWorkFocus`, `HiringIntensity`, `AdobeSpend` | M8 schema fields (`Unknown` if unsourced) |
+
+**Scope (in):**
+
+- Hiring gate: `scripts/hiring-gate.js`, `build-companies-m8.js`, `verify-companies.js` enforcement
+- Manifests: `data/manifests/company-candidates.json`, `research-queue.json`, `builtwith-input.json`
+- `scripts/ingest-builtwith-candidates.js`; optional `builtwith-api.js` if `BUILTWITH_API_KEY` in local env (paid API;
+  free tier = single-site lookup only)
+- **Fresh research batches** — Adobe customer stories, careers keyword passes, India GCC/agencies (evidence required)
+- **`assets/js/filters.js`** — client-side filter/sort on company table: `companyType`, priority, `HiringIndia`,
+  `AEMaaCS`, `HiringAEM`, name search; `verify-filters.js`
+- Company table columns: Hiring, Intensity; extend search index with `companyType`, `HiringAEM`
+- Docs: `07_RESEARCH_GUIDE.md`, `11_COMPANY_SCHEMA.md`, `17_TESTING_GUIDE.md` M8 section
+
+**Scope (out):** Auto-scraping at scale without review; claiming spend without source; non-hiring domains “for
+completeness”; search-panel facet chips and shareable filter URLs → **Milestone 9**.
+
+### Milestone 9 — Discovery Filters (search integration)
+
+**Goal:** Extend discovery beyond the company table — filter **search results** by the same facets and optional
+shareable filter state.
+
+**Scope (in):**
+
+- Search-panel facet chips/dropdowns (intersect with ranked search results)
+- URL hash or query params for shareable filtered views
+- Remaining facets not in M8 table UI if any (e.g. `industry`, `MigrationStatus` bands)
+
+**Scope (out):** Full-text search engine replacement; server-side query API. *(Company table filter/sort delivered in M8.)*
+
+### Milestone 10 — Owner Playbook
+
+**Goal:** Capture **your** methods — how you apply, what you learn, from where — separate from generic templates in
+Milestone 7.
+
+**Scope (in):**
+
+- `data/owner_playbook.json` (or `data/playbook/owner.json`) — structured sections: apply workflow, outreach,
+  learning sources, weekly rhythm, tools; **your voice**, marked `audience: "owner"` where opinion.
+- Render as a dedicated **Apply** chapter or top-level section (not buried in governance chapters).
+- Search indexes owner sections for you; public build (Milestone 12) may **hide** owner-only blocks via `audience`
+  flag — requires owner decision before publish.
+
+**Scope (out):** Recruiter CRM UI; automated job applications.
+
+### Milestone 11 — Minimal Product UI
+
+**Goal:** Product feel for **you and visitors**: mobile-friendly, minimal, **jobs-first** — who is hiring most, where
+to apply, how to apply — without project-status noise.
+
+**Scope (in):**
+
+- **Mobile layout** — collapsible nav, readable tables (cards on narrow viewports), touch-friendly pagination/filters.
+- **IA default** — landing emphasis: **Hiring companies** (sorted by `HiringIntensity` / priority) → **How I apply**
+  (Owner Playbook) → Learn (roadmaps/glossary) — governance/mission de-emphasized or moved to footer/about.
+- Remove or hide for public mode: sidebar “Project Status” dashboard, version draft labels (config in `site.json`:
+  `mode: "product" | "dev"`).
+- Accessibility + performance pass (`20_ACCESSIBILITY.md`, `23_PERFORMANCE.md`).
+
+**Scope (out):** SPA framework; login/auth; company card grid (unless folded in here).
+
+### Milestone 12 — Publishing
+
+GitHub Pages deploy, print stylesheet polish, PDF/export path. **Last** — publish the product-shaped site (Milestones
+8–11) rather than an interim handbook shell.
+
+### Order rationale (revised per DR-009)
+
+| Order | Why |
+|---|---|
+| 8 Company pipeline | Hire-verified data is the core product |
+| 9 Filters | Makes a large company set usable |
+| 10 Owner playbook | Your “how I apply / what to learn” story |
+| 11 Product UI | Mobile, minimal, jobs-first before going public |
+| 12 Publishing | Ship when data, filters, owner content, and UI are ready |
+
+**Immediate next step:** Implement **Milestone 8** (Company Pipeline, Hiring Gate & Table Discovery). M7 accepted.

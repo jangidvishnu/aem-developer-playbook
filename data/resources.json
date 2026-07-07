@@ -1,0 +1,74 @@
+[
+  {
+    "id": "adobe-aem-docs",
+    "title": "Adobe Experience Manager product documentation",
+    "url": "https://experienceleague.adobe.com/docs/experience-manager.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-aem-cloud",
+    "title": "AEM as a Cloud Service overview",
+    "url": "https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/overview/introduction.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-eds",
+    "title": "Edge Delivery Services documentation",
+    "url": "https://www.aem.live/docs/",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-htl-spec",
+    "title": "HTL specification",
+    "url": "https://experienceleague.adobe.com/docs/experience-manager-htl/using/overview.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-sling",
+    "title": "Apache Sling documentation",
+    "url": "https://sling.apache.org/documentation.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-dispatcher",
+    "title": "Dispatcher configuration reference",
+    "url": "https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/dispatcher.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-core-components",
+    "title": "AEM Core Components",
+    "url": "https://experienceleague.adobe.com/docs/experience-manager-core-components/using/introduction.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-aep",
+    "title": "Adobe Experience Platform overview",
+    "url": "https://experienceleague.adobe.com/docs/experience-platform.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-graphql",
+    "title": "AEM GraphQL persisted queries",
+    "url": "https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/headless/setup-graphql.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-dev-tools",
+    "title": "AEM Developer Tools & local SDK",
+    "url": "https://experienceleague.adobe.com/docs/experience-manager-65/content/implementing/developing/introduction/the-basics.html",
+    "type": "official-docs"
+  },
+  {
+    "id": "wknd-tutorial",
+    "title": "WKND Developer Tutorial",
+    "url": "https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html",
+    "type": "course"
+  },
+  {
+    "id": "adobe-target-docs",
+    "title": "Adobe Target documentation",
+    "url": "https://experienceleague.adobe.com/docs/target/using/target.html",
+    "type": "official-docs"
+  }
+]

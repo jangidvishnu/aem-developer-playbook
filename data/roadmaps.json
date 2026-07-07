@@ -2,22 +2,146 @@
   {
     "id": "aem-foundation",
     "title": "AEM foundation path",
-    "summary": "Core skills for enterprise digital experience engineering — expanded in Milestone 7.",
+    "summary": "Core skills for enterprise digital experience engineering — architecture through component development.",
     "steps": [
       {
         "id": "aem-architecture",
         "title": "AEM architecture fundamentals",
-        "status": "in progress"
+        "status": "in progress",
+        "description": "Author/publish, JCR basics, replication, environments.",
+        "technologyIds": [
+          "aem-sites"
+        ],
+        "resourceIds": [
+          "adobe-aem-docs",
+          "wknd-tutorial"
+        ],
+        "estimatedHours": 12
       },
       {
         "id": "sling-htl",
         "title": "Sling, HTL, and component development",
-        "status": "planned"
+        "status": "planned",
+        "description": "Sling Models, HTL, Core Components extension.",
+        "technologyIds": [
+          "sling",
+          "htl",
+          "core-components"
+        ],
+        "resourceIds": [
+          "adobe-htl-spec",
+          "adobe-core-components"
+        ],
+        "estimatedHours": 20
       },
       {
-        "id": "cloud-eds",
-        "title": "Cloud Service and Edge Delivery",
-        "status": "planned"
+        "id": "dispatcher-basics",
+        "title": "Dispatcher and caching",
+        "status": "planned",
+        "description": "Filter rules, cache invalidation, troubleshooting.",
+        "technologyIds": [
+          "dispatcher"
+        ],
+        "resourceIds": [
+          "adobe-dispatcher"
+        ],
+        "estimatedHours": 10
+      }
+    ]
+  },
+  {
+    "id": "cloud-eds",
+    "title": "Cloud Service & Edge path",
+    "summary": "Modern AEM delivery: Cloud Manager, headless fragments, GraphQL, and Edge Delivery Services.",
+    "steps": [
+      {
+        "id": "cloud-manager",
+        "title": "AEM as a Cloud Service & pipelines",
+        "status": "planned",
+        "description": "Cloud Manager, RDE, code analyser, release cadence.",
+        "technologyIds": [
+          "aem-cloud"
+        ],
+        "resourceIds": [
+          "adobe-aem-cloud"
+        ],
+        "estimatedHours": 16
+      },
+      {
+        "id": "headless-graphql",
+        "title": "Headless content & GraphQL",
+        "status": "planned",
+        "description": "Content Fragment models and persisted queries.",
+        "technologyIds": [
+          "content-fragments",
+          "graphql-aem"
+        ],
+        "resourceIds": [
+          "adobe-graphql"
+        ],
+        "estimatedHours": 14
+      },
+      {
+        "id": "edge-delivery",
+        "title": "Edge Delivery Services",
+        "status": "planned",
+        "description": "Document-based authoring and edge performance patterns.",
+        "technologyIds": [
+          "edge-delivery",
+          "universal-editor"
+        ],
+        "resourceIds": [
+          "adobe-eds"
+        ],
+        "estimatedHours": 12
+      }
+    ]
+  },
+  {
+    "id": "experience-platform",
+    "title": "Experience Platform integration path",
+    "summary": "Connect AEM to analytics, personalization, and customer data for measurable experience programs.",
+    "steps": [
+      {
+        "id": "analytics-target",
+        "title": "Analytics & Target with AEM",
+        "status": "planned",
+        "description": "Tags, goals, A/B tests on AEM pages.",
+        "technologyIds": [
+          "aem-sites"
+        ],
+        "resourceIds": [
+          "adobe-target-docs"
+        ],
+        "estimatedHours": 10
+      },
+      {
+        "id": "aep-basics",
+        "title": "Adobe Experience Platform overview",
+        "status": "planned",
+        "description": "Profiles, schemas, and activation concepts.",
+        "technologyIds": [
+          "aep"
+        ],
+        "resourceIds": [
+          "adobe-aep"
+        ],
+        "estimatedHours": 12
+      },
+      {
+        "id": "personalization-scale",
+        "title": "Personalization at scale",
+        "status": "planned",
+        "description": "Content Fragments + segments; governance and performance.",
+        "technologyIds": [
+          "content-fragments",
+          "aep"
+        ],
+        "resourceIds": [
+          "adobe-aep",
+          "adobe-aem-docs"
+        ],
+        "estimatedHours": 14
       }
     ]
   }

@@ -1,0 +1,198 @@
+[
+  {
+    "id": "int-aem-arch",
+    "question": "Explain the AEM author vs publish architecture and typical deployment flow.",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "aem-sites"
+    ],
+    "guidance": "Cover content activation/replication, Dispatcher on publish, and separation of authoring from delivery. Mention Cloud Manager for cloud deployments."
+  },
+  {
+    "id": "int-dispatcher",
+    "question": "How does the AEM Dispatcher cache and invalidate content?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "dispatcher"
+    ],
+    "guidance": "Discuss .stat files, TTL, invalidation requests from author, and filter rules. Note flush vs grace scenarios."
+  },
+  {
+    "id": "int-htl-xss",
+    "question": "How does HTL help prevent XSS compared to JSP scriptlets?",
+    "category": "technical",
+    "difficulty": "Beginner",
+    "technologies": [
+      "htl"
+    ],
+    "guidance": "Explain automatic context-aware escaping and separation of logic into Sling Models."
+  },
+  {
+    "id": "int-sling-resolution",
+    "question": "How does Sling resolve a URL to a resource?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "sling"
+    ],
+    "guidance": "Resource path, selectors, extension, and script matching. Optional: mention Sling Mappings."
+  },
+  {
+    "id": "int-osgi-config",
+    "question": "What are OSGi configurations in AEM and how do run modes affect them?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "osgi"
+    ],
+    "guidance": "Factory configs, configAdmin, /apps vs /libs, and environment-specific run modes (author, publish, dev)."
+  },
+  {
+    "id": "int-cloud-migration",
+    "question": "What changes when migrating AEM 6.5 on-prem to AEM as a Cloud Service?",
+    "category": "technical",
+    "difficulty": "Advanced",
+    "technologies": [
+      "aem-cloud"
+    ],
+    "guidance": "Immutable container, no custom runmodes in crx-quickstart, BPA reports, removed APIs, pipeline-only deploys."
+  },
+  {
+    "id": "int-fragments",
+    "question": "When would you use Content Fragments vs Experience Fragments?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "content-fragments"
+    ],
+    "guidance": "Fragments are structured data for headless; XF are layout-ready marketing experiences for channels."
+  },
+  {
+    "id": "int-graphql",
+    "question": "Describe how persisted GraphQL queries work in AEM.",
+    "category": "technical",
+    "difficulty": "Advanced",
+    "technologies": [
+      "graphql-aem"
+    ],
+    "guidance": "CF models, persisted queries for caching/CDN, client apps vs ad-hoc queries in production."
+  },
+  {
+    "id": "int-eds",
+    "question": "What is Edge Delivery Services and how does authoring differ from classic AEM Sites?",
+    "category": "technical",
+    "difficulty": "Advanced",
+    "technologies": [
+      "edge-delivery"
+    ],
+    "guidance": "Document/sheet-based authoring, performance at edge, integration with AEM for governance."
+  },
+  {
+    "id": "int-perf",
+    "question": "How do you diagnose slow AEM pages in production?",
+    "category": "technical",
+    "difficulty": "Advanced",
+    "technologies": [
+      "dispatcher",
+      "aem-sites"
+    ],
+    "guidance": "Query performance (Oak indexes), Dispatcher cache hit ratio, component-level timing, Asset renditions."
+  },
+  {
+    "id": "int-java-service",
+    "question": "How do you implement a secure background job in AEM?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "java-aem",
+      "osgi"
+    ],
+    "guidance": "Sling Scheduler or Job topics, service user mapping, error handling, idempotency."
+  },
+  {
+    "id": "int-behavior-star",
+    "question": "Tell me about a time you unblocked a high-pressure production issue.",
+    "category": "behavioral",
+    "difficulty": "Intermediate",
+    "technologies": [],
+    "guidance": "Use STAR: situation, task, action, result. Emphasize calm triage, communication, and post-incident learning."
+  },
+  {
+    "id": "int-behavior-conflict",
+    "question": "Describe a disagreement with an architect or product owner and how you resolved it.",
+    "category": "behavioral",
+    "difficulty": "Intermediate",
+    "technologies": [],
+    "guidance": "Focus on data, trade-offs, and alignment to customer impact — not winning the argument."
+  },
+  {
+    "id": "int-behavior-quality",
+    "question": "How do you balance delivery speed with quality on an AEM program?",
+    "category": "behavioral",
+    "difficulty": "Intermediate",
+    "technologies": [],
+    "guidance": "Automated tests, definition of done, incremental releases, tech debt visibility."
+  },
+  {
+    "id": "int-system-design-cms",
+    "question": "Design a multi-country AEM site with shared components and local content.",
+    "category": "system-design",
+    "difficulty": "Advanced",
+    "technologies": [
+      "aem-sites"
+    ],
+    "guidance": "MSM blueprint/live copy, language copies, governance, translation connectors, rollout configs."
+  },
+  {
+    "id": "int-system-headless",
+    "question": "How would you architect headless content for web and mobile from AEM?",
+    "category": "system-design",
+    "difficulty": "Advanced",
+    "technologies": [
+      "graphql-aem",
+      "content-fragments"
+    ],
+    "guidance": "CF models, GraphQL persisted queries, SPA/SSR front ends, caching strategy, preview."
+  },
+  {
+    "id": "int-aep-integration",
+    "question": "How can AEM and AEP work together in a personalization use case?",
+    "category": "technical",
+    "difficulty": "Advanced",
+    "technologies": [
+      "aep",
+      "aem-sites"
+    ],
+    "guidance": "Edge data collection, Web SDK, segments, Target or AJO activation — stay high-level if not hands-on."
+  },
+  {
+    "id": "int-core-components",
+    "question": "Why adopt Core Components instead of only custom components?",
+    "category": "technical",
+    "difficulty": "Beginner",
+    "technologies": [
+      "core-components"
+    ],
+    "guidance": "Maintenance, accessibility, upgrade path, Cloud Service compatibility, extension via overlay."
+  },
+  {
+    "id": "int-ci-cd",
+    "question": "What belongs in an AEM Cloud Manager pipeline vs local development?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "aem-cloud"
+    ],
+    "guidance": "Code quality, unit tests, RDE for rapid dev, full pipeline for stage/prod with approval gates."
+  },
+  {
+    "id": "int-career-goal",
+    "question": "Why enterprise digital experience engineering instead of generic full-stack?",
+    "category": "behavioral",
+    "difficulty": "Beginner",
+    "technologies": [],
+    "guidance": "Tie to depth in CMS/DXP, business impact of content velocity, and long-term market demand."
+  }
+]

@@ -14,14 +14,30 @@ const companies = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 
 const site = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'site.json'), 'utf8'));
 const roadmaps = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'roadmaps.json'), 'utf8'));
 
-const index = Search.buildIndex({ chapters, companies, roadmaps, site });
+function loadLearning() {
+  const load = name => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', name), 'utf8'));
+  return {
+    glossary: load('glossary.json'),
+    technologies: load('technologies.json'),
+    careerPaths: load('career_paths.json'),
+    interviews: load('interviews.json'),
+    templates: load('templates.json'),
+    resources: load('resources.json')
+  };
+}
+
+const learning = loadLearning();
+const index = Search.buildIndex({ chapters, companies, roadmaps, site, learning });
 
 const cases = [
   { query: 'Adobe', expectInResults: { source: 'company', id: 'adobe' } },
   { query: 'mission', expectTopSource: 'chapter', expectTopId: 'mission' },
   { query: 'AEM foundation', expectTopSource: 'roadmap', expectTopId: 'aem-foundation' },
   { query: 'Welcome', expectTopSource: 'site', expectTopId: 'hero' },
-  { query: 'governance', expectTopSource: 'chapter', expectTopId: 'mission' }
+  { query: 'principles', expectTopSource: 'chapter', expectTopId: 'mission' },
+  { query: 'HTL', expectInResults: { source: 'glossary', id: 'htl' } },
+  { query: 'behavioral', expectInResults: { source: 'interview', id: 'int-behavior-star' } },
+  { query: 'resume bullet', expectInResults: { source: 'template', id: 'resume-bullet-aem' } }
 ];
 
 let failed = 0;

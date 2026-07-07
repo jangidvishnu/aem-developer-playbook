@@ -1,0 +1,195 @@
+[
+  {
+    "id": "aem-sites",
+    "name": "AEM Sites",
+    "category": "CMS",
+    "difficulty": "Intermediate",
+    "summary": "Enterprise web content management: pages, templates, components, and multi-site authoring.",
+    "prerequisites": [],
+    "resourceIds": [
+      "adobe-aem-docs",
+      "wknd-tutorial"
+    ]
+  },
+  {
+    "id": "aem-assets",
+    "name": "AEM Assets",
+    "category": "DAM",
+    "difficulty": "Intermediate",
+    "summary": "Digital asset management, metadata schemas, renditions, and brand portals.",
+    "prerequisites": [
+      "aem-sites"
+    ],
+    "resourceIds": [
+      "adobe-aem-docs"
+    ]
+  },
+  {
+    "id": "aem-forms",
+    "name": "AEM Forms",
+    "category": "Forms",
+    "difficulty": "Advanced",
+    "summary": "Adaptive forms, document services, and workflow-driven capture experiences.",
+    "prerequisites": [
+      "aem-sites"
+    ],
+    "resourceIds": [
+      "adobe-aem-docs"
+    ]
+  },
+  {
+    "id": "aem-cloud",
+    "name": "AEM as a Cloud Service",
+    "category": "Platform",
+    "difficulty": "Advanced",
+    "summary": "Cloud-native AEM: rapid release cadence, Cloud Manager pipelines, and immutable containers.",
+    "prerequisites": [
+      "aem-sites"
+    ],
+    "resourceIds": [
+      "adobe-aem-cloud"
+    ]
+  },
+  {
+    "id": "sling",
+    "name": "Apache Sling",
+    "category": "Framework",
+    "difficulty": "Intermediate",
+    "summary": "RESTful resource-oriented framework underpinning AEM request processing and scripts.",
+    "prerequisites": [],
+    "resourceIds": [
+      "adobe-sling"
+    ]
+  },
+  {
+    "id": "osgi",
+    "name": "OSGi",
+    "category": "Framework",
+    "difficulty": "Intermediate",
+    "summary": "Modular Java services in AEM: bundles, configurations, and lifecycle management.",
+    "prerequisites": [
+      "sling"
+    ],
+    "resourceIds": [
+      "adobe-aem-docs"
+    ]
+  },
+  {
+    "id": "htl",
+    "name": "HTL (Sightly)",
+    "category": "Templating",
+    "difficulty": "Beginner",
+    "summary": "HTML Template Language for secure, readable AEM component markup.",
+    "prerequisites": [
+      "aem-sites"
+    ],
+    "resourceIds": [
+      "adobe-htl-spec"
+    ]
+  },
+  {
+    "id": "core-components",
+    "name": "AEM Core Components",
+    "category": "Components",
+    "difficulty": "Beginner",
+    "summary": "Adobe-maintained component library with accessibility and Cloud Service compatibility.",
+    "prerequisites": [
+      "htl",
+      "aem-sites"
+    ],
+    "resourceIds": [
+      "adobe-core-components"
+    ]
+  },
+  {
+    "id": "dispatcher",
+    "name": "AEM Dispatcher",
+    "category": "Caching",
+    "difficulty": "Intermediate",
+    "summary": "Apache-based caching and security filter in front of AEM publish tiers.",
+    "prerequisites": [
+      "aem-sites"
+    ],
+    "resourceIds": [
+      "adobe-dispatcher"
+    ]
+  },
+  {
+    "id": "edge-delivery",
+    "name": "Edge Delivery Services",
+    "category": "Edge",
+    "difficulty": "Advanced",
+    "summary": "Document-based authoring with edge-delivered pages and high Core Web Vitals scores.",
+    "prerequisites": [
+      "aem-sites"
+    ],
+    "resourceIds": [
+      "adobe-eds"
+    ]
+  },
+  {
+    "id": "universal-editor",
+    "name": "Universal Editor",
+    "category": "Authoring",
+    "difficulty": "Advanced",
+    "summary": "Visual in-context editing across headless and hybrid experiences.",
+    "prerequisites": [
+      "aem-cloud"
+    ],
+    "resourceIds": [
+      "adobe-aem-cloud"
+    ]
+  },
+  {
+    "id": "graphql-aem",
+    "name": "AEM GraphQL",
+    "category": "Headless",
+    "difficulty": "Advanced",
+    "summary": "Persisted GraphQL endpoints over Content Fragments for SPA and native apps.",
+    "prerequisites": [
+      "aem-sites",
+      "aem-cloud"
+    ],
+    "resourceIds": [
+      "adobe-graphql"
+    ]
+  },
+  {
+    "id": "content-fragments",
+    "name": "Content Fragments",
+    "category": "Headless",
+    "difficulty": "Intermediate",
+    "summary": "Structured, channel-agnostic content models for headless delivery.",
+    "prerequisites": [
+      "aem-sites"
+    ],
+    "resourceIds": [
+      "adobe-aem-docs"
+    ]
+  },
+  {
+    "id": "aep",
+    "name": "Adobe Experience Platform",
+    "category": "Data",
+    "difficulty": "Advanced",
+    "summary": "Real-time customer profiles, identity, and activation across Experience Cloud.",
+    "prerequisites": [],
+    "resourceIds": [
+      "adobe-aep"
+    ]
+  },
+  {
+    "id": "java-aem",
+    "name": "Java for AEM",
+    "category": "Language",
+    "difficulty": "Intermediate",
+    "summary": "Sling Models, servlets, schedulers, and service users in AEM back-end code.",
+    "prerequisites": [
+      "osgi"
+    ],
+    "resourceIds": [
+      "adobe-dev-tools",
+      "wknd-tutorial"
+    ]
+  }
+]

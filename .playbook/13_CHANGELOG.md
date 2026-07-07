@@ -10,6 +10,30 @@ Release process now requires a published test plan in `17_TESTING_GUIDE.md` (and
 whenever a milestone is pending acceptance; completion messages must include automated commands and browser steps
 (`15_RELEASE_PROCESS.md`, `16_CHECKLISTS.md`, `copilot-instructions.md`).
 
+## Roadmap resequence (Milestones 8–12)
+
+Publishing moved from Milestone 8 → **12**. New order: Company Pipeline (8), Discovery Filters (9), Owner Playbook
+(10), Minimal Product UI (11), Publishing (12). See `12_DECISIONS.md` DR-009.
+
+## Milestone 8 scope expanded (planning)
+
+M8 now includes fresh evidence-based research (md reference-only), no company count cap, client-side company table
+filter/sort, and optional BuiltWith API. Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
+and `14_ROADMAP.md`.
+
+## Milestone 7 — Learning System (accepted)
+
+### Added
+
+- `data/glossary.json`, `technologies.json`, `career_paths.json`, `interviews.json`, `templates.json`,
+  `resources.json`; `roadmaps.json` expanded to 3 paths.
+- `scripts/learning-schema.js`, `learning-seed-data.js`, `build-learning-m7.js`, `verify-learning.js`.
+- `Render.roadmapList`, learning table/list renderers; chapter embed flags; search indexes learning sources.
+- Chapters: `glossary`, `interview-prep`; embeds on career-strategy, core-skills, professional-branding,
+  living-roadmap.
+
+Accepted by project owner. Full detail in `25_ROADMAP_ARCHIVE.md`.
+
 ## Milestone 6 — accepted
 
 Accepted by the project owner after browser verification. Full detail in `25_ROADMAP_ARCHIVE.md`.

@@ -10,34 +10,37 @@
   {
     "id": "career-strategy",
     "title": "Career Strategy",
-    "summary": "Long-term direction.",
+    "summary": "Long-term direction for AEM and DXP engineers.",
     "reading": "4 min",
     "tags": ["Career"],
-    "body": "<ul class='list-disc ml-6'><li>Target Product Companies and GCCs.</li><li>Build modern AEM, Java and Cloud expertise.</li><li>Optimize personal branding before applications.</li></ul>"
+    "careerPathEmbed": true,
+    "body": "<p>Target product companies and GCCs that invest in Adobe Experience Cloud. Depth beats breadth: own the full delivery stack from authoring through edge performance.</p>"
   },
   {
     "id": "professional-branding",
     "title": "Professional Branding",
-    "summary": "Positioning.",
-    "reading": "2 min",
+    "summary": "Positioning and reusable messaging.",
+    "reading": "3 min",
     "tags": ["Branding"],
-    "body": "Position yourself as an <strong>Enterprise Digital Experience Engineer</strong> rather than only an AEM Developer."
+    "templateEmbed": true,
+    "body": "<p>Position yourself as an <strong>Enterprise Digital Experience Engineer</strong> — not only an AEM developer. Use the templates below for LinkedIn, outreach, and resume bullets.</p>"
   },
   {
     "id": "core-skills",
     "title": "Core Skills",
-    "summary": "Priority technologies.",
-    "reading": "3 min",
+    "summary": "Priority technologies for senior AEM engineers.",
+    "reading": "5 min",
     "tags": ["Skills"],
-    "body": "AEM • AEM Sites • AEMaaCS • Java • Dispatcher • Sling • OSGi • HTL • Core Components • Spring Boot • React"
+    "technologyEmbed": true,
+    "body": "<p>Master the intersection of <strong>content platform engineering</strong> (AEM Sites, Assets, Cloud Service), <strong>integration</strong> (Analytics, Target, AEP), and <strong>delivery</strong> (Dispatcher, CDN, Edge Delivery). The technology reference table lists prerequisites and official resources.</p>"
   },
   {
     "id": "learning-roadmap",
     "title": "Learning Roadmap",
-    "summary": "Immediate priorities.",
-    "reading": "5 min",
+    "summary": "Structured paths above and in the roadmap panels.",
+    "reading": "3 min",
     "tags": ["Learning"],
-    "body": "<ol class='list-decimal ml-6'><li>Edge Delivery Services</li><li>Universal Editor</li><li>GraphQL</li><li>Advanced Content Fragments</li><li>Adobe Experience Platform</li></ol>"
+    "body": "<p>Follow the three learning paths rendered at the top of this handbook: <strong>AEM foundation</strong>, <strong>Cloud &amp; Edge</strong>, and <strong>Experience Platform integration</strong>. Each step links to technologies and curated resources.</p>"
   },
   {
     "id": "target-companies",
@@ -50,17 +53,36 @@
   {
     "id": "career-command-center",
     "title": "Career Command Center",
-    "summary": "Planned modules.",
+    "summary": "Planned personal-tracking modules.",
     "reading": "3 min",
     "tags": ["Planning"],
-    "body": "<ul class='list-disc ml-6'><li>Master Company Database</li><li>Recruiter CRM</li><li>Application Tracker</li><li>Interview Tracker</li><li>Learning Tracker</li><li>Decision Log</li></ul>"
+    "body": "<ul class='list-disc ml-6'><li>Master Company Database ✓</li><li>Recruiter CRM (planned)</li><li>Application Tracker (planned)</li><li>Interview Tracker (planned)</li><li>Learning Tracker (roadmaps + glossary live)</li><li>Decision Log</li></ul>"
+  },
+  {
+    "id": "glossary",
+    "title": "Glossary",
+    "summary": "AEM and DXP terms used throughout this playbook.",
+    "reading": "6 min",
+    "tags": ["Reference"],
+    "glossaryEmbed": true,
+    "body": "<p>Authoritative short definitions for enterprise digital experience engineering. Cross-links appear in the related-terms column.</p>"
+  },
+  {
+    "id": "interview-prep",
+    "title": "Interview Prep",
+    "summary": "Technical and behavioral questions for AEM and DXP roles.",
+    "reading": "10 min",
+    "tags": ["Interview"],
+    "interviewEmbed": true,
+    "body": "<p>Guidance-oriented preparation — frameworks and topics employers commonly assess. Not a guarantee of exact questions at any company.</p>"
   },
   {
     "id": "living-roadmap",
     "title": "Living Roadmap",
-    "summary": "Future work.",
-    "reading": "2 min",
+    "summary": "Curated resources and future work.",
+    "reading": "3 min",
     "tags": ["Roadmap"],
-    "body": "This handbook will expand into interviews, salary, visa opportunities, Adobe Partners, templates and references."
+    "resourceEmbed": true,
+    "body": "<p>Official Adobe documentation and courses referenced across this playbook. Milestone 12 will add publishing (GitHub Pages, print, PDF).</p>"
   }
 ]

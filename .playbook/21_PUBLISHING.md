@@ -9,7 +9,7 @@ Per `MASTER_BOOTSTRAP_PROMPT.md`, this project ships as four things from one sou
 3. **Printable handbook** — browser print-to-PDF using the existing print CSS.
 4. **PDF book** — a more deliberate, paginated export (target state; not yet built).
 
-## GitHub Pages (Milestone 8)
+## GitHub Pages (Milestone 12)
 
 Because the site has no build step, GitHub Pages can serve the repository (or a `/docs` or root path, per GitHub's
 Pages configuration) directly. Requirements this places on every change:
@@ -38,7 +38,7 @@ The single-file, CDN-Tailwind architecture is mostly offline-friendly already, w
 and the Google Fonts import require network access on first load. A fully offline mode (vendored Tailwind build or
 system fonts fallback) is a candidate future decision, not required for Milestone 1.
 
-## Publishing checklist (target state, for Milestone 8)
+## Publishing checklist (target state, for Milestone 12)
 
 - [ ] Site renders correctly when served from a GitHub Pages subpath, not just from the repo root locally.
 - [ ] Print output verified as a complete, readable handbook (`17_TESTING_GUIDE.md`).
