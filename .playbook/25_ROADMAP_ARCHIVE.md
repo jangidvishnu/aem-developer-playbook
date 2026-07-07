@@ -377,3 +377,38 @@ Automated: `node scripts/build-companies.js`, `verify-companies.js`, `verify-fil
 
 `12_DECISIONS.md` DR-008 (hiring gate), DR-010 (expanded scope, no count cap), DR-011 (BuiltWith watchlist),
 DR-012 (no paid BuiltWith API).
+
+## Milestone 9 — Discovery Filters (complete, accepted)
+
+### Goal
+
+Extend discovery beyond the company table — filter **search results** by facets and support shareable filter state.
+
+### Scope (in) — all delivered
+
+- Search-panel facet chips (All / Companies / Chapters / Learning) intersecting with ranked search results.
+- URL query params for shareable filtered views (DR-013).
+- Industry and MigrationStatus band filters on company table and search intersection.
+- **Copy link** affordance on filter bar and search panel.
+- `CompanyFilters.filterSearchResults`, `parseUrlState`, `serializeUrlState`; facet metadata on company index entries.
+- `Render.searchFacets`; extended `Render.companyFilterBar` and `Render.search` panel markup.
+- Extended `verify-filters.js` and `verify-search.js`.
+
+### Scope (out) — unchanged
+
+Full-text search engine replacement; server-side query API.
+
+### Acceptance criteria — all passed
+
+Per `14_ROADMAP.md` Milestone 9 list; verify scripts exit 0. Owner browser verification confirmed.
+
+### Test plan
+
+Automated: `node scripts/verify-filters.js`, `verify-search.js`, `verify-render.js`, `verify-companies.js`,
+`verify-learning.js`. Browser: `17_TESTING_GUIDE.md` → Milestone 9.
+
+### Owner decisions
+
+`12_DECISIONS.md` DR-013 (query-param URL format).
+
+

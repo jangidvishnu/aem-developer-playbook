@@ -153,6 +153,42 @@ Expected: 119 hire-verified companies; all scripts exit 0.
 
 ---
 
+### Milestone 9 — Discovery Filters (pending acceptance)
+
+**Automated (run from repository root):**
+
+```bash
+node scripts/verify-filters.js
+node scripts/verify-search.js
+node scripts/verify-render.js
+node scripts/verify-companies.js
+node scripts/verify-learning.js
+```
+
+Expected: all scripts exit 0; filter tests include industry, migration band, URL round-trip, and search facet intersection.
+
+**Browser — search facets and shareable URLs:**
+
+1. Serve at `http://localhost:3456`.
+2. **Target Companies** — confirm **Industry** and **Migration** dropdowns appear beside Type and Sort.
+3. Select **Industry: Finance** — table count updates; only Finance employers remain.
+4. Open search, type **`bank`** — results panel shows facet chips (All / Companies / Chapters / Learning).
+5. Click **Companies** — non-company results hidden; status may read "N of M results".
+6. Change table filter to **Type: Agency** while search is open — search results re-filter; facet hint shows active table filters.
+7. Copy URL after filtering (e.g. `?cf_type=Agency&cf_industry=Finance&q=bank`) — open in new tab; table and search restore state.
+8. Click **Copy link** on the company filter bar or in the search panel — confirm **Copied!** appears; paste URL restores the same view.
+9. Re-run baseline smoke checks (keyboard nav, dark mode, print preview).
+
+**Sign-off:** Accepted by project owner. See `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+### Milestone 10 — Owner Playbook (not started)
+
+*Test plan to be added when Milestone 10 is implemented.*
+
+---
+
 ## Manual smoke test (baseline — always run after structural change)
 
 1. **Serve the site over HTTP** (e.g. `npx serve`, `python -m http.server`, or an editor's Live Preview) and open

@@ -92,15 +92,57 @@ this file — update .playbook/ and reference it instead.
 
     main.innerHTML = `<p id="${loadingId}" class="text-slate-500 p-4" role="status">Loading content…</p>`;
 
-    function wireSearch(searchIndex, chapters) {
+    function copyDiscoveryLink(statusEl) {
+      const url = window.location.href;
+      const done = () => {
+        if (statusEl) {
+          statusEl.textContent = 'Copied!';
+          statusEl.classList.remove('hidden');
+          setTimeout(() => statusEl.classList.add('hidden'), 2000);
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(() => {});
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = url;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (e) { /* ignore */ }
+        document.body.removeChild(ta);
+      }
+    }
+
+    function wireCopyDiscoveryLink(root) {
+      if (!root) return;
+      root.addEventListener('click', e => {
+        const btn = e.target.closest('[data-copy-discovery-link]');
+        if (!btn || !root.contains(btn)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        const status = root.querySelector('[data-copy-link-status]');
+        copyDiscoveryLink(status);
+      });
+    }
+
+    function wireSearch(searchIndex, chapters, ctx) {
       const wrap = document.getElementById('search-wrap');
       const input = document.getElementById('search');
       const clearBtn = document.getElementById('search-clear');
+      const searchPanel = document.getElementById('search-panel');
+      const facetsEl = document.getElementById('search-facets');
       const panel = document.getElementById('search-results');
       const status = document.getElementById('search-status');
+      const filterState = ctx.filterState;
+      const companiesById = ctx.companiesById;
       let results = [];
+      let rawCount = 0;
       let activeIndex = -1;
       let panelOpen = false;
+
+      function syncUrl() {
+        if (ctx.onUrlSync) ctx.onUrlSync(input.value);
+      }
 
       function updateClearButton() {
         clearBtn.classList.toggle('hidden', !input.value.trim());
@@ -108,34 +150,55 @@ this file — update .playbook/ and reference it instead.
 
       function closePanel() {
         panelOpen = false;
-        panel.classList.add('hidden');
+        searchPanel.classList.add('hidden');
         input.setAttribute('aria-expanded', 'false');
       }
 
       function openPanel() {
         const q = input.value.trim();
-        if (!q || !results.length) {
+        if (!q) {
           closePanel();
           return;
         }
         panelOpen = true;
-        panel.classList.remove('hidden');
+        searchPanel.classList.remove('hidden');
         input.setAttribute('aria-expanded', 'true');
+      }
+
+      function renderFacets() {
+        facetsEl.innerHTML = Render.searchFacets(filterState);
+        facetsEl.querySelectorAll('[data-search-facet]').forEach(btn => {
+          btn.onclick = e => {
+            e.stopPropagation();
+            const key = btn.getAttribute('data-search-facet');
+            filterState[key] = btn.getAttribute('data-value') || '';
+            syncUrl();
+            runQuery();
+          };
+        });
+      }
+
+      function statusText(q) {
+        if (!q.trim()) return '';
+        if (!results.length) return rawCount ? 'No results match filters' : 'No results';
+        if (rawCount > results.length) {
+          return results.length + ' of ' + rawCount + ' results';
+        }
+        return results.length + ' result' + (results.length === 1 ? '' : 's');
       }
 
       function renderPanel() {
         const q = input.value;
+        renderFacets();
         panel.innerHTML = Render.searchResults(results, q, activeIndex);
         updateClearButton();
         if (panelOpen && q.trim()) {
-          panel.classList.remove('hidden');
+          searchPanel.classList.remove('hidden');
           input.setAttribute('aria-expanded', 'true');
         } else if (!q.trim()) {
           closePanel();
         }
-        status.textContent = q.trim()
-          ? (results.length ? results.length + ' result' + (results.length === 1 ? '' : 's') : 'No results')
-          : '';
+        status.textContent = statusText(q);
         panel.querySelectorAll('[role="option"]').forEach((btn, i) => {
           btn.onclick = e => {
             e.stopPropagation();
@@ -160,8 +223,10 @@ this file — update .playbook/ and reference it instead.
       function clearSearch() {
         input.value = '';
         results = [];
+        rawCount = 0;
         activeIndex = -1;
         closePanel();
+        syncUrl();
         renderPanel();
         input.focus();
       }
@@ -171,15 +236,20 @@ this file — update .playbook/ and reference it instead.
         updateClearButton();
         if (!q) {
           results = [];
+          rawCount = 0;
           activeIndex = -1;
           closePanel();
           renderPanel();
+          syncUrl();
           return;
         }
-        results = Search.query(searchIndex, q);
+        const raw = Search.query(searchIndex, q);
+        rawCount = raw.length;
+        results = CompanyFilters.filterSearchResults(raw, companiesById, filterState);
         activeIndex = results.length ? 0 : -1;
         panelOpen = true;
         renderPanel();
+        syncUrl();
       }
 
       clearBtn.addEventListener('click', e => {
@@ -190,7 +260,7 @@ this file — update .playbook/ and reference it instead.
       input.addEventListener('input', runQuery);
 
       input.addEventListener('focus', () => {
-        if (input.value.trim() && results.length) {
+        if (input.value.trim()) {
           panelOpen = true;
           openPanel();
           renderPanel();
@@ -225,46 +295,39 @@ this file — update .playbook/ and reference it instead.
       document.addEventListener('click', e => {
         if (!wrap.contains(e.target)) closePanel();
       });
-    }
 
-    function wirePaginatedContainer(containerId, renderFn, data, pageAttr) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-      let page = 1;
-      const attr = pageAttr || containerId.replace('-table-container', '');
-      function render() {
-        container.innerHTML = renderFn(data, { page });
-        container.querySelectorAll(`[data-${attr}-page]`).forEach(btn => {
-          btn.onclick = () => {
-            page = parseInt(btn.getAttribute(`data-${attr}-page`), 10);
-            render();
-          };
-        });
+      wireCopyDiscoveryLink(facetsEl);
+
+      ctx.refreshSearch = runQuery;
+
+      if (ctx.initialQuery) {
+        input.value = ctx.initialQuery;
+        runQuery();
       }
-      render();
     }
 
-    function wireCompanyPagination(allCompanies) {
+    function wireCompanyPagination(allCompanies, industries, filterState, onStateChange) {
       const container = document.getElementById('company-table-container');
       if (!container) return;
       let page = 1;
-      let filterState = CompanyFilters.defaultState();
 
       function readStateFromDom() {
         const bar = container.querySelector('.company-filters');
         if (!bar) return filterState;
         const q = bar.querySelector('[data-company-filter="query"]');
         const type = bar.querySelector('[data-company-filter="companyType"]');
+        const industry = bar.querySelector('[data-company-filter="industry"]');
+        const migration = bar.querySelector('[data-company-filter="migrationBand"]');
         const sort = bar.querySelector('[data-company-filter="sort"]');
-        filterState = {
-          query: q ? q.value : '',
-          companyType: type ? type.value : '',
-          sort: sort ? sort.value : 'priority-desc',
-          hiringIndia: !!bar.querySelector('[data-company-filter="hiringIndia"]')?.checked,
-          hiringAEM: !!bar.querySelector('[data-company-filter="hiringAEM"]')?.checked,
-          aemaaCS: !!bar.querySelector('[data-company-filter="aemaaCS"]')?.checked,
-          verifiedOnly: !!bar.querySelector('[data-company-filter="verifiedOnly"]')?.checked
-        };
+        filterState.query = q ? q.value : '';
+        filterState.companyType = type ? type.value : '';
+        filterState.industry = industry ? industry.value : '';
+        filterState.migrationBand = migration ? migration.value : '';
+        filterState.sort = sort ? sort.value : 'priority-desc';
+        filterState.hiringIndia = !!bar.querySelector('[data-company-filter="hiringIndia"]')?.checked;
+        filterState.hiringAEM = !!bar.querySelector('[data-company-filter="hiringAEM"]')?.checked;
+        filterState.aemaaCS = !!bar.querySelector('[data-company-filter="aemaaCS"]')?.checked;
+        filterState.verifiedOnly = !!bar.querySelector('[data-company-filter="verifiedOnly"]')?.checked;
         return filterState;
       }
 
@@ -284,6 +347,11 @@ this file — update .playbook/ and reference it instead.
         });
       }
 
+      function notifyChange() {
+        readStateFromDom();
+        if (onStateChange) onStateChange();
+      }
+
       /** Update table + pagination only — keep filter bar in DOM so search input keeps focus. */
       function renderTable() {
         readStateFromDom();
@@ -299,32 +367,52 @@ this file — update .playbook/ and reference it instead.
       }
 
       function init() {
-        filterState = CompanyFilters.defaultState();
         page = 1;
         const filtered = CompanyFilters.apply(allCompanies, filterState);
         container.innerHTML = Render.companySection(filtered, {
           page,
           showFilters: true,
           filterState,
-          totalCount: allCompanies.length
+          totalCount: allCompanies.length,
+          industries
         });
         wirePageButtons();
         const bar = container.querySelector('.company-filters');
         if (bar) {
+          wireCopyDiscoveryLink(bar);
           bar.addEventListener('input', e => {
             if (!e.target.matches('[data-company-filter]')) return;
             if (e.target.type === 'checkbox') return;
             page = 1;
             renderTable();
+            notifyChange();
           });
           bar.addEventListener('change', e => {
             if (!e.target.matches('[data-company-filter]')) return;
             page = 1;
             renderTable();
+            notifyChange();
           });
         }
       }
       init();
+    }
+
+    function wirePaginatedContainer(containerId, renderFn, data, pageAttr) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      let page = 1;
+      const attr = pageAttr || containerId.replace('-table-container', '');
+      function render() {
+        container.innerHTML = renderFn(data, { page });
+        container.querySelectorAll(`[data-${attr}-page]`).forEach(btn => {
+          btn.onclick = () => {
+            page = parseInt(btn.getAttribute(`data-${attr}-page`), 10);
+            render();
+          };
+        });
+      }
+      render();
     }
 
     function wireTheme() {
@@ -366,8 +454,25 @@ this file — update .playbook/ and reference it instead.
       main.innerHTML = Render.hero(site.hero) + Render.roadmapList(roadmaps) + chaptersHtml;
       document.getElementById('site-footer').innerHTML = Render.footer(site.footer);
       const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site, learning });
-      wireSearch(searchIndex, chapters);
-      wireCompanyPagination(companies);
+      const industries = CompanyFilters.industriesFrom(companies);
+      const companiesById = CompanyFilters.companiesById(companies);
+      const urlParsed = CompanyFilters.parseUrlState(location.search);
+      const filterState = urlParsed.state;
+      const searchCtx = {
+        filterState,
+        companiesById,
+        initialQuery: urlParsed.searchQuery
+      };
+      function syncDiscoveryUrl(searchQuery) {
+        const qs = CompanyFilters.serializeUrlState(filterState, searchQuery || '');
+        history.replaceState(null, '', location.pathname + qs + location.hash);
+      }
+      searchCtx.onUrlSync = syncDiscoveryUrl;
+      wireSearch(searchIndex, chapters, searchCtx);
+      wireCompanyPagination(companies, industries, filterState, () => {
+        syncDiscoveryUrl(document.getElementById('search')?.value || '');
+        if (searchCtx.refreshSearch) searchCtx.refreshSearch();
+      });
       wirePaginatedContainer('glossary-table-container', Render.glossaryTable, glossary, 'glossary');
       wirePaginatedContainer('interview-table-container', Render.interviewList, interviews, 'interview');
       wireTheme();

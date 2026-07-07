@@ -38,7 +38,7 @@ review before the next one starts.
 | 6 | Company Intelligence Database | Verify and merge `md/deep-research-report*.md` into `data/companies.json` | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 8 | Company Pipeline & Hiring Gate | Fresh research, hiring gate, filter/sort, BuiltWith manifest; **hire-verified employers only** | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | Not started |
+| 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | Not started |
 | 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | Not started |
 | 12 | Publishing | GitHub Pages, print handbook, PDF export pipeline | Not started |
@@ -109,23 +109,19 @@ browser verification. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 ---
 
-## Milestones 9–12 (planned — M9 next)
+## Milestone 9 — Discovery Filters: complete, accepted
 
-Full detail for Milestone 9 is written here now that M8 is accepted (per DR-004). Order is fixed: finish and accept
+Search-panel facets, industry/migration filters, shareable URL state (DR-013), and **Copy link** affordance on filter
+bar and search panel. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+## Milestones 10–12 (planned — M10 next)
+
+Full detail for Milestone 10 is written here now that M9 is accepted (per DR-004). Order is fixed: finish and accept
 the current milestone before starting the next.
 
-### Milestone 9 — Discovery Filters (search integration)
-
-**Goal:** Extend discovery beyond the company table — filter **search results** by the same facets and optional
-shareable filter state.
-
-**Scope (in):**
-
-- Search-panel facet chips/dropdowns (intersect with ranked search results)
-- URL hash or query params for shareable filtered views
-- Remaining facets not in M8 table UI if any (e.g. `industry`, `MigrationStatus` bands)
-
-**Scope (out):** Full-text search engine replacement; server-side query API. *(Company table filter/sort delivered in M8.)*
+Delivered — see `25_ROADMAP_ARCHIVE.md`.
 
 ### Milestone 10 — Owner Playbook
 
@@ -173,4 +169,4 @@ GitHub Pages deploy, print stylesheet polish, PDF/export path. **Last** — publ
 | 11 Product UI | Mobile, minimal, jobs-first before going public |
 | 12 Publishing | Ship when data, filters, owner content, and UI are ready |
 
-**Immediate next step:** Implement **Milestone 9** (Discovery Filters). M8 accepted.
+**Immediate next step:** Implement **Milestone 10** (Owner Playbook). M9 accepted.

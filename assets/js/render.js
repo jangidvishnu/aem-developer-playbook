@@ -14,7 +14,35 @@ const Render = {
   },
 
   search(config) {
-    return `<div class="relative flex items-center" id="search-wrap"><input class="border rounded-lg pl-3 pr-9 py-2 w-64 bg-white text-slate-800" id="search" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list" autocomplete="off" /><button type="button" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-lg leading-none px-1" id="search-clear" aria-label="${Render.escapeHtml(config.clearLabel || 'Clear search')}" title="${Render.escapeHtml(config.clearLabel || 'Clear search')}">×</button><div id="search-results" class="hidden absolute z-50 top-full left-0 right-0 mt-1 bg-white border rounded-lg shadow-lg max-h-72 overflow-auto text-slate-800" role="listbox"></div><p id="search-status" class="sr-only" aria-live="polite"></p></div>`;
+    return `<div class="relative" id="search-wrap"><div class="flex items-center relative"><input class="border rounded-lg pl-3 pr-9 py-2 w-64 bg-white text-slate-800" id="search" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list" autocomplete="off" /><button type="button" class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-lg leading-none px-1" id="search-clear" aria-label="${Render.escapeHtml(config.clearLabel || 'Clear search')}" title="${Render.escapeHtml(config.clearLabel || 'Clear search')}">×</button></div><div id="search-panel" class="hidden absolute z-50 top-full left-0 right-0 mt-1 bg-white border rounded-lg shadow-lg text-slate-800 min-w-[18rem]"><div id="search-facets" class="px-2 pt-2 pb-1 border-b" role="group" aria-label="Filter search results"></div><div id="search-results" class="max-h-72 overflow-auto" role="listbox"></div></div><p id="search-status" class="sr-only" aria-live="polite"></p></div>`;
+  },
+
+  searchFacets(state) {
+    const sources = [
+      { id: '', label: 'All' },
+      { id: 'company', label: 'Companies' },
+      { id: 'chapter', label: 'Chapters' },
+      { id: 'learning', label: 'Learning' }
+    ];
+    const sourceChips = sources.map(s => {
+      const active = (state.sourceFilter || '') === s.id ? ' bg-blue-100 border-blue-400 font-semibold' : ' bg-white hover:bg-slate-50';
+      return `<button type="button" class="text-xs px-2 py-0.5 border rounded-full${active}" data-search-facet="sourceFilter" data-value="${Render.escapeHtml(s.id)}">${Render.escapeHtml(s.label)}</button>`;
+    }).join('');
+    const active = [];
+    if (state.companyType) active.push(`Type: ${state.companyType}`);
+    if (state.industry) active.push(`Industry: ${state.industry}`);
+    if (state.migrationBand) {
+      const band = { cloud: 'Cloud', migrating: 'Migrating', unknown: 'Unknown migration' }[state.migrationBand] || state.migrationBand;
+      active.push(`Migration: ${band}`);
+    }
+    if (state.hiringIndia) active.push('India hiring');
+    if (state.hiringAEM) active.push('Hiring AEM');
+    if (state.aemaaCS) active.push('AEM Cloud');
+    if (state.verifiedOnly) active.push('Verified');
+    const hint = active.length
+      ? `<span class="text-xs text-slate-500 ml-1">Table filters: ${active.map(Render.escapeHtml).join(' · ')}</span>`
+      : '';
+    return `<div class="flex flex-wrap gap-1 items-center justify-between w-full gap-y-1"><div class="flex flex-wrap gap-1 items-center">${sourceChips}${hint}</div><div class="flex items-center gap-1 shrink-0"><button type="button" data-copy-discovery-link class="text-xs px-2 py-0.5 border rounded bg-white hover:bg-slate-50" title="Copy link to this filtered view">Copy link</button><span data-copy-link-status class="text-xs text-green-700 hidden" aria-live="polite">Copied!</span></div></div>`;
   },
 
   searchResults(results, query, activeIndex) {
@@ -110,8 +138,14 @@ const Render = {
     return `<tr class="border-t"><td class="p-2">${Render.escapeHtml(priority)}</td><td class="p-2 font-semibold">${Render.escapeHtml(name)}</td><td class="p-2">${Render.escapeHtml(type)}</td><td class="p-2">${Render.escapeHtml(india)}</td><td class="p-2">${Render.escapeHtml(hiring)}</td><td class="p-2">${Render.escapeHtml(intensity)}</td><td class="p-2">${Render.escapeHtml(aem)}</td><td class="p-2">${Render.escapeHtml(status)}</td><td class="p-2">${careerCell}</td><td class="p-2">${jobCell}</td><td class="p-2">${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
   },
 
-  companyFilterBar(state, total, filtered) {
+  companyFilterBar(state, total, filtered, industries) {
     const types = ['', 'Product', 'GCC', 'Agency', 'Enterprise'];
+    const migrationBands = [
+      { id: '', label: 'All migration' },
+      { id: 'cloud', label: 'Cloud-native / migrated' },
+      { id: 'migrating', label: 'Migrating to cloud' },
+      { id: 'unknown', label: 'Unknown migration' }
+    ];
     const sortOptions = [
       { id: 'priority-desc', label: 'Priority (high first)' },
       { id: 'priority-asc', label: 'Priority (low first)' },
@@ -126,6 +160,18 @@ const Render = {
         return `<option value="${Render.escapeHtml(t)}"${sel}>${Render.escapeHtml(label)}</option>`;
       })
       .join('');
+    const industryList = industries || [];
+    const industryOpts = [''].concat(industryList)
+      .map(ind => {
+        const sel = state.industry === ind ? ' selected' : '';
+        const label = ind || 'All industries';
+        return `<option value="${Render.escapeHtml(ind)}"${sel}>${Render.escapeHtml(label)}</option>`;
+      })
+      .join('');
+    const migOpts = migrationBands.map(b => {
+      const sel = state.migrationBand === b.id ? ' selected' : '';
+      return `<option value="${Render.escapeHtml(b.id)}"${sel}>${Render.escapeHtml(b.label)}</option>`;
+    }).join('');
     const sortOpts = sortOptions.map(o => {
       const sel = state.sort === o.id ? ' selected' : '';
       return `<option value="${Render.escapeHtml(o.id)}"${sel}>${Render.escapeHtml(o.label)}</option>`;
@@ -138,10 +184,19 @@ const Render = {
       <div class="flex flex-wrap gap-3 items-end">
         <label class="text-sm flex flex-col gap-1">Search name<input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Company name…" class="border rounded px-2 py-1 min-w-[10rem]" /></label>
         <label class="text-sm flex flex-col gap-1">Type<select data-company-filter="companyType" class="border rounded px-2 py-1">${typeOpts}</select></label>
+        <label class="text-sm flex flex-col gap-1">Industry<select data-company-filter="industry" class="border rounded px-2 py-1">${industryOpts}</select></label>
+        <label class="text-sm flex flex-col gap-1">Migration<select data-company-filter="migrationBand" class="border rounded px-2 py-1">${migOpts}</select></label>
         <label class="text-sm flex flex-col gap-1">Sort<select data-company-filter="sort" class="border rounded px-2 py-1">${sortOpts}</select></label>
       </div>
       <div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('hiringAEM', 'Hiring AEM')}${chk('aemaaCS', 'AEM Cloud')}${chk('verifiedOnly', 'Verified only')}</div>
-      <p class="text-xs text-slate-500">${filtered} of ${total} companies shown</p>
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-slate-200">
+        <p class="text-xs text-slate-500">${filtered} of ${total} companies shown</p>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-slate-500">Share this filtered view</span>
+          <button type="button" data-copy-discovery-link class="text-xs px-2 py-1 border rounded bg-white hover:bg-slate-50" title="Copy link to this filtered view">Copy link</button>
+          <span data-copy-link-status class="text-xs text-green-700 hidden" aria-live="polite">Copied!</span>
+        </div>
+      </div>
     </div>`;
   },
 
@@ -169,7 +224,7 @@ const Render = {
     const total = options.totalCount != null ? options.totalCount : companies.length;
     const filtered = companies.length;
     const filters = options.showFilters
-      ? Render.companyFilterBar(state, total, filtered)
+      ? Render.companyFilterBar(state, total, filtered, options.industries)
       : '';
     return `${filters}<div class="company-table-wrap">${Render.companyTable(companies, options)}</div>`;
   },

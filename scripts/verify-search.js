@@ -80,6 +80,49 @@ if (pageOrder.length >= 2 && pageOrder.every((v, i) => v === sorted[i])) {
   failed++;
 }
 
+const { CompanyFilters } = require(path.join(__dirname, '..', 'assets', 'js', 'filters.js'));
+const adobeResults = Search.query(index, 'Adobe');
+const companyFaceted = CompanyFilters.filterSearchResults(adobeResults, CompanyFilters.companiesById(companies), {
+  ...CompanyFilters.defaultState(),
+  sourceFilter: 'company'
+});
+if (companyFaceted.length >= 1 && companyFaceted.every(r => r.source === 'company')) {
+  console.log('PASS', 'facet intersection: Adobe + company source filter');
+} else {
+  console.log('FAIL', 'facet intersection: Adobe + company source filter');
+  failed++;
+}
+
+const financeFaceted = CompanyFilters.filterSearchResults(adobeResults, CompanyFilters.companiesById(companies), {
+  ...CompanyFilters.defaultState(),
+  industry: 'Software'
+});
+if (financeFaceted.some(r => r.id === 'adobe')) {
+  console.log('PASS', 'facet intersection: Adobe matches Software industry');
+} else {
+  console.log('FAIL', 'facet intersection: Adobe matches Software industry');
+  failed++;
+}
+
+const financeMiss = CompanyFilters.filterSearchResults(adobeResults, CompanyFilters.companiesById(companies), {
+  ...CompanyFilters.defaultState(),
+  industry: 'Finance'
+});
+if (!financeMiss.some(r => r.id === 'adobe')) {
+  console.log('PASS', 'facet intersection: Adobe excluded by Finance industry');
+} else {
+  console.log('FAIL', 'facet intersection: Adobe excluded by Finance industry');
+  failed++;
+}
+
+const adobeCompany = adobeResults.find(r => r.source === 'company' && r.id === 'adobe');
+if (adobeCompany && adobeCompany.facets && adobeCompany.facets.industry) {
+  console.log('PASS', 'company index entries include facets metadata');
+} else {
+  console.log('FAIL', 'company index entries include facets metadata');
+  failed++;
+}
+
 if (failed) {
   console.error('\n' + failed + ' search test(s) failed.');
   process.exitCode = 1;

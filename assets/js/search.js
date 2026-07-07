@@ -15,6 +15,25 @@ const Search = {
     return company.name || company.company || '';
   },
 
+  migrationBand(status) {
+    const s = status || 'Unknown';
+    if (s === 'Cloud-native' || s === 'Migrated to AEM as a Cloud Service') return 'cloud';
+    if (s === 'Migrating to AEM as a Cloud Service') return 'migrating';
+    return 'unknown';
+  },
+
+  companyFacets(co) {
+    return {
+      companyType: co.companyType || co.type || 'Unknown',
+      industry: co.industry || 'Unknown',
+      migrationBand: Search.migrationBand(co.MigrationStatus),
+      hiringIndia: co.HiringIndia === 'Yes',
+      hiringAEM: co.HiringAEM === true,
+      aemaaCS: co.AEMaaCS === true,
+      status: co.Status || 'Unknown'
+    };
+  },
+
   findChapterIndex(chapters, flag) {
     const i = chapters.findIndex(c => c[flag]);
     return i >= 0 ? i : 0;
@@ -67,6 +86,7 @@ const Search = {
         snippet: [co.companyType || co.type, co.indiaPresence || co.india, co.Status, co.industry, co.HiringAEM ? 'hiring' : '', co.HiringIntensity].filter(Boolean).join(' · '),
         anchor: companyAnchor,
         pageOrder: 1000 + companyChapterIndex + (i + 1) * 0.01,
+        facets: Search.companyFacets(co),
         fields: {
           title: name.toLowerCase(),
           summary: [co.industry, co.companyType, co.Status, co.HiringIntensity, co.Notes].filter(Boolean).join(' ').toLowerCase(),

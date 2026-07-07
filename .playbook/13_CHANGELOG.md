@@ -21,6 +21,17 @@ M8 now includes fresh evidence-based research (md reference-only), no company co
 filter/sort, and curated domain seeds (paid BuiltWith API removed DR-012). Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
 and `14_ROADMAP.md`.
 
+## Milestone 9 — Discovery Filters (accepted)
+
+### Added
+
+- Search-panel facet chips (All / Companies / Chapters / Learning) intersecting with ranked search results.
+- Shareable filter URLs via query params (DR-013): `cf_*` company facets, `sf_source`, `q`.
+- Company table: **Industry** and **Migration** dropdowns (deferred from M8).
+- **Copy link** on company filter bar and search panel — discoverable sharing without using the address bar.
+- `CompanyFilters.filterSearchResults`, `parseUrlState`, `serializeUrlState`; facet metadata on company search index entries.
+- Extended `verify-filters.js` and `verify-search.js` for facet intersection and URL round-trip.
+
 ## Milestone 8 — Company Pipeline (accepted)
 
 ### Changed

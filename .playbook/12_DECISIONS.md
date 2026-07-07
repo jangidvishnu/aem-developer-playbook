@@ -10,6 +10,18 @@ mark the old one as superseded.
 
 ---
 
+## DR-013 — Shareable discovery filter URLs use query params (Milestone 9)
+
+**Date:** 2026-07-07
+**Context:** Milestone 9 adds shareable filter state for company table and search-panel facets. Chapter navigation
+already uses `#ch0` hash anchors.
+**Decision:** Serialize filter state as **query parameters** (`cf_type`, `cf_industry`, `cf_migration`, `cf_q`,
+`cf_sort`, boolean flags `cf_india`/`cf_aem`/`cf_cloud`/`cf_verified`, search-only `sf_source`, global search `q`).
+Use `history.replaceState` on filter changes — no full page reload. Hash reserved for in-page anchors only.
+**Trade-off accepted:** URLs are longer than a single hash blob; params are human-readable and GitHub Pages compatible.
+**Follow-up:** `CompanyFilters.parseUrlState` / `serializeUrlState` in `assets/js/filters.js`; browser steps in
+`17_TESTING_GUIDE.md` Milestone 9.
+
 ## DR-009 — Resequence Milestones 8–12: product before publish
 
 **Date:** Post–Milestone 7 planning

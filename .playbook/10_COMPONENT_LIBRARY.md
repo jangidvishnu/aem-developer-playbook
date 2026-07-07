@@ -16,7 +16,8 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 | Function | Input | Responsibility | Status |
 |---|---|---|---|
 | `Render.pageHeader(meta)` | `{ title, versionLabel }` | Header `<h1>` and version line | **Implemented** |
-| `Render.search(config)` | `{ placeholder, ariaLabel }` | Search input + results panel wrapper | **Implemented** |
+| `Render.search(config)` | `{ placeholder, ariaLabel }` | Search input, facet bar, and results panel wrapper | **Implemented** (M9 facets) |
+| `Render.searchFacets(state)` | filter state object | Source-type chips + active table-filter hint in search panel | **Implemented** (M9) |
 | `Render.searchResults(results, query, activeIndex)` | ranked results array, query string, active index | Accessible results listbox markup | **Implemented** |
 | `Render.sidebar(chapters)` | array of chapter summaries | Table of contents links | **Implemented** |
 | `Render.dashboard(stats)` | `{ title, items[] }` | Sidebar project-status panel | **Implemented** |
@@ -61,12 +62,24 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 | `Search.query(index, query)` | Return ranked result objects with scores | **Implemented** |
 | `Search.rank(tokens, entry)` | Score one index entry (title > summary/tags > body) | **Implemented** |
 
+## Filter module (`assets/js/filters.js`)
+
+| Function | Responsibility | Status |
+|---|---|---|
+| `CompanyFilters.defaultState()` | Empty filter state (table + search) | **Implemented** (M9 extended) |
+| `CompanyFilters.matchesCompany(co, state)` | Single-company predicate | **Implemented** (M9) |
+| `CompanyFilters.filter(companies, state)` | Filter company array | **Implemented** |
+| `CompanyFilters.filterSearchResults(results, byId, state)` | Intersect ranked search with facets | **Implemented** (M9) |
+| `CompanyFilters.parseUrlState(search)` / `serializeUrlState(state, q)` | Shareable URL round-trip | **Implemented** (M9) |
+| `CompanyFilters.apply(companies, state)` | Filter + sort | **Implemented** |
+
 ## Current state
 
 `index.html` fetches JSON, builds a search index once via `Search.buildIndex`, and wires input/keyboard events to
-`Search.query` + `Render.searchResults`. Page sections stay visible while searching; activating a result scrolls to
-the target. Verified via `scripts/verify-search.js` and
-`scripts/verify-render.js`.
+`Search.query` + `CompanyFilters.filterSearchResults` + `Render.searchResults`. A shared `filterState` drives both
+the company table filter bar and search-panel facets; changes sync to the URL via `history.replaceState` (M9).
+Page sections stay visible while searching; activating a result scrolls to the target. Verified via
+`scripts/verify-filters.js`, `scripts/verify-search.js`, and `scripts/verify-render.js`.
 
 ## Anti-patterns
 
