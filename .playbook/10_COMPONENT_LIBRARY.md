@@ -30,6 +30,7 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 | `Render.careerPaths(paths)` | career_paths array | Career track cards | **Implemented** (M7) |
 | `Render.interviewList(items, options)` | interviews array | Paginated interview prep table | **Implemented** (M7) |
 | `Render.templatesList(templates)` | templates array | Template cards | **Implemented** (M7) |
+| `Render.ownerPlaybook(playbook)` | owner playbook object | Owner apply/workflow section cards | **Implemented** (M10) |
 | `Render.resourcesList(resources)` | resources array | Curated link list | **Implemented** (M7) |
 | `Render.chapter(chapter, index, ctx)` | chapter, index, `{ companies, learning }` | Full chapter section + embeds | **Implemented** |
 | `Render.companyTable(companies)` | array of company objects | Table view, delegating rows to `companyRow` | **Implemented** |

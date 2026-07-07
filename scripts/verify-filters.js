@@ -78,7 +78,8 @@ assert('hasShareableState false when default', !CompanyFilters.hasShareableState
 const mockResults = [
   { source: 'company', id: 'adobe', title: 'Adobe' },
   { source: 'chapter', id: 'mission', title: 'Mission' },
-  { source: 'glossary', id: 'htl', title: 'HTL' }
+  { source: 'glossary', id: 'htl', title: 'HTL' },
+  { source: 'owner', id: 'outreach', title: 'Outreach' }
 ];
 const byId = CompanyFilters.companiesById(companies);
 const companyOnly = CompanyFilters.filterSearchResults(mockResults, byId, {
@@ -92,6 +93,12 @@ const learningOnly = CompanyFilters.filterSearchResults(mockResults, byId, {
   sourceFilter: 'learning'
 });
 assert('search source filter learning', learningOnly.length === 1 && learningOnly[0].source === 'glossary');
+
+const ownerOnly = CompanyFilters.filterSearchResults(mockResults, byId, {
+  ...CompanyFilters.defaultState(),
+  sourceFilter: 'owner'
+});
+assert('search source filter owner', ownerOnly.length === 1 && ownerOnly[0].source === 'owner');
 
 if (failed) process.exit(1);
 console.log('All filter tests passed.');

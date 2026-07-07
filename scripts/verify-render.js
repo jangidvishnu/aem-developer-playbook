@@ -36,7 +36,8 @@ function loadLearning() {
 }
 
 const learning = loadLearning();
-const ctx = { companies, learning };
+const ownerPlaybook = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'owner_playbook.json'), 'utf8'));
+const ctx = { companies, learning, ownerPlaybook };
 
 // Milestone 3 golden: toc + chapter markup only (sidebar and main content sections).
 const M3_GOLDEN_PATH = path.join(__dirname, 'milestone-3-render-golden.json');

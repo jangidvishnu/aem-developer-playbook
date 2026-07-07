@@ -21,6 +21,15 @@ M8 now includes fresh evidence-based research (md reference-only), no company co
 filter/sort, and curated domain seeds (paid BuiltWith API removed DR-012). Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
 and `14_ROADMAP.md`.
 
+## Milestone 10 — Owner Playbook (implemented, pending acceptance)
+
+### Added
+
+- `data/owner_playbook.json` — five owner-voice sections: apply workflow, outreach, learning sources, weekly rhythm, tools.
+- **How I Apply** chapter (`how-i-apply`) after Target Companies with `ownerPlaybookEmbed`.
+- `Render.ownerPlaybook`, search indexing (`source: 'owner'`), **Apply** search facet chip.
+- `scripts/verify-owner-playbook.js`, `scripts/owner-playbook-schema.js`.
+
 ## Milestone 9 — Discovery Filters (accepted)
 
 ### Added

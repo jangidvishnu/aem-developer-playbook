@@ -14,6 +14,7 @@ const CompanyFilters = {
   SOURCE_FILTERS: [
     { id: '', label: 'All' },
     { id: 'company', label: 'Companies' },
+    { id: 'owner', label: 'Apply' },
     { id: 'chapter', label: 'Chapters' },
     { id: 'learning', label: 'Learning' }
   ],
@@ -75,6 +76,7 @@ const CompanyFilters = {
     if (!sourceFilter) return true;
     const src = entry.source;
     if (sourceFilter === 'company') return src === 'company';
+    if (sourceFilter === 'owner') return src === 'owner';
     if (sourceFilter === 'chapter') return CompanyFilters.CHAPTER_SOURCES.includes(src);
     if (sourceFilter === 'learning') return CompanyFilters.LEARNING_SOURCES.includes(src);
     return true;

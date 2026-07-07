@@ -39,7 +39,7 @@ review before the next one starts.
 | 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 8 | Company Pipeline & Hiring Gate | Fresh research, hiring gate, filter/sort, BuiltWith manifest; **hire-verified employers only** | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | Not started |
+| 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | **Implemented — pending acceptance** |
 | 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | Not started |
 | 12 | Publishing | GitHub Pages, print handbook, PDF export pipeline | Not started |
 
@@ -116,25 +116,20 @@ bar and search panel. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 ---
 
-## Milestones 10–12 (planned — M10 next)
+## Milestones 11–12 (planned — M10 pending acceptance)
 
-Full detail for Milestone 10 is written here now that M9 is accepted (per DR-004). Order is fixed: finish and accept
-the current milestone before starting the next.
-
-Delivered — see `25_ROADMAP_ARCHIVE.md`.
-
-### Milestone 10 — Owner Playbook
+### Milestone 10 — Owner Playbook (implemented, pending acceptance)
 
 **Goal:** Capture **your** methods — how you apply, what you learn, from where — separate from generic templates in
 Milestone 7.
 
-**Scope (in):**
+**Scope (in) — delivered:**
 
-- `data/owner_playbook.json` (or `data/playbook/owner.json`) — structured sections: apply workflow, outreach,
-  learning sources, weekly rhythm, tools; **your voice**, marked `audience: "owner"` where opinion.
-- Render as a dedicated **Apply** chapter or top-level section (not buried in governance chapters).
-- Search indexes owner sections for you; public build (Milestone 12) may **hide** owner-only blocks via `audience`
-  flag — requires owner decision before publish.
+- [`data/owner_playbook.json`](data/owner_playbook.json) — five sections (`apply-workflow`, `outreach`,
+  `learning-sources`, `weekly-rhythm`, `tools`); `audience: "owner"`.
+- **How I Apply** chapter (`how-i-apply`) with `ownerPlaybookEmbed` after Target Companies.
+- `Render.ownerPlaybook`, search index (`source: 'owner'`), **Apply** facet chip in search panel.
+- `scripts/verify-owner-playbook.js`, `owner-playbook-schema.js`.
 
 **Scope (out):** Recruiter CRM UI; automated job applications.
 
@@ -169,4 +164,4 @@ GitHub Pages deploy, print stylesheet polish, PDF/export path. **Last** — publ
 | 11 Product UI | Mobile, minimal, jobs-first before going public |
 | 12 Publishing | Ship when data, filters, owner content, and UI are ready |
 
-**Immediate next step:** Implement **Milestone 10** (Owner Playbook). M9 accepted.
+**Immediate next step:** Owner browser verification for **Milestone 10** (Owner Playbook). See `17_TESTING_GUIDE.md`.

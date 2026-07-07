@@ -48,7 +48,7 @@ const Search = {
   },
 
   buildIndex(sources) {
-    const { chapters, companies, roadmaps, site, learning = {} } = sources;
+    const { chapters, companies, roadmaps, site, learning = {}, ownerPlaybook } = sources;
     const entries = [];
     const companyChapterIndex = Search.findCompanyChapterIndex(chapters);
     const companyAnchor = '#ch' + companyChapterIndex;
@@ -58,6 +58,7 @@ const Search = {
     const interviewAnchor = Search.learningAnchor(chapters, 'interviewEmbed');
     const templateAnchor = Search.learningAnchor(chapters, 'templateEmbed');
     const resourceAnchor = Search.learningAnchor(chapters, 'resourceEmbed');
+    const ownerAnchor = Search.learningAnchor(chapters, 'ownerPlaybookEmbed');
 
     chapters.forEach((ch, i) => {
       entries.push({
@@ -248,6 +249,26 @@ const Search = {
         }
       });
     });
+
+    if (ownerPlaybook && ownerPlaybook.sections) {
+      const ownerChapterIndex = Search.findChapterIndex(chapters, 'ownerPlaybookEmbed');
+      ownerPlaybook.sections.forEach((sec, i) => {
+        entries.push({
+          source: 'owner',
+          id: sec.id,
+          title: sec.title,
+          snippet: sec.summary,
+          anchor: ownerAnchor,
+          pageOrder: 1000 + ownerChapterIndex + (i + 1) * 0.001,
+          fields: {
+            title: sec.title.toLowerCase(),
+            summary: ((sec.summary || '') + ' ' + (sec.body || '')).toLowerCase(),
+            tags: 'owner apply outreach workflow',
+            body: (sec.steps || []).join(' ').toLowerCase()
+          }
+        });
+      });
+    }
 
     return { entries, companyChapterIndex };
   },

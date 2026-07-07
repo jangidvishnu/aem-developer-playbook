@@ -183,9 +183,31 @@ Expected: all scripts exit 0; filter tests include industry, migration band, URL
 
 ---
 
-### Milestone 10 — Owner Playbook (not started)
+### Milestone 10 — Owner Playbook (pending acceptance)
 
-*Test plan to be added when Milestone 10 is implemented.*
+**Automated (run from repository root):**
+
+```bash
+node scripts/verify-owner-playbook.js
+node scripts/verify-filters.js
+node scripts/verify-search.js
+node scripts/verify-render.js
+node scripts/verify-companies.js
+node scripts/verify-learning.js
+```
+
+Expected: owner playbook validation passes (5 sections, `how-i-apply` embed); search finds `outreach` as owner source.
+
+**Browser — How I Apply chapter:**
+
+1. Serve at `http://localhost:3456`.
+2. Sidebar — **How I Apply** appears after **Target Companies**.
+3. Chapter shows five sections with **Owner** badges and numbered steps.
+4. Search **`outreach`** — **Apply · Outreach** result; activates scroll to How I Apply chapter.
+5. Search facet **Apply** — narrows to owner sections only.
+6. Re-run baseline smoke checks.
+
+**Sign-off:** Pending project owner browser verification.
 
 ---
 

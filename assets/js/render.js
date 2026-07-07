@@ -21,6 +21,7 @@ const Render = {
     const sources = [
       { id: '', label: 'All' },
       { id: 'company', label: 'Companies' },
+      { id: 'owner', label: 'Apply' },
       { id: 'chapter', label: 'Chapters' },
       { id: 'learning', label: 'Learning' }
     ];
@@ -51,7 +52,7 @@ const Render = {
       return `<p class="px-3 py-2 text-sm text-slate-500">No results</p>`;
     }
     const typeLabel = {
-      chapter: 'Chapter', company: 'Company', roadmap: 'Roadmap', 'roadmap-step': 'Roadmap step', site: 'Site',
+      chapter: 'Chapter', company: 'Company', owner: 'Apply', roadmap: 'Roadmap', 'roadmap-step': 'Roadmap step', site: 'Site',
       glossary: 'Glossary', technology: 'Technology', career: 'Career path', interview: 'Interview',
       template: 'Template', resource: 'Resource'
     };
@@ -274,6 +275,24 @@ const Render = {
     ).join('');
   },
 
+  ownerPlaybook(playbook) {
+    if (!playbook || !playbook.sections) return '';
+    return playbook.sections.map(sec => {
+      const badge = sec.audience === 'owner'
+        ? '<span class="text-xs uppercase text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5">Owner</span>'
+        : '';
+      const steps = Array.isArray(sec.steps) && sec.steps.length
+        ? `<ol class="list-decimal ml-6 mt-3 space-y-2">${sec.steps.map(s =>
+            `<li class="text-slate-700">${Render.escapeHtml(s)}</li>`
+          ).join('')}</ol>`
+        : '';
+      const body = sec.body
+        ? `<p class="mt-3 text-slate-600 text-sm">${Render.escapeHtml(sec.body)}</p>`
+        : '';
+      return `<article id="owner-${Render.escapeHtml(sec.id)}" class="border rounded-lg p-4 mb-4"><div class="flex flex-wrap items-center gap-2"><h3 class="font-bold text-lg">${Render.escapeHtml(sec.title)}</h3>${badge}</div><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(sec.summary)}</p>${steps}${body}</article>`;
+    }).join('');
+  },
+
   resourcesList(resources) {
     return `<ul class="list-disc ml-6 space-y-2">${resources.map(r =>
       `<li><a class="text-blue-600 underline" href="${Render.escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(r.title)}</a> <span class="text-xs text-slate-500">(${Render.escapeHtml(r.type)})</span></li>`
@@ -287,6 +306,8 @@ const Render = {
     let body = chapter.body || '';
     if (chapter.companyTable) {
       body = `<div id="company-table-container">${Render.companySection(companies, { page: 1, showFilters: true, filterState: {}, totalCount: companies.length })}</div>`;
+    } else if (chapter.ownerPlaybookEmbed && ctx.ownerPlaybook) {
+      body += `<div class="mt-4">${Render.ownerPlaybook(ctx.ownerPlaybook)}</div>`;
     } else if (chapter.glossaryEmbed && learning.glossary) {
       body += `<div id="glossary-table-container" class="mt-4">${Render.glossaryTable(learning.glossary, { page: 1 })}</div>`;
     } else if (chapter.technologyEmbed && learning.technologies) {

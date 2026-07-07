@@ -27,7 +27,8 @@ function loadLearning() {
 }
 
 const learning = loadLearning();
-const index = Search.buildIndex({ chapters, companies, roadmaps, site, learning });
+const ownerPlaybook = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'owner_playbook.json'), 'utf8'));
+const index = Search.buildIndex({ chapters, companies, roadmaps, site, learning, ownerPlaybook });
 
 const cases = [
   { query: 'Adobe', expectInResults: { source: 'company', id: 'adobe' } },
@@ -37,7 +38,8 @@ const cases = [
   { query: 'principles', expectTopSource: 'chapter', expectTopId: 'mission' },
   { query: 'HTL', expectInResults: { source: 'glossary', id: 'htl' } },
   { query: 'behavioral', expectInResults: { source: 'interview', id: 'int-behavior-star' } },
-  { query: 'resume bullet', expectInResults: { source: 'template', id: 'resume-bullet-aem' } }
+  { query: 'resume bullet', expectInResults: { source: 'template', id: 'resume-bullet-aem' } },
+  { query: 'outreach', expectInResults: { source: 'owner', id: 'outreach' } }
 ];
 
 let failed = 0;

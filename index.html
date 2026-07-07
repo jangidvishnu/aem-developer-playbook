@@ -440,10 +440,11 @@ this file — update .playbook/ and reference it instead.
       fetch('data/career_paths.json').then(r => r.json()),
       fetch('data/interviews.json').then(r => r.json()),
       fetch('data/templates.json').then(r => r.json()),
-      fetch('data/resources.json').then(r => r.json())
-    ]).then(([chapters, companies, site, roadmaps, glossary, technologies, careerPaths, interviews, templates, resources]) => {
+      fetch('data/resources.json').then(r => r.json()),
+      fetch('data/owner_playbook.json').then(r => r.json())
+    ]).then(([chapters, companies, site, roadmaps, glossary, technologies, careerPaths, interviews, templates, resources, ownerPlaybook]) => {
       const learning = { glossary, technologies, careerPaths, interviews, templates, resources };
-      const ctx = { companies, learning };
+      const ctx = { companies, learning, ownerPlaybook };
       document.title = site.documentTitle;
       document.getElementById('page-header').innerHTML = Render.pageHeader(site.header);
       document.getElementById('search-container').innerHTML = Render.search(site.search);
@@ -453,7 +454,7 @@ this file — update .playbook/ and reference it instead.
       const chaptersHtml = chapters.map((c, i) => Render.chapter(c, i, ctx)).join('');
       main.innerHTML = Render.hero(site.hero) + Render.roadmapList(roadmaps) + chaptersHtml;
       document.getElementById('site-footer').innerHTML = Render.footer(site.footer);
-      const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site, learning });
+      const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site, learning, ownerPlaybook });
       const industries = CompanyFilters.industriesFrom(companies);
       const companiesById = CompanyFilters.companiesById(companies);
       const urlParsed = CompanyFilters.parseUrlState(location.search);
