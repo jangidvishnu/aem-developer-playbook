@@ -52,8 +52,12 @@ const serve = spawn(process.execPath, [serveEntry, '.', '-p', PORT], {
 });
 
 let serveLog = '';
-serve.stdout?.on('data', d => { serveLog += d; });
-serve.stderr?.on('data', d => { serveLog += d; });
+serve.stdout?.on('data', d => {
+  serveLog += d;
+});
+serve.stderr?.on('data', d => {
+  serveLog += d;
+});
 
 let exitCode = 0;
 try {

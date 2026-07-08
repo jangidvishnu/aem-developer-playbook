@@ -29,10 +29,16 @@ function assert(label, cond) {
 }
 
 const byType = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), companyType: 'Agency' });
-assert('agency filter returns only agencies', byType.every(c => c.companyType === 'Agency'));
+assert(
+  'agency filter returns only agencies',
+  byType.every(c => c.companyType === 'Agency')
+);
 
 const india = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), hiringIndia: true });
-assert('india hiring filter', india.every(c => c.HiringIndia === 'Yes'));
+assert(
+  'india hiring filter',
+  india.every(c => c.HiringIndia === 'Yes')
+);
 
 const finance = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), industry: 'Finance' });
 assert('industry filter returns only Finance', finance.length >= 1 && finance.every(c => c.industry === 'Finance'));
@@ -40,8 +46,7 @@ assert('industry filter returns only Finance', finance.length >= 1 && finance.ev
 const cloud = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), migrationBand: 'cloud' });
 assert(
   'migration cloud band',
-  cloud.length >= 1 &&
-    cloud.every(c => ['Cloud-native', 'Migrated to AEM as a Cloud Service'].includes(c.MigrationStatus))
+  cloud.length >= 1 && cloud.every(c => ['Cloud-native', 'Migrated to AEM as a Cloud Service'].includes(c.MigrationStatus))
 );
 
 assert('migrationBand cloud', CompanyFilters.migrationBand('Cloud-native') === 'cloud');
@@ -49,10 +54,7 @@ assert('migrationBand migrating', CompanyFilters.migrationBand('Migrating to AEM
 assert('migrationBand unknown', CompanyFilters.migrationBand('Unknown') === 'unknown');
 
 const sorted = CompanyFilters.sort(companies, 'name-asc');
-assert(
-  'name sort ascending',
-  sorted[0].name.localeCompare(sorted[sorted.length - 1].name) <= 0
-);
+assert('name sort ascending', sorted[0].name.localeCompare(sorted[sorted.length - 1].name) <= 0);
 
 const q = CompanyFilters.apply(companies, { ...CompanyFilters.defaultState(), query: 'adobe' });
 assert('name query finds Adobe', q.length >= 1 && q[0].id === 'adobe');
@@ -103,6 +105,17 @@ const ownerOnly = CompanyFilters.filterSearchResults(mockResults, byId, {
   sourceFilter: 'owner'
 });
 assert('search source filter owner', ownerOnly.length === 1 && ownerOnly[0].source === 'owner');
+
+assert('sortOptionsFor(product) excludes devOnly options', !CompanyFilters.sortOptionsFor(true).some(o => o.devOnly));
+assert(
+  'sortOptionsFor(dev) includes devOnly options',
+  CompanyFilters.sortOptionsFor(false).some(o => o.id === 'type-desc')
+);
+
+assert('sortDirectionFor detects active ascending column', CompanyFilters.sortDirectionFor('Company', 'name-asc') === 'asc');
+assert('sortDirectionFor null when column inactive', CompanyFilters.sortDirectionFor('Company', 'priority-desc') === null);
+assert('nextSortFor applies column default on first click', CompanyFilters.nextSortFor('Company', 'priority-desc') === 'name-asc');
+assert('nextSortFor toggles direction on repeat click', CompanyFilters.nextSortFor('Company', 'name-asc') === 'name-desc');
 
 if (failed) process.exit(1);
 console.log('All filter tests passed.');

@@ -6,14 +6,27 @@ Performance is explicitly priority #7 of 8 in `MASTER_BOOTSTRAP_PROMPT.md` — r
 maintainability, scalability, documentation quality, information architecture, developer experience, and reader
 experience. Do not trade any of those away for a performance micro-optimization.
 
-## Current state
+## Current state (as of Milestone 13)
 
-- Single HTML file, Tailwind loaded from CDN (a full utility-class engine compiled at runtime in-browser — heavier
-  than a purged/precompiled Tailwind build, but consistent with the "no build step" constraint).
-- As of Milestone 3, content is fetched from `data/chapters.json` and `data/companies.json` in parallel rather than
-  inlined — see the Milestone 3 review below for the specific trade-off this introduces.
-- Search is a synchronous DOM scan (`innerText.includes()`) — fine at current content volume, will not scale
-  past a few dozen sections without becoming noticeably slow (tracked for Milestone 5).
+- No CSS framework or CDN — `assets/css/site.css` is a single hand-written stylesheet, parsed once, no runtime
+  utility-class compilation. This replaced the Tailwind CDN in Milestone 11 (`12_DECISIONS.md` DR-015); the
+  Milestone 2/3 reviews below that discuss the Tailwind CDN's render-blocking cost describe a since-removed
+  constraint, kept for historical record rather than rewritten.
+- Content is fetched from all `data/*.json` files in parallel (`Promise.all` in `assets/js/app.js`'s `App.boot()`)
+  rather than inlined — see the Milestone 3 review below for the trade-off this introduces; unchanged since M3.
+- Search is a real ranked index (`assets/js/search.js`, `Search.buildIndex`) built once at load over `data/*.json`,
+  not a DOM scan — resolved the Milestone 5 concern noted below.
+- **Milestone 13:** the company-filter toolbar's search input and the site-wide search input are both debounced
+  (`UI.debounce`, 200ms) so free-text typing triggers at most one filter+sort+re-render per 200ms of typing pause,
+  not one per keystroke. Only free-text typing is debounced — chip/select/checkbox interactions stay immediate.
+- **Milestone 13:** `data/companies.json` (119 companies / ~222KB) is still fetched as one file with no chunking.
+  `scripts/verify-companies.js` now warns once the dataset crosses ~400 companies / ~800KB — see `12_DECISIONS.md`
+  DR-020 for the threshold and the chunked-fetch strategy planned if/when that happens.
+- **Milestone 14:** `index.html` now ships with the full product-mode markup baked in (see DR-022), so its file size
+  grows with `data/companies.json` and the chapter content — a few hundred KB, not a performance concern at current
+  volume (still a single static-file GET, no extra round trip). `assets/js/app.js` then re-renders the same content
+  once `fetch()` resolves; that redundant re-render is the accepted trade-off documented in DR-022, not an
+  oversight — it avoids hydration-mismatch bug surface at the cost of one imperceptible extra render pass.
 
 ## Performance review (post-Milestone-2)
 
@@ -69,9 +82,9 @@ what's inherent to the fetch-based architecture the constitution mandates.
 
 ## Budgets (targets, to be measured once tooling exists)
 
-- Initial render should not visibly block on anything beyond the Tailwind CDN script and font load.
-- Search-as-you-type interactions should feel instant (sub-100ms) up to the content volume expected through
-  Milestone 6; if a real search index (Milestone 5) is needed to hit this, that's expected and planned.
+- Initial render should not visibly block on anything beyond the Google Fonts request and the `data/*.json` fetches.
+- Search-as-you-type interactions should feel instant (sub-300ms including the Milestone 13 debounce window) —
+  met today via `Search.buildIndex` (Milestone 5) plus `UI.debounce` (Milestone 13).
 - `data/*.json` files should be small enough to fetch without a visible loading state at expected content volumes;
   if a single file grows large enough to need pagination or lazy loading, that's a decision (`12_DECISIONS.md`),
   not a silent change.
@@ -80,8 +93,8 @@ what's inherent to the fetch-based architecture the constitution mandates.
 
 - Prefer native browser capability (native `<details>`, native form controls) over hand-rolled JS equivalents —
   less JS to parse and execute.
-- Avoid re-rendering the entire content area on every keystroke in search; once a real search implementation lands
-  (Milestone 5), scope DOM updates to the changed result set.
+- Debounce free-text input handlers (`UI.debounce`, Milestone 13) rather than re-rendering on every keystroke;
+  keep clicks/changes (chips, selects, checkboxes, pagination) immediate.
 - Defer/avoid loading anything not needed for first paint (no eager-loading of content types the current view
   doesn't show).
 
@@ -96,5 +109,6 @@ what's inherent to the fetch-based architecture the constitution mandates.
 
 ## Measurement (target state)
 
-Once the site is deployed to GitHub Pages (Milestone 12), run it through a standard tool (e.g. Lighthouse) and
-record a baseline in `13_CHANGELOG.md`. No baseline exists yet since there is no deployed instance.
+The site has been live on GitHub Pages since Milestone 12 (see `25_ROADMAP_ARCHIVE.md`), but no Lighthouse (or
+equivalent) run has been recorded yet — this remains an open action item, not something already done. Once run,
+record the baseline in `13_CHANGELOG.md`.

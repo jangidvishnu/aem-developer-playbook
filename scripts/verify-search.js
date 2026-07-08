@@ -50,13 +50,19 @@ cases.forEach(({ query, expectTopSource, expectTopId, expectInResults }) => {
   if (expectInResults) {
     const found = results.find(r => r.source === expectInResults.source && r.id === expectInResults.id);
     const ok = !!found;
-    console.log(ok ? 'PASS' : 'FAIL', JSON.stringify({ query, found: found ? { source: found.source, id: found.id } : null, expected: expectInResults }));
+    console.log(
+      ok ? 'PASS' : 'FAIL',
+      JSON.stringify({ query, found: found ? { source: found.source, id: found.id } : null, expected: expectInResults })
+    );
     if (!ok) failed++;
     return;
   }
   const top = results[0];
   const ok = top && top.source === expectTopSource && top.id === expectTopId;
-  console.log(ok ? 'PASS' : 'FAIL', JSON.stringify({ query, got: top ? { source: top.source, id: top.id } : null, expected: { source: expectTopSource, id: expectTopId } }));
+  console.log(
+    ok ? 'PASS' : 'FAIL',
+    JSON.stringify({ query, got: top ? { source: top.source, id: top.id } : null, expected: { source: expectTopSource, id: expectTopId } })
+  );
   if (!ok) failed++;
 });
 

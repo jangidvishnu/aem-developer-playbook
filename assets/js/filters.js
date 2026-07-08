@@ -20,15 +20,27 @@ const CompanyFilters = {
   ],
   LEARNING_SOURCES: ['glossary', 'technology', 'career', 'interview', 'template', 'resource'],
   CHAPTER_SOURCES: ['chapter', 'site', 'roadmap', 'roadmap-step'],
+  // Single source of truth for the sort dropdown (was previously duplicated as two near-identical
+  // inline arrays in Render.companyFilterBar — see 12_DECISIONS.md M13 cleanup). `devOnly: true`
+  // entries are omitted from the dropdown in product mode via `sortOptionsFor()`.
   SORT_OPTIONS: [
     { id: 'priority-desc', label: 'Priority (high first)' },
     { id: 'priority-asc', label: 'Priority (low first)' },
     { id: 'name-asc', label: 'Name (A–Z)' },
     { id: 'name-desc', label: 'Name (Z–A)' },
     { id: 'type-asc', label: 'Type (A–Z)' },
-    { id: 'type-desc', label: 'Type (Z–A)' },
+    { id: 'type-desc', label: 'Type (Z–A)', devOnly: true },
     { id: 'india-desc', label: 'India hiring first' }
   ],
+
+  // Column-header click-to-sort targets (Milestone 13). Each maps a table header label to its
+  // ascending/descending sort ids and which direction a first click on that header applies.
+  COLUMN_SORTS: {
+    Priority: { asc: 'priority-asc', desc: 'priority-desc', default: 'desc' },
+    Company: { asc: 'name-asc', desc: 'name-desc', default: 'asc' },
+    Type: { asc: 'type-asc', desc: 'type-desc', default: 'asc' },
+    India: { asc: 'india-asc', desc: 'india-desc', default: 'desc' }
+  },
 
   defaultState() {
     return {
@@ -61,6 +73,28 @@ const CompanyFilters = {
 
   resetFilters(defaultSort) {
     return { ...CompanyFilters.defaultState(), sort: defaultSort || 'priority-desc' };
+  },
+
+  sortOptionsFor(product) {
+    return CompanyFilters.SORT_OPTIONS.filter(o => !(product && o.devOnly));
+  },
+
+  sortDirectionFor(header, sortId) {
+    const pair = CompanyFilters.COLUMN_SORTS[header];
+    if (!pair) return null;
+    if (sortId === pair.asc) return 'asc';
+    if (sortId === pair.desc) return 'desc';
+    return null;
+  },
+
+  /** Next sort id when a sortable column header is clicked: toggles direction, or applies the
+   *  column's default direction if it isn't the currently active sort column. */
+  nextSortFor(header, currentSortId) {
+    const pair = CompanyFilters.COLUMN_SORTS[header];
+    if (!pair) return currentSortId;
+    const dir = CompanyFilters.sortDirectionFor(header, currentSortId);
+    if (!dir) return pair[pair.default];
+    return dir === 'desc' ? pair.asc : pair.desc;
   },
 
   migrationBand(status) {
@@ -108,7 +142,7 @@ const CompanyFilters = {
   },
 
   normalizeSort(sortId) {
-    return sortId === 'hiring-desc' ? 'priority-desc' : (sortId || 'priority-desc');
+    return sortId === 'hiring-desc' ? 'priority-desc' : sortId || 'priority-desc';
   },
 
   sort(companies, sortId) {
@@ -123,43 +157,24 @@ const CompanyFilters = {
       case 'name-desc':
         return list.sort((a, b) => b.name.localeCompare(a.name));
       case 'type-asc':
-        return list.sort(
-          (a, b) => (a.companyType || '').localeCompare(b.companyType || '') || a.name.localeCompare(b.name)
-        );
+        return list.sort((a, b) => (a.companyType || '').localeCompare(b.companyType || '') || a.name.localeCompare(b.name));
       case 'type-desc':
-        return list.sort(
-          (a, b) => (b.companyType || '').localeCompare(a.companyType || '') || a.name.localeCompare(b.name)
-        );
+        return list.sort((a, b) => (b.companyType || '').localeCompare(a.companyType || '') || a.name.localeCompare(b.name));
       case 'india-asc':
-        return list.sort(
-          (a, b) =>
-            (a.indiaPresence || '').localeCompare(b.indiaPresence || '') || a.name.localeCompare(b.name)
-        );
+        return list.sort((a, b) => (a.indiaPresence || '').localeCompare(b.indiaPresence || '') || a.name.localeCompare(b.name));
       case 'india-desc':
         return list.sort(
           (a, b) =>
-            (indiaRank[b.indiaPresence] || 0) - (indiaRank[a.indiaPresence] || 0) ||
-            b.priority - a.priority ||
-            a.name.localeCompare(b.name)
+            (indiaRank[b.indiaPresence] || 0) - (indiaRank[a.indiaPresence] || 0) || b.priority - a.priority || a.name.localeCompare(b.name)
         );
       case 'hiring-asc':
-        return list.sort(
-          (a, b) =>
-            (a.HiringAEM === true ? 1 : 0) - (b.HiringAEM === true ? 1 : 0) || a.name.localeCompare(b.name)
-        );
+        return list.sort((a, b) => (a.HiringAEM === true ? 1 : 0) - (b.HiringAEM === true ? 1 : 0) || a.name.localeCompare(b.name));
       case 'hiring-desc':
-        return list.sort(
-          (a, b) =>
-            (b.HiringAEM === true ? 1 : 0) - (a.HiringAEM === true ? 1 : 0) || b.priority - a.priority
-        );
+        return list.sort((a, b) => (b.HiringAEM === true ? 1 : 0) - (a.HiringAEM === true ? 1 : 0) || b.priority - a.priority);
       case 'status-asc':
-        return list.sort(
-          (a, b) => (a.Status || '').localeCompare(b.Status || '') || a.name.localeCompare(b.name)
-        );
+        return list.sort((a, b) => (a.Status || '').localeCompare(b.Status || '') || a.name.localeCompare(b.name));
       case 'status-desc':
-        return list.sort(
-          (a, b) => (b.Status || '').localeCompare(a.Status || '') || a.name.localeCompare(b.name)
-        );
+        return list.sort((a, b) => (b.Status || '').localeCompare(a.Status || '') || a.name.localeCompare(b.name));
       case 'priority-desc':
       default:
         return list.sort((a, b) => b.priority - a.priority || a.name.localeCompare(b.name));
@@ -210,9 +225,7 @@ const CompanyFilters = {
   },
 
   parseUrlState(search) {
-    const params = new URLSearchParams(
-      typeof search === 'string' ? search.replace(/^\?/, '') : ''
-    );
+    const params = new URLSearchParams(typeof search === 'string' ? search.replace(/^\?/, '') : '');
     const state = CompanyFilters.defaultState();
     if (params.has('cf_q')) state.query = params.get('cf_q') || '';
     if (params.has('cf_type')) state.companyType = params.get('cf_type') || '';

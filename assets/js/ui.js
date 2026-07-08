@@ -5,6 +5,17 @@ const UI = {
   COMPANY_PAGE_SIZE: 10,
   LEARNING_PAGE_SIZE: 10,
 
+  /** Delays `fn` until `wait`ms after the last call (Milestone 13 — avoids a full filter+sort+
+   *  re-render on every keystroke once the company dataset grows). Only for free-text typing;
+   *  clicks/changes on chips, selects, and checkboxes stay immediate. */
+  debounce(fn, wait) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), wait != null ? wait : 200);
+    };
+  },
+
   initTheme(toggleId) {
     const root = document.documentElement;
     const btn = document.getElementById(toggleId || 'themeToggle');
@@ -12,9 +23,7 @@ const UI = {
       root.setAttribute('data-theme', theme);
       localStorage.theme = theme;
       if (btn) {
-        btn.innerHTML = typeof Icons !== 'undefined'
-          ? Icons.svg(theme === 'dark' ? 'sun' : 'moon', 'icon')
-          : (theme === 'dark' ? '☀' : '☾');
+        btn.innerHTML = typeof Icons !== 'undefined' ? Icons.svg(theme === 'dark' ? 'sun' : 'moon', 'icon') : theme === 'dark' ? '☀' : '☾';
         btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
       }
     }
@@ -31,18 +40,21 @@ const UI = {
     if (!links.length) return;
     const sections = [...links].map(a => document.getElementById(a.getAttribute('data-nav-id'))).filter(Boolean);
     if (!sections.length) return;
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const id = entry.target.id;
-        links.forEach(a => {
-          const on = a.getAttribute('data-nav-id') === id;
-          a.classList.toggle('doc-nav__link--active', on);
-          if (on) a.setAttribute('aria-current', 'true');
-          else a.removeAttribute('aria-current');
+    const obs = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.id;
+          links.forEach(a => {
+            const on = a.getAttribute('data-nav-id') === id;
+            a.classList.toggle('doc-nav__link--active', on);
+            if (on) a.setAttribute('aria-current', 'true');
+            else a.removeAttribute('aria-current');
+          });
         });
-      });
-    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+      },
+      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+    );
     sections.forEach(s => obs.observe(s));
   },
 
@@ -136,16 +148,7 @@ const UI = {
   },
 
   wireSiteSearch(config) {
-    const {
-      searchIndex,
-      companiesById,
-      searchFacetState,
-      filterState,
-      wrapIds,
-      onUrlSync,
-      onCopyLink,
-      initialQuery
-    } = config;
+    const { searchIndex, companiesById, searchFacetState, filterState, wrapIds, onUrlSync, onCopyLink, initialQuery } = config;
     const wraps = (wrapIds || []).map(id => document.getElementById(id)).filter(Boolean);
     if (!wraps.length) return;
 
@@ -155,7 +158,7 @@ const UI = {
     let widened = false;
     let activeIndex = -1;
     let panelOpen = false;
-  let activeWrap = null;
+    let activeWrap = null;
 
     function getParts(wrap) {
       return {
@@ -229,7 +232,9 @@ const UI = {
         if (p.status) {
           p.status.textContent = !activeQuery()
             ? ''
-            : (!results.length ? Render.searchEmptyMessage(activeQuery(), meta) : results.length + ' result(s)');
+            : !results.length
+              ? Render.searchEmptyMessage(activeQuery(), meta)
+              : results.length + ' result(s)';
         }
         p.panel.querySelectorAll('[role="option"]').forEach((btn, i) => {
           btn.onclick = () => activateResult(i);
@@ -294,7 +299,8 @@ const UI = {
           p.input.focus();
         });
       }
-      p.input.addEventListener('input', () => runQuery(p));
+      const debouncedRunQuery = UI.debounce(() => runQuery(p), 200);
+      p.input.addEventListener('input', debouncedRunQuery);
       p.input.addEventListener('focus', () => {
         activeWrap = p;
         if (p.input.value.trim()) {
@@ -305,14 +311,25 @@ const UI = {
       p.input.addEventListener('keydown', e => {
         activeWrap = p;
         if (e.key === 'Escape') {
-          if (p.input.value.trim()) { p.input.value = ''; runQuery(p); }
-          else setPanelOpen(false);
+          if (p.input.value.trim()) {
+            p.input.value = '';
+            runQuery(p);
+          } else setPanelOpen(false);
           return;
         }
         if (!results.length || !panelOpen) return;
-        if (e.key === 'ArrowDown') { e.preventDefault(); activeIndex = Math.min(activeIndex + 1, results.length - 1); renderPanel(); }
-        else if (e.key === 'ArrowUp') { e.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); renderPanel(); }
-        else if (e.key === 'Enter' && activeIndex >= 0) { e.preventDefault(); activateResult(activeIndex); }
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          activeIndex = Math.min(activeIndex + 1, results.length - 1);
+          renderPanel();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          activeIndex = Math.max(activeIndex - 1, 0);
+          renderPanel();
+        } else if (e.key === 'Enter' && activeIndex >= 0) {
+          e.preventDefault();
+          activateResult(activeIndex);
+        }
       });
     });
 
@@ -357,19 +374,22 @@ const UI = {
     }
     function renderList() {
       results.innerHTML = items.length
-        ? items.map((r, i) => {
-          const active = i === activeIndex ? ' command-result--active' : '';
-          return `<button type="button" class="command-result${active}" data-idx="${i}" role="option" aria-selected="${i === activeIndex}"><span class="command-result__type">${esc(r.type)}</span><span class="command-result__title">${esc(r.title)}</span><span class="command-result__snippet">${esc(r.snippet)}</span></button>`;
-        }).join('')
+        ? items
+            .map((r, i) => {
+              const active = i === activeIndex ? ' command-result--active' : '';
+              return `<button type="button" class="command-result${active}" data-idx="${i}" role="option" aria-selected="${i === activeIndex}"><span class="command-result__type">${esc(r.type)}</span><span class="command-result__title">${esc(r.title)}</span><span class="command-result__snippet">${esc(r.snippet)}</span></button>`;
+            })
+            .join('')
         : (() => {
-          const q = input.value.trim();
-          if (!q) return '<p class="command-empty">Type to search…</p>';
-          const sf = (config.searchFacetState || config.filterState || {}).sourceFilter || '';
-          const hint = lastRawCount > 0 && sf && !items.length
-            ? 'No results in this category — press Escape and select All in search'
-            : 'No results';
-          return `<p class="command-empty">${esc(hint)}</p>`;
-        })();
+            const q = input.value.trim();
+            if (!q) return '<p class="command-empty">Type to search…</p>';
+            const sf = (config.searchFacetState || config.filterState || {}).sourceFilter || '';
+            const hint =
+              lastRawCount > 0 && sf && !items.length
+                ? 'No results in this category — press Escape and select All in search'
+                : 'No results';
+            return `<p class="command-empty">${esc(hint)}</p>`;
+          })();
       results.querySelectorAll('.command-result').forEach(btn => {
         btn.onclick = () => activate(parseInt(btn.getAttribute('data-idx'), 10));
       });
@@ -395,12 +415,7 @@ const UI = {
       }
       const raw = Search.query(config.searchIndex, q);
       lastRawCount = raw.length;
-      const out = CompanyFilters.querySearch(
-        config.searchIndex,
-        q,
-        config.companiesById,
-        config.searchFacetState || config.filterState
-      );
+      const out = CompanyFilters.querySearch(config.searchIndex, q, config.companiesById, config.searchFacetState || config.filterState);
       if (out.widened && config.searchFacetState) config.searchFacetState.sourceFilter = '';
       items = out.results.slice(0, 12).map(r => ({
         anchor: r.anchor,
@@ -415,14 +430,28 @@ const UI = {
     if (trigger) trigger.addEventListener('click', open);
     input.addEventListener('input', run);
     input.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Escape') {
+        close();
+        return;
+      }
       if (!items.length) return;
-      if (e.key === 'ArrowDown') { e.preventDefault(); activeIndex = Math.min(activeIndex + 1, items.length - 1); renderList(); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); activeIndex = Math.max(activeIndex - 1, 0); renderList(); }
-      else if (e.key === 'Enter' && activeIndex >= 0) { e.preventDefault(); activate(activeIndex); }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeIndex = Math.min(activeIndex + 1, items.length - 1);
+        renderList();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeIndex = Math.max(activeIndex - 1, 0);
+        renderList();
+      } else if (e.key === 'Enter' && activeIndex >= 0) {
+        e.preventDefault();
+        activate(activeIndex);
+      }
     });
     modal.querySelector('[data-command-close]')?.addEventListener('click', close);
-    modal.addEventListener('click', e => { if (e.target === modal) close(); });
+    modal.addEventListener('click', e => {
+      if (e.target === modal) close();
+    });
 
     document.addEventListener('keydown', e => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -478,9 +507,7 @@ const UI = {
       if (hash) history.replaceState(null, '', hash);
     }
 
-    document.querySelectorAll(
-      'a.doc-wordmark[href^="#"], .doc-hero a.hero-cta[href^="#"], a.doc-nav__link[href^="#"]'
-    ).forEach(a => {
+    document.querySelectorAll('a.doc-wordmark[href^="#"], .doc-hero a.hero-cta[href^="#"], a.doc-nav__link[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         const href = a.getAttribute('href');
         if (!href || href === '#') return;
@@ -502,9 +529,7 @@ const UI = {
     if (!nav) return;
 
     const links = [...nav.querySelectorAll('a[href^="#owner-"]')];
-    const sections = links
-      .map(a => document.getElementById((a.getAttribute('href') || '').slice(1)))
-      .filter(Boolean);
+    const sections = links.map(a => document.getElementById((a.getAttribute('href') || '').slice(1))).filter(Boolean);
     if (!sections.length) return;
 
     function scrollOffset() {
@@ -527,18 +552,21 @@ const UI = {
 
     function bindObserver() {
       if (bindObserver._obs) bindObserver._obs.disconnect();
-      bindObserver._obs = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const id = entry.target.id;
-          links.forEach(a => {
-            const on = (a.getAttribute('href') || '') === '#' + id;
-            a.classList.toggle('is-active', on);
-            if (on) a.setAttribute('aria-current', 'true');
-            else a.removeAttribute('aria-current');
+      bindObserver._obs = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.id;
+            links.forEach(a => {
+              const on = (a.getAttribute('href') || '') === '#' + id;
+              a.classList.toggle('is-active', on);
+              if (on) a.setAttribute('aria-current', 'true');
+              else a.removeAttribute('aria-current');
+            });
           });
-        });
-      }, { rootMargin: `-${scrollOffset()}px 0px -55% 0px`, threshold: 0 });
+        },
+        { rootMargin: `-${scrollOffset()}px 0px -55% 0px`, threshold: 0 }
+      );
       sections.forEach(s => bindObserver._obs.observe(s));
     }
 

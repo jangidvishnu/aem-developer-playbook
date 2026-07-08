@@ -40,13 +40,27 @@ let errors = [];
   if (!Array.isArray(arr)) errors.push(`file ${i}: expected array`);
 });
 
-glossary.forEach((g, i) => { errors = errors.concat(validateGlossary(g, i)); });
-technologies.forEach((t, i) => { errors = errors.concat(validateTechnology(t, i)); });
-careerPaths.forEach((p, i) => { errors = errors.concat(validateCareerPath(p, i)); });
-interviews.forEach((q, i) => { errors = errors.concat(validateInterview(q, i)); });
-templates.forEach((t, i) => { errors = errors.concat(validateTemplate(t, i)); });
-resources.forEach((r, i) => { errors = errors.concat(validateResource(r, i)); });
-roadmaps.forEach((rm, i) => { errors = errors.concat(validateRoadmap(rm, i)); });
+glossary.forEach((g, i) => {
+  errors = errors.concat(validateGlossary(g, i));
+});
+technologies.forEach((t, i) => {
+  errors = errors.concat(validateTechnology(t, i));
+});
+careerPaths.forEach((p, i) => {
+  errors = errors.concat(validateCareerPath(p, i));
+});
+interviews.forEach((q, i) => {
+  errors = errors.concat(validateInterview(q, i));
+});
+templates.forEach((t, i) => {
+  errors = errors.concat(validateTemplate(t, i));
+});
+resources.forEach((r, i) => {
+  errors = errors.concat(validateResource(r, i));
+});
+roadmaps.forEach((rm, i) => {
+  errors = errors.concat(validateRoadmap(rm, i));
+});
 
 errors = errors.concat(collectIds(glossary));
 errors = errors.concat(collectIds(technologies));

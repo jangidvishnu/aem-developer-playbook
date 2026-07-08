@@ -5,7 +5,8 @@
 This is a static, client-side-only site with no backend, no authentication, and no user-submitted data storage.
 The realistic threat surface is narrow but not zero:
 
-- Third-party script/content injection (via the Tailwind CDN script tag or the Google Fonts stylesheet).
+- Third-party script/content injection (via the Google Fonts stylesheet — the only remaining third-party runtime
+  resource since the Tailwind CDN was removed in Milestone 11, `12_DECISIONS.md` DR-015).
 - Malicious or misleading content merged into `data/*.json` (e.g. a fabricated company claim, a phishing-style
   "careers" URL).
 - Accidental inclusion of personal/sensitive information (e.g. real resume data, private recruiter contacts) in a
@@ -15,7 +16,7 @@ The realistic threat surface is narrow but not zero:
 
 - No user input is persisted server-side — the only client-side persistence is the theme preference in
   `localStorage`, which stores no sensitive data.
-- All external resources are loaded over HTTPS from well-known CDNs (Tailwind, Google Fonts).
+- The only external runtime resource is the Google Fonts stylesheet, loaded over HTTPS.
 - No inline event handler executes user-supplied data — content today is authored by the project owner, not
   submitted by third parties.
 
@@ -27,9 +28,11 @@ The realistic threat surface is narrow but not zero:
    strategy rather than assuming everything in `data/` is publishable as-is.
 3. Any externally-sourced link added to `careersUrl`, `Evidence`, or `References` fields should point to the
    company's own domain or a reputable source — do not link through URL shorteners or unverified redirect services.
-4. Any new external script/style dependency (beyond Tailwind and Google Fonts) requires a decision record
-   (`12_DECISIONS.md`) explaining why it's needed and confirming it's loaded over HTTPS with subresource integrity
-   where practical.
+4. Any new external script/style dependency (beyond Google Fonts) requires a decision record (`12_DECISIONS.md`)
+   explaining why it's needed and confirming it's loaded over HTTPS with subresource integrity where practical. This
+   applies only to runtime resources loaded by `index.html` — dev-only `devDependencies` (ESLint, Prettier,
+   Playwright, `serve`; see DR-021) are lower-risk since they never ship to a visitor's browser, but should still be
+   kept minimal and from reputable, actively-maintained packages.
 5. If user-generated content or a backend is ever introduced (out of current scope), this document must be revised
    before that work starts — the current posture assumes a fully static, single-author site.
 

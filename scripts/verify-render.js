@@ -82,10 +82,12 @@ if (process.argv.includes('--update-golden')) {
 const tocMatch = golden.toc === current.toc;
 const chaptersMatch = golden.chapters === current.chapters;
 
-console.log('TOC MATCH (Milestone 3 golden):', tocMatch,
-  `(golden ${golden.toc.length} chars, current ${current.toc.length} chars)`);
-console.log('CHAPTERS MATCH (Milestone 3 golden):', chaptersMatch,
-  `(golden ${golden.chapters.length} chars, current ${current.chapters.length} chars)`);
+console.log('TOC MATCH (Milestone 3 golden):', tocMatch, `(golden ${golden.toc.length} chars, current ${current.toc.length} chars)`);
+console.log(
+  'CHAPTERS MATCH (Milestone 3 golden):',
+  chaptersMatch,
+  `(golden ${golden.chapters.length} chars, current ${current.chapters.length} chars)`
+);
 
 function firstDiff(a, b, label) {
   const len = Math.min(a.length, b.length);

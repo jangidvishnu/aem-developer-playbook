@@ -11,13 +11,26 @@ Per `MASTER_BOOTSTRAP_PROMPT.md`, this project ships as four things from one sou
 
 ## GitHub Pages (Milestone 12)
 
-Because the site has no build step, GitHub Pages can serve the repository (or a `/docs` or root path, per GitHub's
-Pages configuration) directly. Requirements this places on every change:
+Because the site has no build step at deploy/request time, GitHub Pages can serve the repository (or a `/docs` or
+root path, per GitHub's Pages configuration) directly. Requirements this places on every change:
 
 - No server-side logic — everything must run as static files.
 - No absolute local paths — all asset references must resolve correctly when served from a Pages subpath.
 - `data/*.json` fetches must use relative paths so they work both locally (file:// or a simple static server) and
   when deployed.
+- `index.html`, `sitemap.xml`, and `robots.txt` are committed files, including the parts `npm run prerender`
+  generates ahead of time (Milestone 14, DR-022) — Pages never runs that script itself; it only ever serves what's
+  already in the repo.
+
+## SEO and crawlability (Milestone 14)
+
+The site's product-mode content (companies, apply guide, learning chapters) is baked into `index.html` at commit
+time by `npm run prerender`, plus a generated `sitemap.xml` and `robots.txt` (both from `data/site.json`'s
+`seo.siteUrl`) and a static `<link rel="canonical">` / JSON-LD `WebSite` block in `<head>` — see `03_ARCHITECTURE.md`
+→ "Prerendering" and `12_DECISIONS.md` DR-022 for the full mechanism and why hydration was deferred. `assets/js/app.js`
+still fully re-renders on load for interactivity; the baked HTML exists so crawlers and no-JS clients see real
+content without executing JavaScript. `scripts/verify-prerender.js` (part of `npm run verify`) keeps the baked
+files from silently drifting out of sync with `data/*.json`.
 
 ## Print handbook (implemented today, basic)
 
@@ -34,9 +47,10 @@ or the coding standard's dependency rules if it requires anything beyond browser
 
 ## Offline compatibility
 
-The single-file, CDN-Tailwind architecture is mostly offline-friendly already, with one caveat: Tailwind (via CDN)
-and the Google Fonts import require network access on first load. A fully offline mode (vendored Tailwind build or
-system fonts fallback) is a candidate future decision, not required for Milestone 1.
+The current architecture (`assets/css/site.css`, no CDN framework since Milestone 11's DR-015) is mostly
+offline-friendly already, with one remaining caveat: the Google Fonts import requires network access on first load.
+A fully offline mode (a system-fonts fallback, or vendoring the font files) is a candidate future decision, not
+required today.
 
 ## Publishing checklist (target state, for Milestone 12)
 

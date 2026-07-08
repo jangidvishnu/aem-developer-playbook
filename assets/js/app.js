@@ -1,0 +1,389 @@
+/**
+ * App — boot sequence and interactive DOM wiring for index.html.
+ * Extracted from index.html's inline bootstrap script (Milestone 13 cleanup, see 12_DECISIONS.md)
+ * so this logic is a real, reviewable, lintable file instead of living only inside HTML.
+ * DOM-dependent (unlike render.js/filters.js/search.js) — not require()'d by scripts/verify-*.js;
+ * exercised via scripts/ui-smoke-*.mjs instead.
+ */
+const App = {
+  PAGE_SIZE: null,
+
+  copyDiscoveryLink(statusEl) {
+    const url = window.location.href;
+    const done = () => {
+      if (statusEl) {
+        statusEl.textContent = 'Copied!';
+        statusEl.classList.remove('hidden');
+        setTimeout(() => statusEl.classList.add('hidden'), 2000);
+      }
+    };
+    if (navigator.clipboard?.writeText)
+      navigator.clipboard
+        .writeText(url)
+        .then(done)
+        .catch(() => {});
+    else {
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        done();
+      } catch (_e) {
+        /* clipboard unsupported; ignore */
+      }
+      document.body.removeChild(ta);
+    }
+  },
+
+  wireCopyDiscoveryLink(root) {
+    if (!root) return;
+    root.addEventListener('click', e => {
+      const btn = e.target.closest('[data-copy-discovery-link]');
+      if (!btn || !root.contains(btn)) return;
+      e.preventDefault();
+      App.copyDiscoveryLink(root.querySelector('[data-copy-link-status]'));
+    });
+  },
+
+  readCompanyFilterState(bar, filterState, defaultSort) {
+    if (!bar) return filterState;
+    const q = bar.querySelector('input[data-company-filter="query"]');
+    filterState.query = q ? q.value : '';
+    ['sort', 'companyType', 'industry', 'migrationBand'].forEach(key => {
+      const el = bar.querySelector(`input[type="hidden"][data-company-filter="${key}"]`);
+      if (el) filterState[key] = el.value;
+    });
+    if (!filterState.sort) filterState.sort = defaultSort;
+    ['hiringIndia', 'hiringAEM', 'aemaaCS', 'verifiedOnly'].forEach(key => {
+      filterState[key] =
+        !!bar.querySelector(`[data-company-filter="${key}"][aria-pressed="true"]`) ||
+        !!bar.querySelector(`input[data-company-filter="${key}"]:checked`);
+    });
+    return filterState;
+  },
+
+  wireCompanyPagination(allCompanies, industries, filterState, onStateChange, productMode) {
+    const container = document.getElementById('company-table-container');
+    if (!container) return;
+    let page = 1;
+    const defaultSort = 'priority-desc';
+    const debouncedRenderTable = UI.debounce(() => renderTable(), 200);
+
+    function wirePagination() {
+      container.querySelectorAll('[data-company-prev]').forEach(btn => {
+        btn.onclick = () => {
+          page = Math.max(1, page - 1);
+          renderTable();
+        };
+      });
+      container.querySelectorAll('[data-company-next]').forEach(btn => {
+        btn.onclick = () => {
+          const filtered = CompanyFilters.apply(allCompanies, filterState);
+          const totalPages = Math.max(1, Math.ceil(filtered.length / App.PAGE_SIZE));
+          page = Math.min(totalPages, page + 1);
+          renderTable();
+        };
+      });
+    }
+
+    /** Click-to-sort table column headers (Milestone 13) — reuses the existing sort ids/logic
+     *  already offered by the Sort dropdown, via CompanyFilters.COLUMN_SORTS/nextSortFor.
+     *  Uses a full toolbar re-render (not renderTable()) so the Sort dropdown's own displayed
+     *  value stays in sync with the column that was just clicked — renderTable() re-reads sort
+     *  from the toolbar DOM first, which would otherwise stomp on the value set here. */
+    function wireSortHeaders() {
+      container.querySelectorAll('[data-sort-column]').forEach(btn => {
+        btn.onclick = () => {
+          const column = btn.getAttribute('data-sort-column');
+          filterState.sort = CompanyFilters.nextSortFor(column, filterState.sort || defaultSort);
+          page = 1;
+          renderCompanySection();
+        };
+      });
+    }
+
+    function renderCompanySection() {
+      if (!filterState.sort) filterState.sort = defaultSort;
+      const filtered = CompanyFilters.apply(allCompanies, filterState);
+      const totalPages = Math.max(1, Math.ceil(filtered.length / App.PAGE_SIZE));
+      if (page > totalPages) page = 1;
+      container.innerHTML = Render.companySection(filtered, {
+        page,
+        showFilters: true,
+        filterState,
+        totalCount: allCompanies.length,
+        industries,
+        productMode,
+        allCompanies
+      });
+      UI.wireSelects(container);
+      UI.wireTableTips(container);
+      wirePagination();
+      wireSortHeaders();
+      App.wireCopyDiscoveryLink(container);
+      const bar = container.querySelector('.company-explorer__toolbar');
+      if (bar) wireToolbar(bar);
+      if (onStateChange) onStateChange();
+    }
+
+    function renderTable() {
+      const bar = container.querySelector('.company-explorer__toolbar');
+      App.readCompanyFilterState(bar, filterState, defaultSort);
+      const filtered = CompanyFilters.apply(allCompanies, filterState);
+      const totalPages = Math.max(1, Math.ceil(filtered.length / App.PAGE_SIZE));
+      if (page > totalPages) page = 1;
+      const wrap = container.querySelector('.company-explorer__body');
+      const opts = { page, productMode, allCompanies, filterState };
+      if (wrap) wrap.innerHTML = Render.companyDataBody(filtered, opts);
+      else {
+        renderCompanySection();
+        return;
+      }
+      const countEl = container.querySelector('[data-company-count]');
+      if (countEl) countEl.textContent = Render.companyCountLabel(page, filtered.length, allCompanies.length, App.PAGE_SIZE);
+      const pagEl = container.querySelector('[data-company-pagination]');
+      if (pagEl) pagEl.innerHTML = Render.companyPagination(page, filtered.length, 'company');
+      const clearBtn = container.querySelector('[data-company-clear-filters]');
+      const showClear = CompanyFilters.hasActiveFilters(filterState);
+      if (clearBtn) clearBtn.classList.toggle('hidden', !showClear);
+      UI.wireSelects(container);
+      UI.wireTableTips(container);
+      wirePagination();
+      wireSortHeaders();
+      App.wireCopyDiscoveryLink(container);
+      if (onStateChange) onStateChange();
+    }
+
+    function wireToolbar(bar) {
+      App.wireCopyDiscoveryLink(bar);
+      bar.addEventListener('click', e => {
+        const clear = e.target.closest('[data-company-clear-filters]');
+        if (clear && bar.contains(clear)) {
+          e.preventDefault();
+          Object.assign(filterState, CompanyFilters.resetFilters(defaultSort));
+          page = 1;
+          renderCompanySection();
+          return;
+        }
+        const chip = e.target.closest('[data-company-filter][data-chip]');
+        if (!chip || !bar.contains(chip)) return;
+        e.preventDefault();
+        const key = chip.getAttribute('data-company-filter');
+        const next = chip.getAttribute('aria-pressed') !== 'true';
+        chip.setAttribute('aria-pressed', next ? 'true' : 'false');
+        chip.classList.toggle('filter-chip--active', next);
+        filterState[key] = next;
+        page = 1;
+        renderTable();
+      });
+      bar.addEventListener('input', e => {
+        if (!e.target.matches('[data-company-filter]')) return;
+        page = 1;
+        debouncedRenderTable();
+      });
+      bar.addEventListener('change', e => {
+        if (!e.target.matches('[data-company-filter]')) return;
+        page = 1;
+        renderTable();
+      });
+    }
+
+    page = 1;
+    if (!filterState.sort) filterState.sort = defaultSort;
+    renderCompanySection();
+  },
+
+  wirePaginatedContainer(containerId, renderFn, data, pageAttr) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let page = 1;
+    const pageSize = UI.LEARNING_PAGE_SIZE;
+    const attr = pageAttr || containerId.replace('-table-container', '');
+    function wirePages() {
+      container.querySelectorAll(`[data-${attr}-prev]`).forEach(btn => {
+        btn.onclick = () => {
+          page = Math.max(1, page - 1);
+          render();
+        };
+      });
+      container.querySelectorAll(`[data-${attr}-next]`).forEach(btn => {
+        btn.onclick = () => {
+          page = Math.min(Math.max(1, Math.ceil(data.length / pageSize)), page + 1);
+          render();
+        };
+      });
+      container.querySelectorAll(`[data-${attr}-page]`).forEach(btn => {
+        btn.onclick = () => {
+          page = parseInt(btn.getAttribute(`data-${attr}-page`), 10);
+          render();
+        };
+      });
+    }
+    function render() {
+      container.innerHTML = renderFn(data, { page, pageSize });
+      wirePages();
+    }
+    render();
+  },
+
+  /** Boot sequence: fetch data/*.json in parallel, render the shell, wire up interactivity. */
+  boot() {
+    App.PAGE_SIZE = UI.COMPANY_PAGE_SIZE;
+    const main = document.getElementById('main');
+    const toc = document.getElementById('toc');
+    const loadingId = 'data-loading';
+    main.innerHTML = `<div id="${loadingId}" class="page-loader" role="status" aria-live="polite" aria-busy="true">
+      <div class="page-loader__card">
+        <p class="page-loader__title">AEM Playbook</p>
+        <div class="page-loader__track" aria-hidden="true"><div class="page-loader__bar"></div></div>
+        <p class="page-loader__text">Loading playbook…</p>
+      </div>
+    </div>`;
+
+    document.getElementById('navToggle').innerHTML = Icons.svg('menu');
+    document.getElementById('command-trigger').insertAdjacentHTML('afterbegin', Icons.svg('search'));
+
+    Promise.all([
+      fetch('data/chapters.json').then(r => r.json()),
+      fetch('data/companies.json').then(r => r.json()),
+      fetch('data/site.json').then(r => r.json()),
+      fetch('data/roadmaps.json').then(r => r.json()),
+      fetch('data/glossary.json').then(r => r.json()),
+      fetch('data/technologies.json').then(r => r.json()),
+      fetch('data/career_paths.json').then(r => r.json()),
+      fetch('data/interviews.json').then(r => r.json()),
+      fetch('data/templates.json').then(r => r.json()),
+      fetch('data/resources.json').then(r => r.json()),
+      fetch('data/owner_playbook.json').then(r => r.json())
+    ])
+      .then(
+        ([
+          allChapters,
+          companies,
+          site,
+          roadmaps,
+          glossary,
+          technologies,
+          careerPaths,
+          interviews,
+          templates,
+          resources,
+          ownerPlaybook
+        ]) => {
+          const productMode = Render.resolveProductMode(site);
+          const chapters = Render.chaptersForMode(allChapters, site);
+          const learning = { glossary, technologies, careerPaths, interviews, templates, resources };
+          const renderOpts = { productMode };
+          const ctx = { companies, learning, ownerPlaybook, productMode, roadmaps };
+          const stats = Render.companyStats(companies);
+
+          Render.applyHeadMeta(site);
+          document.getElementById('page-header').innerHTML = Render.pageHeader(site.header, renderOpts);
+          const disclaimerEl = document.getElementById('site-disclaimer');
+          if (disclaimerEl) disclaimerEl.innerHTML = Render.disclaimer(site.disclaimer, site.header);
+
+          if (site.header.githubUrl) {
+            const actions = document.querySelector('.doc-header__actions');
+            const gh = document.createElement('a');
+            gh.id = 'github-link';
+            gh.className = 'icon-btn icon-btn--header';
+            gh.href = site.header.githubUrl;
+            gh.setAttribute('aria-label', 'GitHub repository');
+            gh.target = '_blank';
+            gh.rel = 'noopener noreferrer';
+            gh.innerHTML = Icons.svg('github');
+            actions.appendChild(gh);
+          }
+
+          document.getElementById('search-wrap--header').innerHTML = Render.search(site.search, 'search-wrap-header-inner', '-mobile');
+          document.getElementById('search-desktop-wrap').innerHTML = Render.search(site.search, 'search-wrap', '-desktop');
+
+          document.getElementById('sidebar-contents-label').textContent = site.sidebar.contentsLabel;
+          const dashboardEl = document.getElementById('dashboard');
+          if (productMode) {
+            dashboardEl.innerHTML = '';
+            dashboardEl.hidden = true;
+          } else {
+            dashboardEl.hidden = false;
+            dashboardEl.innerHTML = Render.dashboard(site.dashboard);
+          }
+
+          const groups = site.navigation?.groups;
+          toc.innerHTML = groups ? Render.sidebarGrouped(chapters, groups) : Render.sidebar(chapters);
+
+          const chaptersHtml = chapters.map((c, i) => Render.chapter(c, i, ctx)).join('');
+          const roadmapsHtml = productMode ? '' : Render.roadmapList(roadmaps, renderOpts);
+          main.innerHTML = Render.hero(site.hero, renderOpts, stats) + roadmapsHtml + chaptersHtml;
+          document.getElementById('site-footer').innerHTML = Render.footer(site.footer);
+
+          const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site, learning, ownerPlaybook });
+          const industries = CompanyFilters.industriesFrom(companies);
+          const companiesById = CompanyFilters.companiesById(companies);
+          const urlParsed = CompanyFilters.parseUrlState(location.search);
+          // Single shared state object for both company-table filters and search facets (Milestone 13
+          // cleanup) — previously two separately-allocated objects manually kept in sync field-by-field.
+          const filterState = urlParsed.state;
+          filterState.sourceFilter = '';
+          if (productMode && !location.search.includes('sort=')) filterState.sort = 'hiring-desc';
+
+          const refreshSearch = UI.wireSiteSearch({
+            searchIndex,
+            companiesById,
+            searchFacetState: filterState,
+            filterState,
+            wrapIds: ['search-wrap', 'search-wrap-header-inner'],
+            initialQuery: urlParsed.searchQuery,
+            onCopyLink: App.wireCopyDiscoveryLink,
+            onUrlSync: q => {
+              history.replaceState(null, '', location.pathname + CompanyFilters.serializeUrlState(filterState, q || '') + location.hash);
+            }
+          });
+
+          App.wireCompanyPagination(
+            companies,
+            industries,
+            filterState,
+            () => {
+              const q = document.getElementById('search-mobile')?.value || document.getElementById('search-desktop')?.value || '';
+              history.replaceState(null, '', location.pathname + CompanyFilters.serializeUrlState(filterState, q) + location.hash);
+              if (refreshSearch) refreshSearch();
+            },
+            productMode
+          );
+
+          App.wirePaginatedContainer('glossary-table-container', Render.glossaryTable, glossary, 'glossary');
+          App.wirePaginatedContainer('technology-table-container', Render.technologyTable, technologies, 'technology');
+          App.wirePaginatedContainer('interview-table-container', Render.interviewList, interviews, 'interview');
+
+          UI.initTheme('themeToggle');
+          UI.wireNavDrawer();
+          UI.wireNavGroups();
+          UI.wireInPageAnchors();
+          UI.wireOwnerPlaybookNav();
+          UI.wireScrollSpy();
+          UI.wireCommandPalette({ searchIndex, companiesById, searchFacetState: filterState });
+        }
+      )
+      .catch(err => {
+        const el = document.getElementById(loadingId);
+        if (el) {
+          el.setAttribute('role', 'alert');
+          el.removeAttribute('aria-busy');
+          el.removeAttribute('aria-live');
+          el.classList.add('page-loader--error');
+          el.innerHTML = `<div class="page-loader__card"><p class="page-loader__title">Could not load</p><p class="page-loader__text">Failed to load content. Serve over HTTP — see .playbook/17_TESTING_GUIDE.md.</p></div>`;
+        }
+        console.error(err);
+        UI.initTheme('themeToggle');
+      });
+  }
+};
+
+if (typeof window !== 'undefined') {
+  window.App = App;
+}
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = App;
+}

@@ -3,8 +3,7 @@
  * See 12_DECISIONS.md DR-008 and 11_COMPANY_SCHEMA.md.
  */
 
-const AEM_ROLE_PATTERN =
-  /aem|adobe experience manager|experience manager|dxp|adobe cloud|edge delivery|martech|digital experience/i;
+const AEM_ROLE_PATTERN = /aem|adobe experience manager|experience manager|dxp|adobe cloud|edge delivery|martech|digital experience/i;
 
 const HIRING_INTENSITY_VALUES = ['High', 'Medium', 'Low', 'Unknown'];
 
@@ -27,11 +26,7 @@ function inferAEMWorkFocus(co) {
 
 function hasHiringSignal(co) {
   if (isHttpUrl(co.directJobSearch)) return true;
-  if (
-    Array.isArray(co.TypicalRoles) &&
-    co.TypicalRoles.length > 0 &&
-    co.TypicalRoles.some(role => AEM_ROLE_PATTERN.test(role))
-  ) {
+  if (Array.isArray(co.TypicalRoles) && co.TypicalRoles.length > 0 && co.TypicalRoles.some(role => AEM_ROLE_PATTERN.test(role))) {
     return true;
   }
   if (co.HiringIndia === 'Yes' || co.HiringIndia === true) return true;
@@ -86,9 +81,7 @@ function passesPublicGate(co) {
 function validateHiringGate(co, label) {
   const errors = [];
   if (!passesPublicGate(co)) {
-    errors.push(
-      `${label}: public table requires usesAEM, Evidence, careersUrl http, HiringAEM true, AEMHiringEvidence`
-    );
+    errors.push(`${label}: public table requires usesAEM, Evidence, careersUrl http, HiringAEM true, AEMHiringEvidence`);
   }
   if (co.HiringAEM === true && (!Array.isArray(co.AEMHiringEvidence) || co.AEMHiringEvidence.length === 0)) {
     errors.push(`${label}: HiringAEM true requires non-empty AEMHiringEvidence`);

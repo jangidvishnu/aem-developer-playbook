@@ -49,7 +49,7 @@ async function main() {
   assertInside(await input.boundingBox(), await icon.boundingBox(), 'Company search icon');
 
   const headers = page.locator('.company-table--product thead th');
-  if (await headers.count() !== 5) throw new Error('Expected 5 company table columns');
+  if ((await headers.count()) !== 5) throw new Error('Expected 5 company table columns');
 
   const india = page.locator('.company-table__th--india');
   const careers = page.locator('.company-table__th--careers');
@@ -94,18 +94,21 @@ async function main() {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.locator('#company-table-container').scrollIntoViewIfNeeded();
   const searchInput = page.locator('.company-filters__search-field input');
+  // Waits below exceed the 200ms UI.debounce() window on the filter input (Milestone 13) so
+  // assertions run after the debounced re-render has actually happened, not before it.
   await searchInput.click();
   await searchInput.type('adobe', { delay: 30 });
-  await page.waitForTimeout(150);
-  const focusedOnSearch = await page.evaluate(() =>
-    document.activeElement === document.querySelector('.company-filters__search-field input'));
+  await page.waitForTimeout(350);
+  const focusedOnSearch = await page.evaluate(
+    () => document.activeElement === document.querySelector('.company-filters__search-field input')
+  );
   if (!focusedOnSearch) throw new Error('Search input lost focus while typing');
   const filteredRows = await page.locator('.company-table--product tbody tr:not(.company-table__pad)').allTextContents();
   if (!filteredRows.length || !filteredRows.some(r => /adobe/i.test(r))) {
     throw new Error('Search query did not filter the visible table');
   }
   await searchInput.fill('');
-  await page.waitForTimeout(150);
+  await page.waitForTimeout(350);
 
   const firstRowBefore = await page.locator('.company-table--product tbody tr:not(.company-table__pad)').first().textContent();
   const nextBtn = page.locator('[data-company-next]').first();
@@ -115,6 +118,23 @@ async function main() {
     const firstRowAfter = await page.locator('.company-table--product tbody tr:not(.company-table__pad)').first().textContent();
     if (firstRowBefore.trim() === firstRowAfter.trim()) {
       throw new Error('Pagination Next did not change the visible table rows');
+    }
+  }
+
+  // Sortable column headers (Milestone 13): clicking "Company" should sort A-Z and set aria-sort.
+  const companyHeaderBtn = page.locator('[data-sort-column="Company"]');
+  if (await companyHeaderBtn.count()) {
+    await companyHeaderBtn.click();
+    await page.waitForTimeout(150);
+    const companyHeaderTh = page.locator('th:has([data-sort-column="Company"])');
+    const ariaSort = await companyHeaderTh.getAttribute('aria-sort');
+    if (ariaSort !== 'ascending') throw new Error(`Expected Company header aria-sort="ascending", got "${ariaSort}"`);
+    const namesAfterSort = await page
+      .locator('.company-table--product tbody tr:not(.company-table__pad) .company-table__name strong')
+      .allTextContents();
+    const sortedCopy = [...namesAfterSort].sort((a, b) => a.localeCompare(b));
+    if (namesAfterSort.join('|') !== sortedCopy.join('|')) {
+      throw new Error('Clicking Company header did not sort the visible page A-Z');
     }
   }
 

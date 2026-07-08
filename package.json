@@ -3,12 +3,18 @@
   "private": true,
   "description": "Dev-time tooling only — not loaded by index.html (see .playbook/17_TESTING_GUIDE.md).",
   "scripts": {
-    "verify": "node scripts/verify-render.js && node scripts/verify-search.js && node scripts/verify-filters.js && node scripts/verify-owner-playbook.js && node scripts/verify-companies.js && node scripts/verify-learning.js",
+    "verify": "node scripts/verify-render.js && node scripts/verify-search.js && node scripts/verify-filters.js && node scripts/verify-owner-playbook.js && node scripts/verify-companies.js && node scripts/verify-learning.js && node scripts/verify-prerender.js",
+    "prerender": "node scripts/prerender.js",
     "ui-smoke": "node scripts/run-ui-smoke.mjs",
-    "ui-smoke:headed": "node scripts/run-ui-smoke.mjs --headed"
+    "ui-smoke:headed": "node scripts/run-ui-smoke.mjs --headed",
+    "lint": "eslint assets/js scripts && prettier --check \"assets/js/**/*.js\" \"scripts/**/*.{js,mjs}\"",
+    "format": "prettier --write \"assets/js/**/*.js\" \"scripts/**/*.{js,mjs}\"",
+    "prepare": "node scripts/install-git-hooks.js"
   },
   "devDependencies": {
+    "eslint": "^9.39.4",
     "playwright": "^1.51.0",
+    "prettier": "^3.9.4",
     "serve": "^14.2.4",
     "wait-on": "^8.0.3"
   }

@@ -1,0 +1,11 @@
+#!/bin/sh
+# Lightweight pre-commit hook (Milestone 13) — runs the same checks as CI, locally, before commit.
+# Installed via `npm install` (see the "prepare" script in package.json / scripts/install-git-hooks.js).
+# No husky dependency — consistent with the "no unnecessary dependencies" constitution rule.
+set -e
+
+echo "pre-commit: npm run verify"
+npm run verify
+
+echo "pre-commit: npm run lint"
+npm run lint
