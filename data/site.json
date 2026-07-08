@@ -9,8 +9,8 @@
     "githubUrl": "https://github.com/jangidvishnu/aem-developer-playbook"
   },
   "disclaimer": {
-    "message": "Company and hiring data is based on our research and public sources. It is not guaranteed to be complete or current and will be expanded over time.",
-    "contributing": "Know a correction or addition? Submit a pull request to update the data.",
+    "message": "Listed openings may be for AEM Sites or other Adobe Experience Cloud roles — not every job is AEM-specific. Company and hiring data is based on our research and public sources; it is not guaranteed to be complete or current. Spot an error or want to add a company? Open a pull request or email inbox.vishnujangid@gmail.com.",
+    "contributing": "Submit a pull request",
     "contributingUrl": "https://github.com/jangidvishnu/aem-developer-playbook/pulls"
   },
   "hero": {
