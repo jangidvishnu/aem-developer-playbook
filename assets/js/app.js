@@ -234,13 +234,21 @@ const App = {
     const main = document.getElementById('main');
     const toc = document.getElementById('toc');
     const loadingId = 'data-loading';
-    main.innerHTML = `<div id="${loadingId}" class="page-loader" role="status" aria-live="polite" aria-busy="true">
-      <div class="page-loader__card">
-        <p class="page-loader__title">AEM Playbook</p>
-        <div class="page-loader__track" aria-hidden="true"><div class="page-loader__bar"></div></div>
-        <p class="page-loader__text">Loading playbook…</p>
-      </div>
-    </div>`;
+    // Milestone 14 (DR-022): index.html ships with #main already full of prerendered, real content
+    // baked by scripts/prerender.js. Blanking it out to a small loader card and then swapping in the
+    // full render again a moment later causes a large, avoidable Cumulative Layout Shift (the page
+    // shrinks then grows back). Only show the loader when there's no prerendered markup to preserve —
+    // e.g. a local dev copy of index.html that hasn't been prerendered yet.
+    const hasPrerenderedContent = main.children.length > 0;
+    if (!hasPrerenderedContent) {
+      main.innerHTML = `<div id="${loadingId}" class="page-loader" role="status" aria-live="polite" aria-busy="true">
+        <div class="page-loader__card">
+          <p class="page-loader__title">AEM Playbook</p>
+          <div class="page-loader__track" aria-hidden="true"><div class="page-loader__bar"></div></div>
+          <p class="page-loader__text">Loading playbook…</p>
+        </div>
+      </div>`;
+    }
 
     document.getElementById('navToggle').innerHTML = Icons.svg('menu');
     document.getElementById('command-trigger').insertAdjacentHTML('afterbegin', Icons.svg('search'));
@@ -326,7 +334,10 @@ const App = {
           // cleanup) — previously two separately-allocated objects manually kept in sync field-by-field.
           const filterState = urlParsed.state;
           filterState.sourceFilter = '';
-          if (productMode && !location.search.includes('sort=')) filterState.sort = 'hiring-desc';
+          // Do not force product-mode sort to 'hiring-desc' here. That id is normalized to
+          // 'priority-desc' by CompanyFilters.normalizeSort / parseUrlState, while serializeUrlState
+          // still treats only 'priority-desc' as the omit-from-URL default — so every alternate
+          // reload wrote then erased ?cf_sort=hiring-desc. Default sort is already priority-desc.
 
           const refreshSearch = UI.wireSiteSearch({
             searchIndex,
@@ -367,6 +378,9 @@ const App = {
         }
       )
       .catch(err => {
+        // If prerendered content is already on the page, there's no loader element to replace —
+        // leave the baked static content visible (readable, if non-interactive) instead of
+        // destroying it in favor of an error card.
         const el = document.getElementById(loadingId);
         if (el) {
           el.setAttribute('role', 'alert');

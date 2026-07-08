@@ -504,4 +504,44 @@ Live URL checks; `npm run verify` / `npm run ui-smoke`.
 
 Print not required for M12; collaboration via PRs on protected `master`.
 
+---
+
+## Milestone 13 — Loader + Repo Cleanup (complete, accepted 2026-07-08)
+
+### Goal
+
+Professional first-load UX and a leaner repo — one published company JSON, historical research/pipeline archived
+(not deleted).
+
+### Scope (in) — delivered
+
+- Branded accessible `.page-loader` while runtime JSON files fetch (skipped when Milestone 14 prerendered markup is
+  already present — see DR-023).
+- `archive/` for deep-research MD, company-sources, manifests, and legacy build/ingest scripts (DR-017).
+- Target Companies search/pagination wiring fix; M13 audit remediation (`assets/js/app.js` extraction, sortable
+  headers, debounce, ESLint/Prettier, docs sync).
+
+### Acceptance
+
+Owner accepted 2026-07-08 together with Milestone 14. Test plan: `17_TESTING_GUIDE.md` → Milestone 13.
+
+---
+
+## Milestone 14 — SEO Prerendering (complete, accepted 2026-07-08)
+
+### Goal
+
+Crawlers and no-JS clients see real product-mode content in `index.html` (DR-022).
+
+### Scope (in) — delivered
+
+- `scripts/prerender.js` / `scripts/lib/prerender-core.js` bake header, search, disclaimer, sidebar, main, footer.
+- Canonical + JSON-LD; generated `sitemap.xml` / `robots.txt`; `verify-prerender.js` in `npm run verify`.
+- DR-023 Lighthouse follow-up: skip loader when prerendered; `defer` scripts; font `display=optional`; search
+  `role="combobox"`; `--text-muted` contrast; fix `?cf_sort=hiring-desc` reload flip-flop.
+
+### Acceptance
+
+Owner accepted 2026-07-08 together with Milestone 13. Test plan: `17_TESTING_GUIDE.md` → Milestone 14.
+
 

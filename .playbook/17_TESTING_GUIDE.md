@@ -318,7 +318,7 @@ CI runs the same checks on push/PR via `.github/workflows/ci.yml` (`verify` + `u
 
 ---
 
-### Milestone 13 — Loader + Repo Cleanup + Audit Remediation (pending acceptance)
+### Milestone 13 — Loader + Repo Cleanup + Audit Remediation (accepted 2026-07-08)
 
 **Automated (run from repository root):**
 
@@ -353,11 +353,11 @@ focus-stays-in-search-box, pagination-changes-visible-rows, and sortable-Company
 10. `npm run lint` passes with zero errors (pre-existing files were reformatted once during this milestone to
     establish the baseline — see `13_CHANGELOG.md`).
 
-**Sign-off:** Pending project owner verification.
+**Sign-off:** Accepted by project owner 2026-07-08 (together with Milestone 14). See `25_ROADMAP_ARCHIVE.md`.
 
 ---
 
-### Milestone 14 — SEO Prerendering (pending acceptance)
+### Milestone 14 — SEO Prerendering (accepted 2026-07-08)
 
 **Automated (run from repository root):**
 
@@ -370,7 +370,7 @@ npm run ui-smoke
 
 Expected: `npm run prerender` reports the three files it wrote; the immediately following `npm run verify` reports
 `OK` (not `STALE`) for `index.html`, `sitemap.xml`, and `robots.txt`, proving the commit is up to date. `npm run
-lint` and `npm run ui-smoke` pass unchanged from Milestone 13 (prerendering does not touch `assets/js/app.js`).
+lint` and `npm run ui-smoke` pass.
 
 **Staleness check (proves the guard actually works — run once, then revert):**
 
@@ -392,17 +392,42 @@ npm run verify   # back to all-OK
    and a `<script type="application/ld+json" id="site-json-ld">` with the site name/description.
 3. Disable JavaScript (or use a plain `curl http://localhost:3456/` / `curl` the live URL) — confirm the same real
    content is present in the raw HTML response, not just in a browser's live DOM.
-4. Re-enable JavaScript, hard-refresh — confirm the page still behaves exactly as in Milestone 13: loader briefly
-   shows, then search/filter/sort/pagination on Target Companies all work normally (the client re-render replaces
-   the prerendered content with an identical-looking, fully interactive version).
+4. Re-enable JavaScript, hard-refresh — confirm the real content is visible **immediately** with no loading-card
+   flash (see DR-023: the loader is only shown when prerendered markup is absent), then search/filter/sort/
+   pagination on Target Companies all work normally (the client re-render replaces the prerendered content with an
+   identical-looking, fully interactive version).
 5. Open `sitemap.xml` and `robots.txt` directly in the browser — confirm both list the live site URL.
 
 **Regression:**
 
-6. Re-run Milestone 13's browser checklist (loader, sortable headers, debounced search) — unaffected by this
-   milestone.
+6. Re-run Milestone 13's browser checklist (sortable headers, debounced search) — unaffected by this milestone.
 
-**Sign-off:** Pending project owner verification (accepted together with Milestone 13 — see `19_CURRENT_SPRINT.md`).
+**Sign-off:** Accepted by project owner 2026-07-08 (together with Milestone 13). See `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+### Milestone 14 follow-up — Lighthouse-driven fixes (DR-023)
+
+**Automated:** same `npm run prerender && npm run verify && npm run lint && npm run ui-smoke` chain as above — all
+must pass (re-run `npm run prerender` first since `role="searchbox"` → `role="combobox"` changed the baked search
+markup).
+
+**Browser checks:**
+
+1. Hard-refresh the live site with DevTools Performance/Lighthouse panel open (or re-run Lighthouse). Confirm no
+   visible "shrink then grow" flash on load — the page should look the same immediately after CSS loads as it does
+   once JS finishes.
+2. View source (or inspect): the search `<input>` should have `role="combobox"` (not `searchbox`), still with
+   `aria-controls`, `aria-expanded`, and `aria-autocomplete="list"`.
+3. Inspect a table header (e.g. "Technology" in Core Skills) or a hero stat label (e.g. "AEM employers") — text
+   should read clearly against its background in both light and dark theme (toggle via the theme button).
+4. Slow 3G throttle + disable cache in DevTools, hard-refresh: page text may render in the system font briefly
+   before Inter loads (or may stay in the system font for that load — `display=optional`), but should **not**
+   visibly reflow/jump once Inter does load.
+5. Network panel: confirm the six `assets/js/*.js` requests show as non-render-blocking (Chrome DevTools' "Coverage"
+   or the Lighthouse render-blocking-resources audit should no longer list them).
+
+**Sign-off:** Accepted with Milestone 14 on 2026-07-08. Optional: re-run Lighthouse after this follow-up ships to confirm CLS/a11y scores.
 
 ---
 

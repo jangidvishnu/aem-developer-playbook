@@ -42,14 +42,14 @@ review before the next one starts.
 | 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 12 | Publishing | GitHub Pages (print/PDF deferred) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 13 | Loader + Repo Cleanup | First-load UX; archive unused company research/pipeline | Implementation complete, **pending owner acceptance** — see below |
-| 14 | SEO Prerendering | Bake product-mode HTML at commit time so crawlers/no-JS clients see real content | Implementation complete, **pending owner acceptance** — see below (DR-022) |
-| 15 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — see DR-017 |
+| 13 | Loader + Repo Cleanup | First-load UX; archive unused company research/pipeline | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
+| 14 | SEO Prerendering | Bake product-mode HTML at commit time so crawlers/no-JS clients see real content | **Complete** — see `25_ROADMAP_ARCHIVE.md` (DR-022) |
+| 15 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — **active** — see below |
 
 **Sequencing note:** Milestone 14 was implemented before Milestone 13 received explicit owner acceptance, at the
 owner's explicit direction ("go" immediately following a full M14 plan) — a deliberate, acknowledged exception to
-the "one milestone at a time, accept before starting the next" rule above, not an oversight. Both milestones are
-pending the same acceptance/test-plan pass together; see `19_CURRENT_SPRINT.md`.
+the "one milestone at a time, accept before starting the next" rule. Owner accepted **both M13 and M14** on
+2026-07-08 (including the DR-023 Lighthouse follow-up).
 
 **Revision note:** Milestones 2 and 4 were re-scoped from the original plan per `12_DECISIONS.md` DR-003, splitting
 one overloaded "Architecture Refactor" milestone into a small render-function-extraction step (2), the data
@@ -145,64 +145,19 @@ GitHub Pages live (print/PDF deferred by owner). **Full detail:** `25_ROADMAP_AR
 
 ---
 
-## Milestone 13 — Loader + Repo Cleanup (active)
+## Milestone 13 — Loader + Repo Cleanup: complete, accepted
 
-**Goal:** Professional first-load UX and a leaner repo — one published company JSON, historical research/pipeline
-archived (not deleted).
+Page loader, `archive/` cleanup, Target Companies wiring fixes, and M13 audit remediation (app.js extraction,
+sortable headers, ESLint/Prettier). Accepted by the project owner 2026-07-08. **Full detail:**
+`25_ROADMAP_ARCHIVE.md`.
 
-**Scope (in):**
+## Milestone 14 — SEO Prerendering: complete, accepted
 
-- Branded accessible page loader while the 11 runtime JSON files fetch.
-- Archive `md/` deep-research reports, `data/company-sources.json`, `data/manifests/*`, and legacy company build /
-  ingest scripts under `archive/` (DR-017).
-- Sync playbook paths and `.cursor/rules/company-data.mdc`; README reflects live site + archive layout.
-- Keep all learning/runtime JSON that chapters still embed.
+Product-mode prerender (`scripts/prerender.js` / `verify-prerender.js`), sitemap/robots/canonical/JSON-LD, plus
+DR-023 Lighthouse follow-up (loader-vs-prerender CLS, `defer` scripts, font `display=optional`, combobox role,
+contrast token). Accepted by the project owner 2026-07-08. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-**Scope (out):** EDS/Forms chips (M14); print polish; deleting archived history; new frameworks.
-
-**Acceptance criteria:**
-
-1. Hard refresh shows intentional loader, then full product content (not bare “Loading content…”).
-2. Fetch failure still shows an accessible alert.
-3. `data/companies.json` is the only company DB under `data/`; archived paths documented.
-4. `npm run verify` and `npm run ui-smoke` pass and exit cleanly.
-
-**Test plan:** `17_TESTING_GUIDE.md` → Milestone 13.
-
-## Milestone 14 — SEO Prerendering (implementation complete, pending acceptance)
-
-**Goal:** Crawlers and no-JS clients see the site's real content (companies, apply guide, learning chapters)
-directly in `index.html`'s HTML, not only after `assets/js/app.js` runs. See `12_DECISIONS.md` DR-022.
-
-**Scope (in):**
-
-- `scripts/prerender.js` (+ shared `scripts/lib/prerender-core.js`) bakes product-mode `Render.*` output for the
-  page header, both search shells, disclaimer, sidebar label, table of contents, `<main>` (hero + every chapter,
-  including the full company table), and footer into fixed comment-marker regions in `index.html`.
-- Static `<link rel="canonical">` and a JSON-LD `WebSite` `<script>` baked into `<head>` from `data/site.json`'s
-  new `seo.siteUrl` field.
-- Generated `sitemap.xml` and `robots.txt` (also from `seo.siteUrl`).
-- `scripts/verify-prerender.js` — byte-compares regenerated output against what's committed; wired into
-  `npm run verify` (and therefore CI and the local pre-commit hook) as one shared enforcement path.
-- `npm run prerender` script to regenerate after any `data/*.json` edit.
-
-**Scope (out):** True hydration (client skips re-rendering prerendered DOM) — `assets/js/app.js` still fully
-re-renders on load; see DR-022's "Trade-off accepted." `?mode=dev` is never prerendered.
-
-**Acceptance criteria:**
-
-1. `curl`/view-source of `index.html` (no JS) shows the real company table, apply guide, and learning chapters —
-   not empty containers.
-2. `npm run prerender` followed immediately by `npm run verify` reports no staleness (idempotent).
-3. Editing `data/companies.json` and running `npm run verify` without re-running `npm run prerender` fails with a
-   clear "stale" message naming the file and the first differing character.
-4. `npm run verify`, `npm run lint`, and `npm run ui-smoke` all still pass after prerendering is wired in.
-5. Live site's search, filters, pagination, and sortable headers behave identically to before Milestone 14 (the
-   client still fully re-renders; prerendering only changes what exists before JS runs).
-
-**Test plan:** `17_TESTING_GUIDE.md` → Milestone 14.
-
-## Milestone 15 — Company capability filters (planned)
+## Milestone 15 — Company capability filters (active)
 
 **Goal:** Filter companies by **EDS** (`EdgeDeliveryServices`) and **AEM Forms** (`Forms`) — fields already on
 records (`11_COMPANY_SCHEMA.md` / `data/companies.json`). See DR-017 (was M13 under DR-016; renumbered to M15 when
@@ -211,7 +166,7 @@ M14 was reassigned to SEO prerendering, DR-022).
 **Scope (in):** Product chips (+ dev-mode checkboxes); `CompanyFilters` + `cf_*` URLs; `Render.companyFilterBar`;
 search facet metadata if needed.
 
-**Prerequisite:** Milestones 13 and 14 accepted. Data quality pass on EDS/Forms fields.
+**Prerequisite:** Milestones 13 and 14 accepted (done 2026-07-08). Data quality pass on EDS/Forms fields.
 
 ### Order rationale (revised per DR-009 / DR-017 / DR-022)
 
@@ -223,4 +178,4 @@ search facet metadata if needed.
 | 14 SEO Prerendering | Crawlers/no-JS clients see real content |
 | 15 Capability filters | EDS + AEM Forms chips |
 
-**Immediate next step:** Owner verification and acceptance of **Milestones 13 and 14 together**.
+**Immediate next step:** Start Milestone 15 after any remaining M13/M14 follow-up PR merges.

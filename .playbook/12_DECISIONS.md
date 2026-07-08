@@ -12,6 +12,55 @@ mark the old one as superseded.
 
 ---
 
+## DR-023 — Lighthouse-driven fixes: loader-vs-prerender CLS, font-display, script loading, ARIA role, contrast
+
+**Date:** 2026-07-08
+**Context:** The project owner ran Lighthouse (desktop + mobile) against the live GitHub Pages site right after
+Milestone 14 (DR-022) shipped. Scores: desktop Performance 0.98 / Accessibility 0.91 / Best Practices 1.0 / SEO 1.0;
+mobile Performance 0.84 / Accessibility 0.91 / Best Practices 1.0 / SEO 1.0. Four concrete, evidence-backed issues
+were found in the reports (not opinion) and fixed in this pass:
+1. **CLS regression from DR-022 itself (mobile CLS 0.174, "Web font loaded" / largest shift on `#site-footer`):**
+   `App.boot()` unconditionally overwrote `#main` with a small loading-card, before fetching data, then overwrote it
+   again with the full render once data arrived. Before prerendering, `#main` started empty, so this was a harmless
+   empty→loader→content sequence. After DR-022 baked real, full-height content into `#main` at first paint, the same
+   code now actively destroyed good content to shrink the page to loader height, then grew it back — a large,
+   avoidable layout shift. **Fix:** `App.boot()` now checks `main.children.length > 0` and skips the loader entirely
+   when prerendered markup is already present, going straight from "prerendered content visible" to "same content,
+   freshly re-rendered" (same height, no shift). The `fetch` failure path also no longer clobbers working prerendered
+   content with an error card when there's no loader element to replace — it now leaves the static content visible
+   and only logs to console.
+2. **Render-blocking resources (mobile: ~1,420ms estimated savings; 854ms of that is the Google Fonts CSS request):**
+   the six `assets/js/*.js` files and the Google Fonts stylesheet were all synchronous. **Fix:** added `defer` to all
+   six local `<script>` tags (execution order and "runs after DOM parse" behavior unchanged — they were already at
+   the end of `<body>` for that exact reason) and moved the `App.boot()` call into a `DOMContentLoaded` listener so
+   it still runs after all deferred scripts define their globals. Also added a `<link rel="preconnect">` for
+   `fonts.gstatic.com` (the actual font-file host) — previously only `fonts.googleapis.com` was preconnected.
+3. **Font-swap reflow feeding into the CLS above:** changed the Google Fonts request from `display=swap` to
+   `display=optional`. With DR-022's baked content now filling the page at first paint, a mid-load font swap reflows
+   every line of text on the page; `optional` keeps the system fallback for that page view unless Inter is already
+   cached, trading brand-font fidelity on a cold first visit for zero font-driven layout shift.
+4. **Accessibility, `aria-allowed-attr` (score 0):** the search `<input>` had `role="searchbox"` plus `aria-expanded`,
+   `aria-controls`, and `aria-autocomplete="list"` — but `aria-expanded` is not a valid attribute on `searchbox` per
+   the WAI-ARIA spec. The actual behavior (typing opens a live results popup) is the textbook ARIA 1.2 combobox
+   pattern, so the correct fix was changing the role to `role="combobox"` (which requires `aria-expanded`) rather
+   than deleting the attribute and losing that state information for assistive tech.
+5. **Accessibility, `color-contrast` (score 0):** `--text-muted` (`#64748b` light / `#94a3b8` dark) measured 4.34:1
+   against `--bg-muted` (`#f1f5f9`) — just under the 4.5:1 AA minimum for normal text — on stat-card labels and
+   table headers. Darkened light-mode `--text-muted` to `#5b6b80` (≈4.96:1 against `--bg-muted`) and lightened
+   dark-mode `--text-muted` to `#9fb0c4` (≈4.68:1 against dark `--bg-muted`, which was also failing at ≈4.04:1 even
+   though Lighthouse only audited the light theme) — both single CSS variable changes, so every one of the ~29
+   call sites gets fixed at once with no visual redesign.
+**Decision:** Fix all four root causes now rather than filing them as future work, since they were concrete,
+reproducible, and low-risk (no markup shape changes beyond one ARIA role and two CSS variable values). Re-ran
+`npm run prerender` (picks up the `role="combobox"` change in the baked search markup) and the full
+`npm run verify` / `npm run lint` / `npm run ui-smoke` chain after the changes — all pass.
+**Trade-off accepted:** `display=optional` means a first-time visitor on a cold cache may see the system font
+instead of Inter for that page view (it upgrades to Inter on the next navigation once cached) — accepted as the
+standard, well-documented trade-off for eliminating font-driven CLS, and appropriate for a content/discovery site
+where Core Web Vitals (an SEO ranking factor) matter more than exact brand-font fidelity on a first cold load.
+**Follow-up:** None outstanding. Supersedes the "None outstanding" follow-up note on DR-022 — this *is* that
+follow-up.
+
 ## DR-022 — Prerender product-mode HTML at commit time for SEO (bake, don't hydrate)
 
 **Date:** 2026-07-08
@@ -52,8 +101,9 @@ not just documented, by `verify-prerender.js`) — a small amount of contributor
 actually being discoverable by search engines. `index.html`'s diff size increases substantially whenever data
 changes (the full baked company table, chapters, etc. are now literally in the file), which is expected and
 by design, not a regression.
-**Follow-up:** None outstanding. If traffic/SEO metrics later justify true hydration (skip the redundant client
-re-render), that is a new decision record, not a silent change to this one.
+**Follow-up:** See DR-023 — a post-ship Lighthouse audit found this decision's loader-vs-prerender interaction was
+causing a real CLS regression, fixed there. If traffic/SEO metrics later justify true hydration (skip the redundant
+client re-render), that is a separate new decision record, not a silent change to this one.
 
 ## DR-021 — Adopt ESLint + Prettier as dev-time tooling, enforced in CI and a local pre-commit hook
 

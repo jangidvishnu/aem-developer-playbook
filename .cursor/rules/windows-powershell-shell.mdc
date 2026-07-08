@@ -1,0 +1,44 @@
+---
+description: Recurring PowerShell/Windows shell gotchas on this workspace — avoid repeating them
+alwaysApply: true
+---
+
+# Windows PowerShell shell gotchas
+
+This workspace's terminal is **PowerShell** (`user_info` → `Shell: powershell`), not bash. The following have
+already caused repeated failures in this session — check this list before running a shell command that hits any
+of them.
+
+## No bash heredocs (`<<'EOF' ... EOF`)
+
+PowerShell has no heredoc syntax — `<<'EOF'` is parsed as the redirection operator and fails with `Missing file
+specification after redirection operator` / `'<' operator is reserved for future use`. This breaks any multi-line
+`git commit -m "$(cat <<'EOF' ...)"` or `gh pr create --body "$(cat <<'EOF' ...)"` pattern.
+
+**Fix — always write multi-line content to a temp file with the `Write` tool first, then reference the file:**
+
+```bash
+git commit -F .git/COMMIT_MSG_TMP.txt
+gh pr create --title "..." --body-file .git/PR_BODY_TMP.md
+```
+
+Delete the temp file with the `Delete` tool immediately after the command succeeds. Never attempt heredoc syntax,
+`printf`-based multi-line construction, or embedding literal newlines inside a single quoted `-m`/`--body` argument
+in a PowerShell command — all are fragile here; the temp-file approach is the only reliable one.
+
+## Don't assume a "still running" shell is hung
+
+`Get-CimInstance` (WMI) calls and some git/gh commands on this machine are frequently slow (25s–90s+) for reasons
+unrelated to the command itself, and `AwaitShell` can report "still running" for a command that has actually
+already completed and printed its final output. Before killing a process or re-running a command:
+
+1. Read the terminal output file directly (`Read` tool) — check for a trailing success/result line (e.g. a commit
+   hash, `PASS`, a URL) before concluding it's stuck.
+2. Only treat it as genuinely hung if the output hasn't changed across two checks several seconds apart AND there's
+   no indication of completion in the visible output.
+
+## Quoting / paths
+
+- Always double-quote paths containing spaces (this workspace's path has a space: `Job Guide`).
+- Prefer the dedicated file tools (`Read`, `Write`, `StrReplace`, `Glob`, `Grep`) over `cat`/`echo`/`sed`/`dir`/`ls`
+  equivalents in PowerShell — faster and avoids PowerShell-specific quoting/encoding surprises entirely.

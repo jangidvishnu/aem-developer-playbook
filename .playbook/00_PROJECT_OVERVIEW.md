@@ -142,7 +142,7 @@ evidence pointed to a separate, concurrent AI coding session. See `12_DECISIONS.
 
 - Archived deep-research MD and company pipeline seeds live under `archive/` (DR-017) — verify before promoting facts
   into `data/companies.json`.
-- Capability filters (EDS / AEM Forms) are Milestone 14.
+- Capability filters (EDS / AEM Forms) are Milestone 15.
 - Print/PDF polish remains deferred after Milestone 12.
 **Archived ideas** (from a pre-Milestone-1 `index.html` comment that was removed — most map onto the current
 roadmap already; two didn't yet have a home):
