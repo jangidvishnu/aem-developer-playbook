@@ -19,8 +19,8 @@ let errors = validateOwnerPlaybook(playbook);
 const embedChapter = chapters.find(c => c.ownerPlaybookEmbed);
 if (!embedChapter) {
   errors.push('chapters.json: no chapter with ownerPlaybookEmbed');
-} else if (embedChapter.id !== 'how-i-apply') {
-  errors.push(`chapters.json: ownerPlaybookEmbed chapter should be how-i-apply, got ${embedChapter.id}`);
+} else if (embedChapter.id !== 'how-to-apply') {
+  errors.push(`chapters.json: ownerPlaybookEmbed chapter should be how-to-apply, got ${embedChapter.id}`);
 }
 
 if (errors.length) {

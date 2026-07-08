@@ -112,7 +112,7 @@ const interviews = [
   { id: 'int-aep-integration', question: 'How can AEM and AEP work together in a personalization use case?', category: 'technical', difficulty: 'Advanced', technologies: ['aep', 'aem-sites'], guidance: 'Edge data collection, Web SDK, segments, Target or AJO activation — stay high-level if not hands-on.' },
   { id: 'int-core-components', question: 'Why adopt Core Components instead of only custom components?', category: 'technical', difficulty: 'Beginner', technologies: ['core-components'], guidance: 'Maintenance, accessibility, upgrade path, Cloud Service compatibility, extension via overlay.' },
   { id: 'int-ci-cd', question: 'What belongs in an AEM Cloud Manager pipeline vs local development?', category: 'technical', difficulty: 'Intermediate', technologies: ['aem-cloud'], guidance: 'Code quality, unit tests, RDE for rapid dev, full pipeline for stage/prod with approval gates.' },
-  { id: 'int-career-goal', question: 'Why enterprise digital experience engineering instead of generic full-stack?', category: 'behavioral', difficulty: 'Beginner', technologies: [], guidance: 'Tie to depth in CMS/DXP, business impact of content velocity, and long-term market demand.' }
+  { id: 'int-career-goal', question: 'Why AEM development instead of generic full-stack?', category: 'behavioral', difficulty: 'Beginner', technologies: [], guidance: 'Tie to depth in AEM and CMS platforms, business impact of faster content delivery, and steady demand for AEM developers in India and globally.' }
 ];
 
 const templates = [
@@ -138,7 +138,7 @@ const templates = [
     id: 'linkedin-summary',
     title: 'LinkedIn summary pattern — DXP engineer',
     category: 'branding',
-    body: 'Enterprise Digital Experience Engineer specializing in AEM [Sites/Assets/Cloud] and [Edge/headless/personalization]. I help product and marketing teams ship faster, safer content on Adobe Experience Cloud — background in [Java/frontend/platform] and [industry].'
+    body: 'AEM Developer with hands-on experience in [Sites/Assets/Cloud Service] and [Dispatcher/headless/personalization]. Helped [product/marketing] teams ship faster, reliable content on Adobe Experience Cloud — background in [Java/frontend/platform] and [industry]. Open to AEM roles in [city/remote].'
   },
   {
     id: 'outreach-recruiter',
@@ -152,7 +152,7 @@ const roadmaps = [
   {
     id: 'aem-foundation',
     title: 'AEM foundation path',
-    summary: 'Core skills for enterprise digital experience engineering — architecture through component development.',
+    summary: 'Core AEM skills — architecture through component development.',
     steps: [
       { id: 'aem-architecture', title: 'AEM architecture fundamentals', status: 'in progress', description: 'Author/publish, JCR basics, replication, environments.', technologyIds: ['aem-sites'], resourceIds: ['adobe-aem-docs', 'wknd-tutorial'], estimatedHours: 12 },
       { id: 'sling-htl', title: 'Sling, HTL, and component development', status: 'planned', description: 'Sling Models, HTL, Core Components extension.', technologyIds: ['sling', 'htl', 'core-components'], resourceIds: ['adobe-htl-spec', 'adobe-core-components'], estimatedHours: 20 },

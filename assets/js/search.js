@@ -137,18 +137,23 @@ const Search = {
     });
 
     if (site && site.hero) {
+      const purposeText = typeof site.hero.purpose === 'string'
+        ? site.hero.purpose
+        : [site.hero.purpose && (site.hero.purpose.intro || site.hero.purpose.lead), ...(site.hero.purpose && site.hero.purpose.points || [])].filter(Boolean).join(' ');
+      const heroSnippet = [purposeText, site.hero.body].filter(Boolean).join(' ');
+      const heroSearchText = [site.hero.title, purposeText, site.hero.body].filter(Boolean).join(' ').toLowerCase();
       entries.push({
         source: 'site',
         id: 'hero',
         title: site.hero.title,
-        snippet: site.hero.body,
+        snippet: heroSnippet,
         anchor: '#hero',
         pageOrder: 0,
         fields: {
           title: site.hero.title.toLowerCase(),
-          summary: site.hero.body.toLowerCase(),
+          summary: heroSearchText,
           tags: '',
-          body: ''
+          body: purposeText.toLowerCase()
         }
       });
     }

@@ -3,6 +3,7 @@
  */
 const UI = {
   COMPANY_PAGE_SIZE: 10,
+  LEARNING_PAGE_SIZE: 10,
 
   initTheme(toggleId) {
     const root = document.documentElement;
@@ -43,6 +44,34 @@ const UI = {
       });
     }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
     sections.forEach(s => obs.observe(s));
+  },
+
+  wireTableTips(root) {
+    function closeAll(except) {
+      (root || document).querySelectorAll('[data-table-tip]').forEach(btn => {
+        if (btn === except) return;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.closest('.table-tip')?.classList.remove('table-tip--open');
+      });
+    }
+
+    (root || document).querySelectorAll('[data-table-tip]').forEach(btn => {
+      if (btn.dataset.tipWired) return;
+      btn.dataset.tipWired = '1';
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const wrap = btn.closest('.table-tip');
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        closeAll(open ? null : btn);
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+        wrap?.classList.toggle('table-tip--open', !open);
+      });
+    });
+
+    if (!UI._tableTipsDocWired) {
+      UI._tableTipsDocWired = true;
+      document.addEventListener('click', () => closeAll());
+    }
   },
 
   wireSelects(root) {

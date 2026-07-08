@@ -75,6 +75,10 @@ assert('URL round-trip search q', parsed.searchQuery === 'aem');
 assert('hasShareableState when filtered', CompanyFilters.hasShareableState(state, 'aem'));
 assert('hasShareableState false when default', !CompanyFilters.hasShareableState(CompanyFilters.defaultState(), ''));
 
+assert('hasActiveFilters false by default', !CompanyFilters.hasActiveFilters(CompanyFilters.defaultState()));
+assert('hasActiveFilters true with query', CompanyFilters.hasActiveFilters({ ...CompanyFilters.defaultState(), query: 'adobe' }));
+assert('resetFilters clears query', CompanyFilters.resetFilters().query === '');
+
 const mockResults = [
   { source: 'company', id: 'adobe', title: 'Adobe' },
   { source: 'chapter', id: 'mission', title: 'Mission' },

@@ -1,75 +1,80 @@
 {
   "id": "owner-playbook",
-  "title": "How I Apply",
-  "summary": "My resume, profile, and application strategy — owner workflow, not generic templates.",
+  "title": "How to Apply",
+  "summary": "Resume, LinkedIn, Naukri, and outreach steps for AEM developer roles in India.",
   "sections": [
     {
       "id": "apply-workflow",
       "title": "Apply workflow",
       "audience": "owner",
-      "summary": "Build the resume and align LinkedIn and Naukri before I apply anywhere.",
+      "summary": "Prepare your resume and profiles first — apply only when your join date matches the role.",
       "steps": [
-        "Build resume (ChatGPT or any agent): Explain your full experience — companies, technologies, education, projects, employment history. State what AEM role you want (backend, frontend, campaign, etc.) and what kind of companies you are targeting. Share your skills. Ask for a tailored resume with ATS keywords that highlight your profile for those roles.",
-        "Do not use that export as-is. Go to Overleaf, pick a one-column resume template. Manually copy-paste content from the ChatGPT draft into LaTeX (easier than trusting ChatGPT-generated LaTeX — it often has errors). Fix any section that does not read right. Do not list GitHub, HackerRank, or other profile links unless you are actually active on them.",
-        "Upload your Overleaf PDF to ChatGPT and a few free ATS checker sites. If the score is above 70, that is good enough to proceed.",
-        "Upload the resume to ChatGPT and ask for steps to update LinkedIn and Naukri so they match the resume. Recruiters find you by keywords — skills and headline matter most. Share screenshots of each profile section and ask what to fill in (especially skills). Share your LinkedIn profile for a review. Spend real time on both profiles — they are mandatory. Use the same resume and profile details on any other job platforms. Update LWD, location, CTC, and other details accurately."
+        "Build your resume (ChatGPT or any agent): Share your full experience — companies, technologies, education, projects, and employment history. State the AEM role you want (backend, frontend, campaign, full-stack, etc.) and the type of companies you are targeting. List your skills clearly. Ask for a tailored resume with ATS keywords for those roles.",
+        "Do not use the export as-is. Open Overleaf, pick a simple one-column resume template. Copy-paste content from the draft into LaTeX manually — auto-generated LaTeX often has errors. Fix any section that does not read well. Do not add GitHub, HackerRank, or other profile links unless you actively use them.",
+        "Upload the Overleaf PDF to ChatGPT and a few free ATS checker sites. A score above 70 is good enough to proceed.",
+        "Ask ChatGPT for steps to update LinkedIn and Naukri so they match your resume. Recruiters search by keywords — skills and headline matter most. Share screenshots of each profile section and ask what to fill in (especially skills). Get your LinkedIn profile reviewed. Spend real time on both profiles — they are essential for India hiring. Use the same resume details on other job portals. Keep LWD (last working day), location, CTC, and notice period accurate.",
+        "Notice period — do not apply to immediate roles: If you have not resigned yet, or you have resigned but still have a long notice (for example 90 days) and cannot join immediately or within about 30 days, do not apply to companies hiring for immediate joiners. Applying when you are not available often leads to rejection — and that can hurt your chances at the same company later, when you are actually ready to join.",
+        "Notice period — where you can apply: During a long notice, you can still apply to MNCs and product companies that accept standard Indian notice (often 60 or 90 days). Many large employers are flexible if your last working day is stated clearly. Match each posting to your real join date — skip immediate roles, but do not sit idle if the employer explicitly allows your notice length.",
+        "Use early notice time well: Prepare your resume, LinkedIn, Naukri, company shortlist, and AEM interview prep. For roles that need you sooner, start portal applies, emails, and referral outreach when you are within about 30 days of your last working day."
       ],
-      "body": "I do not start applying until the resume passes ATS checks and LinkedIn and Naukri are aligned with it. Profile quality matters as much as the PDF."
+      "body": "Skip immediate-hiring roles if you cannot join soon — an early rejection can hurt you later. You can still apply to MNCs and product companies that accept long notice when your LWD matches. For most other roles, apply actively in the last ~30 days of notice."
     },
     {
       "id": "outreach",
       "title": "Outreach",
       "audience": "owner",
-      "summary": "Referrals, HR posts, and connection requests — not blind apply when I can reach a human.",
+      "summary": "Use referrals, HR posts, and connection requests — avoid blind apply when you can reach a person.",
       "steps": [
         "LinkedIn posts: Search AEM (or your role keyword), filter type to Posts. First pass — wider time window; after that — last 1 day only. Look for HR or hiring posts for your role. Often an email is in the post — send your application there. This works well because your profile goes directly to HR.",
-        "Gmail cover-letter template: For LinkedIn Invites or Naukri invites, keep a reusable Gmail template — short cover letter with skills, experience, LWD if applicable, contact details, and resume attached. Reuse for every invite-style apply.",
-        "Referral before direct apply: If I see a job on LinkedIn or Naukri, I do not apply immediately. I search that company on LinkedIn, find people in the same role (or close enough), and send a connection request. After they accept, I ask for a referral — not bluntly (\"could you refer me?\"). I use a ChatGPT-drafted template that mentions my role, experience, and why I fit. I wait for their reply. If referral works, great; if not, I can still apply later.",
-        "Recruiter direct: If the post lists a recruiter email or contact info, reaching out there often beats a generic portal apply."
+        "Gmail cover-letter template: For LinkedIn or Naukri invites, keep a reusable Gmail template — short cover letter with skills, experience, LWD if applicable, contact details, and resume attached. Reuse for every invite-style apply. Send these emails only when you are within about 30 days of joining — not earlier in a long notice period.",
+        "Referral before direct apply: When you see a job on LinkedIn or Naukri, do not apply immediately. Search that company on LinkedIn, find people in the same role (or a related AEM role), and send a connection request. After they accept, ask for a referral politely — not bluntly (\"could you refer me?\"). Use a ChatGPT-drafted message that mentions your role, experience, and why you fit. Wait for their reply. If referral works, great; if not, you can still apply later.",
+        "Recruiter direct: If the post lists a recruiter email or contact info, reaching out there often works better than a generic portal apply."
       ],
-      "body": "I treat outreach as higher signal than one-click apply. Templates live in Gmail; referral and HR-post wording I refine with ChatGPT once, then reuse."
+      "body": "Treat outreach as higher signal than one-click apply. Keep templates in Gmail; refine referral and HR-post wording with ChatGPT once, then reuse."
     },
     {
       "id": "learning-sources",
       "title": "Learning sources",
       "audience": "owner",
-      "summary": "Technical prep vs job-search prep — I keep them separate.",
+      "summary": "Keep job-search prep and AEM technical prep separate.",
       "steps": [
-        "Job-search content (resume, LinkedIn, Naukri, referral messages): ChatGPT or any agent — with my real experience pasted in, not invented bullets.",
-        "AEM technical depth: This playbook's roadmaps, glossary, and interview prep — plus Experience League when I need to verify a topic before an interview.",
-        "Employer research: Target Companies table and company row evidence before I interview or message someone at that employer.",
-        "I do not claim tools or platforms on my resume or profiles unless I use them actively."
+        "Job-search content (resume, LinkedIn, Naukri, referral messages): ChatGPT or any agent — paste your real experience only, never invented bullets.",
+        "AEM technical depth: This playbook's roadmaps, glossary, and interview prep — plus Adobe Experience League when you need to verify a topic before an interview.",
+        "Employer research: Use the Target Companies table and company evidence before you interview or message someone at that employer.",
+        "Do not list tools or platforms on your resume or profiles unless you use them actively."
       ],
-      "body": "ChatGPT optimizes how I present myself; this playbook optimizes what I can defend in a technical conversation."
+      "body": "ChatGPT helps you present your profile clearly; this playbook helps you defend AEM topics in a technical interview."
     },
     {
       "id": "weekly-rhythm",
       "title": "Weekly rhythm",
       "audience": "owner",
-      "summary": "How I search and apply on LinkedIn and Naukri after profiles are ready.",
+      "summary": "How to search and apply on LinkedIn and Naukri after your profiles are ready.",
       "steps": [
-        "First pass (one-time): On LinkedIn and Naukri, search your relevant role, set time filter to last 30 days, and apply only to postings that genuinely fit — batch this once when you start.",
-        "Ongoing daily search: After the 30-day backlog is cleared, search the same role with last 1 day only — apply daily to new listings.",
-        "LinkedIn posts: Search AEM (or your keyword), type Posts, wider window first then last 1 day on repeat visits. Check HR hiring posts and email applications (see Outreach).",
-        "Platform hygiene: Same search strategy on LinkedIn and Naukri. Update your availability on Naukri at least every 15 days. Keep refreshing or updating the Naukri profile — activity improves search visibility."
+        "Before the last 30 days of notice: Focus on resume, profiles, company shortlists, and AEM interview prep. You may apply to MNCs and product companies that accept 60–90 day notice if your LWD matches — but avoid immediate-joiner roles if you cannot start that soon.",
+        "Last 30 days of notice: On LinkedIn and Naukri, search your AEM role, set the time filter to last 30 days for a first pass, then switch to last 1 day for daily new listings. Apply only where the role fits your skills and your LWD — skip immediate-joiner posts if you could not actually start that soon.",
+        "Ongoing daily search: After the backlog is cleared, search the same role with last 1 day only — apply daily to new listings while you are within your availability window.",
+        "LinkedIn posts: Search AEM (or your keyword), type Posts, wider window first then last 1 day on repeat visits. Check HR hiring posts and email applications (see Outreach) — again, only when you can join within about 30 days.",
+        "Platform hygiene: Use the same search strategy on LinkedIn and Naukri. Update your availability on Naukri at least every 15 days. Refresh or update the Naukri profile regularly — activity improves visibility to recruiters.",
+        "Stay patient: Do not lose hope if responses are slow in the first half of your notice. Many offers in India come in the last 30 days — keep preparing so you are ready when that window opens."
       ],
-      "body": "Only after resume ATS pass and LinkedIn/Naukri are done. I combine portal apply with posts and referrals."
+      "body": "Prepare early; apply and outreach actively only when you are close to your LWD. Most serious offers tend to land in the final month of notice."
     },
     {
       "id": "tools",
       "title": "Tools",
       "audience": "owner",
-      "summary": "What I actually use for resume, profiles, and applications.",
+      "summary": "Common tools for resume, profiles, and applications in India.",
       "steps": [
-        "ChatGPT (or any LLM agent) — resume draft, ATS feedback, LinkedIn/Naukri optimization prompts, referral message templates.",
+        "ChatGPT (or any LLM) — resume draft, ATS feedback, LinkedIn/Naukri optimization prompts, referral message templates.",
         "Overleaf — one-column LaTeX resume template; manual paste from the draft, export PDF.",
-        "Free ATS checker sites — sanity check before I publish the resume (target 70+).",
+        "Free ATS checker sites — sanity check before you publish the resume (target 70+).",
         "LinkedIn — profile, job search (30-day then 1-day filter), Posts search for HR hiring, company people search for referrals.",
-        "Naukri — profile mirror of LinkedIn, job search with same time-filter strategy, availability updates every ~15 days.",
-        "Gmail — saved template for cover letter + resume when applying via invite or email from a post.",
+        "Naukri — profile aligned with LinkedIn, job search with the same time-filter strategy, availability updates every ~15 days.",
+        "Gmail — saved template for cover letter and resume when applying via invite or email from a post.",
         "This playbook — Target Companies, filters, and interview prep once conversations start."
       ],
-      "body": "No apply bots. Every application uses the same polished resume and aligned profiles."
+      "body": "No apply bots. Every application should use the same polished resume and aligned profiles."
     }
   ]
 }

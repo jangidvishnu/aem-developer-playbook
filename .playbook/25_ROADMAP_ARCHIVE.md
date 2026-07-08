@@ -440,4 +440,39 @@ Automated + browser: `17_TESTING_GUIDE.md` → Milestone 10.
 
 Personal apply workflow content in `owner_playbook.json`.
 
+## Milestone 11 — Minimal Product UI (complete, accepted)
+
+### Goal
+
+Product feel for owner and visitors: mobile-friendly, minimal, jobs-first — who is hiring, where to apply, how to
+apply — without project-status noise.
+
+### Scope (in) — all delivered
+
+- Mobile layout: off-canvas nav drawer, company cards on narrow viewports, touch-friendly filters/pagination.
+- Product mode (`site.json`): jobs-first IA; hides Project Status, version label, Mission, Career Command Center,
+  Living Roadmap; `?mode=dev` restores full handbook (DR-014).
+- SEO: description, Open Graph, Twitter, JSON-LD via `Render.applyHeadMeta`.
+- Token-driven `assets/css/site.css`; icons + UI helpers (`icons.js`, `ui.js`) per DR-015.
+- Unified company explorer: Priority / Company / Type / India / Careers columns; Cloud badge only; single Careers
+  link; careers search tip on header; filter bar with Clear filters.
+- Playwright UI smoke (`npm run ui-smoke`) + CI.
+
+### Scope (out) — unchanged
+
+SPA framework; login/auth; desktop company card grid as default. EDS / AEM Forms chips deferred to M13 (DR-016).
+
+### Acceptance criteria — all passed
+
+Per `14_ROADMAP.md` Milestone 11 list; `npm run verify` and `npm run ui-smoke` exit 0. Owner browser verification and
+explicit sign-off on 2026-07-08.
+
+### Test plan
+
+Automated + browser: `17_TESTING_GUIDE.md` → Milestone 11.
+
+### Owner decisions
+
+DR-014 (product vs dev), DR-015 (presentation polish without build step), DR-016 (EDS/Forms deferred to M13).
+
 

@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Enterprise Digital Experience Engineering Playbook</title>
-  <meta name="description" content="Hire-verified AEM and Adobe Experience Manager employers, filterable company list, and a step-by-step apply workflow for Enterprise Digital Experience Engineers." />
-  <meta name="keywords" content="AEM jobs, Adobe Experience Manager hiring, enterprise digital experience engineer, AEM careers India, DXP jobs" />
+  <title>AEM Developer Playbook</title>
+  <meta name="description" content="Stay eligible for AEM developer roles in India — hire-verified employers, apply guide, learning paths, and interview prep for active job search and long-term career readiness." />
+  <meta name="keywords" content="AEM jobs, AEM developer, Adobe Experience Manager hiring, AEM careers India, AEM jobs India" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#2563eb" />
-  <meta property="og:title" content="Enterprise Digital Experience Engineering Playbook" />
-  <meta property="og:description" content="Hire-verified AEM employers, filters, and apply workflow for Enterprise Digital Experience Engineers." />
+  <meta property="og:title" content="AEM Developer Playbook" />
+  <meta property="og:description" content="Hire-verified AEM employers in India, filters, and apply guide for AEM developers." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Enterprise Digital Experience Engineering Playbook" />
-  <meta name="twitter:description" content="Hire-verified AEM employers, filters, and apply workflow for Enterprise Digital Experience Engineers." />
+  <meta name="twitter:title" content="AEM Developer Playbook" />
+  <meta name="twitter:description" content="Hire-verified AEM employers in India, filters, and apply guide for AEM developers." />
   <link rel="canonical" href="./" />
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
   <link href="assets/css/site.css" rel="stylesheet" />
@@ -128,7 +128,7 @@
       const container = document.getElementById('company-table-container');
       if (!container) return;
       let page = 1;
-      const defaultSort = productMode ? 'hiring-desc' : 'priority-desc';
+      const defaultSort = 'priority-desc';
 
       function wirePagination() {
         container.querySelectorAll('[data-company-prev]').forEach(btn => {
@@ -144,6 +144,23 @@
         });
       }
 
+      function renderCompanySection() {
+        if (!filterState.sort) filterState.sort = defaultSort;
+        const filtered = CompanyFilters.apply(allCompanies, filterState);
+        const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+        if (page > totalPages) page = 1;
+        container.innerHTML = Render.companySection(filtered, {
+          page, showFilters: true, filterState, totalCount: allCompanies.length, industries, productMode, allCompanies
+        });
+        UI.wireSelects(container);
+        UI.wireTableTips(container);
+        wirePagination();
+        wireCopyDiscoveryLink(container);
+        const bar = container.querySelector('.company-explorer__toolbar');
+        if (bar) wireToolbar(bar);
+        if (onStateChange) onStateChange();
+      }
+
       function renderTable() {
         const bar = container.querySelector('.company-explorer__toolbar');
         readCompanyFilterState(bar, filterState, defaultSort);
@@ -157,7 +174,12 @@
         if (countEl) countEl.textContent = Render.companyCountLabel(page, filtered.length, allCompanies.length, PAGE_SIZE);
         const pagEl = container.querySelector('[data-company-pagination]');
         if (pagEl) pagEl.innerHTML = Render.companyPagination(page, filtered.length, 'company');
+        const clearBtn = container.querySelector('[data-company-clear-filters]');
+        const showClear = CompanyFilters.hasActiveFilters(filterState);
+        if (clearBtn) clearBtn.classList.toggle('hidden', !showClear);
+        else if (showClear) renderCompanySection();
         UI.wireSelects(container);
+        UI.wireTableTips(container);
         wirePagination();
         wireCopyDiscoveryLink(container);
         if (onStateChange) onStateChange();
@@ -166,6 +188,14 @@
       function wireToolbar(bar) {
         wireCopyDiscoveryLink(bar);
         bar.addEventListener('click', e => {
+          const clear = e.target.closest('[data-company-clear-filters]');
+          if (clear && bar.contains(clear)) {
+            e.preventDefault();
+            Object.assign(filterState, CompanyFilters.resetFilters(defaultSort));
+            page = 1;
+            renderCompanySection();
+            return;
+          }
           const chip = e.target.closest('[data-company-filter][data-chip]');
           if (!chip || !bar.contains(chip)) return;
           e.preventDefault();
@@ -191,27 +221,20 @@
 
       page = 1;
       if (!filterState.sort) filterState.sort = defaultSort;
-      const filtered = CompanyFilters.apply(allCompanies, filterState);
-      container.innerHTML = Render.companySection(filtered, {
-        page, showFilters: true, filterState, totalCount: allCompanies.length, industries, productMode, allCompanies
-      });
-      UI.wireSelects(container);
-      wirePagination();
-      wireCopyDiscoveryLink(container);
-      const bar = container.querySelector('.company-explorer__toolbar');
-      if (bar) wireToolbar(bar);
+      renderCompanySection();
     }
 
     function wirePaginatedContainer(containerId, renderFn, data, pageAttr) {
       const container = document.getElementById(containerId);
       if (!container) return;
       let page = 1;
+      const pageSize = UI.LEARNING_PAGE_SIZE;
       const attr = pageAttr || containerId.replace('-table-container', '');
       function wirePages() {
         container.querySelectorAll(`[data-${attr}-prev]`).forEach(btn => { btn.onclick = () => { page = Math.max(1, page - 1); render(); }; });
         container.querySelectorAll(`[data-${attr}-next]`).forEach(btn => {
           btn.onclick = () => {
-            page = Math.min(Math.max(1, Math.ceil(data.length / 25)), page + 1);
+            page = Math.min(Math.max(1, Math.ceil(data.length / pageSize)), page + 1);
             render();
           };
         });
@@ -220,7 +243,7 @@
         });
       }
       function render() {
-        container.innerHTML = renderFn(data, { page, pageSize: 25 });
+        container.innerHTML = renderFn(data, { page, pageSize });
         wirePages();
       }
       render();
@@ -310,6 +333,7 @@
       }, productMode);
 
       wirePaginatedContainer('glossary-table-container', Render.glossaryTable, glossary, 'glossary');
+      wirePaginatedContainer('technology-table-container', Render.technologyTable, technologies, 'technology');
       wirePaginatedContainer('interview-table-container', Render.interviewList, interviews, 'interview');
 
       UI.initTheme('themeToggle');

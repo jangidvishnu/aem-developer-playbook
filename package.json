@@ -4,7 +4,8 @@
   "description": "Dev-time tooling only — not loaded by index.html (see .playbook/17_TESTING_GUIDE.md).",
   "scripts": {
     "verify": "node scripts/verify-render.js && node scripts/verify-search.js && node scripts/verify-filters.js && node scripts/verify-owner-playbook.js",
-    "ui-smoke": "node scripts/run-ui-smoke.mjs"
+    "ui-smoke": "node scripts/run-ui-smoke.mjs",
+    "ui-smoke:headed": "node scripts/run-ui-smoke.mjs --headed"
   },
   "devDependencies": {
     "playwright": "^1.51.0",

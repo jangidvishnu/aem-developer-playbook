@@ -15,6 +15,7 @@ const Icons = {
     chevronRight: '<path d="m9 18 6-6-6-6"/>',
     filter: '<polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>',
     x: '<path d="M18 6 6 18M6 6l12 12"/>',
+    info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
     github: '<path d="M15 22v-4a2 2 0 0 1 2-2h2a2 2 0 0 0 2-2v-1a10 10 0 1 0-3.3 7.6"/>'
   },
 

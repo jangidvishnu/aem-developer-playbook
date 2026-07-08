@@ -25,7 +25,9 @@ const CompanyFilters = {
     { id: 'priority-asc', label: 'Priority (low first)' },
     { id: 'name-asc', label: 'Name (A–Z)' },
     { id: 'name-desc', label: 'Name (Z–A)' },
-    { id: 'hiring-desc', label: 'Hiring intensity' }
+    { id: 'type-asc', label: 'Type (A–Z)' },
+    { id: 'type-desc', label: 'Type (Z–A)' },
+    { id: 'india-desc', label: 'India hiring first' }
   ],
 
   defaultState() {
@@ -41,6 +43,24 @@ const CompanyFilters = {
       sort: 'priority-desc',
       sourceFilter: ''
     };
+  },
+
+  hasActiveFilters(state) {
+    const s = state || CompanyFilters.defaultState();
+    return !!(
+      String(s.query || '').trim() ||
+      s.companyType ||
+      s.industry ||
+      s.migrationBand ||
+      s.hiringIndia ||
+      s.hiringAEM ||
+      s.aemaaCS ||
+      s.verifiedOnly
+    );
+  },
+
+  resetFilters(defaultSort) {
+    return { ...CompanyFilters.defaultState(), sort: defaultSort || 'priority-desc' };
   },
 
   migrationBand(status) {
@@ -87,21 +107,58 @@ const CompanyFilters = {
     return companies.filter(co => CompanyFilters.matchesCompany(co, s));
   },
 
+  normalizeSort(sortId) {
+    return sortId === 'hiring-desc' ? 'priority-desc' : (sortId || 'priority-desc');
+  },
+
   sort(companies, sortId) {
     const list = [...companies];
-    const intensityRank = { High: 3, Medium: 2, Low: 1, Unknown: 0 };
-    switch (sortId) {
+    const id = CompanyFilters.normalizeSort(sortId);
+    const indiaRank = { Yes: 2, No: 1, Unknown: 0 };
+    switch (id) {
       case 'priority-asc':
         return list.sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name));
       case 'name-asc':
         return list.sort((a, b) => a.name.localeCompare(b.name));
       case 'name-desc':
         return list.sort((a, b) => b.name.localeCompare(a.name));
+      case 'type-asc':
+        return list.sort(
+          (a, b) => (a.companyType || '').localeCompare(b.companyType || '') || a.name.localeCompare(b.name)
+        );
+      case 'type-desc':
+        return list.sort(
+          (a, b) => (b.companyType || '').localeCompare(a.companyType || '') || a.name.localeCompare(b.name)
+        );
+      case 'india-asc':
+        return list.sort(
+          (a, b) =>
+            (a.indiaPresence || '').localeCompare(b.indiaPresence || '') || a.name.localeCompare(b.name)
+        );
+      case 'india-desc':
+        return list.sort(
+          (a, b) =>
+            (indiaRank[b.indiaPresence] || 0) - (indiaRank[a.indiaPresence] || 0) ||
+            b.priority - a.priority ||
+            a.name.localeCompare(b.name)
+        );
+      case 'hiring-asc':
+        return list.sort(
+          (a, b) =>
+            (a.HiringAEM === true ? 1 : 0) - (b.HiringAEM === true ? 1 : 0) || a.name.localeCompare(b.name)
+        );
       case 'hiring-desc':
         return list.sort(
           (a, b) =>
-            (intensityRank[b.HiringIntensity] || 0) - (intensityRank[a.HiringIntensity] || 0) ||
-            b.priority - a.priority
+            (b.HiringAEM === true ? 1 : 0) - (a.HiringAEM === true ? 1 : 0) || b.priority - a.priority
+        );
+      case 'status-asc':
+        return list.sort(
+          (a, b) => (a.Status || '').localeCompare(b.Status || '') || a.name.localeCompare(b.name)
+        );
+      case 'status-desc':
+        return list.sort(
+          (a, b) => (b.Status || '').localeCompare(a.Status || '') || a.name.localeCompare(b.name)
         );
       case 'priority-desc':
       default:
@@ -161,7 +218,7 @@ const CompanyFilters = {
     if (params.has('cf_type')) state.companyType = params.get('cf_type') || '';
     if (params.has('cf_industry')) state.industry = params.get('cf_industry') || '';
     if (params.has('cf_migration')) state.migrationBand = params.get('cf_migration') || '';
-    if (params.has('cf_sort')) state.sort = params.get('cf_sort') || 'priority-desc';
+    if (params.has('cf_sort')) state.sort = CompanyFilters.normalizeSort(params.get('cf_sort'));
     if (params.get('cf_india') === '1') state.hiringIndia = true;
     if (params.get('cf_aem') === '1') state.hiringAEM = true;
     if (params.get('cf_cloud') === '1') state.aemaaCS = true;

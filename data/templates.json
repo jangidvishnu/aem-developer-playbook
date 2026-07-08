@@ -19,14 +19,14 @@
   },
   {
     "id": "linkedin-summary",
-    "title": "LinkedIn summary pattern — DXP engineer",
+    "title": "LinkedIn summary pattern — AEM developer",
     "category": "branding",
-    "body": "Enterprise Digital Experience Engineer specializing in AEM [Sites/Assets/Cloud] and [Edge/headless/personalization]. I help product and marketing teams ship faster, safer content on Adobe Experience Cloud — background in [Java/frontend/platform] and [industry]."
+    "body": "AEM Developer with hands-on experience in [Sites/Assets/Cloud Service] and [Dispatcher/headless/personalization]. Helped [product/marketing] teams ship faster, reliable content on Adobe Experience Cloud — background in [Java/frontend/platform] and [industry]. Open to AEM roles in [city/remote]."
   },
   {
     "id": "outreach-recruiter",
     "title": "Recruiter outreach — AEM roles",
     "category": "networking",
-    "body": "Hi [Name], I am an AEM [level] engineer with experience in [Cloud Service / Dispatcher / headless]. I am exploring [company/sector] roles where Adobe Experience Manager is central to the stack. Open to a brief call if you are hiring for [team/location]."
+    "body": "Hi [Name], this is [Your name]. I am an AEM [level] developer with experience in [Cloud Service / Dispatcher / headless]. I am exploring [company/sector] roles where Adobe Experience Manager is central to the stack. Happy to connect for a brief call if you are hiring for [team/location]."
   }
 ]

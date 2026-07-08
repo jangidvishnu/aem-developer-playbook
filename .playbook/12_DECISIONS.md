@@ -10,6 +10,19 @@ mark the old one as superseded.
 
 ---
 
+---
+
+## DR-016 — Defer EDS and AEM Forms filters to Milestone 13
+
+**Date:** 2026-07-08
+**Context:** M11 product UI removed **Hiring AEM** and **Verified** quick filters because `data/companies.json` is
+hire-verified AEM-only (M8 gate). Company records already carry `EdgeDeliveryServices` and `Forms` booleans per
+`11_COMPANY_SCHEMA.md`, but filter UI was not needed for launch.
+**Decision:** Add **Milestone 13 — Company capability filters** after Publishing (M12). Ship EDS and AEM Forms filter
+chips, URL state, and search facet wiring in M13 — not during M11 acceptance or M12.
+**Trade-off accepted:** Users cannot filter by EDS/Forms until M13; avoids scope creep while M11/M12 close out.
+**Follow-up:** Data quality review on `EdgeDeliveryServices` / `Forms` before M13 implementation.
+
 ## DR-015 — Presentation polish without a build step (Milestone 11)
 
 **Date:** 2026-07-07
@@ -22,7 +35,7 @@ Company discovery uses a unified `.company-explorer` card, **10 rows/page** with
 custom selects instead of native `<select>` for filter dropdowns. Favicon at `assets/icons/favicon.svg`.
 **Trade-off accepted:** More bespoke CSS/JS to maintain; no icon font or component framework. Glossary/interview tables
 keep 25 rows/page (company table only uses 10).
-**Follow-up:** Owner browser sign-off per `17_TESTING_GUIDE.md` Milestone 11 before Milestone 12.
+**Follow-up:** Complete — Milestone 11 accepted 2026-07-08; Milestone 12 (Publishing) is next.
 
 ## DR-014 — Product vs dev visibility split (Milestone 11)
 
@@ -35,7 +48,7 @@ Append **`?mode=dev`** to the URL to restore the full handbook without a separat
 `assets/css/site.css` supplements Tailwind; no build step.
 **Trade-off accepted:** Two experiences share one `index.html`; chapter section anchors use stable `chapter.id` values
 instead of `#ch0`…`#chN` (search index updated accordingly).
-**Follow-up:** Browser test plan in `17_TESTING_GUIDE.md` Milestone 11.
+**Follow-up:** Complete — Milestone 11 accepted 2026-07-08.
 
 ## DR-013 — Shareable discovery filter URLs use query params (Milestone 9)
 

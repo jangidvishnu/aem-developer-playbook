@@ -2,30 +2,26 @@
 
 ## Active objective
 
-**Milestone 11 (Minimal Product UI)** — implementation, UI polish (Phases A–E, DR-015), and browser bug-fix pass
-complete; **pending owner browser acceptance**. Next session: run `17_TESTING_GUIDE.md` → Milestone 11 checklist in
-the browser, then accept or log remaining issues.
+**Milestone 12 (Publishing)** — GitHub Pages deploy, print stylesheet polish, and PDF/export path. Milestone 11
+(Minimal Product UI) is **accepted** (2026-07-08). Do not start other work until M12 acceptance criteria are clear
+from `14_ROADMAP.md`.
 
 ## Session progress (2026-07-08)
 
-### Done this session
+### Milestone 11 — accepted
 
-- **Search UI** — fixed DOM wiring (`UI.wireSiteSearch`), category auto-widen (`querySearch`), removed `sf_source`
-  from shareable URLs; Playwright smoke (`npm run ui-smoke`) + CI job; search field icon/clear-button polish.
-- **How I Apply** — sticky sub-nav (removed `overflow:hidden` blocker), unified card layout, active tab + scroll offset.
-- **Header / chrome** — compact product wordmark, toolbar search styling, disclaimer, favicon.
-- **Navigation** — sidebar label **Browse playbook**; unified in-page anchor scroll (`UI.wireInPageAnchors`) for header,
-  sidebar, and hero CTAs (no double offset).
-- **Dev hygiene** — `.cursor/rules/terminal-hygiene.mdc`; `package.json` dev tooling only.
+Owner browser sign-off after company table layout reset (auto layout, matched header/cell alignment) and product UI
+polish. Automated: `npm run verify`, `npm run ui-smoke` — **PASS**. Full detail: `25_ROADMAP_ARCHIVE.md`.
 
-### Automated checks (last run)
+### Still for this sprint (M12)
 
-`npm run verify` and `npm run ui-smoke` — **PASS**.
+- GitHub Pages configuration and verify live deploy.
+- Print / PDF export path per `21_PUBLISHING.md`.
+- Publish test plan in `17_TESTING_GUIDE.md` when implementation is complete.
 
-### Still for owner
+## Milestone 11 — accepted
 
-- Hard-refresh browser acceptance of M11 test plan (`17_TESTING_GUIDE.md`).
-- Explicit milestone sign-off before M12 (Publishing).
+Product mode, mobile cards/drawer, SEO, company explorer polish. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 ## Milestone 10 — accepted
 

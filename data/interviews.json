@@ -189,10 +189,10 @@
   },
   {
     "id": "int-career-goal",
-    "question": "Why enterprise digital experience engineering instead of generic full-stack?",
+    "question": "Why AEM development instead of generic full-stack?",
     "category": "behavioral",
     "difficulty": "Beginner",
     "technologies": [],
-    "guidance": "Tie to depth in CMS/DXP, business impact of content velocity, and long-term market demand."
+    "guidance": "Tie to depth in AEM and CMS platforms, business impact of faster content delivery, and steady demand for AEM developers in India and globally."
   }
 ]

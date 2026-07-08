@@ -2,7 +2,7 @@
   {
     "id": "aem",
     "term": "Adobe Experience Manager (AEM)",
-    "definition": "Enterprise content management system for websites, assets, forms, and headless content. Core product in the Adobe Experience Cloud for digital experience engineering.",
+    "definition": "Enterprise content management system for websites, assets, forms, and headless content. The core Adobe product AEM developers work with on Adobe Experience Cloud.",
     "relatedTerms": [
       "dxp",
       "aem-cloud"

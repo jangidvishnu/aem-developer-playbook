@@ -3,9 +3,11 @@
  * Loaded by index.html via <script src>; also require()'d by scripts/verify-render.js.
  */
 const COMPANY_PAGE_SIZE = 10;
+const LEARNING_PAGE_SIZE = 10;
 
 const Render = {
   pageSize: COMPANY_PAGE_SIZE,
+  learningPageSize: LEARNING_PAGE_SIZE,
 
   icon(name, className) {
     if (typeof Icons !== 'undefined') return Icons.svg(name, className || 'icon');
@@ -20,6 +22,43 @@ const Render = {
 
   isProductMode(options) {
     return options && options.productMode === true;
+  },
+
+  difficultyRank(level) {
+    const ranks = { Beginner: 1, Intermediate: 2, Advanced: 3 };
+    return ranks[level] != null ? ranks[level] : 99;
+  },
+
+  sortByDifficulty(items, labelKey) {
+    const key = labelKey || 'name';
+    return [...(items || [])].sort((a, b) => {
+      const diff = Render.difficultyRank(a.difficulty) - Render.difficultyRank(b.difficulty);
+      if (diff !== 0) return diff;
+      const av = (a[key] || a.term || a.question || '').toString();
+      const bv = (b[key] || b.term || b.question || '').toString();
+      return av.localeCompare(bv);
+    });
+  },
+
+  heroPurposeText(purpose) {
+    if (!purpose) return '';
+    if (typeof purpose === 'string') return purpose;
+    return [purpose.intro || purpose.lead, ...(purpose.points || [])].filter(Boolean).join(' ');
+  },
+
+  heroPurposeMarkup(purpose) {
+    if (!purpose) return '';
+    if (typeof purpose === 'string') {
+      return `<div class="doc-hero__purpose"><p class="doc-hero__purpose-intro">${Render.escapeHtml(purpose)}</p></div>`;
+    }
+    const intro = purpose.intro || purpose.lead
+      ? `<p class="doc-hero__purpose-intro">${Render.escapeHtml(purpose.intro || purpose.lead)}</p>`
+      : '';
+    const points = Array.isArray(purpose.points) && purpose.points.length
+      ? `<ul class="doc-hero__purpose-list">${purpose.points.map(p => `<li>${Render.escapeHtml(p)}</li>`).join('')}</ul>`
+      : '';
+    if (!intro && !points) return '';
+    return `<div class="doc-hero__purpose">${intro}${points}</div>`;
   },
 
   setMetaTag(name, content, attr) {
@@ -218,23 +257,24 @@ const Render = {
   },
 
   hero(content, options, stats) {
+    const purpose = Render.heroPurposeMarkup(content.purpose);
     if (Render.isProductMode(options) && stats) {
-      const ctas = `<div class="hero-cta-row">${content.ctaCompanies ? `<a class="hero-cta" href="#target-companies">${Render.escapeHtml(content.ctaCompanies)}</a>` : ''}${content.ctaApply ? `<a class="hero-cta hero-cta--secondary" href="#how-i-apply">${Render.escapeHtml(content.ctaApply)}</a>` : ''}</div>`;
+      const ctas = `<div class="hero-cta-row">${content.ctaCompanies ? `<a class="hero-cta" href="#target-companies">${Render.escapeHtml(content.ctaCompanies)}</a>` : ''}${content.ctaApply ? `<a class="hero-cta hero-cta--secondary" href="#how-to-apply">${Render.escapeHtml(content.ctaApply)}</a>` : ''}</div>`;
       const statCards = [
-        { v: stats.total, l: 'Verified employers' },
-        { v: stats.hiring, l: 'Hiring AEM' },
-        { v: stats.india, l: 'Hiring India' },
-        { v: stats.cloud, l: 'AEM Cloud' }
+        { v: stats.total, l: 'AEM employers' },
+        { v: stats.india, l: 'Hiring in India' },
+        { v: stats.cloud, l: 'AEM Cloud' },
+        { v: stats.gcc, l: 'GCCs' }
       ].map(s => `<div class="stat-card"><div class="stat-card__value">${s.v}</div><div class="stat-card__label">${Render.escapeHtml(s.l)}</div></div>`).join('');
-      return `<section id="hero" class="doc-hero"><h2>${Render.escapeHtml(content.title)}</h2><p class="doc-hero__desc">${Render.escapeHtml(content.body)}</p><div class="doc-hero__stats">${statCards}</div>${ctas}</section>`;
+      return `<section id="hero" class="doc-hero"><h2>${Render.escapeHtml(content.title)}</h2><p class="doc-hero__desc">${Render.escapeHtml(content.body)}</p>${purpose}<div class="doc-hero__stats">${statCards}</div>${ctas}</section>`;
     }
     let ctas = '';
     if (Render.isProductMode(options) && (content.ctaCompanies || content.ctaApply)) {
       const browse = content.ctaCompanies ? `<a class="hero-cta" href="#target-companies">${Render.escapeHtml(content.ctaCompanies)}</a>` : '';
-      const apply = content.ctaApply ? `<a class="hero-cta hero-cta--secondary" href="#how-i-apply">${Render.escapeHtml(content.ctaApply)}</a>` : '';
+      const apply = content.ctaApply ? `<a class="hero-cta hero-cta--secondary" href="#how-to-apply">${Render.escapeHtml(content.ctaApply)}</a>` : '';
       ctas = `<div class="hero-cta-row">${browse}${apply}</div>`;
     }
-    return `<section id="hero" class="doc-hero"><h2>${Render.escapeHtml(content.title)}</h2><p class="doc-hero__desc">${Render.escapeHtml(content.body)}</p>${ctas}</section>`;
+    return `<section id="hero" class="doc-hero"><h2>${Render.escapeHtml(content.title)}</h2><p class="doc-hero__desc">${Render.escapeHtml(content.body)}</p>${purpose}${ctas}</section>`;
   },
 
   roadmap(roadmap, options) {
@@ -329,38 +369,73 @@ const Render = {
     return `<a class="action-btn" href="${Render.escapeHtml(href)}" target="_blank" rel="noopener noreferrer" aria-label="${Render.escapeHtml(label)}">${Render.icon('external-link')}</a>`;
   },
 
+  companyCareersLink(x) {
+    const careers = String(x.careersUrl || x.careers || '');
+    const jobs = String(x.directJobSearch || x.search || '');
+    if (careers.startsWith('http')) return careers;
+    if (jobs.startsWith('http')) return jobs;
+    return '';
+  },
+
   companyRow(x, options) {
     const name = Render.companyName(x);
-    const jobs = String(x.directJobSearch || x.search || '');
-    const careers = String(x.careersUrl || x.careers || '');
-    const aem = x.usesAEM === true ? 'Yes' : (x.aem || 'No');
+    const careers = Render.companyCareersLink(x);
     const india = x.indiaPresence != null ? x.indiaPresence : (x.india || 'Unknown');
     const type = x.companyType || x.type || 'Unknown';
     const priority = x.priority != null ? x.priority : '';
     const status = x.Status || 'Unknown';
     const hiring = x.HiringAEM === true;
-    const intensity = x.HiringIntensity || 'Unknown';
     if (Render.isProductMode(options)) {
-      const badges = `${x.Status === 'Verified' ? '<span class="badge badge--verified">Verified</span> ' : ''}${hiring ? '<span class="badge badge--hiring">Hiring</span>' : '<span class="badge badge--idle">Idle</span>'}${x.AEMaaCS ? ' <span class="badge badge--cloud">Cloud</span>' : ''}`;
-      return `<tr><td><strong>${Render.escapeHtml(name)}</strong> ${badges}</td><td>${Render.escapeHtml(type)}</td><td>${Render.escapeHtml(india)}</td><td>${Render.escapeHtml(intensity)}</td><td>${Render.escapeHtml(aem)}</td><td>${Render.companyActionBtn(careers, 'Careers at ' + name)}</td><td>${Render.companyActionBtn(jobs, 'AEM jobs at ' + name)}</td></tr>`;
+      const cloudBadge = x.AEMaaCS ? ' <span class="badge badge--cloud">Cloud</span>' : '';
+      return `<tr><td class="company-table__priority">${Render.escapeHtml(priority)}</td><td class="company-table__name"><strong>${Render.escapeHtml(name)}</strong>${cloudBadge}</td><td class="company-table__type">${Render.escapeHtml(type)}</td><td class="company-table__india">${Render.escapeHtml(india)}</td><td class="company-table__careers">${Render.companyActionBtn(careers, 'Careers site for ' + name)}</td></tr>`;
     }
-    const jobCell = Render.companyLink(jobs, 'Search');
     const careerCell = Render.companyLink(careers, 'Careers');
-    return `<tr><td>${Render.escapeHtml(priority)}</td><td><strong>${Render.escapeHtml(name)}</strong></td><td>${Render.escapeHtml(type)}</td><td>${Render.escapeHtml(india)}</td><td>${hiring ? 'Yes' : 'No'}</td><td>${Render.escapeHtml(intensity)}</td><td>${Render.escapeHtml(aem)}</td><td>${Render.escapeHtml(status)}</td><td>${careerCell}</td><td>${jobCell}</td><td>${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
+    return `<tr><td class="company-table__priority">${Render.escapeHtml(priority)}</td><td><strong>${Render.escapeHtml(name)}</strong></td><td>${Render.escapeHtml(type)}</td><td>${Render.escapeHtml(india)}</td><td>${hiring ? 'Yes' : 'No'}</td><td>${Render.escapeHtml(status)}</td><td>${careerCell}</td><td>${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
   },
 
   companyCard(x) {
     const name = Render.companyName(x);
-    const hiring = x.HiringAEM === true;
-    const pill = hiring ? '<span class="badge badge--hiring">Hiring AEM</span>' : '<span class="badge badge--idle">Idle</span>';
-    const intensity = x.HiringIntensity || 'Unknown';
     const type = x.companyType || x.type || 'Unknown';
     const india = x.indiaPresence != null ? x.indiaPresence : (x.india || 'Unknown');
-    const jobs = String(x.directJobSearch || x.search || '');
-    const careers = String(x.careersUrl || x.careers || '');
-    const jobsBtn = jobs.startsWith('http') ? `<a class="company-card__btn" href="${Render.escapeHtml(jobs)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link')} AEM jobs</a>` : '';
-    const careersBtn = careers.startsWith('http') ? `<a class="company-card__btn company-card__btn--secondary" href="${Render.escapeHtml(careers)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link')} Careers</a>` : '';
-    return `<article class="company-card"><div class="company-card__header"><span class="company-card__name">${Render.escapeHtml(name)}</span>${pill}</div><div class="company-card__meta"><span>${Render.escapeHtml(intensity)}</span><span>${Render.escapeHtml(type)}</span><span>India: ${Render.escapeHtml(india)}</span></div><div class="company-card__actions">${careersBtn}${jobsBtn}</div></article>`;
+    const priority = x.priority != null ? x.priority : '';
+    const cloudBadge = x.AEMaaCS ? '<span class="badge badge--cloud">Cloud</span>' : '';
+    const careers = Render.companyCareersLink(x);
+    const careersBtn = careers
+      ? `<a class="company-card__btn" href="${Render.escapeHtml(careers)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link')} Careers</a>`
+      : '';
+    return `<article class="company-card"><div class="company-card__header"><span class="company-card__name">${Render.escapeHtml(name)}</span>${cloudBadge}</div><div class="company-card__meta"><span>Priority ${Render.escapeHtml(priority)}</span><span>${Render.escapeHtml(type)}</span><span>India: ${Render.escapeHtml(india)}</span></div><div class="company-card__actions">${careersBtn}</div></article>`;
+  },
+
+  careersSearchTipText() {
+    return 'Opens each employer\u2019s careers site. Search for AEM, Adobe Experience Manager, or related stack keywords \u2014 job titles vary.';
+  },
+
+  careersTipMarkup(id) {
+    const text = Render.careersSearchTipText();
+    return `<span class="table-tip"><button type="button" class="table-tip__trigger" data-table-tip aria-controls="${id}" aria-expanded="false" aria-label="How to search on careers sites">${Render.icon('info', 'icon icon--sm')}</button><span id="${id}" role="tooltip" class="table-tip__panel">${Render.escapeHtml(text)}</span></span>`;
+  },
+
+  companyTableHead(headers, product) {
+    const colClass = {
+      Priority: 'company-table__th--priority',
+      Company: 'company-table__th--name',
+      Type: 'company-table__th--type',
+      India: 'company-table__th--india',
+      Careers: 'company-table__th--careers'
+    };
+    return headers.map(h => {
+      const cls = colClass[h] || '';
+      if (product && h === 'Careers') {
+        return `<th scope="col" class="company-table__th--careers"><div class="company-table__th-careers-inner"><span>${Render.escapeHtml(h)}</span>${Render.careersTipMarkup('careers-col-tip')}</div></th>`;
+      }
+      return `<th scope="col" class="${cls}">${Render.escapeHtml(h)}</th>`;
+    }).join('');
+  },
+
+  companyTableColumns(product) {
+    return product
+      ? ['Priority', 'Company', 'Type', 'India', 'Careers']
+      : ['Priority', 'Company', 'Type', 'India', 'Hiring', 'Status', 'Careers', 'Visa'];
   },
 
   companyDataBody(companies, options) {
@@ -372,45 +447,58 @@ const Render = {
     const safePage = Math.min(Math.max(1, page), totalPages);
     const slice = companies.slice((safePage - 1) * pageSize, safePage * pageSize);
     const product = Render.isProductMode(options);
-    const headers = product
-      ? ['Company', 'Type', 'India', 'Intensity', 'AEM', 'Careers', 'Jobs']
-      : ['Priority', 'Company', 'Type', 'India', 'Hiring', 'Intensity', 'AEM', 'Status', 'Careers', 'Jobs', 'Visa'];
-    const head = headers.map(h => `<th>${Render.escapeHtml(h)}</th>`).join('');
+    const headers = Render.companyTableColumns(product);
+    const head = Render.companyTableHead(headers, product);
     const rows = slice.map(c => Render.companyRow(c, options)).join('');
   const pad = Math.max(0, pageSize - slice.length);
     const emptyRows = Array(pad).fill('<tr class="company-table__pad"><td colspan="' + headers.length + '"></td></tr>').join('');
-    const table = `<div class="company-table-desktop company-explorer__table-wrap"><table class="company-table"><thead><tr>${head}</tr></thead><tbody>${rows}${emptyRows}</tbody></table></div>`;
-    const cards = `<div class="company-cards">${slice.map(Render.companyCard).join('')}</div>`;
+    const tableClass = product ? 'company-table company-table--product' : 'company-table';
+    const table = `<div class="company-table-desktop company-explorer__table-wrap"><table class="${tableClass}"><thead><tr>${head}</tr></thead><tbody>${rows}${emptyRows}</tbody></table></div>`;
+    const cardsTip = product
+      ? `<div class="company-cards-tip">${Render.careersTipMarkup('careers-cards-tip')}</div>`
+      : '';
+    const cards = `${cardsTip}<div class="company-cards">${slice.map(Render.companyCard).join('')}</div>`;
     return table + cards;
+  },
+
+  companyFilterActive(state) {
+    const s = state || {};
+    return !!(
+      String(s.query || '').trim() ||
+      s.companyType ||
+      s.industry ||
+      s.migrationBand ||
+      s.hiringIndia ||
+      s.hiringAEM ||
+      s.aemaaCS ||
+      s.verifiedOnly
+    );
   },
 
   companyFilterBar(state, total, filtered, industries, options) {
     const product = Render.isProductMode(options);
     const types = ['', 'Product', 'GCC', 'Agency', 'Enterprise'];
-    const migrationBands = [
-      { id: '', label: 'All migration' },
-      { id: 'cloud', label: 'Cloud-native / migrated' },
-      { id: 'migrating', label: 'Migrating to cloud' },
-      { id: 'unknown', label: 'Unknown migration' }
-    ];
     const sortOptions = product
       ? [
-        { id: 'hiring-desc', label: 'Most active hiring first' },
         { id: 'priority-desc', label: 'Priority (high first)' },
+        { id: 'priority-asc', label: 'Priority (low first)' },
         { id: 'name-asc', label: 'Name (A–Z)' },
-        { id: 'name-desc', label: 'Name (Z–A)' }
+        { id: 'name-desc', label: 'Name (Z–A)' },
+        { id: 'type-asc', label: 'Type (A–Z)' },
+        { id: 'india-desc', label: 'India hiring first' }
       ]
       : [
         { id: 'priority-desc', label: 'Priority (high first)' },
         { id: 'priority-asc', label: 'Priority (low first)' },
         { id: 'name-asc', label: 'Name (A–Z)' },
         { id: 'name-desc', label: 'Name (Z–A)' },
-        { id: 'hiring-desc', label: 'Hiring intensity' }
+        { id: 'type-asc', label: 'Type (A–Z)' },
+        { id: 'type-desc', label: 'Type (Z–A)' },
+        { id: 'india-desc', label: 'India hiring first' }
       ];
     const industryList = industries || [];
     const typeOptions = types.map(t => ({ id: t, label: t || 'All types' }));
     const industryOptions = [''].concat(industryList).map(ind => ({ id: ind, label: ind || 'All industries' }));
-    const migOptions = migrationBands;
     const chip = (key, label) => {
       const active = state[key] ? ' filter-chip--active' : '';
       const pressed = state[key] ? 'true' : 'false';
@@ -421,33 +509,39 @@ const Render = {
       return `<label class="inline-flex items-center gap-1 text-sm"><input type="checkbox" data-company-filter="${key}"${on} /> ${Render.escapeHtml(label)}</label>`;
     };
     const quickChips = product
-      ? `<div class="filter-chips" role="group" aria-label="Quick filters">${chip('hiringAEM', 'Hiring AEM roles')}${chip('hiringIndia', 'Hiring in India')}${chip('verifiedOnly', 'Verified employers')}${chip('aemaaCS', 'AEM Cloud Service')}</div>`
-      : `<div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('hiringAEM', 'Hiring AEM')}${chk('aemaaCS', 'AEM Cloud')}${chk('verifiedOnly', 'Verified only')}</div>`;
-    const essentials = product
-      ? `<div class="company-filters__essentials">
-          <label class="company-filters__search">Company name
-            <input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Search company name…" />
-          </label>
-          ${Render.uiSelect('sort', 'Sort', sortOptions, state.sort || 'hiring-desc', 'ui-select--sort')}
-        </div>`
-      : `<div class="company-filters__essentials">
-          <label class="company-filters__search">Search<input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Company name…" /></label>
-          ${Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '')}
-          ${Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '')}
-          ${Render.uiSelect('migrationBand', 'Migration', migOptions, state.migrationBand || '')}
-          ${Render.uiSelect('sort', 'Sort', sortOptions, state.sort || 'priority-desc')}
-        </div>`;
-    const moreFilters = product
-      ? `<details class="company-filters__more"><summary class="company-filters__more-toggle"><span>More filters</span></summary><div class="company-filters__more-grid">
-          ${Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '')}
-          ${Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '')}
-          ${Render.uiSelect('migrationBand', 'Migration', migOptions, state.migrationBand || '')}
-        </div><p class="company-filters__hint">Migration: whether the employer runs AEM as a Cloud Service or is migrating.</p></details>`
+      ? `<div class="filter-chips" role="group" aria-label="Quick filters">${chip('hiringIndia', 'Hiring in India')}${chip('aemaaCS', 'AEM Cloud Service')}</div>`
+      : `<div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('aemaaCS', 'AEM Cloud')}</div>`;
+    const clearBtn = Render.companyFilterActive(state)
+      ? `<button type="button" class="filter-clear-btn" data-company-clear-filters>Clear filters</button>`
       : '';
+    const chipsRow = product
+      ? `<div class="company-filters__chips-row">${quickChips}${clearBtn}</div>`
+      : quickChips;
+    const searchField = `<div class="company-filters__search">
+          <div class="company-filters__search-field company-filters__search-field--icon">
+            <span class="company-filters__search-icon" aria-hidden="true">${Render.icon('search')}</span>
+            <input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Search companies…" autocomplete="off" aria-label="Search companies" />
+          </div>
+        </div>`;
+    const sortField = Render.uiSelect('sort', 'Sort', sortOptions, state.sort || 'priority-desc', 'ui-select--sort');
+    const typeField = Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '', 'ui-select--filter');
+    const industryField = Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '', 'ui-select--filter');
+    const filters = product
+      ? `<div class="company-filters company-filters--product">
+          ${searchField}
+          <div class="company-filters__sort">${sortField}</div>
+          <div class="company-filters__type">${typeField}</div>
+          <div class="company-filters__industry">${industryField}</div>
+        </div>`
+      : `<div class="company-filters company-filters--product">
+          ${searchField}
+          <div class="company-filters__sort">${sortField}</div>
+          <div class="company-filters__type">${typeField}</div>
+          <div class="company-filters__industry">${industryField}</div>
+        </div>`;
     return `<div class="company-explorer__toolbar" role="search" aria-label="Filter companies">
-      ${quickChips}
-      ${essentials}
-      ${moreFilters}
+      ${chipsRow}
+      ${filters}
     </div>`;
   },
 
@@ -465,7 +559,7 @@ const Render = {
     const pagination = Render.companyPagination(page, filtered, 'company');
     const countLabel = Render.companyCountLabel(page, filtered, total, COMPANY_PAGE_SIZE);
     const footer = `<div class="company-explorer__footer"><p data-company-count aria-live="polite">${countLabel}</p><div class="company-explorer__footer-copy"><button type="button" data-copy-discovery-link class="copy-link-btn">${Render.icon('copy')} Copy link</button><span data-copy-link-status class="copy-toast hidden" aria-live="polite">Copied!</span></div><div data-company-pagination>${pagination}</div></div>`;
-    return `<div class="company-explorer">${metrics}${toolbar}<div class="company-table-wrap">${body}</div>${footer}</div>`;
+    return `<div class="company-explorer">${metrics}${toolbar}${body}${footer}</div>`;
   },
 
   companyTable(companies, options = {}) {
@@ -475,7 +569,7 @@ const Render = {
   glossaryTable(terms, options = {}) {
     return Render.paginatedTable(
       terms,
-      options,
+      { pageSize: LEARNING_PAGE_SIZE, ...options },
       g => `<tr><td class="font-semibold">${Render.escapeHtml(g.term)}</td><td>${Render.escapeHtml(g.definition)}</td><td class="text-muted text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
       ['Term', 'Definition', 'Related'],
       'glossary'
@@ -483,9 +577,10 @@ const Render = {
   },
 
   technologyTable(technologies, options = {}) {
+    const sorted = Render.sortByDifficulty(technologies, 'name');
     return Render.paginatedTable(
-      technologies,
-      options,
+      sorted,
+      { pageSize: LEARNING_PAGE_SIZE, ...options },
       t => `<tr><td class="font-semibold">${Render.escapeHtml(t.name)}</td><td>${Render.escapeHtml(t.category)}</td><td>${Render.escapeHtml(t.difficulty)}</td><td>${Render.escapeHtml(t.summary)}</td></tr>`,
       ['Technology', 'Category', 'Level', 'Summary'],
       'technology'
@@ -502,9 +597,10 @@ const Render = {
   },
 
   interviewList(items, options = {}) {
+    const sorted = Render.sortByDifficulty(items, 'question');
     return Render.paginatedTable(
-      items,
-      options,
+      sorted,
+      { pageSize: LEARNING_PAGE_SIZE, ...options },
       q => `<tr><td>${Render.escapeHtml(q.category)}</td><td>${Render.escapeHtml(q.difficulty)}</td><td class="font-semibold">${Render.escapeHtml(q.question)}</td><td class="text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
       ['Category', 'Level', 'Question', 'Guidance'],
       'interview'

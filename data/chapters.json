@@ -5,64 +5,64 @@
     "summary": "Purpose and principles.",
     "reading": "2 min",
     "tags": ["Governance"],
-    "body": "<div class='callout bg-blue-50 p-4 rounded'><p><strong>Mission</strong><br>Create the definitive career guide for Enterprise Digital Experience Engineers.</p></div><ul class='list-disc ml-6 mt-4'><li>Evidence over assumptions</li><li>Long-term value</li><li>Publication quality</li><li>Continuous improvement</li></ul>"
+    "body": "<div class='callout bg-blue-50 p-4 rounded'><p><strong>Mission</strong><br>Create the definitive career guide for AEM developers.</p></div><ul class='list-disc ml-6 mt-4'><li>Evidence over assumptions</li><li>Long-term value</li><li>Publication quality</li><li>Continuous improvement</li></ul>"
   },
   {
     "id": "career-strategy",
     "title": "Career Strategy",
-    "summary": "Long-term direction for AEM and DXP engineers.",
+    "summary": "Long-term direction for AEM developers in India.",
     "reading": "4 min",
     "tags": ["Career"],
     "careerPathEmbed": true,
-    "body": "<p>Target product companies and GCCs that invest in Adobe Experience Cloud. Depth beats breadth: own the full delivery stack from authoring through edge performance.</p>"
+    "body": "<p>Target product companies and GCCs in India that invest in Adobe Experience Cloud. Deep AEM skills beat shallow full-stack breadth. Even when you are not switching jobs, stay interview-ready: update profiles, sit a market-check interview every 3–6 months, and close skill gaps when interviews expose them.</p>"
   },
   {
     "id": "professional-branding",
     "title": "Professional Branding",
-    "summary": "Positioning and reusable messaging.",
+    "summary": "Positioning and reusable messaging for AEM roles.",
     "reading": "3 min",
     "tags": ["Branding"],
     "templateEmbed": true,
-    "body": "<p>Position yourself as an <strong>Enterprise Digital Experience Engineer</strong> — not only an AEM developer. Use the templates below for LinkedIn, outreach, and resume bullets.</p>"
+    "body": "<p>Present yourself as an <strong>AEM Developer</strong> with clear skills in Sites, Cloud Service, Dispatcher, and integrations. Use the templates below for LinkedIn, Naukri, outreach emails, and resume bullets.</p>"
   },
   {
     "id": "core-skills",
     "title": "Core Skills",
-    "summary": "Priority technologies for senior AEM engineers.",
+    "summary": "Priority technologies for senior AEM developers.",
     "reading": "5 min",
     "tags": ["Skills"],
     "technologyEmbed": true,
-    "body": "<p>Master the intersection of <strong>content platform engineering</strong> (AEM Sites, Assets, Cloud Service), <strong>integration</strong> (Analytics, Target, AEP), and <strong>delivery</strong> (Dispatcher, CDN, Edge Delivery). The technology reference table lists prerequisites and official resources.</p>"
+    "body": "<p>Master the intersection of <strong>AEM platform engineering</strong> (Sites, Assets, Cloud Service), <strong>integration</strong> (Analytics, Target, AEP), and <strong>delivery</strong> (Dispatcher, CDN, Edge Delivery). The technology reference table lists prerequisites and official Adobe resources.</p>"
   },
   {
     "id": "learning-roadmap",
     "title": "Learning Roadmap",
-    "summary": "Structured paths above and in the roadmap panels.",
+    "summary": "Structured AEM learning paths.",
     "reading": "3 min",
     "tags": ["Learning"],
-    "body": "<p>Follow the three learning paths rendered at the top of this handbook: <strong>AEM foundation</strong>, <strong>Cloud &amp; Edge</strong>, and <strong>Experience Platform integration</strong>. Each step links to technologies and curated resources.</p>"
+    "body": "<p>Follow the three learning paths in this handbook: <strong>AEM foundation</strong>, <strong>Cloud &amp; Edge</strong>, and <strong>Experience Platform integration</strong>. Each step links to technologies and curated resources.</p>"
   },
   {
     "id": "target-companies",
     "title": "Target Companies",
-    "summary": "Priority employers.",
+    "summary": "AEM employers for your target list.",
     "reading": "8 min",
     "tags": ["Companies"],
     "companyTable": true
   },
   {
-    "id": "how-i-apply",
-    "title": "How I Apply",
-    "summary": "My apply workflow, outreach, learning rhythm, and tools.",
+    "id": "how-to-apply",
+    "title": "How to Apply",
+    "summary": "Step-by-step apply workflow for AEM roles — resume, LinkedIn, Naukri, outreach, and tools.",
     "reading": "5 min",
-    "tags": ["Apply", "Owner"],
+    "tags": ["Apply"],
     "ownerPlaybookEmbed": true,
-    "body": "<p>Personal methods below — opinion and workflow, not generic templates. Reusable resume and outreach templates remain in <strong>Professional Branding</strong>.</p>"
+    "body": "<p>This guide is for staying <strong>job-ready</strong>, not only active job search. Practical steps for Indian job portals and notice periods — plus learning from every interview. Templates are in <strong>Professional Branding</strong>.</p>"
   },
   {
     "id": "career-command-center",
     "title": "Career Command Center",
-    "summary": "Planned personal-tracking modules.",
+    "summary": "Planned tracking modules.",
     "reading": "3 min",
     "tags": ["Planning"],
     "body": "<ul class='list-disc ml-6'><li>Master Company Database ✓</li><li>Recruiter CRM (planned)</li><li>Application Tracker (planned)</li><li>Interview Tracker (planned)</li><li>Learning Tracker (roadmaps + glossary live)</li><li>Decision Log</li></ul>"
@@ -74,16 +74,16 @@
     "reading": "6 min",
     "tags": ["Reference"],
     "glossaryEmbed": true,
-    "body": "<p>Authoritative short definitions for enterprise digital experience engineering. Cross-links appear in the related-terms column.</p>"
+    "body": "<p>Short definitions of AEM, DXP, and related terms. Cross-links appear in the related-terms column.</p>"
   },
   {
     "id": "interview-prep",
     "title": "Interview Prep",
-    "summary": "Technical and behavioral questions for AEM and DXP roles.",
+    "summary": "Technical and behavioural questions for AEM roles.",
     "reading": "10 min",
     "tags": ["Interview"],
     "interviewEmbed": true,
-    "body": "<p>Guidance-oriented preparation — frameworks and topics employers commonly assess. Not a guarantee of exact questions at any company.</p>"
+    "body": "<p>Preparation guidance — common AEM topics and frameworks employers ask about. Not a guarantee of exact questions at any company.</p>"
   },
   {
     "id": "living-roadmap",

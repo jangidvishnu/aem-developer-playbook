@@ -211,7 +211,7 @@ Expected: owner playbook validation passes (5 sections, `how-i-apply` embed); se
 
 ---
 
-### Milestone 11 — Minimal Product UI (pending acceptance)
+### Milestone 11 — Minimal Product UI (accepted)
 
 **Automated (run from repository root):**
 
@@ -277,7 +277,7 @@ CI runs the same checks on push/PR via `.github/workflows/ci.yml` (`verify` + `u
 16. Tab to hamburger, filter chips, custom selects, card Careers buttons, command palette — visible focus.
 17. Filter count updates announced (`aria-live` on company count).
 
-**Sign-off:** Pending project owner browser verification.
+**Sign-off:** Accepted by project owner (2026-07-08) after browser verification. See `25_ROADMAP_ARCHIVE.md`.
 
 ---
 

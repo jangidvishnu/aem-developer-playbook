@@ -40,8 +40,9 @@ review before the next one starts.
 | 8 | Company Pipeline & Hiring Gate | Fresh research, hiring gate, filter/sort, BuiltWith manifest; **hire-verified employers only** | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | **Pending acceptance** — see `17_TESTING_GUIDE.md` |
-| 12 | Publishing | GitHub Pages, print handbook, PDF export pipeline | Not started |
+| 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
+| 12 | Publishing | GitHub Pages, print handbook, PDF export pipeline | **Active** — see below |
+| 13 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — see DR-016 |
 
 **Revision note:** Milestones 2 and 4 were re-scoped from the original plan per `12_DECISIONS.md` DR-003, splitting
 one overloaded "Architecture Refactor" milestone into a small render-function-extraction step (2), the data
@@ -124,42 +125,56 @@ Accepted by the project owner after browser verification (commit `46e45f6`). **F
 
 ---
 
-## Milestone 11 — Minimal Product UI (pending acceptance)
+## Milestone 11 — Minimal Product UI: complete, accepted
 
-### Milestone 11 — Minimal Product UI
+Product mode, mobile drawer/cards, SEO, unified company explorer, presentation polish (DR-014/015). Owner browser
+sign-off 2026-07-08. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-**Goal:** Product feel for **you and visitors**: mobile-friendly, minimal, **jobs-first** — who is hiring most, where
-to apply, how to apply — without project-status noise.
+---
 
-**Scope (in):**
-
-- **Mobile layout** — off-canvas nav drawer, company **cards** on narrow viewports, touch-friendly pagination/filters.
-- **IA default (product mode)** — hero CTAs → **Target Companies** (default sort: hiring intensity) → **How I Apply**
-  → learning chapters; roadmaps inside Learning Roadmap only.
-- **`site.json` product mode** — hides Project Status, version label, Mission, Career Command Center, Living Roadmap;
-  `?mode=dev` restores full handbook.
-- **SEO** — description, Open Graph, Twitter, JSON-LD; `Render.applyHeadMeta`.
-- **`assets/css/site.css`** — drawer, cards, filter chips, owner step timeline.
-- Accessibility + performance pass (`20_ACCESSIBILITY.md`, `23_PERFORMANCE.md`).
-
-**Scope (out):** SPA framework; login/auth; desktop company card grid as default.
-
-**Acceptance criteria:**
-
-1. Phone width: company list within one scroll; filters usable without horizontal panning.
-2. How I Apply is second in nav with numbered step timeline and in-chapter anchor nav.
-3. Product mode shows no Project Status, version label, or dev-only chapters.
-4. View source includes description + Open Graph meta.
-5. `?mode=dev` restores prior handbook chrome.
-6. Shareable filter URLs (M9) still work.
-7. `node scripts/verify-render.js`, `verify-search.js`, `verify-filters.js` pass.
-
-**Test plan:** `17_TESTING_GUIDE.md` → Milestone 11.
+## Milestone 12 — Publishing (active)
 
 ### Milestone 12 — Publishing
 
-GitHub Pages deploy, print stylesheet polish, PDF/export path. **Last** — publish the product-shaped site (Milestones
-8–11) rather than an interim handbook shell.
+**Goal:** Ship the product-shaped site (Milestones 8–11) publicly — GitHub Pages, print-friendly handbook, and a
+repeatable PDF/export path — rather than an interim handbook shell.
+
+**Scope (in):**
+
+- GitHub Pages (or equivalent static host) serving the default branch with no build step.
+- Print stylesheet polish per `21_PUBLISHING.md` / `08_UI_GUIDELINES.md`.
+- PDF or export pipeline documented and smoke-tested once.
+- Version/changelog reader-facing notes for the published release.
+
+**Scope (out):** New product features (filters, content domains); those wait for M13+ after publish.
+
+**Acceptance criteria:**
+
+1. Live URL loads product mode with companies and How to Apply working over HTTPS.
+2. Print preview hides chrome (header/sidebar/search) and keeps readable chapter flow.
+3. Export/PDF path documented in `21_PUBLISHING.md` and run at least once successfully.
+4. `npm run verify` still passes against the published tree.
+
+**Test plan:** Add to `17_TESTING_GUIDE.md` when implementation is complete (per `15_RELEASE_PROCESS.md`).
+
+### Milestone 13 — Company capability filters (planned)
+
+**Goal:** Let AEM developers narrow the company list by **Edge Delivery Services (EDS)** and **AEM Forms** hiring —
+fields already exist on company records (`EdgeDeliveryServices`, `Forms` in `11_COMPANY_SCHEMA.md` / `data/companies.json`).
+
+**Scope (in):**
+
+- Product-mode quick-filter chips (and dev-mode checkboxes) for **EDS** and **AEM Forms**, alongside existing India / Cloud filters.
+- Wire through `CompanyFilters` (`matchesCompany`, URL `cf_*` params, shareable links) and `Render.companyFilterBar`.
+- Search facet metadata if company index needs EDS/Forms flags for filtered search.
+
+**Scope (out):** Other Adobe products (Analytics-only, Target-only, etc.) unless added in a later milestone; no change to
+the hire-verified gate (M8) — filters apply to the existing verified set only.
+
+**Prerequisite:** Milestone 12 accepted. Data quality pass on `EdgeDeliveryServices` / `Forms` fields before shipping UI.
+
+**Decision:** DR-016. M11 intentionally removed redundant **Hiring AEM** and **Verified** chips because the table is
+hire-verified AEM-only; EDS/Forms are meaningful subdivisions worth adding later.
 
 ### Order rationale (revised per DR-009)
 
@@ -170,5 +185,7 @@ GitHub Pages deploy, print stylesheet polish, PDF/export path. **Last** — publ
 | 10 Owner playbook | Your “how I apply / what to learn” story |
 | 11 Product UI | Mobile, minimal, jobs-first before going public |
 | 12 Publishing | Ship when data, filters, owner content, and UI are ready |
+| 13 Capability filters | EDS + AEM Forms chips on top of hire-verified company data (DR-016) |
 
-**Immediate next step:** Owner browser verification for **Milestone 11** per `17_TESTING_GUIDE.md`.
+**Immediate next step:** Implement **Milestone 12 (Publishing)** — GitHub Pages + print/PDF path per this section
+and `21_PUBLISHING.md`.
