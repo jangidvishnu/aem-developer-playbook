@@ -21,7 +21,7 @@ M8 now includes fresh evidence-based research (md reference-only), no company co
 filter/sort, and curated domain seeds (paid BuiltWith API removed DR-012). Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
 and `14_ROADMAP.md`.
 
-## Milestone 13 — Loader + Repo Cleanup (in progress)
+## Milestone 13 — Loader + Repo Cleanup (accepted 2026-07-08)
 
 ### Added
 
@@ -84,7 +84,7 @@ addressed in this same pass (folded into M13 rather than a new milestone):
   the Milestone 3 golden render snapshot (`scripts/milestone-3-render-golden.json`) was intentionally regenerated
   to reflect the new sortable-header markup (verified as the only diff before regenerating).
 
-## Milestone 14 — SEO Prerendering (implementation complete, pending acceptance)
+## Milestone 14 — SEO Prerendering (accepted 2026-07-08)
 
 Implemented immediately after the Milestone 13 audit remediation pass, at the project owner's explicit direction,
 in response to a raised concern that client-side-only rendering makes the site's real content invisible to crawlers
@@ -108,8 +108,10 @@ that don't execute JavaScript. See `12_DECISIONS.md` DR-022 for the full context
 
 ### Changed
 
-- `assets/js/app.js` is unchanged — it still fully re-renders every container on load. Prerendering is a static
-  first-paint/SEO baseline, not hydration; see DR-022 for why true hydration was considered and deferred.
+- `assets/js/app.js`'s render logic is unchanged at ship time — it still fully re-renders every container on load.
+  Prerendering is a static first-paint/SEO baseline, not hydration; see DR-022 for why true hydration was considered
+  and deferred. (A small, targeted follow-up fix to `App.boot()`'s *loading-state* handling — not its render logic —
+  landed shortly after ship; see "Follow-up" below and DR-023.)
 - `00_PROJECT_OVERVIEW.md` rule 6 and `.cursor/rules/constitution.mdc` rule 5 ("no build step") both updated to
   name this one narrow, documented exception: the *output* of `npm run prerender` is a committed static file, so
   GitHub Pages still serves everything with zero build step on its side.
@@ -121,6 +123,30 @@ that don't execute JavaScript. See `12_DECISIONS.md` DR-022 for the full context
 `npm run verify` (including the new `verify-prerender.js` step), `npm run lint`, and `npm run ui-smoke` all pass.
 Confirmed `npm run prerender` is idempotent (re-running with unchanged data produces byte-identical output) and that
 `npm run verify` correctly fails with a clear message when `data/companies.json` is edited without re-running it.
+
+### Follow-up — Lighthouse-driven fixes (2026-07-08)
+
+The project owner ran Lighthouse against the live site right after this milestone shipped. See `12_DECISIONS.md`
+DR-023 for full detail; summary:
+
+- **Fixed:** `App.boot()` no longer blanks `#main` to a loading card when prerendered content is already present —
+  it was destroying good, already-rendered content and shrinking the page before re-expanding it, causing a large
+  Cumulative Layout Shift (mobile CLS 0.174) that did not exist before this milestone.
+- **Fixed:** the six `assets/js/*.js` `<script>` tags now use `defer` (was flagged as ~1,420ms of render-blocking
+  resources); `App.boot()` now runs from a `DOMContentLoaded` listener to match.
+- **Fixed:** Google Fonts request now uses `display=optional` instead of `display=swap`, and `fonts.gstatic.com` is
+  now preconnected — the previous `swap` behavior reflowed the now-much-larger prerendered page when Inter finished
+  loading.
+- **Fixed (accessibility):** search input `role="searchbox"` → `role="combobox"` (searchbox doesn't allow
+  `aria-expanded`, which the combobox pattern this input actually implements requires) and `--text-muted` darkened/
+  lightened in both themes to clear the 4.5:1 contrast minimum (was 4.34:1 in light mode; dark mode was ≈4.04:1 and
+  not previously caught).
+- `npm run prerender` re-run (picks up the `role="combobox"` change in baked search markup); full
+  `npm run verify` / `npm run lint` / `npm run ui-smoke` chain re-confirmed green.
+- **Fixed:** product-mode boot forced `filterState.sort = 'hiring-desc'` whenever the URL lacked `sort=`, then
+  `serializeUrlState` wrote `?cf_sort=hiring-desc`; the next load ran `normalizeSort('hiring-desc')` →
+  `priority-desc` and omitted the param — so every alternate reload appeared to add then remove the query string.
+  Removed that force; default remains `priority-desc` (same visual sort as the Priority dropdown default).
 
 ## Milestone 12 — Publishing (accepted 2026-07-08)
 

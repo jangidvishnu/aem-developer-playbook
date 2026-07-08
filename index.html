@@ -20,7 +20,11 @@
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
   <link href="assets/css/site.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <!-- display=optional (not swap): with Milestone 14 prerendering, #main is full of real text at
+       first paint, so a later font swap would reflow the whole page and hurt CLS. "optional" tells
+       the browser to keep the fallback font for this page view unless Inter is already cached. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=optional" rel="stylesheet" />
 </head>
 <body>
   <!--
@@ -38,7 +42,7 @@
       <button type="button" class="site-nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-sidebar"></button>
       <div class="site-header-title" id="page-header"><!-- PRERENDER:START:page-header --><a href="#hero" class="doc-wordmark doc-wordmark--compact"><div class="doc-wordmark__title">AEM Playbook</div></a><!-- PRERENDER:END:page-header --></div>
       <div class="doc-header__actions">
-        <div id="search-desktop-wrap" class="search-desktop-wrap"><!-- PRERENDER:START:search-desktop --><div class="search-wrap" id="search-wrap"><div class="search-wrap__field search-wrap__field--icon"><span class="search-wrap__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span class="sr-only">Search companies, apply steps, and learning content</span><input id="search-desktop" placeholder="Search companies, apply steps, glossary…" aria-label="Search companies, apply steps, and learning content" aria-controls="search-results-desktop" aria-expanded="false" aria-autocomplete="list" autocomplete="off" type="text" role="searchbox" inputmode="search" /><button type="button" class="search-clear hidden" id="search-clear-desktop" aria-label="Clear search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div><div id="search-panel-desktop" class="search-panel hidden"><div id="search-facets-desktop" class="search-facets" role="group" aria-label="Filter search results"></div><div id="search-results-desktop" class="search-results" role="listbox"></div></div><p id="search-status-desktop" class="sr-only" aria-live="polite"></p></div><!-- PRERENDER:END:search-desktop --></div>
+        <div id="search-desktop-wrap" class="search-desktop-wrap"><!-- PRERENDER:START:search-desktop --><div class="search-wrap" id="search-wrap"><div class="search-wrap__field search-wrap__field--icon"><span class="search-wrap__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span class="sr-only">Search companies, apply steps, and learning content</span><input id="search-desktop" placeholder="Search companies, apply steps, glossary…" aria-label="Search companies, apply steps, and learning content" aria-controls="search-results-desktop" aria-expanded="false" aria-autocomplete="list" autocomplete="off" type="text" role="combobox" inputmode="search" /><button type="button" class="search-clear hidden" id="search-clear-desktop" aria-label="Clear search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div><div id="search-panel-desktop" class="search-panel hidden"><div id="search-facets-desktop" class="search-facets" role="group" aria-label="Filter search results"></div><div id="search-results-desktop" class="search-results" role="listbox"></div></div><p id="search-status-desktop" class="sr-only" aria-live="polite"></p></div><!-- PRERENDER:END:search-desktop --></div>
         <div class="doc-header__tools">
           <button type="button" class="command-trigger" id="command-trigger" aria-label="Open search command palette"><span>Search…</span><kbd>Ctrl K</kbd></button>
           <button type="button" class="icon-btn icon-btn--header" id="themeToggle" aria-label="Toggle theme"></button>
@@ -46,7 +50,7 @@
       </div>
     </div>
     <div class="doc-header__row doc-header__row--search">
-      <div id="search-wrap--header" class="w-full"><!-- PRERENDER:START:search-header --><div class="search-wrap" id="search-wrap-header-inner"><div class="search-wrap__field search-wrap__field--icon"><span class="search-wrap__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span class="sr-only">Search companies, apply steps, and learning content</span><input id="search-mobile" placeholder="Search companies, apply steps, glossary…" aria-label="Search companies, apply steps, and learning content" aria-controls="search-results-mobile" aria-expanded="false" aria-autocomplete="list" autocomplete="off" type="text" role="searchbox" inputmode="search" /><button type="button" class="search-clear hidden" id="search-clear-mobile" aria-label="Clear search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div><div id="search-panel-mobile" class="search-panel hidden"><div id="search-facets-mobile" class="search-facets" role="group" aria-label="Filter search results"></div><div id="search-results-mobile" class="search-results" role="listbox"></div></div><p id="search-status-mobile" class="sr-only" aria-live="polite"></p></div><!-- PRERENDER:END:search-header --></div>
+      <div id="search-wrap--header" class="w-full"><!-- PRERENDER:START:search-header --><div class="search-wrap" id="search-wrap-header-inner"><div class="search-wrap__field search-wrap__field--icon"><span class="search-wrap__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span class="sr-only">Search companies, apply steps, and learning content</span><input id="search-mobile" placeholder="Search companies, apply steps, glossary…" aria-label="Search companies, apply steps, and learning content" aria-controls="search-results-mobile" aria-expanded="false" aria-autocomplete="list" autocomplete="off" type="text" role="combobox" inputmode="search" /><button type="button" class="search-clear hidden" id="search-clear-mobile" aria-label="Clear search"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div><div id="search-panel-mobile" class="search-panel hidden"><div id="search-facets-mobile" class="search-facets" role="group" aria-label="Filter search results"></div><div id="search-results-mobile" class="search-results" role="listbox"></div></div><p id="search-status-mobile" class="sr-only" aria-live="polite"></p></div><!-- PRERENDER:END:search-header --></div>
     </div>
   </header>
 
@@ -85,14 +89,18 @@
     </div>
   </div>
 
-  <script src="assets/js/icons.js"></script>
-  <script src="assets/js/render.js"></script>
-  <script src="assets/js/filters.js"></script>
-  <script src="assets/js/search.js"></script>
-  <script src="assets/js/ui.js"></script>
-  <script src="assets/js/app.js"></script>
+  <!-- defer (not plain <script>): lets the browser fetch these in parallel with HTML parsing
+       instead of only starting once the parser reaches this point, and keeps them off Lighthouse's
+       render-blocking critical path. Execution order is preserved, and DOMContentLoaded still fires
+       only after all of them run — App.boot() below waits for that same event. -->
+  <script src="assets/js/icons.js" defer></script>
+  <script src="assets/js/render.js" defer></script>
+  <script src="assets/js/filters.js" defer></script>
+  <script src="assets/js/search.js" defer></script>
+  <script src="assets/js/ui.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
   <script>
-    App.boot();
+    document.addEventListener('DOMContentLoaded', () => App.boot());
   </script>
 </body>
 </html>
