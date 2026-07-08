@@ -1,19 +1,32 @@
 ---
-description: Never commit, push, or open PRs/MRs without explicit owner approval
+description: Never commit without explicit owner approval; never merge without it either
 alwaysApply: true
 ---
 
-# Git commit, push, and PR/MR approval gate
+# Git commit, push, PR, and merge approval gate
 
 ## Hard rule
 
-Do **not** run `git commit`, `git push`, force-push, open a pull request / merge request, or merge to any branch
-unless the project owner has **explicitly approved that specific action** in the current message.
+Do **not** run `git commit` unless the project owner has **explicitly approved that specific commit** in the
+current message. Do **not** merge a pull request, or push directly to `master`/`main` (or any other protected
+branch), unless the project owner has **explicitly approved that specific merge**.
 
 - "Looks good", "proceed", "implement the plan", or completing a todo list are **not** approval to commit.
-- Approval to commit is **not** approval to push. Approval to push is **not** approval to open a PR/MR or merge.
-- Each of commit / push / open PR / merge needs its **own** explicit go-ahead (e.g. "commit this", "push it",
-  "open the PR", "merge").
+- Direct push to `master`/`main` is never done regardless of approval wording — always push a feature branch (this
+  is also enforced server-side by branch protection; see `12_DECISIONS.md` DR-018).
+- Merge approval is always its **own** explicit go-ahead (e.g. "merge it", "approve and merge") — commit approval
+  never implies merge approval.
+
+## Once a commit is approved: push + open the PR automatically
+
+After the owner approves a commit, proceed **without another round of asking** to:
+
+1. `git commit` the approved change.
+2. Push it on a feature branch (never `master`/`main` directly).
+3. Open the pull request (`gh pr create`) targeting `master`, with a clear summary and test plan in the body.
+
+Report the PR URL and required-check status, then **stop** — do not merge. The owner reviews/merges the PR
+themselves on GitHub, or tells you to merge once checks are green and they've verified it.
 
 ## Before asking to commit
 
@@ -21,16 +34,17 @@ unless the project owner has **explicitly approved that specific action** in the
 2. Tell the owner how to verify locally (HTTP serve + hard refresh; for print CSS use **Print Preview** Ctrl/Cmd+P —
    print styles do not appear on the normal screen view).
 3. Wait for explicit approval to commit.
-4. Only then run `git commit`.
+4. Only then run `git commit`, then push + open the PR per the section above.
 
-## Before asking to push / open a PR
+## Before merging
 
-1. Confirm the commit(s) to be pushed and summarize them.
-2. Wait for explicit approval to push, separately from commit approval.
-3. Only then run `git push` / `gh pr create` / merge.
+1. Confirm both required checks (`Verify scripts`, `UI smoke (Playwright search)`) are green on the PR.
+2. Wait for the owner's explicit approval to merge, separate from commit approval.
+3. Only then merge (or let the owner merge via GitHub directly).
 
-## If you commit or push without approval
+## If you commit, push to a protected branch, or merge without approval
 
-Stop immediately, tell the owner what happened, and ask whether to undo (`git reset --soft` for an unpushed commit)
-or leave it and hold all further git writes until told otherwise. Do not proceed with more changes on top of an
-unapproved commit/push without the owner's direction.
+Stop immediately, tell the owner what happened, and ask whether to undo (`git reset --soft` for an unpushed commit;
+branch protection already blocks direct pushes/merges, but if bypassed, revert) or leave it and hold all further
+git writes until told otherwise. Do not proceed with more changes on top of an unapproved commit/push/merge without
+the owner's direction.

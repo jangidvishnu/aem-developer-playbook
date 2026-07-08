@@ -56,7 +56,13 @@ Writer, Information Architect, Senior Software Engineer, UX Architect, Research 
 3. Never rewrite working content without a stated reason.
 4. Never hardcode company or content data inside HTML — use `data/*.json` (see `09_DATA_MODEL.md`).
 5. Keep content separate from rendering.
-6. Use vanilla JavaScript and Tailwind CSS. No frameworks, no build step, no unnecessary dependencies.
+6. Use vanilla JavaScript and hand-written CSS (`assets/css/site.css`). No frameworks, no CSS framework/CDN, no
+   unnecessary dependencies (dev-only tooling like ESLint/Prettier is held to a lower bar — see `12_DECISIONS.md`
+   DR-021 — since it never reaches the browser). No build step **at request/deploy time** — `index.html` is served
+   exactly as committed, with no server-side rendering, bundling, or transpilation step in between. The one narrow
+   exception: `npm run prerender` (Milestone 14, DR-022) bakes `data/*.json` into `index.html`/`sitemap.xml`/
+   `robots.txt` ahead of time, as a manual/pre-commit step whose output is committed like any other file — GitHub
+   Pages still just serves static files with zero build step on its side.
 7. Every change must remain GitHub Pages compatible, offline compatible, responsive, accessible, and print-friendly.
 8. Prefer evidence over assumption; mark opinion vs. verified fact (see `07_RESEARCH_GUIDE.md`).
 9. Improve the whole document/system, not only the requested section, when doing so is low-risk and in scope.
@@ -101,10 +107,21 @@ conflicting content, evidence of concurrent edits) — stop and report before co
 A living snapshot of what is true right now. Update this section whenever the state of the project changes
 materially — it exists so a new session never has to reconstruct context from scratch.
 
-**Current state:** `index.html` is a thin shell (Tailwind CDN + `assets/css/site.css`, vanilla JS boot script).
-Default **product mode** (`data/site.json` `mode: "product"`) renders jobs-first IA: hero → Target Companies → How I Apply
-→ learning chapters. Mobile drawer nav and company cards ship in Milestone 11. Append `?mode=dev` for full handbook
-chrome. Regression: `scripts/verify-render.js`, `verify-search.js`, `verify-filters.js`.
+**Current state:** `index.html` is a thin shell — `assets/css/site.css` for all styling (no Tailwind, removed
+Milestone 11 per DR-015), six `assets/js/*.js` namespaces (`Icons`, `Render`, `CompanyFilters`, `Search`, `UI`,
+`App`), and a single `App.boot();` call (the ~290-line inline bootstrap script was extracted into `assets/js/app.js`
+in Milestone 13, DR-019). Default **product mode** (`data/site.json` `mode: "product"`) renders jobs-first IA: hero
+→ Target Companies (sortable, filterable, paginated table) → How I Apply → learning chapters. Mobile drawer nav and
+company cards ship in Milestone 11; sortable table column headers ship in Milestone 13. Append `?mode=dev` for full
+handbook chrome. **Milestone 14 (DR-022):** `index.html`'s product-mode content (header, disclaimer, search shells,
+sidebar, hero, every chapter including the company table, footer) plus `sitemap.xml`/`robots.txt` are prerendered
+from `data/*.json` by `npm run prerender` (`scripts/prerender.js`, splicing into fixed
+`<!-- PRERENDER:START/END:x -->` comment markers) so crawlers and first paint see real HTML — `assets/js/app.js`
+still re-renders everything client-side afterward for full interactivity; this is a static baseline, not hydration.
+Regression: `npm run verify` (chains `scripts/verify-render.js`, `verify-search.js`, `verify-filters.js`,
+`verify-owner-playbook.js`, `verify-companies.js`, `verify-learning.js`, `verify-prerender.js`) and `npm run lint`
+(ESLint + Prettier, DR-021). Re-run `npm run prerender` after any `data/*.json` edit — `verify-prerender.js` fails
+the build otherwise.
 
 **Key incident on record:** early on, 20 previously-committed `.playbook` documents and `.github/copilot-instructions.md`
 were found deleted from the working tree with no corresponding action from the reviewing session; circumstantial

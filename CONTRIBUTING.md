@@ -23,14 +23,28 @@ npx serve -p 3456
 
 Open `http://localhost:3456`. On first paint you should see a short branded loader, then content.
 
-Checks before you open a PR (`npm run verify` now includes render, search, filters, owner playbook, companies,
-and learning-data validation — no separate command needed per data file):
+**If you changed any `data/*.json` file, run `npm run prerender` first** — Milestone 14 bakes that data into
+`index.html`/`sitemap.xml`/`robots.txt` for SEO (`.playbook/12_DECISIONS.md` DR-022), and `npm run verify` will fail
+with a "STALE" error (naming the file and the first differing character) if you forget:
 
 ```bash
+npm run prerender
+```
+
+Checks before you open a PR (`npm run verify` now includes render, search, filters, owner playbook, companies,
+learning-data, and prerender-freshness validation — no separate command needed per data file):
+
+```bash
+npm install
 npm run verify
-# optional (needs: npm install && npx playwright install chromium)
+npm run lint
+# optional (needs: npx playwright install chromium)
 npm run ui-smoke
 ```
+
+`npm run lint` (ESLint + Prettier) and `npm run verify` (which includes the prerender freshness check) both also run
+automatically via a local pre-commit hook once you've run `npm install` — see `.playbook/12_DECISIONS.md` DR-021 and
+DR-022.
 
 ## What to change where
 
@@ -40,6 +54,7 @@ npm run ui-smoke
 | Chapters / copy | `data/chapters.json`, `data/site.json`, `data/owner_playbook.json`, etc. |
 | UI / layout | `assets/js/`, `assets/css/site.css`, `index.html` |
 | Process / architecture | `.playbook/` (maintainers usually own this) |
+| Prerendered content (`index.html`'s baked sections, `sitemap.xml`, `robots.txt`) | Never hand-edit — regenerate with `npm run prerender` after a `data/*.json` change (DR-022) |
 
 Rules that matter most:
 
@@ -53,7 +68,9 @@ More detail: [`.playbook/06_EDITOR_GUIDE.md`](.playbook/06_EDITOR_GUIDE.md) and 
 ## Pull request checklist
 
 - [ ] Change is scoped (one concern per PR when practical)
+- [ ] Ran `npm run prerender` if any `data/*.json` file changed (DR-022)
 - [ ] `npm run verify` passes
+- [ ] `npm run lint` passes
 - [ ] No secrets or credentials committed
 - [ ] Company updates include sources / verification where applicable
 - [ ] UX changes still work in light/dark mode and on a narrow viewport

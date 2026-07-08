@@ -14,10 +14,25 @@ const Render = {
     return '';
   },
 
+  // Browser: index.html loads filters.js as a separate <script>, so `CompanyFilters` is already a
+  // bare identifier in the shared script scope by the time any Render method actually runs.
+  // Node (scripts/verify-render.js requires render.js in isolation): fall back to require().
+  _companyFilters() {
+    return typeof CompanyFilters !== 'undefined' ? CompanyFilters : require('./filters.js').CompanyFilters;
+  },
+
   escapeHtml(value) {
-    return String(value).replace(/[&<>"']/g, ch => ({
-      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-    }[ch]));
+    return String(value).replace(
+      /[&<>"']/g,
+      ch =>
+        ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        })[ch]
+    );
   },
 
   isProductMode(options) {
@@ -51,12 +66,12 @@ const Render = {
     if (typeof purpose === 'string') {
       return `<div class="doc-hero__purpose"><p class="doc-hero__purpose-intro">${Render.escapeHtml(purpose)}</p></div>`;
     }
-    const intro = purpose.intro || purpose.lead
-      ? `<p class="doc-hero__purpose-intro">${Render.escapeHtml(purpose.intro || purpose.lead)}</p>`
-      : '';
-    const points = Array.isArray(purpose.points) && purpose.points.length
-      ? `<ul class="doc-hero__purpose-list">${purpose.points.map(p => `<li>${Render.escapeHtml(p)}</li>`).join('')}</ul>`
-      : '';
+    const intro =
+      purpose.intro || purpose.lead ? `<p class="doc-hero__purpose-intro">${Render.escapeHtml(purpose.intro || purpose.lead)}</p>` : '';
+    const points =
+      Array.isArray(purpose.points) && purpose.points.length
+        ? `<ul class="doc-hero__purpose-list">${purpose.points.map(p => `<li>${Render.escapeHtml(p)}</li>`).join('')}</ul>`
+        : '';
     if (!intro && !points) return '';
     return `<div class="doc-hero__purpose">${intro}${points}</div>`;
   },
@@ -129,12 +144,8 @@ const Render = {
   pageHeader(meta, options) {
     const short = meta.shortTitle || meta.title;
     const product = Render.isProductMode(options);
-    const fullTitle = product
-      ? ''
-      : `<div class="doc-wordmark__full">${Render.escapeHtml(meta.title)}</div>`;
-    const version = product
-      ? ''
-      : `<span class="doc-wordmark__full">${Render.escapeHtml(meta.versionLabel || '')}</span>`;
+    const fullTitle = product ? '' : `<div class="doc-wordmark__full">${Render.escapeHtml(meta.title)}</div>`;
+    const version = product ? '' : `<span class="doc-wordmark__full">${Render.escapeHtml(meta.versionLabel || '')}</span>`;
     const compactClass = product ? ' doc-wordmark--compact' : '';
     return `<a href="#hero" class="doc-wordmark${compactClass}"><div class="doc-wordmark__title">${Render.escapeHtml(short)}</div>${fullTitle}${version}</a>`;
   },
@@ -143,8 +154,7 @@ const Render = {
     if (!content || !content.message) return '';
     let cta = '';
     if (content.contributing) {
-      const url = content.contributingUrl
-        || (header && header.githubUrl ? String(header.githubUrl).replace(/\/$/, '') + '/pulls' : '');
+      const url = content.contributingUrl || (header && header.githubUrl ? String(header.githubUrl).replace(/\/$/, '') + '/pulls' : '');
       if (url) {
         cta = ` <a href="${Render.escapeHtml(url)}" class="site-disclaimer__link">${Render.escapeHtml(content.contributing)}</a>`;
       } else {
@@ -157,7 +167,7 @@ const Render = {
   search(config, wrapId, idSuffix) {
     const id = wrapId || 'search-wrap';
     const s = idSuffix || '';
-    const i = (base) => base + s;
+    const i = base => base + s;
     return `<div class="search-wrap" id="${id}"><div class="search-wrap__field search-wrap__field--icon"><span class="search-wrap__icon" aria-hidden="true">${Render.icon('search')}</span><span class="sr-only">${Render.escapeHtml(config.ariaLabel)}</span><input id="${i('search')}" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" aria-controls="${i('search-results')}" aria-expanded="false" aria-autocomplete="list" autocomplete="off" type="text" role="searchbox" inputmode="search" /><button type="button" class="search-clear hidden" id="${i('search-clear')}" aria-label="${Render.escapeHtml(config.clearLabel || 'Clear search')}">${Render.icon('x')}</button></div><div id="${i('search-panel')}" class="search-panel hidden"><div id="${i('search-facets')}" class="search-facets" role="group" aria-label="Filter search results"></div><div id="${i('search-results')}" class="search-results" role="listbox"></div></div><p id="${i('search-status')}" class="sr-only" aria-live="polite"></p></div>`;
   },
 
@@ -169,10 +179,12 @@ const Render = {
       { id: 'chapter', label: 'Chapters' },
       { id: 'learning', label: 'Learning' }
     ];
-    const sourceChips = sources.map(s => {
-      const active = (state.sourceFilter || '') === s.id ? ' search-facet-chip--active' : '';
-      return `<button type="button" class="search-facet-chip${active}" data-search-facet="sourceFilter" data-value="${Render.escapeHtml(s.id)}">${Render.escapeHtml(s.label)}</button>`;
-    }).join('');
+    const sourceChips = sources
+      .map(s => {
+        const active = (state.sourceFilter || '') === s.id ? ' search-facet-chip--active' : '';
+        return `<button type="button" class="search-facet-chip${active}" data-search-facet="sourceFilter" data-value="${Render.escapeHtml(s.id)}">${Render.escapeHtml(s.label)}</button>`;
+      })
+      .join('');
     return `<div class="search-facets-bar"><div class="search-facets-chips">${sourceChips}</div><div class="company-explorer__footer-copy"><button type="button" data-copy-discovery-link class="copy-link-btn">${Render.icon('copy')} Copy link</button><span data-copy-link-status class="copy-toast hidden" aria-live="polite">Copied!</span></div></div>`;
   },
 
@@ -193,28 +205,42 @@ const Render = {
     if (!query || !query.trim()) return '';
     if (!results.length) {
       const msg = Render.searchEmptyMessage(query, meta);
-      const tryAll = meta && meta.rawCount > 0 && meta.sourceFilter
-        ? ' <button type="button" class="search-facet-chip search-reset-facet" data-search-facet="sourceFilter" data-value="">Search all</button>'
-        : '';
+      const tryAll =
+        meta && meta.rawCount > 0 && meta.sourceFilter
+          ? ' <button type="button" class="search-facet-chip search-reset-facet" data-search-facet="sourceFilter" data-value="">Search all</button>'
+          : '';
       return `<p class="search-empty">${Render.escapeHtml(msg)}${tryAll}</p>`;
     }
     const typeLabel = {
-      chapter: 'Chapter', company: 'Company', owner: 'Apply', roadmap: 'Roadmap', 'roadmap-step': 'Roadmap step', site: 'Site',
-      glossary: 'Glossary', technology: 'Technology', career: 'Career path', interview: 'Interview',
-      template: 'Template', resource: 'Resource'
+      chapter: 'Chapter',
+      company: 'Company',
+      owner: 'Apply',
+      roadmap: 'Roadmap',
+      'roadmap-step': 'Roadmap step',
+      site: 'Site',
+      glossary: 'Glossary',
+      technology: 'Technology',
+      career: 'Career path',
+      interview: 'Interview',
+      template: 'Template',
+      resource: 'Resource'
     };
-    return results.map((r, i) => {
-      const active = i === activeIndex ? ' search-result--active' : '';
-      const label = typeLabel[r.source] || r.source;
-      return `<button type="button" class="search-result${active}" role="option" data-anchor="${Render.escapeHtml(r.anchor)}" data-chapter-index="${r.chapterIndex != null ? r.chapterIndex : ''}" aria-selected="${i === activeIndex}"><span class="search-result__type">${Render.escapeHtml(label)}</span><span class="search-result__title">${Render.escapeHtml(r.title)}</span><span class="search-result__snippet">${Render.escapeHtml(r.snippet)}</span></button>`;
-    }).join('');
+    return results
+      .map((r, i) => {
+        const active = i === activeIndex ? ' search-result--active' : '';
+        const label = typeLabel[r.source] || r.source;
+        return `<button type="button" class="search-result${active}" role="option" data-anchor="${Render.escapeHtml(r.anchor)}" data-chapter-index="${r.chapterIndex != null ? r.chapterIndex : ''}" aria-selected="${i === activeIndex}"><span class="search-result__type">${Render.escapeHtml(label)}</span><span class="search-result__title">${Render.escapeHtml(r.title)}</span><span class="search-result__snippet">${Render.escapeHtml(r.snippet)}</span></button>`;
+      })
+      .join('');
   },
 
   sidebar(chapters) {
-    return chapters.map(c => {
-      const anchor = c.id ? `#${Render.escapeHtml(c.id)}` : '#main';
-      return `<a href="${anchor}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id || '')}">${Render.escapeHtml(c.title)}</a>`;
-    }).join('');
+    return chapters
+      .map(c => {
+        const anchor = c.id ? `#${Render.escapeHtml(c.id)}` : '#main';
+        return `<a href="${anchor}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id || '')}">${Render.escapeHtml(c.title)}</a>`;
+      })
+      .join('');
   },
 
   sidebarGrouped(chapters, groups) {
@@ -226,15 +252,19 @@ const Render = {
       const items = (g.chapterIds || []).map(id => byId.get(id)).filter(Boolean);
       if (!items.length) return;
       items.forEach(c => used.add(c.id));
-      const links = items.map(c => {
-        const anchor = `#${Render.escapeHtml(c.id)}`;
-        return `<a href="${anchor}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id)}">${Render.escapeHtml(c.title)}</a>`;
-      }).join('');
+      const links = items
+        .map(c => {
+          const anchor = `#${Render.escapeHtml(c.id)}`;
+          return `<a href="${anchor}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id)}">${Render.escapeHtml(c.title)}</a>`;
+        })
+        .join('');
       html += `<details class="doc-nav__group" data-nav-group="${Render.escapeHtml(g.id)}" open><summary>${Render.escapeHtml(g.label)}</summary><div class="doc-nav__links">${links}</div></details>`;
     });
-    chapters.filter(c => !used.has(c.id)).forEach(c => {
-      html += `<a href="#${Render.escapeHtml(c.id)}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id)}">${Render.escapeHtml(c.title)}</a>`;
-    });
+    chapters
+      .filter(c => !used.has(c.id))
+      .forEach(c => {
+        html += `<a href="#${Render.escapeHtml(c.id)}" class="doc-nav__link" data-nav-id="${Render.escapeHtml(c.id)}">${Render.escapeHtml(c.title)}</a>`;
+      });
     return html;
   },
 
@@ -265,13 +295,22 @@ const Render = {
         { v: stats.india, l: 'Hiring in India' },
         { v: stats.cloud, l: 'AEM Cloud' },
         { v: stats.gcc, l: 'GCCs' }
-      ].map(s => `<div class="stat-card"><div class="stat-card__value">${s.v}</div><div class="stat-card__label">${Render.escapeHtml(s.l)}</div></div>`).join('');
+      ]
+        .map(
+          s =>
+            `<div class="stat-card"><div class="stat-card__value">${s.v}</div><div class="stat-card__label">${Render.escapeHtml(s.l)}</div></div>`
+        )
+        .join('');
       return `<section id="hero" class="doc-hero"><h2>${Render.escapeHtml(content.title)}</h2><p class="doc-hero__desc">${Render.escapeHtml(content.body)}</p>${purpose}<div class="doc-hero__stats">${statCards}</div>${ctas}</section>`;
     }
     let ctas = '';
     if (Render.isProductMode(options) && (content.ctaCompanies || content.ctaApply)) {
-      const browse = content.ctaCompanies ? `<a class="hero-cta" href="#target-companies">${Render.escapeHtml(content.ctaCompanies)}</a>` : '';
-      const apply = content.ctaApply ? `<a class="hero-cta hero-cta--secondary" href="#how-to-apply">${Render.escapeHtml(content.ctaApply)}</a>` : '';
+      const browse = content.ctaCompanies
+        ? `<a class="hero-cta" href="#target-companies">${Render.escapeHtml(content.ctaCompanies)}</a>`
+        : '';
+      const apply = content.ctaApply
+        ? `<a class="hero-cta hero-cta--secondary" href="#how-to-apply">${Render.escapeHtml(content.ctaApply)}</a>`
+        : '';
       ctas = `<div class="hero-cta-row">${browse}${apply}</div>`;
     }
     return `<section id="hero" class="doc-hero"><h2>${Render.escapeHtml(content.title)}</h2><p class="doc-hero__desc">${Render.escapeHtml(content.body)}</p>${purpose}${ctas}</section>`;
@@ -287,12 +326,14 @@ const Render = {
 
   roadmapPanel(roadmap, options) {
     const hideStatus = Render.isProductMode(options);
-    const steps = (roadmap.steps || []).map(s => {
-      const desc = s.description ? `<p class="text-sm mt-1">${Render.escapeHtml(s.description)}</p>` : '';
-      const hours = s.estimatedHours ? ` <span class="text-xs">(~${s.estimatedHours}h)</span>` : '';
-      const status = hideStatus ? '' : `<span class="text-slate-500 text-sm">${Render.escapeHtml(s.status)}</span> — `;
-      return `<li id="roadmap-step-${Render.escapeHtml(s.id)}">${status}<strong>${Render.escapeHtml(s.title)}</strong>${hours}${desc}</li>`;
-    }).join('');
+    const steps = (roadmap.steps || [])
+      .map(s => {
+        const desc = s.description ? `<p class="text-sm mt-1">${Render.escapeHtml(s.description)}</p>` : '';
+        const hours = s.estimatedHours ? ` <span class="text-xs">(~${s.estimatedHours}h)</span>` : '';
+        const status = hideStatus ? '' : `<span class="text-slate-500 text-sm">${Render.escapeHtml(s.status)}</span> — `;
+        return `<li id="roadmap-step-${Render.escapeHtml(s.id)}">${status}<strong>${Render.escapeHtml(s.title)}</strong>${hours}${desc}</li>`;
+      })
+      .join('');
     if (hideStatus) {
       return `<details class="roadmap-accordion" id="roadmap-${Render.escapeHtml(roadmap.id)}"><summary>${Render.escapeHtml(roadmap.title)}</summary><div class="roadmap-accordion__body"><p class="text-sm mb-3">${Render.escapeHtml(roadmap.summary)}</p><ol>${steps}</ol></div></details>`;
     }
@@ -300,11 +341,13 @@ const Render = {
   },
 
   uiSelect(filterKey, label, options, current, extraClass) {
-    const opts = options.map(o => {
-      const sel = o.id === current ? ' ui-select__option--active' : '';
-      const aria = o.id === current ? 'true' : 'false';
-      return `<li role="option" class="ui-select__option${sel}" data-value="${Render.escapeHtml(o.id)}" aria-selected="${aria}">${Render.escapeHtml(o.label)}</li>`;
-    }).join('');
+    const opts = options
+      .map(o => {
+        const sel = o.id === current ? ' ui-select__option--active' : '';
+        const aria = o.id === current ? 'true' : 'false';
+        return `<li role="option" class="ui-select__option${sel}" data-value="${Render.escapeHtml(o.id)}" aria-selected="${aria}">${Render.escapeHtml(o.label)}</li>`;
+      })
+      .join('');
     const cur = options.find(o => o.id === current) || options[0];
     const cls = extraClass ? `ui-select ${extraClass}` : 'ui-select';
     return `<div class="${cls}" data-ui-select><span class="ui-select__label">${Render.escapeHtml(label)}</span><button type="button" class="ui-select__trigger" aria-haspopup="listbox" aria-expanded="false"><span class="ui-select__value">${Render.escapeHtml(cur.label)}</span>${Render.icon('chevronDown')}</button><ul class="ui-select__list hidden" role="listbox">${opts}</ul><input type="hidden" data-company-filter="${Render.escapeHtml(filterKey)}" value="${Render.escapeHtml(current || '')}" /></div>`;
@@ -380,7 +423,7 @@ const Render = {
   companyRow(x, options) {
     const name = Render.companyName(x);
     const careers = Render.companyCareersLink(x);
-    const india = x.indiaPresence != null ? x.indiaPresence : (x.india || 'Unknown');
+    const india = x.indiaPresence != null ? x.indiaPresence : x.india || 'Unknown';
     const type = x.companyType || x.type || 'Unknown';
     const priority = x.priority != null ? x.priority : '';
     const status = x.Status || 'Unknown';
@@ -396,7 +439,7 @@ const Render = {
   companyCard(x) {
     const name = Render.companyName(x);
     const type = x.companyType || x.type || 'Unknown';
-    const india = x.indiaPresence != null ? x.indiaPresence : (x.india || 'Unknown');
+    const india = x.indiaPresence != null ? x.indiaPresence : x.india || 'Unknown';
     const priority = x.priority != null ? x.priority : '';
     const cloudBadge = x.AEMaaCS ? '<span class="badge badge--cloud">Cloud</span>' : '';
     const careers = Render.companyCareersLink(x);
@@ -415,7 +458,9 @@ const Render = {
     return `<span class="table-tip"><button type="button" class="table-tip__trigger" data-table-tip aria-controls="${id}" aria-expanded="false" aria-label="How to search on careers sites">${Render.icon('info', 'icon icon--sm')}</button><span id="${id}" role="tooltip" class="table-tip__panel">${Render.escapeHtml(text)}</span></span>`;
   },
 
-  companyTableHead(headers, product) {
+  /** aria-sort + a clickable header button for columns with a CompanyFilters.COLUMN_SORTS entry
+   *  (Priority, Company, Type, India); other columns (Hiring, Status, Careers, Visa) stay plain. */
+  companyTableHead(headers, product, currentSort) {
     const colClass = {
       Priority: 'company-table__th--priority',
       Company: 'company-table__th--name',
@@ -423,13 +468,23 @@ const Render = {
       India: 'company-table__th--india',
       Careers: 'company-table__th--careers'
     };
-    return headers.map(h => {
-      const cls = colClass[h] || '';
-      if (product && h === 'Careers') {
-        return `<th scope="col" class="company-table__th--careers"><div class="company-table__th-careers-inner"><span>${Render.escapeHtml(h)}</span>${Render.careersTipMarkup('careers-col-tip')}</div></th>`;
-      }
-      return `<th scope="col" class="${cls}">${Render.escapeHtml(h)}</th>`;
-    }).join('');
+    const filters = Render._companyFilters();
+    return headers
+      .map(h => {
+        const cls = colClass[h] || '';
+        if (product && h === 'Careers') {
+          return `<th scope="col" class="company-table__th--careers"><div class="company-table__th-careers-inner"><span>${Render.escapeHtml(h)}</span>${Render.careersTipMarkup('careers-col-tip')}</div></th>`;
+        }
+        const sortPair = filters.COLUMN_SORTS[h];
+        if (sortPair) {
+          const dir = filters.sortDirectionFor(h, currentSort || '');
+          const ariaSort = dir === 'asc' ? 'ascending' : dir === 'desc' ? 'descending' : 'none';
+          const arrow = dir ? Render.icon(dir === 'asc' ? 'chevronUp' : 'chevronDown', 'icon icon--sm sort-indicator') : '';
+          return `<th scope="col" class="${cls} company-table__th--sortable" aria-sort="${ariaSort}"><button type="button" class="company-table__sort-btn" data-sort-column="${Render.escapeHtml(h)}">${Render.escapeHtml(h)}${arrow}</button></th>`;
+        }
+        return `<th scope="col" class="${cls}">${Render.escapeHtml(h)}</th>`;
+      })
+      .join('');
   },
 
   companyTableColumns(product) {
@@ -448,54 +503,30 @@ const Render = {
     const slice = companies.slice((safePage - 1) * pageSize, safePage * pageSize);
     const product = Render.isProductMode(options);
     const headers = Render.companyTableColumns(product);
-    const head = Render.companyTableHead(headers, product);
+    const currentSort = options.filterState && options.filterState.sort;
+    const head = Render.companyTableHead(headers, product, currentSort);
     const rows = slice.map(c => Render.companyRow(c, options)).join('');
-  const pad = Math.max(0, pageSize - slice.length);
-    const emptyRows = Array(pad).fill('<tr class="company-table__pad"><td colspan="' + headers.length + '"></td></tr>').join('');
+    const pad = Math.max(0, pageSize - slice.length);
+    const emptyRows = Array(pad)
+      .fill('<tr class="company-table__pad"><td colspan="' + headers.length + '"></td></tr>')
+      .join('');
     const tableClass = product ? 'company-table company-table--product' : 'company-table';
     const table = `<div class="company-table-desktop company-explorer__table-wrap"><table class="${tableClass}"><thead><tr>${head}</tr></thead><tbody>${rows}${emptyRows}</tbody></table></div>`;
-    const cardsTip = product
-      ? `<div class="company-cards-tip">${Render.careersTipMarkup('careers-cards-tip')}</div>`
-      : '';
+    const cardsTip = product ? `<div class="company-cards-tip">${Render.careersTipMarkup('careers-cards-tip')}</div>` : '';
     const cards = `${cardsTip}<div class="company-cards">${slice.map(Render.companyCard).join('')}</div>`;
     return table + cards;
   },
 
   companyFilterActive(state) {
-    const s = state || {};
-    return !!(
-      String(s.query || '').trim() ||
-      s.companyType ||
-      s.industry ||
-      s.migrationBand ||
-      s.hiringIndia ||
-      s.hiringAEM ||
-      s.aemaaCS ||
-      s.verifiedOnly
-    );
+    return Render._companyFilters().hasActiveFilters(state);
   },
 
   companyFilterBar(state, total, filtered, industries, options) {
     const product = Render.isProductMode(options);
     const types = ['', 'Product', 'GCC', 'Agency', 'Enterprise'];
-    const sortOptions = product
-      ? [
-        { id: 'priority-desc', label: 'Priority (high first)' },
-        { id: 'priority-asc', label: 'Priority (low first)' },
-        { id: 'name-asc', label: 'Name (A–Z)' },
-        { id: 'name-desc', label: 'Name (Z–A)' },
-        { id: 'type-asc', label: 'Type (A–Z)' },
-        { id: 'india-desc', label: 'India hiring first' }
-      ]
-      : [
-        { id: 'priority-desc', label: 'Priority (high first)' },
-        { id: 'priority-asc', label: 'Priority (low first)' },
-        { id: 'name-asc', label: 'Name (A–Z)' },
-        { id: 'name-desc', label: 'Name (Z–A)' },
-        { id: 'type-asc', label: 'Type (A–Z)' },
-        { id: 'type-desc', label: 'Type (Z–A)' },
-        { id: 'india-desc', label: 'India hiring first' }
-      ];
+    // Single source of truth: CompanyFilters.SORT_OPTIONS (M13 cleanup — this used to be two
+    // separately-maintained, already-diverged inline copies of the same list).
+    const sortOptions = Render._companyFilters().sortOptionsFor(product);
     const industryList = industries || [];
     const typeOptions = types.map(t => ({ id: t, label: t || 'All types' }));
     const industryOptions = [''].concat(industryList).map(ind => ({ id: ind, label: ind || 'All industries' }));
@@ -525,14 +556,11 @@ const Render = {
     const sortField = Render.uiSelect('sort', 'Sort', sortOptions, state.sort || 'priority-desc', 'ui-select--sort');
     const typeField = Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '', 'ui-select--filter');
     const industryField = Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '', 'ui-select--filter');
-    const filters = product
-      ? `<div class="company-filters company-filters--product">
-          ${searchField}
-          <div class="company-filters__sort">${sortField}</div>
-          <div class="company-filters__type">${typeField}</div>
-          <div class="company-filters__industry">${industryField}</div>
-        </div>`
-      : `<div class="company-filters company-filters--product">
+    // Was a `product ? X : X` ternary with two byte-for-byte identical branches (dead code, found in
+    // the M13 audit). The `--product` grid-layout modifier is intentionally applied in both modes —
+    // it's a genuinely shared layout, not a product-only one — so collapsed to one template rather
+    // than making it conditional, which would have silently changed dev mode's toolbar layout.
+    const filters = `<div class="company-filters company-filters--product">
           ${searchField}
           <div class="company-filters__sort">${sortField}</div>
           <div class="company-filters__type">${typeField}</div>
@@ -569,7 +597,8 @@ const Render = {
     return Render.paginatedTable(
       terms,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
-      g => `<tr><td class="font-semibold">${Render.escapeHtml(g.term)}</td><td>${Render.escapeHtml(g.definition)}</td><td class="text-muted text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
+      g =>
+        `<tr><td class="font-semibold">${Render.escapeHtml(g.term)}</td><td>${Render.escapeHtml(g.definition)}</td><td class="text-muted text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
       ['Term', 'Definition', 'Related'],
       'glossary'
     );
@@ -580,19 +609,22 @@ const Render = {
     return Render.paginatedTable(
       sorted,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
-      t => `<tr><td class="font-semibold">${Render.escapeHtml(t.name)}</td><td>${Render.escapeHtml(t.category)}</td><td>${Render.escapeHtml(t.difficulty)}</td><td>${Render.escapeHtml(t.summary)}</td></tr>`,
+      t =>
+        `<tr><td class="font-semibold">${Render.escapeHtml(t.name)}</td><td>${Render.escapeHtml(t.category)}</td><td>${Render.escapeHtml(t.difficulty)}</td><td>${Render.escapeHtml(t.summary)}</td></tr>`,
       ['Technology', 'Category', 'Level', 'Summary'],
       'technology'
     );
   },
 
   careerPaths(paths) {
-    return paths.map(p => {
-      const milestones = (p.milestones || []).map(m =>
-        `<li class="mt-2"><strong>${Render.escapeHtml(m.title)}</strong> — ${Render.escapeHtml(m.description)}</li>`
-      ).join('');
-      return `<article class="border rounded-lg p-4 mb-4"><h3 class="font-bold text-lg">${Render.escapeHtml(p.title)}</h3><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(p.summary)}</p><ol class="list-decimal ml-6 mt-3">${milestones}</ol></article>`;
-    }).join('');
+    return paths
+      .map(p => {
+        const milestones = (p.milestones || [])
+          .map(m => `<li class="mt-2"><strong>${Render.escapeHtml(m.title)}</strong> — ${Render.escapeHtml(m.description)}</li>`)
+          .join('');
+        return `<article class="border rounded-lg p-4 mb-4"><h3 class="font-bold text-lg">${Render.escapeHtml(p.title)}</h3><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(p.summary)}</p><ol class="list-decimal ml-6 mt-3">${milestones}</ol></article>`;
+      })
+      .join('');
   },
 
   interviewList(items, options = {}) {
@@ -600,22 +632,24 @@ const Render = {
     return Render.paginatedTable(
       sorted,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
-      q => `<tr><td>${Render.escapeHtml(q.category)}</td><td>${Render.escapeHtml(q.difficulty)}</td><td class="font-semibold">${Render.escapeHtml(q.question)}</td><td class="text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
+      q =>
+        `<tr><td>${Render.escapeHtml(q.category)}</td><td>${Render.escapeHtml(q.difficulty)}</td><td class="font-semibold">${Render.escapeHtml(q.question)}</td><td class="text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
       ['Category', 'Level', 'Question', 'Guidance'],
       'interview'
     );
   },
 
   templatesList(templates) {
-    return templates.map(t =>
-      `<article class="border rounded-lg p-4 mb-4"><h3 class="font-bold">${Render.escapeHtml(t.title)}</h3><p class="text-xs text-slate-500 uppercase mt-1">${Render.escapeHtml(t.category)}</p><p class="mt-2 text-slate-700 whitespace-pre-wrap">${Render.escapeHtml(t.body)}</p></article>`
-    ).join('');
+    return templates
+      .map(
+        t =>
+          `<article class="border rounded-lg p-4 mb-4"><h3 class="font-bold">${Render.escapeHtml(t.title)}</h3><p class="text-xs text-slate-500 uppercase mt-1">${Render.escapeHtml(t.category)}</p><p class="mt-2 text-slate-700 whitespace-pre-wrap">${Render.escapeHtml(t.body)}</p></article>`
+      )
+      .join('');
   },
 
   ownerPlaybookNav(sections) {
-    const links = sections.map(s =>
-      `<a href="#owner-${Render.escapeHtml(s.id)}">${Render.escapeHtml(s.title)}</a>`
-    ).join('');
+    const links = sections.map(s => `<a href="#owner-${Render.escapeHtml(s.id)}">${Render.escapeHtml(s.title)}</a>`).join('');
     return `<nav class="owner-playbook-nav" aria-label="Apply sections">${links}</nav>`;
   },
 
@@ -623,37 +657,42 @@ const Render = {
     if (!playbook || !playbook.sections) return '';
     const product = Render.isProductMode(options);
     const nav = product ? Render.ownerPlaybookNav(playbook.sections) : '';
-    const articles = playbook.sections.map(sec => {
-      const badge = !product && sec.audience === 'owner'
-        ? '<span class="text-xs uppercase text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5">Owner</span>'
-        : '';
-      const steps = Array.isArray(sec.steps) && sec.steps.length
-        ? `<ol class="owner-step-timeline">${sec.steps.map((s, i) =>
-            `<li data-step="${i + 1}">${Render.escapeHtml(s)}</li>`
-          ).join('')}</ol>`
-        : '';
-      const body = sec.body
-        ? `<p class="mt-3 text-slate-600 text-sm">${Render.escapeHtml(sec.body)}</p>`
-        : '';
-      return `<article id="owner-${Render.escapeHtml(sec.id)}" class="owner-section"><div class="flex flex-wrap items-center gap-2"><h3 class="font-bold text-lg">${Render.escapeHtml(sec.title)}</h3>${badge}</div><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(sec.summary)}</p>${steps}${body}</article>`;
-    }).join('');
+    const articles = playbook.sections
+      .map(sec => {
+        const badge =
+          !product && sec.audience === 'owner'
+            ? '<span class="text-xs uppercase text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5">Owner</span>'
+            : '';
+        const steps =
+          Array.isArray(sec.steps) && sec.steps.length
+            ? `<ol class="owner-step-timeline">${sec.steps
+                .map((s, i) => `<li data-step="${i + 1}">${Render.escapeHtml(s)}</li>`)
+                .join('')}</ol>`
+            : '';
+        const body = sec.body ? `<p class="mt-3 text-slate-600 text-sm">${Render.escapeHtml(sec.body)}</p>` : '';
+        return `<article id="owner-${Render.escapeHtml(sec.id)}" class="owner-section"><div class="flex flex-wrap items-center gap-2"><h3 class="font-bold text-lg">${Render.escapeHtml(sec.title)}</h3>${badge}</div><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(sec.summary)}</p>${steps}${body}</article>`;
+      })
+      .join('');
     const productClass = product ? ' owner-playbook--product' : '';
     return `<div class="owner-playbook${productClass}">${nav}<div class="owner-playbook__sections">${articles}</div></div>`;
   },
 
   resourcesList(resources) {
-    return `<ul class="list-disc ml-6 space-y-2">${resources.map(r =>
-      `<li><a class="text-blue-600 underline" href="${Render.escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(r.title)}</a> <span class="text-xs text-slate-500">(${Render.escapeHtml(r.type)})</span></li>`
-    ).join('')}</ul>`;
+    return `<ul class="list-disc ml-6 space-y-2">${resources
+      .map(
+        r =>
+          `<li><a class="text-blue-600 underline" href="${Render.escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(r.title)}</a> <span class="text-xs text-slate-500">(${Render.escapeHtml(r.type)})</span></li>`
+      )
+      .join('')}</ul>`;
   },
 
   chapter(chapter, index, ctx) {
-    const id = chapter.id || ('ch' + index);
+    const id = chapter.id || 'ch' + index;
     const companies = ctx.companies || [];
     const learning = ctx.learning || {};
     const renderOpts = { productMode: ctx.productMode };
     const productApply = ctx.productMode && chapter.ownerPlaybookEmbed;
-    let body = productApply ? '' : (chapter.body || '');
+    let body = productApply ? '' : chapter.body || '';
     if (chapter.companyTable) {
       body = `<div id="company-table-container">${Render.companySection(companies, {
         page: 1,
@@ -686,9 +725,9 @@ const Render = {
       ? ''
       : `<div class="text-xs text-slate-500 mt-1">⏱ ${Render.escapeHtml(reading)} • ${Render.escapeHtml(chapter.tags.join(', '))}</div>`;
     const summaryBlock = ctx.productMode
-      ? (productApply
+      ? productApply
         ? `<p class="section-lead">${Render.escapeHtml(chapter.summary)}</p>`
-        : `<p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p>`)
+        : `<p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p>`
       : `<p class="text-slate-500 mb-4">${Render.escapeHtml(chapter.summary)}</p><details class="mt-6"><summary class="cursor-pointer font-semibold">📌 Summary</summary><div class="mt-2 text-slate-600">${Render.escapeHtml(chapter.summary)}</div></details>`;
     return `<section id="${Render.escapeHtml(id)}" class="section"><h2>${Render.escapeHtml(chapter.title)}</h2>${metaLine}${summaryBlock}${body}</section>`;
   },

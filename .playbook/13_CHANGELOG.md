@@ -44,7 +44,83 @@ and `14_ROADMAP.md`.
 ### Changed
 
 - Sole published company DB remains `data/companies.json`; day-to-day edits go there directly (no live rebuild pipeline).
-- EDS / AEM Forms filter chips moved to Milestone 14 (supersedes scheduling in DR-016).
+- EDS / AEM Forms filter chips moved to Milestone 15 (was Milestone 14 under DR-017; renumbered again when Milestone
+  14 was reassigned to SEO Prerendering, DR-022).
+
+### Audit remediation (2026-07-08)
+
+A Principal Engineer-style production-readiness audit was run against the full repository; every finding was
+addressed in this same pass (folded into M13 rather than a new milestone):
+
+- **Added** `assets/js/app.js` — `index.html`'s ~290-line inline bootstrap script (data fetch, company-table
+  pagination/filter/sort wiring, copy-link) extracted into a real, lintable, `require()`-able module, following the
+  existing `Render`/`Search`/`CompanyFilters`/`UI`/`Icons` namespace pattern (DR-019). `index.html` now contains a
+  single `App.boot();` call and no other logic.
+- **Added** click-to-sort table column headers (Priority, Company, Type, India) with `aria-sort` and a visual
+  direction indicator, reusing the existing `CompanyFilters` sort ids — no new sorting logic, just a new entry
+  point onto it (`CompanyFilters.COLUMN_SORTS` / `nextSortFor` / `sortDirectionFor`).
+- **Added** `UI.debounce()` (200ms), applied to the company-filter toolbar's search input and the site-wide search
+  input, so free-text typing no longer triggers a full filter+sort+re-render on every keystroke. Clicks/changes
+  (chips, selects, checkboxes, pagination) remain immediate.
+- **Added** ESLint + Prettier dev tooling (`eslint.config.js`, `.prettierrc.json`), `npm run lint` / `npm run
+  format`, a `Lint (ESLint + Prettier)` CI step in the `Verify scripts` job, and a dependency-free pre-commit hook
+  (`scripts/git-hooks/pre-commit`, installed via the `prepare` npm script) that runs `npm run verify && npm run
+  lint` locally before every commit (DR-021). The existing `assets/js/**` and `scripts/**` files were reformatted
+  once (`npm run format`) to establish a clean baseline enforced from here on.
+- **Added** a scaling size-guard to `scripts/verify-companies.js`: warns (without failing the build) once
+  `data/companies.json` crosses ~400 companies / ~800KB, alongside a recorded future chunked-fetch strategy for
+  when that happens (DR-020) — avoiding both premature complexity today and silently-forgotten technical debt later.
+- **Fixed** a dead/duplicated `product ? X : X` branch in `Render.companyFilterBar` (both arms were byte-for-byte
+  identical) and deduplicated two independently-drifting copies of the sort-options list into one source of truth,
+  `CompanyFilters.SORT_OPTIONS` (with a `devOnly` flag for the one dev-mode-only entry). `Render.companyFilterActive`
+  now delegates to `CompanyFilters.hasActiveFilters` instead of re-implementing the same checks a second time.
+- **Changed** `filterState` and `searchFacetState` (previously two separately-allocated objects manually kept in
+  sync field-by-field across `assets/js/ui.js` and the old inline script) into a single shared state object, as
+  part of the `app.js` extraction (DR-019).
+- **Docs:** `03_ARCHITECTURE.md`, `04_CODING_STANDARD.md`, `23_PERFORMANCE.md`, `22_SECURITY.md`,
+  `21_PUBLISHING.md`, and `00_PROJECT_OVERVIEW.md` updated to remove stale Tailwind-CDN and pre-M11/M13
+  architecture descriptions that no longer matched the shipped site.
+- **Verified:** `npm run verify`, `npm run lint`, and `npm run ui-smoke` all pass after every change in this pass;
+  the Milestone 3 golden render snapshot (`scripts/milestone-3-render-golden.json`) was intentionally regenerated
+  to reflect the new sortable-header markup (verified as the only diff before regenerating).
+
+## Milestone 14 — SEO Prerendering (implementation complete, pending acceptance)
+
+Implemented immediately after the Milestone 13 audit remediation pass, at the project owner's explicit direction,
+in response to a raised concern that client-side-only rendering makes the site's real content invisible to crawlers
+that don't execute JavaScript. See `12_DECISIONS.md` DR-022 for the full context and alternatives considered.
+
+### Added
+
+- `scripts/prerender.js` and shared `scripts/lib/prerender-core.js`: `require()` `assets/js/render.js` directly in
+  Node (same pattern as `scripts/verify-render.js`) and bake the current `data/*.json` content — page header, both
+  search shells, disclaimer, sidebar label, table of contents, `<main>` (hero + every chapter, including the full
+  company table), and footer — into `index.html` between `<!-- PRERENDER:START:x --><!-- PRERENDER:END:x -->`
+  comment markers. Product mode only; `?mode=dev` stays client-rendered-only.
+- Static `<link rel="canonical">` and a JSON-LD `WebSite` `<script>` baked into `<head>`, both driven by a new
+  `data/site.json` `seo.siteUrl` field.
+- `sitemap.xml` and `robots.txt`, generated (not hand-written) by `scripts/prerender.js` from the same `siteUrl`.
+- `scripts/verify-prerender.js`: regenerates the same output in memory and byte-compares it against what's on disk,
+  failing with the first differing character if `data/*.json` was edited without re-running `npm run prerender`.
+  Added as the final step of `npm run verify`, so it runs identically in CI and the local pre-commit hook (DR-021)
+  — one shared enforcement path for both, per the owner's explicit request.
+- `npm run prerender` script to regenerate `index.html`/`sitemap.xml`/`robots.txt` after any `data/*.json` edit.
+
+### Changed
+
+- `assets/js/app.js` is unchanged — it still fully re-renders every container on load. Prerendering is a static
+  first-paint/SEO baseline, not hydration; see DR-022 for why true hydration was considered and deferred.
+- `00_PROJECT_OVERVIEW.md` rule 6 and `.cursor/rules/constitution.mdc` rule 5 ("no build step") both updated to
+  name this one narrow, documented exception: the *output* of `npm run prerender` is a committed static file, so
+  GitHub Pages still serves everything with zero build step on its side.
+- `14_ROADMAP.md`: the original Milestone 14 ("Company capability filters," DR-017) renumbered to Milestone 15 to
+  make room for this milestone.
+
+### Verified
+
+`npm run verify` (including the new `verify-prerender.js` step), `npm run lint`, and `npm run ui-smoke` all pass.
+Confirmed `npm run prerender` is idempotent (re-running with unchanged data produces byte-identical output) and that
+`npm run verify` correctly fails with a clear message when `data/companies.json` is edited without re-running it.
 
 ## Milestone 12 — Publishing (accepted 2026-07-08)
 

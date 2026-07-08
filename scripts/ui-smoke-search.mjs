@@ -25,7 +25,7 @@ async function main() {
 
   await search.fill('Adobe');
   await page.waitForSelector('.search-panel.is-open .search-result', { timeout: 8000 });
-  if (await page.locator('.search-result').count() < 1) throw new Error('Adobe should return results');
+  if ((await page.locator('.search-result').count()) < 1) throw new Error('Adobe should return results');
 
   await search.fill('AEM');
   await page.waitForSelector('.search-panel.is-open .search-result', { timeout: 8000 });

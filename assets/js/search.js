@@ -4,7 +4,10 @@
  */
 const Search = {
   stripHtml(html) {
-    return String(html).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    return String(html)
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
   },
 
   tokenize(query) {
@@ -44,7 +47,7 @@ const Search = {
   },
 
   chapterAnchor(ch, index) {
-    return '#' + (ch.id || ('ch' + index));
+    return '#' + (ch.id || 'ch' + index);
   },
 
   anchorForChapterFlag(chapters, flag) {
@@ -89,7 +92,16 @@ const Search = {
         source: 'company',
         id: co.id,
         title: name,
-        snippet: [co.companyType || co.type, co.indiaPresence || co.india, co.Status, co.industry, co.HiringAEM ? 'hiring' : '', co.HiringIntensity].filter(Boolean).join(' · '),
+        snippet: [
+          co.companyType || co.type,
+          co.indiaPresence || co.india,
+          co.Status,
+          co.industry,
+          co.HiringAEM ? 'hiring' : '',
+          co.HiringIntensity
+        ]
+          .filter(Boolean)
+          .join(' · '),
         anchor: companyAnchor,
         pageOrder: 1000 + companyChapterIndex + (i + 1) * 0.01,
         facets: Search.companyFacets(co),
@@ -97,7 +109,10 @@ const Search = {
           title: name.toLowerCase(),
           summary: [co.industry, co.companyType, co.Status, co.HiringIntensity, co.Notes].filter(Boolean).join(' ').toLowerCase(),
           tags: (co.TypicalRoles || []).join(' ').toLowerCase(),
-          body: [co.usesAEM ? 'aem' : '', co.AEMVersion, co.MigrationStatus].filter(v => v && v !== 'Unknown').join(' ').toLowerCase()
+          body: [co.usesAEM ? 'aem' : '', co.AEMVersion, co.MigrationStatus]
+            .filter(v => v && v !== 'Unknown')
+            .join(' ')
+            .toLowerCase()
         }
       });
     });
@@ -137,9 +152,15 @@ const Search = {
     });
 
     if (site && site.hero) {
-      const purposeText = typeof site.hero.purpose === 'string'
-        ? site.hero.purpose
-        : [site.hero.purpose && (site.hero.purpose.intro || site.hero.purpose.lead), ...(site.hero.purpose && site.hero.purpose.points || [])].filter(Boolean).join(' ');
+      const purposeText =
+        typeof site.hero.purpose === 'string'
+          ? site.hero.purpose
+          : [
+              site.hero.purpose && (site.hero.purpose.intro || site.hero.purpose.lead),
+              ...((site.hero.purpose && site.hero.purpose.points) || [])
+            ]
+              .filter(Boolean)
+              .join(' ');
       const heroSnippet = [purposeText, site.hero.body].filter(Boolean).join(' ');
       const heroSearchText = [site.hero.title, purposeText, site.hero.body].filter(Boolean).join(' ').toLowerCase();
       entries.push({
@@ -204,7 +225,10 @@ const Search = {
           title: cp.title.toLowerCase(),
           summary: cp.summary.toLowerCase(),
           tags: '',
-          body: (cp.milestones || []).map(m => m.title + ' ' + m.description).join(' ').toLowerCase()
+          body: (cp.milestones || [])
+            .map(m => m.title + ' ' + m.description)
+            .join(' ')
+            .toLowerCase()
         }
       });
     });

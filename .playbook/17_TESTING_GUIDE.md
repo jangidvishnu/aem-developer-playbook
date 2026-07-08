@@ -12,15 +12,22 @@
 - `scripts/verify-owner-playbook.js` — owner playbook schema (Milestone 10).
 - `scripts/verify-companies.js` — `data/companies.json` schema + hiring gate (Milestone 6/13).
 - `scripts/verify-learning.js` — learning data schema and minimum counts (Milestone 7).
+- `scripts/verify-prerender.js` — regenerates prerendered `index.html`/`sitemap.xml`/`robots.txt` in memory and
+  byte-compares against what's committed, failing if `data/*.json` changed without re-running `npm run prerender`
+  (Milestone 14, DR-022).
 
 `npm run ui-smoke` (Playwright, dev-time only) is a separate CI job (`UI smoke (Playwright search)`) that drives a
-real headless browser against the search box, the Target Companies filter bar, search-then-filter, and pagination
-Prev/Next — not just static layout — so a wiring regression (e.g. a filter input that stops updating the table)
-fails CI instead of only failing in the browser. Run it locally after any change to `index.html`'s company wiring
-or `assets/js/render.js`'s company markup.
+real headless browser against the search box, the Target Companies filter bar, search-then-filter, sortable column
+headers, and pagination Prev/Next — not just static layout — so a wiring regression (e.g. a filter input that stops
+updating the table) fails CI instead of only failing in the browser. Run it locally after any change to
+`assets/js/app.js`'s company wiring or `assets/js/render.js`'s company markup.
+
+`npm run lint` (ESLint + Prettier, Milestone 13, DR-021) runs as a step in the same CI `Verify scripts` job, and
+locally via the pre-commit hook (`scripts/git-hooks/pre-commit`, installed by `npm install`). Requires `npm install`
+once to fetch the ESLint/Prettier devDependencies. `npm run format` auto-fixes Prettier-only issues.
 
 Run the full `npm run verify` after changes to `assets/js/render.js`, `assets/js/search.js`, `assets/js/filters.js`,
-or any `data/*.json`.
+`assets/js/app.js`, `assets/js/ui.js`, or any `data/*.json`.
 
 ## Milestone test plans
 
@@ -311,18 +318,20 @@ CI runs the same checks on push/PR via `.github/workflows/ci.yml` (`verify` + `u
 
 ---
 
-### Milestone 13 — Loader + Repo Cleanup (pending acceptance)
+### Milestone 13 — Loader + Repo Cleanup + Audit Remediation (pending acceptance)
 
 **Automated (run from repository root):**
 
 ```bash
+npm install
 npm run verify
+npm run lint
 npm run ui-smoke
 ```
 
-Expected: verify scripts exit 0 (includes companies + learning data); ui-smoke PASS — including the search-filters-
-the-table, focus-stays-in-search-box, and pagination-changes-visible-rows checks added after a 2026-07-08 regression
-— and the process exits.
+Expected: verify scripts exit 0 (includes companies + learning data); lint reports no ESLint errors and "All
+matched files use Prettier code style!"; ui-smoke PASS — including the search-filters-the-table,
+focus-stays-in-search-box, pagination-changes-visible-rows, and sortable-Company-header checks — and the process exits.
 
 **Browser:**
 
@@ -332,12 +341,68 @@ the-table, focus-stays-in-search-box, and pagination-changes-visible-rows checks
 4. Confirm only `data/companies.json` exists under `data/` for companies (no `company-sources` / `manifests`).
 5. Confirm `archive/` contains research MD + archived company pipeline files (`archive/README.md`).
 6. Optional dark-mode check: loader readable in both themes (brief flash) and content OK after load.
+7. **Sortable headers:** click **Company** — rows re-sort A→Z, header shows an up arrow; click again — Z→A, down
+   arrow; click **Priority** / **Type** / **India** — each re-sorts by that column; the **Sort** dropdown's
+   displayed value updates to match whichever header was last clicked.
+8. **Debounced search:** type quickly into the Target Companies search box — focus stays in the box the whole time
+   (no flicker/blur), and the table updates shortly after you stop typing (not on every keystroke).
 
 **Regression:**
 
-7. Search still finds Adobe; filters still work; `?mode=dev` still restores handbook chrome.
+9. Search still finds Adobe; filters still work; `?mode=dev` still restores handbook chrome.
+10. `npm run lint` passes with zero errors (pre-existing files were reformatted once during this milestone to
+    establish the baseline — see `13_CHANGELOG.md`).
 
 **Sign-off:** Pending project owner verification.
+
+---
+
+### Milestone 14 — SEO Prerendering (pending acceptance)
+
+**Automated (run from repository root):**
+
+```bash
+npm run prerender
+npm run verify
+npm run lint
+npm run ui-smoke
+```
+
+Expected: `npm run prerender` reports the three files it wrote; the immediately following `npm run verify` reports
+`OK` (not `STALE`) for `index.html`, `sitemap.xml`, and `robots.txt`, proving the commit is up to date. `npm run
+lint` and `npm run ui-smoke` pass unchanged from Milestone 13 (prerendering does not touch `assets/js/app.js`).
+
+**Staleness check (proves the guard actually works — run once, then revert):**
+
+```bash
+# Temporarily edit any value in data/companies.json (e.g. a company name), then:
+npm run verify
+# Expect: "STALE: index.html does not match..." with a first-differing-character diff, exit code 1.
+# Revert the edit (or run `npm run prerender` then `git checkout -- data/companies.json` if you'd already baked it):
+git checkout -- data/companies.json index.html sitemap.xml robots.txt
+npm run verify   # back to all-OK
+```
+
+**Browser / view-source — no-JS content check:**
+
+1. Serve at `http://localhost:3456`. **View source** (not DevTools Elements, which shows the post-JS DOM) — confirm
+   `<main>` already contains the hero, the full Target Companies table (real company rows, not an empty
+   `<div id="company-table-container">`), the How to Apply steps, and every learning chapter's content.
+2. Confirm `<head>` contains a `<link rel="canonical" href="https://jangidvishnu.github.io/aem-developer-playbook/">`
+   and a `<script type="application/ld+json" id="site-json-ld">` with the site name/description.
+3. Disable JavaScript (or use a plain `curl http://localhost:3456/` / `curl` the live URL) — confirm the same real
+   content is present in the raw HTML response, not just in a browser's live DOM.
+4. Re-enable JavaScript, hard-refresh — confirm the page still behaves exactly as in Milestone 13: loader briefly
+   shows, then search/filter/sort/pagination on Target Companies all work normally (the client re-render replaces
+   the prerendered content with an identical-looking, fully interactive version).
+5. Open `sitemap.xml` and `robots.txt` directly in the browser — confirm both list the live site URL.
+
+**Regression:**
+
+6. Re-run Milestone 13's browser checklist (loader, sortable headers, debounced search) — unaffected by this
+   milestone.
+
+**Sign-off:** Pending project owner verification (accepted together with Milestone 13 — see `19_CURRENT_SPRINT.md`).
 
 ---
 

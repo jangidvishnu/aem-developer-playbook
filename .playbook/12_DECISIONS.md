@@ -12,6 +12,111 @@ mark the old one as superseded.
 
 ---
 
+## DR-022 — Prerender product-mode HTML at commit time for SEO (bake, don't hydrate)
+
+**Date:** 2026-07-08
+**Context:** The site is a single `index.html` shell whose entire `<body>` is empty until `assets/js/app.js`'s
+`App.boot()` runs — real content (the company table, apply guide, learning chapters) only exists in the DOM after a
+client-side `fetch()` + render pass. Googlebot executes JavaScript, but many other crawlers, link-preview bots, and
+some accessibility/archival tools do not, so they see an empty page. This directly conflicts with `00_PROJECT_OVERVIEW.md`'s
+publication-quality goal for a jobs-discovery site whose entire value is being findable.
+**Decision:** Add `scripts/prerender.js` (shared generation logic in `scripts/lib/prerender-core.js`, `require()`ing
+`assets/js/render.js` directly in Node — the same pattern `scripts/verify-render.js` already established) to bake
+the current `data/*.json` content into `index.html` between fixed `<!-- PRERENDER:START:x --><!-- PRERENDER:END:x -->`
+comment markers, for the always-published **product mode** view only (`?mode=dev` stays client-rendered-only, out of
+scope). It also generates `sitemap.xml` and `robots.txt` from `data/site.json`'s new `seo.siteUrl` field, and bakes a
+static `<link rel="canonical">` and a JSON-LD `WebSite` `<script>` into `<head>`.
+`assets/js/app.js` is deliberately **not** made hydration-aware — it still fully re-renders every container on load
+exactly as it did before this change. Because the baked markup and the client re-render both come from the same
+`Render.*` functions given the same data, they produce byte-identical output in the common case, so there is no
+visible flash of *different* content — only an imperceptible, redundant re-render. A true hydration implementation
+(skip re-rendering when server/build output is already correct in the DOM) was considered and rejected for now: it
+would require `App.boot()`'s `wireCompanyPagination`/`wirePaginatedContainer` functions to detect and reuse existing
+DOM instead of always calling `container.innerHTML = ...` once on init, which is real, bug-prone surface area (state
+mismatches between "what's in the DOM" and "what the JS thinks is in the DOM") for a codebase that has already been
+through one full audit remediation pass. Re-render-on-top is the safer trade-off until data/traffic volume justifies
+the added complexity.
+`scripts/verify-prerender.js` reruns the same generation function in memory and byte-compares it against
+`index.html`/`sitemap.xml`/`robots.txt` on disk, and is the last step of `npm run verify` — so it's the same one
+enforcement path locally (pre-commit hook, `12_DECISIONS.md` DR-021) and in CI, per the project owner's explicit
+request for "one common strategy" across both.
+**Constitution note:** `00_PROJECT_OVERVIEW.md` rule 6 and `.cursor/rules/constitution.mdc` rule 5 both state "no
+build step" as non-negotiable. `npm run prerender` is, strictly, a build step — but its *output* is a committed
+static file with no build step at request/deploy time (GitHub Pages still serves everything as-is), which is what
+the original rule was protecting (portability, offline-friendliness, zero server-side moving parts). This was
+flagged explicitly to the project owner before implementation, who approved proceeding; both rule documents were
+updated in this same change to carve out this one narrow, named exception rather than leave a real contradiction on
+record.
+**Trade-off accepted:** `data/*.json` edits now require an extra `npm run prerender` step before committing (enforced,
+not just documented, by `verify-prerender.js`) — a small amount of contributor friction in exchange for the site
+actually being discoverable by search engines. `index.html`'s diff size increases substantially whenever data
+changes (the full baked company table, chapters, etc. are now literally in the file), which is expected and
+by design, not a regression.
+**Follow-up:** None outstanding. If traffic/SEO metrics later justify true hydration (skip the redundant client
+re-render), that is a new decision record, not a silent change to this one.
+
+## DR-021 — Adopt ESLint + Prettier as dev-time tooling, enforced in CI and a local pre-commit hook
+
+**Date:** 2026-07-08
+**Context:** A full engineering audit (Principal Engineer review, 2026-07-08) found no automated enforcement of
+code-quality rules (undeclared globals, unused variables, `==` vs `===`) or consistent formatting — one indentation
+glitch had already shipped to `assets/js/render.js` undetected. `04_CODING_STANDARD.md`'s "no build step" and "no
+unnecessary dependencies" rules apply to what ships to `index.html`, not to dev-only tooling that never loads in the
+browser.
+**Decision:** Add `eslint` and `prettier` as devDependencies only (no `eslint-config-prettier`, no `globals`
+package — the flat config in `eslint.config.js` hand-declares the small, fixed set of browser/Node globals this
+project actually uses, and no stylistic ESLint rules are enabled, so there is nothing for the two tools to
+conflict on). `npm run lint` runs both and is now a required step in the CI `Verify scripts` job. A lightweight
+`scripts/git-hooks/pre-commit` script (installed into `.git/hooks/` via the `prepare` npm script — no `husky`
+dependency) runs `npm run verify && npm run lint` locally before every commit. The existing codebase was
+reformatted once (`npm run format`) to establish a clean, enforceable baseline; `assets/js/render.js` gained a
+small `Render._companyFilters()` accessor so `Render` can safely call the newly-shared `CompanyFilters` sort/filter
+helpers in both the browser (classic-script shared scope) and Node (`scripts/verify-render.js`'s isolated
+`require()`).
+**Trade-off accepted:** Two new devDependencies (previously zero) and a one-time large-looking diff from the
+formatting pass (whitespace/quote-style only, verified against the full `npm run verify` + `npm run ui-smoke`
+suite both before and after) — `scripts/learning-seed-data.js` in particular grew substantially in line count
+because Prettier wraps its long single-line, long-URL objects onto multiple lines.
+**Follow-up:** None outstanding.
+
+## DR-020 — `data/companies.json` scaling: warn at a threshold now, defer chunked fetching until needed
+
+**Date:** 2026-07-08
+**Context:** The audit flagged that `data/companies.json` (222KB / 119 companies) is fetched in full on every page
+load with no chunking, and asked whether this is durable to "hundreds or thousands" of companies. Building actual
+chunked/paginated-fetch infrastructure today would be premature complexity: GitHub Pages already gzips JSON
+responses (materially reducing the real-world payload), and no near-term milestone adds enough companies to make
+this a real user-facing problem.
+**Decision:** Do not build chunked fetching now. Instead, record the threshold at which it becomes worth doing —
+**~400 companies or ~800KB raw** — and the chosen future strategy if that threshold is crossed: split into
+`data/companies/page-N.json` chunks plus a manifest, fetched on-demand as pagination advances. `scripts/verify-companies.js`
+now warns (not fails) loudly once either threshold is crossed, so this doesn't silently become forgotten technical
+debt.
+**Trade-off accepted:** If growth is sudden rather than gradual, the chunking work will need to happen under time
+pressure instead of being already in place — accepted because current growth rate (company-by-company manual
+research) makes that scenario unlikely before the warning fires with plenty of lead time.
+**Follow-up:** If `scripts/verify-companies.js` starts warning, scope the chunked-fetch implementation as its own
+milestone rather than folding it into unrelated work.
+
+## DR-019 — Extract `index.html`'s inline bootstrap script into `assets/js/app.js`
+
+**Date:** 2026-07-08
+**Context:** The audit's top architectural finding: `index.html` carried a ~290-line inline `<script>` (data
+fetching, company-table pagination/filtering wiring, search-facet state, copy-link) that was invisible to
+`eslint`/`prettier`, impossible to unit-test, and the single largest concentration of untested logic in the
+codebase. It also duplicated company/search filter state across two separately-allocated objects
+(`filterState` and `searchFacetState`) that were manually kept in sync field-by-field in `assets/js/ui.js`.
+**Decision:** Move the inline script into `assets/js/app.js`, following the same plain-object namespace pattern as
+`Render`/`Search`/`CompanyFilters`/`UI`/`Icons` (`App.boot()`, `App.wireCompanyPagination()`, etc., with the same
+`window.App` / `module.exports` guard). `index.html`'s only remaining inline code is a one-line `App.boot();` call.
+The two state objects were unified into a single shared object passed as both `filterState` and `searchFacetState`
+into `UI.wireSiteSearch()` / `UI.wireCommandPalette()`, removing the manual dual-assignment sync points in
+`assets/js/ui.js`.
+**Trade-off accepted:** None meaningful — this is a pure code-location refactor (no DOM/CSS selector changes); confirmed
+via `npm run verify` (Node-side logic tests, unaffected) and `npm run ui-smoke` (Playwright, confirms the browser
+wiring still behaves identically) both passing unchanged.
+**Follow-up:** None outstanding.
+
 ## DR-018 — Branch protection on `master` enforced for admins too; CI gains company/learning data validation
 
 **Date:** 2026-07-08

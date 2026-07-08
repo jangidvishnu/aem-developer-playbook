@@ -14,7 +14,7 @@ const chaptersPath = path.join(__dirname, '..', 'data', 'chapters.json');
 const playbook = JSON.parse(fs.readFileSync(playbookPath, 'utf8'));
 const chapters = JSON.parse(fs.readFileSync(chaptersPath, 'utf8'));
 
-let errors = validateOwnerPlaybook(playbook);
+const errors = validateOwnerPlaybook(playbook);
 
 const embedChapter = chapters.find(c => c.ownerPlaybookEmbed);
 if (!embedChapter) {

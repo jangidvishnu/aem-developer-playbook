@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Install dev dependencies
+        run: npm ci
       - name: Run programmatic checks
         run: |
           node scripts/verify-render.js
@@ -22,6 +24,9 @@ jobs:
           node scripts/verify-owner-playbook.js
           node scripts/verify-companies.js
           node scripts/verify-learning.js
+          node scripts/verify-prerender.js
+      - name: Lint (ESLint + Prettier)
+        run: npm run lint
 
   ui-smoke:
     name: UI smoke (Playwright search)
