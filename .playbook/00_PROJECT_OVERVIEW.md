@@ -121,13 +121,12 @@ evidence pointed to a separate, concurrent AI coding session. See `12_DECISIONS.
 | Why was X decided? | `12_DECISIONS.md` |
 | What changed, and when? | `13_CHANGELOG.md` |
 
-**Open threads carried into future milestones:**
+**Open threads / pointers:**
 
-- Ranked multi-source search (Milestone 5).
-- The `md/` research reports contain unverified claims that must be checked before becoming part of the published
-  company database (Milestone 6).
-- No automated tests or CI exist yet (`17_TESTING_GUIDE.md`, `18_GITHUB_WORKFLOW.md` define the target state).
-
+- Archived deep-research MD and company pipeline seeds live under `archive/` (DR-017) — verify before promoting facts
+  into `data/companies.json`.
+- Capability filters (EDS / AEM Forms) are Milestone 14.
+- Print/PDF polish remains deferred after Milestone 12.
 **Archived ideas** (from a pre-Milestone-1 `index.html` comment that was removed — most map onto the current
 roadmap already; two didn't yet have a home):
 

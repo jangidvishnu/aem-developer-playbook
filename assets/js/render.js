@@ -511,12 +511,11 @@ const Render = {
     const quickChips = product
       ? `<div class="filter-chips" role="group" aria-label="Quick filters">${chip('hiringIndia', 'Hiring in India')}${chip('aemaaCS', 'AEM Cloud Service')}</div>`
       : `<div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('aemaaCS', 'AEM Cloud')}</div>`;
-    const clearBtn = Render.companyFilterActive(state)
-      ? `<button type="button" class="filter-clear-btn" data-company-clear-filters>Clear filters</button>`
-      : '';
-    const chipsRow = product
-      ? `<div class="company-filters__chips-row">${quickChips}${clearBtn}</div>`
-      : quickChips;
+    // Always emit the button (toggling `hidden`) so filtering never needs a full toolbar
+    // re-render — that would destroy and recreate the search input, dropping keyboard focus.
+    const clearBtnHidden = Render.companyFilterActive(state) ? '' : ' hidden';
+    const clearBtn = `<button type="button" class="filter-clear-btn${clearBtnHidden}" data-company-clear-filters>Clear filters</button>`;
+    const chipsRow = `<div class="company-filters__chips-row">${quickChips}${clearBtn}</div>`;
     const searchField = `<div class="company-filters__search">
           <div class="company-filters__search-field company-filters__search-field--icon">
             <span class="company-filters__search-icon" aria-hidden="true">${Render.icon('search')}</span>
@@ -559,7 +558,7 @@ const Render = {
     const pagination = Render.companyPagination(page, filtered, 'company');
     const countLabel = Render.companyCountLabel(page, filtered, total, COMPANY_PAGE_SIZE);
     const footer = `<div class="company-explorer__footer"><p data-company-count aria-live="polite">${countLabel}</p><div class="company-explorer__footer-copy"><button type="button" data-copy-discovery-link class="copy-link-btn">${Render.icon('copy')} Copy link</button><span data-copy-link-status class="copy-toast hidden" aria-live="polite">Copied!</span></div><div data-company-pagination>${pagination}</div></div>`;
-    return `<div class="company-explorer">${metrics}${toolbar}${body}${footer}</div>`;
+    return `<div class="company-explorer">${metrics}${toolbar}<div class="company-explorer__body">${body}</div>${footer}</div>`;
   },
 
   companyTable(companies, options = {}) {

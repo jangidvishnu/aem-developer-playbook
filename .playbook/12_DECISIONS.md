@@ -12,6 +12,38 @@ mark the old one as superseded.
 
 ---
 
+## DR-018 — Branch protection on `master` enforced for admins too; CI gains company/learning data validation
+
+**Date:** 2026-07-08
+**Context:** Branch protection with required status checks (`Verify scripts`, `UI smoke (Playwright search)`) was
+already configured on `master` from an earlier session, but `enforce_admins` was `false` — the sole maintainer
+(repo admin) could still see a bypass button to merge without checks passing. Separately, `verify-companies.js` and
+`verify-learning.js` existed but were documented as manual-only steps, never actually run in CI, so a broken
+`companies.json`/learning file could pass CI green.
+**Decision:** Set `enforce_admins: true` via `gh api` (owner authenticated `gh` locally and confirmed this
+explicitly) so no one, including the admin, can merge a PR into `master` without both required checks passing.
+`npm run verify` and the CI `Verify scripts` job now also run `verify-companies.js` and `verify-learning.js`.
+`scripts/ui-smoke-companies.mjs` now exercises real interaction (typing in search, focus retention, pagination
+Next) instead of layout geometry only, per the Target Companies regression fixed the same day (see
+`13_CHANGELOG.md`).
+**Trade-off accepted:** The maintainer loses the emergency-bypass merge button; a hotfix now always needs a green
+CI run first, even from the repo owner.
+**Follow-up:** None outstanding; branch protection state verified via `gh api .../branches/master/protection`.
+
+## DR-017 — Milestone 13 is loader + cleanup; EDS/Forms becomes Milestone 14
+
+**Date:** 2026-07-08
+**Context:** After Pages went live, the owner prioritized a better first-load experience and a thorough repo cleanup
+(single published `companies.json`, archive unused research/pipeline) over new filter chips. DR-016 had scheduled
+EDS/Forms as M13.
+**Decision:** **M13 = branded page loader + archive cleanup** (move research MD, company seeds/manifests, and legacy
+company build scripts under `archive/`; do not silent-delete). **Milestone 14** inherits EDS and AEM Forms filter chips
++ URL state. Day-to-day company edits update `data/companies.json` directly; rebuild-from-seeds is archived, not live.
+Print/PDF remains deferred after M12.
+**Trade-off accepted:** Capability filters slip one milestone; historical pipeline is archived rather than maintained.
+**Follow-up:** M13 acceptance, then M14 data-quality pass on `EdgeDeliveryServices` / `Forms`.
+**Supersedes scheduling in:** DR-016 (EDS/Forms milestone number only).
+
 ## DR-016 — Defer EDS and AEM Forms filters to Milestone 13
 
 **Date:** 2026-07-08
@@ -21,7 +53,8 @@ hire-verified AEM-only (M8 gate). Company records already carry `EdgeDeliverySer
 **Decision:** Add **Milestone 13 — Company capability filters** after Publishing (M12). Ship EDS and AEM Forms filter
 chips, URL state, and search facet wiring in M13 — not during M11 acceptance or M12.
 **Trade-off accepted:** Users cannot filter by EDS/Forms until M13; avoids scope creep while M11/M12 close out.
-**Follow-up:** Data quality review on `EdgeDeliveryServices` / `Forms` before M13 implementation.
+**Follow-up:** **Superseded for scheduling by DR-017** — capability filters are Milestone 14; M13 is loader + cleanup.
+**Status:** Superseded (milestone number) by DR-017.
 
 ## DR-015 — Presentation polish without a build step (Milestone 11)
 

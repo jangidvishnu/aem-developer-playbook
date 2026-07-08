@@ -1,0 +1,36 @@
+---
+description: Never commit, push, or open PRs/MRs without explicit owner approval
+alwaysApply: true
+---
+
+# Git commit, push, and PR/MR approval gate
+
+## Hard rule
+
+Do **not** run `git commit`, `git push`, force-push, open a pull request / merge request, or merge to any branch
+unless the project owner has **explicitly approved that specific action** in the current message.
+
+- "Looks good", "proceed", "implement the plan", or completing a todo list are **not** approval to commit.
+- Approval to commit is **not** approval to push. Approval to push is **not** approval to open a PR/MR or merge.
+- Each of commit / push / open PR / merge needs its **own** explicit go-ahead (e.g. "commit this", "push it",
+  "open the PR", "merge").
+
+## Before asking to commit
+
+1. Summarize what changed (files + why) and that it is uncommitted / staged only.
+2. Tell the owner how to verify locally (HTTP serve + hard refresh; for print CSS use **Print Preview** Ctrl/Cmd+P —
+   print styles do not appear on the normal screen view).
+3. Wait for explicit approval to commit.
+4. Only then run `git commit`.
+
+## Before asking to push / open a PR
+
+1. Confirm the commit(s) to be pushed and summarize them.
+2. Wait for explicit approval to push, separately from commit approval.
+3. Only then run `git push` / `gh pr create` / merge.
+
+## If you commit or push without approval
+
+Stop immediately, tell the owner what happened, and ask whether to undo (`git reset --soft` for an unpushed commit)
+or leave it and hold all further git writes until told otherwise. Do not proceed with more changes on top of an
+unapproved commit/push without the owner's direction.

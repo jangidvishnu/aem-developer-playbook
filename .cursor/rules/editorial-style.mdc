@@ -1,6 +1,6 @@
 ---
-description: Editorial voice and structure conventions for .playbook docs and md/ content
-globs: .playbook/**,md/**
+description: Editorial voice and structure conventions for .playbook docs and archive research notes
+globs: .playbook/**,archive/research/**
 alwaysApply: false
 ---
 

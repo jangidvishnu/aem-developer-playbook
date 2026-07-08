@@ -21,6 +21,46 @@ M8 now includes fresh evidence-based research (md reference-only), no company co
 filter/sort, and curated domain seeds (paid BuiltWith API removed DR-012). Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
 and `14_ROADMAP.md`.
 
+## Milestone 13 — Loader + Repo Cleanup (in progress)
+
+### Added
+
+- Branded accessible first-load `.page-loader` (replaces plain “Loading content…”).
+- `archive/` tree for historical company research, seeds/manifests, and legacy build scripts (DR-017).
+- Milestone 13 test plan in `17_TESTING_GUIDE.md`.
+- `scripts/verify-companies.js` and `scripts/verify-learning.js` now run automatically in `npm run verify` and CI
+  (previously documented as manual-only steps, so a broken `companies.json` or learning data file could pass CI).
+- `scripts/ui-smoke-companies.mjs` now exercises real interaction (typing in the search box, checking focus stays,
+  clicking pagination Next) instead of layout geometry only.
+
+### Fixed
+
+- Target Companies search/pagination regression: `index.html` referenced a `.company-table-wrap` selector removed
+  in an earlier revert, so typing and Prev/Next silently stopped updating the visible table, and the "Clear
+  filters" toggle triggered a full toolbar re-render that dropped keyboard focus out of the search box mid-type.
+  `Render.companySection` now wraps the table/cards in a stable `.company-explorer__body`, and "Clear filters" is
+  always rendered with a `hidden` class instead of conditionally added/removed markup.
+
+### Changed
+
+- Sole published company DB remains `data/companies.json`; day-to-day edits go there directly (no live rebuild pipeline).
+- EDS / AEM Forms filter chips moved to Milestone 14 (supersedes scheduling in DR-016).
+
+## Milestone 12 — Publishing (accepted 2026-07-08)
+
+### Added
+
+- Live GitHub Pages: https://jangidvishnu.github.io/aem-developer-playbook/
+- MIT license, collaboration docs, CI, `.nojekyll`, repo metadata URLs in `site.json`.
+
+### Deferred
+
+- Print/PDF polish — owner deferred; basic print CSS remains.
+
+### Fixed
+
+- `scripts/run-ui-smoke.mjs` exits after PASS so CI does not hang.
+
 ## Milestone 11 — Minimal Product UI (accepted 2026-07-08)
 
 ### Added

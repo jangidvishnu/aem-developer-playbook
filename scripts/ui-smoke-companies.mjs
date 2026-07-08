@@ -88,6 +88,36 @@ async function main() {
   const filterGap = mobileSort.y - (mobileSearch.y + mobileSearch.height);
   if (filterGap > 16) throw new Error(`Mobile filter gap too large (${Math.round(filterGap)}px)`);
 
+  // Functional regression coverage (search filtering, focus retention, pagination):
+  // a prior refactor left the visible table wired to a CSS selector that no longer
+  // existed, so typing and Next/Prev silently did nothing while layout checks still passed.
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.locator('#company-table-container').scrollIntoViewIfNeeded();
+  const searchInput = page.locator('.company-filters__search-field input');
+  await searchInput.click();
+  await searchInput.type('adobe', { delay: 30 });
+  await page.waitForTimeout(150);
+  const focusedOnSearch = await page.evaluate(() =>
+    document.activeElement === document.querySelector('.company-filters__search-field input'));
+  if (!focusedOnSearch) throw new Error('Search input lost focus while typing');
+  const filteredRows = await page.locator('.company-table--product tbody tr:not(.company-table__pad)').allTextContents();
+  if (!filteredRows.length || !filteredRows.some(r => /adobe/i.test(r))) {
+    throw new Error('Search query did not filter the visible table');
+  }
+  await searchInput.fill('');
+  await page.waitForTimeout(150);
+
+  const firstRowBefore = await page.locator('.company-table--product tbody tr:not(.company-table__pad)').first().textContent();
+  const nextBtn = page.locator('[data-company-next]').first();
+  if (await nextBtn.count()) {
+    await nextBtn.click();
+    await page.waitForTimeout(150);
+    const firstRowAfter = await page.locator('.company-table--product tbody tr:not(.company-table__pad)').first().textContent();
+    if (firstRowBefore.trim() === firstRowAfter.trim()) {
+      throw new Error('Pagination Next did not change the visible table rows');
+    }
+  }
+
   if (errors.length) console.warn('Console errors:', errors);
   console.log('UI smoke companies: PASS');
   await browser.close();
