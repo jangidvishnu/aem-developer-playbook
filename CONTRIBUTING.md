@@ -21,12 +21,13 @@ Serve the site over HTTP (browsers block `fetch` of JSON on `file://`):
 npx serve -p 3456
 ```
 
-Open `http://localhost:3456`.
+Open `http://localhost:3456`. On first paint you should see a short branded loader, then content.
 
 Checks before you open a PR:
 
 ```bash
 npm run verify
+node scripts/verify-companies.js   # if you changed companies.json
 # optional (needs: npm install && npx playwright install chromium)
 npm run ui-smoke
 ```
@@ -35,7 +36,7 @@ npm run ui-smoke
 
 | Change | Prefer |
 |--------|--------|
-| Company / hiring facts | `data/companies.json` (and related pipeline files only if you know the M8 workflow) |
+| Company / hiring facts | `data/companies.json` only (see `archive/` for historical research — DR-017) |
 | Chapters / copy | `data/chapters.json`, `data/site.json`, `data/owner_playbook.json`, etc. |
 | UI / layout | `assets/js/`, `assets/css/site.css`, `index.html` |
 | Process / architecture | `.playbook/` (maintainers usually own this) |
@@ -47,7 +48,7 @@ Rules that matter most:
 - Keep the site GitHub Pages compatible: no build step, relative asset paths.
 - Never delete information silently — archive or document reversals when needed.
 
-More detail for editors: [`.playbook/06_EDITOR_GUIDE.md`](.playbook/06_EDITOR_GUIDE.md) and [`.playbook/07_RESEARCH_GUIDE.md`](.playbook/07_RESEARCH_GUIDE.md).
+More detail: [`.playbook/06_EDITOR_GUIDE.md`](.playbook/06_EDITOR_GUIDE.md) and [`.playbook/07_RESEARCH_GUIDE.md`](.playbook/07_RESEARCH_GUIDE.md).
 
 ## Pull request checklist
 
@@ -56,6 +57,12 @@ More detail for editors: [`.playbook/06_EDITOR_GUIDE.md`](.playbook/06_EDITOR_GU
 - [ ] No secrets or credentials committed
 - [ ] Company updates include sources / verification where applicable
 - [ ] UX changes still work in light/dark mode and on a narrow viewport
+- [ ] First-load / loader changes verified with a hard refresh over HTTP
+
+## Maintainer note (local agents)
+
+Do not push a branch or open a PR until the project owner has **explicitly approved** after local review
+(`.cursor/rules/git-push-approval.mdc`).
 
 ## Code of conduct
 

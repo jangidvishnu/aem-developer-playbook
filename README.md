@@ -18,12 +18,13 @@ Optional checks:
 
 ```bash
 npm run verify
+node scripts/verify-companies.js
 npm run ui-smoke
 ```
 
 ## Contributing
 
-`master` is intended to be **protected**. Please open a **pull request** (merge request) instead of pushing to `master`.
+`master` is intended to be **protected**. Please open a **pull request** instead of pushing to `master`.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
@@ -35,24 +36,24 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.
 
 ```
 index.html          App shell
-data/               JSON content (companies, chapters, site chrome, …)
-assets/css/         Styles
-assets/js/          Render, search, filters, UI
-scripts/            Dev-only verify / smoke tools (not loaded by the site)
-.playbook/          Project governance and milestone docs
+data/               Runtime JSON only (companies, chapters, site, learning, …)
+assets/             CSS, JS, icons
+scripts/            Dev verify / UI smoke (not loaded by the site)
+archive/            Historical research + legacy company pipeline (not fetched)
+.playbook/          Governance and milestone docs
 .github/            CI, PR/issue templates
+.cursor/rules/      Cursor agent rules
 ```
+
+Published company DB: **`data/companies.json` only**. Historical seeds and research: [`archive/README.md`](archive/README.md).
 
 ## Maintainers — branch protection (GitHub)
 
-After the first push, in the GitHub UI:
-
-**Settings → Branches → Add branch protection rule** for `master`:
+**Settings → Branches** for `master`:
 
 - Require a pull request before merging
-- Require approvals (at least 1 when you have collaborators)
-- Require status checks to pass: `Verify scripts` and `UI smoke (Playwright search)` (from CI)
-- Do not allow bypassing the above for administrators (recommended once CI is green)
-- Optionally: restrict who can push / dismiss reviews
+- **Do not** require approvals while you are the only maintainer (you cannot approve your own PRs)
+- Require status checks once they appear: `Verify scripts` and `UI smoke (Playwright search)`
+- Optionally later: require 1 approval after adding a second collaborator
 
-Pages: **Settings → Pages** → Deploy from branch → `master` / root (`/`). An empty [`.nojekyll`](.nojekyll) file is in the repo so GitHub does not process the site with Jekyll.
+Pages: **Settings → Pages** → Deploy from branch → `master` / root (`/`). Root [`.nojekyll`](.nojekyll) disables Jekyll processing.

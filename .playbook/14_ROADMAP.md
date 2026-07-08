@@ -41,8 +41,9 @@ review before the next one starts.
 | 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 11 | Minimal Product UI | Mobile-first, jobs-first IA; strip internal chrome for visitors | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 12 | Publishing | GitHub Pages, print handbook, PDF export pipeline | **Active** — see below |
-| 13 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — see DR-016 |
+| 12 | Publishing | GitHub Pages (print/PDF deferred) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
+| 13 | Loader + Repo Cleanup | First-load UX; archive unused company research/pipeline | **Active** — see below |
+| 14 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — see DR-017 |
 
 **Revision note:** Milestones 2 and 4 were re-scoped from the original plan per `12_DECISIONS.md` DR-003, splitting
 one overloaded "Architecture Refactor" milestone into a small render-function-extraction step (2), the data
@@ -132,60 +133,53 @@ sign-off 2026-07-08. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 ---
 
-## Milestone 12 — Publishing (active)
+## Milestone 12 — Publishing: complete, accepted
 
-### Milestone 12 — Publishing
+GitHub Pages live (print/PDF deferred by owner). **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-**Goal:** Ship the product-shaped site (Milestones 8–11) publicly — GitHub Pages, print-friendly handbook, and a
-repeatable PDF/export path — rather than an interim handbook shell.
+---
+
+## Milestone 13 — Loader + Repo Cleanup (active)
+
+**Goal:** Professional first-load UX and a leaner repo — one published company JSON, historical research/pipeline
+archived (not deleted).
 
 **Scope (in):**
 
-- GitHub Pages (or equivalent static host) serving the default branch with no build step.
-- Print stylesheet polish per `21_PUBLISHING.md` / `08_UI_GUIDELINES.md`.
-- PDF or export pipeline documented and smoke-tested once.
-- Version/changelog reader-facing notes for the published release.
+- Branded accessible page loader while the 11 runtime JSON files fetch.
+- Archive `md/` deep-research reports, `data/company-sources.json`, `data/manifests/*`, and legacy company build /
+  ingest scripts under `archive/` (DR-017).
+- Sync playbook paths and `.cursor/rules/company-data.mdc`; README reflects live site + archive layout.
+- Keep all learning/runtime JSON that chapters still embed.
 
-**Scope (out):** New product features (filters, content domains); those wait for M13+ after publish.
+**Scope (out):** EDS/Forms chips (M14); print polish; deleting archived history; new frameworks.
 
 **Acceptance criteria:**
 
-1. Live URL loads product mode with companies and How to Apply working over HTTPS.
-2. Print preview hides chrome (header/sidebar/search) and keeps readable chapter flow.
-3. Export/PDF path documented in `21_PUBLISHING.md` and run at least once successfully.
-4. `npm run verify` still passes against the published tree.
+1. Hard refresh shows intentional loader, then full product content (not bare “Loading content…”).
+2. Fetch failure still shows an accessible alert.
+3. `data/companies.json` is the only company DB under `data/`; archived paths documented.
+4. `npm run verify` and `npm run ui-smoke` pass and exit cleanly.
 
-**Test plan:** Add to `17_TESTING_GUIDE.md` when implementation is complete (per `15_RELEASE_PROCESS.md`).
+**Test plan:** `17_TESTING_GUIDE.md` → Milestone 13.
 
-### Milestone 13 — Company capability filters (planned)
+### Milestone 14 — Company capability filters (planned)
 
-**Goal:** Let AEM developers narrow the company list by **Edge Delivery Services (EDS)** and **AEM Forms** hiring —
-fields already exist on company records (`EdgeDeliveryServices`, `Forms` in `11_COMPANY_SCHEMA.md` / `data/companies.json`).
+**Goal:** Filter companies by **EDS** (`EdgeDeliveryServices`) and **AEM Forms** (`Forms`) — fields already on
+records (`11_COMPANY_SCHEMA.md` / `data/companies.json`). See DR-017 (was M13 under DR-016).
 
-**Scope (in):**
+**Scope (in):** Product chips (+ dev-mode checkboxes); `CompanyFilters` + `cf_*` URLs; `Render.companyFilterBar`;
+search facet metadata if needed.
 
-- Product-mode quick-filter chips (and dev-mode checkboxes) for **EDS** and **AEM Forms**, alongside existing India / Cloud filters.
-- Wire through `CompanyFilters` (`matchesCompany`, URL `cf_*` params, shareable links) and `Render.companyFilterBar`.
-- Search facet metadata if company index needs EDS/Forms flags for filtered search.
+**Prerequisite:** Milestone 13 accepted. Data quality pass on EDS/Forms fields.
 
-**Scope (out):** Other Adobe products (Analytics-only, Target-only, etc.) unless added in a later milestone; no change to
-the hire-verified gate (M8) — filters apply to the existing verified set only.
-
-**Prerequisite:** Milestone 12 accepted. Data quality pass on `EdgeDeliveryServices` / `Forms` fields before shipping UI.
-
-**Decision:** DR-016. M11 intentionally removed redundant **Hiring AEM** and **Verified** chips because the table is
-hire-verified AEM-only; EDS/Forms are meaningful subdivisions worth adding later.
-
-### Order rationale (revised per DR-009)
+### Order rationale (revised per DR-009 / DR-017)
 
 | Order | Why |
 |---|---|
-| 8 Company pipeline | Hire-verified data is the core product |
-| 9 Filters | Makes a large company set usable |
-| 10 Owner playbook | Your “how I apply / what to learn” story |
-| 11 Product UI | Mobile, minimal, jobs-first before going public |
-| 12 Publishing | Ship when data, filters, owner content, and UI are ready |
-| 13 Capability filters | EDS + AEM Forms chips on top of hire-verified company data (DR-016) |
+| 8–11 | Data, filters, owner playbook, product UI |
+| 12 Publishing | Live Pages |
+| 13 Loader + cleanup | First-load UX + archive dead weight |
+| 14 Capability filters | EDS + AEM Forms chips |
 
-**Immediate next step:** Implement **Milestone 12 (Publishing)** — GitHub Pages + print/PDF path per this section
-and `21_PUBLISHING.md`.
+**Immediate next step:** Finish **Milestone 13** (loader + archive) and owner verification.

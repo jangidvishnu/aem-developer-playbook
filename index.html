@@ -73,7 +73,13 @@
     const main = document.getElementById('main');
     const toc = document.getElementById('toc');
     const loadingId = 'data-loading';
-    main.innerHTML = `<p id="${loadingId}" role="status">Loading content…</p>`;
+    main.innerHTML = `<div id="${loadingId}" class="page-loader" role="status" aria-live="polite" aria-busy="true">
+      <div class="page-loader__card">
+        <p class="page-loader__title">AEM Playbook</p>
+        <div class="page-loader__track" aria-hidden="true"><div class="page-loader__bar"></div></div>
+        <p class="page-loader__text">Loading playbook…</p>
+      </div>
+    </div>`;
 
     document.getElementById('navToggle').innerHTML = Icons.svg('menu');
     document.getElementById('command-trigger').insertAdjacentHTML('afterbegin', Icons.svg('search'));
@@ -345,7 +351,13 @@
       UI.wireCommandPalette({ searchIndex, companiesById, searchFacetState });
     }).catch(err => {
       const el = document.getElementById(loadingId);
-      if (el) { el.setAttribute('role', 'alert'); el.textContent = 'Failed to load content. Serve over HTTP — see .playbook/17_TESTING_GUIDE.md.'; }
+      if (el) {
+        el.setAttribute('role', 'alert');
+        el.removeAttribute('aria-busy');
+        el.removeAttribute('aria-live');
+        el.classList.add('page-loader--error');
+        el.innerHTML = `<div class="page-loader__card"><p class="page-loader__title">Could not load</p><p class="page-loader__text">Failed to load content. Serve over HTTP — see .playbook/17_TESTING_GUIDE.md.</p></div>`;
+      }
       console.error(err);
       UI.initTheme('themeToggle');
     });

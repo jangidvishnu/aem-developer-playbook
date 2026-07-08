@@ -2,9 +2,8 @@
 
 ## Status
 
-Target schema for `data/companies.json`, populated in Milestone 6 from the verified subset of `md/`'s research
-reports (see `07_RESEARCH_GUIDE.md` for the verification workflow). `index.html` currently has a much smaller,
-informal version of this shape hardcoded inline — it will be migrated onto this schema, not the other way around.
+Authoritative schema for the published employer list in `data/companies.json`. Historical research that fed Milestone
+6–8 lives under `archive/` (see `archive/README.md` and DR-017) — not a second live database.
 
 ## Field reference
 
@@ -65,15 +64,14 @@ informal version of this shape hardcoded inline — it will be migrated onto thi
 - Unknown values are the explicit string `"Unknown"` or `null` (per the field's type) — never an omitted key.
 - `usesAEM: true` requires at least one entry in `Evidence`, per `07_RESEARCH_GUIDE.md`. If evidence can't be found,
   set `Status: "Unverified"` rather than asserting `usesAEM: true` unsupported.
-- **Public table (Milestone 8):** every row in `companies.json` must have `HiringAEM: true`, non-empty
-  `AEMHiringEvidence`, and an http `careersUrl`. Rows that fail the gate are archived to `data/manifests/company-candidates.json`.
+- **Public table:** every row in `companies.json` must have `HiringAEM: true`, non-empty
+  `AEMHiringEvidence`, and an http `careersUrl`. Historical non-public candidates were archived under
+  `archive/companies/manifests/company-candidates.json` (Milestone 8); new rejects should not be published.
 - The five personal-tracking booleans (`Wishlist` through `Rejected`) are mutually informative but not mutually
   exclusive over time (e.g. `Applied` and `Interview` can both be true) — they represent a progression, not a
   single enum, so do not collapse them into one `status` field.
 
-## Relationship to the raw research in `md/`
+## Relationship to archived research
 
-The four `md/deep-research-report*.md` files use an informal, prose-and-table format with an overlapping but
-inconsistent column set (see each file's own header table). Milestone 6's job is to map each report's fields onto
-this schema, reconcile duplicate company entries across reports, and apply the verification workflow in
-`07_RESEARCH_GUIDE.md` before anything is marked `Status: "Verified"`.
+`archive/research/md/deep-research-report*.md` used informal prose/tables. Those reports are **reference-only**.
+Apply `07_RESEARCH_GUIDE.md` before anything is marked `Status: "Verified"` in `data/companies.json`.

@@ -1,19 +1,20 @@
 ---
 description: Standards for adding or editing company/research data
-globs: data/companies.json,md/**
+globs: data/companies.json,archive/research/**,archive/companies/**
 alwaysApply: false
 ---
 
 # Company Data & Research Standards
 
-Full detail: `.playbook/11_COMPANY_SCHEMA.md`, `.playbook/07_RESEARCH_GUIDE.md`.
+Full detail: `.playbook/11_COMPANY_SCHEMA.md`, `.playbook/07_RESEARCH_GUIDE.md`, `archive/README.md`.
 
 - Evidence over assumption. Every factual claim needs a traceable source (company's own careers page/case study >
   vendor-confirmed > reputable secondary > inference, in that priority order).
 - `usesAEM: true` requires at least one entry in `Evidence`. If no source is found, set `Status: "Unverified"`
   instead of asserting it unsupported.
 - Set `LastVerified` whenever evidence is checked.
-- The `md/deep-research-report*.md` files are Tier 3/4 quality (hedged language, not cross-checked) — never copy
-  them directly into `data/companies.json` as confirmed fact without applying the verification workflow first.
-- No duplicate company entries across sources without reconciling conflicting details (priority scores, India
-  presence, etc.) into one record.
+- **Published DB only:** `data/companies.json`. Do not introduce a second live company JSON.
+- Files under `archive/research/md/` and `archive/companies/` are historical (DR-017) — never copy them into
+  `data/companies.json` as confirmed fact without re-verification.
+- No duplicate company entries without reconciling conflicting details into one record.
+- After material edits: `node scripts/verify-companies.js`.

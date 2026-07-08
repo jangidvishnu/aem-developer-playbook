@@ -2,35 +2,42 @@
 
 ## Active objective
 
-**Milestone 12 (Publishing)** — GitHub Pages deploy, print stylesheet polish, and PDF/export path. Milestone 11
-(Minimal Product UI) is **accepted** (2026-07-08). Do not start other work until M12 acceptance criteria are clear
-from `14_ROADMAP.md`.
+**Milestone 13 (Loader + Repo Cleanup)** — branded first-load experience and archive unused company
+research/pipeline files so `data/companies.json` is the sole published company DB. Milestone 12 (Publishing) is
+**accepted** (Pages live; print/PDF deferred). Do not start M14 until M13 is accepted.
+
+## Live URLs
+
+- Site: https://jangidvishnu.github.io/aem-developer-playbook/
+- Repo: https://github.com/jangidvishnu/aem-developer-playbook
 
 ## Session progress (2026-07-08)
 
-### Milestone 11 — accepted
+### Milestone 12 — accepted
 
-Owner browser sign-off after company table layout reset (auto layout, matched header/cell alignment) and product UI
-polish. Automated: `npm run verify`, `npm run ui-smoke` — **PASS**. Full detail: `25_ROADMAP_ARCHIVE.md`.
+GitHub Pages serving product mode from `master` / root. Print/PDF polish deferred by owner. Collaboration defaults
+(MIT, CONTRIBUTING, CI) shipped earlier. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-### Still for this sprint (M12)
+### M13 in progress
 
-- GitHub Pages configuration and verify live deploy.
-- Print / PDF export path per `21_PUBLISHING.md`.
-- Publish test plan in `17_TESTING_GUIDE.md` when implementation is complete.
+- Page loader replacing plain “Loading content…”
+- Archive `md/` research, `company-sources`, manifests, and legacy company build scripts under `archive/`
+- Direct edits to `data/companies.json` going forward (DR-017)
+
+### Owner still needs
+
+1. Local/browser: loader + site after hard refresh.
+2. `npm run verify` / `npm run ui-smoke`.
+3. Explicit M13 acceptance; push/PR only after owner approval (see `.cursor/rules/git-push-approval.mdc`).
+
+## Milestone 12 — accepted
+
+Pages live; print deferred. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
 ## Milestone 11 — accepted
 
 Product mode, mobile cards/drawer, SEO, company explorer polish. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-## Milestone 10 — accepted
-
-Commit `46e45f6`. Owner playbook with personal apply strategy. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
-
-## Milestone 9 — accepted
-
-Commit `5d37fc2`. Discovery filters, shareable URLs, Copy link. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
-
-## Milestones 1–8: accepted
+## Milestones 1–10: accepted
 
 See `14_ROADMAP.md` and `25_ROADMAP_ARCHIVE.md`.

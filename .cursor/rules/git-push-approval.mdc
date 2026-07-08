@@ -1,0 +1,21 @@
+---
+description: Never push branches or open PRs without explicit owner approval
+alwaysApply: true
+---
+
+# Git push and PR approval gate
+
+## Hard rule
+
+Do **not** push branches, force-push, open pull requests, or merge to `master` unless the project owner has **explicitly approved** that action in the current conversation (e.g. “push it”, “open the PR”, “merge”).
+
+## Before asking to push
+
+1. Summarize what changed (files + why).
+2. Tell the owner how to verify locally (HTTP serve + hard refresh; for print CSS use **Print Preview** Ctrl/Cmd+P — print styles do not appear on the normal screen view).
+3. Wait for approval.
+4. Only then run `git push` / `gh pr create` / merge.
+
+## Related existing rule
+
+Commits still require an explicit ask to commit (`constitution` / user git rules). Push/PR is a **separate** approval — committing locally does not authorize push.

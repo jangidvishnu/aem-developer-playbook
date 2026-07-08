@@ -12,6 +12,20 @@ mark the old one as superseded.
 
 ---
 
+## DR-017 — Milestone 13 is loader + cleanup; EDS/Forms becomes Milestone 14
+
+**Date:** 2026-07-08
+**Context:** After Pages went live, the owner prioritized a better first-load experience and a thorough repo cleanup
+(single published `companies.json`, archive unused research/pipeline) over new filter chips. DR-016 had scheduled
+EDS/Forms as M13.
+**Decision:** **M13 = branded page loader + archive cleanup** (move research MD, company seeds/manifests, and legacy
+company build scripts under `archive/`; do not silent-delete). **Milestone 14** inherits EDS and AEM Forms filter chips
++ URL state. Day-to-day company edits update `data/companies.json` directly; rebuild-from-seeds is archived, not live.
+Print/PDF remains deferred after M12.
+**Trade-off accepted:** Capability filters slip one milestone; historical pipeline is archived rather than maintained.
+**Follow-up:** M13 acceptance, then M14 data-quality pass on `EdgeDeliveryServices` / `Forms`.
+**Supersedes scheduling in:** DR-016 (EDS/Forms milestone number only).
+
 ## DR-016 — Defer EDS and AEM Forms filters to Milestone 13
 
 **Date:** 2026-07-08
@@ -21,7 +35,8 @@ hire-verified AEM-only (M8 gate). Company records already carry `EdgeDeliverySer
 **Decision:** Add **Milestone 13 — Company capability filters** after Publishing (M12). Ship EDS and AEM Forms filter
 chips, URL state, and search facet wiring in M13 — not during M11 acceptance or M12.
 **Trade-off accepted:** Users cannot filter by EDS/Forms until M13; avoids scope creep while M11/M12 close out.
-**Follow-up:** Data quality review on `EdgeDeliveryServices` / `Forms` before M13 implementation.
+**Follow-up:** **Superseded for scheduling by DR-017** — capability filters are Milestone 14; M13 is loader + cleanup.
+**Status:** Superseded (milestone number) by DR-017.
 
 ## DR-015 — Presentation polish without a build step (Milestone 11)
 

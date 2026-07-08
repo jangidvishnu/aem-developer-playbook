@@ -21,6 +21,34 @@ M8 now includes fresh evidence-based research (md reference-only), no company co
 filter/sort, and curated domain seeds (paid BuiltWith API removed DR-012). Company table filters moved from M9 into M8. See `12_DECISIONS.md` DR-010
 and `14_ROADMAP.md`.
 
+## Milestone 13 — Loader + Repo Cleanup (in progress)
+
+### Added
+
+- Branded accessible first-load `.page-loader` (replaces plain “Loading content…”).
+- `archive/` tree for historical company research, seeds/manifests, and legacy build scripts (DR-017).
+- Milestone 13 test plan in `17_TESTING_GUIDE.md`.
+
+### Changed
+
+- Sole published company DB remains `data/companies.json`; day-to-day edits go there directly (no live rebuild pipeline).
+- EDS / AEM Forms filter chips moved to Milestone 14 (supersedes scheduling in DR-016).
+
+## Milestone 12 — Publishing (accepted 2026-07-08)
+
+### Added
+
+- Live GitHub Pages: https://jangidvishnu.github.io/aem-developer-playbook/
+- MIT license, collaboration docs, CI, `.nojekyll`, repo metadata URLs in `site.json`.
+
+### Deferred
+
+- Print/PDF polish — owner deferred; basic print CSS remains.
+
+### Fixed
+
+- `scripts/run-ui-smoke.mjs` exits after PASS so CI does not hang.
+
 ## Milestone 11 — Minimal Product UI (accepted 2026-07-08)
 
 ### Added

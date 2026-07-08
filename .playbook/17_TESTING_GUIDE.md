@@ -76,13 +76,13 @@ exit code 0.
 **Automated (run from repository root):**
 
 ```bash
-node scripts/build-companies-m6.js   # optional — regenerates data/companies.json from seeds
 node scripts/verify-companies.js
 node scripts/verify-search.js
 node scripts/verify-render.js
 ```
 
-Expected: schema validation passes with **25+ Verified** companies; search and render scripts exit 0.
+Expected: schema validation passes; search and render scripts exit 0.
+_(Historical note: optional `build-companies-m6.js` lived under `scripts/` and is now in `archive/scripts/`.)_
 
 **Browser — company table and pagination:**
 
@@ -131,7 +131,6 @@ Expected: `All learning records pass schema validation and minimum counts.` and 
 **Automated (run from repository root):**
 
 ```bash
-node scripts/build-companies.js
 node scripts/verify-companies.js
 node scripts/verify-filters.js
 node scripts/verify-search.js
@@ -139,7 +138,8 @@ node scripts/verify-render.js
 node scripts/verify-learning.js
 ```
 
-Expected: 119 hire-verified companies; all scripts exit 0.
+Expected: hire-verified companies validate; all scripts exit 0.
+_(Historical note: `build-companies.js` is archived under `archive/scripts/` per DR-017.)_
 
 **Browser — company filters and hiring columns:**
 
@@ -278,6 +278,54 @@ CI runs the same checks on push/PR via `.github/workflows/ci.yml` (`verify` + `u
 17. Filter count updates announced (`aria-live` on company count).
 
 **Sign-off:** Accepted by project owner (2026-07-08) after browser verification. See `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+### Milestone 12 — Publishing (accepted)
+
+**Live site:** https://jangidvishnu.github.io/aem-developer-playbook/
+
+**Automated:** `npm run verify` (and optionally `npm run ui-smoke`).
+
+**Browser:**
+
+1. Live URL loads product mode (hero, companies, How to Apply) over HTTPS.
+2. Relative assets and `data/*.json` load under the Pages subpath.
+3. Shareable `?cf_*` filter links restore state.
+
+**Deferred by owner:** Print/PDF polish beyond the basic `@media print` rules.
+
+**Sign-off:** Accepted 2026-07-08 (Pages live; print deferred). See `25_ROADMAP_ARCHIVE.md`.
+
+---
+
+### Milestone 13 — Loader + Repo Cleanup (pending acceptance)
+
+**Automated (run from repository root):**
+
+```bash
+npm run verify
+node scripts/verify-companies.js
+# optional:
+npm run ui-smoke
+```
+
+Expected: verify scripts exit 0; ui-smoke PASS and process exits.
+
+**Browser:**
+
+1. Serve at `http://localhost:3456` (or Live Preview over HTTP). Hard-refresh.
+2. First paint shows branded **page loader** (title + progress bar + “Loading playbook…”) — not plain “Loading content…”.
+3. After data loads, hero / Target Companies / How to Apply render normally.
+4. Confirm only `data/companies.json` exists under `data/` for companies (no `company-sources` / `manifests`).
+5. Confirm `archive/` contains research MD + archived company pipeline files (`archive/README.md`).
+6. Optional dark-mode check: loader readable in both themes (brief flash) and content OK after load.
+
+**Regression:**
+
+7. Search still finds Adobe; filters still work; `?mode=dev` still restores handbook chrome.
+
+**Sign-off:** Pending project owner verification.
 
 ---
 

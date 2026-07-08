@@ -473,6 +473,35 @@ Automated + browser: `17_TESTING_GUIDE.md` → Milestone 11.
 
 ### Owner decisions
 
-DR-014 (product vs dev), DR-015 (presentation polish without build step), DR-016 (EDS/Forms deferred to M13).
+DR-014 (product vs dev), DR-015 (presentation polish without build step), DR-016 (EDS/Forms deferred — later moved to M14 per DR-017).
+
+## Milestone 12 — Publishing (complete, accepted)
+
+### Goal
+
+Ship the product-shaped site publicly on GitHub Pages.
+
+### Scope (in) — delivered
+
+- Public repo `jangidvishnu/aem-developer-playbook` with MIT, CONTRIBUTING, CI, `.nojekyll`.
+- GitHub Pages from `master` / root: https://jangidvishnu.github.io/aem-developer-playbook/
+- Relative `data/` + `assets/` verified under the Pages subpath; shareable filter URLs work.
+- UI smoke hang fix so Actions exits after PASS.
+
+### Scope (out) / deferred
+
+Print stylesheet polish and deliberate PDF book export — **deferred** by owner (basic `@media print` remains).
+
+### Acceptance criteria
+
+Live HTTPS product mode loads companies and How to Apply. Owner confirmed live URL 2026-07-08. Print criteria waived for M12.
+
+### Test plan
+
+Live URL checks; `npm run verify` / `npm run ui-smoke`.
+
+### Owner decisions
+
+Print not required for M12; collaboration via PRs on protected `master`.
 
 
