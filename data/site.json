@@ -6,12 +6,12 @@
     "title": "AEM Developer Playbook",
     "shortTitle": "AEM Playbook",
     "versionLabel": "Publication Draft • Version 4.0.0",
-    "githubUrl": ""
+    "githubUrl": "https://github.com/jangidvishnu/aem-developer-playbook"
   },
   "disclaimer": {
     "message": "Company and hiring data is based on our research and public sources. It is not guaranteed to be complete or current and will be expanded over time.",
     "contributing": "Know a correction or addition? Submit a pull request to update the data.",
-    "contributingUrl": ""
+    "contributingUrl": "https://github.com/jangidvishnu/aem-developer-playbook/pulls"
   },
   "hero": {
     "purpose": {

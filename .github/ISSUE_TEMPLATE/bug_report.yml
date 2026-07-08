@@ -1,0 +1,35 @@
+name: Bug report
+description: Something broken on the site or in the repo tooling
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL or page section
+      placeholder: https://jangidvishnu.github.io/aem-developer-playbook/ or #target-companies
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: input
+    id: env
+    attributes:
+      label: Browser / device
+      placeholder: e.g. Chrome 126, Windows, phone width

@@ -1,0 +1,37 @@
+name: Company data update
+description: Suggest a correction or addition for an employer record
+title: "[company] "
+labels: ["data", "companies"]
+body:
+  - type: input
+    id: company
+    attributes:
+      label: Company name
+      placeholder: e.g. Adobe
+    validations:
+      required: true
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: Type of change
+      options:
+        - Correction to existing record
+        - New employer proposal
+        - Hiring / careers URL update
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What should change
+      description: Describe the field(s) and the proposed value.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence / links
+      description: Careers page, job posting, case study, or other verifiable source.
+    validations:
+      required: true

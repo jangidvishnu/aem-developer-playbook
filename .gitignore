@@ -17,5 +17,8 @@ desktop.ini
 node_modules/
 npm-debug.log*
 
+# Playwright / UI smoke local failure captures
+scripts/.ui-smoke-artifacts/
+
 # Logs
 *.log
