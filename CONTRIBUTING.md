@@ -23,11 +23,11 @@ npx serve -p 3456
 
 Open `http://localhost:3456`. On first paint you should see a short branded loader, then content.
 
-Checks before you open a PR:
+Checks before you open a PR (`npm run verify` now includes render, search, filters, owner playbook, companies,
+and learning-data validation — no separate command needed per data file):
 
 ```bash
 npm run verify
-node scripts/verify-companies.js   # if you changed companies.json
 # optional (needs: npm install && npx playwright install chromium)
 npm run ui-smoke
 ```

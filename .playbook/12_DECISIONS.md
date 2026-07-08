@@ -12,6 +12,24 @@ mark the old one as superseded.
 
 ---
 
+## DR-018 — Branch protection on `master` enforced for admins too; CI gains company/learning data validation
+
+**Date:** 2026-07-08
+**Context:** Branch protection with required status checks (`Verify scripts`, `UI smoke (Playwright search)`) was
+already configured on `master` from an earlier session, but `enforce_admins` was `false` — the sole maintainer
+(repo admin) could still see a bypass button to merge without checks passing. Separately, `verify-companies.js` and
+`verify-learning.js` existed but were documented as manual-only steps, never actually run in CI, so a broken
+`companies.json`/learning file could pass CI green.
+**Decision:** Set `enforce_admins: true` via `gh api` (owner authenticated `gh` locally and confirmed this
+explicitly) so no one, including the admin, can merge a PR into `master` without both required checks passing.
+`npm run verify` and the CI `Verify scripts` job now also run `verify-companies.js` and `verify-learning.js`.
+`scripts/ui-smoke-companies.mjs` now exercises real interaction (typing in search, focus retention, pagination
+Next) instead of layout geometry only, per the Target Companies regression fixed the same day (see
+`13_CHANGELOG.md`).
+**Trade-off accepted:** The maintainer loses the emergency-bypass merge button; a hotfix now always needs a green
+CI run first, even from the repo owner.
+**Follow-up:** None outstanding; branch protection state verified via `gh api .../branches/master/protection`.
+
 ## DR-017 — Milestone 13 is loader + cleanup; EDS/Forms becomes Milestone 14
 
 **Date:** 2026-07-08

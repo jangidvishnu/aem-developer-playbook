@@ -2,13 +2,25 @@
 
 ## Current state
 
-No formal test suite exists yet. Committed verification scripts (Node, no dependencies):
+`npm run verify` (Node, no dependencies) runs on every commit locally and in CI (`.github/workflows/ci.yml` →
+`Verify scripts` job) — it is required to pass before merge once branch protection is configured (see `README.md`
+→ Maintainers). It chains:
 
-- `node scripts/verify-render.js` — chapter/sidebar regression vs. Milestone 3 golden snapshot.
-- `node scripts/verify-search.js` — ranked search assertions over real `data/*.json` (Milestone 5+).
-- `node scripts/verify-learning.js` — learning data schema and minimum counts (Milestone 7).
+- `scripts/verify-render.js` — chapter/sidebar regression vs. Milestone 3 golden snapshot.
+- `scripts/verify-search.js` — ranked search assertions over real `data/*.json` (Milestone 5+).
+- `scripts/verify-filters.js` — company filter/sort/URL-state logic (Milestone 9).
+- `scripts/verify-owner-playbook.js` — owner playbook schema (Milestone 10).
+- `scripts/verify-companies.js` — `data/companies.json` schema + hiring gate (Milestone 6/13).
+- `scripts/verify-learning.js` — learning data schema and minimum counts (Milestone 7).
 
-Run both after changes to `assets/js/render.js`, `assets/js/search.js`, or `data/*.json`.
+`npm run ui-smoke` (Playwright, dev-time only) is a separate CI job (`UI smoke (Playwright search)`) that drives a
+real headless browser against the search box, the Target Companies filter bar, search-then-filter, and pagination
+Prev/Next — not just static layout — so a wiring regression (e.g. a filter input that stops updating the table)
+fails CI instead of only failing in the browser. Run it locally after any change to `index.html`'s company wiring
+or `assets/js/render.js`'s company markup.
+
+Run the full `npm run verify` after changes to `assets/js/render.js`, `assets/js/search.js`, `assets/js/filters.js`,
+or any `data/*.json`.
 
 ## Milestone test plans
 
@@ -305,12 +317,12 @@ CI runs the same checks on push/PR via `.github/workflows/ci.yml` (`verify` + `u
 
 ```bash
 npm run verify
-node scripts/verify-companies.js
-# optional:
 npm run ui-smoke
 ```
 
-Expected: verify scripts exit 0; ui-smoke PASS and process exits.
+Expected: verify scripts exit 0 (includes companies + learning data); ui-smoke PASS — including the search-filters-
+the-table, focus-stays-in-search-box, and pagination-changes-visible-rows checks added after a 2026-07-08 regression
+— and the process exits.
 
 **Browser:**
 

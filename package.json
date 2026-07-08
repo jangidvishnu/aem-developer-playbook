@@ -3,7 +3,7 @@
   "private": true,
   "description": "Dev-time tooling only — not loaded by index.html (see .playbook/17_TESTING_GUIDE.md).",
   "scripts": {
-    "verify": "node scripts/verify-render.js && node scripts/verify-search.js && node scripts/verify-filters.js && node scripts/verify-owner-playbook.js",
+    "verify": "node scripts/verify-render.js && node scripts/verify-search.js && node scripts/verify-filters.js && node scripts/verify-owner-playbook.js && node scripts/verify-companies.js && node scripts/verify-learning.js",
     "ui-smoke": "node scripts/run-ui-smoke.mjs",
     "ui-smoke:headed": "node scripts/run-ui-smoke.mjs --headed"
   },

@@ -28,6 +28,18 @@ and `14_ROADMAP.md`.
 - Branded accessible first-load `.page-loader` (replaces plain “Loading content…”).
 - `archive/` tree for historical company research, seeds/manifests, and legacy build scripts (DR-017).
 - Milestone 13 test plan in `17_TESTING_GUIDE.md`.
+- `scripts/verify-companies.js` and `scripts/verify-learning.js` now run automatically in `npm run verify` and CI
+  (previously documented as manual-only steps, so a broken `companies.json` or learning data file could pass CI).
+- `scripts/ui-smoke-companies.mjs` now exercises real interaction (typing in the search box, checking focus stays,
+  clicking pagination Next) instead of layout geometry only.
+
+### Fixed
+
+- Target Companies search/pagination regression: `index.html` referenced a `.company-table-wrap` selector removed
+  in an earlier revert, so typing and Prev/Next silently stopped updating the visible table, and the "Clear
+  filters" toggle triggered a full toolbar re-render that dropped keyboard focus out of the search box mid-type.
+  `Render.companySection` now wraps the table/cards in a stable `.company-explorer__body`, and "Clear filters" is
+  always rendered with a `hidden` class instead of conditionally added/removed markup.
 
 ### Changed
 

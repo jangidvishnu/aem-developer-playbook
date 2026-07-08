@@ -20,6 +20,8 @@ jobs:
           node scripts/verify-search.js
           node scripts/verify-filters.js
           node scripts/verify-owner-playbook.js
+          node scripts/verify-companies.js
+          node scripts/verify-learning.js
 
   ui-smoke:
     name: UI smoke (Playwright search)

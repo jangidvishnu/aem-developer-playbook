@@ -14,12 +14,11 @@ npx serve -p 3456
 
 Open `http://localhost:3456`. Opening `index.html` via `file://` will fail because the app loads `data/*.json` with `fetch`.
 
-Optional checks:
+Checks (`npm run verify` covers render, search, filters, owner playbook, companies, and learning data):
 
 ```bash
 npm run verify
-node scripts/verify-companies.js
-npm run ui-smoke
+npm run ui-smoke   # optional locally; needs: npx playwright install chromium
 ```
 
 ## Contributing
@@ -47,13 +46,9 @@ archive/            Historical research + legacy company pipeline (not fetched)
 
 Published company DB: **`data/companies.json` only**. Historical seeds and research: [`archive/README.md`](archive/README.md).
 
-## Maintainers — branch protection (GitHub)
+## Maintainers
 
-**Settings → Branches** for `master`:
-
-- Require a pull request before merging
-- **Do not** require approvals while you are the only maintainer (you cannot approve your own PRs)
-- Require status checks once they appear: `Verify scripts` and `UI smoke (Playwright search)`
-- Optionally later: require 1 approval after adding a second collaborator
+CI (`.github/workflows/ci.yml`) runs `Verify scripts` and `UI smoke (Playwright search)` on every push and pull
+request. Branch protection for `master` (required status checks, PR-only merges) is configured directly on GitHub.
 
 Pages: **Settings → Pages** → Deploy from branch → `master` / root (`/`). Root [`.nojekyll`](.nojekyll) disables Jekyll processing.

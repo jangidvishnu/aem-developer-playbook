@@ -173,9 +173,10 @@
         const filtered = CompanyFilters.apply(allCompanies, filterState);
         const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
         if (page > totalPages) page = 1;
-        const wrap = container.querySelector('.company-table-wrap');
+        const wrap = container.querySelector('.company-explorer__body');
         const opts = { page, productMode, allCompanies };
         if (wrap) wrap.innerHTML = Render.companyDataBody(filtered, opts);
+        else { renderCompanySection(); return; }
         const countEl = container.querySelector('[data-company-count]');
         if (countEl) countEl.textContent = Render.companyCountLabel(page, filtered.length, allCompanies.length, PAGE_SIZE);
         const pagEl = container.querySelector('[data-company-pagination]');
@@ -183,7 +184,6 @@
         const clearBtn = container.querySelector('[data-company-clear-filters]');
         const showClear = CompanyFilters.hasActiveFilters(filterState);
         if (clearBtn) clearBtn.classList.toggle('hidden', !showClear);
-        else if (showClear) renderCompanySection();
         UI.wireSelects(container);
         UI.wireTableTips(container);
         wirePagination();

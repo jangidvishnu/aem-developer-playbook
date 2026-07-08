@@ -20,13 +20,11 @@ GitHub Pages serving product mode from `master` / root. Print/PDF polish deferre
 
 ### M13 in progress
 
-- Page loader replacing plain “Loading content…”
-- Archive `md/` research, `company-sources`, manifests, and legacy company build scripts under `archive/`
-- Direct edits to `data/companies.json` going forward (DR-017)
+Page loader, `archive/` cleanup, and Target Companies fixes in progress — see `13_CHANGELOG.md` for detail as it lands.
 
 ### Owner still needs
 
-1. Local/browser: loader + site after hard refresh.
+1. Browser verification after hard refresh (loader, Target Companies search + pagination).
 2. `npm run verify` / `npm run ui-smoke`.
 3. Explicit M13 acceptance; push/PR only after owner approval (see `.cursor/rules/git-push-approval.mdc`).
 
