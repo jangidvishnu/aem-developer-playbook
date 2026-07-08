@@ -745,9 +745,9 @@
     "companyType": "Product",
     "headquarters": "New Delhi, India",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.marutisuzuki.com/corporate/about-us/careers",
+    "careersUrl": "https://www.marutisuzuki.com/corporate/careers",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.marutisuzuki.com/corporate/about-us/careers",
+    "directJobSearch": "https://www.marutisuzuki.com/corporate/careers",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites",
@@ -788,7 +788,7 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.marutisuzuki.com/corporate/about-us/careers"
+      "https://www.marutisuzuki.com/corporate/careers"
     ],
     "AEMWorkFocus": [
       "Sites",
@@ -796,7 +796,7 @@
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -1014,9 +1014,9 @@
     "companyType": "Product",
     "headquarters": "Wolfsburg, Germany",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.volkswagenag.com/en/careers.html",
+    "careersUrl": "https://www.volkswagen-group.com/en/career-16057",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.volkswagenag.com/en/careers/jobs.html?keyword=Experience%20Manager",
+    "directJobSearch": "https://www.volkswagen-group.com/en/career-16057",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites",
@@ -1058,7 +1058,7 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.volkswagenag.com/en/careers/jobs.html?keyword=Experience%20Manager"
+      "https://www.volkswagen-group.com/en/career-16057"
     ],
     "AEMWorkFocus": [
       "Sites",
@@ -1066,7 +1066,7 @@
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -1280,9 +1280,9 @@
     "companyType": "Product",
     "headquarters": "Mumbai, India",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.asianpaints.com/careers.html",
+    "careersUrl": "https://careers.asianpaints.com/",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.asianpaints.com/careers.html",
+    "directJobSearch": "https://careers.asianpaints.com/",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -1324,14 +1324,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.asianpaints.com/careers.html"
+      "https://careers.asianpaints.com/"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -1476,9 +1476,9 @@
     "companyType": "Agency",
     "headquarters": "Noida, India",
     "indiaPresence": "Yes",
-    "careersUrl": "https://careers.coforge.com/",
+    "careersUrl": "https://careers.coforge.com/coforge/",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://careers.coforge.com/search/?q=Adobe%20Experience%20Manager",
+    "directJobSearch": "https://careers.coforge.com/coforge/search/?q=Adobe%20Experience%20Manager",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites",
@@ -1519,7 +1519,7 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://careers.coforge.com/search/?q=Adobe%20Experience%20Manager"
+      "https://careers.coforge.com/coforge/search/?q=Adobe%20Experience%20Manager"
     ],
     "AEMWorkFocus": [
       "Sites",
@@ -1528,7 +1528,7 @@
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -1675,9 +1675,9 @@
     "companyType": "Product",
     "headquarters": "Atlanta, USA",
     "indiaPresence": "Yes",
-    "careersUrl": "https://delta.com/us/en/careers",
+    "careersUrl": "https://delta.avature.net/en_US/careers",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://delta.com/us/en/careers/search?keyword=Adobe",
+    "directJobSearch": "https://delta.avature.net/en_US/careers",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -1719,14 +1719,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://delta.com/us/en/careers/search?keyword=Adobe"
+      "https://delta.avature.net/en_US/careers"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -1813,9 +1813,9 @@
     "companyType": "Enterprise",
     "headquarters": "Mumbai, India",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.hdfc.com/",
+    "careersUrl": "https://homeloans.hdfc.bank.in/careers/current-vacancies",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.hdfc.com/careers",
+    "directJobSearch": "https://homeloans.hdfc.bank.in/careers/current-vacancies",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites",
@@ -1858,9 +1858,9 @@
     "Offer": false,
     "Rejected": false,
     "AEMHiringEvidence": [
-      "https://www.hdfc.com/careers"
+      "https://homeloans.hdfc.bank.in/careers/current-vacancies"
     ],
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "HiringAEM": true,
     "AEMWorkFocus": [
       "Sites",
@@ -3381,72 +3381,6 @@
     "Rejected": false
   },
   {
-    "id": "bosch",
-    "name": "Bosch",
-    "priority": 7,
-    "industry": "Manufacturing",
-    "companyType": "Product",
-    "headquarters": "Gerlingen, Germany",
-    "indiaPresence": "Yes",
-    "careersUrl": "https://www.bosch.com/careers/",
-    "careersLogin": "Unknown",
-    "directJobSearch": "https://www.bosch.com/careers/",
-    "usesAEM": true,
-    "AdobeProducts": [
-      "AEM Sites"
-    ],
-    "AEMVersion": "Unknown",
-    "AEMaaCS": false,
-    "EdgeDeliveryServices": false,
-    "UniversalEditor": false,
-    "GraphQL": false,
-    "AEP": false,
-    "Analytics": false,
-    "Target": false,
-    "Forms": false,
-    "Assets": false,
-    "Sites": true,
-    "MigrationStatus": "Unknown",
-    "EngineeringCulture": "Unknown",
-    "Compensation": "Unknown",
-    "WorkLifeBalance": "Unknown",
-    "VisaSupport": "Unknown",
-    "HiringIndia": "Yes",
-    "HiringGlobal": "Yes",
-    "InterviewDifficulty": "Unknown",
-    "TypicalRoles": [
-      "AEM Developer",
-      "Digital Experience Engineer",
-      "Web Platform Engineer",
-      "MarTech Engineer"
-    ],
-    "Recruiters": [],
-    "Notes": "AEM usage: Tier 4 BuiltWith tech detection (DR-011 watchlist). Hiring may be sporadic or under generic titles — monitor careers. Upgrade Evidence when Adobe case study found.",
-    "Evidence": [
-      "https://builtwith.com/bosch.com"
-    ],
-    "References": [
-      "data/manifests/builtwith-candidates.json"
-    ],
-    "LastVerified": "2026-07-07",
-    "Status": "Verified",
-    "HiringAEM": true,
-    "AEMHiringEvidence": [
-      "https://www.bosch.com/careers/"
-    ],
-    "AEMWorkFocus": [
-      "Sites"
-    ],
-    "HiringIntensity": "High",
-    "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
-    "Wishlist": false,
-    "Applied": false,
-    "Interview": false,
-    "Offer": false,
-    "Rejected": false
-  },
-  {
     "id": "capgemini",
     "name": "Capgemini",
     "priority": 7,
@@ -4173,9 +4107,9 @@
     "companyType": "Agency",
     "headquarters": "Navi Mumbai, India",
     "indiaPresence": "Yes",
-    "careersUrl": "https://careers.hexaware.com/",
+    "careersUrl": "https://jobs.hexaware.com/",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://careers.hexaware.com/search?q=AEM",
+    "directJobSearch": "https://jobs.hexaware.com/search?q=AEM",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites",
@@ -4216,14 +4150,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://careers.hexaware.com/search?q=AEM"
+      "https://jobs.hexaware.com/search?q=AEM"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -4304,9 +4238,9 @@
     "companyType": "Product",
     "headquarters": "Mumbai, India",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.indusind.com/in/en/career.html",
+    "careersUrl": "https://app1100.workline.hr/careers/",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.indusind.com/in/en/career.html",
+    "directJobSearch": "https://app1100.workline.hr/careers/",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -4348,14 +4282,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.indusind.com/in/en/career.html"
+      "https://app1100.workline.hr/careers/"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -4631,9 +4565,9 @@
     "companyType": "Product",
     "headquarters": "Cologne, Germany",
     "indiaPresence": "Yes",
-    "careersUrl": "https://careers.lufthansagroup.com/",
+    "careersUrl": "https://lufthansagroup.careers/en",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://careers.lufthansagroup.com/",
+    "directJobSearch": "https://lufthansagroup.careers/en",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -4675,14 +4609,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://careers.lufthansagroup.com/"
+      "https://lufthansagroup.careers/en"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -4697,9 +4631,9 @@
     "companyType": "Product",
     "headquarters": "Sepang, Malaysia",
     "indiaPresence": "No",
-    "careersUrl": "https://careers.malaysiaairlines.com/",
+    "careersUrl": "https://www.malaysiaairlines.com/in/en/about-us/join-us.html",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://careers.malaysiaairlines.com/search?q=Adobe",
+    "directJobSearch": "https://www.malaysiaairlines.com/in/en/about-us/join-us.html",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites",
@@ -4741,14 +4675,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://careers.malaysiaairlines.com/search?q=Adobe"
+      "https://www.malaysiaairlines.com/in/en/about-us/join-us.html"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -4895,9 +4829,9 @@
     "companyType": "Product",
     "headquarters": "Stuttgart, Germany",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.mercedes-benz.com/en/career/",
+    "careersUrl": "https://group.mercedes-benz.com/careers/",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.mercedes-benz.com/en/career/",
+    "directJobSearch": "https://group.mercedes-benz.com/careers/",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -4939,14 +4873,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.mercedes-benz.com/en/career/"
+      "https://group.mercedes-benz.com/careers/"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -4955,15 +4889,15 @@
   },
   {
     "id": "merck",
-    "name": "Merck",
+    "name": "Merck KGaA",
     "priority": 7,
     "industry": "Healthcare",
     "companyType": "Product",
-    "headquarters": "Rahway, USA",
+    "headquarters": "Darmstadt, Germany",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.merck.com/careers/",
+    "careersUrl": "https://careers.merckgroup.com/global/en/search-results",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://jobs.merck.com/us/en/search-results?keywords=Adobe%20Experience%20Manager",
+    "directJobSearch": "https://careers.merckgroup.com/global/en/search-results",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -4994,9 +4928,9 @@
       "MarTech Engineer"
     ],
     "Recruiters": [],
-    "Notes": "AEM usage: Tier 4 BuiltWith tech detection (DR-011 watchlist). Hiring may be sporadic or under generic titles — monitor careers. Upgrade Evidence when Adobe case study found.",
+    "Notes": "Merck KGaA, Darmstadt, Germany (EMD Group) — not Merck & Co. (USA). AEM usage: Tier 4 BuiltWith tech detection (DR-011 watchlist). Hiring may be sporadic or under generic titles — monitor careers.",
     "Evidence": [
-      "https://builtwith.com/merck.com"
+      "https://builtwith.com/merckgroup.com"
     ],
     "References": [
       "data/manifests/builtwith-candidates.json"
@@ -5005,14 +4939,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://jobs.merck.com/us/en/search-results?keywords=Adobe%20Experience%20Manager"
+      "https://careers.merckgroup.com/global/en/search-results"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -5290,9 +5224,9 @@
     "companyType": "Agency",
     "headquarters": "Boston, USA",
     "indiaPresence": "Yes",
-    "careersUrl": "https://careers.photon.com/",
+    "careersUrl": "https://www.photon.com/careers",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://careers.photon.com/search?q=Adobe%20Experience%20Manager",
+    "directJobSearch": "https://www.photon.com/careers",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites",
@@ -5333,14 +5267,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://careers.photon.com/search?q=Adobe%20Experience%20Manager"
+      "https://www.photon.com/careers"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -5355,9 +5289,9 @@
     "companyType": "Product",
     "headquarters": "Newark, USA",
     "indiaPresence": "Unknown",
-    "careersUrl": "https://jobs.prudential.com/en/global",
+    "careersUrl": "https://jobs.prudential.com/us-en",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://jobs.prudential.com/en/search-jobs?k=Adobe",
+    "directJobSearch": "https://jobs.prudential.com/us-en/search-jobs?k=Adobe",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Assets",
@@ -5398,7 +5332,7 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://jobs.prudential.com/en/search-jobs?k=Adobe"
+      "https://jobs.prudential.com/us-en/search-jobs?k=Adobe"
     ],
     "AEMWorkFocus": [
       "Sites",
@@ -5406,7 +5340,7 @@
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -6726,9 +6660,9 @@
     "companyType": "Product",
     "headquarters": "Seattle, USA",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.avalara.com/us/en/about/careers.html",
+    "careersUrl": "https://careers.avalara.com/",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.avalara.com/us/en/about/careers.html",
+    "directJobSearch": "https://careers.avalara.com/",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -6770,14 +6704,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.avalara.com/us/en/about/careers.html"
+      "https://careers.avalara.com/"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -7052,9 +6986,9 @@
     "companyType": "Agency",
     "headquarters": "Irving, USA",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.epsilon.com/us/about-us/careers",
+    "careersUrl": "https://www.epsilon.com/us/careers",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.epsilon.com/us/about-us/careers",
+    "directJobSearch": "https://www.epsilon.com/us/careers",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -7096,14 +7030,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.epsilon.com/us/about-us/careers"
+      "https://www.epsilon.com/us/careers"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -7313,9 +7247,9 @@
     "companyType": "Product",
     "headquarters": "Auckland, New Zealand",
     "indiaPresence": "No",
-    "careersUrl": "https://www.spark.co.nz/about-spark/careers/",
+    "careersUrl": "https://careers.sparknz.co.nz/careers/SearchJobs",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.spark.co.nz/about-spark/careers/",
+    "directJobSearch": "https://careers.sparknz.co.nz/careers/SearchJobs",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -7356,14 +7290,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.spark.co.nz/about-spark/careers/"
+      "https://careers.sparknz.co.nz/careers/SearchJobs"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -7627,72 +7561,6 @@
     "Rejected": false
   },
   {
-    "id": "atcs",
-    "name": "ATCS (Athena Technology)",
-    "priority": 5,
-    "industry": "Consulting",
-    "companyType": "Agency",
-    "headquarters": "Princeton, USA",
-    "indiaPresence": "Yes",
-    "careersUrl": "https://www.atcs.com/careers",
-    "careersLogin": "Unknown",
-    "directJobSearch": "https://www.atcs.com/careers",
-    "usesAEM": true,
-    "AdobeProducts": [
-      "AEM Sites"
-    ],
-    "AEMVersion": "Unknown",
-    "AEMaaCS": false,
-    "EdgeDeliveryServices": false,
-    "UniversalEditor": false,
-    "GraphQL": false,
-    "AEP": false,
-    "Analytics": false,
-    "Target": false,
-    "Forms": false,
-    "Assets": false,
-    "Sites": true,
-    "MigrationStatus": "Unknown",
-    "EngineeringCulture": "Unknown",
-    "Compensation": "Unknown",
-    "WorkLifeBalance": "Unknown",
-    "VisaSupport": "Unknown",
-    "HiringIndia": "Yes",
-    "HiringGlobal": "Yes",
-    "InterviewDifficulty": "Unknown",
-    "TypicalRoles": [
-      "AEM Developer",
-      "Digital Experience Engineer",
-      "Web Platform Engineer",
-      "MarTech Engineer"
-    ],
-    "Recruiters": [],
-    "Notes": "AEM usage: Tier 4 BuiltWith tech detection (DR-011 watchlist). Hiring may be sporadic or under generic titles — monitor careers. Upgrade Evidence when Adobe case study found.",
-    "Evidence": [
-      "https://builtwith.com/athenahealth.com"
-    ],
-    "References": [
-      "data/manifests/builtwith-candidates.json"
-    ],
-    "LastVerified": "2026-07-07",
-    "Status": "Verified",
-    "HiringAEM": true,
-    "AEMHiringEvidence": [
-      "https://www.atcs.com/careers"
-    ],
-    "AEMWorkFocus": [
-      "Sites"
-    ],
-    "HiringIntensity": "High",
-    "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
-    "Wishlist": false,
-    "Applied": false,
-    "Interview": false,
-    "Offer": false,
-    "Rejected": false
-  },
-  {
     "id": "ezest",
     "name": "e-Zest Solutions",
     "priority": 5,
@@ -7700,9 +7568,9 @@
     "companyType": "Agency",
     "headquarters": "Pune, India",
     "indiaPresence": "Yes",
-    "careersUrl": "https://www.ezest.com/careers",
+    "careersUrl": "https://www.e-zest.com/careers",
     "careersLogin": "Unknown",
-    "directJobSearch": "https://www.ezest.com/careers",
+    "directJobSearch": "https://www.e-zest.com/careers",
     "usesAEM": true,
     "AdobeProducts": [
       "AEM Sites"
@@ -7744,14 +7612,14 @@
     "Status": "Verified",
     "HiringAEM": true,
     "AEMHiringEvidence": [
-      "https://www.ezest.com/careers"
+      "https://www.e-zest.com/careers"
     ],
     "AEMWorkFocus": [
       "Sites"
     ],
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
-    "LastHiringVerified": "2026-07-07",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
@@ -7818,6 +7686,135 @@
     "HiringIntensity": "High",
     "AdobeSpend": "Unknown",
     "LastHiringVerified": "2026-07-07",
+    "Wishlist": false,
+    "Applied": false,
+    "Interview": false,
+    "Offer": false,
+    "Rejected": false
+  },
+  {
+    "id": "htc-global-services",
+    "name": "HTC Global Services",
+    "priority": 7,
+    "industry": "Consulting",
+    "companyType": "Agency",
+    "headquarters": "Troy, USA",
+    "indiaPresence": "Yes",
+    "careersUrl": "https://www.htcinc.com/careers/",
+    "careersLogin": "Unknown",
+    "directJobSearch": "https://www.htcinc.com/careers/",
+    "usesAEM": true,
+    "AdobeProducts": [
+      "AEM Sites"
+    ],
+    "AEMVersion": "Unknown",
+    "AEMaaCS": false,
+    "EdgeDeliveryServices": false,
+    "UniversalEditor": false,
+    "GraphQL": false,
+    "AEP": false,
+    "Analytics": false,
+    "Target": false,
+    "Forms": false,
+    "Assets": false,
+    "Sites": true,
+    "MigrationStatus": "Unknown",
+    "EngineeringCulture": "Unknown",
+    "Compensation": "Unknown",
+    "WorkLifeBalance": "Unknown",
+    "VisaSupport": "Unknown",
+    "HiringIndia": "Yes",
+    "HiringGlobal": "Yes",
+    "InterviewDifficulty": "Unknown",
+    "TypicalRoles": [
+      "AEM Developer",
+      "AEM DevOps Engineer",
+      "AEM Dispatcher"
+    ],
+    "Recruiters": [],
+    "Notes": "Adobe Experience Manager practice with India delivery in Chennai and Hyderabad; roles include AEM developer and DevOps.",
+    "Evidence": [
+      "https://www.htcinc.com/insights/success-stories/built-for-speed-engineered-for-scale/"
+    ],
+    "References": [],
+    "LastVerified": "2026-07-08",
+    "Status": "Verified",
+    "HiringAEM": true,
+    "AEMHiringEvidence": [
+      "https://www.htcinc.com/careers/"
+    ],
+    "AEMWorkFocus": [
+      "Sites"
+    ],
+    "HiringIntensity": "High",
+    "AdobeSpend": "Unknown",
+    "LastHiringVerified": "2026-07-08",
+    "Wishlist": false,
+    "Applied": false,
+    "Interview": false,
+    "Offer": false,
+    "Rejected": false
+  },
+  {
+    "id": "beansbit",
+    "name": "BeansBit",
+    "priority": 5,
+    "industry": "Consulting",
+    "companyType": "Agency",
+    "headquarters": "Pune, India",
+    "indiaPresence": "Yes",
+    "careersUrl": "https://www.beansbit.com/",
+    "careersLogin": "Unknown",
+    "directJobSearch": "https://www.beansbit.com/",
+    "usesAEM": true,
+    "AdobeProducts": [
+      "AEM Sites",
+      "Adobe Analytics"
+    ],
+    "AEMVersion": "Unknown",
+    "AEMaaCS": false,
+    "EdgeDeliveryServices": false,
+    "UniversalEditor": false,
+    "GraphQL": false,
+    "AEP": false,
+    "Analytics": true,
+    "Target": false,
+    "Forms": false,
+    "Assets": false,
+    "Sites": true,
+    "MigrationStatus": "Unknown",
+    "EngineeringCulture": "Unknown",
+    "Compensation": "Unknown",
+    "WorkLifeBalance": "Unknown",
+    "VisaSupport": "Unknown",
+    "HiringIndia": "Yes",
+    "HiringGlobal": "Unknown",
+    "InterviewDifficulty": "Unknown",
+    "TypicalRoles": [
+      "AEM Developer",
+      "Adobe Consultant",
+      "Contractor"
+    ],
+    "Recruiters": [
+      "hr@beansbit.com"
+    ],
+    "Notes": "Recruitment and staffing agency placing Adobe and AEM contractors in India; reach out via hr@beansbit.com or the website contact form.",
+    "Evidence": [
+      "https://in.linkedin.com/company/beansbit-private-limited"
+    ],
+    "References": [],
+    "LastVerified": "2026-07-08",
+    "Status": "Verified",
+    "HiringAEM": true,
+    "AEMHiringEvidence": [
+      "https://www.hirist.tech/beansbit-careers"
+    ],
+    "AEMWorkFocus": [
+      "Sites"
+    ],
+    "HiringIntensity": "Medium",
+    "AdobeSpend": "Unknown",
+    "LastHiringVerified": "2026-07-08",
     "Wishlist": false,
     "Applied": false,
     "Interview": false,
