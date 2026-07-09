@@ -2270,31 +2270,7 @@ body {
   color: var(--text-secondary);
 }
 
-.explorer-page-btn {
-  min-width: 2rem;
-  height: 2rem;
-  padding: 0 var(--space-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-elevated);
-  color: var(--text-primary);
-  font-size: 0.8125rem;
-  cursor: pointer;
-}
-
-.explorer-page-btn:hover {
-  background: var(--bg-muted);
-}
-
-.explorer-page-btn--active {
-  background: var(--accent-subtle);
-  border-color: var(--accent);
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.explorer-pagination--numbered {
-  flex-wrap: wrap;
+.explorer-pagination--learning {
   margin-top: var(--space-3);
 }
 
@@ -2586,12 +2562,24 @@ body.search-platform-mac .search-wrap__shortcut-meta {
   margin-top: var(--space-2);
 }
 
-/* Data tables (glossary, technologies, interview) */
+/* Data tables (glossary, technologies, interview) — 5 rows/page; pad + height lock reduce page-change jump */
 .data-table-wrap {
   overflow-x: auto;
   margin-top: var(--space-3);
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
+  min-height: calc(var(--learning-row-h, 3.25rem) * 5 + 2.75rem);
+}
+
+.data-table__pad td {
+  border: none !important;
+  height: var(--learning-row-h, 3.25rem);
+  padding: 0;
+  background: transparent !important;
+}
+
+.data-table tbody tr.data-table__pad:hover {
+  background: transparent;
 }
 
 .data-table {
@@ -2699,6 +2687,10 @@ body.search-platform-mac .search-wrap__shortcut-meta {
 
 .data-table tbody tr:hover {
   background: var(--bg-muted);
+}
+
+.data-table__row--flash td {
+  background: var(--accent-subtle) !important;
 }
 
 .content-card {
@@ -3246,6 +3238,42 @@ body.search-platform-mac .search-wrap__shortcut-meta {
 
 .roadmap-accordion li strong {
   color: var(--text-primary);
+}
+
+.learning-resource-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+}
+
+.learning-resource-links li {
+  margin: 0;
+}
+
+.learning-resource-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.35rem 0;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  line-height: 1.35;
+}
+
+.data-table__col--summary .learning-resource-links {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .learning-resource-links a {
+    min-height: 2rem;
+    padding: 0.2rem 0;
+  }
 }
 
 .site-footer {

@@ -30,11 +30,11 @@ async function main() {
   await search.fill('AEM');
   await page.waitForSelector('.search-panel.is-open .search-result', { timeout: 8000 });
 
-  await page.locator('#search-wrap .search-facet-chip', { hasText: 'Apply' }).click();
-  await search.fill('ad');
+  await page.locator('#search-wrap .search-facet-chip', { hasText: 'Interview' }).click();
+  await search.fill('adobe');
   await page.waitForSelector('#search-wrap .search-panel.is-open .search-result', { timeout: 8000 });
   const adCount = await page.locator('#search-wrap .search-result').count();
-  if (adCount < 1) throw new Error('Apply + ad should widen to All and show results');
+  if (adCount < 1) throw new Error('Interview + adobe should widen to All and show results');
 
   if (errors.length) console.warn('Console errors:', errors);
   console.log('UI smoke search: PASS');

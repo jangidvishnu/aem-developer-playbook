@@ -14,7 +14,7 @@
     "reading": "4 min",
     "tags": ["Career"],
     "careerPathEmbed": true,
-    "body": "<p>Target product companies and GCCs in India that invest in Adobe Experience Cloud. Deep AEM skills beat shallow full-stack breadth. Even when you are not switching jobs, stay interview-ready: update profiles, sit a market-check interview every 3–6 months, and close skill gaps when interviews expose them.</p>"
+    "body": "<p>In India, AEM roles show up across <strong>product companies</strong>, <strong>GCCs</strong>, and <strong>agencies / SIs</strong> — each has different pace, ownership, and interview style. Use <a href=\"#target-companies\">Target Companies</a> to build a list; use <a href=\"#how-to-apply\">How to Apply</a> for the workflow. Prefer depth in AEM (Sites, Cloud Service, Dispatcher, integrations) over shallow “full-stack everything.” Stay interview-ready even when you are not switching: keep LinkedIn/Naukri current, do a calm market-check interview every few months, and close gaps interviews expose. This is personal research — not a ranking of employers; every organisation has pros and cons.</p>"
   },
   {
     "id": "professional-branding",
@@ -23,16 +23,16 @@
     "reading": "3 min",
     "tags": ["Branding"],
     "templateEmbed": true,
-    "body": "<p>Present yourself as an <strong>AEM Developer</strong> with clear skills in Sites, Cloud Service, Dispatcher, and integrations. Use the templates below for LinkedIn, Naukri, outreach emails, and resume bullets.</p>"
+    "body": "<p>Present yourself as an <strong>AEM Developer</strong> with clear skills in Sites, Cloud Service, Dispatcher, and integrations. Fill placeholders with your real metrics and projects — never invent impact. Use the templates below for LinkedIn, Naukri, outreach, and resume bullets.</p>"
   },
   {
     "id": "core-skills",
     "title": "Core Skills",
-    "summary": "Priority technologies for senior AEM developers.",
+    "summary": "Priority technologies for AEM developers.",
     "reading": "5 min",
     "tags": ["Skills"],
     "technologyEmbed": true,
-    "body": "<p>Master the intersection of <strong>AEM platform engineering</strong> (Sites, Assets, Cloud Service), <strong>integration</strong> (Analytics, Target, AEP), and <strong>delivery</strong> (Dispatcher, CDN, Edge Delivery). The technology reference table lists prerequisites and official Adobe resources.</p>"
+    "body": "<p>Build from platform basics (Sites, Sling, HTL, OSGi, Dispatcher, Java for AEM) into Cloud Service, headless, and Experience Platform integrations. The table below includes official Adobe / Apache docs where available — use them as the source of truth, not random blog posts.</p>"
   },
   {
     "id": "learning-roadmap",
@@ -40,7 +40,7 @@
     "summary": "Structured AEM learning paths.",
     "reading": "3 min",
     "tags": ["Learning"],
-    "body": "<p>Follow the three learning paths in this handbook: <strong>AEM foundation</strong>, <strong>Cloud &amp; Edge</strong>, and <strong>Experience Platform integration</strong>. Each step links to technologies and curated resources.</p>"
+    "body": "<p><strong>Start here if you are new or rusty:</strong> AEM foundation (architecture → Sling/HTL → Dispatcher). <strong>Then:</strong> Cloud Service &amp; Edge. <strong>When you need personalization / data:</strong> Experience Platform integration. Each step lists curated official Adobe / Apache docs — go at your own pace.</p>"
   },
   {
     "id": "target-companies",
@@ -74,7 +74,7 @@
     "reading": "6 min",
     "tags": ["Reference"],
     "glossaryEmbed": true,
-    "body": "<p>Short definitions of AEM, DXP, and related terms. Cross-links appear in the related-terms column.</p>"
+    "body": "<p>Short definitions of AEM, DXP, and related terms used in interviews and roadmaps. Prefer Adobe Experience League and Apache docs when you need full detail.</p>"
   },
   {
     "id": "interview-prep",
@@ -83,7 +83,7 @@
     "reading": "10 min",
     "tags": ["Interview"],
     "interviewEmbed": true,
-    "body": "<p>Preparation guidance — common AEM topics and frameworks employers ask about. Not a guarantee of exact questions at any company.</p>"
+    "body": "<p>Interview outcomes depend on your knowledge, how the interviewer runs the loop, what is on your resume and projects, and fundamentals (JCR, Java, Sling, OSGi, Dispatcher, HTL, ResourceResolver). Guidance below is a coach checklist — adapt it to your experience; it is not a script and not a guarantee of exact questions. Honest AEM project work (without relying only on AI-generated answers) is the strongest prep; still study the basics so you can explain what you built.</p>"
   },
   {
     "id": "living-roadmap",
@@ -92,6 +92,6 @@
     "reading": "3 min",
     "tags": ["Roadmap"],
     "resourceEmbed": true,
-    "body": "<p>Official Adobe documentation and courses referenced across this playbook. Milestone 12 will add publishing (GitHub Pages, print, PDF).</p>"
+    "body": "<p>Official Adobe documentation and courses referenced across this playbook (also linked from Learning Roadmap and Core Skills in product mode).</p>"
   }
 ]

@@ -90,8 +90,33 @@ function buildFragments(Render, data) {
   // close the <script> tag it's embedded in.
   const jsonLdJson = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
 
+  const title = Render.escapeHtml(site.documentTitle || '');
+  const desc = Render.escapeHtml(seo.description || '');
+  const keywords = Render.escapeHtml((seo.keywords || []).join(', '));
+  const themeColor = Render.escapeHtml(seo.themeColor || '#2563eb');
+  const ogType = Render.escapeHtml(seo.ogType || 'website');
+  const ogLocale = Render.escapeHtml(seo.ogLocale || 'en_US');
+  const twitterCard = Render.escapeHtml(seo.twitterCard || 'summary');
+  const seoMeta = [
+    `<meta name="description" content="${desc}" />`,
+    keywords ? `<meta name="keywords" content="${keywords}" />` : '',
+    `<meta name="theme-color" content="${themeColor}" />`,
+    `<meta property="og:title" content="${title}" />`,
+    `<meta property="og:description" content="${desc}" />`,
+    `<meta property="og:type" content="${ogType}" />`,
+    `<meta property="og:locale" content="${ogLocale}" />`,
+    siteUrl ? `<meta property="og:url" content="${Render.escapeHtml(siteUrl)}" />` : '',
+    seo.ogImage ? `<meta property="og:image" content="${Render.escapeHtml(seo.ogImage)}" />` : '',
+    `<meta name="twitter:card" content="${twitterCard}" />`,
+    `<meta name="twitter:title" content="${title}" />`,
+    `<meta name="twitter:description" content="${desc}" />`
+  ]
+    .filter(Boolean)
+    .join('\n  ');
+
   return {
     siteUrl,
+    'seo-meta': seoMeta,
     canonical: `<link rel="canonical" href="${siteUrl || './'}" />`,
     'json-ld': siteUrl ? `<script type="application/ld+json" id="site-json-ld">${jsonLdJson}</script>` : '',
     'page-header': Render.pageHeader(site.header, renderOpts),
@@ -108,6 +133,7 @@ function buildFragments(Render, data) {
 }
 
 const MARKER_NAMES = [
+  'seo-meta',
   'canonical',
   'json-ld',
   'page-header',

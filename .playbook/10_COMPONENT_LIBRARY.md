@@ -26,7 +26,8 @@ duplicated HTML across the codebase — if two places need similar markup, they 
 | `Render.uiSelect(key, label, options, current)` | filter key, label, options | Custom dropdown markup + hidden input | **Implemented** (M11) |
 | `Render.companySection(companies, options)` | filtered companies + opts | Unified explorer card (metrics, toolbar, body, pagination) | **Implemented** (M11) |
 | `Render.companyDataBody(companies, options)` | page slice | Table + cards with pad rows | **Implemented** (M11) |
-| `Render.companyPagination(page, total, attr)` | page state | Single Prev/Next bar | **Implemented** (M11) |
+| `Render.paginationBar(page, total, pageSize, attr, label)` | page state | Shared Prev/Next bar (companies + learning) | **Implemented** (M17) |
+| `Render.companyPagination(page, total, attr)` | page state | Company wrapper around `paginationBar` | **Implemented** (M11) |
 | `Render.companyCard(company)` | one company object | Mobile card view | **Implemented** (M11) |
 | `Render.icon(name)` | icon id | Delegates to `Icons.svg` when loaded | **Implemented** (M11) |
 | `Render.dashboard(stats)` | `{ title, items[] }` | Sidebar project-status panel | **Implemented** |

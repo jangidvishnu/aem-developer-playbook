@@ -133,11 +133,11 @@ if (adobeCompany && adobeCompany.facets && adobeCompany.facets.industry) {
 }
 
 const byId = CompanyFilters.companiesById(companies);
-const widenOut = CompanyFilters.querySearch(index, 'ad', byId, { sourceFilter: 'owner' });
+const widenOut = CompanyFilters.querySearch(index, 'adobe', byId, { sourceFilter: 'interview' });
 if (widenOut.raw.length > 0 && widenOut.widened && widenOut.results.length > 0) {
-  console.log('PASS', 'querySearch widens Apply filter when category empty');
+  console.log('PASS', 'querySearch widens Interview filter when category empty');
 } else {
-  console.log('FAIL', 'querySearch widens Apply filter when category empty');
+  console.log('FAIL', 'querySearch widens Interview filter when category empty');
   failed++;
 }
 

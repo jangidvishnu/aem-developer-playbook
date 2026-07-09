@@ -3,7 +3,7 @@
  * Loaded by index.html via <script src>; also require()'d by scripts/verify-render.js.
  */
 const COMPANY_PAGE_SIZE = 10;
-const LEARNING_PAGE_SIZE = 10;
+const LEARNING_PAGE_SIZE = 5;
 
 const Render = {
   pageSize: COMPANY_PAGE_SIZE,
@@ -208,13 +208,7 @@ const Render = {
   },
 
   searchFacets(state) {
-    const sources = [
-      { id: '', label: 'All' },
-      { id: 'company', label: 'Companies' },
-      { id: 'owner', label: 'Apply' },
-      { id: 'chapter', label: 'Chapters' },
-      { id: 'learning', label: 'Learning' }
-    ];
+    const sources = Render._companyFilters().SOURCE_FILTERS;
     const sourceChips = sources
       .map(s => {
         const active = (state.sourceFilter || '') === s.id ? ' search-facet-chip--active' : '';
@@ -230,7 +224,11 @@ const Render = {
       return `No results in ${meta.categoryLabel || 'that category'} for “${query.trim()}”. Showing all categories instead.`;
     }
     if (meta && meta.rawCount > 0 && meta.sourceFilter) {
-      const labels = { company: 'Companies', owner: 'Apply', chapter: 'Chapters', learning: 'Learning' };
+      const labels = Object.fromEntries(
+        Render._companyFilters()
+          .SOURCE_FILTERS.filter(s => s.id)
+          .map(s => [s.id, s.label])
+      );
       const label = labels[meta.sourceFilter] || meta.sourceFilter;
       return `No results in ${label} for “${query.trim()}”. Try All or another category.`;
     }
@@ -259,7 +257,7 @@ const Render = {
       career: 'Career path',
       interview: 'Interview',
       template: 'Template',
-      resource: 'Resource'
+      resource: 'Docs'
     };
     return results
       .map((r, i) => {
@@ -370,18 +368,38 @@ const Render = {
 
   roadmapPanel(roadmap, options) {
     const hideStatus = Render.isProductMode(options);
+    const resourcesById = Render._resourcesById(options && options.resources);
     const steps = (roadmap.steps || [])
       .map(s => {
         const desc = s.description ? `<p class="text-sm mt-1">${Render.escapeHtml(s.description)}</p>` : '';
-        const hours = s.estimatedHours ? ` <span class="text-xs">(~${s.estimatedHours}h)</span>` : '';
         const status = hideStatus ? '' : `<span class="text-slate-500 text-sm">${Render.escapeHtml(s.status)}</span> — `;
-        return `<li id="roadmap-step-${Render.escapeHtml(s.id)}">${status}<strong>${Render.escapeHtml(s.title)}</strong>${hours}${desc}</li>`;
+        const links = Render.resourceLinksHtml(s.resourceIds, resourcesById);
+        return `<li id="roadmap-step-${Render.escapeHtml(s.id)}">${status}<strong>${Render.escapeHtml(s.title)}</strong>${desc}${links}</li>`;
       })
       .join('');
     if (hideStatus) {
       return `<details class="roadmap-accordion" id="roadmap-${Render.escapeHtml(roadmap.id)}"><summary>${Render.escapeHtml(roadmap.title)}</summary><div class="roadmap-accordion__body"><p class="text-sm mb-3">${Render.escapeHtml(roadmap.summary)}</p><ol>${steps}</ol></div></details>`;
     }
     return `<section id="roadmap-${Render.escapeHtml(roadmap.id)}" class="section"><h2>${Render.escapeHtml(roadmap.title)}</h2><p class="text-slate-500 mt-2 mb-4">${Render.escapeHtml(roadmap.summary)}</p><ol class="list-decimal ml-6 space-y-3">${steps}</ol></section>`;
+  },
+
+  _resourcesById(resources) {
+    const map = Object.create(null);
+    (resources || []).forEach(r => {
+      if (r && r.id) map[r.id] = r;
+    });
+    return map;
+  },
+
+  resourceLinksHtml(ids, resourcesById) {
+    const list = (ids || []).map(id => resourcesById && resourcesById[id]).filter(r => r && r.url && String(r.url).startsWith('http'));
+    if (!list.length) return '';
+    const items = list
+      .map(
+        r => `<li><a href="${Render.escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(r.title)}</a></li>`
+      )
+      .join('');
+    return `<ul class="learning-resource-links">${items}</ul>`;
   },
 
   uiSelect(filterKey, label, options, current, extraClass) {
@@ -412,14 +430,20 @@ const Render = {
     return `<div class="${cls}" data-ui-select${searchableAttr}${clearableAttr} data-ui-placeholder="${Render.escapeHtml(label)}"><span class="ui-select__label">${Render.escapeHtml(label)}</span><div class="ui-select__control"><button type="button" class="ui-select__trigger" aria-haspopup="listbox" aria-expanded="false"><span class="ui-select__value">${Render.escapeHtml(displayLabel)}</span>${Render.icon('chevronDown')}</button>${clearBtn}</div><div class="ui-select__dropdown hidden">${search}<ul class="ui-select__list" role="listbox">${opts}</ul><p class="ui-select__empty hidden" role="status">No matches</p></div><input type="hidden" data-company-filter="${Render.escapeHtml(filterKey)}" value="${Render.escapeHtml(current || '')}" /></div>`;
   },
 
-  companyPagination(page, totalItems, pageAttr) {
-    const pageSize = COMPANY_PAGE_SIZE;
-    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  /** Shared Prev/Next bar — Target Companies and learning tables use the same control. */
+  paginationBar(page, totalItems, pageSize, pageAttr, ariaLabel) {
+    const ps = pageSize || COMPANY_PAGE_SIZE;
+    const totalPages = Math.max(1, Math.ceil(totalItems / ps));
     const safePage = Math.min(Math.max(1, page), totalPages);
     if (totalPages <= 1) return '';
     const prev = safePage <= 1 ? 'disabled' : '';
     const next = safePage >= totalPages ? 'disabled' : '';
-    return `<nav class="explorer-pagination" aria-label="Company pages"><button type="button" data-${pageAttr}-prev="${safePage}" ${prev}>${Render.icon('chevronLeft')} Prev</button><span class="explorer-pagination__info">Page ${safePage} of ${totalPages}</span><button type="button" data-${pageAttr}-next="${safePage}" ${next}>Next ${Render.icon('chevronRight')}</button></nav>`;
+    const label = ariaLabel || `${pageAttr} pages`;
+    return `<nav class="explorer-pagination${pageAttr === 'company' ? '' : ' explorer-pagination--learning'}" aria-label="${Render.escapeHtml(label)}"><button type="button" data-${pageAttr}-prev="${safePage}" ${prev}>${Render.icon('chevronLeft')} Prev</button><span class="explorer-pagination__info">Page ${safePage} of ${totalPages}</span><button type="button" data-${pageAttr}-next="${safePage}" ${next}>Next ${Render.icon('chevronRight')}</button></nav>`;
+  },
+
+  companyPagination(page, totalItems, pageAttr) {
+    return Render.paginationBar(page, totalItems, COMPANY_PAGE_SIZE, pageAttr || 'company', 'Company pages');
   },
 
   companyResultsLabel(filtered, totalAll) {
@@ -446,15 +470,7 @@ const Render = {
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
     const safePage = Math.min(Math.max(1, page), totalPages);
     const slice = items.slice((safePage - 1) * pageSize, safePage * pageSize);
-    let pagination = '';
-    if (totalPages > 1) {
-      const buttons = [];
-      for (let p = 1; p <= totalPages; p++) {
-        const active = p === safePage ? ' explorer-page-btn--active' : '';
-        buttons.push(`<button type="button" data-${pageAttr}-page="${p}" class="explorer-page-btn${active}">${p}</button>`);
-      }
-      pagination = `<nav class="explorer-pagination explorer-pagination--numbered" aria-label="${Render.escapeHtml(pageAttr)} pages">${buttons.join('')}<span class="explorer-pagination__info">${total} items · page ${safePage} of ${totalPages}</span></nav>`;
-    }
+    const pagination = Render.paginationBar(safePage, total, pageSize, pageAttr, `${pageAttr} pages`);
     const colClass = {
       Term: 'data-table__col--term',
       Definition: 'data-table__col--definition',
@@ -472,7 +488,9 @@ const Render = {
         return `<th scope="col"${cls ? ` class="${cls}"` : ''}>${Render.escapeHtml(h)}</th>`;
       })
       .join('');
-    return `<div class="data-table-wrap"><table class="data-table data-table--${Render.escapeHtml(pageAttr)}"><thead><tr>${head}</tr></thead><tbody>${slice.map(renderRow).join('')}</tbody></table></div>${pagination}`;
+    const pad = Math.max(0, pageSize - slice.length);
+    const emptyRows = Array(pad).fill(`<tr class="data-table__pad" aria-hidden="true"><td colspan="${headers.length}"></td></tr>`).join('');
+    return `<div class="data-table-wrap"><table class="data-table data-table--${Render.escapeHtml(pageAttr)}"><thead><tr>${head}</tr></thead><tbody>${slice.map(renderRow).join('')}${emptyRows}</tbody></table></div>${pagination}`;
   },
 
   companyName(x) {
@@ -769,7 +787,7 @@ const Render = {
       terms,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
       g =>
-        `<tr><td class="data-table__col--term font-semibold">${Render.escapeHtml(g.term)}</td><td class="data-table__col--definition">${Render.escapeHtml(g.definition)}</td><td class="data-table__col--related text-muted text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
+        `<tr data-item-id="${Render.escapeHtml(g.id)}"><td class="data-table__col--term font-semibold">${Render.escapeHtml(g.term)}</td><td class="data-table__col--definition">${Render.escapeHtml(g.definition)}</td><td class="data-table__col--related text-muted text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
       ['Term', 'Definition', 'Related'],
       'glossary'
     );
@@ -777,11 +795,15 @@ const Render = {
 
   technologyTable(technologies, options = {}) {
     const sorted = Render.sortByDifficulty(technologies, 'name');
+    const resourcesById = Render._resourcesById(options.resources);
     return Render.paginatedTable(
       sorted,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
-      t =>
-        `<tr><td class="data-table__col--tech font-semibold">${Render.escapeHtml(t.name)}</td><td class="data-table__col--category">${Render.escapeHtml(t.category)}</td><td class="data-table__col--level">${Render.escapeHtml(t.difficulty)}</td><td class="data-table__col--summary">${Render.escapeHtml(t.summary)}</td></tr>`,
+      t => {
+        const links = Render.resourceLinksHtml(t.resourceIds, resourcesById);
+        const summary = `${Render.escapeHtml(t.summary)}${links}`;
+        return `<tr data-item-id="${Render.escapeHtml(t.id)}"><td class="data-table__col--tech font-semibold">${Render.escapeHtml(t.name)}</td><td class="data-table__col--category">${Render.escapeHtml(t.category)}</td><td class="data-table__col--level">${Render.escapeHtml(t.difficulty)}</td><td class="data-table__col--summary">${summary}</td></tr>`;
+      },
       ['Technology', 'Category', 'Level', 'Summary'],
       'technology'
     );
@@ -804,7 +826,7 @@ const Render = {
       sorted,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
       q =>
-        `<tr><td class="data-table__col--category">${Render.escapeHtml(q.category)}</td><td class="data-table__col--level">${Render.escapeHtml(q.difficulty)}</td><td class="data-table__col--question font-semibold">${Render.escapeHtml(q.question)}</td><td class="data-table__col--guidance text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
+        `<tr data-item-id="${Render.escapeHtml(q.id)}"><td class="data-table__col--category">${Render.escapeHtml(q.category)}</td><td class="data-table__col--level">${Render.escapeHtml(q.difficulty)}</td><td class="data-table__col--question font-semibold">${Render.escapeHtml(q.question)}</td><td class="data-table__col--guidance text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
       ['Category', 'Level', 'Question', 'Guidance'],
       'interview'
     );
@@ -880,7 +902,10 @@ const Render = {
     } else if (chapter.glossaryEmbed && learning.glossary) {
       body += `<div id="glossary-table-container" class="mt-4">${Render.glossaryTable(learning.glossary, { page: 1 })}</div>`;
     } else if (chapter.technologyEmbed && learning.technologies) {
-      body += `<div id="technology-table-container" class="mt-4">${Render.technologyTable(learning.technologies, { page: 1 })}</div>`;
+      body += `<div id="technology-table-container" class="mt-4">${Render.technologyTable(learning.technologies, {
+        page: 1,
+        resources: learning.resources
+      })}</div>`;
     } else if (chapter.careerPathEmbed && learning.careerPaths) {
       body += `<div class="mt-4">${Render.careerPaths(learning.careerPaths)}</div>`;
     } else if (chapter.templateEmbed && learning.templates) {
@@ -891,7 +916,10 @@ const Render = {
       body += `<div class="mt-4">${Render.resourcesList(learning.resources)}</div>`;
     }
     if (chapter.id === 'learning-roadmap' && ctx.productMode && ctx.roadmaps) {
-      body += `<div class="mt-6 space-y-4">${Render.roadmapList(ctx.roadmaps, renderOpts)}</div>`;
+      body += `<div class="mt-6 space-y-4">${Render.roadmapList(ctx.roadmaps, {
+        ...renderOpts,
+        resources: learning.resources
+      })}</div>`;
     }
     const reading = chapter.reading || chapter.readingTime || '';
     const metaLine = ctx.productMode

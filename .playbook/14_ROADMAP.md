@@ -36,7 +36,7 @@ review before the next one starts.
 | 4 | Renderer | Extend the render-function set to the remaining content types (hero, roadmap, dashboard, footer, search) once Milestone 3 gives them a data source; also move the `Render` namespace into `assets/js/render.js` | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 5 | Search | Ranked, multi-source search per `07_RESEARCH_GUIDE.md` / `08_UI_GUIDELINES.md` search spec | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 6 | Company Intelligence Database | Verify and merge `md/deep-research-report*.md` into `data/companies.json` | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
+| 7 | Learning System | Roadmaps, glossary, career paths, interview prep content | **Complete** — see `25_ROADMAP_ARCHIVE.md` (content depth in M17) |
 | 8 | Company Pipeline & Hiring Gate | Fresh research, hiring gate, filter/sort, BuiltWith manifest; **hire-verified employers only** | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 9 | Discovery Filters | Search-panel facets, shareable filter state (company table filters → M8) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 10 | Owner Playbook | Your personal apply/learn methods (approaches, sources, workflow) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
@@ -44,8 +44,9 @@ review before the next one starts.
 | 12 | Publishing | GitHub Pages (print/PDF deferred) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 13 | Loader + Repo Cleanup | First-load UX; archive unused company research/pipeline | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 14 | SEO Prerendering | Bake product-mode HTML at commit time so crawlers/no-JS clients see real content | **Complete** — see `25_ROADMAP_ARCHIVE.md` (DR-022) |
-| 15 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — queued after M16 |
-| 16 | Table layout + sticky sidebar | Fixed column widths (no filter flicker); sidebar stays put at page end | **Active** — see below |
+| 15 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — queued after M17 |
+| 16 | Table layout + sticky sidebar | Fixed column widths (no filter flicker); sidebar stays put at page end | **Complete** — merged PR #6 |
+| 17 | Learning & career content | Interview framing + fundamentals; wire official resources; career/glossary depth | **Active** — see below |
 
 **Sequencing note:** Milestone 14 was implemented before Milestone 13 received explicit owner acceptance, at the
 owner's explicit direction ("go" immediately following a full M14 plan) — a deliberate, acknowledged exception to
@@ -168,10 +169,9 @@ M14 was reassigned to SEO prerendering, DR-022).
 search facet metadata if needed.
 
 **Prerequisite:** Milestones 13 and 14 accepted (done 2026-07-08). Data quality pass on EDS/Forms fields.
-**Status:** Queued behind Milestone 16 (layout stability). Slim schema + Frequent/Preferred filter UI shipped in
-PR #5 ahead of EDS/Forms chips.
+**Status:** Queued behind Milestone 17. Slim schema + Frequent/Preferred filter UI shipped in PR #6 (with M16).
 
-## Milestone 16 — Table layout + sticky sidebar (active)
+## Milestone 16 — Table layout + sticky sidebar: complete (PR #6)
 
 **Goal:** Stop table columns from jumping when filters/sort change row content, and keep the left nav sticky at the
 bottom of long pages instead of riding up with the flex shell.
@@ -188,14 +188,29 @@ bottom of long pages instead of riding up with the flex shell.
 **Scope (out):** EDS/Forms capability chips (still Milestone 15); filter toolbar micro-animations beyond existing
 open/close.
 
+**Acceptance:** Met and merged in PR #6 (2026-07-09). **Full detail:** keep this section until archived to
+`25_ROADMAP_ARCHIVE.md` after owner acceptance of the next milestone cycle.
+
+## Milestone 17 — Learning & career content (active)
+
+**Goal:** Upgrade Career Strategy, Professional Branding, Learning Roadmap, Core Skills, Glossary, and Interview Prep
+with accurate, legally careful content — coach-style interview guidance, official Adobe/Apache resource links in the
+product UI, and India-aware career framing.
+
+**Scope (in):**
+- Interview Prep framing + fundamentals (JCR, ResourceResolver, replication, ACL, workflow, resume/projects)
+- Render `resourceIds` on roadmap steps and Core Skills rows (Experience League / Sling / aem.live / WKND only)
+- Career Strategy + Professional Branding prose; Naukri + Dispatcher templates
+- Glossary terms: ResourceResolver, replication, run modes, workflow
+- Docs: changelog, current sprint; desktop + mobile check
+
+**Scope (out):** EDS/Forms chips (M15); long verbatim interview answer keys; non-Adobe blog scraping.
+
 **Acceptance:**
-- Changing Sort / Type / Industry / Product / chips does not shift Priority↔Company↔Type column edges
-- Glossary / Interview tables do not reflow column widths when paging
-- At the bottom of a long page (desktop ≥1024px), the left sidebar remains sticky under the header (does not jump
-  upward into empty space)
-- Header search width is stable on first paint (GitHub/theme already present)
-- Expanding a company row/card shows products, roles, notes, evidence links, and verified date without adding table columns
-- Learning tables remain readable on mobile (horizontal scroll inside wrap; no crushed mid-word columns)
+- Interview chapter states outcomes depend on knowledge, interviewer style, resume/projects, and fundamentals
+- Roadmap steps and technology rows show clickable official docs where `resourceIds` exist
+- New interview/glossary items are accurate coach talking points (no invented APIs)
+- `npm run verify` passes
 
 ### Order rationale (revised per DR-009 / DR-017 / DR-022 / DR-026)
 
@@ -206,6 +221,7 @@ open/close.
 | 13 Loader + cleanup | First-load UX + archive dead weight |
 | 14 SEO Prerendering | Crawlers/no-JS clients see real content |
 | 16 Table layout + sticky sidebar | Layout stability before more filter chips |
+| 17 Learning & career content | Depth for non-company sections after companies UX is solid |
 | 15 Capability filters | EDS + AEM Forms chips |
 
-**Immediate next step:** Finish Milestone 16, then start Milestone 15.
+**Immediate next step:** Ship Milestone 17 (this PR), then start Milestone 15.

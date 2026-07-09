@@ -3,7 +3,7 @@
  */
 const UI = {
   COMPANY_PAGE_SIZE: 10,
-  LEARNING_PAGE_SIZE: 10,
+  LEARNING_PAGE_SIZE: 5,
 
   /** Delays `fn` until `wait`ms after the last call (Milestone 13 — avoids a full filter+sort+
    *  re-render on every keystroke once the company dataset grows). Only for free-text typing;
@@ -14,6 +14,35 @@ const UI = {
       clearTimeout(timer);
       timer = setTimeout(() => fn(...args), wait != null ? wait : 200);
     };
+  },
+
+  stickyHeaderOffset() {
+    const header = document.querySelector('.doc-header');
+    return (header ? header.getBoundingClientRect().height : 56) + 8;
+  },
+
+  scrollToSection(el) {
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - UI.stickyHeaderOffset();
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    el.classList.add('section-flash');
+    setTimeout(() => el.classList.remove('section-flash'), 2000);
+  },
+
+  openRoadmapAccordion(result) {
+    if (!result) return null;
+    let panel = null;
+    if (result.roadmapId) panel = document.getElementById('roadmap-' + result.roadmapId);
+    if (!panel && result.source === 'roadmap' && result.id) panel = document.getElementById('roadmap-' + result.id);
+    if (!panel && result.anchor) {
+      const target = document.querySelector(result.anchor);
+      if (target) {
+        panel =
+          target.closest('details.roadmap-accordion') || (target.matches && target.matches('details.roadmap-accordion') ? target : null);
+      }
+    }
+    if (panel && panel.tagName === 'DETAILS') panel.open = true;
+    return panel;
   },
 
   initTheme(toggleId) {
@@ -313,7 +342,12 @@ const UI = {
     }
 
     function renderPanel() {
-      const labels = { company: 'Companies', owner: 'Apply', chapter: 'Chapters', learning: 'Learning' };
+      const labels = Object.fromEntries(
+        (typeof CompanyFilters !== 'undefined' ? CompanyFilters : { SOURCE_FILTERS: [] }).SOURCE_FILTERS.filter(s => s.id).map(s => [
+          s.id,
+          s.label
+        ])
+      );
       const meta = {
         rawCount,
         sourceFilter: searchFacetState.sourceFilter || '',
@@ -357,11 +391,22 @@ const UI = {
 
     function activateResult(i) {
       if (i < 0 || i >= results.length) return;
-      const el = document.querySelector(results[i].anchor);
+      const result = results[i];
+      const tableCtl = typeof App !== 'undefined' && App.learningTables ? App.learningTables[result.source] : null;
+      if (tableCtl && result.id) tableCtl.goToItem(result.id);
+
+      if (result.source === 'company' && typeof App !== 'undefined' && App.companyExplorer) {
+        App.companyExplorer.setQuery(result.title || '');
+      }
+
+      UI.openRoadmapAccordion(result);
+      const el = result.anchor ? document.querySelector(result.anchor) : null;
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        el.classList.add('section-flash');
-        setTimeout(() => el.classList.remove('section-flash'), 2000);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => UI.scrollToSection(el));
+        });
+      } else if (result.url && /^https?:/i.test(result.url)) {
+        window.open(result.url, '_blank', 'noopener,noreferrer');
       }
       setPanelOpen(false);
       partsList.forEach(p => p.input.blur());
@@ -503,11 +548,17 @@ const UI = {
     function activate(i) {
       if (i < 0 || i >= items.length) return;
       const r = items[i];
-      const el = document.querySelector(r.anchor);
+      if (r.source === 'company' && typeof App !== 'undefined' && App.companyExplorer) {
+        App.companyExplorer.setQuery(r.title || '');
+      }
+      UI.openRoadmapAccordion(r);
+      const el = r.anchor ? document.querySelector(r.anchor) : null;
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        el.classList.add('section-flash');
-        setTimeout(() => el.classList.remove('section-flash'), 2000);
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => UI.scrollToSection(el));
+        });
+      } else if (r.url && /^https?:/i.test(r.url)) {
+        window.open(r.url, '_blank', 'noopener,noreferrer');
       }
       close();
     }
@@ -524,9 +575,13 @@ const UI = {
       const out = CompanyFilters.querySearch(config.searchIndex, q, config.companiesById, config.searchFacetState || config.filterState);
       if (out.widened && config.searchFacetState) config.searchFacetState.sourceFilter = '';
       items = out.results.slice(0, 12).map(r => ({
+        source: r.source,
+        id: r.id,
         anchor: r.anchor,
         title: r.title,
         snippet: r.snippet,
+        url: r.url || '',
+        roadmapId: r.roadmapId || '',
         type: (r.source || '').toUpperCase()
       }));
       activeIndex = items.length ? 0 : -1;

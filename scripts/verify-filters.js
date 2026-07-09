@@ -118,9 +118,15 @@ assert('search source filter learning', learningOnly.length === 1 && learningOnl
 
 const ownerOnly = CompanyFilters.filterSearchResults(mockResults, byId, {
   ...CompanyFilters.defaultState(),
-  sourceFilter: 'owner'
+  sourceFilter: 'career'
 });
-assert('search source filter owner', ownerOnly.length === 1 && ownerOnly[0].source === 'owner');
+assert('search source filter career', ownerOnly.length === 1 && ownerOnly[0].source === 'owner');
+
+const interviewOnly = CompanyFilters.filterSearchResults([...mockResults, { source: 'interview', id: 'int-1', title: 'Q' }], byId, {
+  ...CompanyFilters.defaultState(),
+  sourceFilter: 'interview'
+});
+assert('search source filter interview', interviewOnly.length === 1 && interviewOnly[0].source === 'interview');
 
 assert('sortOptionsFor(product) excludes devOnly options', !CompanyFilters.sortOptionsFor(true).some(o => o.devOnly));
 assert(
