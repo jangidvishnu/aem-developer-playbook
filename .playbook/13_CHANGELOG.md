@@ -4,6 +4,64 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — Milestone 16 table layout + sticky sidebar (DR-026)
+
+### Fixed
+
+- Company explorer and learning tables use `table-layout: fixed` with stable column widths so filter/sort/page
+  changes no longer shift Priority/Company/Type (and glossary/interview) column edges. Level column wide enough
+  for “Intermediate” without breaking. Careers tip no longer clipped; removed needless horizontal scrollbar on the
+  company table wrap. Sortable headers always show a sort affordance (idle dual-chevron). Header search uses a fixed
+  width (no load-time expand) and shows **Ctrl K** / **⌘K** (opens the centered command palette). GitHub + theme
+  icons are prerendered in the header tools row so they do not appear after boot and reflow the search field.
+- Desktop left sidebar: `.site-shell` uses `align-items: flex-start` so sticky nav stays under the header at the
+  bottom of long pages instead of riding upward.
+- Learning data tables on mobile: min-width + horizontal scroll inside the wrap so fixed column widths no longer
+  crush Technology/Category/Level into letter-by-letter wrapping.
+
+### Added
+
+- Company row / card **Details** expand: products (chips), roles, HQ, notes, evidence / hiring evidence links, and
+  verified date (owner-checked when applicable).
+- Company search results show human product labels as a comma-separated line (not raw codes). Expanded company
+  detail includes a calm tip that careers/evidence links are snapshots from the verified date.
+- Site disclaimer rewritten as two short lines: personal research (not a guaranteed guide / not a company
+  ranking), not affiliated, Frequent & Preferred meanings, snapshot links, and “upgrade yourself / your own
+  methods.” Hero/SEO softens “hire-verified” to “researched.” Filter **Clear filters** is a bordered pill
+  aligned to the right of the chip row.
+
+## Unreleased — slim company schema (DR-024)
+
+### Changed
+
+- `data/companies.json` migrated to the slim public schema (~229 KB → ~104 KB): `products` codes, `hiringIndia`,
+  `jobSearchUrl`, `evidence` / `hiringEvidence`, `verifiedAt`; dropped always-Unknown soft fields, product booleans,
+  `MigrationStatus`, personal tracking, and redundant `usesAEM` / `HiringAEM` flags.
+- Optional `signals` object reserved on the schema for future sourced ratings (Glassdoor/AmbitionBox/etc.) — omit
+  until filled; no scraping in this change.
+- Company explorer: Product filter dropdown; Cloud chip uses `aem-cloud`; India filter/sort uses `hiringIndia`.
+- Docs: `11_COMPANY_SCHEMA.md`, `09_DATA_MODEL.md`, `07_RESEARCH_GUIDE.md`, DR-024.
+- Priority rubric documented in `07_RESEARCH_GUIDE.md` (hiring cadence weighted over brand awards). Owner audit:
+  Adobe products expanded to full Experience Cloud codes; Air India 10→7; Cisco/Ford/Vi demoted from 10; BuiltWith-only
+  rows capped at 6; Workday/E.ON/Spark NZ evidence+products upgraded; Bosch/ATCS removed again; HTC Global Services +
+  BeansBit restored (PR #4 drift after slim migration).
+- `roles` audit: replaced 47-company migration boilerplate
+  (`AEM Developer` / `Digital Experience Engineer` / `Web Platform Engineer` / `MarTech Engineer`) with type-aware
+  titles (watchlist → AEM + Software/Web; SI → AEM Developer/Architect; cloud → AEM Cloud Engineer). Filled empty
+  Grundfos roles. Schema/research checklist now require employer-realistic titles.
+- DR-025: required `ownerVerified` (all current rows `true` per owner; new agent rows start `false`); optional
+  `hiringActive` for frequent/general AEM/DXP hiring pattern — not “hiring right now” (omit until owner confirms).
+  Site disclaimer clarifies that distinction. Research guide requires a complete field pass so companies are not
+  re-researched field-by-field across sessions.
+- Optional `ownerPreferred` (owner recommendation for pay/growth/quality): Deloitte, Publicis Sapient, Hashout
+  marked; Rightpoint left unmarked with a short note; Concentrix not in the public list. Disclaimer labels preferred
+  as owner opinion.
+- Company explorer UI: **Frequent hiring** and **Preferred** filter chips (shareable `cf_active` / `cf_preferred`);
+  matching marks beside company names. Cloud is Product dropdown only (no duplicate Cloud chip). Compact toolbar with
+  Search/Sort on top; desktop shows Type/Industry/Product + chips inline; mobile uses a **Filters** toggle that stacks
+  those dropdowns (no horizontal scroll). Rail dropdowns clear via × (category label is not selectable). Tighter mobile
+  section titles and body type. Dropdown search when options > 5. `ownerVerified` stays data-only.
+
 ## Process — milestone test plans
 
 Release process now requires a published test plan in `17_TESTING_GUIDE.md` (and a link in `19_CURRENT_SPRINT.md`)

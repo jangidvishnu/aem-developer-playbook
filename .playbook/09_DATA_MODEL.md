@@ -194,16 +194,18 @@ Rendered via `Render.roadmapList` with anchors `#roadmap-{id}`.
 
 ## Company schema (`data/companies.json`)
 
-See `11_COMPANY_SCHEMA.md` for the full field-by-field specification. Summary: identity fields (id, name, industry,
-headquarters), AEM/Adobe-stack fields (usesAEM, AEMVersion, AEMaaCS, EdgeDeliveryServices, etc.), hiring fields
-(careersUrl, HiringIndia, VisaSupport, InterviewDifficulty), and tracking fields for personal application status
-(Wishlist, Applied, Interview, Offer, Rejected).
+See `11_COMPANY_SCHEMA.md` for the full field-by-field specification. Summary: identity (`id`, `name`, `priority`,
+`industry`, `companyType`, optional `hq`), India signals (`indiaPresence`, `hiringIndia`), optional `hiringActive`
+(ongoing AEM/DXP hiring cadence — owner-confirmed), careers (`careersUrl`, optional `jobSearchUrl`), Adobe stack as
+a single `products` code array, short `roles`, `notes`, `evidence`, `hiringEvidence`, `verifiedAt`, required
+`ownerVerified` (owner manual sign-off), optional `ownerPreferred` (owner recommendation), and optional sourced
+`signals` (employer ratings). Personal application tracking stays out of the public file.
 
 ## Cross-cutting rules
 
 - Every record has a stable `id` that does not change once referenced elsewhere (cross-links, bookmarks).
-- Optional/unknown fields are present but explicitly `null` or `"Unknown"` — never omitted silently, so consumers
-  can distinguish "not yet researched" from "field doesn't apply."
+- Optional fields may be **omitted** when unknown (preferred for the slim company schema). Where a file still uses
+  explicit `"Unknown"` / `null` placeholders, treat those as "not yet researched" — do not invent values.
 - Dates are ISO 8601 strings (`YYYY-MM-DD`) for sortability.
 - No file should exceed a size that makes it awkward to load client-side without pagination; if a file grows large
   (particularly `companies.json` or `interviews.json`), splitting strategy is a decision for `12_DECISIONS.md`, not

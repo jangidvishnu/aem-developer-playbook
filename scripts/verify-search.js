@@ -35,7 +35,7 @@ const cases = [
   { query: 'Adobe', expectInResults: { source: 'company', id: 'adobe' } },
   { query: 'mission', expectTopSource: 'chapter', expectTopId: 'mission' },
   { query: 'AEM foundation', expectInResults: { source: 'roadmap', id: 'aem-foundation' } },
-  { query: 'hire-verified', expectTopSource: 'site', expectTopId: 'hero' },
+  { query: 'researched AEM employers', expectTopSource: 'site', expectTopId: 'hero' },
   { query: 'principles', expectTopSource: 'chapter', expectTopId: 'mission' },
   { query: 'HTL', expectInResults: { source: 'glossary', id: 'htl' } },
   { query: 'behavioral', expectInResults: { source: 'interview', id: 'int-behavior-star' } },

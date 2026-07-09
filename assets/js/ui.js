@@ -58,6 +58,52 @@ const UI = {
     sections.forEach(s => obs.observe(s));
   },
 
+  wireCompanyExpand(root) {
+    const scope = root || document;
+
+    function setExpanded(btn, panel, next) {
+      btn.setAttribute('aria-expanded', next ? 'true' : 'false');
+      if (next) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', '');
+      const row = btn.closest('.company-table__row');
+      if (row) row.classList.toggle('is-expanded', next);
+      const card = btn.closest('.company-card');
+      if (card) card.classList.toggle('is-expanded', next);
+      if (btn.classList.contains('company-card__btn')) {
+        btn.textContent = next ? 'Hide' : 'Details';
+      }
+      const label = btn.getAttribute('aria-label') || '';
+      if (label.startsWith('Show details') || label.startsWith('Hide details')) {
+        btn.setAttribute('aria-label', label.replace(/^(Show|Hide) details/, next ? 'Hide details' : 'Show details'));
+      }
+    }
+
+    function closeOthers(exceptBtn) {
+      scope.querySelectorAll('[data-company-expand][aria-expanded="true"]').forEach(btn => {
+        if (btn === exceptBtn) return;
+        const controls = btn.getAttribute('aria-controls');
+        const panel = controls ? document.getElementById(controls) : null;
+        if (panel) setExpanded(btn, panel, false);
+      });
+    }
+
+    scope.querySelectorAll('[data-company-expand]').forEach(btn => {
+      if (btn.dataset.expandWired) return;
+      btn.dataset.expandWired = '1';
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const controls = btn.getAttribute('aria-controls');
+        const panel = controls ? document.getElementById(controls) : null;
+        if (!panel) return;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        const next = !open;
+        if (next) closeOthers(btn);
+        setExpanded(btn, panel, next);
+      });
+    });
+  },
+
   wireTableTips(root) {
     function closeAll(except) {
       (root || document).querySelectorAll('[data-table-tip]').forEach(btn => {
@@ -90,10 +136,12 @@ const UI = {
     function closeAllExcept(current) {
       document.querySelectorAll('[data-ui-select]').forEach(w => {
         if (w === current) return;
-        const list = w.querySelector('.ui-select__list');
+        const dropdown = w.querySelector('.ui-select__dropdown');
         const trigger = w.querySelector('.ui-select__trigger');
-        if (list) list.classList.add('hidden');
+        if (dropdown) dropdown.classList.add('hidden');
         if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        const rail = w.closest('.company-filters__panel, .company-filters__advanced');
+        if (rail && !rail.contains(current)) rail.classList.remove('is-select-open');
       });
     }
 
@@ -101,23 +149,61 @@ const UI = {
       if (wrap.dataset.uiWired) return;
       wrap.dataset.uiWired = '1';
       const trigger = wrap.querySelector('.ui-select__trigger');
+      const dropdown = wrap.querySelector('.ui-select__dropdown');
       const list = wrap.querySelector('.ui-select__list');
       const hidden = wrap.querySelector('input[type="hidden"]');
       const valueEl = wrap.querySelector('.ui-select__value');
-      if (!trigger || !list || !hidden) return;
+      const searchInput = wrap.querySelector('.ui-select__search-input');
+      const emptyEl = wrap.querySelector('.ui-select__empty');
+      const clearBtn = wrap.querySelector('[data-ui-select-clear]');
+      const placeholder = wrap.getAttribute('data-ui-placeholder') || '';
+      if (!trigger || !dropdown || !list || !hidden) return;
 
       function close() {
-        list.classList.add('hidden');
+        dropdown.classList.add('hidden');
         trigger.setAttribute('aria-expanded', 'false');
+        const rail = wrap.closest('.company-filters__panel, .company-filters__advanced');
+        if (rail) rail.classList.remove('is-select-open');
+        if (searchInput) {
+          searchInput.value = '';
+          filterOptions('');
+        }
       }
       function open() {
         closeAllExcept(wrap);
-        list.classList.remove('hidden');
+        dropdown.classList.remove('hidden');
         trigger.setAttribute('aria-expanded', 'true');
+        const rail = wrap.closest('.company-filters__panel, .company-filters__advanced');
+        if (rail) rail.classList.add('is-select-open');
+        if (searchInput) {
+          searchInput.value = '';
+          filterOptions('');
+          window.setTimeout(() => searchInput.focus(), 0);
+        }
+      }
+      function filterOptions(query) {
+        const q = String(query || '')
+          .trim()
+          .toLowerCase();
+        let visible = 0;
+        list.querySelectorAll('[role="option"]').forEach(opt => {
+          const label = (opt.getAttribute('data-label') || opt.textContent || '').toLowerCase();
+          const show = !q || label.includes(q);
+          opt.classList.toggle('hidden', !show);
+          if (show) visible += 1;
+        });
+        if (emptyEl) emptyEl.classList.toggle('hidden', visible > 0);
+      }
+      function syncClearUi(val) {
+        const on = !!val;
+        wrap.classList.toggle('ui-select--rail-active', wrap.classList.contains('ui-select--rail') && on);
+        if (clearBtn) clearBtn.classList.toggle('hidden', !on);
+        if (!on && valueEl && placeholder) valueEl.textContent = placeholder;
       }
       function setValue(val, label) {
         hidden.value = val;
-        if (valueEl) valueEl.textContent = label;
+        if (valueEl) valueEl.textContent = val ? label : placeholder || label;
+        syncClearUi(val);
         list.querySelectorAll('[role="option"]').forEach(opt => {
           const on = opt.getAttribute('data-value') === val;
           opt.setAttribute('aria-selected', on ? 'true' : 'false');
@@ -128,16 +214,36 @@ const UI = {
 
       trigger.addEventListener('click', e => {
         e.stopPropagation();
-        if (list.classList.contains('hidden')) open();
+        if (dropdown.classList.contains('hidden')) open();
         else close();
       });
+      if (clearBtn) {
+        clearBtn.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          setValue('', placeholder);
+          close();
+        });
+      }
       list.querySelectorAll('[role="option"]').forEach(opt => {
         opt.addEventListener('click', e => {
           e.stopPropagation();
-          setValue(opt.getAttribute('data-value'), opt.textContent.trim());
+          setValue(opt.getAttribute('data-value'), (opt.getAttribute('data-label') || opt.textContent || '').trim());
           close();
         });
       });
+      if (searchInput) {
+        searchInput.addEventListener('click', e => e.stopPropagation());
+        searchInput.addEventListener('keydown', e => {
+          e.stopPropagation();
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            close();
+            trigger.focus();
+          }
+        });
+        searchInput.addEventListener('input', () => filterOptions(searchInput.value));
+      }
       document.addEventListener('click', e => {
         if (!wrap.contains(e.target)) close();
       });

@@ -9,9 +9,14 @@
     "githubUrl": "https://github.com/jangidvishnu/aem-developer-playbook"
   },
   "disclaimer": {
-    "message": "Listed openings may be for AEM Sites or other Adobe Experience Cloud roles — not every job is AEM-specific. Company and hiring data is based on our research and public sources; it is not guaranteed to be complete or current. Spot an error or want to add a company? Open a pull request or email inbox.vishnujangid@gmail.com.",
+    "lines": [
+      "This is personal research shared to help — useful, but not a guaranteed guide and not affiliated with Adobe or listed employers. Data can be incomplete or wrong; I’ve tried my best. Always confirm openings on the employer careers page.",
+      "This is not a company ranking: every organisation has pros and cons. Frequent means they often post AEM/DXP roles (not an open job). Preferred is my opinion only. Careers and evidence links are snapshots and may move. The best path is to keep upgrading yourself and follow the methods that work for you."
+    ],
+    "contributingLead": "See something wrong or missing?",
     "contributing": "Submit a pull request",
-    "contributingUrl": "https://github.com/jangidvishnu/aem-developer-playbook/pulls"
+    "contributingUrl": "https://github.com/jangidvishnu/aem-developer-playbook/pulls",
+    "contactEmail": "inbox.vishnujangid@gmail.com"
   },
   "hero": {
     "purpose": {
@@ -24,7 +29,7 @@
       ]
     },
     "title": "AEM employers, apply guide, and learning paths",
-    "body": "Hire-verified companies — filter by India presence and AEM Cloud. Browse employers, follow the apply workflow, and use learning paths when you need them.",
+    "body": "Researched AEM employers — filter by India presence and AEM Cloud. Browse employers, follow the apply workflow, and use learning paths when you need them.",
     "ctaCompanies": "Browse companies",
     "ctaApply": "How to apply"
   },
@@ -38,7 +43,7 @@
       "Governance ✓",
       "Company database ✓",
       "Learning system ✓",
-      "Company pipeline (M8) — 119 hire-verified",
+      "Company pipeline (M8) — 121 hire-verified",
       "Discovery filters (M9) ✓",
       "Apply guide (M10) ✓"
     ]
@@ -53,7 +58,7 @@
   },
   "seo": {
     "siteUrl": "https://jangidvishnu.github.io/aem-developer-playbook/",
-    "description": "Stay eligible for AEM developer roles in India — hire-verified employers, apply guide, learning paths, and interview prep for active job search and long-term career readiness.",
+    "description": "Stay eligible for AEM developer roles in India — researched employers, apply guide, learning paths, and interview prep for active job search and long-term career readiness.",
     "keywords": [
       "AEM jobs",
       "AEM developer",

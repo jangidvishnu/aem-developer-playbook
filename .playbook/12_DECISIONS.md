@@ -12,6 +12,70 @@ mark the old one as superseded.
 
 ---
 
+---
+
+## DR-026 — Milestone 16: fixed table columns + sticky sidebar (layout stability)
+
+**Date:** 2026-07-09
+**Context:** Filtering/sorting the company explorer (and paging learning tables) caused visible column-edge
+flicker because auto table layout remeasured each row set. Separately, at the bottom of long pages the left
+sidebar appeared to “go up” because `.site-shell` was a stretch-aligned flex row and sticky positioning lost its
+intended viewport pin once the shell’s bottom entered view.
+**Decision:**
+1. Use `table-layout: fixed` with explicit widths for company explorer columns and learning `data-table`s.
+2. Keep stable min-heights on the company results head / table body.
+3. Set `.site-shell { align-items: flex-start }` and keep desktop `.site-sidebar` sticky with a viewport
+   `max-height`, so the nav stays under the header while main content scrolls.
+4. Prerender header GitHub link + theme toggle icon (`header-github` / `header-theme` markers) so the tools row
+   does not gain a control after `site.json` loads (header CLS / search reflow).
+5. Show slim-schema depth (products, roles, hq, notes, evidence, hiringEvidence, verifiedAt) via **row expand /
+   card Details**, not extra table columns.
+6. Insert **Milestone 16** ahead of Milestone 15 (EDS/Forms chips) so layout stability lands before more filter UI.
+**Trade-off accepted:** Fixed widths may ellipsize very long company names; badges wrap under the name. Filter
+toolbar height can still change when the mobile Filters panel opens — that is intentional expand/collapse, not
+column flicker. Only one company detail panel open at a time (accordion). Print hides expand controls and closed
+detail rows.
+**Follow-up:** None outstanding for this decision; M15 remains queued.
+
+## DR-025 — Owner verification + active-hiring flags; complete field-pass research
+
+**Date:** 2026-07-09
+**Context:** Company research was being re-run in partial passes (careers only, then products, then roles).
+Owner wants each new/updated row researched **once across every schema field**, plus two owner-controlled
+booleans: whether the row has been manually checked, and whether the employer generally hires AEM/DXP
+actively most of the time.
+**Decision:**
+1. Required `ownerVerified` (boolean) — `false` for any new agent-added row until the project owner manually
+   checks it; existing published rows may be set `true` when the owner confirms the current list.
+2. Optional `hiringActive` (boolean) — omit when unknown; `true` only when the owner confirms the employer
+   **generally** posts AEM/DXP roles frequently (pattern / cadence), **not** that a role is open today. Site
+   disclaimer must state this. Owner will manually verify the flag over time.
+3. Research guide requires a **complete field pass** checklist before publishing a row so we do not re-research
+   the same company field-by-field across sessions.
+4. Optional `ownerPreferred` (boolean) — owner recommendation for pay / career growth / company quality. Distinct
+   from `hiringActive` and `priority`. Omit when not preferred; short why belongs in `notes`.
+**Trade-off accepted:** `ownerVerified` is process metadata, not evidence of AEM usage. `ownerPreferred` is
+subjective opinion published on a public site — disclaimer must label it as such. UI may ignore these flags until
+a filter is added; agents must still set them correctly.
+**Follow-up:** `11_COMPANY_SCHEMA.md`, `07_RESEARCH_GUIDE.md`, `scripts/company-schema.js`, company-data rule.
+
+## DR-024 — Slim public company schema (products array, omit unknowns)
+
+**Date:** 2026-07-09
+**Context:** `data/companies.json` carried ~55 keys per row (~229 KB for 121 employers). Many fields were always
+`"Unknown"`, always-true gates (`usesAEM`, `HiringAEM`), duplicated product booleans vs `AdobeProducts`, or personal
+tracking flags that do not belong in a public payload. Owner wants a smaller, filter-ready schema for resume-based
+Adobe product matching without losing future-useful facts we can actually source.
+**Decision:** Public company rows use a slim schema documented in `11_COMPANY_SCHEMA.md`: identity + careers +
+`products` (short codes) + `roles` + `notes` + `evidence` / `hiringEvidence` + `verifiedAt` + required
+`ownerVerified`, with optional `hq`, `indiaPresence`, `hiringIndia`, `jobSearchUrl`, `hiringActive`, and optional
+sourced `signals` (ratings — omit until filled; no scraping). Drop product booleans, `MigrationStatus`, soft people
+fields, personal tracking, and redundant always-true gates from the public file. Cloud UI filter/badge = `aem-cloud`
+in `products`. India filter uses `hiringIndia` (boolean). See also DR-025 for owner/hiring flags.
+**Trade-off accepted:** Historical field names in archive/research docs remain as-is; public consumers and verify
+scripts must use the new names. Soft fields can return later via a separate private/owner store if sourced.
+**Follow-up:** `scripts/company-schema.js`, `scripts/hiring-gate.js`, filters/render/search UI, `07_RESEARCH_GUIDE.md`.
+
 ## DR-023 — Lighthouse-driven fixes: loader-vs-prerender CLS, font-display, script loading, ARIA role, contrast
 
 **Date:** 2026-07-08

@@ -18,22 +18,47 @@ const Search = {
     return company.name || company.company || '';
   },
 
-  migrationBand(status) {
-    const s = status || 'Unknown';
-    if (s === 'Cloud-native' || s === 'Migrated to AEM as a Cloud Service') return 'cloud';
-    if (s === 'Migrating to AEM as a Cloud Service') return 'migrating';
-    return 'unknown';
+  _companyFilters() {
+    if (typeof CompanyFilters !== 'undefined') return CompanyFilters;
+    try {
+      return require('./filters.js').CompanyFilters;
+    } catch (_) {
+      return null;
+    }
+  },
+
+  productLabels(codes) {
+    const list = Array.isArray(codes) ? codes : [];
+    const filters = Search._companyFilters();
+    return list.map(code => (filters && filters.productLabel ? filters.productLabel(code) : code)).filter(Boolean);
+  },
+
+  companySnippet(co) {
+    const meta = [
+      co.companyType || co.type,
+      co.hiringIndia === true ? 'India hiring' : '',
+      co.hiringActive === true ? 'Frequent hiring' : '',
+      co.ownerPreferred === true ? 'Preferred' : '',
+      co.industry
+    ].filter(Boolean);
+    const products = Search.productLabels(co.products).join(', ');
+    return {
+      meta: meta.join(' · '),
+      products,
+      snippet: [meta.join(' · '), products].filter(Boolean).join(' · ')
+    };
   },
 
   companyFacets(co) {
+    const products = Array.isArray(co.products) ? co.products : [];
     return {
       companyType: co.companyType || co.type || 'Unknown',
       industry: co.industry || 'Unknown',
-      migrationBand: Search.migrationBand(co.MigrationStatus),
-      hiringIndia: co.HiringIndia === 'Yes',
-      hiringAEM: co.HiringAEM === true,
-      aemaaCS: co.AEMaaCS === true,
-      status: co.Status || 'Unknown'
+      products,
+      hiringIndia: co.hiringIndia === true,
+      aemCloud: products.includes('aem-cloud'),
+      hiringActive: co.hiringActive === true,
+      ownerPreferred: co.ownerPreferred === true
     };
   },
 
@@ -88,31 +113,22 @@ const Search = {
 
     companies.forEach((co, i) => {
       const name = Search.companyName(co);
+      const snip = Search.companySnippet(co);
       entries.push({
         source: 'company',
         id: co.id,
         title: name,
-        snippet: [
-          co.companyType || co.type,
-          co.indiaPresence || co.india,
-          co.Status,
-          co.industry,
-          co.HiringAEM ? 'hiring' : '',
-          co.HiringIntensity
-        ]
-          .filter(Boolean)
-          .join(' · '),
+        snippet: snip.snippet,
+        snippetMeta: snip.meta,
+        snippetProducts: snip.products,
         anchor: companyAnchor,
         pageOrder: 1000 + companyChapterIndex + (i + 1) * 0.01,
         facets: Search.companyFacets(co),
         fields: {
           title: name.toLowerCase(),
-          summary: [co.industry, co.companyType, co.Status, co.HiringIntensity, co.Notes].filter(Boolean).join(' ').toLowerCase(),
-          tags: (co.TypicalRoles || []).join(' ').toLowerCase(),
-          body: [co.usesAEM ? 'aem' : '', co.AEMVersion, co.MigrationStatus]
-            .filter(v => v && v !== 'Unknown')
-            .join(' ')
-            .toLowerCase()
+          summary: [co.industry, co.companyType, co.notes || co.Notes, co.hq].filter(Boolean).join(' ').toLowerCase(),
+          tags: (co.roles || co.TypicalRoles || []).join(' ').toLowerCase(),
+          body: (co.products || []).join(' ').toLowerCase()
         }
       });
     });

@@ -150,25 +150,61 @@ const Render = {
     return `<a href="#hero" class="doc-wordmark${compactClass}"><div class="doc-wordmark__title">${Render.escapeHtml(short)}</div>${fullTitle}${version}</a>`;
   },
 
+  /** Header GitHub control — prerendered so the tools row does not gain a 44px button after boot (CLS). */
+  headerGithubLink(header) {
+    const url = header && header.githubUrl;
+    if (!url) return '';
+    return `<a id="github-link" class="icon-btn icon-btn--header" href="${Render.escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">${Render.icon('github')}</a>`;
+  },
+
+  /** Default theme toggle icon for first paint; UI.initTheme replaces it with the real preference. */
+  headerThemeToggle() {
+    return `<button type="button" class="icon-btn icon-btn--header" id="themeToggle" aria-label="Toggle theme">${Render.icon('moon')}</button>`;
+  },
+
   disclaimer(content, header) {
-    if (!content || !content.message) return '';
-    let cta = '';
-    if (content.contributing) {
-      const url = content.contributingUrl || (header && header.githubUrl ? String(header.githubUrl).replace(/\/$/, '') + '/pulls' : '');
-      if (url) {
-        cta = ` <a href="${Render.escapeHtml(url)}" class="site-disclaimer__link">${Render.escapeHtml(content.contributing)}</a>`;
-      } else {
-        cta = ` ${Render.escapeHtml(content.contributing)}`;
-      }
+    if (!content) return '';
+    const lines =
+      Array.isArray(content.lines) && content.lines.length ? content.lines.filter(Boolean) : content.message ? [content.message] : [];
+    if (!lines.length) return '';
+    const prUrl = content.contributingUrl || (header && header.githubUrl ? String(header.githubUrl).replace(/\/$/, '') + '/pulls' : '');
+    const links = [];
+    if (content.contributing && prUrl) {
+      links.push(`<a href="${Render.escapeHtml(prUrl)}" class="site-disclaimer__link">${Render.escapeHtml(content.contributing)}</a>`);
     }
-    return `<aside class="site-disclaimer" role="note" aria-label="Data disclaimer"><p class="site-disclaimer__text">${Render.escapeHtml(content.message)}${cta}</p></aside>`;
+    if (content.contactEmail) {
+      links.push(
+        `<a href="mailto:${Render.escapeHtml(content.contactEmail)}" class="site-disclaimer__link">${Render.escapeHtml(content.contactEmail)}</a>`
+      );
+    }
+
+    let ctaHtml = '';
+    if (content.contributingLead && links.length) {
+      ctaHtml = `<p class="site-disclaimer__cta"><span class="site-disclaimer__lead">${Render.escapeHtml(content.contributingLead)}</span> <span class="site-disclaimer__links">${links.join('<span class="site-disclaimer__sep" aria-hidden="true"> · </span>')}</span></p>`;
+    } else if (content.contributing && prUrl) {
+      ctaHtml = `<p class="site-disclaimer__cta"><a href="${Render.escapeHtml(prUrl)}" class="site-disclaimer__link">${Render.escapeHtml(content.contributing)}</a></p>`;
+    } else if (content.contributing) {
+      ctaHtml = `<p class="site-disclaimer__cta">${Render.escapeHtml(content.contributing)}</p>`;
+    }
+
+    const messageHtml = lines.map(line => `<p class="site-disclaimer__text">${Render.escapeHtml(line)}</p>`).join('');
+
+    return `<aside class="site-disclaimer" role="note" aria-label="Data disclaimer"><div class="site-disclaimer__inner">${messageHtml}${ctaHtml}</div></aside>`;
   },
 
   search(config, wrapId, idSuffix) {
     const id = wrapId || 'search-wrap';
     const s = idSuffix || '';
     const i = base => base + s;
-    return `<div class="search-wrap" id="${id}"><div class="search-wrap__field search-wrap__field--icon"><span class="search-wrap__icon" aria-hidden="true">${Render.icon('search')}</span><span class="sr-only">${Render.escapeHtml(config.ariaLabel)}</span><input id="${i('search')}" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" aria-controls="${i('search-results')}" aria-expanded="false" aria-autocomplete="list" autocomplete="off" type="text" role="combobox" inputmode="search" /><button type="button" class="search-clear hidden" id="${i('search-clear')}" aria-label="${Render.escapeHtml(config.clearLabel || 'Clear search')}">${Render.icon('x')}</button></div><div id="${i('search-panel')}" class="search-panel hidden"><div id="${i('search-facets')}" class="search-facets" role="group" aria-label="Filter search results"></div><div id="${i('search-results')}" class="search-results" role="listbox"></div></div><p id="${i('search-status')}" class="sr-only" aria-live="polite"></p></div>`;
+    const isDesktop = s === '-desktop';
+    // Desktop: show Ctrl/⌘K so the existing global shortcut is discoverable (width reserved to avoid CLS).
+    const shortcut = isDesktop
+      ? `<kbd class="search-wrap__shortcut" title="Keyboard shortcut"><span class="search-wrap__shortcut-ctrl">Ctrl</span><span class="search-wrap__shortcut-meta">⌘</span>K</kbd>`
+      : '';
+    const fieldClass = isDesktop
+      ? 'search-wrap__field search-wrap__field--icon search-wrap__field--shortcut'
+      : 'search-wrap__field search-wrap__field--icon';
+    return `<div class="search-wrap" id="${id}"><div class="${fieldClass}"><span class="search-wrap__icon" aria-hidden="true">${Render.icon('search')}</span><span class="sr-only">${Render.escapeHtml(config.ariaLabel)}</span><input id="${i('search')}" placeholder="${Render.escapeHtml(config.placeholder)}" aria-label="${Render.escapeHtml(config.ariaLabel)}" aria-controls="${i('search-results')}" aria-expanded="false" aria-autocomplete="list" autocomplete="off" type="text" role="combobox" inputmode="search" /><button type="button" class="search-clear hidden" id="${i('search-clear')}" aria-label="${Render.escapeHtml(config.clearLabel || 'Clear search')}">${Render.icon('x')}</button>${shortcut}</div><div id="${i('search-panel')}" class="search-panel hidden"><div id="${i('search-facets')}" class="search-facets" role="group" aria-label="Filter search results"></div><div id="${i('search-results')}" class="search-results" role="listbox"></div></div><p id="${i('search-status')}" class="sr-only" aria-live="polite"></p></div>`;
   },
 
   searchFacets(state) {
@@ -229,7 +265,13 @@ const Render = {
       .map((r, i) => {
         const active = i === activeIndex ? ' search-result--active' : '';
         const label = typeLabel[r.source] || r.source;
-        return `<button type="button" class="search-result${active}" role="option" data-anchor="${Render.escapeHtml(r.anchor)}" data-chapter-index="${r.chapterIndex != null ? r.chapterIndex : ''}" aria-selected="${i === activeIndex}"><span class="search-result__type">${Render.escapeHtml(label)}</span><span class="search-result__title">${Render.escapeHtml(r.title)}</span><span class="search-result__snippet">${Render.escapeHtml(r.snippet)}</span></button>`;
+        let snippetHtml = `<span class="search-result__snippet">${Render.escapeHtml(r.snippet || '')}</span>`;
+        if (r.source === 'company' && (r.snippetMeta || r.snippetProducts)) {
+          const meta = r.snippetMeta ? `<span class="search-result__meta">${Render.escapeHtml(r.snippetMeta)}</span>` : '';
+          const products = r.snippetProducts ? `<span class="search-result__products">${Render.escapeHtml(r.snippetProducts)}</span>` : '';
+          snippetHtml = `<span class="search-result__snippet">${meta}${products}</span>`;
+        }
+        return `<button type="button" class="search-result${active}" role="option" data-anchor="${Render.escapeHtml(r.anchor)}" data-chapter-index="${r.chapterIndex != null ? r.chapterIndex : ''}" aria-selected="${i === activeIndex}"><span class="search-result__type">${Render.escapeHtml(label)}</span><span class="search-result__title">${Render.escapeHtml(r.title)}</span>${snippetHtml}</button>`;
       })
       .join('');
   },
@@ -270,12 +312,14 @@ const Render = {
 
   companyStats(companies) {
     const list = companies || [];
+    const filters = Render._companyFilters();
     return {
       total: list.length,
-      verified: list.filter(c => c.Status === 'Verified').length,
-      hiring: list.filter(c => c.HiringAEM === true).length,
-      india: list.filter(c => c.HiringIndia === 'Yes').length,
-      cloud: list.filter(c => c.AEMaaCS === true).length,
+      hiring: list.length,
+      india: list.filter(c => filters.isHiringIndia(c)).length,
+      cloud: list.filter(c => filters.isAemCloud(c)).length,
+      hiringActive: list.filter(c => filters.isHiringActive(c)).length,
+      ownerPreferred: list.filter(c => filters.isOwnerPreferred(c)).length,
       product: list.filter(c => c.companyType === 'Product').length,
       gcc: list.filter(c => c.companyType === 'GCC').length
     };
@@ -341,16 +385,31 @@ const Render = {
   },
 
   uiSelect(filterKey, label, options, current, extraClass) {
-    const opts = options
+    const isRail = /\bui-select--rail\b/.test(extraClass || '');
+    const hasValue = !!(current && String(current).length);
+    // Rail filters: category label is display-only (not a selectable "All …" row). Clear via ×.
+    const listOptions = isRail ? options.filter(o => o.id !== '') : options;
+    const opts = listOptions
       .map(o => {
         const sel = o.id === current ? ' ui-select__option--active' : '';
         const aria = o.id === current ? 'true' : 'false';
-        return `<li role="option" class="ui-select__option${sel}" data-value="${Render.escapeHtml(o.id)}" aria-selected="${aria}">${Render.escapeHtml(o.label)}</li>`;
+        return `<li role="option" class="ui-select__option${sel}" data-value="${Render.escapeHtml(o.id)}" data-label="${Render.escapeHtml(o.label)}" aria-selected="${aria}">${Render.escapeHtml(o.label)}</li>`;
       })
       .join('');
-    const cur = options.find(o => o.id === current) || options[0];
+    const cur = options.find(o => o.id === current) || options.find(o => o.id === '') || options[0];
+    const displayLabel = hasValue && cur ? cur.label : label;
     const cls = extraClass ? `ui-select ${extraClass}` : 'ui-select';
-    return `<div class="${cls}" data-ui-select><span class="ui-select__label">${Render.escapeHtml(label)}</span><button type="button" class="ui-select__trigger" aria-haspopup="listbox" aria-expanded="false"><span class="ui-select__value">${Render.escapeHtml(cur.label)}</span>${Render.icon('chevronDown')}</button><ul class="ui-select__list hidden" role="listbox">${opts}</ul><input type="hidden" data-company-filter="${Render.escapeHtml(filterKey)}" value="${Render.escapeHtml(current || '')}" /></div>`;
+    const searchable = listOptions.length > 5;
+    const search = searchable
+      ? `<div class="ui-select__search"><span class="ui-select__search-icon" aria-hidden="true">${Render.icon('search', 'icon icon--sm')}</span><input type="search" class="ui-select__search-input" placeholder="Search ${Render.escapeHtml(label.toLowerCase())}…" autocomplete="off" aria-label="Search ${Render.escapeHtml(label)}" /></div>`
+      : '';
+    const searchableAttr = searchable ? ' data-ui-searchable="true"' : '';
+    const clearableAttr = isRail ? ' data-ui-clearable="true"' : '';
+    const clearHidden = hasValue ? '' : ' hidden';
+    const clearBtn = isRail
+      ? `<button type="button" class="ui-select__clear${clearHidden}" data-ui-select-clear aria-label="Clear ${Render.escapeHtml(label)}">${Render.icon('x', 'icon icon--sm')}</button>`
+      : '';
+    return `<div class="${cls}" data-ui-select${searchableAttr}${clearableAttr} data-ui-placeholder="${Render.escapeHtml(label)}"><span class="ui-select__label">${Render.escapeHtml(label)}</span><div class="ui-select__control"><button type="button" class="ui-select__trigger" aria-haspopup="listbox" aria-expanded="false"><span class="ui-select__value">${Render.escapeHtml(displayLabel)}</span>${Render.icon('chevronDown')}</button>${clearBtn}</div><div class="ui-select__dropdown hidden">${search}<ul class="ui-select__list" role="listbox">${opts}</ul><p class="ui-select__empty hidden" role="status">No matches</p></div><input type="hidden" data-company-filter="${Render.escapeHtml(filterKey)}" value="${Render.escapeHtml(current || '')}" /></div>`;
   },
 
   companyPagination(page, totalItems, pageAttr) {
@@ -361,6 +420,12 @@ const Render = {
     const prev = safePage <= 1 ? 'disabled' : '';
     const next = safePage >= totalPages ? 'disabled' : '';
     return `<nav class="explorer-pagination" aria-label="Company pages"><button type="button" data-${pageAttr}-prev="${safePage}" ${prev}>${Render.icon('chevronLeft')} Prev</button><span class="explorer-pagination__info">Page ${safePage} of ${totalPages}</span><button type="button" data-${pageAttr}-next="${safePage}" ${next}>Next ${Render.icon('chevronRight')}</button></nav>`;
+  },
+
+  companyResultsLabel(filtered, totalAll) {
+    if (!filtered) return `0 of ${totalAll} employers`;
+    if (filtered === totalAll) return `${filtered} employers`;
+    return `${filtered} of ${totalAll} employers`;
   },
 
   companyCountLabel(page, filtered, totalAll, pageSize) {
@@ -390,8 +455,24 @@ const Render = {
       }
       pagination = `<nav class="explorer-pagination explorer-pagination--numbered" aria-label="${Render.escapeHtml(pageAttr)} pages">${buttons.join('')}<span class="explorer-pagination__info">${total} items · page ${safePage} of ${totalPages}</span></nav>`;
     }
-    const head = headers.map(h => `<th>${Render.escapeHtml(h)}</th>`).join('');
-    return `<div class="data-table-wrap"><table class="data-table"><thead><tr>${head}</tr></thead><tbody>${slice.map(renderRow).join('')}</tbody></table></div>${pagination}`;
+    const colClass = {
+      Term: 'data-table__col--term',
+      Definition: 'data-table__col--definition',
+      Related: 'data-table__col--related',
+      Technology: 'data-table__col--tech',
+      Category: 'data-table__col--category',
+      Level: 'data-table__col--level',
+      Summary: 'data-table__col--summary',
+      Question: 'data-table__col--question',
+      Guidance: 'data-table__col--guidance'
+    };
+    const head = headers
+      .map(h => {
+        const cls = colClass[h] || '';
+        return `<th scope="col"${cls ? ` class="${cls}"` : ''}>${Render.escapeHtml(h)}</th>`;
+      })
+      .join('');
+    return `<div class="data-table-wrap"><table class="data-table data-table--${Render.escapeHtml(pageAttr)}"><thead><tr>${head}</tr></thead><tbody>${slice.map(renderRow).join('')}</tbody></table></div>${pagination}`;
   },
 
   companyName(x) {
@@ -414,39 +495,111 @@ const Render = {
 
   companyCareersLink(x) {
     const careers = String(x.careersUrl || x.careers || '');
-    const jobs = String(x.directJobSearch || x.search || '');
+    const jobs = String(x.jobSearchUrl || x.directJobSearch || x.search || '');
     if (careers.startsWith('http')) return careers;
     if (jobs.startsWith('http')) return jobs;
     return '';
   },
 
+  companyBadges(x) {
+    const filters = Render._companyFilters();
+    const badges = [];
+    if (filters.isOwnerPreferred(x)) {
+      badges.push(
+        `<span class="company-mark company-mark--preferred" title="Owner recommendation (pay, growth, quality)">${Render.icon('star', 'icon icon--sm')} Preferred</span>`
+      );
+    }
+    if (filters.isHiringActive(x)) {
+      badges.push(
+        `<span class="company-mark company-mark--hiring" title="Generally posts AEM/DXP roles often — not a live vacancy guarantee">${Render.icon('activity', 'icon icon--sm')} Frequent</span>`
+      );
+    }
+    return badges.length ? ` <span class="company-badges">${badges.join('')}</span>` : '';
+  },
+
+  companyEvidenceLinks(urls, label) {
+    const list = (urls || []).filter(u => String(u || '').startsWith('http'));
+    if (!list.length) return '';
+    const items = list
+      .map(
+        (u, i) =>
+          `<li><a href="${Render.escapeHtml(u)}" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(label)}${list.length > 1 ? ` ${i + 1}` : ''}</a></li>`
+      )
+      .join('');
+    return `<div class="company-detail__block"><h4 class="company-detail__label">${Render.escapeHtml(label)}</h4><ul class="company-detail__links">${items}</ul></div>`;
+  },
+
+  companyDetailPanel(x) {
+    const filters = Render._companyFilters();
+    const productChips = (x.products || [])
+      .map(code => `<span class="company-detail__chip">${Render.escapeHtml(filters.productLabel(code))}</span>`)
+      .join('');
+    const roles = (x.roles || []).filter(Boolean);
+    const rolesHtml = roles.length
+      ? `<div class="company-detail__block"><h4 class="company-detail__label">Typical roles</h4><ul class="company-detail__list">${roles
+          .map(r => `<li>${Render.escapeHtml(r)}</li>`)
+          .join('')}</ul></div>`
+      : '';
+    const metaParts = [];
+    if (x.hq) metaParts.push(`<span>HQ</span> ${Render.escapeHtml(x.hq)}`);
+    const india = filters.indiaLabel(x);
+    if (india && india !== '—') metaParts.push(`<span>India</span> ${Render.escapeHtml(india)}`);
+    const meta = metaParts.length
+      ? `<div class="company-detail__meta">${metaParts.join('<span class="company-detail__meta-sep" aria-hidden="true"> · </span>')}</div>`
+      : '';
+    const notes = String(x.notes || '').trim()
+      ? `<div class="company-detail__block"><h4 class="company-detail__label">Notes</h4><p class="company-detail__notes">${Render.escapeHtml(x.notes)}</p></div>`
+      : '';
+    const productsHtml = productChips
+      ? `<div class="company-detail__block"><h4 class="company-detail__label">Products</h4><div class="company-detail__chips">${productChips}</div></div>`
+      : '';
+    const evidence = Render.companyEvidenceLinks(x.evidence, 'AEM evidence');
+    const hiringEvidence = Render.companyEvidenceLinks(x.hiringEvidence, 'Hiring evidence');
+    const verified = x.verifiedAt
+      ? `<p class="company-detail__verified">Verified ${Render.escapeHtml(x.verifiedAt)}${x.ownerVerified ? ' · Owner checked' : ''}</p>`
+      : '';
+    const linkNote =
+      '<p class="company-detail__link-note">Tip: careers and evidence links are snapshots from the verified date. If a link fails, open the employer careers site and search for AEM / Adobe Experience Manager.</p>';
+    return `<div class="company-detail">${meta}${productsHtml}${rolesHtml}${notes}${evidence}${hiringEvidence}${verified}${linkNote}</div>`;
+  },
+
   companyRow(x, options) {
+    const filters = Render._companyFilters();
     const name = Render.companyName(x);
     const careers = Render.companyCareersLink(x);
-    const india = x.indiaPresence != null ? x.indiaPresence : x.india || 'Unknown';
+    const india = filters.indiaLabel(x);
     const type = x.companyType || x.type || 'Unknown';
     const priority = x.priority != null ? x.priority : '';
-    const status = x.Status || 'Unknown';
-    const hiring = x.HiringAEM === true;
+    const products = (x.products || []).map(p => filters.productLabel(p)).join(', ') || '—';
+    const badges = Render.companyBadges(x);
+    const id = Render.escapeHtml(x.id || name);
+    const expandBtn = `<button type="button" class="company-table__expand" data-company-expand aria-expanded="false" aria-controls="company-detail-${id}" aria-label="Show details for ${Render.escapeHtml(name)}">${Render.icon('chevronRight', 'icon icon--sm')}</button>`;
+    const detail = Render.companyDetailPanel(x);
     if (Render.isProductMode(options)) {
-      const cloudBadge = x.AEMaaCS ? ' <span class="badge badge--cloud">Cloud</span>' : '';
-      return `<tr><td class="company-table__priority">${Render.escapeHtml(priority)}</td><td class="company-table__name"><strong>${Render.escapeHtml(name)}</strong>${cloudBadge}</td><td class="company-table__type">${Render.escapeHtml(type)}</td><td class="company-table__india">${Render.escapeHtml(india)}</td><td class="company-table__careers">${Render.companyActionBtn(careers, 'Careers site for ' + name)}</td></tr>`;
+      const main = `<tr class="company-table__row" data-company-id="${id}"><td class="company-table__expand-cell">${expandBtn}</td><td class="company-table__priority">${Render.escapeHtml(priority)}</td><td class="company-table__name"><div class="company-table__name-cell"><strong class="company-table__name-text">${Render.escapeHtml(name)}</strong>${badges}</div></td><td class="company-table__type">${Render.escapeHtml(type)}</td><td class="company-table__india">${Render.escapeHtml(india)}</td><td class="company-table__careers">${Render.companyActionBtn(careers, 'Careers site for ' + name)}</td></tr>`;
+      const detailRow = `<tr class="company-table__detail-row" id="company-detail-${id}" hidden><td class="company-table__detail-cell" colspan="6">${detail}</td></tr>`;
+      return main + detailRow;
     }
     const careerCell = Render.companyLink(careers, 'Careers');
-    return `<tr><td class="company-table__priority">${Render.escapeHtml(priority)}</td><td><strong>${Render.escapeHtml(name)}</strong></td><td>${Render.escapeHtml(type)}</td><td>${Render.escapeHtml(india)}</td><td>${hiring ? 'Yes' : 'No'}</td><td>${Render.escapeHtml(status)}</td><td>${careerCell}</td><td>${Render.escapeHtml(x.VisaSupport || x.visa || 'Unknown')}</td></tr>`;
+    const main = `<tr class="company-table__row" data-company-id="${id}"><td class="company-table__expand-cell">${expandBtn}</td><td class="company-table__priority">${Render.escapeHtml(priority)}</td><td><div class="company-table__name-cell"><strong class="company-table__name-text">${Render.escapeHtml(name)}</strong>${badges}</div></td><td>${Render.escapeHtml(type)}</td><td>${Render.escapeHtml(india)}</td><td>${Render.escapeHtml(products)}</td><td>${careerCell}</td><td>${Render.escapeHtml(x.hq || '—')}</td></tr>`;
+    const detailRow = `<tr class="company-table__detail-row" id="company-detail-${id}" hidden><td class="company-table__detail-cell" colspan="8">${detail}</td></tr>`;
+    return main + detailRow;
   },
 
   companyCard(x) {
+    const filters = Render._companyFilters();
     const name = Render.companyName(x);
     const type = x.companyType || x.type || 'Unknown';
-    const india = x.indiaPresence != null ? x.indiaPresence : x.india || 'Unknown';
+    const india = filters.indiaLabel(x);
     const priority = x.priority != null ? x.priority : '';
-    const cloudBadge = x.AEMaaCS ? '<span class="badge badge--cloud">Cloud</span>' : '';
+    const badges = Render.companyBadges(x);
     const careers = Render.companyCareersLink(x);
+    const id = Render.escapeHtml(x.id || name);
     const careersBtn = careers
       ? `<a class="company-card__btn" href="${Render.escapeHtml(careers)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link')} Careers</a>`
       : '';
-    return `<article class="company-card"><div class="company-card__header"><span class="company-card__name">${Render.escapeHtml(name)}</span>${cloudBadge}</div><div class="company-card__meta"><span>Priority ${Render.escapeHtml(priority)}</span><span>${Render.escapeHtml(type)}</span><span>India: ${Render.escapeHtml(india)}</span></div><div class="company-card__actions">${careersBtn}</div></article>`;
+    const detailsBtn = `<button type="button" class="company-card__btn company-card__btn--secondary" data-company-expand aria-expanded="false" aria-controls="company-card-detail-${id}">Details</button>`;
+    return `<article class="company-card" data-company-id="${id}"><div class="company-card__header"><div class="company-card__title"><span class="company-card__name">${Render.escapeHtml(name)}</span>${badges}</div></div><div class="company-card__meta"><span>Priority ${Render.escapeHtml(priority)}</span><span>${Render.escapeHtml(type)}</span><span>India: ${Render.escapeHtml(india)}</span></div><div class="company-card__actions">${detailsBtn}${careersBtn}</div><div class="company-card__detail" id="company-card-detail-${id}" hidden>${Render.companyDetailPanel(x)}</div></article>`;
   },
 
   careersSearchTipText() {
@@ -469,7 +622,8 @@ const Render = {
       Careers: 'company-table__th--careers'
     };
     const filters = Render._companyFilters();
-    return headers
+    const expandTh = `<th scope="col" class="company-table__th--expand"><span class="sr-only">Details</span></th>`;
+    const cols = headers
       .map(h => {
         const cls = colClass[h] || '';
         if (product && h === 'Careers') {
@@ -479,18 +633,22 @@ const Render = {
         if (sortPair) {
           const dir = filters.sortDirectionFor(h, currentSort || '');
           const ariaSort = dir === 'asc' ? 'ascending' : dir === 'desc' ? 'descending' : 'none';
-          const arrow = dir ? Render.icon(dir === 'asc' ? 'chevronUp' : 'chevronDown', 'icon icon--sm sort-indicator') : '';
-          return `<th scope="col" class="${cls} company-table__th--sortable" aria-sort="${ariaSort}"><button type="button" class="company-table__sort-btn" data-sort-column="${Render.escapeHtml(h)}">${Render.escapeHtml(h)}${arrow}</button></th>`;
+          // Always show a sort affordance: dual chevron when inactive, up/down when active.
+          const iconName = dir === 'asc' ? 'chevronUp' : dir === 'desc' ? 'chevronDown' : 'chevronsUpDown';
+          const arrowClass = dir ? 'icon icon--sm sort-indicator' : 'icon icon--sm sort-indicator sort-indicator--idle';
+          const arrow = Render.icon(iconName, arrowClass);
+          return `<th scope="col" class="${cls} company-table__th--sortable" aria-sort="${ariaSort}"><button type="button" class="company-table__sort-btn" data-sort-column="${Render.escapeHtml(h)}" title="Sort by ${Render.escapeHtml(h)}">${Render.escapeHtml(h)}${arrow}</button></th>`;
         }
         return `<th scope="col" class="${cls}">${Render.escapeHtml(h)}</th>`;
       })
       .join('');
+    return expandTh + cols;
   },
 
   companyTableColumns(product) {
     return product
       ? ['Priority', 'Company', 'Type', 'India', 'Careers']
-      : ['Priority', 'Company', 'Type', 'India', 'Hiring', 'Status', 'Careers', 'Visa'];
+      : ['Priority', 'Company', 'Type', 'India', 'Products', 'Careers', 'HQ'];
   },
 
   companyDataBody(companies, options) {
@@ -506,9 +664,10 @@ const Render = {
     const currentSort = options.filterState && options.filterState.sort;
     const head = Render.companyTableHead(headers, product, currentSort);
     const rows = slice.map(c => Render.companyRow(c, options)).join('');
+    const colCount = headers.length + 1; // + expand column
     const pad = Math.max(0, pageSize - slice.length);
     const emptyRows = Array(pad)
-      .fill('<tr class="company-table__pad"><td colspan="' + headers.length + '"></td></tr>')
+      .fill('<tr class="company-table__pad"><td colspan="' + colCount + '"></td></tr>')
       .join('');
     const tableClass = product ? 'company-table company-table--product' : 'company-table';
     const table = `<div class="company-table-desktop company-explorer__table-wrap"><table class="${tableClass}"><thead><tr>${head}</tr></thead><tbody>${rows}${emptyRows}</tbody></table></div>`;
@@ -522,53 +681,63 @@ const Render = {
   },
 
   companyFilterBar(state, total, filtered, industries, options) {
-    const product = Render.isProductMode(options);
-    const types = ['', 'Product', 'GCC', 'Agency', 'Enterprise'];
-    // Single source of truth: CompanyFilters.SORT_OPTIONS (M13 cleanup — this used to be two
-    // separately-maintained, already-diverged inline copies of the same list).
-    const sortOptions = Render._companyFilters().sortOptionsFor(product);
+    const productMode = Render.isProductMode(options);
+    const filtersApi = Render._companyFilters();
+    const types = ['Product', 'GCC', 'Agency', 'Enterprise'];
+    const sortOptions = filtersApi.sortOptionsFor(productMode);
     const industryList = industries || [];
-    const typeOptions = types.map(t => ({ id: t, label: t || 'All types' }));
-    const industryOptions = [''].concat(industryList).map(ind => ({ id: ind, label: ind || 'All industries' }));
-    const chip = (key, label) => {
+    const productList = options.products || filtersApi.productsFrom(options.allCompanies || []);
+    // Empty id = cleared state; label is the category placeholder (not listed as an option).
+    const typeOptions = [{ id: '', label: 'Type' }].concat(types.map(t => ({ id: t, label: t })));
+    const industryOptions = [{ id: '', label: 'Industry' }].concat(industryList.map(ind => ({ id: ind, label: ind })));
+    const productOptions = [{ id: '', label: 'Product' }].concat(
+      productList.map(code => ({ id: code, label: filtersApi.productLabel(code) }))
+    );
+    const chip = (key, label, iconName) => {
       const active = state[key] ? ' filter-chip--active' : '';
       const pressed = state[key] ? 'true' : 'false';
-      return `<button type="button" class="filter-chip${active}" data-company-filter="${key}" data-chip="true" aria-pressed="${pressed}">${Render.escapeHtml(label)}</button>`;
+      const icon = iconName ? Render.icon(iconName, 'icon icon--sm') : '';
+      return `<button type="button" class="filter-chip${active}" data-company-filter="${key}" data-chip="true" aria-pressed="${pressed}">${icon}<span>${Render.escapeHtml(label)}</span></button>`;
     };
     const chk = (key, label) => {
       const on = state[key] ? ' checked' : '';
       return `<label class="inline-flex items-center gap-1 text-sm"><input type="checkbox" data-company-filter="${key}"${on} /> ${Render.escapeHtml(label)}</label>`;
     };
-    const quickChips = product
-      ? `<div class="filter-chips" role="group" aria-label="Quick filters">${chip('hiringIndia', 'Hiring in India')}${chip('aemaaCS', 'AEM Cloud Service')}</div>`
-      : `<div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('aemaaCS', 'AEM Cloud')}</div>`;
-    // Always emit the button (toggling `hidden`) so filtering never needs a full toolbar
-    // re-render — that would destroy and recreate the search input, dropping keyboard focus.
+    // Cloud is Product → AEM Cloud Service only (no separate Cloud chip — same filter).
+    const quickChips = productMode
+      ? `<div class="filter-chips" role="group" aria-label="Quick filters">${chip('hiringIndia', 'India', 'mapPin')}${chip('hiringActive', 'Frequent', 'activity')}${chip('ownerPreferred', 'Preferred', 'star')}</div>`
+      : `<div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('hiringActive', 'Frequent hiring')}${chk('ownerPreferred', 'Preferred')}</div>`;
     const clearBtnHidden = Render.companyFilterActive(state) ? '' : ' hidden';
-    const clearBtn = `<button type="button" class="filter-clear-btn${clearBtnHidden}" data-company-clear-filters>Clear filters</button>`;
-    const chipsRow = `<div class="company-filters__chips-row">${quickChips}${clearBtn}</div>`;
+    const clearBtn = `<button type="button" class="filter-clear-btn${clearBtnHidden}" data-company-clear-filters>${Render.icon('x', 'icon icon--sm')} Clear filters</button>`;
     const searchField = `<div class="company-filters__search">
+          <span class="company-filters__field-label">Search</span>
           <div class="company-filters__search-field company-filters__search-field--icon">
             <span class="company-filters__search-icon" aria-hidden="true">${Render.icon('search')}</span>
             <input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Search companies…" autocomplete="off" aria-label="Search companies" />
           </div>
         </div>`;
     const sortField = Render.uiSelect('sort', 'Sort', sortOptions, state.sort || 'priority-desc', 'ui-select--sort');
-    const typeField = Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '', 'ui-select--filter');
-    const industryField = Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '', 'ui-select--filter');
-    // Was a `product ? X : X` ternary with two byte-for-byte identical branches (dead code, found in
-    // the M13 audit). The `--product` grid-layout modifier is intentionally applied in both modes —
-    // it's a genuinely shared layout, not a product-only one — so collapsed to one template rather
-    // than making it conditional, which would have silently changed dev mode's toolbar layout.
-    const filters = `<div class="company-filters company-filters--product">
-          ${searchField}
-          <div class="company-filters__sort">${sortField}</div>
-          <div class="company-filters__type">${typeField}</div>
-          <div class="company-filters__industry">${industryField}</div>
-        </div>`;
+    const typeRailClass = `ui-select--rail${state.companyType ? ' ui-select--rail-active' : ''}`;
+    const industryRailClass = `ui-select--rail${state.industry ? ' ui-select--rail-active' : ''}`;
+    const productRailClass = `ui-select--rail${state.product ? ' ui-select--rail-active' : ''}`;
+    const typeField = Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '', typeRailClass);
+    const industryField = Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '', industryRailClass);
+    const productField = Render.uiSelect('product', 'Product', productOptions, state.product || '', productRailClass);
+    const advancedCount = [state.companyType, state.industry, state.product].filter(Boolean).length;
+    const panelOpen = !!(options && options.filtersPanelOpen);
+    const filtersBtn = `<button type="button" class="company-filters__filters-btn${panelOpen ? ' is-open' : ''}${advancedCount ? ' has-active' : ''}" data-company-filters-toggle aria-expanded="${panelOpen ? 'true' : 'false'}" aria-controls="company-filters-panel">${Render.icon('filter', 'icon icon--sm')}<span data-filters-label>Filters</span>${advancedCount ? `<span class="company-filters__filters-count" data-filters-count>${advancedCount}</span>` : '<span class="company-filters__filters-count hidden" data-filters-count></span>'}${Render.icon('chevronDown', 'icon icon--sm company-filters__filters-chevron')}</button>`;
+    // Mobile: Filters + chips wrap; panel stacks Type/Industry/Product (no horizontal scroll).
+    // Desktop (≥640px): Filters button hidden; dropdowns sit inline before chips.
     return `<div class="company-explorer__toolbar" role="search" aria-label="Filter companies">
-      ${chipsRow}
-      ${filters}
+      <div class="company-filters company-filters--compact">
+        <div class="company-filters__primary">${searchField}<div class="company-filters__sort">${sortField}</div></div>
+        <div class="company-filters__advanced" role="group" aria-label="Company filters">
+          ${filtersBtn}
+          <div id="company-filters-panel" class="company-filters__panel${panelOpen ? ' is-open' : ''}">${typeField}${industryField}${productField}</div>
+          ${quickChips}
+          ${clearBtn}
+        </div>
+      </div>
     </div>`;
   },
 
@@ -580,13 +749,15 @@ const Render = {
     const stats = Render.companyStats(options.allCompanies || companies);
     const metrics = Render.isProductMode(options)
       ? ''
-      : `<div class="company-explorer__metrics"><span><strong>${stats.total}</strong> employers</span><span><strong>${stats.hiring}</strong> hiring AEM</span><span><strong>${stats.india}</strong> India hiring</span><span><strong>${stats.cloud}</strong> AEM Cloud</span></div>`;
+      : `<div class="company-explorer__metrics"><span><strong>${stats.total}</strong> employers</span><span><strong>${stats.india}</strong> India hiring</span><span><strong>${stats.cloud}</strong> AEM Cloud</span></div>`;
     const toolbar = options.showFilters ? Render.companyFilterBar(state, total, filtered, options.industries, options) : '';
     const body = Render.companyDataBody(companies, options);
     const pagination = Render.companyPagination(page, filtered, 'company');
     const countLabel = Render.companyCountLabel(page, filtered, total, COMPANY_PAGE_SIZE);
-    const footer = `<div class="company-explorer__footer"><p data-company-count aria-live="polite">${countLabel}</p><div class="company-explorer__footer-copy"><button type="button" data-copy-discovery-link class="copy-link-btn">${Render.icon('copy')} Copy link</button><span data-copy-link-status class="copy-toast hidden" aria-live="polite">Copied!</span></div><div data-company-pagination>${pagination}</div></div>`;
-    return `<div class="company-explorer">${metrics}${toolbar}<div class="company-explorer__body">${body}</div>${footer}</div>`;
+    const resultsLabel = Render.companyResultsLabel(filtered, total);
+    const resultsHead = `<div class="company-explorer__results-head"><div class="company-explorer__results-title"><span class="company-explorer__results-kicker">Results</span><span class="company-explorer__results-count" data-company-results-count aria-live="polite">${Render.escapeHtml(resultsLabel)}</span></div></div>`;
+    const footer = `<div class="company-explorer__footer"><p class="company-explorer__page-range" data-company-count aria-live="polite">${countLabel}</p><div class="company-explorer__footer-copy"><button type="button" data-copy-discovery-link class="copy-link-btn">${Render.icon('copy')} Copy link</button><span data-copy-link-status class="copy-toast hidden" aria-live="polite">Copied!</span></div><div data-company-pagination>${pagination}</div></div>`;
+    return `<div class="company-explorer">${metrics}${toolbar}${resultsHead}<div class="company-explorer__body">${body}</div>${footer}</div>`;
   },
 
   companyTable(companies, options = {}) {
@@ -598,7 +769,7 @@ const Render = {
       terms,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
       g =>
-        `<tr><td class="font-semibold">${Render.escapeHtml(g.term)}</td><td>${Render.escapeHtml(g.definition)}</td><td class="text-muted text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
+        `<tr><td class="data-table__col--term font-semibold">${Render.escapeHtml(g.term)}</td><td class="data-table__col--definition">${Render.escapeHtml(g.definition)}</td><td class="data-table__col--related text-muted text-xs">${Render.escapeHtml((g.relatedTerms || []).join(', '))}</td></tr>`,
       ['Term', 'Definition', 'Related'],
       'glossary'
     );
@@ -610,7 +781,7 @@ const Render = {
       sorted,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
       t =>
-        `<tr><td class="font-semibold">${Render.escapeHtml(t.name)}</td><td>${Render.escapeHtml(t.category)}</td><td>${Render.escapeHtml(t.difficulty)}</td><td>${Render.escapeHtml(t.summary)}</td></tr>`,
+        `<tr><td class="data-table__col--tech font-semibold">${Render.escapeHtml(t.name)}</td><td class="data-table__col--category">${Render.escapeHtml(t.category)}</td><td class="data-table__col--level">${Render.escapeHtml(t.difficulty)}</td><td class="data-table__col--summary">${Render.escapeHtml(t.summary)}</td></tr>`,
       ['Technology', 'Category', 'Level', 'Summary'],
       'technology'
     );
@@ -633,7 +804,7 @@ const Render = {
       sorted,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
       q =>
-        `<tr><td>${Render.escapeHtml(q.category)}</td><td>${Render.escapeHtml(q.difficulty)}</td><td class="font-semibold">${Render.escapeHtml(q.question)}</td><td class="text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
+        `<tr><td class="data-table__col--category">${Render.escapeHtml(q.category)}</td><td class="data-table__col--level">${Render.escapeHtml(q.difficulty)}</td><td class="data-table__col--question font-semibold">${Render.escapeHtml(q.question)}</td><td class="data-table__col--guidance text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
       ['Category', 'Level', 'Question', 'Guidance'],
       'interview'
     );
@@ -700,6 +871,8 @@ const Render = {
         filterState: {},
         totalCount: companies.length,
         allCompanies: companies,
+        industries: Render._companyFilters().industriesFrom(companies),
+        products: Render._companyFilters().productsFrom(companies),
         productMode: ctx.productMode
       })}</div>`;
     } else if (chapter.ownerPlaybookEmbed && ctx.ownerPlaybook) {

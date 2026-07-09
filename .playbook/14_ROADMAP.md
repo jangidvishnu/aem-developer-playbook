@@ -44,7 +44,8 @@ review before the next one starts.
 | 12 | Publishing | GitHub Pages (print/PDF deferred) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 13 | Loader + Repo Cleanup | First-load UX; archive unused company research/pipeline | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 14 | SEO Prerendering | Bake product-mode HTML at commit time so crawlers/no-JS clients see real content | **Complete** — see `25_ROADMAP_ARCHIVE.md` (DR-022) |
-| 15 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — **active** — see below |
+| 15 | Company capability filters | EDS and AEM Forms filter chips + shareable URL state | Not started — queued after M16 |
+| 16 | Table layout + sticky sidebar | Fixed column widths (no filter flicker); sidebar stays put at page end | **Active** — see below |
 
 **Sequencing note:** Milestone 14 was implemented before Milestone 13 received explicit owner acceptance, at the
 owner's explicit direction ("go" immediately following a full M14 plan) — a deliberate, acknowledged exception to
@@ -157,7 +158,7 @@ Product-mode prerender (`scripts/prerender.js` / `verify-prerender.js`), sitemap
 DR-023 Lighthouse follow-up (loader-vs-prerender CLS, `defer` scripts, font `display=optional`, combobox role,
 contrast token). Accepted by the project owner 2026-07-08. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-## Milestone 15 — Company capability filters (active)
+## Milestone 15 — Company capability filters (queued)
 
 **Goal:** Filter companies by **EDS** (`EdgeDeliveryServices`) and **AEM Forms** (`Forms`) — fields already on
 records (`11_COMPANY_SCHEMA.md` / `data/companies.json`). See DR-017 (was M13 under DR-016; renumbered to M15 when
@@ -167,8 +168,36 @@ M14 was reassigned to SEO prerendering, DR-022).
 search facet metadata if needed.
 
 **Prerequisite:** Milestones 13 and 14 accepted (done 2026-07-08). Data quality pass on EDS/Forms fields.
+**Status:** Queued behind Milestone 16 (layout stability). Slim schema + Frequent/Preferred filter UI shipped in
+PR #5 ahead of EDS/Forms chips.
 
-### Order rationale (revised per DR-009 / DR-017 / DR-022)
+## Milestone 16 — Table layout + sticky sidebar (active)
+
+**Goal:** Stop table columns from jumping when filters/sort change row content, and keep the left nav sticky at the
+bottom of long pages instead of riding up with the flex shell.
+
+**Scope (in):**
+- `table-layout: fixed` + explicit widths for company explorer columns (Priority / Company / Type / India / Careers)
+- Same treatment for learning `data-table`s (glossary, technologies, interview)
+- Stable min-heights on results head / table body so pagination padding does not reflow the page
+- Desktop sidebar: `align-items: flex-start` on `.site-shell` + sticky top so the nav stays in the viewport while
+  main content scrolls to the footer
+- Header CLS: prerender GitHub link + theme toggle icon; fixed desktop search width + Ctrl/⌘K badge
+- Company **row expand / card Details**: products, roles, hq, notes, evidence, hiringEvidence, verifiedAt
+
+**Scope (out):** EDS/Forms capability chips (still Milestone 15); filter toolbar micro-animations beyond existing
+open/close.
+
+**Acceptance:**
+- Changing Sort / Type / Industry / Product / chips does not shift Priority↔Company↔Type column edges
+- Glossary / Interview tables do not reflow column widths when paging
+- At the bottom of a long page (desktop ≥1024px), the left sidebar remains sticky under the header (does not jump
+  upward into empty space)
+- Header search width is stable on first paint (GitHub/theme already present)
+- Expanding a company row/card shows products, roles, notes, evidence links, and verified date without adding table columns
+- Learning tables remain readable on mobile (horizontal scroll inside wrap; no crushed mid-word columns)
+
+### Order rationale (revised per DR-009 / DR-017 / DR-022 / DR-026)
 
 | Order | Why |
 |---|---|
@@ -176,6 +205,7 @@ search facet metadata if needed.
 | 12 Publishing | Live Pages |
 | 13 Loader + cleanup | First-load UX + archive dead weight |
 | 14 SEO Prerendering | Crawlers/no-JS clients see real content |
+| 16 Table layout + sticky sidebar | Layout stability before more filter chips |
 | 15 Capability filters | EDS + AEM Forms chips |
 
-**Immediate next step:** Start Milestone 15 after any remaining M13/M14 follow-up PR merges.
+**Immediate next step:** Finish Milestone 16, then start Milestone 15.

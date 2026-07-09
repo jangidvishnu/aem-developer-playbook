@@ -17,7 +17,7 @@ max content width, `assets/js/icons.js` inline SVGs, `assets/js/ui.js` behaviors
 | Dark mode (persisted) | Implemented (`data-theme` + `localStorage` + `UI.initTheme`) |
 | Print mode | Implemented (`@media print` rules hide chrome, avoid page-break-inside) |
 | Keyboard navigation | Search (Arrow/Enter/Escape); mobile nav drawer (Escape); command palette (Ctrl/Cmd+K) |
-| Responsive design | Doc header with mobile search row; off-canvas nav; company cards &lt;768px |
+| Responsive design | Doc header with mobile search row; off-canvas nav; company cards &lt;768px; learning tables scroll horizontally on mobile (min-width) — **every UI change must be checked on desktop and mobile** |
 | Sticky navigation | Sticky doc header; sticky sidebar on desktop |
 | Active section highlight | Scroll-spy on grouped sidebar links (`UI.wireScrollSpy`) |
 | Breadcrumbs | Not yet implemented |
@@ -29,10 +29,13 @@ max content width, `assets/js/icons.js` inline SVGs, `assets/js/ui.js` behaviors
 
 ## Layout conventions
 
+- **Desktop + mobile required:** any design/CSS/render change must be verified at desktop (≥1024px) and mobile
+  (≤767px). Do not land fixed table widths or chrome that only work on wide screens.
 - **Doc header** — wordmark (`site.json` `shortTitle`), desktop search, theme toggle, optional GitHub link; mobile
   hamburger + dedicated search row below (`doc-header__row--search`).
 - **Desktop:** grouped sidebar nav (`site.json` `navigation.groups`); Project Status only in dev mode.
-- **Mobile:** off-canvas sidebar drawer; backdrop click and Escape close it.
+- **Mobile:** off-canvas sidebar drawer; backdrop click and Escape close it. Learning `data-table`s keep readable
+  column widths and scroll inside `.data-table-wrap` (do not crush with `width: 100%` + fixed %).
 - Main content as a vertical stack. **Product mode order:** hero (stat cards + CTAs) → Target Companies → How I Apply
   → learning/reference chapters. Roadmap panels render inside **Learning Roadmap**, not above companies.
 - **Company explorer** — single `.company-explorer` card: metrics strip, toolbar (chips + custom selects), table or

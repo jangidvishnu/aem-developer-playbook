@@ -48,8 +48,13 @@ async function main() {
   await input.waitFor({ state: 'visible' });
   assertInside(await input.boundingBox(), await icon.boundingBox(), 'Company search icon');
 
+  // Product table: expand affordance + Priority, Company, Type, India, Careers.
   const headers = page.locator('.company-table--product thead th');
-  if ((await headers.count()) !== 5) throw new Error('Expected 5 company table columns');
+  const headerCount = await headers.count();
+  if (headerCount !== 6) throw new Error(`Expected 6 company table columns (expand + 5 data), got ${headerCount}`);
+  if ((await page.locator('.company-table--product thead th.company-table__th--expand').count()) !== 1) {
+    throw new Error('Expected one expand column header');
+  }
 
   const india = page.locator('.company-table__th--india');
   const careers = page.locator('.company-table__th--careers');
