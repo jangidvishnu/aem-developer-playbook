@@ -2,29 +2,25 @@
 
 ## Active objective
 
-**Milestone 17 — Learning & career content** (Interview Prep framing + fundamentals; wire official resources;
-Career Strategy / Branding / Glossary depth; search facet + learning pagination UX). Milestone 16 + slim schema
-merged via **PR #6**. Milestone 15 (EDS/Forms chips) remains queued after M17.
+**Post-M17 polish** — mobile table/filter tweaks; public host moved to Cloudflare Pages. Milestone 15
+(EDS/Forms chips) is next.
 
 ## Live URLs
 
-- Site: https://jangidvishnu.github.io/aem-developer-playbook/
-- Repo: https://github.com/jangidvishnu/aem-developer-playbook
+- **Canonical site:** https://aemplaybook.pages.dev/ (Cloudflare Pages — **manual** deploy after GitHub check)
+- **Preview:** https://jangidvishnu.github.io/aem-developer-playbook/ (GitHub Pages — auto from `master`)
+- **Repo:** https://github.com/jangidvishnu/aem-developer-playbook
 
 ## Session progress (2026-07-09)
 
-### PR #6 — slim schema + M16 layout (merged)
+### Hosting
 
-https://github.com/jangidvishnu/aem-developer-playbook/pull/6
-
-### Milestone 17 — opening PR
-
-Interview framing + coach Qs; roadmap/tech resource links; Career/Glossary/templates; search facets aligned to
-sidebar; learning table pagination + search navigation. Branch: `feat/m17-learning-content`.
+Canonical `seo.siteUrl` → `https://aemplaybook.pages.dev/`. Workflow: merge to `master` → verify on GitHub
+Pages → manually deploy the same commit on Cloudflare Pages.
 
 ### Next
 
-Merge M17 when checks are green, then Milestone 15 (EDS + Forms chips).
+Milestone 15 (EDS + Forms chips); optional custom domain later (`aemplaybook.<your-domain>`).
 
 ## Milestones 1–14: accepted
 

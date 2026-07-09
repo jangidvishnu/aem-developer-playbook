@@ -2,11 +2,13 @@
 
 Researched AEM employers, apply guidance, and learning paths for Adobe Experience Manager developers — especially those targeting roles in India.
 
-**Live site:** [https://jangidvishnu.github.io/aem-developer-playbook/](https://jangidvishnu.github.io/aem-developer-playbook/)
+**Live site:** [https://aemplaybook.pages.dev/](https://aemplaybook.pages.dev/)  
+**Preview (GitHub Pages):** [https://jangidvishnu.github.io/aem-developer-playbook/](https://jangidvishnu.github.io/aem-developer-playbook/)
 
-No build step at deploy time. Static HTML + vanilla JS + JSON data, served as-is (GitHub Pages compatible). Content
-is prerendered into `index.html` ahead of time for SEO (`npm run prerender` — see below and `.playbook/12_DECISIONS.md`
-DR-022); the file GitHub Pages serves is always a plain, already-complete static file.
+No build step at deploy time. Static HTML + vanilla JS + JSON data, served as-is. Content is prerendered into
+`index.html` ahead of time for SEO (`npm run prerender` — see below and `.playbook/12_DECISIONS.md` DR-022).
+**Canonical public host** is Cloudflare Pages (`aemplaybook.pages.dev`, manual deploy after GitHub review).
+GitHub Pages remains an automatic preview from `master`.
 
 ## Quick start (local)
 

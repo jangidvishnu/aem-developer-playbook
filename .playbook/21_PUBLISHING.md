@@ -5,22 +5,44 @@
 Per `MASTER_BOOTSTRAP_PROMPT.md`, this project ships as four things from one source:
 
 1. **GitHub repository** — the source of truth (this repo).
-2. **GitHub Pages website** — the primary reading experience.
+2. **Public website** — Cloudflare Pages at https://aemplaybook.pages.dev/ (canonical); GitHub Pages as preview.
 3. **Printable handbook** — browser print-to-PDF using the existing print CSS.
 4. **PDF book** — a more deliberate, paginated export (target state; not yet built).
 
-## GitHub Pages (Milestone 12)
+## Dual hosting workflow (owner preference)
 
-Because the site has no build step at deploy/request time, GitHub Pages can serve the repository (or a `/docs` or
-root path, per GitHub's Pages configuration) directly. Requirements this places on every change:
+| Host | URL | Deploy |
+|---|---|---|
+| **Canonical** — Cloudflare Pages | https://aemplaybook.pages.dev/ | **Manual** (after checking GitHub Pages) |
+| **Preview** — GitHub Pages | https://jangidvishnu.github.io/aem-developer-playbook/ | Automatic from `master` |
+
+1. Merge to `master` → GitHub Pages updates automatically.
+2. Verify the change on the GitHub Pages URL.
+3. In Cloudflare → Workers & Pages → `aemplaybook` → trigger a **manual** production deploy of the same commit.
+4. Confirm https://aemplaybook.pages.dev/.
+
+`data/site.json` → `seo.siteUrl` (and thus canonical / sitemap / robots / JSON-LD) points at the **Cloudflare**
+URL. When a purchased custom domain is attached later (e.g. `aemplaybook.example.com`), update `seo.siteUrl` and
+re-run `npm run prerender`.
+
+## GitHub Pages (Milestone 12 — still used as preview)
+
+Because the site has no build step at deploy/request time, GitHub Pages can serve the repository root directly.
+Requirements this places on every change:
 
 - No server-side logic — everything must run as static files.
 - No absolute local paths — all asset references must resolve correctly when served from a Pages subpath.
 - `data/*.json` fetches must use relative paths so they work both locally (file:// or a simple static server) and
   when deployed.
 - `index.html`, `sitemap.xml`, and `robots.txt` are committed files, including the parts `npm run prerender`
-  generates ahead of time (Milestone 14, DR-022) — Pages never runs that script itself; it only ever serves what's
-  already in the repo.
+  generates ahead of time (Milestone 14, DR-022) — neither GitHub Pages nor Cloudflare Pages runs that script;
+  they only serve what's already in the repo.
+
+## Cloudflare Pages (canonical public host)
+
+Same static root as GitHub Pages: no framework build. Project name `aemplaybook` → `aemplaybook.pages.dev`.
+Build command empty / none; output directory `/`. Prefer **manual** production deploys so GitHub Pages can be
+checked first. Do not use Workers / `wrangler deploy` for this site.
 
 ## SEO and crawlability (Milestone 14)
 
