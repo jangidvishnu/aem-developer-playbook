@@ -1,0 +1,35 @@
+---
+description: Persist recurring owner workflow preferences into .cursor/rules instead of one-off memory
+alwaysApply: true
+---
+
+# Owner workflow preferences (persist, don't forget)
+
+When the project owner states a **recurring** preference about how agents should work — git/PR flow, terminal
+habits, commit steps, branch hygiene, review gates, or similar process instructions — **encode it in this repo's
+instructions**, not only apply it for the current turn.
+
+## What to do
+
+1. **Apply it immediately** in the current session.
+2. **Persist it** in `.cursor/rules/`:
+   - **Same topic already covered?** Update the existing rule (e.g. git flow → `git-push-approval.mdc`).
+   - **New topic?** Add a focused `.mdc` rule with `alwaysApply: true` unless it is file-specific.
+3. **Tell the owner** which rule file was added or updated (one line — no long explanation).
+
+Do **not** wait for a separate "add this to instructions" message if the preference is clearly meant to apply every
+time (e.g. "every time you open a PR, switch to master").
+
+## Examples already in rules
+
+| Preference | Rule file |
+|---|---|
+| Commit/PR/merge approval gate; after PR → checkout `master` | `git-push-approval.mdc` |
+| PowerShell heredoc / slow git gotchas | `windows-powershell-shell.mdc` |
+| Terminal / dev-server cleanup | `terminal-hygiene.mdc` |
+
+## What not to persist here
+
+- One-off task details ("fix this URL today only").
+- Product/content decisions that belong in `.playbook/` (use `12_DECISIONS.md` / `13_CHANGELOG.md` per constitution).
+- Secrets or personal data beyond what the owner explicitly asked to store.

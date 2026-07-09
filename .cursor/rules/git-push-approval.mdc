@@ -24,6 +24,8 @@ After the owner approves a commit, proceed **without another round of asking** t
 1. `git commit` the approved change.
 2. Push it on a feature branch (never `master`/`main` directly).
 3. Open the pull request (`gh pr create`) targeting `master`, with a clear summary and test plan in the body.
+4. Switch the local repo back to `master` and fast-forward: `git checkout master` then `git pull origin master`.
+   Leave feature branches on the remote only — do not keep working on the PR branch locally after the PR is open.
 
 Report the PR URL and required-check status, then **stop** — do not merge. The owner reviews/merges the PR
 themselves on GitHub, or tells you to merge once checks are green and they've verified it.

@@ -18,22 +18,16 @@ const Search = {
     return company.name || company.company || '';
   },
 
-  migrationBand(status) {
-    const s = status || 'Unknown';
-    if (s === 'Cloud-native' || s === 'Migrated to AEM as a Cloud Service') return 'cloud';
-    if (s === 'Migrating to AEM as a Cloud Service') return 'migrating';
-    return 'unknown';
-  },
-
   companyFacets(co) {
+    const products = Array.isArray(co.products) ? co.products : [];
     return {
       companyType: co.companyType || co.type || 'Unknown',
       industry: co.industry || 'Unknown',
-      migrationBand: Search.migrationBand(co.MigrationStatus),
-      hiringIndia: co.HiringIndia === 'Yes',
-      hiringAEM: co.HiringAEM === true,
-      aemaaCS: co.AEMaaCS === true,
-      status: co.Status || 'Unknown'
+      products,
+      hiringIndia: co.hiringIndia === true,
+      aemCloud: products.includes('aem-cloud'),
+      hiringActive: co.hiringActive === true,
+      ownerPreferred: co.ownerPreferred === true
     };
   },
 
@@ -94,11 +88,11 @@ const Search = {
         title: name,
         snippet: [
           co.companyType || co.type,
-          co.indiaPresence || co.india,
-          co.Status,
+          co.hiringIndia === true ? 'India hiring' : '',
+          co.hiringActive === true ? 'Frequent hiring' : '',
+          co.ownerPreferred === true ? 'Preferred' : '',
           co.industry,
-          co.HiringAEM ? 'hiring' : '',
-          co.HiringIntensity
+          (co.products || []).join(' ')
         ]
           .filter(Boolean)
           .join(' · '),
@@ -107,12 +101,9 @@ const Search = {
         facets: Search.companyFacets(co),
         fields: {
           title: name.toLowerCase(),
-          summary: [co.industry, co.companyType, co.Status, co.HiringIntensity, co.Notes].filter(Boolean).join(' ').toLowerCase(),
-          tags: (co.TypicalRoles || []).join(' ').toLowerCase(),
-          body: [co.usesAEM ? 'aem' : '', co.AEMVersion, co.MigrationStatus]
-            .filter(v => v && v !== 'Unknown')
-            .join(' ')
-            .toLowerCase()
+          summary: [co.industry, co.companyType, co.notes || co.Notes, co.hq].filter(Boolean).join(' ').toLowerCase(),
+          tags: (co.roles || co.TypicalRoles || []).join(' ').toLowerCase(),
+          body: (co.products || []).join(' ').toLowerCase()
         }
       });
     });

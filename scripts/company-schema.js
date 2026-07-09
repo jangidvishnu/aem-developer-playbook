@@ -1,9 +1,9 @@
 /**
- * Shared company record shape for Milestone 6+8 (see 11_COMPANY_SCHEMA.md).
+ * Shared company record shape for the public employer list (see 11_COMPANY_SCHEMA.md).
  * Dev-only — never loaded by index.html.
  */
 
-const { validateHiringGate } = require('./hiring-gate');
+const { validateHiringGate, PRODUCT_CODES } = require('./hiring-gate');
 
 const REQUIRED_KEYS = [
   'id',
@@ -11,51 +11,20 @@ const REQUIRED_KEYS = [
   'priority',
   'industry',
   'companyType',
-  'headquarters',
-  'indiaPresence',
   'careersUrl',
-  'careersLogin',
-  'directJobSearch',
-  'usesAEM',
-  'AdobeProducts',
-  'AEMVersion',
-  'AEMaaCS',
-  'EdgeDeliveryServices',
-  'UniversalEditor',
-  'GraphQL',
-  'AEP',
-  'Analytics',
-  'Target',
-  'Forms',
-  'Assets',
-  'Sites',
-  'MigrationStatus',
-  'EngineeringCulture',
-  'Compensation',
-  'WorkLifeBalance',
-  'VisaSupport',
-  'HiringIndia',
-  'HiringGlobal',
-  'InterviewDifficulty',
-  'TypicalRoles',
-  'Recruiters',
-  'Notes',
-  'Evidence',
-  'References',
-  'LastVerified',
-  'Status',
-  'HiringAEM',
-  'AEMHiringEvidence',
-  'AEMWorkFocus',
-  'HiringIntensity',
-  'AdobeSpend',
-  'LastHiringVerified',
-  'Wishlist',
-  'Applied',
-  'Interview',
-  'Offer',
-  'Rejected'
+  'products',
+  'roles',
+  'notes',
+  'evidence',
+  'hiringEvidence',
+  'verifiedAt',
+  'ownerVerified'
 ];
+
+const OPTIONAL_KEYS = ['hq', 'indiaPresence', 'hiringIndia', 'jobSearchUrl', 'hiringActive', 'ownerPreferred', 'signals'];
+
+const SIGNAL_SCORE_KEYS = ['overall', 'hiring', 'culture', 'benefits', 'workLife'];
+const SIGNAL_SOURCES = ['glassdoor', 'ambitionbox', 'levels', 'blind', 'owner', 'other'];
 
 function emptyCompany(overrides = {}) {
   const base = {
@@ -64,52 +33,63 @@ function emptyCompany(overrides = {}) {
     priority: 0,
     industry: 'Unknown',
     companyType: 'Unknown',
-    headquarters: 'Unknown',
-    indiaPresence: 'Unknown',
-    careersUrl: 'Unknown',
-    careersLogin: 'Unknown',
-    directJobSearch: 'Unknown',
-    usesAEM: false,
-    AdobeProducts: [],
-    AEMVersion: 'Unknown',
-    AEMaaCS: false,
-    EdgeDeliveryServices: false,
-    UniversalEditor: false,
-    GraphQL: false,
-    AEP: false,
-    Analytics: false,
-    Target: false,
-    Forms: false,
-    Assets: false,
-    Sites: false,
-    MigrationStatus: 'Unknown',
-    EngineeringCulture: 'Unknown',
-    Compensation: 'Unknown',
-    WorkLifeBalance: 'Unknown',
-    VisaSupport: 'Unknown',
-    HiringIndia: 'Unknown',
-    HiringGlobal: 'Unknown',
-    InterviewDifficulty: 'Unknown',
-    TypicalRoles: [],
-    Recruiters: [],
-    Notes: '',
-    Evidence: [],
-    References: [],
-    LastVerified: null,
-    Status: 'Unverified',
-    HiringAEM: false,
-    AEMHiringEvidence: [],
-    AEMWorkFocus: [],
-    HiringIntensity: 'Unknown',
-    AdobeSpend: 'Unknown',
-    LastHiringVerified: null,
-    Wishlist: false,
-    Applied: false,
-    Interview: false,
-    Offer: false,
-    Rejected: false
+    careersUrl: 'https://example.com/',
+    products: ['sites'],
+    roles: [],
+    notes: '',
+    evidence: [],
+    hiringEvidence: [],
+    verifiedAt: null,
+    ownerVerified: false
   };
   return Object.assign(base, overrides);
+}
+
+function isScore(n) {
+  return typeof n === 'number' && !Number.isNaN(n) && n >= 0 && n <= 5;
+}
+
+function validateSignals(signals, label) {
+  const errors = [];
+  if (signals == null) return errors;
+  if (typeof signals !== 'object' || Array.isArray(signals)) {
+    errors.push(`${label}: signals must be an object when present`);
+    return errors;
+  }
+
+  if (!isScore(signals.overall)) {
+    errors.push(`${label}: signals.overall must be a number 0–5`);
+  }
+
+  SIGNAL_SCORE_KEYS.filter(k => k !== 'overall').forEach(key => {
+    if (key in signals && signals[key] != null && !isScore(signals[key])) {
+      errors.push(`${label}: signals.${key} must be a number 0–5 when present`);
+    }
+  });
+
+  if (!signals.source || !SIGNAL_SOURCES.includes(signals.source)) {
+    errors.push(`${label}: signals.source must be one of ${SIGNAL_SOURCES.join(', ')}`);
+  }
+
+  if (signals.sourceUrl != null) {
+    if (typeof signals.sourceUrl !== 'string' || !signals.sourceUrl.startsWith('http')) {
+      errors.push(`${label}: signals.sourceUrl must be an http(s) URL when present`);
+    }
+  }
+
+  if (!signals.asOf || typeof signals.asOf !== 'string') {
+    errors.push(`${label}: signals.asOf (ISO date) is required when signals is present`);
+  }
+
+  if (signals.sampleSize != null && typeof signals.sampleSize !== 'string' && typeof signals.sampleSize !== 'number') {
+    errors.push(`${label}: signals.sampleSize must be a string or number when present`);
+  }
+
+  if (signals.notes != null && typeof signals.notes !== 'string') {
+    errors.push(`${label}: signals.notes must be a string when present`);
+  }
+
+  return errors;
 }
 
 function validateCompany(co, index) {
@@ -124,16 +104,40 @@ function validateCompany(co, index) {
     errors.push(`${label}: priority must be a number 0–10`);
   }
 
-  if (co.usesAEM === true && (!Array.isArray(co.Evidence) || co.Evidence.length === 0)) {
-    errors.push(`${label}: usesAEM true requires non-empty Evidence`);
+  if (!Array.isArray(co.products) || co.products.length === 0) {
+    errors.push(`${label}: products must be a non-empty array`);
+  } else {
+    co.products.forEach(p => {
+      if (!PRODUCT_CODES.includes(p)) errors.push(`${label}: unknown product code "${p}"`);
+    });
   }
 
-  if (co.Status === 'Verified' && !co.LastVerified) {
-    errors.push(`${label}: Status Verified requires LastVerified`);
+  if (!Array.isArray(co.roles)) errors.push(`${label}: roles must be an array`);
+  if (!Array.isArray(co.evidence) || co.evidence.length === 0) {
+    errors.push(`${label}: evidence must be a non-empty array of http URLs`);
+  }
+  if (typeof co.notes !== 'string') errors.push(`${label}: notes must be a string`);
+  if (!co.verifiedAt) errors.push(`${label}: verifiedAt is required`);
+
+  if (co.ownerVerified !== true && co.ownerVerified !== false) {
+    errors.push(`${label}: ownerVerified must be boolean (false until the project owner manually checks the row)`);
   }
 
-  if (co.Status === 'Verified' && (!Array.isArray(co.Evidence) || co.Evidence.length === 0)) {
-    errors.push(`${label}: Status Verified requires non-empty Evidence`);
+  if ('indiaPresence' in co && co.indiaPresence !== true && co.indiaPresence !== false) {
+    errors.push(`${label}: indiaPresence must be boolean when present`);
+  }
+  if ('hiringIndia' in co && co.hiringIndia !== true && co.hiringIndia !== false) {
+    errors.push(`${label}: hiringIndia must be boolean when present`);
+  }
+  if ('hiringActive' in co && co.hiringActive !== true && co.hiringActive !== false) {
+    errors.push(`${label}: hiringActive must be boolean when present`);
+  }
+  if ('ownerPreferred' in co && co.ownerPreferred !== true && co.ownerPreferred !== false) {
+    errors.push(`${label}: ownerPreferred must be boolean when present`);
+  }
+
+  if ('signals' in co) {
+    errors.push(...validateSignals(co.signals, label));
   }
 
   errors.push(...validateHiringGate(co, label));
@@ -141,4 +145,13 @@ function validateCompany(co, index) {
   return errors;
 }
 
-module.exports = { REQUIRED_KEYS, emptyCompany, validateCompany };
+module.exports = {
+  REQUIRED_KEYS,
+  OPTIONAL_KEYS,
+  SIGNAL_SCORE_KEYS,
+  SIGNAL_SOURCES,
+  emptyCompany,
+  validateCompany,
+  validateSignals,
+  PRODUCT_CODES
+};
