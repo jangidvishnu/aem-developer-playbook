@@ -1,7 +1,7 @@
 {
   "id": "site",
   "mode": "product",
-  "documentTitle": "AEM Developer Playbook",
+  "documentTitle": "AEM Developer Playbook — Jobs, Employers & Interview Prep (India)",
   "header": {
     "title": "AEM Developer Playbook",
     "shortTitle": "AEM Playbook",
@@ -54,17 +54,25 @@
     "clearLabel": "Clear search"
   },
   "footer": {
-    "text": "AEM Developer Playbook — hiring intelligence and apply guide for Adobe Experience Manager roles in India."
+    "text": "AEM Developer Playbook — hiring intelligence and apply guide for Adobe Experience Manager roles in India.",
+    "copyright": "© 2026 Vishnu Jangid. Licensed under Apache-2.0 — contributions welcome via pull request."
   },
   "seo": {
     "siteUrl": "https://aemplaybook.pages.dev/",
-    "description": "Stay eligible for AEM developer roles in India — researched employers, apply guide, learning paths, and interview prep for active job search and long-term career readiness.",
+    "description": "Find AEM developer jobs in India — researched employers hiring for Adobe Experience Manager, apply steps, learning paths, AEMaaCS skills, and interview prep.",
     "keywords": [
       "AEM jobs",
+      "AEM jobs India",
       "AEM developer",
+      "AEM developer jobs",
+      "Adobe Experience Manager careers",
       "Adobe Experience Manager hiring",
       "AEM careers India",
-      "AEM jobs India"
+      "AEM interview questions",
+      "AEM Cloud Service jobs",
+      "AEMaaCS developer",
+      "AEM companies India",
+      "AEM apply guide"
     ],
     "ogType": "website",
     "ogLocale": "en_IN",

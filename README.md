@@ -2,13 +2,13 @@
 
 Researched AEM employers, apply guidance, and learning paths for Adobe Experience Manager developers — especially those targeting roles in India.
 
-**Live site:** [https://aemplaybook.pages.dev/](https://aemplaybook.pages.dev/)  
-**Preview (GitHub Pages):** [https://jangidvishnu.github.io/aem-developer-playbook/](https://jangidvishnu.github.io/aem-developer-playbook/)
+**Live site:** [https://aemplaybook.pages.dev/](https://aemplaybook.pages.dev/) (`master` → Cloudflare)  
+**Staging (GitHub Pages):** [https://jangidvishnu.github.io/aem-developer-playbook/](https://jangidvishnu.github.io/aem-developer-playbook/) (`stage`)
 
 No build step at deploy time. Static HTML + vanilla JS + JSON data, served as-is. Content is prerendered into
 `index.html` ahead of time for SEO (`npm run prerender` — see below and `.playbook/12_DECISIONS.md` DR-022).
-**Canonical public host** is Cloudflare Pages (`aemplaybook.pages.dev`, manual deploy after GitHub review).
-GitHub Pages remains an automatic preview from `master`.
+**Default PRs target `stage`.** Promote to `master` (Cloudflare) only when shipping production — see
+`.playbook/21_PUBLISHING.md`.
 
 ## Quick start (local)
 
@@ -34,13 +34,17 @@ npm run ui-smoke   # optional locally; needs: npx playwright install chromium
 
 ## Contributing
 
-`master` is intended to be **protected**. Please open a **pull request** instead of pushing to `master`.
+`master` is intended to be **protected**, as is **`stage`**. Please open a **pull request** into **`stage`**
+(default) instead of pushing to protected branches.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
 ## License
 
-[MIT](LICENSE)
+[Apache License 2.0](LICENSE) — see also [NOTICE](NOTICE) for copyright and project-name guidance.
+
+© 2026 Vishnu Jangid. Contributions via pull request are welcome. “AEM Developer Playbook” is the name of this
+open-source project — please keep the copyright notice when you fork or reuse it.
 
 ## Repository layout
 

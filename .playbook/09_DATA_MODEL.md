@@ -45,13 +45,16 @@ independently loadable and has one clear owner topic.
   "sidebar": { "contentsLabel": "string" },
   "dashboard": { "title": "string", "items": ["string", "..."] },
   "search": { "placeholder": "string", "ariaLabel": "string", "clearLabel": "string" },
-  "footer": { "text": "string" },
+  "footer": { "text": "string", "copyright": "string (optional © / license line)" },
   "seo": {
+    "siteUrl": "string — canonical origin (trailing slash)",
     "description": "string",
     "keywords": ["string", "..."],
     "ogType": "website",
     "ogLocale": "en_US",
-    "twitterCard": "summary"
+    "twitterCard": "summary",
+    "themeColor": "string (optional)",
+    "ogImage": "string (optional absolute URL)"
   },
   "navigation": {
     "productChapterIds": ["chapter id", "..."],

@@ -2,25 +2,28 @@
 
 ## Active objective
 
-**Post-M17 polish** — mobile table/filter tweaks; public host moved to Cloudflare Pages. Milestone 15
-(EDS/Forms chips) is next.
+**Branching / hosting** — `stage` (GitHub Pages) + `master` (Cloudflare); default PRs to `stage`. Apache-2.0 +
+brand notice in progress on `feat/apache-license-brand-notice`. Milestone 15 (EDS/Forms chips) is next after that.
 
 ## Live URLs
 
-- **Canonical site:** https://aemplaybook.pages.dev/ (Cloudflare Pages — **manual** deploy after GitHub check)
-- **Preview:** https://jangidvishnu.github.io/aem-developer-playbook/ (GitHub Pages — auto from `master`)
+- **Production:** https://aemplaybook.pages.dev/ (`master` → Cloudflare)
+- **Staging:** https://jangidvishnu.github.io/aem-developer-playbook/ (`stage` → GitHub Pages)
 - **Repo:** https://github.com/jangidvishnu/aem-developer-playbook
 
 ## Session progress (2026-07-09)
 
-### Hosting
+### Hosting / PRs
 
-Canonical `seo.siteUrl` → `https://aemplaybook.pages.dev/`. Workflow: merge to `master` → verify on GitHub
-Pages → manually deploy the same commit on Cloudflare Pages.
+- Default: feature → PR → **`stage`** → verify on GitHub Pages.
+- Production: only when owner asks → promote **`stage` → `master`** → Cloudflare.
+- Agent rule: `git-push-approval.mdc` (DR-028).
 
 ### Next
 
-Milestone 15 (EDS + Forms chips); optional custom domain later (`aemplaybook.<your-domain>`).
+1. Finish creating protected `stage` + point GitHub Pages at it (if not done yet).
+2. Land Apache-2.0 / NOTICE PR into **`stage`**.
+3. Milestone 15 when ready.
 
 ## Milestones 1–14: accepted
 
