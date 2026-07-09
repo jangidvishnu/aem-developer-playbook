@@ -25,6 +25,8 @@ time (e.g. "every time you open a PR, switch to master").
 | Preference | Rule file |
 |---|---|
 | Commit/PR/merge approval gate; after PR → checkout `master` | `git-push-approval.mdc` |
+| No push/PR until `npm run verify` + `npm run ui-smoke` pass locally | `git-push-approval.mdc` |
+| Changelog only at commit/PR time (not every coding turn) | `git-push-approval.mdc` |
 | PowerShell heredoc / slow git gotchas | `windows-powershell-shell.mdc` |
 | Terminal / dev-server cleanup | `terminal-hygiene.mdc` |
 | Every design/UI change must cover desktop + mobile | `desktop-mobile-design.mdc` |

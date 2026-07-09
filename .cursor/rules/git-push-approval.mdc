@@ -17,26 +17,41 @@ branch), unless the project owner has **explicitly approved that specific merge*
 - Merge approval is always its **own** explicit go-ahead (e.g. "merge it", "approve and merge") — commit approval
   never implies merge approval.
 
-## Once a commit is approved: push + open the PR automatically
+## Once a commit is approved: local CI gate, then push + open the PR
 
 After the owner approves a commit, proceed **without another round of asking** to:
 
 1. `git commit` the approved change.
-2. Push it on a feature branch (never `master`/`main` directly).
-3. Open the pull request (`gh pr create`) targeting `master`, with a clear summary and test plan in the body.
-4. Switch the local repo back to `master` and fast-forward: `git checkout master` then `git pull origin master`.
+2. **Run the same checks CI runs, locally, and wait for both to pass before any push/PR:**
+   - `npm run verify`
+   - `npm run ui-smoke`
+   If either fails, **fix it and re-run until green**. Do **not** push or open a PR with failing
+   local checks. (This is how we avoid shipping a PR that fails required GitHub checks.)
+3. Push it on a feature branch (never `master`/`main` directly).
+4. Open the pull request (`gh pr create`) targeting `master`, with a clear summary and test plan in the body.
+5. Switch the local repo back to `master` and fast-forward: `git checkout master` then `git pull origin master`.
    Leave feature branches on the remote only — do not keep working on the PR branch locally after the PR is open.
 
 Report the PR URL and required-check status, then **stop** — do not merge. The owner reviews/merges the PR
 themselves on GitHub, or tells you to merge once checks are green and they've verified it.
 
+## Changelog timing (owner preference)
+
+Do **not** edit `.playbook/13_CHANGELOG.md` on every implementation turn or mid-feature tweak.
+
+- During normal coding: leave the changelog alone (or keep notes only in the session summary for the owner).
+- Update `13_CHANGELOG.md` **once**, as part of preparing the approved commit / opening the PR — a single
+  Unreleased (or milestone) entry that covers the whole PR, not a drip of micro-entries after each small change.
+
 ## Before asking to commit
 
 1. Summarize what changed (files + why) and that it is uncommitted / staged only.
 2. Tell the owner how to verify locally (HTTP serve + hard refresh; for print CSS use **Print Preview** Ctrl/Cmd+P —
-   print styles do not appear on the normal screen view).
-3. Wait for explicit approval to commit.
-4. Only then run `git commit`, then push + open the PR per the section above.
+   print styles do not appear on the normal screen view). Prefer also noting that after commit approval you will run
+   `npm run verify` and `npm run ui-smoke` before opening the PR.
+3. If the PR-bound changelog entry is not yet written, add it now (one consolidated entry for the PR).
+4. Wait for explicit approval to commit.
+5. Only then run `git commit`, then **local CI gate** + push + open the PR per the section above.
 
 ## Before merging
 

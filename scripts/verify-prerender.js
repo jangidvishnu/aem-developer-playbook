@@ -16,6 +16,11 @@ function readIfExists(filePath) {
   return fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : null;
 }
 
+/** Compare content, not Windows checkout CRLF vs Node LF (checkout can rewrite EOLs). */
+function normalizeEol(text) {
+  return text == null ? text : String(text).replace(/\r\n/g, '\n');
+}
+
 const expected = core.generate();
 const actual = {
   indexHtml: readIfExists(core.INDEX_HTML_PATH),
@@ -30,7 +35,9 @@ const checks = [
 ];
 
 let ok = true;
-checks.forEach(([label, want, got]) => {
+checks.forEach(([label, wantRaw, gotRaw]) => {
+  const want = normalizeEol(wantRaw);
+  const got = normalizeEol(gotRaw);
   if (want === got) {
     console.log(`OK: ${label} matches data/*.json (prerender is up to date).`);
     return;
