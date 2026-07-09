@@ -14,6 +14,29 @@ mark the old one as superseded.
 
 ---
 
+## DR-026 — Milestone 16: fixed table columns + sticky sidebar (layout stability)
+
+**Date:** 2026-07-09
+**Context:** Filtering/sorting the company explorer (and paging learning tables) caused visible column-edge
+flicker because auto table layout remeasured each row set. Separately, at the bottom of long pages the left
+sidebar appeared to “go up” because `.site-shell` was a stretch-aligned flex row and sticky positioning lost its
+intended viewport pin once the shell’s bottom entered view.
+**Decision:**
+1. Use `table-layout: fixed` with explicit widths for company explorer columns and learning `data-table`s.
+2. Keep stable min-heights on the company results head / table body.
+3. Set `.site-shell { align-items: flex-start }` and keep desktop `.site-sidebar` sticky with a viewport
+   `max-height`, so the nav stays under the header while main content scrolls.
+4. Prerender header GitHub link + theme toggle icon (`header-github` / `header-theme` markers) so the tools row
+   does not gain a control after `site.json` loads (header CLS / search reflow).
+5. Show slim-schema depth (products, roles, hq, notes, evidence, hiringEvidence, verifiedAt) via **row expand /
+   card Details**, not extra table columns.
+6. Insert **Milestone 16** ahead of Milestone 15 (EDS/Forms chips) so layout stability lands before more filter UI.
+**Trade-off accepted:** Fixed widths may ellipsize very long company names; badges wrap under the name. Filter
+toolbar height can still change when the mobile Filters panel opens — that is intentional expand/collapse, not
+column flicker. Only one company detail panel open at a time (accordion). Print hides expand controls and closed
+detail rows.
+**Follow-up:** None outstanding for this decision; M15 remains queued.
+
 ## DR-025 — Owner verification + active-hiring flags; complete field-pass research
 
 **Date:** 2026-07-09

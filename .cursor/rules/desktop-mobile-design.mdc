@@ -1,0 +1,30 @@
+---
+description: Every UI/design change must be verified on both desktop and mobile
+alwaysApply: true
+---
+
+# Desktop + mobile design coverage
+
+Every visual or layout change must be designed and checked for **both desktop and mobile**. Do not ship a
+desktop-only fix that crushes, clips, or overflows on a phone viewport.
+
+## Required before considering UI work done
+
+1. **Desktop** (≥1024px): layout, sticky sidebar/header, table columns, filters, search.
+2. **Mobile** (≤767px): no crushed fixed-width tables, no horizontal page scroll from chrome, touch targets usable,
+   company explorer uses cards (not a squeezed table), learning `data-table`s may scroll horizontally inside their
+   wrap without mid-word letter soup.
+3. **Tablet** (~768–1023px): spot-check when the change touches breakpoints or sticky/nav behavior.
+
+## Common failure modes to avoid
+
+- `table-layout: fixed` + `%` column widths with `width: 100%` on narrow screens (columns crush; use min-width +
+  `overflow-x: auto` on a wrap, or a card/stack layout).
+- Desktop-only sticky / absolute positioning that overlaps content on small screens.
+- Filter toolbars that require horizontal page scroll on mobile (stack or panel instead).
+- Assuming “it looks fine in the default IDE preview width” equals mobile.
+
+## Where this is also documented
+
+- `.playbook/08_UI_GUIDELINES.md` (responsive conventions)
+- Owner preference list in `owner-workflow-preferences.mdc`

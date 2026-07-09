@@ -142,6 +142,7 @@ const App = {
       });
       UI.wireSelects(container);
       UI.wireTableTips(container);
+      UI.wireCompanyExpand(container);
       wirePagination();
       wireSortHeaders();
       App.wireCopyDiscoveryLink(container);
@@ -181,6 +182,7 @@ const App = {
       App.syncFiltersPanel(bar, filterState, filtersPanelOpen);
       UI.wireSelects(container);
       UI.wireTableTips(container);
+      UI.wireCompanyExpand(container);
       wirePagination();
       wireSortHeaders();
       App.wireCopyDiscoveryLink(container);
@@ -291,6 +293,9 @@ const App = {
 
     document.getElementById('navToggle').innerHTML = Icons.svg('menu');
     document.getElementById('command-trigger').insertAdjacentHTML('afterbegin', Icons.svg('search'));
+    // Platform class so the header search shortcut shows ⌘K vs Ctrl K without layout shift.
+    const isMac = /Mac|iPhone|iPad|iPod/i.test(navigator.platform || '') || /Mac OS X/.test(navigator.userAgent || '');
+    document.body.classList.add(isMac ? 'search-platform-mac' : 'search-platform-nonmac');
 
     Promise.all([
       fetch('data/chapters.json').then(r => r.json()),
@@ -332,16 +337,14 @@ const App = {
           if (disclaimerEl) disclaimerEl.innerHTML = Render.disclaimer(site.disclaimer, site.header);
 
           if (site.header.githubUrl) {
-            const actions = document.querySelector('.doc-header__actions');
-            const gh = document.createElement('a');
-            gh.id = 'github-link';
-            gh.className = 'icon-btn icon-btn--header';
-            gh.href = site.header.githubUrl;
-            gh.setAttribute('aria-label', 'GitHub repository');
-            gh.target = '_blank';
-            gh.rel = 'noopener noreferrer';
-            gh.innerHTML = Icons.svg('github');
-            actions.appendChild(gh);
+            const tools = document.querySelector('.doc-header__tools');
+            let gh = document.getElementById('github-link');
+            if (!gh && tools) {
+              tools.insertAdjacentHTML('beforeend', Render.headerGithubLink(site.header));
+              gh = document.getElementById('github-link');
+            } else if (gh) {
+              gh.href = site.header.githubUrl;
+            }
           }
 
           document.getElementById('search-wrap--header').innerHTML = Render.search(site.search, 'search-wrap-header-inner', '-mobile');

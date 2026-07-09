@@ -58,6 +58,52 @@ const UI = {
     sections.forEach(s => obs.observe(s));
   },
 
+  wireCompanyExpand(root) {
+    const scope = root || document;
+
+    function setExpanded(btn, panel, next) {
+      btn.setAttribute('aria-expanded', next ? 'true' : 'false');
+      if (next) panel.removeAttribute('hidden');
+      else panel.setAttribute('hidden', '');
+      const row = btn.closest('.company-table__row');
+      if (row) row.classList.toggle('is-expanded', next);
+      const card = btn.closest('.company-card');
+      if (card) card.classList.toggle('is-expanded', next);
+      if (btn.classList.contains('company-card__btn')) {
+        btn.textContent = next ? 'Hide' : 'Details';
+      }
+      const label = btn.getAttribute('aria-label') || '';
+      if (label.startsWith('Show details') || label.startsWith('Hide details')) {
+        btn.setAttribute('aria-label', label.replace(/^(Show|Hide) details/, next ? 'Hide details' : 'Show details'));
+      }
+    }
+
+    function closeOthers(exceptBtn) {
+      scope.querySelectorAll('[data-company-expand][aria-expanded="true"]').forEach(btn => {
+        if (btn === exceptBtn) return;
+        const controls = btn.getAttribute('aria-controls');
+        const panel = controls ? document.getElementById(controls) : null;
+        if (panel) setExpanded(btn, panel, false);
+      });
+    }
+
+    scope.querySelectorAll('[data-company-expand]').forEach(btn => {
+      if (btn.dataset.expandWired) return;
+      btn.dataset.expandWired = '1';
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const controls = btn.getAttribute('aria-controls');
+        const panel = controls ? document.getElementById(controls) : null;
+        if (!panel) return;
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        const next = !open;
+        if (next) closeOthers(btn);
+        setExpanded(btn, panel, next);
+      });
+    });
+  },
+
   wireTableTips(root) {
     function closeAll(except) {
       (root || document).querySelectorAll('[data-table-tip]').forEach(btn => {

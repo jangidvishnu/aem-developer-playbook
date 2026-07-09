@@ -45,7 +45,11 @@ store redundant `usesAEM` / `HiringAEM` flags on every row.
 
 `hiringActive` ≠ `ownerPreferred`. Frequent hiring does not imply a recommendation (and the reverse).
 
-Site disclaimer (`data/site.json`) must keep stating that frequent-hiring markers are pattern signals, not live vacancy guarantees, and that preferred markers are owner opinion.
+Site disclaimer (`data/site.json` `disclaimer.lines`) must keep stating that this is personal research (not a
+guaranteed guide / not a company ranking), not affiliated with Adobe or listed employers, that data may be
+incomplete, that frequent-hiring markers are pattern signals (not open-job guarantees), that preferred markers
+are owner opinion, that careers/evidence links are snapshots, and that readers should follow methods that work
+for them.
 
 ### Product codes (`products`)
 

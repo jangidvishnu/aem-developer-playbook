@@ -4,6 +4,32 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — Milestone 16 table layout + sticky sidebar (DR-026)
+
+### Fixed
+
+- Company explorer and learning tables use `table-layout: fixed` with stable column widths so filter/sort/page
+  changes no longer shift Priority/Company/Type (and glossary/interview) column edges. Level column wide enough
+  for “Intermediate” without breaking. Careers tip no longer clipped; removed needless horizontal scrollbar on the
+  company table wrap. Sortable headers always show a sort affordance (idle dual-chevron). Header search uses a fixed
+  width (no load-time expand) and shows **Ctrl K** / **⌘K** (opens the centered command palette). GitHub + theme
+  icons are prerendered in the header tools row so they do not appear after boot and reflow the search field.
+- Desktop left sidebar: `.site-shell` uses `align-items: flex-start` so sticky nav stays under the header at the
+  bottom of long pages instead of riding upward.
+- Learning data tables on mobile: min-width + horizontal scroll inside the wrap so fixed column widths no longer
+  crush Technology/Category/Level into letter-by-letter wrapping.
+
+### Added
+
+- Company row / card **Details** expand: products (chips), roles, HQ, notes, evidence / hiring evidence links, and
+  verified date (owner-checked when applicable).
+- Company search results show human product labels as a comma-separated line (not raw codes). Expanded company
+  detail includes a calm tip that careers/evidence links are snapshots from the verified date.
+- Site disclaimer rewritten as two short lines: personal research (not a guaranteed guide / not a company
+  ranking), not affiliated, Frequent & Preferred meanings, snapshot links, and “upgrade yourself / your own
+  methods.” Hero/SEO softens “hire-verified” to “researched.” Filter **Clear filters** is a bordered pill
+  aligned to the right of the chip row.
+
 ## Unreleased — slim company schema (DR-024)
 
 ### Changed

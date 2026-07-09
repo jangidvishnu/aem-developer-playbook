@@ -285,7 +285,7 @@ CI runs the same checks on push/PR via `.github/workflows/ci.yml` (`verify` + `u
 11. **Data disclaimer** — slim banner below header states research-based data is not guaranteed; mentions pull requests.
 12. **How I Apply** — sticky section nav; numbered steps without “Method 1/3/5” prefixes; no Owner badges.
 13. **Ctrl+K** (Cmd+K on Mac) — command palette opens; search **`outreach`** scrolls to How I Apply.
-14. Search **`hire-verified`** — scrolls to hero; **`Adobe`** with **All** selected shows company results (not **Apply** alone for short queries like `ad`).
+14. Search **`researched AEM employers`** — scrolls to hero; **`Adobe`** with **All** selected shows company results (not **Apply** alone for short queries like `ad`).
 
 **Browser — dev mode:**
 

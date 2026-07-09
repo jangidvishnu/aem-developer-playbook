@@ -18,6 +18,37 @@ const Search = {
     return company.name || company.company || '';
   },
 
+  _companyFilters() {
+    if (typeof CompanyFilters !== 'undefined') return CompanyFilters;
+    try {
+      return require('./filters.js').CompanyFilters;
+    } catch (_) {
+      return null;
+    }
+  },
+
+  productLabels(codes) {
+    const list = Array.isArray(codes) ? codes : [];
+    const filters = Search._companyFilters();
+    return list.map(code => (filters && filters.productLabel ? filters.productLabel(code) : code)).filter(Boolean);
+  },
+
+  companySnippet(co) {
+    const meta = [
+      co.companyType || co.type,
+      co.hiringIndia === true ? 'India hiring' : '',
+      co.hiringActive === true ? 'Frequent hiring' : '',
+      co.ownerPreferred === true ? 'Preferred' : '',
+      co.industry
+    ].filter(Boolean);
+    const products = Search.productLabels(co.products).join(', ');
+    return {
+      meta: meta.join(' · '),
+      products,
+      snippet: [meta.join(' · '), products].filter(Boolean).join(' · ')
+    };
+  },
+
   companyFacets(co) {
     const products = Array.isArray(co.products) ? co.products : [];
     return {
@@ -82,20 +113,14 @@ const Search = {
 
     companies.forEach((co, i) => {
       const name = Search.companyName(co);
+      const snip = Search.companySnippet(co);
       entries.push({
         source: 'company',
         id: co.id,
         title: name,
-        snippet: [
-          co.companyType || co.type,
-          co.hiringIndia === true ? 'India hiring' : '',
-          co.hiringActive === true ? 'Frequent hiring' : '',
-          co.ownerPreferred === true ? 'Preferred' : '',
-          co.industry,
-          (co.products || []).join(' ')
-        ]
-          .filter(Boolean)
-          .join(' · '),
+        snippet: snip.snippet,
+        snippetMeta: snip.meta,
+        snippetProducts: snip.products,
         anchor: companyAnchor,
         pageOrder: 1000 + companyChapterIndex + (i + 1) * 0.01,
         facets: Search.companyFacets(co),
