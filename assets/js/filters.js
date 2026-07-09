@@ -48,11 +48,17 @@ const CompanyFilters = {
   SOURCE_FILTERS: [
     { id: '', label: 'All' },
     { id: 'company', label: 'Companies' },
-    { id: 'owner', label: 'Apply' },
-    { id: 'chapter', label: 'Chapters' },
-    { id: 'learning', label: 'Learning' }
+    { id: 'career', label: 'Career' },
+    { id: 'learning', label: 'Learning' },
+    { id: 'interview', label: 'Interview' }
   ],
-  LEARNING_SOURCES: ['glossary', 'technology', 'career', 'interview', 'template', 'resource'],
+  /** Match Browse playbook sidebar groups (data/site.json navigation.groups). */
+  CAREER_CHAPTER_IDS: ['how-to-apply', 'career-strategy', 'professional-branding'],
+  LEARNING_CHAPTER_IDS: ['learning-roadmap', 'core-skills', 'glossary'],
+  INTERVIEW_CHAPTER_IDS: ['interview-prep'],
+  CAREER_SOURCES: ['owner', 'career', 'template'],
+  LEARNING_SOURCES: ['glossary', 'technology', 'resource', 'roadmap', 'roadmap-step'],
+  INTERVIEW_SOURCES: ['interview'],
   CHAPTER_SOURCES: ['chapter', 'site', 'roadmap', 'roadmap-step'],
   SORT_OPTIONS: [
     { id: 'priority-desc', label: 'Priority (high first)' },
@@ -200,9 +206,28 @@ const CompanyFilters = {
     if (!sourceFilter) return true;
     const src = entry.source;
     if (sourceFilter === 'company') return src === 'company';
-    if (sourceFilter === 'owner') return src === 'owner';
-    if (sourceFilter === 'chapter') return CompanyFilters.CHAPTER_SOURCES.includes(src);
-    if (sourceFilter === 'learning') return CompanyFilters.LEARNING_SOURCES.includes(src);
+    if (sourceFilter === 'career') {
+      if (CompanyFilters.CAREER_SOURCES.includes(src)) return true;
+      return src === 'chapter' && CompanyFilters.CAREER_CHAPTER_IDS.includes(entry.id);
+    }
+    if (sourceFilter === 'learning') {
+      if (CompanyFilters.LEARNING_SOURCES.includes(src)) return true;
+      return src === 'chapter' && CompanyFilters.LEARNING_CHAPTER_IDS.includes(entry.id);
+    }
+    if (sourceFilter === 'interview') {
+      if (CompanyFilters.INTERVIEW_SOURCES.includes(src)) return true;
+      return src === 'chapter' && CompanyFilters.INTERVIEW_CHAPTER_IDS.includes(entry.id);
+    }
+    // Legacy facet ids (older shared links / tests) — map to sidebar names.
+    if (sourceFilter === 'owner') return CompanyFilters.matchesSource(entry, 'career');
+    if (sourceFilter === 'chapter') {
+      return (
+        CompanyFilters.matchesSource(entry, 'career') ||
+        CompanyFilters.matchesSource(entry, 'learning') ||
+        CompanyFilters.matchesSource(entry, 'interview') ||
+        CompanyFilters.CHAPTER_SOURCES.includes(src)
+      );
+    }
     return true;
   },
 

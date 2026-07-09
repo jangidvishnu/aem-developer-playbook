@@ -21,7 +21,7 @@
       "aem-sites"
     ],
     "resourceIds": [
-      "adobe-aem-docs"
+      "adobe-assets-learn"
     ]
   },
   {
@@ -34,7 +34,7 @@
       "aem-sites"
     ],
     "resourceIds": [
-      "adobe-aem-docs"
+      "adobe-forms-intro"
     ]
   },
   {
@@ -71,7 +71,7 @@
       "sling"
     ],
     "resourceIds": [
-      "adobe-aem-docs"
+      "adobe-osgi-intro"
     ]
   },
   {
@@ -137,7 +137,7 @@
       "aem-cloud"
     ],
     "resourceIds": [
-      "adobe-aem-cloud"
+      "adobe-universal-editor"
     ]
   },
   {
@@ -164,7 +164,8 @@
       "aem-sites"
     ],
     "resourceIds": [
-      "adobe-aem-docs"
+      "adobe-cf-overview",
+      "adobe-graphql"
     ]
   },
   {

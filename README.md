@@ -1,6 +1,6 @@
 # AEM Developer Playbook
 
-Hire-verified AEM employers, apply guidance, and learning paths for Adobe Experience Manager developers — especially those targeting roles in India.
+Researched AEM employers, apply guidance, and learning paths for Adobe Experience Manager developers — especially those targeting roles in India.
 
 **Live site:** [https://jangidvishnu.github.io/aem-developer-playbook/](https://jangidvishnu.github.io/aem-developer-playbook/)
 

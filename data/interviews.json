@@ -194,5 +194,53 @@
     "difficulty": "Beginner",
     "technologies": [],
     "guidance": "Tie to depth in AEM and CMS platforms, business impact of faster content delivery, and steady demand for AEM developers in India and globally."
+  },
+  {
+    "id": "int-jcr-oak",
+    "question": "What is the JCR in AEM, and how does Oak relate to it?",
+    "category": "technical",
+    "difficulty": "Beginner",
+    "technologies": ["aem-sites"],
+    "guidance": "JCR is the hierarchical content API; Oak is the Jackrabbit Oak implementation AEM uses. Talk nodes/properties, workspaces at a high level, and that queries need appropriate indexes — avoid inventing storage internals you have not used."
+  },
+  {
+    "id": "int-resource-resolver",
+    "question": "What is a ResourceResolver, and how do you use it safely?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": ["sling", "java-aem"],
+    "guidance": "ResourceResolver maps paths to Sling resources and sessions. Prefer request-bound resolvers in request scope; for services use service-user mapping, close/adapt carefully, and never leave sessions open. Mention adaptTo(Session/PageManager) only if you have used them."
+  },
+  {
+    "id": "int-replication",
+    "question": "How does content get from author to publish in AEM?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": ["aem-sites", "dispatcher"],
+    "guidance": "Activation/replication (or Cloud distribution) moves content to publish. Cover agents, tree activation, and that Dispatcher cache must be invalidated after publish. Distinguish classic replication vs Cloud Service distribution if you know both."
+  },
+  {
+    "id": "int-acl-permissions",
+    "question": "How do ACLs and permissions work for authors vs service users?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": ["aem-sites", "osgi"],
+    "guidance": "Users/groups get privileges on paths; least privilege for service users via user-mapper. Avoid admin session in production code. Mention closed user groups only if relevant to your project."
+  },
+  {
+    "id": "int-workflow",
+    "question": "When would you use an AEM workflow vs a Sling Job or Scheduler?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": ["aem-sites", "java-aem"],
+    "guidance": "Workflows for human/approval steps and content processes; Jobs/Scheduler for background automation. Cover payload, steps, and failure handling at a high level — stick to patterns you have shipped."
+  },
+  {
+    "id": "int-resume-projects",
+    "question": "Walk me through an AEM project on your resume end to end.",
+    "category": "behavioral",
+    "difficulty": "Intermediate",
+    "technologies": [],
+    "guidance": "Own the story: problem, your role, stack (Sites/Cloud/Dispatcher/etc.), hard trade-offs, and measurable outcome. Interviewers often dig into whatever you claim — do not list work you cannot explain."
   }
 ]

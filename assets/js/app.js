@@ -84,7 +84,7 @@ const App = {
 
   wireCompanyPagination(allCompanies, industries, products, filterState, onStateChange, productMode) {
     const container = document.getElementById('company-table-container');
-    if (!container) return;
+    if (!container) return null;
     let page = 1;
     let filtersPanelOpen = !!(filterState.companyType || filterState.industry || filterState.product);
     const defaultSort = 'priority-desc';
@@ -234,14 +234,26 @@ const App = {
     page = 1;
     if (!filterState.sort) filterState.sort = defaultSort;
     renderCompanySection();
+
+    function setQuery(query) {
+      filterState.query = String(query || '').trim();
+      page = 1;
+      renderCompanySection();
+      return true;
+    }
+
+    App.companyExplorer = { setQuery };
+    return { setQuery };
   },
 
-  wirePaginatedContainer(containerId, renderFn, data, pageAttr) {
+  wirePaginatedContainer(containerId, renderFn, data, pageAttr, options) {
     const container = document.getElementById(containerId);
-    if (!container) return;
+    if (!container) return null;
     let page = 1;
+    let lockedWrapH = 0;
     const pageSize = UI.LEARNING_PAGE_SIZE;
     const attr = pageAttr || containerId.replace('-table-container', '');
+    const getOrderedItems = (options && options.getOrderedItems) || (() => data);
     function wirePages() {
       container.querySelectorAll(`[data-${attr}-prev]`).forEach(btn => {
         btn.onclick = () => {
@@ -251,22 +263,44 @@ const App = {
       });
       container.querySelectorAll(`[data-${attr}-next]`).forEach(btn => {
         btn.onclick = () => {
-          page = Math.min(Math.max(1, Math.ceil(data.length / pageSize)), page + 1);
+          const items = getOrderedItems();
+          page = Math.min(Math.max(1, Math.ceil(items.length / pageSize)), page + 1);
           render();
         };
       });
-      container.querySelectorAll(`[data-${attr}-page]`).forEach(btn => {
-        btn.onclick = () => {
-          page = parseInt(btn.getAttribute(`data-${attr}-page`), 10);
-          render();
-        };
-      });
+    }
+    function lockTableHeight() {
+      const wrap = container.querySelector('.data-table-wrap');
+      if (!wrap) return;
+      wrap.style.minHeight = '';
+      const h = wrap.offsetHeight;
+      if (h > lockedWrapH) lockedWrapH = h;
+      if (lockedWrapH) wrap.style.minHeight = `${lockedWrapH}px`;
+    }
+    function flashRow(id) {
+      const row = container.querySelector(`[data-item-id="${CSS.escape(String(id))}"]`);
+      if (!row) return;
+      row.classList.add('data-table__row--flash');
+      setTimeout(() => row.classList.remove('data-table__row--flash'), 2000);
+    }
+    function goToItem(id) {
+      const items = getOrderedItems();
+      const idx = items.findIndex(x => x && x.id === id);
+      if (idx < 0) return false;
+      page = Math.floor(idx / pageSize) + 1;
+      render();
+      requestAnimationFrame(() => flashRow(id));
+      return true;
     }
     function render() {
       container.innerHTML = renderFn(data, { page, pageSize });
+      lockTableHeight();
       wirePages();
     }
+    if (!App.learningTables) App.learningTables = Object.create(null);
+    App.learningTables[attr] = { goToItem };
     render();
+    return { goToItem };
   },
 
   /** Boot sequence: fetch data/*.json in parallel, render the shell, wire up interactivity. */
@@ -409,8 +443,16 @@ const App = {
           );
 
           App.wirePaginatedContainer('glossary-table-container', Render.glossaryTable, glossary, 'glossary');
-          App.wirePaginatedContainer('technology-table-container', Render.technologyTable, technologies, 'technology');
-          App.wirePaginatedContainer('interview-table-container', Render.interviewList, interviews, 'interview');
+          App.wirePaginatedContainer(
+            'technology-table-container',
+            (data, opts) => Render.technologyTable(data, { ...opts, resources }),
+            technologies,
+            'technology',
+            { getOrderedItems: () => Render.sortByDifficulty(technologies, 'name') }
+          );
+          App.wirePaginatedContainer('interview-table-container', Render.interviewList, interviews, 'interview', {
+            getOrderedItems: () => Render.sortByDifficulty(interviews, 'question')
+          });
 
           UI.initTheme('themeToggle');
           UI.wireNavDrawer();

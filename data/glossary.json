@@ -62,9 +62,51 @@
     "term": "JCR (Java Content Repository)",
     "definition": "Hierarchical content store (Apache Jackrabbit Oak in AEM) holding pages, assets, and configurations.",
     "relatedTerms": [
-      "sling"
+      "sling",
+      "resource-resolver"
     ],
     "chapterId": null
+  },
+  {
+    "id": "resource-resolver",
+    "term": "ResourceResolver",
+    "definition": "Sling API that resolves paths to resources and provides access to the underlying JCR session. Must be obtained and closed correctly (request scope or service-user mapping).",
+    "relatedTerms": [
+      "sling",
+      "jcr",
+      "osgi"
+    ],
+    "chapterId": "interview-prep"
+  },
+  {
+    "id": "replication",
+    "term": "Replication / activation",
+    "definition": "Moving content from author to publish (classic replication agents or Cloud Service content distribution). Usually followed by Dispatcher cache invalidation on publish.",
+    "relatedTerms": [
+      "dispatcher",
+      "aem-cloud"
+    ],
+    "chapterId": "interview-prep"
+  },
+  {
+    "id": "run-modes",
+    "term": "Run modes",
+    "definition": "Environment labels (for example author, publish, and custom modes) that select OSGi configurations and content packages. Cloud Service limits custom run-mode patterns compared with on-prem.",
+    "relatedTerms": [
+      "osgi",
+      "aem-cloud"
+    ],
+    "chapterId": "core-skills"
+  },
+  {
+    "id": "workflow",
+    "term": "AEM Workflow",
+    "definition": "Configurable process engine for multi-step content operations (reviews, activations, DAM processes). Distinct from Sling Jobs used for background automation.",
+    "relatedTerms": [
+      "aem",
+      "replication"
+    ],
+    "chapterId": "interview-prep"
   },
   {
     "id": "htl",

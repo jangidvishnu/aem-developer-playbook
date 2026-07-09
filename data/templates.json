@@ -28,5 +28,17 @@
     "title": "Recruiter outreach — AEM roles",
     "category": "networking",
     "body": "Hi [Name], this is [Your name]. I am an AEM [level] developer with experience in [Cloud Service / Dispatcher / headless]. I am exploring [company/sector] roles where Adobe Experience Manager is central to the stack. Happy to connect for a brief call if you are hiring for [team/location]."
+  },
+  {
+    "id": "naukri-profile",
+    "title": "Naukri profile headline & summary — AEM",
+    "category": "branding",
+    "body": "Headline: AEM Developer | [Sites / AEMaaCS / Dispatcher] | [City / Remote]\n\nSummary: AEM developer with [N] years on Adobe Experience Manager ([Sites/Assets/Cloud Service]). Delivered [1–2 concrete outcomes with placeholders]. Comfortable with Java, Sling/HTL, and [Dispatcher / headless / integrations]. Open to AEM roles in [locations]. Prefer roles where AEM is core to the product, not a side CMS."
+  },
+  {
+    "id": "resume-bullet-dispatcher",
+    "title": "Resume bullet — Dispatcher / caching",
+    "category": "resume",
+    "body": "Improved publish-side performance for [site/program] by tuning Dispatcher [filter/cache/invalidation] rules and measuring [cache hit ratio / TTFB / error rate], reducing [symptom] without changing authoring workflows."
   }
 ]

@@ -31,6 +31,7 @@ const browserGlobals = {
   IntersectionObserver: 'readonly',
   URLSearchParams: 'readonly',
   Event: 'readonly',
+  CSS: 'readonly',
   globalThis: 'readonly',
   // Node-compatible export/import guards used at the bottom of each assets/js/*.js file
   // (`if (typeof module !== 'undefined' && module.exports) {...}`) so scripts/verify-*.js can

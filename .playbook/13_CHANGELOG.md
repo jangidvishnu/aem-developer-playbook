@@ -4,6 +4,38 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — Milestone 17 learning & career content
+
+### Added
+
+- Interview Prep framing (interviewer style, resume/projects, fundamentals; real project experience over AI-only
+  answers) plus coach questions for JCR/Oak, ResourceResolver, replication, ACLs, workflow, and resume walkthrough.
+- Glossary terms: ResourceResolver, replication, run modes, workflow.
+- Naukri profile + Dispatcher resume templates; India-aware Career Strategy prose.
+- Learning Roadmap / Core Skills now render official `resourceIds` links (Experience League, Sling, aem.live, WKND).
+- Learning Roadmap: fixed GraphQL / EDS / Target / Analytics URLs; added Sling HTL docs; removed step hour
+  estimates from the UI and data. Resource links stay on Experience League / Apache Sling / WKND only (no
+  third-party Medium/YouTube links in product `resourceIds`).
+- Core Skills Assets link → Experience League Assets overview; Experience League resource URLs drop trailing `.html`.
+
+### Changed
+
+- Chapter intros for Career Strategy, Professional Branding, Learning Roadmap, Core Skills, Glossary, Interview Prep,
+  and Living Roadmap (removed stale M12 publishing note).
+- Search facets renamed to match the sidebar: **All / Companies / Career / Learning / Interview** (legacy facet ids
+  still accepted for old shared links).
+- Learning tables: 5 rows per page; Prev/Next pagination shared with companies; empty-row pad so page changes do not
+  jump the layout.
+- Header/command-palette search: glossary/tech/interview hits open the right table page and flash the row; company
+  hits fill Target Companies search; roadmap hits open the matching accordion then scroll; Docs/resources avoid
+  flooding Adobe company results.
+- Prerender now bakes SEO `<meta>` tags from `data/site.json` (description / Open Graph / Twitter) so crawlers see
+  “researched” copy, not a stale “hire-verified” shell that JS would only rewrite after load.
+
+### Fixed
+
+- Core Skills resource links meet 44px mobile touch targets; Google Fonts load asynchronously (Lighthouse follow-up).
+
 ## Unreleased — Milestone 16 table layout + sticky sidebar (DR-026)
 
 ### Fixed

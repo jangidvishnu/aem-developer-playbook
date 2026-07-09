@@ -2,25 +2,25 @@
   {
     "id": "adobe-aem-docs",
     "title": "Adobe Experience Manager product documentation",
-    "url": "https://experienceleague.adobe.com/docs/experience-manager.html",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager",
     "type": "official-docs"
   },
   {
     "id": "adobe-aem-cloud",
     "title": "AEM as a Cloud Service overview",
-    "url": "https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/overview/introduction.html",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/overview/introduction",
     "type": "official-docs"
   },
   {
     "id": "adobe-eds",
-    "title": "Edge Delivery Services documentation",
-    "url": "https://www.aem.live/docs/",
+    "title": "Edge Delivery Services overview",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/overview",
     "type": "official-docs"
   },
   {
     "id": "adobe-htl-spec",
-    "title": "HTL specification",
-    "url": "https://experienceleague.adobe.com/docs/experience-manager-htl/using/overview.html",
+    "title": "HTL (Sightly) scripting — Apache Sling",
+    "url": "https://sling.apache.org/documentation/bundles/scripting/scripting-htl.html",
     "type": "official-docs"
   },
   {
@@ -32,43 +32,79 @@
   {
     "id": "adobe-dispatcher",
     "title": "Dispatcher configuration reference",
-    "url": "https://experienceleague.adobe.com/docs/experience-manager-dispatcher/using/dispatcher.html",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/dispatcher",
     "type": "official-docs"
   },
   {
     "id": "adobe-core-components",
     "title": "AEM Core Components",
-    "url": "https://experienceleague.adobe.com/docs/experience-manager-core-components/using/introduction.html",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-core-components/using/introduction",
     "type": "official-docs"
   },
   {
     "id": "adobe-aep",
     "title": "Adobe Experience Platform overview",
-    "url": "https://experienceleague.adobe.com/docs/experience-platform.html",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-platform",
     "type": "official-docs"
   },
   {
     "id": "adobe-graphql",
-    "title": "AEM GraphQL persisted queries",
-    "url": "https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/headless/setup-graphql.html",
+    "title": "Content Fragments with GraphQL (headless)",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-65/content/assets/content-fragments/content-fragments-graphql",
     "type": "official-docs"
   },
   {
     "id": "adobe-dev-tools",
     "title": "AEM Developer Tools & local SDK",
-    "url": "https://experienceleague.adobe.com/docs/experience-manager-65/content/implementing/developing/introduction/the-basics.html",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/developing/introduction/the-basics",
     "type": "official-docs"
   },
   {
     "id": "wknd-tutorial",
     "title": "WKND Developer Tutorial",
-    "url": "https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/overview",
     "type": "course"
   },
   {
+    "id": "adobe-assets-learn",
+    "title": "AEM Assets videos and tutorials",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-learn/assets/overview",
+    "type": "official-docs"
+  },
+  {
     "id": "adobe-target-docs",
-    "title": "Adobe Target documentation",
-    "url": "https://experienceleague.adobe.com/docs/target/using/target.html",
+    "title": "Integrating AEM with Adobe Target",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-65/content/sites/administering/integration/target",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-analytics-aem",
+    "title": "Collect data with Adobe Analytics on AEM Sites",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-learn/sites/integrations/analytics/collect-data-analytics",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-osgi-intro",
+    "title": "Introduction to OSGi (AEM as a Cloud Service)",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-learn/cloud-service/underlying-technology/introduction-osgi",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-cf-overview",
+    "title": "Content Fragments — concepts and best practices",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/sites/administering/content-fragments/overview",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-forms-intro",
+    "title": "Introduction to AEM Forms",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-65/content/forms/getting-started/introduction-aem-forms",
+    "type": "official-docs"
+  },
+  {
+    "id": "adobe-universal-editor",
+    "title": "Universal Editor introduction",
+    "url": "https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/introduction",
     "type": "official-docs"
   }
 ]

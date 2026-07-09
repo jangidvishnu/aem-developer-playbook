@@ -90,8 +90,23 @@ const Search = {
     const careerAnchor = Search.anchorForChapterFlag(chapters, 'careerPathEmbed');
     const interviewAnchor = Search.anchorForChapterFlag(chapters, 'interviewEmbed');
     const templateAnchor = Search.anchorForChapterFlag(chapters, 'templateEmbed');
-    const resourceAnchor = Search.anchorForChapterFlag(chapters, 'resourceEmbed');
     const ownerAnchor = Search.anchorForChapterFlag(chapters, 'ownerPlaybookEmbed');
+    const techByResourceId = Object.create(null);
+    (learning.technologies || []).forEach(t => {
+      (t.resourceIds || []).forEach(rid => {
+        if (!techByResourceId[rid]) techByResourceId[rid] = t;
+      });
+    });
+    (roadmaps || []).forEach(rm => {
+      (rm.steps || []).forEach(step => {
+        (step.resourceIds || []).forEach(rid => {
+          if (!techByResourceId[rid] && step.technologyIds && step.technologyIds[0]) {
+            const tech = (learning.technologies || []).find(t => t.id === step.technologyIds[0]);
+            if (tech) techByResourceId[rid] = tech;
+          }
+        });
+      });
+    });
 
     chapters.forEach((ch, i) => {
       entries.push({
@@ -155,7 +170,8 @@ const Search = {
           id: step.id,
           title: step.title,
           snippet: rm.title + ' — ' + step.status,
-          anchor,
+          anchor: '#roadmap-step-' + step.id,
+          roadmapId: rm.id,
           pageOrder: 50 + ri * 10 + si + 1,
           fields: {
             title: step.title.toLowerCase(),
@@ -213,6 +229,11 @@ const Search = {
     });
 
     (learning.technologies || []).forEach((t, i) => {
+      const resourceText = (t.resourceIds || [])
+        .map(rid => (learning.resources || []).find(r => r.id === rid))
+        .filter(Boolean)
+        .map(r => `${r.title} ${r.type || ''} ${r.url || ''}`)
+        .join(' ');
       entries.push({
         source: 'technology',
         id: t.id,
@@ -224,7 +245,7 @@ const Search = {
           title: t.name.toLowerCase(),
           summary: (t.summary || '').toLowerCase(),
           tags: (t.category + ' ' + t.difficulty).toLowerCase(),
-          body: (t.prerequisites || []).join(' ').toLowerCase()
+          body: [(t.prerequisites || []).join(' '), resourceText].filter(Boolean).join(' ').toLowerCase()
         }
       });
     });
@@ -284,18 +305,41 @@ const Search = {
     });
 
     (learning.resources || []).forEach((r, i) => {
+      // Docs already linked from Core Skills are searchable via that technology row.
+      if (techByResourceId[r.id]) return;
+      const roadmapHit = (roadmaps || []).find(rm => (rm.steps || []).some(step => (step.resourceIds || []).includes(r.id)));
+      if (roadmapHit) {
+        entries.push({
+          source: 'resource',
+          id: r.id,
+          title: r.title,
+          snippet: `${r.type} · ${roadmapHit.title}`,
+          anchor: '#roadmap-' + roadmapHit.id,
+          roadmapId: roadmapHit.id,
+          url: r.url || '',
+          pageOrder: 50 + (roadmaps || []).findIndex(rm => rm.id === roadmapHit.id) * 10 + 0.5,
+          fields: {
+            title: r.title.toLowerCase(),
+            summary: ((r.type || '') + ' ' + roadmapHit.title).toLowerCase(),
+            tags: 'docs learning',
+            body: (r.url || '').toLowerCase()
+          }
+        });
+        return;
+      }
       entries.push({
         source: 'resource',
         id: r.id,
         title: r.title,
         snippet: r.type,
-        anchor: resourceAnchor,
-        pageOrder: 1000 + Search.findChapterIndex(chapters, 'resourceEmbed') + (i + 1) * 0.001,
+        anchor: '',
+        url: r.url || '',
+        pageOrder: 2500 + i * 0.001,
         fields: {
           title: r.title.toLowerCase(),
-          summary: r.type.toLowerCase(),
+          summary: (r.type || '').toLowerCase(),
           tags: '',
-          body: r.url.toLowerCase()
+          body: (r.url || '').toLowerCase()
         }
       });
     });
