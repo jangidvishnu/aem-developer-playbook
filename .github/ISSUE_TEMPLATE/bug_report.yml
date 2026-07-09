@@ -19,7 +19,7 @@ body:
     id: url
     attributes:
       label: URL or page section
-      placeholder: https://jangidvishnu.github.io/aem-developer-playbook/ or #target-companies
+      placeholder: https://aemplaybook.pages.dev/ or #target-companies
   - type: textarea
     id: repro
     attributes:

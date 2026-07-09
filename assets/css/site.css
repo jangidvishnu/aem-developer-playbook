@@ -929,6 +929,18 @@ body {
   margin-left: auto;
 }
 
+/* Mobile only: Clear sits with the chip row (left-aligned), not alone on a right-aligned second line. */
+@media (max-width: 639px) {
+  .company-filters__advanced .filter-chips {
+    flex: 1 1 auto;
+  }
+
+  .company-filters__advanced .filter-clear-btn {
+    order: 3;
+    margin-left: 0;
+  }
+}
+
 .company-filters__filters-btn .icon {
   width: 13px;
   height: 13px;
@@ -2596,18 +2608,44 @@ body.search-platform-mac .search-wrap__shortcut-meta {
 /* Mobile: keep readable column widths and scroll horizontally — do not crush fixed % columns into the viewport. */
 @media (max-width: 767px) {
   .data-table {
-    width: 40rem;
-    min-width: 40rem;
+    width: 44rem;
+    min-width: 44rem;
     max-width: none;
   }
 
   .data-table--interview {
-    width: 48rem;
-    min-width: 48rem;
+    width: 52rem;
+    min-width: 52rem;
   }
 
   .data-table tbody td {
     overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  /* Size category/level to longest token (behavioral / Components / Intermediate) — no mid-word breaks. */
+  .data-table__col--category,
+  .data-table--interview .data-table__col--category {
+    width: 12ch;
+    min-width: 12ch;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: keep-all;
+  }
+
+  .data-table__col--level,
+  .data-table--interview .data-table__col--level {
+    width: 13ch;
+    min-width: 13ch;
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: keep-all;
+  }
+
+  .data-table__col--term,
+  .data-table__col--tech {
+    overflow-wrap: normal;
     word-break: normal;
   }
 }

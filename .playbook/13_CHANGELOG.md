@@ -4,6 +4,14 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — Canonical host Cloudflare Pages
+
+### Changed
+
+- Public canonical URL is https://aemplaybook.pages.dev/ (`data/site.json` `seo.siteUrl`, prerendered canonical /
+  sitemap / robots / JSON-LD). GitHub Pages remains an automatic preview; Cloudflare production deploys are
+  **manual** after checking GitHub Pages (`21_PUBLISHING.md`).
+
 ## Unreleased — Milestone 17 learning & career content
 
 ### Added

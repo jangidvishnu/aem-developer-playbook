@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve the [AEM Developer Playbook](https://jangidvishnu.github.io/aem-developer-playbook/).
+Thanks for helping improve the [AEM Developer Playbook](https://aemplaybook.pages.dev/).
 
 ## How we accept changes
 

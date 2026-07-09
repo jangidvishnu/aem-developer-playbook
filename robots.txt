@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jangidvishnu.github.io/aem-developer-playbook/sitemap.xml
+Sitemap: https://aemplaybook.pages.dev/sitemap.xml

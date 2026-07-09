@@ -302,7 +302,8 @@ CI runs the same checks on push/PR via `.github/workflows/ci.yml` (`verify` + `u
 
 ### Milestone 12 — Publishing (accepted)
 
-**Live site:** https://jangidvishnu.github.io/aem-developer-playbook/
+**Live site (canonical):** https://aemplaybook.pages.dev/  
+**Preview (GitHub Pages):** https://jangidvishnu.github.io/aem-developer-playbook/
 
 **Automated:** `npm run verify` (and optionally `npm run ui-smoke`).
 
@@ -388,7 +389,7 @@ npm run verify   # back to all-OK
 1. Serve at `http://localhost:3456`. **View source** (not DevTools Elements, which shows the post-JS DOM) — confirm
    `<main>` already contains the hero, the full Target Companies table (real company rows, not an empty
    `<div id="company-table-container">`), the How to Apply steps, and every learning chapter's content.
-2. Confirm `<head>` contains a `<link rel="canonical" href="https://jangidvishnu.github.io/aem-developer-playbook/">`
+2. Confirm `<head>` contains a `<link rel="canonical" href="https://aemplaybook.pages.dev/">`
    and a `<script type="application/ld+json" id="site-json-ld">` with the site name/description.
 3. Disable JavaScript (or use a plain `curl http://localhost:3456/` / `curl` the live URL) — confirm the same real
    content is present in the raw HTML response, not just in a browser's live DOM.
