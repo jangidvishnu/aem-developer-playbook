@@ -9,9 +9,11 @@
     "githubUrl": "https://github.com/jangidvishnu/aem-developer-playbook"
   },
   "disclaimer": {
-    "message": "Company and hiring data is based on our research and public sources. It is not guaranteed to be complete or current and will be expanded over time.",
-    "contributing": "Know a correction or addition? Submit a pull request to update the data.",
-    "contributingUrl": "https://github.com/jangidvishnu/aem-developer-playbook/pulls"
+    "message": "Openings may include AEM Sites and other Adobe Experience Cloud roles — not every listing is AEM-specific. Company and hiring data is based on public sources and may be incomplete or out of date. A company marked as frequently hiring means they generally post AEM/DXP roles often — it is not a guarantee they have an open role right now. Always check the employer careers page. Preferred / recommended markers reflect the playbook owner's opinion on pay, growth, and company quality — not an objective ranking.",
+    "contributingLead": "See something wrong or missing?",
+    "contributing": "Submit a pull request",
+    "contributingUrl": "https://github.com/jangidvishnu/aem-developer-playbook/pulls",
+    "contactEmail": "inbox.vishnujangid@gmail.com"
   },
   "hero": {
     "purpose": {
@@ -38,7 +40,7 @@
       "Governance ✓",
       "Company database ✓",
       "Learning system ✓",
-      "Company pipeline (M8) — 119 hire-verified",
+      "Company pipeline (M8) — 121 hire-verified",
       "Discovery filters (M9) ✓",
       "Apply guide (M10) ✓"
     ]

@@ -25,9 +25,16 @@ companies.forEach((co, i) => {
   ids.add(co.id);
 });
 
-const verified = companies.filter(c => c.Status === 'Verified');
-const hiring = companies.filter(c => c.HiringAEM === true);
-console.log(`Companies: ${companies.length} total, ${verified.length} Verified, ${hiring.length} HiringAEM`);
+const verified = companies.filter(c => c.verifiedAt);
+const ownerVerified = companies.filter(c => c.ownerVerified === true);
+const hiringActive = companies.filter(c => c.hiringActive === true);
+const ownerPreferred = companies.filter(c => c.ownerPreferred === true);
+const cloud = companies.filter(c => Array.isArray(c.products) && c.products.includes('aem-cloud'));
+console.log(
+  `Companies: ${companies.length} total, ${verified.length} with verifiedAt, ` +
+    `${ownerVerified.length} ownerVerified, ${hiringActive.length} hiringActive, ` +
+    `${ownerPreferred.length} ownerPreferred, ${cloud.length} AEM Cloud`
+);
 
 // Scaling size guard (Milestone 13, see 12_DECISIONS.md DR-020). data/companies.json is fetched in
 // full on every page load with no chunking today — fine at current volume, but the chosen future

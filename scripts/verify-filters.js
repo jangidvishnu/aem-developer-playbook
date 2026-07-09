@@ -37,21 +37,29 @@ assert(
 const india = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), hiringIndia: true });
 assert(
   'india hiring filter',
-  india.every(c => c.HiringIndia === 'Yes')
+  india.every(c => c.hiringIndia === true)
 );
 
 const finance = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), industry: 'Finance' });
 assert('industry filter returns only Finance', finance.length >= 1 && finance.every(c => c.industry === 'Finance'));
 
-const cloud = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), migrationBand: 'cloud' });
-assert(
-  'migration cloud band',
-  cloud.length >= 1 && cloud.every(c => ['Cloud-native', 'Migrated to AEM as a Cloud Service'].includes(c.MigrationStatus))
-);
+const cloud = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), aemCloud: true });
+assert('aem cloud filter', cloud.length >= 1 && cloud.every(c => (c.products || []).includes('aem-cloud')));
 
-assert('migrationBand cloud', CompanyFilters.migrationBand('Cloud-native') === 'cloud');
-assert('migrationBand migrating', CompanyFilters.migrationBand('Migrating to AEM as a Cloud Service') === 'migrating');
-assert('migrationBand unknown', CompanyFilters.migrationBand('Unknown') === 'unknown');
+const active = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), hiringActive: true });
+assert('hiringActive filter', active.length >= 1 && active.every(c => c.hiringActive === true));
+
+const preferred = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), ownerPreferred: true });
+assert('ownerPreferred filter', preferred.length >= 1 && preferred.every(c => c.ownerPreferred === true));
+
+assert('isHiringActive helper', CompanyFilters.isHiringActive({ hiringActive: true }) === true);
+assert('isOwnerPreferred helper', CompanyFilters.isOwnerPreferred({ ownerPreferred: true }) === true);
+
+const byProduct = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), product: 'assets' });
+assert('product filter assets', byProduct.length >= 1 && byProduct.every(c => (c.products || []).includes('assets')));
+
+assert('isAemCloud helper', CompanyFilters.isAemCloud({ products: ['sites', 'aem-cloud'] }) === true);
+assert('isAemCloud false', CompanyFilters.isAemCloud({ products: ['sites'] }) === false);
 
 const sorted = CompanyFilters.sort(companies, 'name-asc');
 assert('name sort ascending', sorted[0].name.localeCompare(sorted[sorted.length - 1].name) <= 0);
@@ -64,6 +72,9 @@ const state = {
   companyType: 'Agency',
   industry: 'Consulting',
   hiringIndia: true,
+  hiringActive: true,
+  ownerPreferred: true,
+  product: 'sites',
   sourceFilter: 'company'
 };
 const serialized = CompanyFilters.serializeUrlState(state, 'aem');
@@ -71,8 +82,13 @@ const parsed = CompanyFilters.parseUrlState(serialized);
 assert('URL round-trip type', parsed.state.companyType === 'Agency');
 assert('URL round-trip industry', parsed.state.industry === 'Consulting');
 assert('URL round-trip india', parsed.state.hiringIndia === true);
+assert('URL round-trip hiringActive', parsed.state.hiringActive === true);
+assert('URL round-trip ownerPreferred', parsed.state.ownerPreferred === true);
+assert('URL round-trip product', parsed.state.product === 'sites');
 assert('search category not in URL (session-only)', parsed.state.sourceFilter === '' && !serialized.includes('sf_source'));
 assert('URL round-trip search q', parsed.searchQuery === 'aem');
+assert('URL contains cf_active', serialized.includes('cf_active=1'));
+assert('URL contains cf_preferred', serialized.includes('cf_preferred=1'));
 
 assert('hasShareableState when filtered', CompanyFilters.hasShareableState(state, 'aem'));
 assert('hasShareableState false when default', !CompanyFilters.hasShareableState(CompanyFilters.defaultState(), ''));

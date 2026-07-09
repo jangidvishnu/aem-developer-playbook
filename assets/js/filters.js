@@ -5,12 +5,46 @@
 
 const CompanyFilters = {
   COMPANY_TYPES: ['Product', 'GCC', 'Agency', 'Enterprise'],
-  MIGRATION_BANDS: [
-    { id: '', label: 'All migration' },
-    { id: 'cloud', label: 'Cloud-native / migrated' },
-    { id: 'migrating', label: 'Migrating to cloud' },
-    { id: 'unknown', label: 'Unknown migration' }
+  PRODUCT_CODES: [
+    'sites',
+    'assets',
+    'forms',
+    'aem-cloud',
+    'eds',
+    'headless',
+    'universal-editor',
+    'aep',
+    'analytics',
+    'target',
+    'ajo',
+    'campaign',
+    'cja',
+    'workfront',
+    'commerce',
+    'launch',
+    'guides',
+    'creative-cloud'
   ],
+  PRODUCT_LABELS: {
+    sites: 'AEM Sites',
+    assets: 'AEM Assets',
+    forms: 'AEM Forms',
+    'aem-cloud': 'AEM Cloud Service',
+    eds: 'Edge Delivery',
+    headless: 'Headless / GraphQL',
+    'universal-editor': 'Universal Editor',
+    aep: 'Adobe Experience Platform',
+    analytics: 'Adobe Analytics',
+    target: 'Adobe Target',
+    ajo: 'Journey Optimizer',
+    campaign: 'Adobe Campaign',
+    cja: 'Customer Journey Analytics',
+    workfront: 'Workfront',
+    commerce: 'Adobe Commerce',
+    launch: 'Adobe Launch / Tags',
+    guides: 'AEM Guides',
+    'creative-cloud': 'Creative Cloud'
+  },
   SOURCE_FILTERS: [
     { id: '', label: 'All' },
     { id: 'company', label: 'Companies' },
@@ -20,9 +54,6 @@ const CompanyFilters = {
   ],
   LEARNING_SOURCES: ['glossary', 'technology', 'career', 'interview', 'template', 'resource'],
   CHAPTER_SOURCES: ['chapter', 'site', 'roadmap', 'roadmap-step'],
-  // Single source of truth for the sort dropdown (was previously duplicated as two near-identical
-  // inline arrays in Render.companyFilterBar — see 12_DECISIONS.md M13 cleanup). `devOnly: true`
-  // entries are omitted from the dropdown in product mode via `sortOptionsFor()`.
   SORT_OPTIONS: [
     { id: 'priority-desc', label: 'Priority (high first)' },
     { id: 'priority-asc', label: 'Priority (low first)' },
@@ -33,8 +64,6 @@ const CompanyFilters = {
     { id: 'india-desc', label: 'India hiring first' }
   ],
 
-  // Column-header click-to-sort targets (Milestone 13). Each maps a table header label to its
-  // ascending/descending sort ids and which direction a first click on that header applies.
   COLUMN_SORTS: {
     Priority: { asc: 'priority-asc', desc: 'priority-desc', default: 'desc' },
     Company: { asc: 'name-asc', desc: 'name-desc', default: 'asc' },
@@ -47,14 +76,49 @@ const CompanyFilters = {
       query: '',
       companyType: '',
       industry: '',
-      migrationBand: '',
+      product: '',
       hiringIndia: false,
-      hiringAEM: false,
-      aemaaCS: false,
-      verifiedOnly: false,
+      aemCloud: false,
+      hiringActive: false,
+      ownerPreferred: false,
       sort: 'priority-desc',
       sourceFilter: ''
     };
+  },
+
+  hasProduct(co, code) {
+    return Array.isArray(co.products) && co.products.includes(code);
+  },
+
+  isAemCloud(co) {
+    return CompanyFilters.hasProduct(co, 'aem-cloud');
+  },
+
+  isHiringIndia(co) {
+    return co.hiringIndia === true;
+  },
+
+  isHiringActive(co) {
+    return co.hiringActive === true;
+  },
+
+  isOwnerPreferred(co) {
+    return co.ownerPreferred === true;
+  },
+
+  indiaLabel(co) {
+    if (co.hiringIndia === true) return 'Yes';
+    if (co.hiringIndia === false) return 'No';
+    if (co.indiaPresence === true) return 'Presence';
+    if (co.indiaPresence === false) return 'No';
+    return '—';
+  },
+
+  indiaRank(co) {
+    if (co.hiringIndia === true) return 3;
+    if (co.indiaPresence === true) return 2;
+    if (co.hiringIndia === false || co.indiaPresence === false) return 1;
+    return 0;
   },
 
   hasActiveFilters(state) {
@@ -63,11 +127,11 @@ const CompanyFilters = {
       String(s.query || '').trim() ||
       s.companyType ||
       s.industry ||
-      s.migrationBand ||
+      s.product ||
       s.hiringIndia ||
-      s.hiringAEM ||
-      s.aemaaCS ||
-      s.verifiedOnly
+      s.aemCloud ||
+      s.hiringActive ||
+      s.ownerPreferred
     );
   },
 
@@ -87,21 +151,12 @@ const CompanyFilters = {
     return null;
   },
 
-  /** Next sort id when a sortable column header is clicked: toggles direction, or applies the
-   *  column's default direction if it isn't the currently active sort column. */
   nextSortFor(header, currentSortId) {
     const pair = CompanyFilters.COLUMN_SORTS[header];
     if (!pair) return currentSortId;
     const dir = CompanyFilters.sortDirectionFor(header, currentSortId);
     if (!dir) return pair[pair.default];
     return dir === 'desc' ? pair.asc : pair.desc;
-  },
-
-  migrationBand(status) {
-    const s = status || 'Unknown';
-    if (s === 'Cloud-native' || s === 'Migrated to AEM as a Cloud Service') return 'cloud';
-    if (s === 'Migrating to AEM as a Cloud Service') return 'migrating';
-    return 'unknown';
   },
 
   industriesFrom(companies) {
@@ -112,17 +167,32 @@ const CompanyFilters = {
     return [...set].sort((a, b) => a.localeCompare(b));
   },
 
+  productsFrom(companies) {
+    const set = new Set();
+    (companies || []).forEach(co => {
+      (co.products || []).forEach(p => set.add(p));
+    });
+    return CompanyFilters.PRODUCT_CODES.filter(code => set.has(code));
+  },
+
+  productLabel(code) {
+    return CompanyFilters.PRODUCT_LABELS[code] || code;
+  },
+
   matchesCompany(co, state) {
     const s = state || CompanyFilters.defaultState();
     const q = (s.query || '').trim().toLowerCase();
     if (q && !CompanyFilters.companyName(co).toLowerCase().includes(q)) return false;
     if (s.companyType && (co.companyType || 'Unknown') !== s.companyType) return false;
     if (s.industry && (co.industry || 'Unknown') !== s.industry) return false;
-    if (s.migrationBand && CompanyFilters.migrationBand(co.MigrationStatus) !== s.migrationBand) return false;
-    if (s.hiringIndia && co.HiringIndia !== 'Yes') return false;
-    if (s.hiringAEM && co.HiringAEM !== true) return false;
-    if (s.aemaaCS && co.AEMaaCS !== true) return false;
-    if (s.verifiedOnly && co.Status !== 'Verified') return false;
+    if (s.product && !CompanyFilters.hasProduct(co, s.product)) return false;
+    if (s.hiringIndia && !CompanyFilters.isHiringIndia(co)) return false;
+    if (s.aemCloud && !CompanyFilters.isAemCloud(co)) return false;
+    if (s.hiringActive && !CompanyFilters.isHiringActive(co)) return false;
+    if (s.ownerPreferred && !CompanyFilters.isOwnerPreferred(co)) return false;
+    // Legacy URL/state keys still accepted
+    if (s.aemaaCS && !CompanyFilters.isAemCloud(co)) return false;
+    if (s.migrationBand === 'cloud' && !CompanyFilters.isAemCloud(co)) return false;
     return true;
   },
 
@@ -148,7 +218,6 @@ const CompanyFilters = {
   sort(companies, sortId) {
     const list = [...companies];
     const id = CompanyFilters.normalizeSort(sortId);
-    const indiaRank = { Yes: 2, No: 1, Unknown: 0 };
     switch (id) {
       case 'priority-asc':
         return list.sort((a, b) => a.priority - b.priority || a.name.localeCompare(b.name));
@@ -161,20 +230,11 @@ const CompanyFilters = {
       case 'type-desc':
         return list.sort((a, b) => (b.companyType || '').localeCompare(a.companyType || '') || a.name.localeCompare(b.name));
       case 'india-asc':
-        return list.sort((a, b) => (a.indiaPresence || '').localeCompare(b.indiaPresence || '') || a.name.localeCompare(b.name));
+        return list.sort((a, b) => CompanyFilters.indiaRank(a) - CompanyFilters.indiaRank(b) || a.name.localeCompare(b.name));
       case 'india-desc':
         return list.sort(
-          (a, b) =>
-            (indiaRank[b.indiaPresence] || 0) - (indiaRank[a.indiaPresence] || 0) || b.priority - a.priority || a.name.localeCompare(b.name)
+          (a, b) => CompanyFilters.indiaRank(b) - CompanyFilters.indiaRank(a) || b.priority - a.priority || a.name.localeCompare(b.name)
         );
-      case 'hiring-asc':
-        return list.sort((a, b) => (a.HiringAEM === true ? 1 : 0) - (b.HiringAEM === true ? 1 : 0) || a.name.localeCompare(b.name));
-      case 'hiring-desc':
-        return list.sort((a, b) => (b.HiringAEM === true ? 1 : 0) - (a.HiringAEM === true ? 1 : 0) || b.priority - a.priority);
-      case 'status-asc':
-        return list.sort((a, b) => (a.Status || '').localeCompare(b.Status || '') || a.name.localeCompare(b.name));
-      case 'status-desc':
-        return list.sort((a, b) => (b.Status || '').localeCompare(a.Status || '') || a.name.localeCompare(b.name));
       case 'priority-desc':
       default:
         return list.sort((a, b) => b.priority - a.priority || a.name.localeCompare(b.name));
@@ -195,11 +255,11 @@ const CompanyFilters = {
       if (entry.facets) {
         if (s.companyType && co.companyType !== s.companyType) return false;
         if (s.industry && co.industry !== s.industry) return false;
-        if (s.migrationBand && co.migrationBand !== s.migrationBand) return false;
+        if (s.product && !(co.products || []).includes(s.product)) return false;
         if (s.hiringIndia && !co.hiringIndia) return false;
-        if (s.hiringAEM && !co.hiringAEM) return false;
-        if (s.aemaaCS && !co.aemaaCS) return false;
-        if (s.verifiedOnly && co.status !== 'Verified') return false;
+        if ((s.aemCloud || s.aemaaCS || s.migrationBand === 'cloud') && !co.aemCloud) return false;
+        if (s.hiringActive && !co.hiringActive) return false;
+        if (s.ownerPreferred && !co.ownerPreferred) return false;
         return true;
       }
       return CompanyFilters.matchesCompany(co, s);
@@ -210,7 +270,6 @@ const CompanyFilters = {
     return { sourceFilter: (state && state.sourceFilter) || '' };
   },
 
-  /** Ranked search with optional category filter; widens to All when category is empty. */
   querySearch(index, query, companiesById, searchFacetState) {
     const search = typeof Search !== 'undefined' ? Search : globalThis.Search;
     const raw = search.query(index, query);
@@ -230,12 +289,20 @@ const CompanyFilters = {
     if (params.has('cf_q')) state.query = params.get('cf_q') || '';
     if (params.has('cf_type')) state.companyType = params.get('cf_type') || '';
     if (params.has('cf_industry')) state.industry = params.get('cf_industry') || '';
-    if (params.has('cf_migration')) state.migrationBand = params.get('cf_migration') || '';
+    if (params.has('cf_product')) state.product = params.get('cf_product') || '';
     if (params.has('cf_sort')) state.sort = CompanyFilters.normalizeSort(params.get('cf_sort'));
     if (params.get('cf_india') === '1') state.hiringIndia = true;
-    if (params.get('cf_aem') === '1') state.hiringAEM = true;
-    if (params.get('cf_cloud') === '1') state.aemaaCS = true;
-    if (params.get('cf_verified') === '1') state.verifiedOnly = true;
+    if (params.get('cf_cloud') === '1') state.aemCloud = true;
+    if (params.get('cf_active') === '1') state.hiringActive = true;
+    if (params.get('cf_preferred') === '1') state.ownerPreferred = true;
+    // Legacy: old migration / aemaaCS / hiringAEM / verified URL keys
+    if (params.get('cf_migration') === 'cloud') state.aemCloud = true;
+    if (params.get('cf_aem') === '1') {
+      /* no-op: all public rows hire AEM */
+    }
+    if (params.get('cf_verified') === '1') {
+      /* no-op: public list is hire-verified only */
+    }
     return { state, searchQuery: params.get('q') || '' };
   },
 
@@ -246,12 +313,12 @@ const CompanyFilters = {
     if (s.query) params.set('cf_q', s.query);
     if (s.companyType) params.set('cf_type', s.companyType);
     if (s.industry) params.set('cf_industry', s.industry);
-    if (s.migrationBand) params.set('cf_migration', s.migrationBand);
+    if (s.product) params.set('cf_product', s.product);
     if (s.sort && s.sort !== 'priority-desc') params.set('cf_sort', s.sort);
     if (s.hiringIndia) params.set('cf_india', '1');
-    if (s.hiringAEM) params.set('cf_aem', '1');
-    if (s.aemaaCS) params.set('cf_cloud', '1');
-    if (s.verifiedOnly) params.set('cf_verified', '1');
+    if (s.aemCloud || s.aemaaCS) params.set('cf_cloud', '1');
+    if (s.hiringActive) params.set('cf_active', '1');
+    if (s.ownerPreferred) params.set('cf_preferred', '1');
     const qs = params.toString();
     return qs ? '?' + qs : '';
   },

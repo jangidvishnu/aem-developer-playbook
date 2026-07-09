@@ -298,7 +298,7 @@
       "id": "bosch",
       "name": "Bosch",
       "priority": 7,
-      "industry": "Industrial",
+      "industry": "Manufacturing",
       "companyType": "Product",
       "headquarters": "Unknown",
       "indiaPresence": "Unknown",
@@ -328,13 +328,15 @@
       "InterviewDifficulty": "Unknown",
       "TypicalRoles": [],
       "Recruiters": [],
-      "Notes": "Tier-1 candidate from md/deep-research-report.md; no Tier-1/2 AEM evidence URL attached yet per 07_RESEARCH_GUIDE.md.",
-      "Evidence": [],
+      "Notes": "Removed from public list — no hire-verified AEM usage (owner audit 2026-07-09; restores PR #4).",
+      "Evidence": [
+        "https://builtwith.com/bosch.com"
+      ],
       "References": [
         "md/deep-research-report.md"
       ],
-      "LastVerified": null,
-      "Status": "Unverified",
+      "LastVerified": "2026-07-07",
+      "Status": "Archived",
       "Wishlist": false,
       "Applied": false,
       "Interview": false,
@@ -346,8 +348,9 @@
       "HiringIntensity": "Unknown",
       "AdobeSpend": "Unknown",
       "LastHiringVerified": null,
-      "archivedAt": "2026-07-07",
-      "archiveReason": "no_aem_evidence"
+      "archivedAt": "2026-07-09",
+      "archiveReason": "no_aem_evidence",
+      "archivedFrom": "data/companies.json"
     },
     {
       "id": "dell",
@@ -1905,6 +1908,21 @@
       "LastHiringVerified": null,
       "archivedAt": "2026-07-07",
       "archiveReason": "no_aem_evidence"
+    },
+    {
+      "id": "atcs",
+      "name": "ATCS (Athena Technology)",
+      "priority": 5,
+      "industry": "Consulting",
+      "companyType": "Agency",
+      "Notes": "Removed from public list — no hire-verified AEM usage (owner audit 2026-07-09; restores PR #4).",
+      "Status": "Archived",
+      "Evidence": [
+        "https://builtwith.com/athenahealth.com"
+      ],
+      "LastVerified": "2026-07-07",
+      "archivedAt": "2026-07-09",
+      "archivedFrom": "data/companies.json"
     }
   ]
 }

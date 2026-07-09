@@ -90,10 +90,12 @@ const UI = {
     function closeAllExcept(current) {
       document.querySelectorAll('[data-ui-select]').forEach(w => {
         if (w === current) return;
-        const list = w.querySelector('.ui-select__list');
+        const dropdown = w.querySelector('.ui-select__dropdown');
         const trigger = w.querySelector('.ui-select__trigger');
-        if (list) list.classList.add('hidden');
+        if (dropdown) dropdown.classList.add('hidden');
         if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        const rail = w.closest('.company-filters__panel, .company-filters__advanced');
+        if (rail && !rail.contains(current)) rail.classList.remove('is-select-open');
       });
     }
 
@@ -101,23 +103,61 @@ const UI = {
       if (wrap.dataset.uiWired) return;
       wrap.dataset.uiWired = '1';
       const trigger = wrap.querySelector('.ui-select__trigger');
+      const dropdown = wrap.querySelector('.ui-select__dropdown');
       const list = wrap.querySelector('.ui-select__list');
       const hidden = wrap.querySelector('input[type="hidden"]');
       const valueEl = wrap.querySelector('.ui-select__value');
-      if (!trigger || !list || !hidden) return;
+      const searchInput = wrap.querySelector('.ui-select__search-input');
+      const emptyEl = wrap.querySelector('.ui-select__empty');
+      const clearBtn = wrap.querySelector('[data-ui-select-clear]');
+      const placeholder = wrap.getAttribute('data-ui-placeholder') || '';
+      if (!trigger || !dropdown || !list || !hidden) return;
 
       function close() {
-        list.classList.add('hidden');
+        dropdown.classList.add('hidden');
         trigger.setAttribute('aria-expanded', 'false');
+        const rail = wrap.closest('.company-filters__panel, .company-filters__advanced');
+        if (rail) rail.classList.remove('is-select-open');
+        if (searchInput) {
+          searchInput.value = '';
+          filterOptions('');
+        }
       }
       function open() {
         closeAllExcept(wrap);
-        list.classList.remove('hidden');
+        dropdown.classList.remove('hidden');
         trigger.setAttribute('aria-expanded', 'true');
+        const rail = wrap.closest('.company-filters__panel, .company-filters__advanced');
+        if (rail) rail.classList.add('is-select-open');
+        if (searchInput) {
+          searchInput.value = '';
+          filterOptions('');
+          window.setTimeout(() => searchInput.focus(), 0);
+        }
+      }
+      function filterOptions(query) {
+        const q = String(query || '')
+          .trim()
+          .toLowerCase();
+        let visible = 0;
+        list.querySelectorAll('[role="option"]').forEach(opt => {
+          const label = (opt.getAttribute('data-label') || opt.textContent || '').toLowerCase();
+          const show = !q || label.includes(q);
+          opt.classList.toggle('hidden', !show);
+          if (show) visible += 1;
+        });
+        if (emptyEl) emptyEl.classList.toggle('hidden', visible > 0);
+      }
+      function syncClearUi(val) {
+        const on = !!val;
+        wrap.classList.toggle('ui-select--rail-active', wrap.classList.contains('ui-select--rail') && on);
+        if (clearBtn) clearBtn.classList.toggle('hidden', !on);
+        if (!on && valueEl && placeholder) valueEl.textContent = placeholder;
       }
       function setValue(val, label) {
         hidden.value = val;
-        if (valueEl) valueEl.textContent = label;
+        if (valueEl) valueEl.textContent = val ? label : placeholder || label;
+        syncClearUi(val);
         list.querySelectorAll('[role="option"]').forEach(opt => {
           const on = opt.getAttribute('data-value') === val;
           opt.setAttribute('aria-selected', on ? 'true' : 'false');
@@ -128,16 +168,36 @@ const UI = {
 
       trigger.addEventListener('click', e => {
         e.stopPropagation();
-        if (list.classList.contains('hidden')) open();
+        if (dropdown.classList.contains('hidden')) open();
         else close();
       });
+      if (clearBtn) {
+        clearBtn.addEventListener('click', e => {
+          e.preventDefault();
+          e.stopPropagation();
+          setValue('', placeholder);
+          close();
+        });
+      }
       list.querySelectorAll('[role="option"]').forEach(opt => {
         opt.addEventListener('click', e => {
           e.stopPropagation();
-          setValue(opt.getAttribute('data-value'), opt.textContent.trim());
+          setValue(opt.getAttribute('data-value'), (opt.getAttribute('data-label') || opt.textContent || '').trim());
           close();
         });
       });
+      if (searchInput) {
+        searchInput.addEventListener('click', e => e.stopPropagation());
+        searchInput.addEventListener('keydown', e => {
+          e.stopPropagation();
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            close();
+            trigger.focus();
+          }
+        });
+        searchInput.addEventListener('input', () => filterOptions(searchInput.value));
+      }
       document.addEventListener('click', e => {
         if (!wrap.contains(e.target)) close();
       });

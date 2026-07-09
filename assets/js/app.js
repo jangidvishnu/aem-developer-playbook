@@ -51,12 +51,12 @@ const App = {
     if (!bar) return filterState;
     const q = bar.querySelector('input[data-company-filter="query"]');
     filterState.query = q ? q.value : '';
-    ['sort', 'companyType', 'industry', 'migrationBand'].forEach(key => {
+    ['sort', 'companyType', 'industry', 'product'].forEach(key => {
       const el = bar.querySelector(`input[type="hidden"][data-company-filter="${key}"]`);
       if (el) filterState[key] = el.value;
     });
     if (!filterState.sort) filterState.sort = defaultSort;
-    ['hiringIndia', 'hiringAEM', 'aemaaCS', 'verifiedOnly'].forEach(key => {
+    ['hiringIndia', 'aemCloud', 'hiringActive', 'ownerPreferred'].forEach(key => {
       filterState[key] =
         !!bar.querySelector(`[data-company-filter="${key}"][aria-pressed="true"]`) ||
         !!bar.querySelector(`input[data-company-filter="${key}"]:checked`);
@@ -64,10 +64,29 @@ const App = {
     return filterState;
   },
 
-  wireCompanyPagination(allCompanies, industries, filterState, onStateChange, productMode) {
+  syncFiltersPanel(bar, filterState, open) {
+    if (!bar) return;
+    const panel = bar.querySelector('#company-filters-panel');
+    const btn = bar.querySelector('[data-company-filters-toggle]');
+    if (!panel || !btn) return;
+    const count = [filterState.companyType, filterState.industry, filterState.product].filter(Boolean).length;
+    const isOpen = !!open;
+    panel.classList.toggle('is-open', isOpen);
+    btn.classList.toggle('is-open', isOpen);
+    btn.classList.toggle('has-active', count > 0);
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    const countEl = btn.querySelector('[data-filters-count]');
+    if (countEl) {
+      countEl.textContent = count ? String(count) : '';
+      countEl.classList.toggle('hidden', !count);
+    }
+  },
+
+  wireCompanyPagination(allCompanies, industries, products, filterState, onStateChange, productMode) {
     const container = document.getElementById('company-table-container');
     if (!container) return;
     let page = 1;
+    let filtersPanelOpen = !!(filterState.companyType || filterState.industry || filterState.product);
     const defaultSort = 'priority-desc';
     const debouncedRenderTable = UI.debounce(() => renderTable(), 200);
 
@@ -106,6 +125,7 @@ const App = {
 
     function renderCompanySection() {
       if (!filterState.sort) filterState.sort = defaultSort;
+      if (filterState.companyType || filterState.industry || filterState.product) filtersPanelOpen = true;
       const filtered = CompanyFilters.apply(allCompanies, filterState);
       const totalPages = Math.max(1, Math.ceil(filtered.length / App.PAGE_SIZE));
       if (page > totalPages) page = 1;
@@ -115,8 +135,10 @@ const App = {
         filterState,
         totalCount: allCompanies.length,
         industries,
+        products,
         productMode,
-        allCompanies
+        allCompanies,
+        filtersPanelOpen
       });
       UI.wireSelects(container);
       UI.wireTableTips(container);
@@ -124,7 +146,10 @@ const App = {
       wireSortHeaders();
       App.wireCopyDiscoveryLink(container);
       const bar = container.querySelector('.company-explorer__toolbar');
-      if (bar) wireToolbar(bar);
+      if (bar) {
+        App.syncFiltersPanel(bar, filterState, filtersPanelOpen);
+        wireToolbar(bar);
+      }
       if (onStateChange) onStateChange();
     }
 
@@ -143,11 +168,17 @@ const App = {
       }
       const countEl = container.querySelector('[data-company-count]');
       if (countEl) countEl.textContent = Render.companyCountLabel(page, filtered.length, allCompanies.length, App.PAGE_SIZE);
+      const resultsCountEl = container.querySelector('[data-company-results-count]');
+      if (resultsCountEl) {
+        resultsCountEl.textContent = Render.companyResultsLabel(filtered.length, allCompanies.length);
+      }
       const pagEl = container.querySelector('[data-company-pagination]');
       if (pagEl) pagEl.innerHTML = Render.companyPagination(page, filtered.length, 'company');
       const clearBtn = container.querySelector('[data-company-clear-filters]');
       const showClear = CompanyFilters.hasActiveFilters(filterState);
       if (clearBtn) clearBtn.classList.toggle('hidden', !showClear);
+      if (filterState.companyType || filterState.industry || filterState.product) filtersPanelOpen = true;
+      App.syncFiltersPanel(bar, filterState, filtersPanelOpen);
       UI.wireSelects(container);
       UI.wireTableTips(container);
       wirePagination();
@@ -163,8 +194,16 @@ const App = {
         if (clear && bar.contains(clear)) {
           e.preventDefault();
           Object.assign(filterState, CompanyFilters.resetFilters(defaultSort));
+          filtersPanelOpen = false;
           page = 1;
           renderCompanySection();
+          return;
+        }
+        const filtersToggle = e.target.closest('[data-company-filters-toggle]');
+        if (filtersToggle && bar.contains(filtersToggle)) {
+          e.preventDefault();
+          filtersPanelOpen = !filtersPanelOpen;
+          App.syncFiltersPanel(bar, filterState, filtersPanelOpen);
           return;
         }
         const chip = e.target.closest('[data-company-filter][data-chip]');
@@ -328,6 +367,7 @@ const App = {
 
           const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site, learning, ownerPlaybook });
           const industries = CompanyFilters.industriesFrom(companies);
+          const products = CompanyFilters.productsFrom(companies);
           const companiesById = CompanyFilters.companiesById(companies);
           const urlParsed = CompanyFilters.parseUrlState(location.search);
           // Single shared state object for both company-table filters and search facets (Milestone 13
@@ -355,6 +395,7 @@ const App = {
           App.wireCompanyPagination(
             companies,
             industries,
+            products,
             filterState,
             () => {
               const q = document.getElementById('search-mobile')?.value || document.getElementById('search-desktop')?.value || '';

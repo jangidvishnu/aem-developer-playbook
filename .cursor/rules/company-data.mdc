@@ -10,9 +10,22 @@ Full detail: `.playbook/11_COMPANY_SCHEMA.md`, `.playbook/07_RESEARCH_GUIDE.md`,
 
 - Evidence over assumption. Every factual claim needs a traceable source (company's own careers page/case study >
   vendor-confirmed > reputable secondary > inference, in that priority order).
-- `usesAEM: true` requires at least one entry in `Evidence`. If no source is found, set `Status: "Unverified"`
-  instead of asserting it unsupported.
-- Set `LastVerified` whenever evidence is checked.
+- **Complete field pass** on every new or refreshed company — do not publish partial research (careers-only, then
+  products later, then roles later). Use the field table in `07_RESEARCH_GUIDE.md`.
+- Public rows need non-empty `evidence` and `hiringEvidence` (http URLs). Listing implies AEM usage — do not add
+  companies that do not use AEM.
+- Set `verifiedAt` whenever evidence or hiring signal is checked.
+- Required `ownerVerified`: set **`false`** on any agent-added or materially rewritten row. Only the project owner
+  sets `true` after manual check. Do not invent `true` for new companies.
+- Optional `hiringActive`: frequent/general hiring pattern only — **not** “openings exist right now”. Omit until
+  the owner confirms. Do not set from a single job posting. Site disclaimer must keep this distinction clear.
+- Optional `ownerPreferred`: owner recommendation (pay / growth / quality). Omit unless the owner explicitly marks
+  it; put a short why in `notes`. Not the same as `hiringActive` or `priority`.
+- Encode Adobe stack only in `products` (short codes). Do not reintroduce per-product boolean flags.
+- Set `priority` using the hiring-cadence rubric in `07_RESEARCH_GUIDE.md` (not brand awards). Cap BuiltWith-only
+  rows at 6 until Tier-1/2 evidence upgrades them.
+- `roles` must match titles this employer uses (AEM / DXP / Software / Sr …) — no shared boilerplate lists.
+- Optional `signals` (ratings) only when sourced with `source` + `asOf` — never invent scores for empty rows.
 - **Published DB only:** `data/companies.json`. Do not introduce a second live company JSON.
 - Files under `archive/research/md/` and `archive/companies/` are historical (DR-017) — never copy them into
   `data/companies.json` as confirmed fact without re-verification.
