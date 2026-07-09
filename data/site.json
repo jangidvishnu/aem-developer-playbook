@@ -16,7 +16,9 @@
     "contributingLead": "See something wrong or missing?",
     "contributing": "Submit a pull request",
     "contributingUrl": "https://github.com/jangidvishnu/aem-developer-playbook/pulls",
-    "contactEmail": "inbox.vishnujangid@gmail.com"
+    "contactEmail": "inbox.vishnujangid@gmail.com",
+    "linkedinUrl": "https://www.linkedin.com/in/jangidvishnu/",
+    "linkedinLabel": "LinkedIn"
   },
   "hero": {
     "purpose": {

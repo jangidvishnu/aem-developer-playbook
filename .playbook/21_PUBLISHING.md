@@ -17,15 +17,22 @@ Per `MASTER_BOOTSTRAP_PROMPT.md`, this project ships as four things from one sou
 | **`stage`** (default PR target) | GitHub Pages | https://jangidvishnu.github.io/aem-developer-playbook/ | Auto when `stage` updates |
 | **`master`** (production) | Cloudflare Pages | https://aemplaybook.pages.dev/ | After promote to `master`, then Cloudflare deploy |
 
-**Default agent/PR flow:** open PRs against **`stage` only**, unless the owner explicitly asks for a PR to
-`master` / production / Cloudflare.
+**Default agent/PR flow (two phases — do not open both PRs at once):**
+
+1. **Phase 1:** Feature branch → PR → **`stage`** (after commit + local CI + PR-open approval). Agent **stops**
+   — owner merges on GitHub and verifies GitHub Pages.
+2. **Phase 2:** Owner messages **"open promote PR"** (or similar) in a **new** turn → agent opens/updates
+   **`stage` → `master`** with a production description. Agent **stops** — owner merges when ready for Cloudflare.
+
+Do **not** merge either PR without separate explicit merge approval. Do **not** poll GitHub or keep the chat open
+waiting for merges. Cloudflare production may still need a manual deploy after `master` updates.
 
 Typical path:
 
 1. Feature branch → PR → **`stage`** (same required checks as `master`).
-2. Verify on GitHub Pages.
-3. When the owner asks to ship production: PR **`stage` → `master`** (or explicit merge instruction).
-4. Deploy / confirm https://aemplaybook.pages.dev/ (Cloudflare production; keep manual if configured that way).
+2. Owner merges → verify https://jangidvishnu.github.io/aem-developer-playbook/
+3. Owner asks for promote → PR **`stage` → `master`**.
+4. Owner merges promote → deploy / confirm https://aemplaybook.pages.dev/.
 
 Both `stage` and `master` are protected: PR-only, `enforce_admins`, required checks `Verify scripts` and
 `UI smoke (Playwright search)` (see `12_DECISIONS.md` DR-018 / DR-028).

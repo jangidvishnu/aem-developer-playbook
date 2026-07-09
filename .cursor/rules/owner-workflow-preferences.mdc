@@ -24,13 +24,15 @@ time (e.g. "every time you open a PR, switch to master").
 
 | Preference | Rule file |
 |---|---|
-| Commit/PR/merge approval gate; default PRs → `stage`; `master` only when owner asks | `git-push-approval.mdc` |
+| Commit approval; local CI; feature → `stage` only; promote `stage` → `master` on owner request | `git-push-approval.mdc` |
 | No push/PR until `npm run verify` + `npm run ui-smoke` pass locally | `git-push-approval.mdc` |
 | Changelog only at commit/PR time (not every coding turn) | `git-push-approval.mdc` |
 | `stage` = GitHub Pages; `master` = Cloudflare (canonical); CF deploy after promote to master | `21_PUBLISHING.md` + `git-push-approval.mdc` |
+| Soft model tip before heavy/light phases; prefer Auto; MAX off for simple Q&A | `agent-cost-optimization.mdc` |
 | PowerShell heredoc / slow git gotchas | `windows-powershell-shell.mdc` |
 | Terminal / dev-server cleanup | `terminal-hygiene.mdc` |
 | Every design/UI change must cover desktop + mobile | `desktop-mobile-design.mdc` |
+| Cheap model / less tooling for simple Q&A; stronger only when needed | `agent-cost-optimization.mdc` |
 
 ## What not to persist here
 
