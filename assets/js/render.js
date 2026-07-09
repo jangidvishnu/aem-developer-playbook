@@ -934,7 +934,13 @@ const Render = {
   },
 
   footer(footer) {
-    return `<footer class="site-footer">${Render.escapeHtml(footer.text)}</footer>`;
+    const text = footer && footer.text ? footer.text : '';
+    const copyright = footer && footer.copyright ? footer.copyright : '';
+    const lines = [
+      text ? `<p class="site-footer__text">${Render.escapeHtml(text)}</p>` : '',
+      copyright ? `<p class="site-footer__legal">${Render.escapeHtml(copyright)}</p>` : ''
+    ].filter(Boolean);
+    return `<footer class="site-footer">${lines.join('')}</footer>`;
   },
 
   resolveProductMode(site) {

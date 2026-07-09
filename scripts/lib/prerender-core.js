@@ -77,7 +77,7 @@ function buildFragments(Render, data) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: site.documentTitle || '',
+    name: (site.header && site.header.title) || site.documentTitle || '',
     description: seo.description || '',
     url: siteUrl,
     potentialAction: {
@@ -116,6 +116,7 @@ function buildFragments(Render, data) {
 
   return {
     siteUrl,
+    'document-title': title,
     'seo-meta': seoMeta,
     canonical: `<link rel="canonical" href="${siteUrl || './'}" />`,
     'json-ld': siteUrl ? `<script type="application/ld+json" id="site-json-ld">${jsonLdJson}</script>` : '',
@@ -133,6 +134,7 @@ function buildFragments(Render, data) {
 }
 
 const MARKER_NAMES = [
+  'document-title',
   'seo-meta',
   'canonical',
   'json-ld',

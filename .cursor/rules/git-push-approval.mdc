@@ -1,5 +1,5 @@
 ---
-description: Never commit without explicit owner approval; never merge without it either
+description: Never commit without explicit owner approval; default PRs to stage
 alwaysApply: true
 ---
 
@@ -8,14 +8,26 @@ alwaysApply: true
 ## Hard rule
 
 Do **not** run `git commit` unless the project owner has **explicitly approved that specific commit** in the
-current message. Do **not** merge a pull request, or push directly to `master`/`main` (or any other protected
-branch), unless the project owner has **explicitly approved that specific merge**.
+current message. Do **not** merge a pull request, or push directly to `master`/`main`/`stage` (or any other
+protected branch), unless the project owner has **explicitly approved that specific merge**.
 
 - "Looks good", "proceed", "implement the plan", or completing a todo list are **not** approval to commit.
-- Direct push to `master`/`main` is never done regardless of approval wording — always push a feature branch (this
-  is also enforced server-side by branch protection; see `12_DECISIONS.md` DR-018).
+- Direct push to `master`/`main`/`stage` is never done regardless of approval wording — always push a feature
+  branch (also enforced server-side by branch protection; see `12_DECISIONS.md` DR-018 / DR-028).
 - Merge approval is always its **own** explicit go-ahead (e.g. "merge it", "approve and merge") — commit approval
   never implies merge approval.
+
+## Branch targets (owner preference)
+
+| Branch | Host | When agents open a PR |
+|---|---|---|
+| **`stage`** (default) | GitHub Pages preview | **Always**, unless the owner explicitly says otherwise |
+| **`master`** | Cloudflare Pages (canonical) | **Only** when the owner explicitly asks for a PR / promote to `master` |
+
+- Default: `gh pr create --base stage …`
+- Do **not** open or merge a PR into `master` unless the owner clearly asks (e.g. "PR to master", "promote to
+  production", "deploy to Cloudflare / master").
+- Promoting stage → master is a **separate** PR (or explicit merge instruction), not implied by merging to `stage`.
 
 ## Once a commit is approved: local CI gate, then push + open the PR
 
@@ -27,9 +39,12 @@ After the owner approves a commit, proceed **without another round of asking** t
    - `npm run ui-smoke`
    If either fails, **fix it and re-run until green**. Do **not** push or open a PR with failing
    local checks. (This is how we avoid shipping a PR that fails required GitHub checks.)
-3. Push it on a feature branch (never `master`/`main` directly).
-4. Open the pull request (`gh pr create`) targeting `master`, with a clear summary and test plan in the body.
-5. Switch the local repo back to `master` and fast-forward: `git checkout master` then `git pull origin master`.
+3. Push it on a feature branch (never `master`/`main`/`stage` directly).
+4. Open the pull request targeting **`stage`** by default (`gh pr create --base stage`), unless the owner
+   explicitly requested `master`. Include a clear summary and test plan in the body.
+5. Switch the local repo back to the PR base and fast-forward:
+   - After a **stage** PR: `git checkout stage` then `git pull origin stage`
+   - After a **master** PR (only when requested): `git checkout master` then `git pull origin master`
    Leave feature branches on the remote only — do not keep working on the PR branch locally after the PR is open.
 
 Report the PR URL and required-check status, then **stop** — do not merge. The owner reviews/merges the PR
@@ -58,6 +73,8 @@ Do **not** edit `.playbook/13_CHANGELOG.md` on every implementation turn or mid-
 1. Confirm both required checks (`Verify scripts`, `UI smoke (Playwright search)`) are green on the PR.
 2. Wait for the owner's explicit approval to merge, separate from commit approval.
 3. Only then merge (or let the owner merge via GitHub directly).
+4. Reminder: merging to `stage` does **not** update Cloudflare; a separate owner-approved promote to `master`
+   (then Cloudflare deploy) is required for production.
 
 ## If you commit, push to a protected branch, or merge without approval
 

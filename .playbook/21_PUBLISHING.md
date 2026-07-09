@@ -5,44 +5,49 @@
 Per `MASTER_BOOTSTRAP_PROMPT.md`, this project ships as four things from one source:
 
 1. **GitHub repository** — the source of truth (this repo).
-2. **Public website** — Cloudflare Pages at https://aemplaybook.pages.dev/ (canonical); GitHub Pages as preview.
-3. **Printable handbook** — browser print-to-PDF using the existing print CSS.
-4. **PDF book** — a more deliberate, paginated export (target state; not yet built).
+2. **Public website** — Cloudflare Pages at https://aemplaybook.pages.dev/ (canonical, from `master`).
+3. **Staging website** — GitHub Pages at https://jangidvishnu.github.io/aem-developer-playbook/ (from `stage`).
+4. **Printable handbook** — browser print-to-PDF using the existing print CSS.
+5. **PDF book** — a more deliberate, paginated export (target state; not yet built).
 
-## Dual hosting workflow (owner preference)
+## Dual-branch workflow (owner preference)
 
-| Host | URL | Deploy |
-|---|---|---|
-| **Canonical** — Cloudflare Pages | https://aemplaybook.pages.dev/ | **Manual** (after checking GitHub Pages) |
-| **Preview** — GitHub Pages | https://jangidvishnu.github.io/aem-developer-playbook/ | Automatic from `master` |
+| Branch | Host | URL | How it updates |
+|---|---|---|---|
+| **`stage`** (default PR target) | GitHub Pages | https://jangidvishnu.github.io/aem-developer-playbook/ | Auto when `stage` updates |
+| **`master`** (production) | Cloudflare Pages | https://aemplaybook.pages.dev/ | After promote to `master`, then Cloudflare deploy |
 
-1. Merge to `master` → GitHub Pages updates automatically.
-2. Verify the change on the GitHub Pages URL.
-3. In Cloudflare → Workers & Pages → `aemplaybook` → trigger a **manual** production deploy of the same commit.
-4. Confirm https://aemplaybook.pages.dev/.
+**Default agent/PR flow:** open PRs against **`stage` only**, unless the owner explicitly asks for a PR to
+`master` / production / Cloudflare.
 
-`data/site.json` → `seo.siteUrl` (and thus canonical / sitemap / robots / JSON-LD) points at the **Cloudflare**
-URL. When a purchased custom domain is attached later (e.g. `aemplaybook.example.com`), update `seo.siteUrl` and
-re-run `npm run prerender`.
+Typical path:
 
-## GitHub Pages (Milestone 12 — still used as preview)
+1. Feature branch → PR → **`stage`** (same required checks as `master`).
+2. Verify on GitHub Pages.
+3. When the owner asks to ship production: PR **`stage` → `master`** (or explicit merge instruction).
+4. Deploy / confirm https://aemplaybook.pages.dev/ (Cloudflare production; keep manual if configured that way).
 
-Because the site has no build step at deploy/request time, GitHub Pages can serve the repository root directly.
-Requirements this places on every change:
+Both `stage` and `master` are protected: PR-only, `enforce_admins`, required checks `Verify scripts` and
+`UI smoke (Playwright search)` (see `12_DECISIONS.md` DR-018 / DR-028).
+
+`data/site.json` → `seo.siteUrl` (canonical / sitemap / robots / JSON-LD) points at the **Cloudflare** URL.
+When a purchased custom domain is attached later, update `seo.siteUrl` and re-run `npm run prerender`.
+
+## GitHub Pages (serves `stage`)
+
+Because the site has no build step at deploy/request time, GitHub Pages can serve the repository root directly
+from the **`stage`** branch. Requirements this places on every change:
 
 - No server-side logic — everything must run as static files.
 - No absolute local paths — all asset references must resolve correctly when served from a Pages subpath.
-- `data/*.json` fetches must use relative paths so they work both locally (file:// or a simple static server) and
-  when deployed.
+- `data/*.json` fetches must use relative paths so they work both locally and when deployed.
 - `index.html`, `sitemap.xml`, and `robots.txt` are committed files, including the parts `npm run prerender`
-  generates ahead of time (Milestone 14, DR-022) — neither GitHub Pages nor Cloudflare Pages runs that script;
-  they only serve what's already in the repo.
+  generates ahead of time (Milestone 14, DR-022) — neither host runs that script; they only serve what's in the repo.
 
-## Cloudflare Pages (canonical public host)
+## Cloudflare Pages (serves `master` — canonical)
 
-Same static root as GitHub Pages: no framework build. Project name `aemplaybook` → `aemplaybook.pages.dev`.
-Build command empty / none; output directory `/`. Prefer **manual** production deploys so GitHub Pages can be
-checked first. Do not use Workers / `wrangler deploy` for this site.
+Same static root: no framework build. Project name `aemplaybook` → `aemplaybook.pages.dev`. Build command empty /
+none; output directory `/`. Production tracks **`master`**. Do not use Workers / `wrangler deploy` for this site.
 
 ## SEO and crawlability (Milestone 14)
 

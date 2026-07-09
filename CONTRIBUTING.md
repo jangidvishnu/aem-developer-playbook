@@ -4,12 +4,13 @@ Thanks for helping improve the [AEM Developer Playbook](https://aemplaybook.page
 
 ## How we accept changes
 
-`master` is protected. Do **not** push commits directly to `master`.
+`stage` and `master` are both protected. Do **not** push commits directly to either.
 
 1. Fork the repository (or create a branch if you have write access).
 2. Make your change on a feature branch.
-3. Open a **pull request** into `master`.
+3. Open a **pull request** into **`stage`** (default staging / GitHub Pages).
 4. Wait for CI (verify + UI smoke) to pass and for a maintainer review.
+5. Production (`master` / Cloudflare) is updated only when a maintainer promotes **`stage` → `master`**.
 
 GitHub calls these *pull requests*; that is the same idea as a merge request.
 
@@ -80,6 +81,14 @@ More detail: [`.playbook/06_EDITOR_GUIDE.md`](.playbook/06_EDITOR_GUIDE.md) and 
 
 Do not push a branch or open a PR until the project owner has **explicitly approved** after local review
 (`.cursor/rules/git-push-approval.mdc`).
+
+## License and brand
+
+By opening a pull request you agree that your contribution is licensed under the same
+[Apache License 2.0](LICENSE) as the rest of the project (see [NOTICE](NOTICE)).
+
+You may fork and improve this work under Apache-2.0. Please keep the copyright notice and
+[NOTICE](NOTICE) when you redistribute.
 
 ## Code of conduct
 
