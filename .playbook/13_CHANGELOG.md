@@ -4,6 +4,20 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — stage / master dual deploy (DR-028)
+
+### Changed
+
+- Default PR target is **`stage`** (GitHub Pages). **`master`** is production (Cloudflare); promote only when the
+  owner asks. Both branches use the same required CI checks (`21_PUBLISHING.md`, `git-push-approval.mdc`).
+
+## Unreleased — Apache-2.0 license + brand notice (DR-027)
+
+### Changed
+
+- Relicensed from MIT to Apache License 2.0; added `NOTICE` (copyright + project-name guidance).
+- Site footer shows © / license line and a short brand notice from `data/site.json`.
+
 ## Unreleased — Canonical host Cloudflare Pages
 
 ### Changed

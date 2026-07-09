@@ -54,7 +54,9 @@
     "clearLabel": "Clear search"
   },
   "footer": {
-    "text": "AEM Developer Playbook — hiring intelligence and apply guide for Adobe Experience Manager roles in India."
+    "text": "AEM Developer Playbook — hiring intelligence and apply guide for Adobe Experience Manager roles in India.",
+    "copyright": "© 2026 Vishnu Jangid. Licensed under Apache-2.0 — contributions welcome via pull request.",
+    "brandNotice": "“AEM Developer Playbook” identifies this project — don’t present a copy as the official site or as solely your own work."
   },
   "seo": {
     "siteUrl": "https://aemplaybook.pages.dev/",

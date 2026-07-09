@@ -3324,6 +3324,23 @@ body.search-platform-mac .search-wrap__shortcut-meta {
   border-top: 1px solid var(--border);
 }
 
+.site-footer__text {
+  margin: 0 0 var(--space-2);
+}
+
+.site-footer__legal {
+  margin: 0.35rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.site-footer__legal--brand {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

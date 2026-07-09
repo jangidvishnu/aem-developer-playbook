@@ -1,6 +1,7 @@
 {
   "name": "enterprise-digital-experience-playbook",
   "private": true,
+  "license": "Apache-2.0",
   "description": "Dev-time tooling only — not loaded by index.html (see .playbook/17_TESTING_GUIDE.md).",
   "scripts": {
     "verify": "node scripts/verify-render.js && node scripts/verify-search.js && node scripts/verify-filters.js && node scripts/verify-owner-playbook.js && node scripts/verify-companies.js && node scripts/verify-learning.js && node scripts/verify-prerender.js",
