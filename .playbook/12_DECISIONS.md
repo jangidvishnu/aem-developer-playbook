@@ -29,10 +29,10 @@ includes `stage`. Documented in `21_PUBLISHING.md` and `.cursor/rules/git-push-a
 republish it under the same project name as if it were solely their product. MIT alone allows broad reuse with
 only attribution; a paid trademark was out of scope.
 **Decision:** Relicense the repository from MIT to **Apache License 2.0**; add a root `NOTICE` with copyright
-(Vishnu Jangid and contributors) and project-name guidance; surface © + brand lines in the site footer via
-`data/site.json`. Apache §6 already clarifies that the license does not grant trademark/trade-name rights except
-for reasonable origin attribution — the NOTICE makes that intent explicit for “AEM Developer Playbook” /
-aemplaybook.pages.dev.
+(Vishnu Jangid and contributors) and project-name guidance; surface tagline + © / license in the site footer via
+`data/site.json` (two lines only — no brand-policing copy on the page). Apache §6 already clarifies that the
+license does not grant trademark/trade-name rights except for reasonable origin attribution — the NOTICE makes
+that intent explicit for “AEM Developer Playbook” / aemplaybook.pages.dev.
 **Trade-off accepted:** Slightly more formal than MIT (NOTICE retention on redistribution); still contribution-
 friendly and zero cost. Does not stop all copying under a *different* brand — only stronger/custom licenses would.
 **Follow-up:** When a custom domain replaces `aemplaybook.pages.dev`, update NOTICE and footer copy if needed.

@@ -43,8 +43,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.
 
 [Apache License 2.0](LICENSE) — see also [NOTICE](NOTICE) for copyright and project-name guidance.
 
-© 2026 Vishnu Jangid. Contributions via pull request are welcome. The names “AEM Developer Playbook” /
-`aemplaybook` identify this project; don’t use them to imply a fork is the official site or solely your work.
+© 2026 Vishnu Jangid. Contributions via pull request are welcome. “AEM Developer Playbook” is the name of this
+open-source project — please keep the copyright notice when you fork or reuse it.
 
 ## Repository layout
 

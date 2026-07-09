@@ -11,12 +11,21 @@ entry noting the reversal.
 - Default PR target is **`stage`** (GitHub Pages). **`master`** is production (Cloudflare); promote only when the
   owner asks. Both branches use the same required CI checks (`21_PUBLISHING.md`, `git-push-approval.mdc`).
 
+## Unreleased — SEO title / description / keywords
+
+### Changed
+
+- Browser tab / Open Graph title: `AEM Developer Playbook — Jobs, Employers & Interview Prep (India)`
+  (`documentTitle`); on-page brand stays **AEM Developer Playbook**.
+- Meta description and keyword list expanded for AEM job / interview / AEMaaCS search intent
+  (`data/site.json` `seo`).
+
 ## Unreleased — Apache-2.0 license + brand notice (DR-027)
 
 ### Changed
 
 - Relicensed from MIT to Apache License 2.0; added `NOTICE` (copyright + project-name guidance).
-- Site footer shows © / license line and a short brand notice from `data/site.json`.
+- Site footer shows tagline + © / license line from `data/site.json` (no brand-policing line on the page).
 
 ## Unreleased — Canonical host Cloudflare Pages
 

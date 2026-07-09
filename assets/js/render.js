@@ -936,11 +936,9 @@ const Render = {
   footer(footer) {
     const text = footer && footer.text ? footer.text : '';
     const copyright = footer && footer.copyright ? footer.copyright : '';
-    const brandNotice = footer && footer.brandNotice ? footer.brandNotice : '';
     const lines = [
       text ? `<p class="site-footer__text">${Render.escapeHtml(text)}</p>` : '',
-      copyright ? `<p class="site-footer__legal">${Render.escapeHtml(copyright)}</p>` : '',
-      brandNotice ? `<p class="site-footer__legal site-footer__legal--brand">${Render.escapeHtml(brandNotice)}</p>` : ''
+      copyright ? `<p class="site-footer__legal">${Render.escapeHtml(copyright)}</p>` : ''
     ].filter(Boolean);
     return `<footer class="site-footer">${lines.join('')}</footer>`;
   },

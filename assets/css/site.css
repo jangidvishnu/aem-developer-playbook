@@ -3335,12 +3335,6 @@ body.search-platform-mac .search-wrap__shortcut-meta {
   color: var(--text-muted);
 }
 
-.site-footer__legal--brand {
-  max-width: 40rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;

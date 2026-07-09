@@ -4,13 +4,11 @@ Copyright 2026 Vishnu Jangid and contributors
 This product includes software developed for the AEM Developer Playbook project
 (https://aemplaybook.pages.dev/).
 
-Project names and marks
------------------------
-"AEM Developer Playbook", "AEM Playbook", and the aemplaybook.pages.dev site identify
-this project. The Apache License, Version 2.0 does not grant permission to use those
-names (or confusingly similar branding) to imply that a fork, mirror, or derivative
-is the official project or that you are the original author. Reasonable attribution
-when describing the origin of the Work is allowed.
+Project name
+------------
+"AEM Developer Playbook", "AEM Playbook", and aemplaybook.pages.dev identify this
+project. Please keep this NOTICE and the copyright notice when you redistribute.
+The Apache License, Version 2.0 does not grant trademark rights in the project name.
 
 Adobe, Adobe Experience Manager, and related marks are trademarks of Adobe Inc.
 This project is not affiliated with, endorsed by, or sponsored by Adobe.

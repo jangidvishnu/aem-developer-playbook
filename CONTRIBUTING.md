@@ -87,8 +87,8 @@ Do not push a branch or open a PR until the project owner has **explicitly appro
 By opening a pull request you agree that your contribution is licensed under the same
 [Apache License 2.0](LICENSE) as the rest of the project (see [NOTICE](NOTICE)).
 
-You may fork and improve this work under Apache-2.0. Please don’t present a copy as the official
-**AEM Developer Playbook** / aemplaybook.pages.dev site, or as solely your own original product under that name.
+You may fork and improve this work under Apache-2.0. Please keep the copyright notice and
+[NOTICE](NOTICE) when you redistribute.
 
 ## Code of conduct
 
