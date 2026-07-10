@@ -1,33 +1,34 @@
 ---
-description: Standards for adding or editing company/research data
-globs: data/companies.json,archive/research/**,archive/companies/**
+description: Company data + research quality when editing companies/archive research
+globs: data/companies.json,archive/research/**,archive/companies/**,scripts/data/**
 alwaysApply: false
 ---
 
-# Company Data & Research Standards
+# Company data & research
 
 Full detail: `.playbook/11_COMPANY_SCHEMA.md`, `.playbook/07_RESEARCH_GUIDE.md`, `archive/README.md`.
 
-- Evidence over assumption. Every factual claim needs a traceable source (company's own careers page/case study >
-  vendor-confirmed > reputable secondary > inference, in that priority order).
-- **Complete field pass** on every new or refreshed company — do not publish partial research (careers-only, then
-  products later, then roles later). Use the field table in `07_RESEARCH_GUIDE.md`.
-- Public rows need non-empty `evidence` and `hiringEvidence` (http URLs). Listing implies AEM usage — do not add
-  companies that do not use AEM.
-- Set `verifiedAt` whenever evidence or hiring signal is checked.
-- Required `ownerVerified`: set **`false`** on any agent-added or materially rewritten row. Only the project owner
-  sets `true` after manual check. Do not invent `true` for new companies.
-- Optional `hiringActive`: frequent/general hiring pattern only — **not** “openings exist right now”. Omit until
-  the owner confirms. Do not set from a single job posting. Site disclaimer must keep this distinction clear.
-- Optional `ownerPreferred`: owner recommendation (pay / growth / quality). Omit unless the owner explicitly marks
-  it; put a short why in `notes`. Not the same as `hiringActive` or `priority`.
-- Encode Adobe stack only in `products` (short codes). Do not reintroduce per-product boolean flags.
-- Set `priority` using the hiring-cadence rubric in `07_RESEARCH_GUIDE.md` (not brand awards). Cap BuiltWith-only
-  rows at 6 until Tier-1/2 evidence upgrades them.
-- `roles` must match titles this employer uses (AEM / DXP / Software / Sr …) — no shared boilerplate lists.
-- Optional `signals` (ratings) only when sourced with `source` + `asOf` — never invent scores for empty rows.
-- **Published DB only:** `data/companies.json`. Do not introduce a second live company JSON.
-- Files under `archive/research/md/` and `archive/companies/` are historical (DR-017) — never copy them into
-  `data/companies.json` as confirmed fact without re-verification.
-- No duplicate company entries without reconciling conflicting details into one record.
-- After material edits: `node scripts/verify-companies.js`.
+## Schema / publish bar
+
+- Evidence over assumption; every claim needs a traceable source (employer > vendor > secondary > inference).
+- Complete field pass on every new/refreshed row — no partial publish. Field table: `07_RESEARCH_GUIDE.md`.
+- Public rows need non-empty `evidence` + `hiringEvidence` (http). AEM usage required.
+- Set `verifiedAt` when evidence/hiring is checked. `ownerVerified: false` on agent-added/rewritten rows (only owner sets `true`).
+- `hiringActive` = frequent cadence only, not “open now”; omit until evidenced. `ownerPreferred` only if owner marks it.
+- Adobe stack only in `products` (short codes). `priority` via hiring-cadence rubric; BuiltWith-only cap 6 until Tier-1/2.
+- `roles` = titles this employer uses. `signals` only with `source` + `asOf`.
+- Live DB: `data/companies.json` only. Archive research is historical — re-verify before promoting. No duplicate ids.
+
+## Research quality (hard)
+
+1. **`careersUrl`** — employer-owned only (careers/ATS). Never job boards (Cutshort, Naukri, Indeed, LinkedIn `/jobs`, etc.).
+2. Boards OK only in `hiringEvidence` / `jobSearchUrl`.
+3. **M&A** — don’t add child brand if parent is listed; keep surviving row.
+4. No careers page → don’t publish; park for owner review.
+5. **`locations`** — hire countries + major hubs; don’t copy `hq`; not India-only for global SI/agency/GCC.
+6. **`remote` / `noticePolicy` / `hiringActive` / `products`** — evidence only; never guess. Expand/remove product tags to match evidence.
+7. **`notes`** — job-seeker facing only (no `DR-xxx` / agent jargon).
+
+## After edits
+
+`node scripts/verify-companies.js`; `npm run check-links` after batches; `npm run prerender` if counts/hero stats change.

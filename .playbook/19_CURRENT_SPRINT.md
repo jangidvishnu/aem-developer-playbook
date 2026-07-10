@@ -2,8 +2,9 @@
 
 ## Active objective
 
-**Milestone 18** remains active — grow verified employers toward 500 (**320** live after truth-pass).
-**Milestone 19** accepted 2026-07-11. **Milestone 20** partial (Location filter shipped; notice/contacts still open).
+**None.** Milestones **1–20** are all complete and owner-accepted (2026-07-11 for M18–M20 close-out).
+
+Optional follow-ups (not milestones): ad-hoc employer adds toward a larger list; deferred `noticePolicy` filter / HR contacts — only when the owner asks.
 
 ## Live URLs
 
@@ -13,10 +14,6 @@
 
 ## Next
 
-1. Continue M18 batches toward 500 when owner asks ("start next milestone").
-2. Optional M20: `noticePolicy` filter / HR contacts — only when owner asks.
-3. After this PR merges to `stage`, promote to `master` only when owner requests.
-
-## Milestones 1–17, 19: complete
-
-See `14_ROADMAP.md` and `25_ROADMAP_ARCHIVE.md`.
+1. Merge feature work to `stage`, verify GitHub Pages.
+2. Promote `stage` → `master` only when the owner requests.
+3. No new milestone until the owner defines one.
