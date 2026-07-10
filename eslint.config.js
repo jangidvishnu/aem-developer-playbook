@@ -56,7 +56,12 @@ const nodeCommonJsGlobals = {
   process: 'readonly',
   console: 'readonly',
   Buffer: 'readonly',
-  URLSearchParams: 'readonly'
+  URL: 'readonly',
+  URLSearchParams: 'readonly',
+  fetch: 'readonly',
+  AbortController: 'readonly',
+  setTimeout: 'readonly',
+  clearTimeout: 'readonly'
 };
 
 const nodeEsmGlobals = {

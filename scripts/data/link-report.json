@@ -1,0 +1,4093 @@
+{
+  "checkedAt": "2026-07-10T15:52:01.351Z",
+  "fields": [
+    "careersUrl",
+    "jobSearchUrl"
+  ],
+  "total": 453,
+  "summary": {
+    "ok": 354,
+    "redirect": 36,
+    "blocked": 21,
+    "dead": 42
+  },
+  "results": [
+    {
+      "id": "adobe",
+      "name": "Adobe",
+      "field": "careersUrl",
+      "url": "https://careers.adobe.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.adobe.com/us/en"
+    },
+    {
+      "id": "adobe",
+      "name": "Adobe",
+      "field": "jobSearchUrl",
+      "url": "https://careers.adobe.com/us/en/search-results?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.adobe.com/us/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "accenture",
+      "name": "Accenture",
+      "field": "careersUrl",
+      "url": "https://www.accenture.com/in-en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.accenture.com/in-en/careers"
+    },
+    {
+      "id": "accenture",
+      "name": "Accenture",
+      "field": "jobSearchUrl",
+      "url": "https://www.accenture.com/in-en/careers/jobsearch?jk=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.accenture.com/in-en/careers/jobsearch?jk=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "ceat",
+      "name": "CEAT",
+      "field": "careersUrl",
+      "url": "https://www.ceat.com/career-landing.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ceat.com/career-landing.html"
+    },
+    {
+      "id": "ceat",
+      "name": "CEAT",
+      "field": "jobSearchUrl",
+      "url": "https://www.ceat.com/career-landing.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ceat.com/career-landing.html"
+    },
+    {
+      "id": "cisco",
+      "name": "Cisco",
+      "field": "careersUrl",
+      "url": "https://jobs.cisco.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.cisco.com/global/en"
+    },
+    {
+      "id": "cisco",
+      "name": "Cisco",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.cisco.com/jobs/SearchJobs/?keyword=experience%20manager",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.cisco.com/global/en"
+    },
+    {
+      "id": "deloitte",
+      "name": "Deloitte Digital",
+      "field": "careersUrl",
+      "url": "https://usijobs.deloitte.com/en_US/careersUSI",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://usijobs.deloitte.com/en_US/careersUSI"
+    },
+    {
+      "id": "deloitte",
+      "name": "Deloitte Digital",
+      "field": "jobSearchUrl",
+      "url": "https://usijobs.deloitte.com/en_US/careersUSI/SearchJobs/?keyword=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://usijobs.deloitte.com/en_US/careersUSI/SearchJobs/?keyword=AEM"
+    },
+    {
+      "id": "ford",
+      "name": "Ford Motor Company",
+      "field": "careersUrl",
+      "url": "https://www.careers.ford.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.careers.ford.com/"
+    },
+    {
+      "id": "ford",
+      "name": "Ford Motor Company",
+      "field": "jobSearchUrl",
+      "url": "https://www.careers.ford.com/search-results?keywords=Adobe%20Experience%20Manager",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.careers.ford.com/search-results?keywords=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "hanesbrands",
+      "name": "HanesBrands",
+      "field": "careersUrl",
+      "url": "https://careers.hanes.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://gildancorp.com/en/careers/"
+    },
+    {
+      "id": "hanesbrands",
+      "name": "HanesBrands",
+      "field": "jobSearchUrl",
+      "url": "https://careers.hanes.com/search?q=AEM",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://gildancorp.com/en/careers/"
+    },
+    {
+      "id": "hdfc-bank",
+      "name": "HDFC Bank",
+      "field": "careersUrl",
+      "url": "https://www.hdfcbank.com/personal/about-us/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.hdfc.bank.in/careers"
+    },
+    {
+      "id": "hdfc-bank",
+      "name": "HDFC Bank",
+      "field": "jobSearchUrl",
+      "url": "https://www.hdfcbank.com/personal/about-us/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.hdfc.bank.in/careers"
+    },
+    {
+      "id": "lenovo",
+      "name": "Lenovo",
+      "field": "careersUrl",
+      "url": "https://jobs.lenovo.com/en_US/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.lenovo.com/en_US/careers"
+    },
+    {
+      "id": "lenovo",
+      "name": "Lenovo",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.lenovo.com/en_US/careers/SearchJobs/?keyword=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.lenovo.com/en_US/careers/SearchJobs/?keyword=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "maruti-suzuki",
+      "name": "Maruti Suzuki India",
+      "field": "careersUrl",
+      "url": "https://www.marutisuzuki.com/corporate/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.marutisuzuki.com/corporate/careers"
+    },
+    {
+      "id": "maruti-suzuki",
+      "name": "Maruti Suzuki India",
+      "field": "jobSearchUrl",
+      "url": "https://www.marutisuzuki.com/corporate/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.marutisuzuki.com/corporate/careers"
+    },
+    {
+      "id": "mg-motor",
+      "name": "MG Motor India",
+      "field": "careersUrl",
+      "url": "https://www.mgmotor.co.in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.mgmotor.co.in/careers"
+    },
+    {
+      "id": "mg-motor",
+      "name": "MG Motor India",
+      "field": "jobSearchUrl",
+      "url": "https://www.mgmotor.co.in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.mgmotor.co.in/careers"
+    },
+    {
+      "id": "philips",
+      "name": "Philips",
+      "field": "careersUrl",
+      "url": "https://www.careers.philips.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.careers.philips.com/in/en"
+    },
+    {
+      "id": "philips",
+      "name": "Philips",
+      "field": "jobSearchUrl",
+      "url": "https://www.careers.philips.com/na/en/search-results?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.careers.philips.com/na/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "ups",
+      "name": "UPS",
+      "field": "careersUrl",
+      "url": "https://www.jobs-ups.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.jobs-ups.com/imea/en"
+    },
+    {
+      "id": "ups",
+      "name": "UPS",
+      "field": "jobSearchUrl",
+      "url": "https://www.jobs-ups.com/global/en/search-results?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.jobs-ups.com/global/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "volkswagen",
+      "name": "Volkswagen Group",
+      "field": "careersUrl",
+      "url": "https://www.volkswagen-group.com/en/career-16057",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.volkswagen-group.com/en/career-16057"
+    },
+    {
+      "id": "volkswagen",
+      "name": "Volkswagen Group",
+      "field": "jobSearchUrl",
+      "url": "https://www.volkswagen-group.com/en/career-16057",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.volkswagen-group.com/en/career-16057"
+    },
+    {
+      "id": "volvo-group",
+      "name": "Volvo Group",
+      "field": "careersUrl",
+      "url": "https://jobs.volvogroup.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.volvogroup.com/"
+    },
+    {
+      "id": "volvo-group",
+      "name": "Volvo Group",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.volvogroup.com/search-jobs?keyword=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.volvogroup.com/search-jobs?keyword=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "walmart",
+      "name": "Walmart",
+      "field": "careersUrl",
+      "url": "https://careers.walmart.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.walmart.com/us/en/home"
+    },
+    {
+      "id": "walmart",
+      "name": "Walmart",
+      "field": "jobSearchUrl",
+      "url": "https://careers.walmart.com/results?q=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.walmart.com/results?q=AEM"
+    },
+    {
+      "id": "workday",
+      "name": "Workday",
+      "field": "careersUrl",
+      "url": "https://www.workday.com/en-us/company/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.workday.com/en-us/company/careers/overview.html"
+    },
+    {
+      "id": "workday",
+      "name": "Workday",
+      "field": "jobSearchUrl",
+      "url": "https://workday.wd5.myworkdayjobs.com/Workday?q=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://workday.wd5.myworkdayjobs.com/Workday?q=AEM"
+    },
+    {
+      "id": "amgen",
+      "name": "Amgen",
+      "field": "careersUrl",
+      "url": "https://careers.amgen.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.amgen.com/en"
+    },
+    {
+      "id": "amgen",
+      "name": "Amgen",
+      "field": "jobSearchUrl",
+      "url": "https://careers.amgen.com/en/search-results?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.amgen.com/en"
+    },
+    {
+      "id": "bbva",
+      "name": "BBVA",
+      "field": "careersUrl",
+      "url": "https://www.bbva.com/en/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bbva.com/en/careers/"
+    },
+    {
+      "id": "bbva",
+      "name": "BBVA",
+      "field": "jobSearchUrl",
+      "url": "https://bbva.csod.com/ux/ats/careersite/4/home?c=bbva&q=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://bbva.csod.com/ux/ats/careersite/4/home?c=bbva&q=AEM"
+    },
+    {
+      "id": "coforge",
+      "name": "Coforge",
+      "field": "careersUrl",
+      "url": "https://careers.coforge.com/coforge/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.coforge.com/coforge/"
+    },
+    {
+      "id": "coforge",
+      "name": "Coforge",
+      "field": "jobSearchUrl",
+      "url": "https://careers.coforge.com/coforge/search/?q=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.coforge.com/coforge/search/?q=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "cognizant",
+      "name": "Cognizant",
+      "field": "careersUrl",
+      "url": "https://careers.cognizant.com/global-en",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.cognizant.com/global-en"
+    },
+    {
+      "id": "cognizant",
+      "name": "Cognizant",
+      "field": "jobSearchUrl",
+      "url": "https://careers.cognizant.com/global-en/jobs?keyword=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.cognizant.com/global-en/jobs?keyword=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "cox-communications",
+      "name": "Cox Communications",
+      "field": "careersUrl",
+      "url": "https://jobs.coxenterprises.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.coxenterprises.com/en/"
+    },
+    {
+      "id": "cox-communications",
+      "name": "Cox Communications",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.coxenterprises.com/en/search-jobs?k=aem",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://jobs.coxenterprises.com/en/search-jobs?k=aem"
+    },
+    {
+      "id": "ericsson-vonage",
+      "name": "Ericsson (incl. Vonage)",
+      "field": "careersUrl",
+      "url": "https://jobs.ericsson.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.ericsson.com/careers"
+    },
+    {
+      "id": "ericsson-vonage",
+      "name": "Ericsson (incl. Vonage)",
+      "field": "jobSearchUrl",
+      "url": "https://job-boards.greenhouse.io/vonage?keyword=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://job-boards.greenhouse.io/vonage?keyword=AEM"
+    },
+    {
+      "id": "hdfc-ltd",
+      "name": "HDFC Ltd.",
+      "field": "careersUrl",
+      "url": "https://homeloans.hdfc.bank.in/careers/current-vacancies",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://homeloans.hdfc.bank.in/careers/current-vacancies"
+    },
+    {
+      "id": "hdfc-ltd",
+      "name": "HDFC Ltd.",
+      "field": "jobSearchUrl",
+      "url": "https://homeloans.hdfc.bank.in/careers/current-vacancies",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://homeloans.hdfc.bank.in/careers/current-vacancies"
+    },
+    {
+      "id": "ibm",
+      "name": "IBM",
+      "field": "careersUrl",
+      "url": "https://www.ibm.com/careers/search",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ibm.com/careers/search"
+    },
+    {
+      "id": "ibm",
+      "name": "IBM",
+      "field": "jobSearchUrl",
+      "url": "https://www.ibm.com/careers/search?keyword=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ibm.com/careers/search?keyword=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "infosys",
+      "name": "Infosys",
+      "field": "careersUrl",
+      "url": "https://digitalcareers.infosys.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://digitalcareers.infosys.com/infosys/global-careers"
+    },
+    {
+      "id": "infosys",
+      "name": "Infosys",
+      "field": "jobSearchUrl",
+      "url": "https://digitalcareers.infosys.com/global-careers?keyword=Adobe%20Experience%20Manager",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.infosys.com/404/"
+    },
+    {
+      "id": "ltimindtree",
+      "name": "LTIMindtree",
+      "field": "careersUrl",
+      "url": "https://careers.ltimindtree.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.ltimindtree.com/"
+    },
+    {
+      "id": "ltimindtree",
+      "name": "LTIMindtree",
+      "field": "jobSearchUrl",
+      "url": "https://careers.ltimindtree.com/job-listing?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.ltimindtree.com/job-listing?keywords=AEM"
+    },
+    {
+      "id": "optum",
+      "name": "Optum (UnitedHealth Group)",
+      "field": "careersUrl",
+      "url": "https://careers.unitedhealthgroup.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.unitedhealthgroup.com/search-jobs"
+    },
+    {
+      "id": "optum",
+      "name": "Optum (UnitedHealth Group)",
+      "field": "jobSearchUrl",
+      "url": "https://careers.unitedhealthgroup.com/job-search-results/?keyword=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.unitedhealthgroup.com/search-jobs"
+    },
+    {
+      "id": "panasonic",
+      "name": "Panasonic",
+      "field": "careersUrl",
+      "url": "https://www.panasonic.com/global/corporate/careers.html",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://holdings.panasonic/global/corporate/careers.html"
+    },
+    {
+      "id": "panasonic",
+      "name": "Panasonic",
+      "field": "jobSearchUrl",
+      "url": "https://careers.na.panasonic.com/en/search-results?keywords=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://careers.na.panasonic.com/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "persistent",
+      "name": "Persistent Systems",
+      "field": "careersUrl",
+      "url": "https://careers.persistent.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.persistent.com/"
+    },
+    {
+      "id": "persistent",
+      "name": "Persistent Systems",
+      "field": "jobSearchUrl",
+      "url": "https://careers.persistent.com/search?q=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.persistent.com/search?q=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "publicis-sapient",
+      "name": "Publicis Sapient",
+      "field": "careersUrl",
+      "url": "https://careers.publicissapient.com/job-search",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.publicissapient.com/job-search"
+    },
+    {
+      "id": "publicis-sapient",
+      "name": "Publicis Sapient",
+      "field": "jobSearchUrl",
+      "url": "https://careers.publicissapient.com/job-search?keyword=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.publicissapient.com/job-search?keyword=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "rockwell-automation",
+      "name": "Rockwell Automation",
+      "field": "careersUrl",
+      "url": "https://www.rockwellautomation.com/en-us/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.rockwellautomation.com/en-us/careers.html"
+    },
+    {
+      "id": "rockwell-automation",
+      "name": "Rockwell Automation",
+      "field": "jobSearchUrl",
+      "url": "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/RockwellAutomation_Careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/RockwellAutomation_Careers"
+    },
+    {
+      "id": "sony",
+      "name": "Sony (Interactive Entertainment)",
+      "field": "careersUrl",
+      "url": "https://careers.sony.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "sony",
+      "name": "Sony (Interactive Entertainment)",
+      "field": "jobSearchUrl",
+      "url": "https://careers.sony.com/en/search-jobs?k=experience%20manager",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "t-mobile",
+      "name": "T-Mobile US",
+      "field": "careersUrl",
+      "url": "https://careers.t-mobile.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.t-mobile.com/"
+    },
+    {
+      "id": "t-mobile",
+      "name": "T-Mobile US",
+      "field": "jobSearchUrl",
+      "url": "https://careers.t-mobile.com/search-results?keywords=Adobe%20Experience%20Manager",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://careers.t-mobile.com/search-results?keywords=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "tcs",
+      "name": "Tata Consultancy Services",
+      "field": "careersUrl",
+      "url": "https://www.tcs.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tcs.com/careers"
+    },
+    {
+      "id": "tcs",
+      "name": "Tata Consultancy Services",
+      "field": "jobSearchUrl",
+      "url": "https://ibegin.tcsapps.com/candidate/jobs/search?query=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://ibegin.tcsapps.com/candidate/jobs/search?query=AEM"
+    },
+    {
+      "id": "under-armour",
+      "name": "Under Armour",
+      "field": "careersUrl",
+      "url": "https://careers.underarmour.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.underarmour.com/"
+    },
+    {
+      "id": "under-armour",
+      "name": "Under Armour",
+      "field": "jobSearchUrl",
+      "url": "https://careers.underarmour.com/search-jobs?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.underarmour.com/search-jobs?keywords=AEM"
+    },
+    {
+      "id": "vanguard",
+      "name": "Vanguard",
+      "field": "careersUrl",
+      "url": "https://www.vanguardjobs.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.vanguardjobs.com/"
+    },
+    {
+      "id": "vanguard",
+      "name": "Vanguard",
+      "field": "jobSearchUrl",
+      "url": "https://www.vanguardjobs.com/job-search-results/?keyword=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.vanguardjobs.com/job-search-results/?keyword=AEM"
+    },
+    {
+      "id": "virtusa",
+      "name": "Virtusa",
+      "field": "careersUrl",
+      "url": "https://www.virtusa.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.virtusa.com/careers"
+    },
+    {
+      "id": "virtusa",
+      "name": "Virtusa",
+      "field": "jobSearchUrl",
+      "url": "https://virtusapolaris.referrals.selectminds.com/jobs?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://virtusapolaris.referrals.selectminds.com/"
+    },
+    {
+      "id": "vodafone-idea",
+      "name": "Vodafone Idea (Vi)",
+      "field": "careersUrl",
+      "url": "https://www.vodafoneidea.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.myvi.in/careers"
+    },
+    {
+      "id": "vodafone-idea",
+      "name": "Vodafone Idea (Vi)",
+      "field": "jobSearchUrl",
+      "url": "https://www.vodafoneidea.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.myvi.in/careers"
+    },
+    {
+      "id": "air-india",
+      "name": "Air India",
+      "field": "careersUrl",
+      "url": "https://careers.airindia.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.airindia.com/"
+    },
+    {
+      "id": "air-india",
+      "name": "Air India",
+      "field": "jobSearchUrl",
+      "url": "https://careers.airindia.com/go/Information-Technology/668444/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.airindia.com/go/Information-Technology/668444/"
+    },
+    {
+      "id": "akzonobel",
+      "name": "AkzoNobel",
+      "field": "careersUrl",
+      "url": "https://www.akzonobel.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.akzonobel.com/en/careers"
+    },
+    {
+      "id": "akzonobel",
+      "name": "AkzoNobel",
+      "field": "jobSearchUrl",
+      "url": "https://www.akzonobel.com/en/careers/search?q=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.akzonobel.com/en/careers/search?q=AEM"
+    },
+    {
+      "id": "best-buy",
+      "name": "Best Buy",
+      "field": "careersUrl",
+      "url": "https://jobs.bestbuy.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.bestbuy.com/bby"
+    },
+    {
+      "id": "best-buy",
+      "name": "Best Buy",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.bestbuy.com/bby?q=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.bestbuy.com/bby?q=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "boots",
+      "name": "Boots",
+      "field": "careersUrl",
+      "url": "https://www.boots-uk.com/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.boots-uk.com/careers"
+    },
+    {
+      "id": "boots",
+      "name": "Boots",
+      "field": "jobSearchUrl",
+      "url": "https://www.boots.jobs/search-jobs?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.boots.jobs/search-jobs?keywords=AEM"
+    },
+    {
+      "id": "capgemini",
+      "name": "Capgemini",
+      "field": "careersUrl",
+      "url": "https://www.capgemini.com/in-en/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.capgemini.com/in-en/careers/"
+    },
+    {
+      "id": "capgemini",
+      "name": "Capgemini",
+      "field": "jobSearchUrl",
+      "url": "https://www.capgemini.com/in-en/careers/join-capgemini/job-search/?keyword=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.capgemini.com/in-en/careers/join-capgemini/job-search/?keyword=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "dicks-sporting-goods",
+      "name": "DICK'S Sporting Goods",
+      "field": "careersUrl",
+      "url": "https://www.dickssportinggoods.jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.dickssportinggoods.jobs/"
+    },
+    {
+      "id": "dicks-sporting-goods",
+      "name": "DICK'S Sporting Goods",
+      "field": "jobSearchUrl",
+      "url": "https://www.dickssportinggoods.jobs/job-listing?q=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.dickssportinggoods.jobs/job-listing?q=AEM"
+    },
+    {
+      "id": "dow",
+      "name": "Dow",
+      "field": "careersUrl",
+      "url": "https://jobs.dow.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UNABLE_TO_VERIFY_LEAF_SIGNATURE"
+    },
+    {
+      "id": "dow",
+      "name": "Dow",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.dow.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UNABLE_TO_VERIFY_LEAF_SIGNATURE"
+    },
+    {
+      "id": "e-on",
+      "name": "E.ON",
+      "field": "careersUrl",
+      "url": "https://www.eon.com/en/careers.html",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.eon.com/en/careers.html"
+    },
+    {
+      "id": "e-on",
+      "name": "E.ON",
+      "field": "jobSearchUrl",
+      "url": "https://www.eon.com/en/careers.html",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.eon.com/en/careers.html"
+    },
+    {
+      "id": "epam",
+      "name": "EPAM",
+      "field": "careersUrl",
+      "url": "https://careers.epam.com/en/jobs",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.epam.com/en/jobs"
+    },
+    {
+      "id": "epam",
+      "name": "EPAM",
+      "field": "jobSearchUrl",
+      "url": "https://careers.epam.com/en/jobs?query=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.epam.com/en/jobs?query=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "grundfos",
+      "name": "Grundfos",
+      "field": "careersUrl",
+      "url": "https://jobs.grundfos.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.grundfos.com/"
+    },
+    {
+      "id": "grundfos",
+      "name": "Grundfos",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.grundfos.com/search/?q=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.grundfos.com/search/?q=AEM"
+    },
+    {
+      "id": "hashout",
+      "name": "Hashout Technologies",
+      "field": "careersUrl",
+      "url": "https://hashouttech.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://hashouttech.com/careers/"
+    },
+    {
+      "id": "hayagreeva",
+      "name": "Hayagreeva Consulting",
+      "field": "careersUrl",
+      "url": "https://www.hayagreeva.co.in/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.hayagreeva.co.in/careers/"
+    },
+    {
+      "id": "hayagreeva",
+      "name": "Hayagreeva Consulting",
+      "field": "jobSearchUrl",
+      "url": "https://www.hayagreeva.co.in/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.hayagreeva.co.in/careers/"
+    },
+    {
+      "id": "hcltech",
+      "name": "HCLTech",
+      "field": "careersUrl",
+      "url": "https://www.hcltech.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.hcltech.com/"
+    },
+    {
+      "id": "hcltech",
+      "name": "HCLTech",
+      "field": "jobSearchUrl",
+      "url": "https://www.hcltech.com/careers/job-search?keyword=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.hcltech.com/careers/job-search?keyword=AEM"
+    },
+    {
+      "id": "hexaware",
+      "name": "Hexaware",
+      "field": "careersUrl",
+      "url": "https://jobs.hexaware.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.hexaware.com/"
+    },
+    {
+      "id": "hexaware",
+      "name": "Hexaware",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.hexaware.com/search?q=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://jobs.hexaware.com/search?q=AEM"
+    },
+    {
+      "id": "htc-global-services",
+      "name": "HTC Global Services",
+      "field": "careersUrl",
+      "url": "https://www.htcinc.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.htcinc.com/careers/"
+    },
+    {
+      "id": "htc-global-services",
+      "name": "HTC Global Services",
+      "field": "jobSearchUrl",
+      "url": "https://www.htcinc.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.htcinc.com/careers/"
+    },
+    {
+      "id": "informatica",
+      "name": "Informatica",
+      "field": "careersUrl",
+      "url": "https://careers.informatica.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.salesforce.com/company/careers/jobs/?search=informatica&pagesize=20"
+    },
+    {
+      "id": "informatica",
+      "name": "Informatica",
+      "field": "jobSearchUrl",
+      "url": "https://careers.informatica.com/search-jobs?keywords=AEM",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.salesforce.com/company/careers/jobs/?search=informatica&pagesize=20"
+    },
+    {
+      "id": "jpmorgan-chase",
+      "name": "JPMorgan Chase",
+      "field": "careersUrl",
+      "url": "https://careers.jpmorgan.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.jpmorganchase.com/careers?redirect=careers_jpm"
+    },
+    {
+      "id": "jpmorgan-chase",
+      "name": "JPMorgan Chase",
+      "field": "jobSearchUrl",
+      "url": "https://careers.jpmorgan.com/us/en/search?search=Adobe%20Experience%20Manager",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.jpmorganchase.com/careers?redirect=careers_jpm&search=Adobe%2520Experience%2520Manager"
+    },
+    {
+      "id": "juniper-networks",
+      "name": "Juniper Networks",
+      "field": "careersUrl",
+      "url": "https://careers.juniper.net/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.hpe.com/juniper"
+    },
+    {
+      "id": "juniper-networks",
+      "name": "Juniper Networks",
+      "field": "jobSearchUrl",
+      "url": "https://careers.juniper.net/us/en/search-results?keywords=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://jobs.juniper.net/us/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "kpmg",
+      "name": "KPMG India",
+      "field": "careersUrl",
+      "url": "https://www.kpmg.com/in/en/home/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://kpmg.com/in/en/careers.html"
+    },
+    {
+      "id": "kpmg",
+      "name": "KPMG India",
+      "field": "jobSearchUrl",
+      "url": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?keyword=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?keyword=AEM"
+    },
+    {
+      "id": "malaysia-airlines",
+      "name": "Malaysia Airlines",
+      "field": "careersUrl",
+      "url": "https://www.malaysiaairlines.com/in/en/about-us/join-us.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.malaysiaairlines.com/in/en/about-us/join-us.html"
+    },
+    {
+      "id": "malaysia-airlines",
+      "name": "Malaysia Airlines",
+      "field": "jobSearchUrl",
+      "url": "https://www.malaysiaairlines.com/in/en/about-us/join-us.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.malaysiaairlines.com/in/en/about-us/join-us.html"
+    },
+    {
+      "id": "mphasis",
+      "name": "Mphasis",
+      "field": "careersUrl",
+      "url": "https://careers.mphasis.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.mphasis.com/home.html"
+    },
+    {
+      "id": "mphasis",
+      "name": "Mphasis",
+      "field": "jobSearchUrl",
+      "url": "https://careers.mphasis.com/home/search-results.html?keyword=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://careers.mphasis.com/home/search-results.html?keyword=AEM"
+    },
+    {
+      "id": "perficient",
+      "name": "Perficient",
+      "field": "careersUrl",
+      "url": "https://careers.perficient.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.perficient.com/en/sites/CX_1"
+    },
+    {
+      "id": "perficient",
+      "name": "Perficient",
+      "field": "jobSearchUrl",
+      "url": "https://careers.perficient.com/us/en/search-results?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.perficient.com/errors/404"
+    },
+    {
+      "id": "photon",
+      "name": "Photon",
+      "field": "careersUrl",
+      "url": "https://www.photon.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.photon.com/careers"
+    },
+    {
+      "id": "photon",
+      "name": "Photon",
+      "field": "jobSearchUrl",
+      "url": "https://www.photon.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.photon.com/careers"
+    },
+    {
+      "id": "prudential-financial",
+      "name": "Prudential Financial",
+      "field": "careersUrl",
+      "url": "https://jobs.prudential.com/us-en",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.prudential.com/us-en"
+    },
+    {
+      "id": "prudential-financial",
+      "name": "Prudential Financial",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.prudential.com/us-en/search-jobs?k=Adobe",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://jobs.prudential.com/us-en/search-jobs?k=Adobe"
+    },
+    {
+      "id": "qualcomm",
+      "name": "Qualcomm",
+      "field": "careersUrl",
+      "url": "https://careers.qualcomm.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.qualcomm.com/careers"
+    },
+    {
+      "id": "qualcomm",
+      "name": "Qualcomm",
+      "field": "jobSearchUrl",
+      "url": "https://careers.qualcomm.com/careers?query=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.qualcomm.com/careers?query=AEM"
+    },
+    {
+      "id": "rightpoint",
+      "name": "Rightpoint",
+      "field": "careersUrl",
+      "url": "https://www.rightpoint.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.genpact.com/careers/experience"
+    },
+    {
+      "id": "rightpoint",
+      "name": "Rightpoint",
+      "field": "jobSearchUrl",
+      "url": "https://www.rightpoint.com/careers?search=AEM",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.genpact.com/careers/experience?search=AEM"
+    },
+    {
+      "id": "signify",
+      "name": "Signify",
+      "field": "careersUrl",
+      "url": "https://www.careers.signify.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.careers.signify.com/global/en"
+    },
+    {
+      "id": "signify",
+      "name": "Signify",
+      "field": "jobSearchUrl",
+      "url": "https://www.careers.signify.com/search-jobs?keywords=Adobe",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.careers.signify.com/global/en"
+    },
+    {
+      "id": "standard-chartered",
+      "name": "Standard Chartered Bank",
+      "field": "careersUrl",
+      "url": "https://jobs.standardchartered.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.standardchartered.com/"
+    },
+    {
+      "id": "standard-chartered",
+      "name": "Standard Chartered Bank",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.standardchartered.com/search-jobs?keywords=Adobe",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.standardchartered.com/search-jobs?keywords=Adobe"
+    },
+    {
+      "id": "tech-mahindra",
+      "name": "Tech Mahindra",
+      "field": "careersUrl",
+      "url": "https://careers.techmahindra.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.techmahindra.com/"
+    },
+    {
+      "id": "tech-mahindra",
+      "name": "Tech Mahindra",
+      "field": "jobSearchUrl",
+      "url": "https://careers.techmahindra.com/SearchJobs.aspx?k=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.techmahindra.com/404.aspx?aspxerrorpath=/SearchJobs.aspx"
+    },
+    {
+      "id": "to-the-new",
+      "name": "TO THE NEW",
+      "field": "careersUrl",
+      "url": "https://www.tothenew.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tothenew.com/careers"
+    },
+    {
+      "id": "to-the-new",
+      "name": "TO THE NEW",
+      "field": "jobSearchUrl",
+      "url": "https://www.tothenew.com/careers?search=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tothenew.com/careers?search=AEM"
+    },
+    {
+      "id": "ust",
+      "name": "UST",
+      "field": "careersUrl",
+      "url": "https://www.ust.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ust.com/en/careers"
+    },
+    {
+      "id": "ust",
+      "name": "UST",
+      "field": "jobSearchUrl",
+      "url": "https://www.ust.com/en/careers/search?query=Adobe%20Experience%20Manager",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.ust.com/en/careers/search?query=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "wipro",
+      "name": "Wipro",
+      "field": "careersUrl",
+      "url": "https://careers.wipro.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.wipro.com/"
+    },
+    {
+      "id": "wipro",
+      "name": "Wipro",
+      "field": "jobSearchUrl",
+      "url": "https://careers.wipro.com/search/?q=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.wipro.com/search/?q=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "accion-labs",
+      "name": "Accion Labs",
+      "field": "careersUrl",
+      "url": "https://accionlabs.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.accionlabs.com/careers"
+    },
+    {
+      "id": "accion-labs",
+      "name": "Accion Labs",
+      "field": "jobSearchUrl",
+      "url": "https://accionlabs.com/careers?search=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.accionlabs.com/careers?search=AEM"
+    },
+    {
+      "id": "alliance-bernstein",
+      "name": "AllianceBernstein",
+      "field": "careersUrl",
+      "url": "https://www.alliancebernstein.com/corporate/en/careers.html",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UND_ERR_HEADERS_OVERFLOW"
+    },
+    {
+      "id": "alliance-bernstein",
+      "name": "AllianceBernstein",
+      "field": "jobSearchUrl",
+      "url": "https://www.alliancebernstein.com/corporate/en/careers.html",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UND_ERR_HEADERS_OVERFLOW"
+    },
+    {
+      "id": "american-express",
+      "name": "American Express",
+      "field": "careersUrl",
+      "url": "https://aexp.eightfold.ai/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.americanexpress.com/en-us/careers/"
+    },
+    {
+      "id": "american-express",
+      "name": "American Express",
+      "field": "jobSearchUrl",
+      "url": "https://aexp.eightfold.ai/careers?query=Adobe%20Experience%20Manager",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.americanexpress.com/en-us/careers/"
+    },
+    {
+      "id": "asian-paints",
+      "name": "Asian Paints",
+      "field": "careersUrl",
+      "url": "https://careers.asianpaints.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.asianpaints.com/"
+    },
+    {
+      "id": "asian-paints",
+      "name": "Asian Paints",
+      "field": "jobSearchUrl",
+      "url": "https://careers.asianpaints.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.asianpaints.com/"
+    },
+    {
+      "id": "avalara",
+      "name": "Avalara",
+      "field": "careersUrl",
+      "url": "https://careers.avalara.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.avalara.com/careers-home/"
+    },
+    {
+      "id": "avalara",
+      "name": "Avalara",
+      "field": "jobSearchUrl",
+      "url": "https://careers.avalara.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.avalara.com/careers-home/"
+    },
+    {
+      "id": "bajaj-finserv",
+      "name": "Bajaj Finserv",
+      "field": "careersUrl",
+      "url": "https://www.bajajfinserv.in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bajajfinserv.in/"
+    },
+    {
+      "id": "bajaj-finserv",
+      "name": "Bajaj Finserv",
+      "field": "jobSearchUrl",
+      "url": "https://www.bajajfinserv.in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bajajfinserv.in/"
+    },
+    {
+      "id": "bank-of-america",
+      "name": "Bank of America",
+      "field": "careersUrl",
+      "url": "https://careers.bankofamerica.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.bankofamerica.com/en-us"
+    },
+    {
+      "id": "bank-of-america",
+      "name": "Bank of America",
+      "field": "jobSearchUrl",
+      "url": "https://careers.bankofamerica.com/en-us/search-jobs?keywords=Adobe%20Experience%20Manager",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://careers.bankofamerica.com/en-us/search-jobs?keywords=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "bmw",
+      "name": "BMW Group",
+      "field": "careersUrl",
+      "url": "https://www.bmwgroup.jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bmwgroup.jobs/en.html"
+    },
+    {
+      "id": "bmw",
+      "name": "BMW Group",
+      "field": "jobSearchUrl",
+      "url": "https://www.bmwgroup.jobs/us/en/search-results.html?keywords=Experience%20Manager",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.bmwgroup.jobs/us/en/search-results.html?keywords=Experience%20Manager"
+    },
+    {
+      "id": "citrix",
+      "name": "Citrix (Cloud Software Group)",
+      "field": "careersUrl",
+      "url": "https://careers.cloud.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.cloud.com/"
+    },
+    {
+      "id": "citrix",
+      "name": "Citrix (Cloud Software Group)",
+      "field": "jobSearchUrl",
+      "url": "https://careers.cloud.com/search?q=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://careers.cloud.com/search?q=AEM"
+    },
+    {
+      "id": "code-and-theory",
+      "name": "Code and Theory",
+      "field": "careersUrl",
+      "url": "https://www.codeandtheory.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.codeandtheory.com/careers"
+    },
+    {
+      "id": "code-and-theory",
+      "name": "Code and Theory",
+      "field": "jobSearchUrl",
+      "url": "https://www.codeandtheory.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.codeandtheory.com/careers"
+    },
+    {
+      "id": "colgate-palmolive",
+      "name": "Colgate-Palmolive",
+      "field": "careersUrl",
+      "url": "https://www.colgatepalmolive.com/en-us/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://jobs.colgate.com/"
+    },
+    {
+      "id": "colgate-palmolive",
+      "name": "Colgate-Palmolive",
+      "field": "jobSearchUrl",
+      "url": "https://www.colgatepalmolive.com/en-us/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://jobs.colgate.com/"
+    },
+    {
+      "id": "delta-air-lines",
+      "name": "Delta Air Lines",
+      "field": "careersUrl",
+      "url": "https://delta.avature.net/en_US/careers",
+      "category": "ok",
+      "status": 202,
+      "finalUrl": "https://delta.avature.net/en_US/careers"
+    },
+    {
+      "id": "delta-air-lines",
+      "name": "Delta Air Lines",
+      "field": "jobSearchUrl",
+      "url": "https://delta.avature.net/en_US/careers",
+      "category": "ok",
+      "status": 202,
+      "finalUrl": "https://delta.avature.net/en_US/careers"
+    },
+    {
+      "id": "emids",
+      "name": "Emids",
+      "field": "careersUrl",
+      "url": "https://www.emids.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.emids.com/careers/"
+    },
+    {
+      "id": "emids",
+      "name": "Emids",
+      "field": "jobSearchUrl",
+      "url": "https://www.emids.com/careers/?search=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.emids.com/careers/?search=AEM"
+    },
+    {
+      "id": "emirates",
+      "name": "Emirates",
+      "field": "careersUrl",
+      "url": "https://www.emirates.com/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.emiratesgroupcareers.com/"
+    },
+    {
+      "id": "emirates",
+      "name": "Emirates",
+      "field": "jobSearchUrl",
+      "url": "https://www.emirates.com/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.emiratesgroupcareers.com/"
+    },
+    {
+      "id": "epsilon",
+      "name": "Epsilon (Publicis)",
+      "field": "careersUrl",
+      "url": "https://www.epsilon.com/us/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.epsilon.com/us/careers"
+    },
+    {
+      "id": "epsilon",
+      "name": "Epsilon (Publicis)",
+      "field": "jobSearchUrl",
+      "url": "https://www.epsilon.com/us/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.epsilon.com/us/careers"
+    },
+    {
+      "id": "etihad-airways",
+      "name": "Etihad Airways",
+      "field": "careersUrl",
+      "url": "https://careers.etihad.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.etihad.com/"
+    },
+    {
+      "id": "etihad-airways",
+      "name": "Etihad Airways",
+      "field": "jobSearchUrl",
+      "url": "https://careers.etihad.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.etihad.com/"
+    },
+    {
+      "id": "fedex",
+      "name": "FedEx",
+      "field": "careersUrl",
+      "url": "https://careers.fedex.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.fedex.com/"
+    },
+    {
+      "id": "fedex",
+      "name": "FedEx",
+      "field": "jobSearchUrl",
+      "url": "https://careers.fedex.com/fedex/jobs?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.fedex.com/jobs"
+    },
+    {
+      "id": "ge-healthcare",
+      "name": "GE HealthCare",
+      "field": "careersUrl",
+      "url": "https://careers.gehealthcare.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.gehealthcare.com/global/en"
+    },
+    {
+      "id": "ge-healthcare",
+      "name": "GE HealthCare",
+      "field": "jobSearchUrl",
+      "url": "https://careers.gehealthcare.com/global/en/search-results?keywords=Adobe",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.gehealthcare.com/global/en/search-results?keywords=Adobe"
+    },
+    {
+      "id": "hilton",
+      "name": "Hilton",
+      "field": "careersUrl",
+      "url": "https://jobs.hilton.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.hilton.com/"
+    },
+    {
+      "id": "hilton",
+      "name": "Hilton",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.hilton.com/us/en/search-results?keywords=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://jobs.hilton.com/us/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "icici-bank",
+      "name": "ICICI Bank",
+      "field": "careersUrl",
+      "url": "https://www.icicicareers.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.icici.bank.in/CareerApplicant/Career/Home/"
+    },
+    {
+      "id": "icici-bank",
+      "name": "ICICI Bank",
+      "field": "jobSearchUrl",
+      "url": "https://www.icicicareers.com/CareerApplicant/Career/Home",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.icicicareers.com/CareerApplicant/Career/Home"
+    },
+    {
+      "id": "ikea",
+      "name": "IKEA",
+      "field": "careersUrl",
+      "url": "https://www.ikea.com/global/en/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ikea.com/global/en/jobs/"
+    },
+    {
+      "id": "ikea",
+      "name": "IKEA",
+      "field": "jobSearchUrl",
+      "url": "https://www.ikea.com/global/en/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ikea.com/global/en/jobs/"
+    },
+    {
+      "id": "indusind-bank",
+      "name": "IndusInd Bank",
+      "field": "careersUrl",
+      "url": "https://app1100.workline.hr/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://app1100.workline.hr/careers/"
+    },
+    {
+      "id": "indusind-bank",
+      "name": "IndusInd Bank",
+      "field": "jobSearchUrl",
+      "url": "https://app1100.workline.hr/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://app1100.workline.hr/careers/"
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "field": "careersUrl",
+      "url": "https://careers.linkedin.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.linkedin.com/"
+    },
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "field": "jobSearchUrl",
+      "url": "https://careers.linkedin.com/jobs/search?keywords=Adobe%20Experience%20Manager",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://careers.linkedin.com/jobs/search?keywords=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "lufthansa",
+      "name": "Lufthansa Group",
+      "field": "careersUrl",
+      "url": "https://lufthansagroup.careers/en",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://lufthansagroup.careers/en"
+    },
+    {
+      "id": "lufthansa",
+      "name": "Lufthansa Group",
+      "field": "jobSearchUrl",
+      "url": "https://lufthansagroup.careers/en",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://lufthansagroup.careers/en"
+    },
+    {
+      "id": "marriott",
+      "name": "Marriott International",
+      "field": "careersUrl",
+      "url": "https://careers.marriott.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.marriott.com/"
+    },
+    {
+      "id": "marriott",
+      "name": "Marriott International",
+      "field": "jobSearchUrl",
+      "url": "https://careers.marriott.com/search-jobs?keywords=Adobe",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://careers.marriott.com/search-jobs?keywords=Adobe"
+    },
+    {
+      "id": "mastercard",
+      "name": "Mastercard",
+      "field": "careersUrl",
+      "url": "https://careers.mastercard.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.mastercard.com/us/en"
+    },
+    {
+      "id": "mastercard",
+      "name": "Mastercard",
+      "field": "jobSearchUrl",
+      "url": "https://careers.mastercard.com/us/en/search-results?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.mastercard.com/us/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "medtronic",
+      "name": "Medtronic",
+      "field": "careersUrl",
+      "url": "https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers"
+    },
+    {
+      "id": "medtronic",
+      "name": "Medtronic",
+      "field": "jobSearchUrl",
+      "url": "https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers?q=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://medtronic.wd1.myworkdayjobs.com/MedtronicCareers?q=AEM"
+    },
+    {
+      "id": "mercedes-benz",
+      "name": "Mercedes-Benz Group",
+      "field": "careersUrl",
+      "url": "https://group.mercedes-benz.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://group.mercedes-benz.com/careers/"
+    },
+    {
+      "id": "mercedes-benz",
+      "name": "Mercedes-Benz Group",
+      "field": "jobSearchUrl",
+      "url": "https://group.mercedes-benz.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://group.mercedes-benz.com/careers/"
+    },
+    {
+      "id": "merck",
+      "name": "Merck",
+      "field": "careersUrl",
+      "url": "https://careers.merckgroup.com/global/en/search-results",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.merckgroup.com/global/en/search-results"
+    },
+    {
+      "id": "merck",
+      "name": "Merck",
+      "field": "jobSearchUrl",
+      "url": "https://careers.merckgroup.com/global/en/search-results",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.merckgroup.com/global/en/search-results"
+    },
+    {
+      "id": "micron",
+      "name": "Micron Technology",
+      "field": "careersUrl",
+      "url": "https://micron.eightfold.ai/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://micron.eightfold.ai/careers"
+    },
+    {
+      "id": "micron",
+      "name": "Micron Technology",
+      "field": "jobSearchUrl",
+      "url": "https://micron.eightfold.ai/careers?query=Adobe",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://micron.eightfold.ai/careers?query=Adobe"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "field": "careersUrl",
+      "url": "https://careers.microsoft.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.microsoft.com/v2/global/en/home.html"
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "field": "jobSearchUrl",
+      "url": "https://careers.microsoft.com/us/en/search-results?keywords=Adobe%20Experience%20Manager",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://apply.careers.microsoft.com/careers"
+    },
+    {
+      "id": "nike",
+      "name": "Nike",
+      "field": "careersUrl",
+      "url": "https://careers.nike.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.nike.com/"
+    },
+    {
+      "id": "nike",
+      "name": "Nike",
+      "field": "jobSearchUrl",
+      "url": "https://careers.nike.com/search-jobs?keywords=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://careers.nike.com/search-jobs?keywords=AEM"
+    },
+    {
+      "id": "qatar-airways",
+      "name": "Qatar Airways",
+      "field": "careersUrl",
+      "url": "https://careers.qatarairways.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.qatarairways.com/"
+    },
+    {
+      "id": "qatar-airways",
+      "name": "Qatar Airways",
+      "field": "jobSearchUrl",
+      "url": "https://careers.qatarairways.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.qatarairways.com/"
+    },
+    {
+      "id": "ranosys",
+      "name": "Ranosys",
+      "field": "careersUrl",
+      "url": "https://www.ranosys.com/global/about-us/career/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ranosys.com/global/about-us/career/"
+    },
+    {
+      "id": "ranosys",
+      "name": "Ranosys",
+      "field": "jobSearchUrl",
+      "url": "https://www.ranosys.com/global/about-us/career/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ranosys.com/global/about-us/career/"
+    },
+    {
+      "id": "roche",
+      "name": "Roche",
+      "field": "careersUrl",
+      "url": "https://careers.roche.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.roche.com/global/en"
+    },
+    {
+      "id": "roche",
+      "name": "Roche",
+      "field": "jobSearchUrl",
+      "url": "https://careers.roche.com/global/en/search-results?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.roche.com/global/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "sap",
+      "name": "SAP",
+      "field": "careersUrl",
+      "url": "https://jobs.sap.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.sap.com/"
+    },
+    {
+      "id": "sap",
+      "name": "SAP",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.sap.com/search/?q=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.sap.com/search/?q=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "servicenow",
+      "name": "ServiceNow",
+      "field": "careersUrl",
+      "url": "https://careers.servicenow.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.servicenow.com/"
+    },
+    {
+      "id": "servicenow",
+      "name": "ServiceNow",
+      "field": "jobSearchUrl",
+      "url": "https://careers.servicenow.com/jobs?keywords=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.servicenow.com/jobs?keywords=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "siemens",
+      "name": "Siemens",
+      "field": "careersUrl",
+      "url": "https://jobs.siemens.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.siemens.com/en_US/externaljobs"
+    },
+    {
+      "id": "siemens",
+      "name": "Siemens",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.siemens.com/careers?query=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.siemens.com/en_US/externaljobs/redirect"
+    },
+    {
+      "id": "spark-new-zealand",
+      "name": "Spark New Zealand",
+      "field": "careersUrl",
+      "url": "https://careers.sparknz.co.nz/careers/SearchJobs",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.sparknz.co.nz/careers/SearchJobs"
+    },
+    {
+      "id": "spark-new-zealand",
+      "name": "Spark New Zealand",
+      "field": "jobSearchUrl",
+      "url": "https://careers.sparknz.co.nz/careers/SearchJobs",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.sparknz.co.nz/careers/SearchJobs"
+    },
+    {
+      "id": "suncorp",
+      "name": "Suncorp Group",
+      "field": "careersUrl",
+      "url": "https://www.suncorpgroup.com.au/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.suncorpgroup.com.au/careers"
+    },
+    {
+      "id": "suncorp",
+      "name": "Suncorp Group",
+      "field": "jobSearchUrl",
+      "url": "https://www.suncorpgroup.com.au/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.suncorpgroup.com.au/careers"
+    },
+    {
+      "id": "target",
+      "name": "Target",
+      "field": "careersUrl",
+      "url": "https://corporate.target.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://corporate.target.com/careers"
+    },
+    {
+      "id": "target",
+      "name": "Target",
+      "field": "jobSearchUrl",
+      "url": "https://corporate.target.com/careers/search?query=Adobe",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://corporate.target.com/careers/search?query=Adobe"
+    },
+    {
+      "id": "telstra",
+      "name": "Telstra",
+      "field": "careersUrl",
+      "url": "https://careers.telstra.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.telstra.com.au/careers"
+    },
+    {
+      "id": "telstra",
+      "name": "Telstra",
+      "field": "jobSearchUrl",
+      "url": "https://careers.telstra.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.telstra.com.au/careers"
+    },
+    {
+      "id": "disney",
+      "name": "The Walt Disney Company",
+      "field": "careersUrl",
+      "url": "https://jobs.disneycareers.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.disneycareers.com/"
+    },
+    {
+      "id": "disney",
+      "name": "The Walt Disney Company",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.disneycareers.com/search-jobs?k=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.disneycareers.com/search-jobs?k=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "unicredit",
+      "name": "UniCredit",
+      "field": "careersUrl",
+      "url": "https://www.unicreditgroup.eu/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.unicreditgroup.eu/en/careers.html"
+    },
+    {
+      "id": "unicredit",
+      "name": "UniCredit",
+      "field": "jobSearchUrl",
+      "url": "https://www.unicreditgroup.eu/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.unicreditgroup.eu/en/careers.html"
+    },
+    {
+      "id": "united-airlines",
+      "name": "United Airlines",
+      "field": "careersUrl",
+      "url": "https://careers.united.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.united.com/us/en"
+    },
+    {
+      "id": "united-airlines",
+      "name": "United Airlines",
+      "field": "jobSearchUrl",
+      "url": "https://careers.united.com/us/en/search-results?keywords=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.united.com/us/en/search-results?keywords=AEM"
+    },
+    {
+      "id": "valuelabs",
+      "name": "ValueLabs",
+      "field": "careersUrl",
+      "url": "https://www.valuelabs.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.valuelabs.com/careers/"
+    },
+    {
+      "id": "valuelabs",
+      "name": "ValueLabs",
+      "field": "jobSearchUrl",
+      "url": "https://www.valuelabs.com/careers/?keyword=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.valuelabs.com/careers/?keyword=AEM"
+    },
+    {
+      "id": "verizon",
+      "name": "Verizon",
+      "field": "careersUrl",
+      "url": "https://mycareer.verizon.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://mycareer.verizon.com/"
+    },
+    {
+      "id": "verizon",
+      "name": "Verizon",
+      "field": "jobSearchUrl",
+      "url": "https://mycareer.verizon.com/search-jobs?keywords=Adobe%20Experience%20Manager",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://mycareer.verizon.com/search-jobs/?keywords=Adobe%20Experience%20Manager"
+    },
+    {
+      "id": "wells-fargo",
+      "name": "Wells Fargo",
+      "field": "careersUrl",
+      "url": "https://www.wellsfargo.com/about/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.wellsfargo.com/about/careers/"
+    },
+    {
+      "id": "wells-fargo",
+      "name": "Wells Fargo",
+      "field": "jobSearchUrl",
+      "url": "https://www.wellsfargo.com/about/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.wellsfargo.com/about/careers/"
+    },
+    {
+      "id": "wissen",
+      "name": "Wissen Technology",
+      "field": "careersUrl",
+      "url": "https://www.wissen.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.wissen.com/careers"
+    },
+    {
+      "id": "wissen",
+      "name": "Wissen Technology",
+      "field": "jobSearchUrl",
+      "url": "https://www.wissen.com/careers/?search=AEM",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.wissen.com/careers?search=AEM"
+    },
+    {
+      "id": "beansbit",
+      "name": "BeansBit",
+      "field": "careersUrl",
+      "url": "https://www.beansbit.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.beansbit.com/"
+    },
+    {
+      "id": "beansbit",
+      "name": "BeansBit",
+      "field": "jobSearchUrl",
+      "url": "https://www.beansbit.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.beansbit.com/"
+    },
+    {
+      "id": "ezest",
+      "name": "e-Zest Solutions",
+      "field": "careersUrl",
+      "url": "https://www.e-zest.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.e-zest.com/careers"
+    },
+    {
+      "id": "ezest",
+      "name": "e-Zest Solutions",
+      "field": "jobSearchUrl",
+      "url": "https://www.e-zest.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.e-zest.com/careers"
+    },
+    {
+      "id": "insight-global",
+      "name": "Insight Global",
+      "field": "careersUrl",
+      "url": "https://insightglobal.com/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://insightglobal.com/jobs/"
+    },
+    {
+      "id": "insight-global",
+      "name": "Insight Global",
+      "field": "jobSearchUrl",
+      "url": "https://insightglobal.com/jobs/?search=AEM",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://insightglobal.com/jobs/?search=AEM"
+    },
+    {
+      "id": "yash",
+      "name": "YASH Technologies",
+      "field": "careersUrl",
+      "url": "https://www.yash.com/career/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.yash.com/about-us/career/"
+    },
+    {
+      "id": "yash",
+      "name": "YASH Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://www.yash.com/career/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.yash.com/about-us/career/"
+    },
+    {
+      "id": "gspann",
+      "name": "GSPANN Technologies",
+      "field": "careersUrl",
+      "url": "https://careers.gspann.com/jobs/find-a-position",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.gspann.com/jobs/find-a-position"
+    },
+    {
+      "id": "gspann",
+      "name": "GSPANN Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://careers.gspann.com/jobs/find-a-position",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.gspann.com/jobs/find-a-position"
+    },
+    {
+      "id": "zensar",
+      "name": "Zensar Technologies",
+      "field": "careersUrl",
+      "url": "https://www.zensar.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.zensar.com/careers"
+    },
+    {
+      "id": "zensar",
+      "name": "Zensar Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://www.zensar.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.zensar.com/careers"
+    },
+    {
+      "id": "bridgestone",
+      "name": "Bridgestone Americas",
+      "field": "careersUrl",
+      "url": "https://www.linkedin.com/company/bridgestone/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.linkedin.com/company/bridgestone/jobs/"
+    },
+    {
+      "id": "bridgestone",
+      "name": "Bridgestone Americas",
+      "field": "jobSearchUrl",
+      "url": "https://www.bebridgestone.com/en/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bebridgestone.com/en/jobs/"
+    },
+    {
+      "id": "caterpillar",
+      "name": "Caterpillar",
+      "field": "careersUrl",
+      "url": "https://careers.caterpillar.com/en/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.caterpillar.com/en/jobs/"
+    },
+    {
+      "id": "caterpillar",
+      "name": "Caterpillar",
+      "field": "jobSearchUrl",
+      "url": "https://careers.caterpillar.com/en/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.caterpillar.com/en/jobs/"
+    },
+    {
+      "id": "palo-alto-networks",
+      "name": "Palo Alto Networks",
+      "field": "careersUrl",
+      "url": "https://jobs.paloaltonetworks.com/en/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.paloaltonetworks.com/en/"
+    },
+    {
+      "id": "palo-alto-networks",
+      "name": "Palo Alto Networks",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.paloaltonetworks.com/en/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.paloaltonetworks.com/en/"
+    },
+    {
+      "id": "okta",
+      "name": "Okta",
+      "field": "careersUrl",
+      "url": "https://www.okta.com/company/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.okta.com/company/careers/"
+    },
+    {
+      "id": "okta",
+      "name": "Okta",
+      "field": "jobSearchUrl",
+      "url": "https://www.okta.com/company/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.okta.com/company/careers/"
+    },
+    {
+      "id": "barclays",
+      "name": "Barclays",
+      "field": "careersUrl",
+      "url": "https://search.jobs.barclays/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://search.jobs.barclays/"
+    },
+    {
+      "id": "barclays",
+      "name": "Barclays",
+      "field": "jobSearchUrl",
+      "url": "https://search.jobs.barclays/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://search.jobs.barclays/"
+    },
+    {
+      "id": "pwc",
+      "name": "PwC India",
+      "field": "careersUrl",
+      "url": "https://www.pwc.in/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.pwc.in/careers.html"
+    },
+    {
+      "id": "pwc",
+      "name": "PwC India",
+      "field": "jobSearchUrl",
+      "url": "https://www.pwc.in/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.pwc.in/careers.html"
+    },
+    {
+      "id": "ey",
+      "name": "EY (Ernst & Young)",
+      "field": "careersUrl",
+      "url": "https://careers.ey.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.ey.com/"
+    },
+    {
+      "id": "ey",
+      "name": "EY (Ernst & Young)",
+      "field": "jobSearchUrl",
+      "url": "https://careers.ey.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.ey.com/"
+    },
+    {
+      "id": "itc-infotech",
+      "name": "ITC Infotech",
+      "field": "careersUrl",
+      "url": "https://jobs.itcinfotech.com/itcinfotech/#!",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.itcinfotech.com/itcinfotech/"
+    },
+    {
+      "id": "itc-infotech",
+      "name": "ITC Infotech",
+      "field": "jobSearchUrl",
+      "url": "https://www.itcinfotech.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.itcinfotech.com/careers/"
+    },
+    {
+      "id": "itc-limited",
+      "name": "ITC Limited",
+      "field": "careersUrl",
+      "url": "https://itcportal.com/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://itcportal.com/careers.html"
+    },
+    {
+      "id": "itc-limited",
+      "name": "ITC Limited",
+      "field": "jobSearchUrl",
+      "url": "https://itcportal.com/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://itcportal.com/careers.html"
+    },
+    {
+      "id": "bhasaka",
+      "name": "Bhasaka Technologies",
+      "field": "careersUrl",
+      "url": "https://bhasaka.com/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://bhasaka.com/careers.html"
+    },
+    {
+      "id": "bhasaka",
+      "name": "Bhasaka Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://bhasaka.com/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://bhasaka.com/careers.html"
+    },
+    {
+      "id": "adglobal360",
+      "name": "AdGlobal360",
+      "field": "careersUrl",
+      "url": "https://www.adglobal360.com/career/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.adglobal360.com/career/"
+    },
+    {
+      "id": "adglobal360",
+      "name": "AdGlobal360",
+      "field": "jobSearchUrl",
+      "url": "https://www.adglobal360.com/career/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.adglobal360.com/career/"
+    },
+    {
+      "id": "orangemantra",
+      "name": "OrangeMantra",
+      "field": "careersUrl",
+      "url": "https://www.orangemantra.com/career/jobs.php",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.orangemantra.com/career/jobs.php"
+    },
+    {
+      "id": "orangemantra",
+      "name": "OrangeMantra",
+      "field": "jobSearchUrl",
+      "url": "https://www.orangemantra.com/career/jobs.php",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.orangemantra.com/career/jobs.php"
+    },
+    {
+      "id": "konrad",
+      "name": "Konrad",
+      "field": "careersUrl",
+      "url": "https://www.konrad.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.konrad.com/careers"
+    },
+    {
+      "id": "konrad",
+      "name": "Konrad",
+      "field": "jobSearchUrl",
+      "url": "https://www.konrad.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.konrad.com/careers"
+    },
+    {
+      "id": "vayuz",
+      "name": "VAYUZ Technologies",
+      "field": "careersUrl",
+      "url": "https://www.vayuz.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.vayuz.com/careers/"
+    },
+    {
+      "id": "vayuz",
+      "name": "VAYUZ Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://cutshort.io/job/Fullstack-AEM-Developer-Mumbai-VAYUZ-Technologies-FgJxaXsx",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://cutshort.io/job/Fullstack-AEM-Developer-Mumbai-VAYUZ-Technologies-FgJxaXsx"
+    },
+    {
+      "id": "alt-digital",
+      "name": "Alt Digital Technologies",
+      "field": "careersUrl",
+      "url": "https://www.altdigital.tech/about-us/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.altdigital.tech/about-us/careers"
+    },
+    {
+      "id": "alt-digital",
+      "name": "Alt Digital Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://www.altdigital.tech/about-us",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.altdigital.tech/about-us"
+    },
+    {
+      "id": "bounteous",
+      "name": "Bounteous x Accolite",
+      "field": "careersUrl",
+      "url": "https://www.bounteous.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bounteous.com/careers/"
+    },
+    {
+      "id": "bounteous",
+      "name": "Bounteous x Accolite",
+      "field": "jobSearchUrl",
+      "url": "https://www.bounteous.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bounteous.com/careers/"
+    },
+    {
+      "id": "merkle",
+      "name": "Merkle (dentsu)",
+      "field": "careersUrl",
+      "url": "https://www.merkle.com/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.merkle.com/en/careers.html"
+    },
+    {
+      "id": "merkle",
+      "name": "Merkle (dentsu)",
+      "field": "jobSearchUrl",
+      "url": "https://www.merkle.com/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.merkle.com/en/careers.html"
+    },
+    {
+      "id": "nagarro",
+      "name": "Nagarro",
+      "field": "careersUrl",
+      "url": "https://www.nagarro.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.nagarro.com/en/careers"
+    },
+    {
+      "id": "nagarro",
+      "name": "Nagarro",
+      "field": "jobSearchUrl",
+      "url": "https://www.nagarro.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.nagarro.com/en/careers"
+    },
+    {
+      "id": "brillio",
+      "name": "Brillio",
+      "field": "careersUrl",
+      "url": "https://www.brillio.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.brillio.com/careers/"
+    },
+    {
+      "id": "brillio",
+      "name": "Brillio",
+      "field": "jobSearchUrl",
+      "url": "https://www.brillio.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.brillio.com/careers/"
+    },
+    {
+      "id": "kanerika",
+      "name": "Kanerika",
+      "field": "careersUrl",
+      "url": "https://kanerika.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://kanerika.com/careers/"
+    },
+    {
+      "id": "kanerika",
+      "name": "Kanerika",
+      "field": "jobSearchUrl",
+      "url": "https://www.expertia.ai/kanerika/job",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.expertia.ai/kanerika/job"
+    },
+    {
+      "id": "taazaa",
+      "name": "Taazaa",
+      "field": "careersUrl",
+      "url": "https://www.taazaa.com/about-us/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.taazaa.com/about-us/careers"
+    },
+    {
+      "id": "taazaa",
+      "name": "Taazaa",
+      "field": "jobSearchUrl",
+      "url": "https://taazaa.com/career/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.taazaa.com/career"
+    },
+    {
+      "id": "proziod",
+      "name": "Proziod Analytics",
+      "field": "careersUrl",
+      "url": "https://careers.proziod.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.proziod.com/"
+    },
+    {
+      "id": "proziod",
+      "name": "Proziod Analytics",
+      "field": "jobSearchUrl",
+      "url": "https://careers.proziod.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.proziod.com/"
+    },
+    {
+      "id": "xeliumtech",
+      "name": "Xeliumtech Solutions",
+      "field": "careersUrl",
+      "url": "https://www.xeliumtech.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.xeliumtech.com/careers"
+    },
+    {
+      "id": "xeliumtech",
+      "name": "Xeliumtech Solutions",
+      "field": "jobSearchUrl",
+      "url": "https://www.xeliumtech.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.xeliumtech.com/careers"
+    },
+    {
+      "id": "happiest-minds",
+      "name": "Happiest Minds Technologies",
+      "field": "careersUrl",
+      "url": "https://jobs.happiestminds.com/happiestminds/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.happiestminds.com/happiestminds/"
+    },
+    {
+      "id": "happiest-minds",
+      "name": "Happiest Minds Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.happiestminds.com/happiestminds/jobs",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.happiestminds.com/happiestminds/jobs"
+    },
+    {
+      "id": "techcarrot",
+      "name": "techcarrot",
+      "field": "careersUrl",
+      "url": "https://techcarrot.zohorecruit.com/jobs/Careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://techcarrot.zohorecruit.com/jobs/Careers"
+    },
+    {
+      "id": "techcarrot",
+      "name": "techcarrot",
+      "field": "jobSearchUrl",
+      "url": "https://techcarrot.zohorecruit.com/jobs/Careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://techcarrot.zohorecruit.com/jobs/Careers"
+    },
+    {
+      "id": "ta-digital",
+      "name": "TA Digital (Credera)",
+      "field": "careersUrl",
+      "url": "https://credera.com/en-in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://credera.com/en-in/careers"
+    },
+    {
+      "id": "ta-digital",
+      "name": "TA Digital (Credera)",
+      "field": "jobSearchUrl",
+      "url": "https://www.tadigital.com/company/careers",
+      "category": "dead",
+      "status": 0,
+      "note": "dns: ENOTFOUND"
+    },
+    {
+      "id": "commergence",
+      "name": "Commergence",
+      "field": "careersUrl",
+      "url": "https://commergence.in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://commergence.in/careers"
+    },
+    {
+      "id": "commergence",
+      "name": "Commergence",
+      "field": "jobSearchUrl",
+      "url": "https://cutshort.io/company/jobs-at-commergence-53-TqiCIQmN",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://cutshort.io/company/jobs-at-commergence-53-TqiCIQmN"
+    },
+    {
+      "id": "pall",
+      "name": "Pall Corporation (Danaher)",
+      "field": "careersUrl",
+      "url": "https://jobs.danaher.com/global/en/pall",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.danaher.com/global/en/pall"
+    },
+    {
+      "id": "pall",
+      "name": "Pall Corporation (Danaher)",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.danaher.com/global/en/pall",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.danaher.com/global/en/pall"
+    },
+    {
+      "id": "axis-max-life",
+      "name": "Axis Max Life Insurance",
+      "field": "careersUrl",
+      "url": "https://www.axismaxlife.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.axismaxlife.com/careers"
+    },
+    {
+      "id": "axis-max-life",
+      "name": "Axis Max Life Insurance",
+      "field": "jobSearchUrl",
+      "url": "https://www.axismaxlife.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.axismaxlife.com/careers"
+    },
+    {
+      "id": "pnq-technologies",
+      "name": "PnQ Technologies",
+      "field": "careersUrl",
+      "url": "https://pnqtechnologies.in/#career",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://pnqtechnologies.in/"
+    },
+    {
+      "id": "pnq-technologies",
+      "name": "PnQ Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://in.indeed.com/cmp/Pnq-Technologies/jobs",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://in.indeed.com/cmp/Pnq-Technologies/jobs"
+    },
+    {
+      "id": "xebia",
+      "name": "Xebia",
+      "field": "careersUrl",
+      "url": "https://careers.xebia.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://xebia.com/careers/"
+    },
+    {
+      "id": "xebia",
+      "name": "Xebia",
+      "field": "jobSearchUrl",
+      "url": "https://careers.xebia.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://xebia.com/careers/"
+    },
+    {
+      "id": "dart-innovations",
+      "name": "Dart Innovations",
+      "field": "careersUrl",
+      "url": "https://dartinnovations.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://dartinnovations.com/careers/"
+    },
+    {
+      "id": "dart-innovations",
+      "name": "Dart Innovations",
+      "field": "jobSearchUrl",
+      "url": "https://dartinnovations.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://dartinnovations.com/careers/"
+    },
+    {
+      "id": "krazymantra",
+      "name": "Krazy Mantra",
+      "field": "careersUrl",
+      "url": "https://www.krazymantra.com/career.php",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.krazymantra.com/career.php"
+    },
+    {
+      "id": "krazymantra",
+      "name": "Krazy Mantra",
+      "field": "jobSearchUrl",
+      "url": "https://www.krazymantra.com/career.php",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.krazymantra.com/career.php"
+    },
+    {
+      "id": "rarr",
+      "name": "RARR Technologies",
+      "field": "careersUrl",
+      "url": "https://rarrtech.com/current-job-opening/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://rarrtech.com/current-job-opening/"
+    },
+    {
+      "id": "rarr",
+      "name": "RARR Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://atsmantra.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://atsmantra.com/"
+    },
+    {
+      "id": "valtech",
+      "name": "Valtech",
+      "field": "careersUrl",
+      "url": "https://www.valtech.com/career/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.valtech.com/career/jobs/"
+    },
+    {
+      "id": "valtech",
+      "name": "Valtech",
+      "field": "jobSearchUrl",
+      "url": "https://www.valtech.com/careers/jobs/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.valtech.com/careers/jobs/"
+    },
+    {
+      "id": "tekbon",
+      "name": "Tekbon Software Solutions",
+      "field": "careersUrl",
+      "url": "https://tekbon.com/Careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://tekbon.com/Careers/"
+    },
+    {
+      "id": "tekbon",
+      "name": "Tekbon Software Solutions",
+      "field": "jobSearchUrl",
+      "url": "https://tekbon.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://tekbon.com/"
+    },
+    {
+      "id": "birlasoft",
+      "name": "Birlasoft",
+      "field": "careersUrl",
+      "url": "https://www.birlasoft.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.birlasoft.com/careers"
+    },
+    {
+      "id": "birlasoft",
+      "name": "Birlasoft",
+      "field": "jobSearchUrl",
+      "url": "https://careers.birlasoft.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "xerago",
+      "name": "Xerago",
+      "field": "careersUrl",
+      "url": "https://www.xerago.com/career",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.xerago.com/career"
+    },
+    {
+      "id": "xerago",
+      "name": "Xerago",
+      "field": "jobSearchUrl",
+      "url": "https://www.xerago.com/career",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.xerago.com/career"
+    },
+    {
+      "id": "sonata-software",
+      "name": "Sonata Software",
+      "field": "careersUrl",
+      "url": "https://www.sonata-software.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.sonata-software.com/careers"
+    },
+    {
+      "id": "sonata-software",
+      "name": "Sonata Software",
+      "field": "jobSearchUrl",
+      "url": "https://www.sonata-software.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.sonata-software.com/careers"
+    },
+    {
+      "id": "ntt-data",
+      "name": "NTT DATA",
+      "field": "careersUrl",
+      "url": "https://careers-inc.nttdata.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers-inc.nttdata.com/"
+    },
+    {
+      "id": "ntt-data",
+      "name": "NTT DATA",
+      "field": "jobSearchUrl",
+      "url": "https://careers-inc.nttdata.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers-inc.nttdata.com/"
+    },
+    {
+      "id": "globant",
+      "name": "Globant",
+      "field": "careersUrl",
+      "url": "https://career.globant.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://career.globant.com/"
+    },
+    {
+      "id": "globant",
+      "name": "Globant",
+      "field": "jobSearchUrl",
+      "url": "https://career.globant.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://career.globant.com/"
+    },
+    {
+      "id": "genpact",
+      "name": "Genpact",
+      "field": "careersUrl",
+      "url": "https://jobs.jobvite.com/genpactexperience",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.jobvite.com/genpactexperience"
+    },
+    {
+      "id": "genpact",
+      "name": "Genpact",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.jobvite.com/genpactexperience",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.jobvite.com/genpactexperience"
+    },
+    {
+      "id": "invesco",
+      "name": "Invesco",
+      "field": "careersUrl",
+      "url": "https://careers.invesco.com/india",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.invesco.com/india/"
+    },
+    {
+      "id": "invesco",
+      "name": "Invesco",
+      "field": "jobSearchUrl",
+      "url": "https://careers.invesco.com/india",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.invesco.com/india/"
+    },
+    {
+      "id": "quarks-technosoft",
+      "name": "Quarks Technosoft",
+      "field": "careersUrl",
+      "url": "https://www.qtsolv.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.qtsolv.com/careers/"
+    },
+    {
+      "id": "quarks-technosoft",
+      "name": "Quarks Technosoft",
+      "field": "jobSearchUrl",
+      "url": "https://www.qtsolv.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.qtsolv.com/careers/"
+    },
+    {
+      "id": "cgi",
+      "name": "CGI",
+      "field": "careersUrl",
+      "url": "https://www.cgi.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.cgi.com/en/careers"
+    },
+    {
+      "id": "cgi",
+      "name": "CGI",
+      "field": "jobSearchUrl",
+      "url": "https://www.cgi.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.cgi.com/en/careers"
+    },
+    {
+      "id": "collabera",
+      "name": "Collabera",
+      "field": "careersUrl",
+      "url": "https://collabera.com/job-search/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://collabera.com/job-search/"
+    },
+    {
+      "id": "collabera",
+      "name": "Collabera",
+      "field": "jobSearchUrl",
+      "url": "https://www.collabera.com/job-search/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://collabera.com/job-search/"
+    },
+    {
+      "id": "wns",
+      "name": "WNS",
+      "field": "careersUrl",
+      "url": "https://www.wns.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.wns.com/about-us/careers"
+    },
+    {
+      "id": "wns",
+      "name": "WNS",
+      "field": "jobSearchUrl",
+      "url": "https://www.wns.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.wns.com/about-us/careers"
+    },
+    {
+      "id": "transunion",
+      "name": "TransUnion",
+      "field": "careersUrl",
+      "url": "https://transunion.wd5.myworkdayjobs.com/TransUnion",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://transunion.wd5.myworkdayjobs.com/TransUnion"
+    },
+    {
+      "id": "transunion",
+      "name": "TransUnion",
+      "field": "jobSearchUrl",
+      "url": "https://transunion.wd5.myworkdayjobs.com/TransUnion",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://transunion.wd5.myworkdayjobs.com/TransUnion"
+    },
+    {
+      "id": "onetrust",
+      "name": "OneTrust",
+      "field": "careersUrl",
+      "url": "https://www.onetrust.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.onetrust.com/careers/"
+    },
+    {
+      "id": "onetrust",
+      "name": "OneTrust",
+      "field": "jobSearchUrl",
+      "url": "https://www.onetrust.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.onetrust.com/careers/"
+    },
+    {
+      "id": "zerozilla-infotech",
+      "name": "Zerozilla Infotech",
+      "field": "careersUrl",
+      "url": "https://zerozilla.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://zerozilla.com/careers/"
+    },
+    {
+      "id": "vivantify-technology",
+      "name": "Vivantify Technology Solutions",
+      "field": "careersUrl",
+      "url": "https://www.careers-page.com/vivantify-technology-solutions",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.careers-page.com/vivantify-technology-solutions"
+    },
+    {
+      "id": "vivantify-technology",
+      "name": "Vivantify Technology Solutions",
+      "field": "jobSearchUrl",
+      "url": "https://www.careers-page.com/vivantify-technology-solutions",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.careers-page.com/vivantify-technology-solutions"
+    },
+    {
+      "id": "concentrix",
+      "name": "Concentrix",
+      "field": "careersUrl",
+      "url": "https://www.concentrix.com/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://jobs.concentrix.com/"
+    },
+    {
+      "id": "concentrix",
+      "name": "Concentrix",
+      "field": "jobSearchUrl",
+      "url": "https://www.concentrix.com/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://jobs.concentrix.com/"
+    },
+    {
+      "id": "haparz",
+      "name": "Haparz",
+      "field": "careersUrl",
+      "url": "https://www.linkedin.com/company/haparz/jobs/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://in.linkedin.com/company/haparz"
+    },
+    {
+      "id": "haparz",
+      "name": "Haparz",
+      "field": "jobSearchUrl",
+      "url": "https://www.haparz.com/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://haparz.com/careers"
+    },
+    {
+      "id": "pattem-digital",
+      "name": "Pattem Digital",
+      "field": "careersUrl",
+      "url": "https://www.pattemdigital.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.pattemdigital.com/careers"
+    },
+    {
+      "id": "pattem-digital",
+      "name": "Pattem Digital",
+      "field": "jobSearchUrl",
+      "url": "https://www.pattemdigital.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.pattemdigital.com/careers"
+    },
+    {
+      "id": "visionet",
+      "name": "Visionet",
+      "field": "careersUrl",
+      "url": "https://www.visionet.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.visionet.com/careers"
+    },
+    {
+      "id": "visionet",
+      "name": "Visionet",
+      "field": "jobSearchUrl",
+      "url": "https://www.visionet.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.visionet.com/careers"
+    },
+    {
+      "id": "aes-technologies",
+      "name": "AES Technologies India",
+      "field": "careersUrl",
+      "url": "https://careers.advanceecomsolutions.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.advanceecomsolutions.com/"
+    },
+    {
+      "id": "codersbrain",
+      "name": "CodersBrain",
+      "field": "careersUrl",
+      "url": "https://codersbrain.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://codersbrain.com/careers"
+    },
+    {
+      "id": "gipfel-schnell",
+      "name": "Gipfel & Schnell Consultings",
+      "field": "careersUrl",
+      "url": "https://gsconsulting.in/jobs/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://gsconsulting.in/jobs/"
+    },
+    {
+      "id": "mobile-programming",
+      "name": "Mobile Programming LLC",
+      "field": "careersUrl",
+      "url": "https://www.mobileprogramming.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.mobileprogramming.com/careers"
+    },
+    {
+      "id": "quest-business-solution",
+      "name": "Quest Business Solution",
+      "field": "careersUrl",
+      "url": "https://www.questbusiness.co.in/jobs",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.questbusiness.co.in/jobs"
+    },
+    {
+      "id": "tlc-digitech",
+      "name": "TLC DigiTech",
+      "field": "careersUrl",
+      "url": "https://www.tlcgroup.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tlcgroup.com/careers"
+    },
+    {
+      "id": "tlc-digitech",
+      "name": "TLC DigiTech",
+      "field": "jobSearchUrl",
+      "url": "https://www.tlcgroup.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tlcgroup.com/careers"
+    },
+    {
+      "id": "ekloud",
+      "name": "Ekloud",
+      "field": "careersUrl",
+      "url": "https://ekloudservices.com/career",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://ekloudservices.com/career"
+    },
+    {
+      "id": "appriffy",
+      "name": "Appriffy",
+      "field": "careersUrl",
+      "url": "https://www.appriffy.com/careers.php",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.appriffy.com/careers.php"
+    },
+    {
+      "id": "bigstep-technologies",
+      "name": "BigStep Technologies",
+      "field": "careersUrl",
+      "url": "https://bigsteptech.freshteam.com/jobs",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://bigsteptech.freshteam.com/jobs"
+    },
+    {
+      "id": "nlb-services",
+      "name": "NLB Services",
+      "field": "careersUrl",
+      "url": "https://www.nlbservices.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.nlbservices.com/careers"
+    },
+    {
+      "id": "visa",
+      "name": "Visa",
+      "field": "careersUrl",
+      "url": "https://careers.smartrecruiters.com/Visa",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.smartrecruiters.com/Visa"
+    },
+    {
+      "id": "visa",
+      "name": "Visa",
+      "field": "jobSearchUrl",
+      "url": "https://careers.smartrecruiters.com/Visa",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.smartrecruiters.com/Visa"
+    },
+    {
+      "id": "goldman-sachs",
+      "name": "Goldman Sachs",
+      "field": "careersUrl",
+      "url": "https://www.goldmansachs.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.goldmansachs.com/careers/"
+    },
+    {
+      "id": "goldman-sachs",
+      "name": "Goldman Sachs",
+      "field": "jobSearchUrl",
+      "url": "https://www.goldmansachs.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.goldmansachs.com/careers/"
+    },
+    {
+      "id": "morgan-stanley",
+      "name": "Morgan Stanley",
+      "field": "careersUrl",
+      "url": "https://morganstanley.tal.net/vx/lang-en-GB/mobile-0/brand-2/xf-5a3e3f3e/candidate/jobboard/vacancy/1/adv/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: HPE_UNEXPECTED_CONTENT_LENGTH"
+    },
+    {
+      "id": "morgan-stanley",
+      "name": "Morgan Stanley",
+      "field": "jobSearchUrl",
+      "url": "https://morganstanley.tal.net/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://morganstanley.tal.net/vx/saml2"
+    },
+    {
+      "id": "citi",
+      "name": "Citi",
+      "field": "careersUrl",
+      "url": "https://jobs.citi.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.citi.com/"
+    },
+    {
+      "id": "citi",
+      "name": "Citi",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.citi.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.citi.com/"
+    },
+    {
+      "id": "deutsche-bank",
+      "name": "Deutsche Bank",
+      "field": "careersUrl",
+      "url": "https://careers.db.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.db.com/"
+    },
+    {
+      "id": "deutsche-bank",
+      "name": "Deutsche Bank",
+      "field": "jobSearchUrl",
+      "url": "https://careers.db.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.db.com/"
+    },
+    {
+      "id": "hsbc",
+      "name": "HSBC",
+      "field": "careersUrl",
+      "url": "https://mycareer.hsbc.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://mycareer.hsbc.com/en_GB/external"
+    },
+    {
+      "id": "hsbc",
+      "name": "HSBC",
+      "field": "jobSearchUrl",
+      "url": "https://mycareer.hsbc.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://mycareer.hsbc.com/en_GB/external"
+    },
+    {
+      "id": "natwest-group",
+      "name": "NatWest Group",
+      "field": "careersUrl",
+      "url": "https://jobs.natwestgroup.com/",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://jobs.natwestgroup.com/"
+    },
+    {
+      "id": "natwest-group",
+      "name": "NatWest Group",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.natwestgroup.com/",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://jobs.natwestgroup.com/"
+    },
+    {
+      "id": "momentive",
+      "name": "Momentive",
+      "field": "careersUrl",
+      "url": "https://www.momentive.com/en-us/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.momentive.com/en-us/careers"
+    },
+    {
+      "id": "momentive",
+      "name": "Momentive",
+      "field": "jobSearchUrl",
+      "url": "https://momentive.wd1.myworkdayjobs.com/Momentive",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://momentive.wd1.myworkdayjobs.com/Momentive"
+    },
+    {
+      "id": "au-small-finance-bank",
+      "name": "AU Small Finance Bank",
+      "field": "careersUrl",
+      "url": "https://www.aubank.in/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.au.bank.in/careers"
+    },
+    {
+      "id": "au-small-finance-bank",
+      "name": "AU Small Finance Bank",
+      "field": "jobSearchUrl",
+      "url": "https://www.aubank.in/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.au.bank.in/careers"
+    },
+    {
+      "id": "solventum",
+      "name": "Solventum",
+      "field": "careersUrl",
+      "url": "https://jobs.solventum.com/",
+      "category": "dead",
+      "status": 0,
+      "note": "dns: ENOTFOUND"
+    },
+    {
+      "id": "solventum",
+      "name": "Solventum",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.solventum.com/",
+      "category": "dead",
+      "status": 0,
+      "note": "dns: ENOTFOUND"
+    },
+    {
+      "id": "danaher",
+      "name": "Danaher",
+      "field": "careersUrl",
+      "url": "https://jobs.danaher.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.danaher.com/global/en"
+    },
+    {
+      "id": "danaher",
+      "name": "Danaher",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.danaher.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.danaher.com/global/en"
+    },
+    {
+      "id": "bristol-myers-squibb",
+      "name": "Bristol Myers Squibb",
+      "field": "careersUrl",
+      "url": "https://careers.bms.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.bms.com/"
+    },
+    {
+      "id": "bristol-myers-squibb",
+      "name": "Bristol Myers Squibb",
+      "field": "jobSearchUrl",
+      "url": "https://careers.bms.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.bms.com/"
+    },
+    {
+      "id": "honeywell",
+      "name": "Honeywell",
+      "field": "careersUrl",
+      "url": "https://careers.honeywell.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.honeywell.com/en/sites/Honeywell"
+    },
+    {
+      "id": "honeywell",
+      "name": "Honeywell",
+      "field": "jobSearchUrl",
+      "url": "https://careers.honeywell.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.honeywell.com/en/sites/Honeywell"
+    },
+    {
+      "id": "synechron",
+      "name": "Synechron",
+      "field": "careersUrl",
+      "url": "https://www.synechron.com/en-in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.synechron.com/en-in/careers"
+    },
+    {
+      "id": "synechron",
+      "name": "Synechron",
+      "field": "jobSearchUrl",
+      "url": "https://www.synechron.com/en-in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.synechron.com/en-in/careers"
+    },
+    {
+      "id": "cibersites-india",
+      "name": "Cibersites India",
+      "field": "careersUrl",
+      "url": "https://www.cibersites.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "cibersites-india",
+      "name": "Cibersites India",
+      "field": "jobSearchUrl",
+      "url": "https://www.cibersites.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "peoplefy",
+      "name": "Peoplefy",
+      "field": "careersUrl",
+      "url": "https://www.peoplefy.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.peoplefy.com/"
+    },
+    {
+      "id": "peoplefy",
+      "name": "Peoplefy",
+      "field": "jobSearchUrl",
+      "url": "https://www.peoplefy.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.peoplefy.com/"
+    },
+    {
+      "id": "systechcorp",
+      "name": "SysTechCorp",
+      "field": "careersUrl",
+      "url": "https://www.systechcorp.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.systechcorp.com/"
+    },
+    {
+      "id": "systechcorp",
+      "name": "SysTechCorp",
+      "field": "jobSearchUrl",
+      "url": "https://www.systechcorp.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.systechcorp.com/"
+    },
+    {
+      "id": "u2o3-infotech",
+      "name": "U2O3 Infotech",
+      "field": "careersUrl",
+      "url": "https://www.u2o3.com/",
+      "category": "dead",
+      "status": 0,
+      "note": "dns: ENOTFOUND"
+    },
+    {
+      "id": "u2o3-infotech",
+      "name": "U2O3 Infotech",
+      "field": "jobSearchUrl",
+      "url": "https://www.u2o3.com/",
+      "category": "dead",
+      "status": 0,
+      "note": "dns: ENOTFOUND"
+    },
+    {
+      "id": "thermo-fisher-scientific",
+      "name": "Thermo Fisher Scientific",
+      "field": "careersUrl",
+      "url": "https://jobs.thermofisher.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.thermofisher.com/global/en"
+    },
+    {
+      "id": "thermo-fisher-scientific",
+      "name": "Thermo Fisher Scientific",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.thermofisher.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.thermofisher.com/global/en"
+    },
+    {
+      "id": "infoyar",
+      "name": "Infoyar",
+      "field": "careersUrl",
+      "url": "https://www.infoyar.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: ECONNRESET"
+    },
+    {
+      "id": "infoyar",
+      "name": "Infoyar",
+      "field": "jobSearchUrl",
+      "url": "https://www.infoyar.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: ECONNRESET"
+    },
+    {
+      "id": "amk-technology",
+      "name": "AMK Technology",
+      "field": "careersUrl",
+      "url": "https://www.amk-group.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://amk-group.com/de/"
+    },
+    {
+      "id": "amk-technology",
+      "name": "AMK Technology",
+      "field": "jobSearchUrl",
+      "url": "https://www.amk-group.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://amk-group.com/de/"
+    },
+    {
+      "id": "dlux-tech",
+      "name": "DLUX Tech",
+      "field": "careersUrl",
+      "url": "https://www.dluxtech.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.dluxtech.com/"
+    },
+    {
+      "id": "dlux-tech",
+      "name": "DLUX Tech",
+      "field": "jobSearchUrl",
+      "url": "https://www.dluxtech.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.dluxtech.com/"
+    },
+    {
+      "id": "assa-abloy",
+      "name": "ASSA ABLOY",
+      "field": "careersUrl",
+      "url": "https://www.assaabloy.com/group/en/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.assaabloy.com/group/en/careers"
+    },
+    {
+      "id": "assa-abloy",
+      "name": "ASSA ABLOY",
+      "field": "jobSearchUrl",
+      "url": "https://www.assaabloy.com/group/en/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.assaabloy.com/group/en/careers"
+    },
+    {
+      "id": "russell-investments",
+      "name": "Russell Investments",
+      "field": "careersUrl",
+      "url": "https://russellinvestments.com/us/en/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://russellinvestments.com/us/en/careers"
+    },
+    {
+      "id": "russell-investments",
+      "name": "Russell Investments",
+      "field": "jobSearchUrl",
+      "url": "https://russellinvestments.com/us/en/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://russellinvestments.com/us/en/careers"
+    },
+    {
+      "id": "techaivv-technologies",
+      "name": "TechAIVV Technologies",
+      "field": "careersUrl",
+      "url": "https://techaivv.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://techaivv.com/"
+    },
+    {
+      "id": "techaivv-technologies",
+      "name": "TechAIVV Technologies",
+      "field": "jobSearchUrl",
+      "url": "https://techaivv.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://techaivv.com/"
+    },
+    {
+      "id": "intraedge",
+      "name": "IntraEdge",
+      "field": "careersUrl",
+      "url": "https://intraedge.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://intraedge.com/careers/"
+    },
+    {
+      "id": "intraedge",
+      "name": "IntraEdge",
+      "field": "jobSearchUrl",
+      "url": "https://intraedge.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://intraedge.com/careers/"
+    },
+    {
+      "id": "rbm-software",
+      "name": "RBM Software",
+      "field": "careersUrl",
+      "url": "https://www.rbmsoft.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://rbmsoft.com/"
+    },
+    {
+      "id": "rbm-software",
+      "name": "RBM Software",
+      "field": "jobSearchUrl",
+      "url": "https://www.rbmsoft.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://rbmsoft.com/"
+    },
+    {
+      "id": "solvative",
+      "name": "Solvative",
+      "field": "careersUrl",
+      "url": "https://solvative.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://solvative.com/careers"
+    },
+    {
+      "id": "solvative",
+      "name": "Solvative",
+      "field": "jobSearchUrl",
+      "url": "https://solvative.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://solvative.com/careers"
+    },
+    {
+      "id": "sp-global-market-intelligence",
+      "name": "S&P Global Market Intelligence",
+      "field": "careersUrl",
+      "url": "https://www.spglobal.com/marketintelligence/en/careers",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.spglobal.com/market-intelligence/en"
+    },
+    {
+      "id": "sp-global-market-intelligence",
+      "name": "S&P Global Market Intelligence",
+      "field": "jobSearchUrl",
+      "url": "https://www.spglobal.com/marketintelligence/en/careers",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.spglobal.com/market-intelligence/en"
+    },
+    {
+      "id": "arrow-electronics",
+      "name": "Arrow Electronics",
+      "field": "careersUrl",
+      "url": "https://careers.arrow.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.arrow.com/us/en"
+    },
+    {
+      "id": "arrow-electronics",
+      "name": "Arrow Electronics",
+      "field": "jobSearchUrl",
+      "url": "https://careers.arrow.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.arrow.com/us/en"
+    },
+    {
+      "id": "boston-scientific",
+      "name": "Boston Scientific",
+      "field": "careersUrl",
+      "url": "https://jobs.bostonscientific.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.bostonscientific.com/"
+    },
+    {
+      "id": "boston-scientific",
+      "name": "Boston Scientific",
+      "field": "jobSearchUrl",
+      "url": "https://jobs.bostonscientific.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.bostonscientific.com/"
+    },
+    {
+      "id": "macquarie-group",
+      "name": "Macquarie Group",
+      "field": "careersUrl",
+      "url": "https://www.macquarie.com/in/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.macquarie.com/in/en/careers.html"
+    },
+    {
+      "id": "macquarie-group",
+      "name": "Macquarie Group",
+      "field": "jobSearchUrl",
+      "url": "https://www.macquarie.com/in/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.macquarie.com/in/en/careers.html"
+    },
+    {
+      "id": "sutherland-global",
+      "name": "Sutherland Global",
+      "field": "careersUrl",
+      "url": "https://www.sutherlandglobal.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.jobs.sutherlandglobal.com/"
+    },
+    {
+      "id": "sutherland-global",
+      "name": "Sutherland Global",
+      "field": "jobSearchUrl",
+      "url": "https://www.sutherlandglobal.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.jobs.sutherlandglobal.com/"
+    },
+    {
+      "id": "aurumdata",
+      "name": "Aurumdata Solutions",
+      "field": "careersUrl",
+      "url": "https://www.aurumdata.com/",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://brandsly.com/name/aurumdata.com"
+    },
+    {
+      "id": "aurumdata",
+      "name": "Aurumdata Solutions",
+      "field": "jobSearchUrl",
+      "url": "https://www.aurumdata.com/",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://brandsly.com/name/aurumdata.com"
+    },
+    {
+      "id": "globallogic",
+      "name": "GlobalLogic",
+      "field": "careersUrl",
+      "url": "https://www.globallogic.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.globallogic.com/careers/"
+    },
+    {
+      "id": "globallogic",
+      "name": "GlobalLogic",
+      "field": "jobSearchUrl",
+      "url": "https://www.globallogic.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.globallogic.com/careers/"
+    },
+    {
+      "id": "dentsu",
+      "name": "Dentsu",
+      "field": "careersUrl",
+      "url": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL"
+    },
+    {
+      "id": "dentsu",
+      "name": "Dentsu",
+      "field": "jobSearchUrl",
+      "url": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL"
+    },
+    {
+      "id": "vml-enterprise-solutions",
+      "name": "VML Enterprise Solutions",
+      "field": "careersUrl",
+      "url": "https://job-boards.greenhouse.io/vmlenterprisesolutions",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://job-boards.greenhouse.io/vmlenterprisesolutions"
+    },
+    {
+      "id": "vml-enterprise-solutions",
+      "name": "VML Enterprise Solutions",
+      "field": "jobSearchUrl",
+      "url": "https://job-boards.greenhouse.io/vmlenterprisesolutions",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://job-boards.greenhouse.io/vmlenterprisesolutions"
+    },
+    {
+      "id": "the-scalers",
+      "name": "The Scalers",
+      "field": "careersUrl",
+      "url": "https://careers.thescalers.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.thescalers.com/"
+    },
+    {
+      "id": "the-scalers",
+      "name": "The Scalers",
+      "field": "jobSearchUrl",
+      "url": "https://careers.thescalers.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.thescalers.com/"
+    },
+    {
+      "id": "webologix",
+      "name": "Webologix",
+      "field": "careersUrl",
+      "url": "https://webologix.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://webologix.com/"
+    },
+    {
+      "id": "webologix",
+      "name": "Webologix",
+      "field": "jobSearchUrl",
+      "url": "https://webologix.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://webologix.com/"
+    },
+    {
+      "id": "astrazeneca",
+      "name": "AstraZeneca",
+      "field": "careersUrl",
+      "url": "https://careers.astrazeneca.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.astrazeneca.com/"
+    },
+    {
+      "id": "astrazeneca",
+      "name": "AstraZeneca",
+      "field": "jobSearchUrl",
+      "url": "https://careers.astrazeneca.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.astrazeneca.com/"
+    },
+    {
+      "id": "kloudportal",
+      "name": "KloudPortal Technology Solutions",
+      "field": "careersUrl",
+      "url": "https://www.kloudportal.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://kloudportal.com/"
+    },
+    {
+      "id": "kloudportal",
+      "name": "KloudPortal Technology Solutions",
+      "field": "jobSearchUrl",
+      "url": "https://www.kloudportal.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://kloudportal.com/"
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "checkedAt": "2026-07-10T17:55:14.813Z",
+  "fields": [
+    "careersUrl"
+  ],
+  "total": 26,
+  "summary": {
+    "ok": 24,
+    "redirect": 2,
+    "blocked": 0,
+    "dead": 0
+  },
+  "results": [
+    {
+      "id": "sika",
+      "name": "Sika",
+      "field": "careersUrl",
+      "url": "https://www.sika.com/en/career.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.sika.com/en/career.html"
+    },
+    {
+      "id": "dell",
+      "name": "Dell Technologies",
+      "field": "careersUrl",
+      "url": "https://iawmqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://iawmqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers"
+    },
+    {
+      "id": "ftd",
+      "name": "FTD",
+      "field": "careersUrl",
+      "url": "https://ftdcompanies.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.ftd.com/"
+    },
+    {
+      "id": "havas",
+      "name": "Havas",
+      "field": "careersUrl",
+      "url": "https://www.havas.com/who-we-are/our-careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.havas.com/who-we-are/our-careers/"
+    },
+    {
+      "id": "national-bank-of-canada",
+      "name": "National Bank of Canada",
+      "field": "careersUrl",
+      "url": "https://emplois.bnc.ca/en_CA/careers/home",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://emplois.bnc.ca/en_CA/careers/home"
+    },
+    {
+      "id": "pethealth",
+      "name": "Pethealth",
+      "field": "careersUrl",
+      "url": "https://www.trupanion.com/about/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.trupanion.com/about/careers"
+    },
+    {
+      "id": "real-madrid",
+      "name": "Real Madrid",
+      "field": "careersUrl",
+      "url": "https://www.realmadrid.com/en-US/the-club",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.realmadrid.com/en-US/the-club"
+    },
+    {
+      "id": "tsb",
+      "name": "TSB Bank",
+      "field": "careersUrl",
+      "url": "https://www.tsbcareers.co.uk/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tsbcareers.co.uk/"
+    },
+    {
+      "id": "r-systems",
+      "name": "R Systems",
+      "field": "careersUrl",
+      "url": "https://www.rsystems.com/join-us/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.rsystems.com/join-us/"
+    },
+    {
+      "id": "cyient",
+      "name": "Cyient",
+      "field": "careersUrl",
+      "url": "https://www.cyient.careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.cyient.careers/"
+    },
+    {
+      "id": "airtel",
+      "name": "Bharti Airtel",
+      "field": "careersUrl",
+      "url": "https://careers.airtel.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.airtel.com/"
+    },
+    {
+      "id": "axis-bank",
+      "name": "Axis Bank",
+      "field": "careersUrl",
+      "url": "https://www.axis.bank.in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.axis.bank.in/careers"
+    },
+    {
+      "id": "innominds",
+      "name": "Innominds",
+      "field": "careersUrl",
+      "url": "https://careers.innominds.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.innominds.com/"
+    },
+    {
+      "id": "phygital-insights",
+      "name": "Phygital Insights",
+      "field": "careersUrl",
+      "url": "https://www.phygital-insights.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.phygital-insights.com/careers"
+    },
+    {
+      "id": "sasken",
+      "name": "Sasken Technologies",
+      "field": "careersUrl",
+      "url": "https://careers.sasken.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.sasken.com/tb/saskenjobs/"
+    },
+    {
+      "id": "hul",
+      "name": "Hindustan Unilever",
+      "field": "careersUrl",
+      "url": "https://careers.unilever.com/en/india",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.unilever.com/en/india"
+    },
+    {
+      "id": "albertsons",
+      "name": "Albertsons",
+      "field": "careersUrl",
+      "url": "https://eofd.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://eofd.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001"
+    },
+    {
+      "id": "softtek",
+      "name": "Softtek",
+      "field": "careersUrl",
+      "url": "https://www.softtek.com/jobs",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://jobs.softtek.com/careers/?utm_campaign=softtek-website&utm_source=referral&utm_medium=jobsredirect"
+    },
+    {
+      "id": "nestdigital",
+      "name": "Nest Digital",
+      "field": "careersUrl",
+      "url": "https://www.nestdigital.com/career",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://nestdigital.com/career/"
+    },
+    {
+      "id": "srijan",
+      "name": "Srijan Technologies",
+      "field": "careersUrl",
+      "url": "https://www.materialplus.io/careers/job-openings-apac",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.materialplus.io/careers/job-openings-apac"
+    },
+    {
+      "id": "agileengine",
+      "name": "AgileEngine",
+      "field": "careersUrl",
+      "url": "https://join.agileengine.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://join.agileengine.com/"
+    },
+    {
+      "id": "athenahealth",
+      "name": "athenahealth",
+      "field": "careersUrl",
+      "url": "https://careers.athenahealth.com/us/en/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.athenahealth.com/us/en/"
+    },
+    {
+      "id": "sanofi",
+      "name": "Sanofi",
+      "field": "careersUrl",
+      "url": "https://jobs.sanofi.com/en",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.sanofi.com/en"
+    },
+    {
+      "id": "schneider-electric",
+      "name": "Schneider Electric",
+      "field": "careersUrl",
+      "url": "https://careers.se.com/jobs",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.se.com/jobs"
+    },
+    {
+      "id": "infogain",
+      "name": "Infogain",
+      "field": "careersUrl",
+      "url": "https://www.tenarai.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tenarai.com/careers"
+    },
+    {
+      "id": "royal-cyber",
+      "name": "Royal Cyber",
+      "field": "careersUrl",
+      "url": "https://www.royalcyber.com/company/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.royalcyber.com/company/careers/"
+    }
+  ]
+}

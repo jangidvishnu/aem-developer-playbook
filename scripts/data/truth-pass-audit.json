@@ -1,0 +1,4746 @@
+{
+  "generatedAt": "2026-07-10T17:48:32.726Z",
+  "totalCompanies": 413,
+  "needsTruthPass": 245,
+  "byEvidenceClass": {
+    "careers-only": 187,
+    "homepage-only": 29,
+    "practice-page": 11,
+    "other": 3,
+    "adobe-case": 11,
+    "casestudies-mirror": 2,
+    "builtwith": 2
+  },
+  "rows": [
+    {
+      "id": "ey",
+      "name": "EY (Ernst & Young)",
+      "priority": 9,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.ey.com/",
+      "evidence0": "https://careers.ey.com/ey/job/Bengaluru-Customer-Tech-Adobe-AEM-Architect-GDS02-KA-560016/1210338301/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "eds",
+        "target",
+        "aep",
+        "launch"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Architect",
+        "AEM Developer",
+        "AEM Frontend Developer"
+      ],
+      "notesSnippet": "Large Adobe 'Customer Tech' practice within EY GDS. High-volume AEM hiring (architect/front-end/back-end) in Bengaluru, Chennai, Hyderabad."
+    },
+    {
+      "id": "hsbc",
+      "name": "HSBC",
+      "priority": 9,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://mycareer.hsbc.com/",
+      "evidence0": "https://mycareer.hsbc.com/en_GB/external/PipelineDetail/GSC-Content-Management-Administrator/288376",
+      "products": [
+        "sites",
+        "assets",
+        "target",
+        "analytics",
+        "campaign"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "GSC Content Management Administrator",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global bank with India global service centers. HSBC careers portal lists roles requiring AEM as an essential skill."
+    },
+    {
+      "id": "ntt-data",
+      "name": "NTT DATA",
+      "priority": 9,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers-inc.nttdata.com/",
+      "evidence0": "https://careers-inc.nttdata.com/job/Bangalore-AEM-Dev-KA/1401112700/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "analytics",
+        "target",
+        "campaign",
+        "aep",
+        "ajo"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Dev"
+      ],
+      "notesSnippet": "Global IT services firm with India delivery centers running Adobe Experience Manager implementations. Official India careers list AEM developer roles in Bangalo"
+    },
+    {
+      "id": "amgen",
+      "name": "Amgen",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.amgen.com/",
+      "evidence0": "https://careers.amgen.com/en/job/hyderabad/sr-associate-aem-backend-application-logic-engineer/87/92569182688",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "analytics",
+        "target",
+        "workfront"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Backend Developer",
+        "AEM Frontend Engineer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Global commercial web technology on AEM as a Cloud Service; active AEM hiring in Hyderabad."
+    },
+    {
+      "id": "arrow-electronics",
+      "name": "Arrow Electronics",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.arrow.com/",
+      "evidence0": "https://careers.arrow.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "Global technology solutions provider with India engineering hiring AEM developers for Arrow Digital customer experience platforms on AEM Cloud Service."
+    },
+    {
+      "id": "assa-abloy",
+      "name": "ASSA ABLOY",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.assaabloy.com/career/en/open-positions",
+      "evidence0": "https://www.assaabloy.com/career/en/open-positions",
+      "products": [
+        "sites",
+        "assets",
+        "commerce"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "QA Software Testing Engineer (AEM eCommerce)",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global access-solutions company with Chennai technology center testing and supporting AEM-driven eCommerce content management websites."
+    },
+    {
+      "id": "astrazeneca",
+      "name": "AstraZeneca",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.astrazeneca.com/",
+      "evidence0": "https://careers.astrazeneca.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Associate Website Delivery",
+        "AEM DAM Librarian"
+      ],
+      "notesSnippet": "Global pharmaceutical company with Chennai digital operations team building and publishing AEM pages, content fragments, and DAM assets for multi-market website"
+    },
+    {
+      "id": "barclays",
+      "name": "Barclays",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://search.jobs.barclays/",
+      "evidence0": "https://search.jobs.barclays/en/job/pune/java-developer/13015/95037578976",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Lead AEM Developer",
+        "Tech Lead - AEM",
+        "Software Engineer (AEM)"
+      ],
+      "notesSnippet": "Builds AEM Sites (Core Components, OSGi, Sling, Cloud Service) in-house. Heavy AEM hiring at Barclays Pune, its largest campus outside London."
+    },
+    {
+      "id": "boston-scientific",
+      "name": "Boston Scientific",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.bostonscientific.com/",
+      "evidence0": "https://jobs.bostonscientific.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Digital Producer - AEM",
+        "AEM Digital Producer"
+      ],
+      "notesSnippet": "Medical device company with Gurugram marketing technology team hiring digital producers to publish healthcare content on Adobe Experience Manager."
+    },
+    {
+      "id": "caterpillar",
+      "name": "Caterpillar",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.caterpillar.com/en/jobs/",
+      "evidence0": "https://careers.caterpillar.com/en/jobs/r0000374350/lead-product-owner-aem-asset-workfront/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "workfront"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Adobe AEM Engineer",
+        "Senior Software Engineer - AEM",
+        "Senior Digital Product Owner - AEM"
+      ],
+      "notesSnippet": "Runs AEM (incl. AEMaaCS, AEM Assets + Workfront) for its eCommerce DXP. Active AEM hiring in India (Bangalore, Chennai) plus US."
+    },
+    {
+      "id": "dentsu",
+      "name": "Dentsu",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL",
+      "evidence0": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior AEM Developer Backend",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global marketing network (Merkle brand in India) hiring senior AEM backend developers in Pune for enterprise digital experience delivery."
+    },
+    {
+      "id": "genpact",
+      "name": "Genpact",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.jobvite.com/genpactexperience",
+      "evidence0": "https://jobs.jobvite.com/genpactexperience",
+      "products": [
+        "sites",
+        "assets",
+        "forms",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior AEM Developer",
+        "Enterprise Architect - AEM"
+      ],
+      "notesSnippet": "Global professional services firm with a dedicated Adobe Experience practice. Jobvite experience careers portal lists Senior AEM Developer and Enterprise Archit"
+    },
+    {
+      "id": "globallogic",
+      "name": "GlobalLogic",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.globallogic.com/careers/",
+      "evidence0": "https://www.globallogic.com/careers/",
+      "products": [
+        "sites",
+        "assets",
+        "forms",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior Engineer Product Support (AEM)",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Hitachi Group digital engineering company with large India footprint hiring AEM product support engineers in Gurugram."
+    },
+    {
+      "id": "globant",
+      "name": "Globant",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://career.globant.com/",
+      "evidence0": "https://career.globant.com/job/Pune-AEM-Frontend-Developer-Maha/571277717/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Frontend Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Digital-native technology services company with AEM delivery from India. Careers portal posts AEM frontend developer roles for Pune and other India hubs."
+    },
+    {
+      "id": "invesco",
+      "name": "Invesco",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.invesco.com/india",
+      "evidence0": "https://careers.invesco.com/india",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior Engineer I - Digital",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global investment management firm with India technology centers running AEM for digital distribution engineering. Hyderabad AEM engineer roles verified on caree"
+    },
+    {
+      "id": "natwest-group",
+      "name": "NatWest Group",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.natwestgroup.com/",
+      "evidence0": "https://jobs.natwestgroup.com/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Software Engineer VP (AEM)",
+        "AEM Developer"
+      ],
+      "notesSnippet": "UK banking group with India technology centers in Bangalore. Job board listing confirms Software Engineer VP (AEM) role."
+    },
+    {
+      "id": "okta",
+      "name": "Okta",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.okta.com/company/careers/",
+      "evidence0": "https://www.okta.com/company/careers/business-technology/senior-adobe-experience-manager-devops-engineer-aem-devops/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior AEM Engineer",
+        "Sr. AEM Backend Developer",
+        "AEM DevOps Engineer"
+      ],
+      "notesSnippet": "Runs AEM (AEMaaCS, headless) for its marketing sites (100M+ monthly visits). Dedicated AEM/Adobe Experience Cloud engineering team incl. Bengaluru, India."
+    },
+    {
+      "id": "palo-alto-networks",
+      "name": "Palo Alto Networks",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.paloaltonetworks.com/en/",
+      "evidence0": "https://jobs.paloaltonetworks.com/en/job/bengaluru/sr-aem-front-end-developer/47263/92684900544",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target",
+        "launch"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Sr AEM Full Stack Developer",
+        "Staff IT Software Engineer (AEM)"
+      ],
+      "notesSnippet": "Uses AEM for its global Digital Marketing web presence (HTL, Sling, OSGi + Target/Analytics/Launch). Active AEM hiring in Bengaluru, India."
+    },
+    {
+      "id": "russell-investments",
+      "name": "Russell Investments",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://russell.wd5.myworkdayjobs.com/russellinvestments",
+      "evidence0": "https://russell.wd5.myworkdayjobs.com/russellinvestments",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Principal Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global investment management firm hiring principal developers in Mumbai to build AEM components integrated with Adobe Target, Analytics, and CRM platforms."
+    },
+    {
+      "id": "sp-global-market-intelligence",
+      "name": "S&P Global Market Intelligence",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.spglobal.com/marketintelligence/en/careers",
+      "evidence0": "https://www.spglobal.com/marketintelligence/en/careers",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Technical Architect/Lead",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Financial data and analytics provider with India technology centers hiring AEM technical architects for enterprise digital platform builds."
+    },
+    {
+      "id": "ta-digital",
+      "name": "TA Digital (Credera)",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://credera.com/en-in/careers",
+      "evidence0": "https://www.career.com/job/ta-digital/adobe-multi-solution-architect-ajo-jo-campaign-aep/j202305250841555034260",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "aep",
+        "ajo",
+        "campaign"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Architect",
+        "AEM Developer",
+        "Adobe Multi Solution Architect"
+      ],
+      "notesSnippet": "Adobe Global Platinum Solution Partner (Omnicom) with the majority of staff in India. Recruits AEM architects/developers for global delivery."
+    },
+    {
+      "id": "thermo-fisher-scientific",
+      "name": "Thermo Fisher Scientific",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.thermofisher.com/",
+      "evidence0": "https://jobs.thermofisher.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Platform Lead",
+        "AEM Platform Specialist"
+      ],
+      "notesSnippet": "Global life-sciences company with Bangalore GCC hiring for AEM platform leadership and digital content operations on Adobe Experience Manager."
+    },
+    {
+      "id": "vml-enterprise-solutions",
+      "name": "VML Enterprise Solutions",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://job-boards.greenhouse.io/vmlenterprisesolutions",
+      "evidence0": "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8161768002",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Frontend Developer"
+      ],
+      "notesSnippet": "Enterprise digital agency with New Delhi AEM frontend developer hiring on Adobe Experience Manager Cloud; works with Bosch and other global brands."
+    },
+    {
+      "id": "yash",
+      "name": "YASH Technologies",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.yash.com/career/",
+      "evidence0": "https://jobs.weekday.works/sr-software-engineer-aem-job-at-yash-technologies-middle-east-4397872158",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior Software Engineer - AEM",
+        "AEM SRE Engineer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global IT integrator with a dedicated AEM practice; job reqs explicitly hire 'Adobe Experience Manager (AEM) Professionals'. India delivery in Bangalore, Pune, "
+    },
+    {
+      "id": "abb",
+      "name": "ABB",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.abb/",
+      "evidence0": "https://careers.abb/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Electrification/automation; India hubs; AEM digital properties."
+    },
+    {
+      "id": "agileengine",
+      "name": "AgileEngine",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://agileengine.com/careers/",
+      "evidence0": "https://agileengine.com/careers/",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Engineer"
+      ],
+      "notesSnippet": "Product engineering firm with India hubs; AEM developer openings for US clients."
+    },
+    {
+      "id": "airtel",
+      "name": "Bharti Airtel",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.airtel.in/careers/",
+      "evidence0": "https://www.airtel.in/careers/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "India telecom digital properties; AEM/CMS and Adobe Marketing Cloud roles appear periodically. Monitor airtel.in/careers."
+    },
+    {
+      "id": "akqa",
+      "name": "AKQA",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.akqa.com/careers/",
+      "evidence0": "https://www.akqa.com/careers/",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "WPP digital agency with India studios; AEM/headless CMS delivery."
+    },
+    {
+      "id": "altimetrik",
+      "name": "Altimetrik",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.altimetrik.com/careers/",
+      "evidence0": "https://www.altimetrik.com/careers/",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "assets"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Senior AEM Developer"
+      ],
+      "notesSnippet": "Digital business engineering with India delivery; AEM developer openings for client Adobe programs. Evidence is careers/hiring signal — upgrade when dedicated A"
+    },
+    {
+      "id": "amdocs",
+      "name": "Amdocs",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.amdocs.com/careers",
+      "evidence0": "https://www.amdocs.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Telecom BSS/digital with large India footprint; AEM/CMS roles for digital experience."
+    },
+    {
+      "id": "atos",
+      "name": "Atos",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.atos.net/",
+      "evidence0": "https://jobs.atos.net/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Consultant"
+      ],
+      "notesSnippet": "Global IT services; India delivery staffs Adobe Experience Manager projects. Monitor jobs.atos.net for AEM titles."
+    },
+    {
+      "id": "au-small-finance-bank",
+      "name": "AU Small Finance Bank",
+      "priority": 7,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.au.bank.in/careers",
+      "evidence0": "https://www.aubank.in/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Software Engineer I – AEM Developer"
+      ],
+      "notesSnippet": "India small finance bank hiring AEM developers in Jaipur for digital experience engineering."
+    },
+    {
+      "id": "autodesk",
+      "name": "Autodesk",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.autodesk.com/careers",
+      "evidence0": "https://www.autodesk.com/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Design software with India R&D; Experience Manager on marketing sites."
+    },
+    {
+      "id": "axelerant",
+      "name": "Axelerant",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.axelerant.com/careers",
+      "evidence0": "https://www.axelerant.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Remote-friendly India digital engineering; AEM/CMS delivery alongside Drupal practice."
+    },
+    {
+      "id": "axis-bank",
+      "name": "Axis Bank",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.axisbank.com/careers",
+      "evidence0": "https://www.axisbank.com/careers",
+      "products": [
+        "sites",
+        "assets",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "India private bank; AEM developer openings appear on careers and boards for digital experience teams."
+    },
+    {
+      "id": "bayer",
+      "name": "Bayer",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.bayer.com/en/careers",
+      "evidence0": "https://www.bayer.com/en/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Life sciences with India hubs; AEM digital properties."
+    },
+    {
+      "id": "bd",
+      "name": "BD (Becton Dickinson)",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.bd.com/",
+      "evidence0": "https://jobs.bd.com/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Medtech with India hub; AEM on digital properties."
+    },
+    {
+      "id": "capital-one",
+      "name": "Capital One",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.capitalonecareers.com/",
+      "evidence0": "https://www.capitalonecareers.com/",
+      "products": [
+        "sites",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Bank with India tech hubs; AEM/CMS roles appear periodically on digital teams."
+    },
+    {
+      "id": "coca-cola",
+      "name": "The Coca-Cola Company",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.coca-colacompany.com/careers",
+      "evidence0": "https://www.coca-colacompany.com/careers",
+      "products": [
+        "sites",
+        "assets",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Beverage CPG with India hubs; Experience Manager historically on brand sites."
+    },
+    {
+      "id": "coditas",
+      "name": "Coditas",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.coditas.com/careers",
+      "evidence0": "https://www.coditas.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "Pune digital engineering firm; AEM-certified developers on staff and periodic AEM delivery hiring. Upgrade evidence when dedicated AEM practice page found."
+    },
+    {
+      "id": "cyient",
+      "name": "Cyient",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.cyient.com/careers",
+      "evidence0": "https://www.cyient.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Engineering and digital technology services; AEM/CMS roles for enterprise digital transformation."
+    },
+    {
+      "id": "digitas",
+      "name": "Digitas",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.digitas.com/en-us/careers",
+      "evidence0": "https://www.digitas.com/en-us/careers",
+      "products": [
+        "sites",
+        "analytics",
+        "target",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "MarTech Engineer"
+      ],
+      "notesSnippet": "Publicis media/digital agency; India hubs; AEM/Adobe stack delivery."
+    },
+    {
+      "id": "dxc",
+      "name": "DXC Technology",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.dxc.com/",
+      "evidence0": "https://careers.dxc.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Global IT services with large India footprint; Adobe Experience Manager delivery (also via Luxoft brand — Luxoft not listed separately to avoid duplicate practi"
+    },
+    {
+      "id": "exl",
+      "name": "EXL",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.exlservice.com/careers",
+      "evidence0": "https://www.exlservice.com/careers",
+      "products": [
+        "sites",
+        "analytics",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Analytics and digital operations firm with large India footprint; AEM/CMS delivery roles appear periodically."
+    },
+    {
+      "id": "fidelity",
+      "name": "Fidelity Investments",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.fidelity.com/",
+      "evidence0": "https://jobs.fidelity.com/search-jobs/AEM",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior AEM Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "India technology centers staff Senior AEM Developer roles. AEM stack evidenced by titled hiring on Fidelity careers; upgrade when Adobe case study found."
+    },
+    {
+      "id": "grid-dynamics",
+      "name": "Grid Dynamics",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.griddynamics.com/careers",
+      "evidence0": "https://www.griddynamics.com/careers",
+      "products": [
+        "sites",
+        "commerce",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Commerce Developer"
+      ],
+      "notesSnippet": "Digital engineering with India centers; Adobe Experience Manager and Commerce for retail/CPG clients."
+    },
+    {
+      "id": "homedepot",
+      "name": "The Home Depot",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.homedepot.com/",
+      "evidence0": "https://careers.homedepot.com/",
+      "products": [
+        "sites",
+        "assets",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Home improvement retail with Hyderabad tech hub; AEM/CMS digital roles."
+    },
+    {
+      "id": "hp",
+      "name": "HP Inc.",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.hp.com/",
+      "evidence0": "https://jobs.hp.com/",
+      "products": [
+        "sites",
+        "commerce",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Global brand/commerce digital properties; India R&D hubs. Monitor jobs.hp.com for AEM titles."
+    },
+    {
+      "id": "hpe",
+      "name": "Hewlett Packard Enterprise",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.hpe.com/",
+      "evidence0": "https://careers.hpe.com/",
+      "products": [
+        "sites",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Corporate digital properties; acquired Juniper (listed separately). India hubs; monitor HPE careers for AEM titles."
+    },
+    {
+      "id": "infogain",
+      "name": "Infogain",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.infogain.com/careers/",
+      "evidence0": "https://www.infogain.com/careers/",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Digital engineering with India delivery; AEM implementation hiring."
+    },
+    {
+      "id": "innominds",
+      "name": "Innominds",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.innominds.com/careers",
+      "evidence0": "https://www.innominds.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Product engineering with Hyderabad delivery; Adobe Experience Manager implementation for ISV/enterprise clients."
+    },
+    {
+      "id": "iqvia",
+      "name": "IQVIA",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.iqvia.com/",
+      "evidence0": "https://jobs.iqvia.com/",
+      "products": [
+        "sites",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Life sciences data/services with large India footprint; AEM/CMS digital roles."
+    },
+    {
+      "id": "isobar",
+      "name": "Isobar",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.isobar.com/careers",
+      "evidence0": "https://www.isobar.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Dentsu digital agency network; India studios deliver Adobe Experience Manager."
+    },
+    {
+      "id": "johnson-johnson",
+      "name": "Johnson & Johnson",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.careers.jnj.com/",
+      "evidence0": "https://www.careers.jnj.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Healthcare conglomerate with India presence; AEM on brand/medical sites."
+    },
+    {
+      "id": "kin-carta",
+      "name": "Kin + Carta",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.kinandcarta.com/en/careers/",
+      "evidence0": "https://www.kinandcarta.com/en/careers/",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Digital transformation consultancy; India delivery for Adobe Experience Manager programs."
+    },
+    {
+      "id": "ltts",
+      "name": "L&T Technology Services",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.ltts.com/careers",
+      "evidence0": "https://www.ltts.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "L&T engineering services; AEM/CMS digital experience roles for enterprise clients."
+    },
+    {
+      "id": "luxoft",
+      "name": "Luxoft",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://career.luxoft.com/",
+      "evidence0": "https://career.luxoft.com/",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "DXC-owned digital engineering brand (DXC also listed). India delivery with AEM developer/architect openings for banking/auto clients."
+    },
+    {
+      "id": "mmm",
+      "name": "3M",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.3m.com/3M/en_US/careers-us/",
+      "evidence0": "https://www.3m.com/3M/en_US/careers-us/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Diversified manufacturer; Solventum (health spin-off) listed separately. India hub; AEM sites."
+    },
+    {
+      "id": "nestdigital",
+      "name": "Nest Digital",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.nestdigital.com/careers",
+      "evidence0": "https://www.nestdigital.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Senior AEM Developer"
+      ],
+      "notesSnippet": "Kerala digital engineering firm with Adobe Experience Manager delivery hiring."
+    },
+    {
+      "id": "nestle",
+      "name": "Nestlé",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.nestle.com/jobs",
+      "evidence0": "https://www.nestle.com/jobs",
+      "products": [
+        "sites",
+        "assets",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Global CPG; India digital/IT; AEM on brand properties in markets."
+    },
+    {
+      "id": "novartis",
+      "name": "Novartis",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.novartis.com/careers",
+      "evidence0": "https://www.novartis.com/careers",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Pharma with India GCCs; Experience Manager on corporate/medical sites."
+    },
+    {
+      "id": "orbion",
+      "name": "Orbion Consulting",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.orbionconsulting.com/careers",
+      "evidence0": "https://www.orbionconsulting.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "India Adobe/digital consultancy with AEM implementation hiring."
+    },
+    {
+      "id": "pepsico",
+      "name": "PepsiCo",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.pepsicojobs.com/",
+      "evidence0": "https://www.pepsicojobs.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "CPG with India GCC; digital experience/AEM roles appear on careers."
+    },
+    {
+      "id": "phygital-insights",
+      "name": "Phygital Insights",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.phygitalinsights.com/careers",
+      "evidence0": "https://www.phygitalinsights.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Senior AEM Developer"
+      ],
+      "notesSnippet": "India digital experience consultancy with Adobe Experience Manager delivery."
+    },
+    {
+      "id": "pi-square",
+      "name": "Pi Square Technologies",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.pisquaretech.com/careers",
+      "evidence0": "https://www.pisquaretech.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Senior AEM Developer"
+      ],
+      "notesSnippet": "Engineering services with India delivery; AEM developer staffing for automotive/digital clients."
+    },
+    {
+      "id": "procter-gamble",
+      "name": "Procter & Gamble",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.pgcareers.com/",
+      "evidence0": "https://www.pgcareers.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "MarTech Engineer"
+      ],
+      "notesSnippet": "CPG digital; India hubs; Adobe Experience Cloud stack on brand sites."
+    },
+    {
+      "id": "qentelli",
+      "name": "Qentelli",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.qentelli.com/careers",
+      "evidence0": "https://www.qentelli.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Digital engineering with Hyderabad delivery; AEM implementation roles for enterprise clients."
+    },
+    {
+      "id": "r-systems",
+      "name": "R Systems",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.rsystems.com/careers/",
+      "evidence0": "https://www.rsystems.com/careers/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Digital product engineering with India delivery; Adobe Experience Manager staffing for enterprise clients."
+    },
+    {
+      "id": "relx",
+      "name": "RELX",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.relx.com/careers",
+      "evidence0": "https://www.relx.com/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Analytics/publishing group; India presence; AEM digital."
+    },
+    {
+      "id": "rga",
+      "name": "R/GA",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.rga.com/careers",
+      "evidence0": "https://www.rga.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Accenture Song digital agency; India presence; AEM delivery."
+    },
+    {
+      "id": "royal-cyber",
+      "name": "Royal Cyber",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.royalcyber.com/careers/",
+      "evidence0": "https://www.royalcyber.com/careers/",
+      "products": [
+        "sites",
+        "commerce",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Adobe Commerce Developer"
+      ],
+      "notesSnippet": "Digital commerce/CMS SI with India delivery; AEM and Adobe Commerce hiring."
+    },
+    {
+      "id": "saggezza",
+      "name": "Saggezza",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.saggezza.com/careers",
+      "evidence0": "https://www.saggezza.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer"
+      ],
+      "notesSnippet": "Digital engineering with India delivery; AEM project staffing."
+    },
+    {
+      "id": "samsung-sds",
+      "name": "Samsung SDS",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.samsungsds.com/en/career/career.html",
+      "evidence0": "https://www.samsungsds.com/en/career/career.html",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Samsung IT services with India delivery; Adobe Experience Manager project staffing."
+    },
+    {
+      "id": "sanofi",
+      "name": "Sanofi",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.sanofi.com/en/careers",
+      "evidence0": "https://www.sanofi.com/en/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Pharma with India presence; AEM on brand sites."
+    },
+    {
+      "id": "sasken",
+      "name": "Sasken Technologies",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.sasken.com/careers",
+      "evidence0": "https://www.sasken.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Product engineering and digital services (Bengaluru); AEM/CMS roles for telecom and device OEM digital programs."
+    },
+    {
+      "id": "schneider-electric",
+      "name": "Schneider Electric",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.se.com/ww/en/about-us/careers/",
+      "evidence0": "https://www.se.com/ww/en/about-us/careers/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Industrial automation with large India footprint; Experience Manager on global web."
+    },
+    {
+      "id": "siemens-healthineers",
+      "name": "Siemens Healthineers",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.siemens-healthineers.com/careers",
+      "evidence0": "https://www.siemens-healthineers.com/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Medtech (Siemens industrial listed separately). India Bengaluru hub; AEM on digital properties."
+    },
+    {
+      "id": "slalom",
+      "name": "Slalom",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.slalom.com/careers",
+      "evidence0": "https://www.slalom.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Consultant"
+      ],
+      "notesSnippet": "Business/tech consultancy with India presence; Adobe Experience Manager consulting."
+    },
+    {
+      "id": "softserve",
+      "name": "SoftServe",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://career.softserveinc.com/",
+      "evidence0": "https://career.softserveinc.com/",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Engineer"
+      ],
+      "notesSnippet": "Global digital consultancy with India presence; Adobe Experience Manager practice for enterprise programs."
+    },
+    {
+      "id": "softtek",
+      "name": "Softtek",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.softtek.com/en/careers",
+      "evidence0": "https://www.softtek.com/en/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Global IT services with India delivery; Adobe Experience Manager project staffing."
+    },
+    {
+      "id": "srijan",
+      "name": "Srijan Technologies",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.srijan.net/careers",
+      "evidence0": "https://www.srijan.net/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "India digital agency/SI with Adobe Experience Manager and commerce delivery."
+    },
+    {
+      "id": "stryker",
+      "name": "Stryker",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.stryker.com/",
+      "evidence0": "https://careers.stryker.com/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Medtech with India hub; AEM digital properties."
+    },
+    {
+      "id": "sutherland-global",
+      "name": "Sutherland Global",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.jobs.sutherlandglobal.com/",
+      "evidence0": "https://www.sutherlandglobal.com/careers",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target",
+        "campaign",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Sr AEM Developer",
+        "Senior AEM Developer"
+      ],
+      "notesSnippet": "Business process and digital transformation services firm recruiting senior AEM developers in Hyderabad for cart, order management, and Adobe Marketing Cloud in"
+    },
+    {
+      "id": "tata-elxsi",
+      "name": "Tata Elxsi",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.tataelxsi.com/careers",
+      "evidence0": "https://www.tataelxsi.com/careers",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "UI Engineer (AEM)"
+      ],
+      "notesSnippet": "Tata Group design/tech services; Adobe Experience Manager delivery for media/auto/healthcare digital programs."
+    },
+    {
+      "id": "tavant",
+      "name": "Tavant",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.tavant.com/careers",
+      "evidence0": "https://www.tavant.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "Digital products firm with India delivery; AEM implementation for lending/auto/retail clients."
+    },
+    {
+      "id": "the-scalers",
+      "name": "The Scalers",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.thescalers.com/",
+      "evidence0": "https://careers.thescalers.com/positions/senior-aem-developer-418",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Senior AEM Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Offshore development partner scaling Bangalore teams for global clients; careers portal lists senior AEM developer roles for multi-site AEM platform delivery."
+    },
+    {
+      "id": "thomson-reuters",
+      "name": "Thomson Reuters",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.thomsonreuters.com/en/careers.html",
+      "evidence0": "https://www.thomsonreuters.com/en/careers.html",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Information services with India hubs; AEM on digital properties."
+    },
+    {
+      "id": "thoughtworks",
+      "name": "Thoughtworks",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.thoughtworks.com/careers",
+      "evidence0": "https://www.thoughtworks.com/careers",
+      "products": [
+        "sites",
+        "headless",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Global consultancy with India offices; AEM/CMS delivery on client programs."
+    },
+    {
+      "id": "valuebound",
+      "name": "ValueBound",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.valuebound.com/careers",
+      "evidence0": "https://www.valuebound.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Drupal/AEM Developer"
+      ],
+      "notesSnippet": "Bengaluru open-source and CMS consultancy with AEM delivery capability."
+    },
+    {
+      "id": "vml",
+      "name": "VML",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.vml.com/careers",
+      "evidence0": "https://www.vml.com/careers",
+      "products": [
+        "sites",
+        "commerce",
+        "aem-cloud",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "WPP creative/tech agency; India delivery for Adobe Experience Manager."
+    },
+    {
+      "id": "willware",
+      "name": "WillWare Technologies",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.willware.com/careers",
+      "evidence0": "https://www.willware.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "India digital engineering boutique with AEM delivery hiring on careers/boards."
+    },
+    {
+      "id": "wolters-kluwer",
+      "name": "Wolters Kluwer",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.wolterskluwer.com/en/careers",
+      "evidence0": "https://www.wolterskluwer.com/en/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Professional information; India Pune hub; AEM sites."
+    },
+    {
+      "id": "xebia",
+      "name": "Xebia",
+      "priority": 7,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://xebia.com/careers/",
+      "evidence0": "https://www.shine.com/jobs/content-management-system-developer/xebia/18997784",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer (CMS Developer)"
+      ],
+      "notesSnippet": "IT consultancy with a large India presence (Gurugram/Bengaluru) hiring AEM developers (AEM components/templates/workflows + React) for Delhi NCR and Bengaluru."
+    },
+    {
+      "id": "abbvie",
+      "name": "AbbVie",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.abbvie.com/",
+      "evidence0": "https://careers.abbvie.com/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Pharma with India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "adani",
+      "name": "Adani Group",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.adani.com/careers",
+      "evidence0": "https://www.adani.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Conglomerate; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "agilent",
+      "name": "Agilent Technologies",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.agilent.com/careers/",
+      "evidence0": "https://www.agilent.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Life sciences tools; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "airbus",
+      "name": "Airbus",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.airbus.com/en/careers",
+      "evidence0": "https://www.airbus.com/en/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Aerospace with India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai Technologies",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.akamai.com/careers",
+      "evidence0": "https://www.akamai.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "CDN/security firm with India engineering. Corporate site CMS may include Experience Manager historically — watchlist. Priority capped."
+    },
+    {
+      "id": "align-tech",
+      "name": "Align Technology",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.aligntech.com/",
+      "evidence0": "https://jobs.aligntech.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Invisalign; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "alixpartners",
+      "name": "AlixPartners",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.alixpartners.com/careers/",
+      "evidence0": "https://www.alixpartners.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Turnaround consulting; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "amd",
+      "name": "AMD",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.amd.com/",
+      "evidence0": "https://careers.amd.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Semiconductor; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "analog-devices",
+      "name": "Analog Devices",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.analog.com/en/about-adi/careers.html",
+      "evidence0": "https://www.analog.com/en/about-adi/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Semiconductor; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "ansys",
+      "name": "Ansys",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.ansys.com/careers",
+      "evidence0": "https://www.ansys.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Simulation software; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "ashok-leyland",
+      "name": "Ashok Leyland",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.ashokleyland.com/careers",
+      "evidence0": "https://www.ashokleyland.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "CV OEM; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.atlassian.com/company/careers",
+      "evidence0": "https://www.atlassian.com/company/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Bengaluru hub. AEM usage not strongly evidenced — watchlist. Priority capped."
+    },
+    {
+      "id": "axis-max-life",
+      "name": "Axis Max Life Insurance",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.axismaxlife.com/careers",
+      "evidence0": "https://www.iimjobs.com/j/max-life-insurance-assistant-manager-digital-marketing-3-4-yrs-672775",
+      "products": [
+        "sites",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Product Manager (AEM)",
+        "Assistant Manager - Digital Marketing (AEM)"
+      ],
+      "notesSnippet": "Insurer running AEM as its content management stack (with Adobe Target/Analytics). In-house roles are mostly digital product/marketing using AEM rather than pur"
+    },
+    {
+      "id": "bae-systems",
+      "name": "BAE Systems",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.baesystems.com/",
+      "evidence0": "https://jobs.baesystems.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Defense; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "bain",
+      "name": "Bain & Company",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.bain.com/careers/",
+      "evidence0": "https://www.bain.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Strategy consulting; AEM rare — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "bajaj-auto",
+      "name": "Bajaj Auto",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.bajajauto.com/careers",
+      "evidence0": "https://www.bajajauto.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Two-wheeler OEM; Bajaj Finserv listed separately. AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "bcg-x",
+      "name": "BCG X",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.bcg.com/",
+      "evidence0": "https://careers.bcg.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "BCG tech build unit; AEM rare — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "bio-rad",
+      "name": "Bio-Rad Laboratories",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.bio-rad.com/",
+      "evidence0": "https://careers.bio-rad.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Life science research; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "boeing",
+      "name": "Boeing",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.boeing.com/",
+      "evidence0": "https://jobs.boeing.com/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Aerospace with India engineering; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "broadcom",
+      "name": "Broadcom",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.broadcom.com/company/careers",
+      "evidence0": "https://www.broadcom.com/company/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Semiconductor/software; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "bruker",
+      "name": "Bruker",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.bruker.com/en/about-us/careers.html",
+      "evidence0": "https://www.bruker.com/en/about-us/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Scientific instruments; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "cadence",
+      "name": "Cadence Design Systems",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.cadence.com/en_US/home/company/careers.html",
+      "evidence0": "https://www.cadence.com/en_US/home/company/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "EDA software; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "cardinal-health",
+      "name": "Cardinal Health",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.cardinalhealth.com/",
+      "evidence0": "https://jobs.cardinalhealth.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Healthcare distribution; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "celestica",
+      "name": "Celestica",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.celestica.com/careers",
+      "evidence0": "https://www.celestica.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "EMS; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "cigna",
+      "name": "Cigna",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.thecignagroup.com/",
+      "evidence0": "https://jobs.thecignagroup.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Health insurer with India GCC; AEM hiring occasional — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "collins-aerospace",
+      "name": "Collins Aerospace",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.rtx.com/",
+      "evidence0": "https://careers.rtx.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "RTX business unit; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "costco",
+      "name": "Costco",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.costco.com/jobs.html",
+      "evidence0": "https://www.costco.com/jobs.html",
+      "products": [
+        "sites",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Warehouse retail; AEM watchlist. No India. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "cvs-health",
+      "name": "CVS Health",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.cvshealth.com/",
+      "evidence0": "https://jobs.cvshealth.com/",
+      "products": [
+        "sites",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Pharmacy/retail health; India tech; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "eaton",
+      "name": "Eaton",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.eaton.com/us/en-us/company/careers.html",
+      "evidence0": "https://www.eaton.com/us/en-us/company/careers.html",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Power management; India hubs; AEM digital. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "elevance-health",
+      "name": "Elevance Health",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.elevancehealth.com/",
+      "evidence0": "https://careers.elevancehealth.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Healthcare payer with India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "emerson",
+      "name": "Emerson",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.emerson.com/en-us/careers",
+      "evidence0": "https://www.emerson.com/en-us/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Automation; India hubs; AEM digital. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "flex",
+      "name": "Flex",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://flex.com/careers",
+      "evidence0": "https://flex.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Electronics manufacturing services; India plants; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "flipkart",
+      "name": "Flipkart",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.flipkartcareers.com/",
+      "evidence0": "https://www.flipkartcareers.com/",
+      "products": [
+        "sites",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "India ecommerce; CMS/AEM hiring rare vs custom stack — watchlist. Priority capped."
+    },
+    {
+      "id": "fti-consulting",
+      "name": "FTI Consulting",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.fticonsulting.com/careers",
+      "evidence0": "https://www.fticonsulting.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Business advisory; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "ge-aerospace",
+      "name": "GE Aerospace",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.geaerospace.com/",
+      "evidence0": "https://careers.geaerospace.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "GE aerospace (GE HealthCare listed separately); AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "guidehouse",
+      "name": "Guidehouse",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://guidehouse.com/careers",
+      "evidence0": "https://guidehouse.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Consulting; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "hero-motocorp",
+      "name": "Hero MotoCorp",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.heromotocorp.com/en-in/careers.html",
+      "evidence0": "https://www.heromotocorp.com/en-in/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Two-wheeler OEM; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "huge",
+      "name": "Huge",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.hugeinc.com/careers/",
+      "evidence0": "https://www.hugeinc.com/careers/",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer"
+      ],
+      "notesSnippet": "Digital agency; AEM delivery. Limited India — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "icon-plc",
+      "name": "ICON plc",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.iconplc.com/",
+      "evidence0": "https://careers.iconplc.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "CRO; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "illumina",
+      "name": "Illumina",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.illumina.com/company/careers.html",
+      "evidence0": "https://www.illumina.com/company/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Genomics; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "intuit",
+      "name": "Intuit",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.intuit.com/",
+      "evidence0": "https://jobs.intuit.com/",
+      "products": [
+        "sites",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Fintech with Bengaluru tech center. AEM/CMS hiring rare — watchlist. Priority capped."
+    },
+    {
+      "id": "jabil",
+      "name": "Jabil",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.jabil.com/about-us/careers.html",
+      "evidence0": "https://www.jabil.com/about-us/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "EMS manufacturer; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "kearney",
+      "name": "Kearney",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.kearney.com/careers",
+      "evidence0": "https://www.kearney.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Strategy consulting; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "keysight",
+      "name": "Keysight Technologies",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.keysight.com/us/en/about/careers.html",
+      "evidence0": "https://www.keysight.com/us/en/about/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Test/measurement; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "kotak",
+      "name": "Kotak Mahindra Bank",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.kotak.com/en/careers.html",
+      "evidence0": "https://www.kotak.com/en/careers.html",
+      "products": [
+        "sites",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "India bank digital properties; AEM/CMS hiring occasional — priority capped pending stronger AEM case study."
+    },
+    {
+      "id": "krazymantra",
+      "name": "Krazy Mantra",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.krazymantra.com/career.php",
+      "evidence0": "https://www.krazymantra.com/career.php",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Cloud Engineer",
+        "AEM Full Stack Developer",
+        "AEM Front End Developer + React"
+      ],
+      "notesSnippet": "Ahmedabad IT services/staffing conglomerate; careers page lists multiple live AEM roles (developer, cloud engineer, full stack, front-end + React) incl. for ent"
+    },
+    {
+      "id": "labcorp",
+      "name": "Labcorp",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.labcorp.com/",
+      "evidence0": "https://careers.labcorp.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Diagnostics/CRO; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "leica-microsystems",
+      "name": "Leica Microsystems",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.leica-microsystems.com/company/careers/",
+      "evidence0": "https://www.leica-microsystems.com/company/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Danaher microscopy; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "lonza",
+      "name": "Lonza",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.lonza.com/careers",
+      "evidence0": "https://www.lonza.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "CDMO; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "mahindra",
+      "name": "Mahindra Group",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.mahindra.com/careers",
+      "evidence0": "https://www.mahindra.com/careers",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "India conglomerate digital properties; AEM/CMS roles occasional. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "mckesson",
+      "name": "McKesson",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.mckesson.com/careers/",
+      "evidence0": "https://www.mckesson.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Healthcare distribution; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "mckinsey-digital",
+      "name": "McKinsey Digital",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.mckinsey.com/careers",
+      "evidence0": "https://www.mckinsey.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "McKinsey digital; AEM rare — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "molex",
+      "name": "Molex",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.molex.com/en-us/careers",
+      "evidence0": "https://www.molex.com/en-us/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Koch connector brand; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "moog",
+      "name": "Moog",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.moog.com/careers.html",
+      "evidence0": "https://www.moog.com/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Motion control; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "nielsen",
+      "name": "Nielsen",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.nielsen.com/careers/",
+      "evidence0": "https://www.nielsen.com/careers/",
+      "products": [
+        "sites",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Audience measurement with India tech presence; AEM/CMS inferred — priority capped."
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+      "evidence0": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "GPU company with large India presence; AEM on marketing sites — watchlist for titled roles. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "oliver-wyman",
+      "name": "Oliver Wyman",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.oliverwyman.com/careers.html",
+      "evidence0": "https://www.oliverwyman.com/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Marsh McLennan consulting; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "olympus",
+      "name": "Olympus",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.olympus-global.com/careers/",
+      "evidence0": "https://www.olympus-global.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Medtech/optics; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.oracle.com/careers/",
+      "evidence0": "https://www.oracle.com/careers/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Large India engineering footprint. Corporate marketing historically on Experience Manager; AEM hiring occasional. Not Oracle WebCenter competitor confusion — ve"
+    },
+    {
+      "id": "parexel",
+      "name": "Parexel",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.parexel.com/careers",
+      "evidence0": "https://www.parexel.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "CRO; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "parker-hannifin",
+      "name": "Parker Hannifin",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.parker.com/us/en/careers.html",
+      "evidence0": "https://www.parker.com/us/en/careers.html",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Motion/control; India hubs; AEM digital. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "phonepe",
+      "name": "PhonePe",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.phonepe.com/careers/",
+      "evidence0": "https://www.phonepe.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "India fintech; AEM hiring uncommon — watchlist. Priority capped."
+    },
+    {
+      "id": "possible-agency",
+      "name": "Possible",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.possible.com/careers",
+      "evidence0": "https://www.possible.com/careers",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer"
+      ],
+      "notesSnippet": "WPP digital agency; AEM delivery — watchlist cadence. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "proziod",
+      "name": "Proziod Analytics",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.proziod.com/",
+      "evidence0": "https://careers.proziod.com/aem-front-end-developer-158273",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Front End Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Bengaluru-based offshore software firm hiring AEM developers (own ATS) for Pune/Trivandrum client work (e.g. Allianz). Smaller shop."
+    },
+    {
+      "id": "qiagen",
+      "name": "QIAGEN",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.qiagen.com/careers",
+      "evidence0": "https://www.qiagen.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Sample/assay tech; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "quest-diagnostics",
+      "name": "Quest Diagnostics",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.questdiagnostics.com/",
+      "evidence0": "https://careers.questdiagnostics.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Diagnostics; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "red-hat",
+      "name": "Red Hat",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.redhat.com/en/jobs",
+      "evidence0": "https://www.redhat.com/en/jobs",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "IBM subsidiary with India hubs. AEM hiring uncommon — watchlist. Priority capped."
+    },
+    {
+      "id": "reliance-industries",
+      "name": "Reliance Industries",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.ril.com/careers",
+      "evidence0": "https://www.ril.com/careers",
+      "products": [
+        "sites",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Conglomerate digital; AEM/CMS occasional — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "resmed",
+      "name": "ResMed",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.resmed.com/en-us/about-us/careers/",
+      "evidence0": "https://www.resmed.com/en-us/about-us/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Sleep/respiratory; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "revvity",
+      "name": "Revvity",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.revvity.com/careers",
+      "evidence0": "https://www.revvity.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Life sciences (ex-PerkinElmer); India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "rolls-royce",
+      "name": "Rolls-Royce",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.rolls-royce.com/",
+      "evidence0": "https://careers.rolls-royce.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Aerospace/power; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "safran",
+      "name": "Safran",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.safran-group.com/jobs",
+      "evidence0": "https://www.safran-group.com/jobs",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Aerospace; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "sage",
+      "name": "Sage",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.sage.com/en-us/company/careers/",
+      "evidence0": "https://www.sage.com/en-us/company/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Accounting software; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.salesforce.com/",
+      "evidence0": "https://careers.salesforce.com/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Acquired Informatica (listed separately). Corporate digital properties; AEM hiring rare vs Salesforce CMS — watchlist. Priority capped."
+    },
+    {
+      "id": "shimadzu",
+      "name": "Shimadzu",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.shimadzu.com/careers/",
+      "evidence0": "https://www.shimadzu.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Analytical instruments; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "smith-nephew",
+      "name": "Smith+Nephew",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.smith-nephew.com/en/careers",
+      "evidence0": "https://www.smith-nephew.com/en/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Medtech; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.starbucks.com/careers/",
+      "evidence0": "https://www.starbucks.com/careers/",
+      "products": [
+        "sites",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Global QSR digital; India commercial presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "syneos",
+      "name": "Syneos Health",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.syneoshealth.com/careers",
+      "evidence0": "https://www.syneoshealth.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Biopharma solutions; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "synopsys",
+      "name": "Synopsys",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.synopsys.com/",
+      "evidence0": "https://careers.synopsys.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "EDA software; large India footprint; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "tata-motors",
+      "name": "Tata Motors",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.tatamotors.com/careers/",
+      "evidence0": "https://www.tatamotors.com/careers/",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Auto OEM; AEM watchlist for digital experience roles. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "te-connectivity",
+      "name": "TE Connectivity",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.te.com/en/about-te/careers.html",
+      "evidence0": "https://www.te.com/en/about-te/careers.html",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Connectors manufacturer; India hubs; AEM digital. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "techtarget",
+      "name": "TechTarget",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.techtarget.com/careers/",
+      "evidence0": "https://www.techtarget.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "B2B tech media; AEM watchlist. No India. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "teleflex",
+      "name": "Teleflex",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://teleflex.com/usa/en/careers/",
+      "evidence0": "https://teleflex.com/usa/en/careers/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Medtech; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "texas-instruments",
+      "name": "Texas Instruments",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.ti.com/",
+      "evidence0": "https://careers.ti.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Semiconductor; Bengaluru hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "thales",
+      "name": "Thales",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://careers.thalesgroup.com/",
+      "evidence0": "https://careers.thalesgroup.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Aerospace/defense electronics; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "tvsmotor",
+      "name": "TVS Motor",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.tvsmotor.com/careers",
+      "evidence0": "https://www.tvsmotor.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Two-wheeler OEM; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "usaa",
+      "name": "USAA",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.usaajobs.com/",
+      "evidence0": "https://www.usaajobs.com/",
+      "products": [
+        "sites",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "US financial services; AEM/CMS hiring occasional — watchlist. No India. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "vivantify-technology",
+      "name": "Vivantify Technology Solutions",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.careers-page.com/vivantify-technology-solutions",
+      "evidence0": "https://www.careers-page.com/vivantify-technology-solutions",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Senior Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "India technology services firm with PAN-India AEM senior developer hiring on careers-page portal."
+    },
+    {
+      "id": "walgreens",
+      "name": "Walgreens",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://jobs.walgreens.com/",
+      "evidence0": "https://jobs.walgreens.com/",
+      "products": [
+        "sites",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "US pharmacy retail; AEM watchlist. No India. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "waters",
+      "name": "Waters Corporation",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.waters.com/careers",
+      "evidence0": "https://www.waters.com/careers",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Analytical instruments; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "westcon-comstor",
+      "name": "Westcon-Comstor",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.westconcomstor.com/global/en/about/careers.html",
+      "evidence0": "https://www.westconcomstor.com/global/en/about/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Tech distributor; AEM evidence thin — parked previously. Priority capped watchlist."
+    },
+    {
+      "id": "zeiss",
+      "name": "ZEISS",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.zeiss.com/corporate/en/careers.html",
+      "evidence0": "https://www.zeiss.com/corporate/en/careers.html",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Optics; India hub; AEM digital. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "zimmer-biomet",
+      "name": "Zimmer Biomet",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://www.zimmerbiomet.com/en/careers.html",
+      "evidence0": "https://www.zimmerbiomet.com/en/careers.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Orthopedics; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "tekbon",
+      "name": "Tekbon Software Solutions",
+      "priority": 5,
+      "ownerVerified": true,
+      "evidenceClass": "careers-only",
+      "careersUrl": "https://tekbon.com/Careers/",
+      "evidence0": "https://in.indeed.com/q-adobe-aem-developer-l-hyderabad,-telangana-jobs.html",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Java/AEM Developer",
+        "AEM Backend Developer"
+      ],
+      "notesSnippet": "IT staffing/services firm hiring Java/AEM developers in Hyderabad (resource-partner model). Small team; roles via job boards."
+    },
+    {
+      "id": "ericsson-vonage",
+      "name": "Ericsson (incl. Vonage)",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://jobs.ericsson.com/careers",
+      "evidence0": "https://job-boards.greenhouse.io/vonage",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Front-End Developer",
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Ericsson Group (Vonage acquired 2022). Vonage marketing web stack on AEM 6.x AMS + AEMaaCS per official AEM Front-End Developer requisition (Bangalore, 2025). e"
+    },
+    {
+      "id": "marlabs",
+      "name": "Marlabs",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.marlabs.com/careers/",
+      "evidence0": "https://www.marlabs.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "aep"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Lead",
+        "AEM Solution Architect"
+      ],
+      "notesSnippet": "Digital SI with India delivery; active AEM Lead/Architect and RT-CDP analyst openings on careers/LinkedIn."
+    },
+    {
+      "id": "optum",
+      "name": "Optum (UnitedHealth Group)",
+      "priority": 8,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://careers.unitedhealthgroup.com/",
+      "evidence0": "https://www.optum.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Architect",
+        "AEM Developer",
+        "Digital Experience Architect"
+      ],
+      "notesSnippet": "UHG digital health arm; enterprise AEM architecture roles (India and US)."
+    },
+    {
+      "id": "aurumdata",
+      "name": "Aurumdata Solutions",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.aurumdata.com/",
+      "evidence0": "https://www.aurumdata.com/",
+      "products": [
+        "sites",
+        "forms",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer with Forms",
+        "AEM Adaptive Forms Developer"
+      ],
+      "notesSnippet": "US-based digital solutions firm with India subsidiary hiring AEM developers specializing in adaptive forms and front-end form development in Bangalore."
+    },
+    {
+      "id": "bhasaka",
+      "name": "Bhasaka Technologies",
+      "priority": 7,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://bhasaka.com/careers.html",
+      "evidence0": "https://bhasaka.com/about.html",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "eds",
+        "aep",
+        "ajo"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior AEM Developer",
+        "AEM as a Cloud Service Architect",
+        "Edge Delivery Services Developer"
+      ],
+      "notesSnippet": "Adobe Silver Solution Partner specialising exclusively in Adobe Experience Cloud (AEM Sites/Assets, AEP, CJA, AJO). Active AEM hiring in Bangalore and other Ind"
+    },
+    {
+      "id": "cibersites-india",
+      "name": "Cibersites India",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.cibersites.com/",
+      "evidence0": "https://www.cibersites.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Senior AEM Developer",
+        "AEM Cloud Migration Lead"
+      ],
+      "notesSnippet": "India Adobe Experience Manager delivery shop with Chennai hiring for senior AEM developers covering AEM 6.5, AEMaaCS migration, dispatcher, and headless SPA wor"
+    },
+    {
+      "id": "daffodil-software",
+      "name": "Daffodil Software",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.daffodilsw.com/careers",
+      "evidence0": "https://www.daffodilsw.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Senior AEM Developer"
+      ],
+      "notesSnippet": "India product engineering firm with Adobe Experience Manager delivery practice and recurring AEM developer hiring."
+    },
+    {
+      "id": "dlux-tech",
+      "name": "DLUX Tech",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.dluxtech.com/",
+      "evidence0": "https://www.dluxtech.com/",
+      "products": [
+        "sites",
+        "eds",
+        "aem-cloud",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "AEM Cloud Developer"
+      ],
+      "notesSnippet": "Coimbatore digital experience services firm hiring AEM developers for AEMaaCS, Edge Delivery Services, and legacy AEM Sites modernization."
+    },
+    {
+      "id": "happiest-minds",
+      "name": "Happiest Minds Technologies",
+      "priority": 7,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://jobs.happiestminds.com/happiestminds/",
+      "evidence0": "https://www.happiestminds.com/",
+      "products": [
+        "sites",
+        "assets",
+        "forms",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Software Engineer (AEM)"
+      ],
+      "notesSnippet": "Digital engineering firm (Bengaluru HQ) with an AEM practice (AEM Sites/Forms/DAM, Dispatcher, MSM). AEM roles often posted under generic Software Engineer titl"
+    },
+    {
+      "id": "infoyar",
+      "name": "Infoyar",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.infoyar.com/",
+      "evidence0": "https://www.infoyar.com/",
+      "products": [
+        "sites",
+        "assets",
+        "forms",
+        "analytics",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Senior AEM Developer (Fullstack)",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global IT consulting firm with Chennai delivery hiring full-stack senior AEM developers across React, OSGi, forms, and Adobe Marketing Cloud integrations."
+    },
+    {
+      "id": "intraedge",
+      "name": "IntraEdge",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://jobs.intraedge.com/",
+      "evidence0": "https://intraedge.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Adobe Experience Manager Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global technology services firm with India delivery hiring AEM developers for Apache Sling, OSGi, and component-based web product builds."
+    },
+    {
+      "id": "langoor",
+      "name": "Langoor",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.langoor.com/careers",
+      "evidence0": "https://www.langoor.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "India digital agency and Adobe partner delivering Experience Manager implementations; Bengaluru AEM hiring."
+    },
+    {
+      "id": "peoplefy",
+      "name": "Peoplefy",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.peoplefy.com/",
+      "evidence0": "https://www.peoplefy.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "AEM Cloud Developer"
+      ],
+      "notesSnippet": "Pune-based digital engineering firm hiring hands-on AEM developers for cloud implementations, integrations, and platform delivery."
+    },
+    {
+      "id": "rbm-software",
+      "name": "RBM Software",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.rbmsoft.com/",
+      "evidence0": "https://www.rbmsoft.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "headless",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Backend / Platform Developer",
+        "AEM i18n Developer"
+      ],
+      "notesSnippet": "Software services firm hiring AEM backend platform developers in Pune for headless e-commerce storefronts on AEM Cloud Service."
+    },
+    {
+      "id": "solvative",
+      "name": "Solvative",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://solvative.com/careers/",
+      "evidence0": "https://solvative.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "Full-stack software development company with Ahmedabad presence hiring AEM developers for multi-brand digital experience implementations."
+    },
+    {
+      "id": "systechcorp",
+      "name": "SysTechCorp",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.systechcorp.com/",
+      "evidence0": "https://www.systechcorp.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Architect",
+        "AEM Developer"
+      ],
+      "notesSnippet": "IT services firm recruiting AEM architects in India for large-scale digital experience solution design, integrations, and cloud deployments."
+    },
+    {
+      "id": "to-the-new",
+      "name": "TO THE NEW",
+      "priority": 7,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.tothenew.com/careers",
+      "evidence0": "https://www.tothenew.com/digital-experience",
+      "products": [
+        "sites",
+        "assets",
+        "campaign",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "Digital engineering firm; remote AEM developer roles from India delivery centers."
+    },
+    {
+      "id": "u2o3-infotech",
+      "name": "U2O3 Infotech",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://u2o3tech.com/careers/",
+      "evidence0": "https://u2o3tech.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Java AEM Developer",
+        "UI AEM Professional"
+      ],
+      "notesSnippet": "Chennai digital agency hiring senior Java AEM developers and UI AEM professionals for component design, migration, and Adobe Experience Cloud integrations."
+    },
+    {
+      "id": "zensar",
+      "name": "Zensar Technologies",
+      "priority": 7,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.zensar.com/careers",
+      "evidence0": "https://itcampus.in/zensar-technologies-is-hiring-java-full-stack-developer/",
+      "products": [
+        "sites",
+        "assets",
+        "forms",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Solution Architect",
+        "AEM Practice Lead"
+      ],
+      "notesSnippet": "Pune-headquartered IT services firm with an AEM Practice Lead and multiple Adobe-certified AEM architects/developers (e.g. Mastercard AEM engagements). AEM role"
+    },
+    {
+      "id": "accion-labs",
+      "name": "Accion Labs",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://accionlabs.com/careers",
+      "evidence0": "https://accionlabs.com/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Admin",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Pittsburgh HQ with India offices; AEM admin and development hiring."
+    },
+    {
+      "id": "amk-technology",
+      "name": "AMK Technology",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.amk-group.com/",
+      "evidence0": "https://www.amk-group.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Adobe Experience Manager Developer",
+        "AEM Full Stack Developer"
+      ],
+      "notesSnippet": "AMK Group IT services company recruiting AEM full-stack developers for India delivery across Delhi, Mumbai, and Kolkata."
+    },
+    {
+      "id": "kloudportal",
+      "name": "KloudPortal Technology Solutions",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.kloudportal.com/",
+      "evidence0": "https://www.kloudportal.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Cloud Developer"
+      ],
+      "notesSnippet": "Pune-based technology solutions firm hiring AEM developers for full-cycle implementations, upgrades, and Adobe Cloud Service deployments."
+    },
+    {
+      "id": "lowes",
+      "name": "Lowe's",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://talent.lowes.com/",
+      "evidence0": "https://talent.lowes.com/",
+      "products": [
+        "sites",
+        "assets",
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Home improvement retail with Bengaluru tech hub. AEM/CMS inferred — priority capped pending Adobe case study."
+    },
+    {
+      "id": "pnq-technologies",
+      "name": "PnQ Technologies",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://pnqtechnologies.in/#career",
+      "evidence0": "https://pnqtechnologies.in/",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Engineer / Developer",
+        "AEM Ops Engineer"
+      ],
+      "notesSnippet": "Pune consulting firm specialising in Adobe Experience Cloud with a focus on AEM. Hires AEM Engineer/Developer and AEM Ops roles in Pune. Small team."
+    },
+    {
+      "id": "techaivv-technologies",
+      "name": "TechAIVV Technologies",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://techaivv.com/",
+      "evidence0": "https://techaivv.com/",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Backend Developer"
+      ],
+      "notesSnippet": "Hyderabad IT services provider recruiting AEM developers for component, template, and workflow development across the full SDLC."
+    },
+    {
+      "id": "tlc-digitech",
+      "name": "TLC DigiTech",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.tlcgroup.com/careers",
+      "evidence0": "https://www.tlcgroup.com/",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target",
+        "campaign"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "Travel/hospitality digital solutions firm (TLC Group) delivering on Adobe Experience Manager, Analytics, Target, and Campaign. Delhi NCR AEM developer hiring ve"
+    },
+    {
+      "id": "valuelabs",
+      "name": "ValueLabs",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.valuelabs.com/careers/",
+      "evidence0": "https://www.valuelabs.com/digital-experience",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Adobe AEM Engineer"
+      ],
+      "notesSnippet": "Hyderabad HQ GCC; AEM roles appear on careers portal and LinkedIn."
+    },
+    {
+      "id": "webologix",
+      "name": "Webologix",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://webologix.com/",
+      "evidence0": "https://webologix.com/",
+      "products": [
+        "sites",
+        "assets",
+        "forms",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Consultant",
+        "AEM Forms Lead"
+      ],
+      "notesSnippet": "Bangalore AEM consultancy hiring developers and consultants for components, dispatcher tuning, AEM Forms, and enterprise integrations."
+    },
+    {
+      "id": "xeliumtech",
+      "name": "Xeliumtech Solutions",
+      "priority": 6,
+      "ownerVerified": true,
+      "evidenceClass": "homepage-only",
+      "careersUrl": "https://www.xeliumtech.com/careers",
+      "evidence0": "https://www.xeliumtech.com/cms-development",
+      "products": [
+        "sites",
+        "commerce"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer"
+      ],
+      "notesSnippet": "Gurugram digital-transformation firm with an Adobe AEM CMS practice (multi-site/multi-lingual, Dispatcher, MSM). Lists AEM developer roles on its careers page."
+    },
+    {
+      "id": "honeywell",
+      "name": "Honeywell",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "other",
+      "careersUrl": "https://careers.honeywell.com/",
+      "evidence0": "https://www.foundit.in/job/sr-it-engineer-honeywell-bengaluru-bangalore-47561166",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "headless"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Senior IT Engineer – AEM Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Industrial technology conglomerate modernizing global customer portals on AEM/AMS with India engineering in Bangalore and Hyderabad. Foundit listings describe h"
+    },
+    {
+      "id": "synechron",
+      "name": "Synechron",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "other",
+      "careersUrl": "https://www.synechron.com/en-in/careers",
+      "evidence0": "https://www.synechron.com/what-we-do/digital",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "aep",
+        "ajo"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Platform Data Architect"
+      ],
+      "notesSnippet": "Financial services technology consultancy with India offices in Mumbai, Pune, Bangalore, and Chennai. Foundit confirms AEM developer hiring in Mumbai Goregaon ("
+    },
+    {
+      "id": "roland-berger",
+      "name": "Roland Berger",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "other",
+      "careersUrl": "https://www.rolandberger.com/en/Join/",
+      "evidence0": "https://www.rolandberger.com/en/Join/",
+      "products": [
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Strategy consulting; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence."
+    },
+    {
+      "id": "athenahealth",
+      "name": "athenahealth",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "builtwith",
+      "careersUrl": "https://www.athenahealth.com/careers",
+      "evidence0": "https://builtwith.com/athenahealth.com",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Healthcare SaaS; AEM detected on digital properties (Tier-4 BuiltWith). India engineering presence."
+    },
+    {
+      "id": "bosch",
+      "name": "Bosch",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "builtwith",
+      "careersUrl": "https://www.bosch.in/careers/",
+      "evidence0": "https://builtwith.com/bosch.com",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Large India engineering presence. Brand sites detected on Experience Manager via tech detection historically; AEM-titled hiring occasional — monitor bosch.in/ca"
+    },
+    {
+      "id": "macquarie-group",
+      "name": "Macquarie Group",
+      "priority": 9,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://www.macquarie.com/in/en/careers.html",
+      "evidence0": "https://medium.com/macquarie-engineering-blog/how-to-enable-continuous-delivery-for-adobe-experience-manager-aem-e4c212de9eab",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Producer",
+        "AEM Author"
+      ],
+      "notesSnippet": "Global financial services group with Gurugram digital team operating macquarie.com on Adobe Experience Manager; India hiring for AEM authoring and publishing ro"
+    },
+    {
+      "id": "apexon",
+      "name": "Apexon",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://www.apexon.com/careers/",
+      "evidence0": "https://www.apexon.com/blog/transforming-digital-experiences-how-adobe-experience-manager-powers-modern-business/",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "assets"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Architect"
+      ],
+      "notesSnippet": "Digital engineering firm publishing AEM practice content; India delivery centers hire AEM developers via Jobvite."
+    },
+    {
+      "id": "bristol-myers-squibb",
+      "name": "Bristol Myers Squibb",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://careers.bms.com/",
+      "evidence0": "https://builtin.com/job/software-engineer-i-aem-developer-front-end/4138971",
+      "products": [
+        "sites",
+        "assets"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "Software Engineer I AEM Developer (Front End)",
+        "Software Engineer II AEM DevOps"
+      ],
+      "notesSnippet": "Global biopharmaceutical company with India digital technology center in Hyderabad running AEM front-end and DevOps engineering roles."
+    },
+    {
+      "id": "cybage",
+      "name": "Cybage",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://www.cybage.com/careers/open-positions",
+      "evidence0": "https://www.cybage.com/services/platform-integrations/enterprise-content-management-ecm/adobe-experience-manager",
+      "products": [
+        "sites",
+        "forms",
+        "aem-cloud",
+        "target",
+        "campaign",
+        "analytics"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "AEM Administrator"
+      ],
+      "notesSnippet": "Pune-based product engineering firm with dedicated Adobe Experience Manager practice (Sites/Cloud, Forms, Target, Campaign, Launch). Recurring AEM developer hir"
+    },
+    {
+      "id": "danaher",
+      "name": "Danaher",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://jobs.danaher.com/",
+      "evidence0": "https://builtin.com/job/aem-adobe-experience-manager-senior-solution-architect/8337540",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Senior Solution Architect",
+        "Adobe Experience Manager Architect"
+      ],
+      "notesSnippet": "Global life sciences and diagnostics conglomerate with India GCC centers. Built In Phenomenex/Danaher listing confirms AEM senior solution architect role in Ban"
+    },
+    {
+      "id": "codelattice",
+      "name": "Codelattice",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://www.codelattice.com/careers",
+      "evidence0": "https://www.codelattice.com/adobe-experience-manager-partner-india",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Adobe Experience Manager Developer"
+      ],
+      "notesSnippet": "Adobe Experience Manager Bronze Partner (India) delivering AEM implementation, migration, and DAM services."
+    },
+    {
+      "id": "hul",
+      "name": "Hindustan Unilever",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://www.hul.co.in/careers/",
+      "evidence0": "https://business.adobe.com/summit/2024/sessions/how-unilever-digitized-its-distributive-trade-rout-s430.html",
+      "products": [
+        "sites",
+        "commerce",
+        "analytics"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "MarTech Engineer"
+      ],
+      "notesSnippet": "Unilever India operating company; parent Unilever also listed for global Adobe Commerce story. India careers via hul.co.in."
+    },
+    {
+      "id": "navitas",
+      "name": "Navitas Business Consulting",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://navitas.applytojob.com/",
+      "evidence0": "https://navitas.applytojob.com/apply/HfjPdG2EEG/262248-AEM-Website-Developer-HyderabadVijayawada",
+      "products": [
+        "sites",
+        "assets",
+        "forms",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Website Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Digital transformation consultancy hiring AEM Website Developers in Hyderabad/Vijayawada for AEMaaCS Sites/Assets/Forms work."
+    },
+    {
+      "id": "solventum",
+      "name": "Solventum",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://www.solventum.com/en-us/home/our-company/careers/",
+      "evidence0": "https://builtin.com/job/aem-senior-backend-developer/9411062",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Senior Backend Developer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Healthcare technology company (3M Health Care spin-off) with India technology hiring. Built In confirms AEM senior backend developer role in Bangalore."
+    },
+    {
+      "id": "unilever",
+      "name": "Unilever",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://careers.unilever.com/",
+      "evidence0": "https://business.adobe.com/summit/2024/sessions/how-unilever-digitized-its-distributive-trade-rout-s430.html",
+      "products": [
+        "commerce",
+        "analytics",
+        "sites"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "MarTech Engineer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "Global CPG; Adobe Commerce for distributive trade digitization (Adobe Summit). Brand sites historically on Experience Manager in markets — verify AEM-titled rol"
+    },
+    {
+      "id": "albertsons",
+      "name": "Albertsons",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "practice-page",
+      "careersUrl": "https://www.albertsonscompanies.com/careers/",
+      "evidence0": "https://business.adobe.com/blog/the-latest/how-albertsons-created-a-pioneering-grocery-experience",
+      "products": [
+        "commerce"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Ecommerce Engineer"
+      ],
+      "notesSnippet": "Grocery marketplace historically on Magento/Adobe Commerce (Adobe blog) — not strong AEM Sites evidence. Watchlist; no India hiring."
+    },
+    {
+      "id": "dell",
+      "name": "Dell Technologies",
+      "priority": 8,
+      "ownerVerified": false,
+      "evidenceClass": "casestudies-mirror",
+      "careersUrl": "https://jobs.dell.com/",
+      "evidence0": "https://www.casestudies.com/company/adobe-experience-manager/case-study/top-tech-company-unlocks-employees-potential-for-making-a-measureable-impact-on-customer-experiences",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": true,
+      "roles": [
+        "AEM Developer",
+        "Senior AEM Developer",
+        "AEM Content Author"
+      ],
+      "notesSnippet": "Global sites on Experience Manager with Analytics/Target (Adobe AEM case study). Large India engineering hubs; multiple AEM developer/author roles historically "
+    },
+    {
+      "id": "ubs",
+      "name": "UBS",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "casestudies-mirror",
+      "careersUrl": "https://www.ubs.com/global/en/careers.html",
+      "evidence0": "https://www.casestudies.com/company/adobe-experience-cloud/case-study/ubs-delivering-superb-customer-and-employee-experiences-online",
+      "products": [
+        "sites",
+        "analytics",
+        "target",
+        "campaign"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Public site and intranet on Experience Manager with Analytics, Target, Campaign (Adobe Experience Cloud case study). India GCCs Pune/Hyderabad; AEM-titled hirin"
+    },
+    {
+      "id": "havas",
+      "name": "Havas",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.havas.com/careers/",
+      "evidence0": "https://business.adobe.com/customer-success-stories/havas-pop.html",
+      "products": [
+        "assets",
+        "workfront",
+        "creative-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer",
+        "MarTech Engineer"
+      ],
+      "notesSnippet": "Havas POP content supply chain on Experience Manager Assets + Workfront (Adobe case study). India agency hubs; AEM/Assets hiring via Havas network careers."
+    },
+    {
+      "id": "henkel",
+      "name": "Henkel",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.henkel.com/careers",
+      "evidence0": "https://business.adobe.com/customer-success-stories/henkel-case-study.html",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "campaign",
+        "analytics",
+        "aep",
+        "ajo"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer",
+        "AEM Developer"
+      ],
+      "notesSnippet": "RAQN platform on Experience Manager Sites/Assets as a Cloud Service plus Campaign, Analytics, RT-CDP, Journey Orchestration (Adobe case study). India IT hub Ben"
+    },
+    {
+      "id": "sika",
+      "name": "Sika",
+      "priority": 7,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.sika.com/en/about-us/careers.html",
+      "evidence0": "https://business.adobe.com/customer-success-stories/sika-case-study.html",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "creative-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer",
+        "DAM Specialist"
+      ],
+      "notesSnippet": "Global construction chemicals; Experience Manager Sites + Assets as a Cloud Service power 120k-page web estate (Adobe case study). India commercial/tech presenc"
+    },
+    {
+      "id": "ariel",
+      "name": "Ariel Corporation",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.arielcorp.com/careers/",
+      "evidence0": "https://business.adobe.com/customer-success-stories/ariel-case-study.html",
+      "products": [
+        "sites",
+        "assets",
+        "guides"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Technical Documentation Engineer"
+      ],
+      "notesSnippet": "Compressor manufacturer publishing technical docs via Experience Manager Guides + Sites/Assets (Adobe case study). No India hiring."
+    },
+    {
+      "id": "ftd",
+      "name": "FTD",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.ftd.com/careers",
+      "evidence0": "https://business.adobe.com/customer-success-stories/ftd-case-study.html",
+      "products": [
+        "sites",
+        "assets",
+        "analytics",
+        "target",
+        "headless",
+        "launch"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Floral retail brands on headless Experience Manager Sites/Assets with Analytics and Target (Adobe case study). No India presence — US careers monitor only."
+    },
+    {
+      "id": "genting-malaysia",
+      "name": "Genting Malaysia",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.gentingmalaysia.com/careers/",
+      "evidence0": "https://business.adobe.com/customer-success-stories/genting-malaysia-case-study.html",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Marketing Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Resorts World Genting on Experience Manager Sites/Assets as a Cloud Service (Adobe case study). No India hiring — monitor Malaysia careers only."
+    },
+    {
+      "id": "national-bank-of-canada",
+      "name": "National Bank of Canada",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.nbc.ca/about-us/careers.html",
+      "evidence0": "https://business.adobe.com/customer-success-stories/national-bank-of-canada-case-study.html",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "AEM Developer",
+        "Digital Experience Engineer"
+      ],
+      "notesSnippet": "Experience Manager customer (Adobe case study). No India hiring — Canada careers monitor only."
+    },
+    {
+      "id": "pethealth",
+      "name": "Pethealth",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.pethealthinc.com/careers/",
+      "evidence0": "https://business.adobe.com/customer-success-stories/pethealth-case-study.html",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "analytics",
+        "target",
+        "eds",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "AEM Developer",
+        "MarTech Engineer"
+      ],
+      "notesSnippet": "Pet care brands on Experience Manager Sites as a Cloud Service with Analytics, Target, and Edge Delivery Services (Adobe case study). No India hiring — North Am"
+    },
+    {
+      "id": "real-madrid",
+      "name": "Real Madrid",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.realmadrid.com/en-US/the-club/careers",
+      "evidence0": "https://business.adobe.com/customer-success-stories/real-madrid.html",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "aep",
+        "ajo",
+        "analytics",
+        "target",
+        "headless"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "Club digital stack on Experience Manager Sites/Assets as a Cloud Service with RT-CDP, Journey Optimizer, Target (Adobe case study). No India hiring."
+    },
+    {
+      "id": "tsb",
+      "name": "TSB Bank",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://www.tsb.co.uk/careers/",
+      "evidence0": "https://business.adobe.com/customer-success-stories/tsb-case-study.html",
+      "products": [
+        "sites",
+        "aem-cloud"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "Web Platform Engineer"
+      ],
+      "notesSnippet": "UK bank on Experience Manager (Adobe case study). No India hiring — UK careers only."
+    },
+    {
+      "id": "us-bank",
+      "name": "U.S. Bank",
+      "priority": 6,
+      "ownerVerified": false,
+      "evidenceClass": "adobe-case",
+      "careersUrl": "https://careers.usbank.com/",
+      "evidence0": "https://business.adobe.com/customer-success-stories/us-bank-case-study.html",
+      "products": [
+        "aep",
+        "ajo",
+        "analytics",
+        "target"
+      ],
+      "hiringActive": false,
+      "roles": [
+        "Digital Experience Engineer",
+        "MarTech Engineer"
+      ],
+      "notesSnippet": "Adobe Real-Time CDP, Journey Optimizer, Analytics, Target (Adobe case study). AEM Sites not primary in published story — watchlist for MarTech/DXP roles. No Ind"
+    }
+  ]
+}

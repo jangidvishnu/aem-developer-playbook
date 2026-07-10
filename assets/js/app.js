@@ -55,6 +55,8 @@ const App = {
       const el = bar.querySelector(`input[type="hidden"][data-company-filter="${key}"]`);
       if (el) filterState[key] = el.value;
     });
+    const locEl = bar.querySelector('input[type="hidden"][data-company-filter="locations"]');
+    if (locEl) filterState.locations = CompanyFilters.parseLocationTokens(locEl.value);
     if (!filterState.sort) filterState.sort = defaultSort;
     ['hiringIndia', 'aemCloud', 'hiringActive', 'ownerPreferred'].forEach(key => {
       filterState[key] =
@@ -69,7 +71,8 @@ const App = {
     const panel = bar.querySelector('#company-filters-panel');
     const btn = bar.querySelector('[data-company-filters-toggle]');
     if (!panel || !btn) return;
-    const count = [filterState.companyType, filterState.industry, filterState.product].filter(Boolean).length;
+    const locCount = Array.isArray(filterState.locations) && filterState.locations.length ? 1 : 0;
+    const count = [filterState.companyType, filterState.industry, filterState.product].filter(Boolean).length + locCount;
     const isOpen = !!open;
     panel.classList.toggle('is-open', isOpen);
     btn.classList.toggle('is-open', isOpen);
@@ -86,8 +89,14 @@ const App = {
     const container = document.getElementById('company-table-container');
     if (!container) return null;
     let page = 1;
-    let filtersPanelOpen = !!(filterState.companyType || filterState.industry || filterState.product);
+    let filtersPanelOpen = !!(
+      filterState.companyType ||
+      filterState.industry ||
+      filterState.product ||
+      (Array.isArray(filterState.locations) && filterState.locations.length)
+    );
     const defaultSort = 'priority-desc';
+    const locationOptions = CompanyFilters.locationsFrom(allCompanies);
     const debouncedRenderTable = UI.debounce(() => renderTable(), 200);
 
     function wirePagination() {
@@ -125,7 +134,14 @@ const App = {
 
     function renderCompanySection() {
       if (!filterState.sort) filterState.sort = defaultSort;
-      if (filterState.companyType || filterState.industry || filterState.product) filtersPanelOpen = true;
+      if (
+        filterState.companyType ||
+        filterState.industry ||
+        filterState.product ||
+        (Array.isArray(filterState.locations) && filterState.locations.length)
+      ) {
+        filtersPanelOpen = true;
+      }
       const filtered = CompanyFilters.apply(allCompanies, filterState);
       const totalPages = Math.max(1, Math.ceil(filtered.length / App.PAGE_SIZE));
       if (page > totalPages) page = 1;
@@ -136,6 +152,7 @@ const App = {
         totalCount: allCompanies.length,
         industries,
         products,
+        locations: locationOptions,
         productMode,
         allCompanies,
         filtersPanelOpen
@@ -178,7 +195,16 @@ const App = {
       const clearBtn = container.querySelector('[data-company-clear-filters]');
       const showClear = CompanyFilters.hasActiveFilters(filterState);
       if (clearBtn) clearBtn.classList.toggle('hidden', !showClear);
-      if (filterState.companyType || filterState.industry || filterState.product) filtersPanelOpen = true;
+      const searchClear = container.querySelector('[data-company-search-clear]');
+      if (searchClear) searchClear.classList.toggle('hidden', !String(filterState.query || '').trim());
+      if (
+        filterState.companyType ||
+        filterState.industry ||
+        filterState.product ||
+        (Array.isArray(filterState.locations) && filterState.locations.length)
+      ) {
+        filtersPanelOpen = true;
+      }
       App.syncFiltersPanel(bar, filterState, filtersPanelOpen);
       UI.wireSelects(container);
       UI.wireTableTips(container);
@@ -201,6 +227,17 @@ const App = {
           renderCompanySection();
           return;
         }
+        const searchClear = e.target.closest('[data-company-search-clear]');
+        if (searchClear && bar.contains(searchClear)) {
+          e.preventDefault();
+          filterState.query = '';
+          const q = bar.querySelector('input[data-company-filter="query"]');
+          if (q) q.value = '';
+          searchClear.classList.add('hidden');
+          page = 1;
+          renderTable();
+          return;
+        }
         const filtersToggle = e.target.closest('[data-company-filters-toggle]');
         if (filtersToggle && bar.contains(filtersToggle)) {
           e.preventDefault();
@@ -221,6 +258,10 @@ const App = {
       });
       bar.addEventListener('input', e => {
         if (!e.target.matches('[data-company-filter]')) return;
+        if (e.target.getAttribute('data-company-filter') === 'query') {
+          const clearEl = bar.querySelector('[data-company-search-clear]');
+          if (clearEl) clearEl.classList.toggle('hidden', !String(e.target.value || '').trim());
+        }
         page = 1;
         debouncedRenderTable();
       });
@@ -362,13 +403,13 @@ const App = {
           const chapters = Render.chaptersForMode(allChapters, site);
           const learning = { glossary, technologies, careerPaths, interviews, templates, resources };
           const renderOpts = { productMode };
-          const ctx = { companies, learning, ownerPlaybook, productMode, roadmaps };
+          const ctx = { companies, learning, ownerPlaybook, productMode, roadmaps, site };
           const stats = Render.companyStats(companies);
 
           Render.applyHeadMeta(site);
           document.getElementById('page-header').innerHTML = Render.pageHeader(site.header, renderOpts);
           const disclaimerEl = document.getElementById('site-disclaimer');
-          if (disclaimerEl) disclaimerEl.innerHTML = Render.disclaimer(site.disclaimer, site.header);
+          if (disclaimerEl) disclaimerEl.innerHTML = Render.disclaimer(site.disclaimer, site.header, site.community);
 
           if (site.header.githubUrl) {
             const tools = document.querySelector('.doc-header__tools');

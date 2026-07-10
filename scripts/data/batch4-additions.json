@@ -1,0 +1,1696 @@
+[
+  {
+    "id": "henkel",
+    "name": "Henkel",
+    "priority": 7,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Düsseldorf, Germany",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.henkel.com/careers",
+    "jobSearchUrl": "https://www.henkel.com/careers/find-your-job-apply",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Düsseldorf",
+        "country": "Germany"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud",
+      "campaign",
+      "analytics",
+      "aep",
+      "ajo"
+    ],
+    "roles": [
+      "Digital Experience Engineer",
+      "Web Platform Engineer",
+      "AEM Developer"
+    ],
+    "notes": "RAQN platform on Experience Manager Sites/Assets as a Cloud Service plus Campaign, Analytics, RT-CDP, Journey Orchestration (Adobe case study). India IT hub Bengaluru; AEM-titled hiring intermittent — monitor careers.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/henkel-case-study.html"
+    ],
+    "hiringEvidence": [
+      "https://www.henkel.com/careers/find-your-job-apply"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "sika",
+    "name": "Sika",
+    "priority": 7,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Baar, Switzerland",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.sika.com/en/about-us/careers.html",
+    "jobSearchUrl": "https://ind.sika.com/en/career/jobs.html",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Baar",
+        "country": "Switzerland"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud",
+      "creative-cloud"
+    ],
+    "roles": [
+      "Digital Experience Engineer",
+      "Web Platform Engineer",
+      "DAM Specialist"
+    ],
+    "notes": "Global construction chemicals; Experience Manager Sites + Assets as a Cloud Service power 120k-page web estate (Adobe case study). India commercial/tech presence Mumbai/Pune; AEM eng hiring occasional.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/sika-case-study.html"
+    ],
+    "hiringEvidence": [
+      "https://ind.sika.com/en/career/jobs.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "dell",
+    "name": "Dell Technologies",
+    "priority": 8,
+    "industry": "Technology",
+    "companyType": "Product",
+    "hq": "Round Rock, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://jobs.dell.com/",
+    "jobSearchUrl": "https://jobs.dell.com/en/india-jobs",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Round Rock",
+        "country": "United States"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "assets",
+      "analytics",
+      "target"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Senior AEM Developer",
+      "AEM Content Author"
+    ],
+    "notes": "Global sites on Experience Manager with Analytics/Target (Adobe AEM case study). Large India engineering hubs; multiple AEM developer/author roles historically in Bengaluru.",
+    "evidence": [
+      "https://www.casestudies.com/company/adobe-experience-manager/case-study/top-tech-company-unlocks-employees-potential-for-making-a-measureable-impact-on-customer-experiences"
+    ],
+    "hiringEvidence": [
+      "https://jobs.dell.com/en/india-jobs"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "genting-malaysia",
+    "name": "Genting Malaysia",
+    "priority": 6,
+    "industry": "Hospitality",
+    "companyType": "Product",
+    "hq": "Kuala Lumpur, Malaysia",
+    "indiaPresence": false,
+    "careersUrl": "https://www.gentingmalaysia.com/careers/",
+    "locations": [
+      {
+        "city": "Kuala Lumpur",
+        "country": "Malaysia"
+      },
+      {
+        "city": "Genting Highlands",
+        "country": "Malaysia"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "Digital Marketing Engineer",
+      "Web Platform Engineer"
+    ],
+    "notes": "Resorts World Genting on Experience Manager Sites/Assets as a Cloud Service (Adobe case study). No India hiring — monitor Malaysia careers only.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/genting-malaysia-case-study.html"
+    ],
+    "hiringEvidence": [
+      "https://www.gentingmalaysia.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "ftd",
+    "name": "FTD",
+    "priority": 6,
+    "industry": "Retail",
+    "companyType": "Product",
+    "hq": "Downers Grove, USA",
+    "indiaPresence": false,
+    "careersUrl": "https://www.ftd.com/careers",
+    "locations": [
+      {
+        "city": "Downers Grove",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "analytics",
+      "target",
+      "headless",
+      "launch"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Floral retail brands on headless Experience Manager Sites/Assets with Analytics and Target (Adobe case study). No India presence — US careers monitor only.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/ftd-case-study.html"
+    ],
+    "hiringEvidence": [
+      "https://www.ftd.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "havas",
+    "name": "Havas",
+    "priority": 7,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "Puteaux, France",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.havas.com/careers/",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "Puteaux",
+        "country": "France"
+      },
+      {
+        "city": "New York",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "assets",
+      "workfront",
+      "creative-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer",
+      "MarTech Engineer"
+    ],
+    "notes": "Havas POP content supply chain on Experience Manager Assets + Workfront (Adobe case study). India agency hubs; AEM/Assets hiring via Havas network careers.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/havas-pop.html"
+    ],
+    "hiringEvidence": [
+      "https://www.havas.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "ubs",
+    "name": "UBS",
+    "priority": 7,
+    "industry": "Finance",
+    "companyType": "Product",
+    "hq": "Zurich, Switzerland",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.ubs.com/global/en/careers.html",
+    "jobSearchUrl": "https://jobs.ubs.com/",
+    "locations": [
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland"
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom"
+      }
+    ],
+    "products": [
+      "sites",
+      "analytics",
+      "target",
+      "campaign"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer",
+      "Web Platform Engineer"
+    ],
+    "notes": "Public site and intranet on Experience Manager with Analytics, Target, Campaign (Adobe Experience Cloud case study). India GCCs Pune/Hyderabad; AEM-titled hiring intermittent.",
+    "evidence": [
+      "https://www.casestudies.com/company/adobe-experience-cloud/case-study/ubs-delivering-superb-customer-and-employee-experiences-online"
+    ],
+    "hiringEvidence": [
+      "https://jobs.ubs.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "cybage",
+    "name": "Cybage",
+    "priority": 8,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Pune, India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.cybage.com/careers/open-positions",
+    "locations": [
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Gandhinagar",
+        "country": "India"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "forms",
+      "aem-cloud",
+      "target",
+      "campaign",
+      "analytics"
+    ],
+    "roles": [
+      "AEM Developer",
+      "AEM Administrator"
+    ],
+    "notes": "Pune-based product engineering firm with dedicated Adobe Experience Manager practice (Sites/Cloud, Forms, Target, Campaign, Launch). Recurring AEM developer hiring on Cybage careers.",
+    "evidence": [
+      "https://www.cybage.com/services/platform-integrations/enterprise-content-management-ecm/adobe-experience-manager"
+    ],
+    "hiringEvidence": [
+      "https://www.cybage.com/careers/open-positions"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "unilever",
+    "name": "Unilever",
+    "priority": 7,
+    "industry": "Consumer Goods",
+    "companyType": "Product",
+    "hq": "London, UK",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://careers.unilever.com/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom"
+      },
+      {
+        "city": "Rotterdam",
+        "country": "Netherlands"
+      }
+    ],
+    "products": [
+      "commerce",
+      "analytics",
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer",
+      "MarTech Engineer",
+      "AEM Developer"
+    ],
+    "notes": "Global CPG; Adobe Commerce for distributive trade digitization (Adobe Summit). Brand sites historically on Experience Manager in markets — verify AEM-titled roles on Unilever careers. India hubs Bengaluru/Mumbai.",
+    "evidence": [
+      "https://business.adobe.com/summit/2024/sessions/how-unilever-digitized-its-distributive-trade-rout-s430.html"
+    ],
+    "hiringEvidence": [
+      "https://careers.unilever.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "us-bank",
+    "name": "U.S. Bank",
+    "priority": 6,
+    "industry": "Finance",
+    "companyType": "Product",
+    "hq": "Minneapolis, USA",
+    "indiaPresence": false,
+    "careersUrl": "https://careers.usbank.com/",
+    "locations": [
+      {
+        "city": "Minneapolis",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "aep",
+      "ajo",
+      "analytics",
+      "target"
+    ],
+    "roles": [
+      "Digital Experience Engineer",
+      "MarTech Engineer"
+    ],
+    "notes": "Adobe Real-Time CDP, Journey Optimizer, Analytics, Target (Adobe case study). AEM Sites not primary in published story — watchlist for MarTech/DXP roles. No India hiring signal.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/us-bank-case-study.html"
+    ],
+    "hiringEvidence": [
+      "https://careers.usbank.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "national-bank-of-canada",
+    "name": "National Bank of Canada",
+    "priority": 6,
+    "industry": "Finance",
+    "companyType": "Product",
+    "hq": "Montreal, Canada",
+    "indiaPresence": false,
+    "careersUrl": "https://www.nbc.ca/about-us/careers.html",
+    "locations": [
+      {
+        "city": "Montreal",
+        "country": "Canada"
+      },
+      {
+        "city": "Toronto",
+        "country": "Canada"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Experience Manager customer (Adobe case study). No India hiring — Canada careers monitor only.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/national-bank-of-canada-case-study.html"
+    ],
+    "hiringEvidence": [
+      "https://www.nbc.ca/about-us/careers.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "bosch",
+    "name": "Bosch",
+    "priority": 6,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Gerlingen, Germany",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.bosch.in/careers/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Coimbatore",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Gerlingen",
+        "country": "Germany"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Large India engineering presence. Brand sites detected on Experience Manager via tech detection historically; AEM-titled hiring occasional — monitor bosch.in/careers. Priority capped pending Adobe case study.",
+    "evidence": [
+      "https://builtwith.com/bosch.com"
+    ],
+    "hiringEvidence": [
+      "https://www.bosch.in/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "pethealth",
+    "name": "Pethealth",
+    "priority": 6,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Oakville, Canada",
+    "indiaPresence": false,
+    "careersUrl": "https://www.pethealthinc.com/careers/",
+    "locations": [
+      {
+        "city": "Oakville",
+        "country": "Canada"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "analytics",
+      "target",
+      "eds",
+      "headless"
+    ],
+    "roles": [
+      "Digital Experience Engineer",
+      "AEM Developer",
+      "MarTech Engineer"
+    ],
+    "notes": "Pet care brands on Experience Manager Sites as a Cloud Service with Analytics, Target, and Edge Delivery Services (Adobe case study). No India hiring — North America careers only.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/pethealth-case-study.html"
+    ],
+    "hiringEvidence": [
+      "https://www.pethealthinc.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "codelattice",
+    "name": "Codelattice",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.codelattice.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Kochi",
+        "country": "India"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Experience Manager Developer"
+    ],
+    "notes": "Adobe Experience Manager Bronze Partner (India) delivering AEM implementation, migration, and DAM services.",
+    "evidence": [
+      "https://www.codelattice.com/adobe-experience-manager-partner-india"
+    ],
+    "hiringEvidence": [
+      "https://www.codelattice.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "apexon",
+    "name": "Apexon",
+    "priority": 8,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Santa Clara, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.apexon.com/careers/",
+    "jobSearchUrl": "https://app.jobvite.com/info-stretch-corporation/jobs",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Santa Clara",
+        "country": "United States"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "aem-cloud",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "AEM Architect"
+    ],
+    "notes": "Digital engineering firm publishing AEM practice content; India delivery centers hire AEM developers via Jobvite.",
+    "evidence": [
+      "https://www.apexon.com/blog/transforming-digital-experiences-how-adobe-experience-manager-powers-modern-business/"
+    ],
+    "hiringEvidence": [
+      "https://www.apexon.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "marlabs",
+    "name": "Marlabs",
+    "priority": 8,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Piscataway, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.marlabs.com/careers/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Mysuru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Piscataway",
+        "country": "United States"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud",
+      "aep"
+    ],
+    "roles": [
+      "AEM Developer",
+      "AEM Lead",
+      "AEM Solution Architect"
+    ],
+    "notes": "Digital SI with India delivery; active AEM Lead/Architect and RT-CDP analyst openings on careers/LinkedIn.",
+    "evidence": [
+      "https://www.marlabs.com/"
+    ],
+    "hiringEvidence": [
+      "https://www.marlabs.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "real-madrid",
+    "name": "Real Madrid",
+    "priority": 6,
+    "industry": "Sports",
+    "companyType": "Product",
+    "hq": "Madrid, Spain",
+    "indiaPresence": false,
+    "careersUrl": "https://www.realmadrid.com/en-US/the-club/careers",
+    "locations": [
+      {
+        "city": "Madrid",
+        "country": "Spain"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud",
+      "aep",
+      "ajo",
+      "analytics",
+      "target",
+      "headless"
+    ],
+    "roles": [
+      "Digital Experience Engineer",
+      "Web Platform Engineer"
+    ],
+    "notes": "Club digital stack on Experience Manager Sites/Assets as a Cloud Service with RT-CDP, Journey Optimizer, Target (Adobe case study). No India hiring.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/real-madrid.html"
+    ],
+    "hiringEvidence": [
+      "https://www.realmadrid.com/en-US/the-club/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "tsb",
+    "name": "TSB Bank",
+    "priority": 6,
+    "industry": "Finance",
+    "companyType": "Product",
+    "hq": "Edinburgh, UK",
+    "indiaPresence": false,
+    "careersUrl": "https://www.tsb.co.uk/careers/",
+    "locations": [
+      {
+        "city": "Edinburgh",
+        "country": "United Kingdom"
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "Digital Experience Engineer",
+      "Web Platform Engineer"
+    ],
+    "notes": "UK bank on Experience Manager (Adobe case study). No India hiring — UK careers only.",
+    "evidence": [
+      "https://business.adobe.com/customer-success-stories/tsb-case-study.html"
+    ],
+    "hiringEvidence": [
+      "https://www.tsb.co.uk/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "langoor",
+    "name": "Langoor",
+    "priority": 7,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "Bengaluru, India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.langoor.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "assets",
+      "analytics",
+      "target",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Experience Manager Developer"
+    ],
+    "notes": "India digital agency and Adobe partner delivering Experience Manager implementations; Bengaluru AEM hiring.",
+    "evidence": [
+      "https://www.langoor.com/"
+    ],
+    "hiringEvidence": [
+      "https://www.langoor.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "altimetrik",
+    "name": "Altimetrik",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Southfield, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.altimetrik.com/careers/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Southfield",
+        "country": "United States"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "aem-cloud",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Senior AEM Developer"
+    ],
+    "notes": "Digital business engineering with India delivery; AEM developer openings for client Adobe programs. Evidence is careers/hiring signal — upgrade when dedicated AEM practice page found.",
+    "evidence": [
+      "https://www.altimetrik.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.altimetrik.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "r-systems",
+    "name": "R Systems",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Sacramento, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.rsystems.com/careers/",
+    "locations": [
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Sacramento",
+        "country": "United States"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "AEM Architect"
+    ],
+    "notes": "Digital product engineering with India delivery; Adobe Experience Manager staffing for enterprise clients.",
+    "evidence": [
+      "https://www.rsystems.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.rsystems.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "tata-elxsi",
+    "name": "Tata Elxsi",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Bengaluru, India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.tataelxsi.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Trivandrum",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "UI Engineer (AEM)"
+    ],
+    "notes": "Tata Group design/tech services; Adobe Experience Manager delivery for media/auto/healthcare digital programs.",
+    "evidence": [
+      "https://www.tataelxsi.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.tataelxsi.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "grid-dynamics",
+    "name": "Grid Dynamics",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "San Ramon, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.griddynamics.com/careers",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "San Ramon",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "commerce",
+      "aem-cloud",
+      "headless"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Commerce Developer"
+    ],
+    "notes": "Digital engineering with India centers; Adobe Experience Manager and Commerce for retail/CPG clients.",
+    "evidence": [
+      "https://www.griddynamics.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.griddynamics.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "dxc",
+    "name": "DXC Technology",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Ashburn, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://careers.dxc.com/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Ashburn",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "AEM Architect"
+    ],
+    "notes": "Global IT services with large India footprint; Adobe Experience Manager delivery (also via Luxoft brand — Luxoft not listed separately to avoid duplicate practice).",
+    "evidence": [
+      "https://careers.dxc.com/"
+    ],
+    "hiringEvidence": [
+      "https://careers.dxc.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "atos",
+    "name": "Atos",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Bezons, France",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://jobs.atos.net/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "Bezons",
+        "country": "France"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Experience Manager Consultant"
+    ],
+    "notes": "Global IT services; India delivery staffs Adobe Experience Manager projects. Monitor jobs.atos.net for AEM titles.",
+    "evidence": [
+      "https://jobs.atos.net/"
+    ],
+    "hiringEvidence": [
+      "https://jobs.atos.net/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "exl",
+    "name": "EXL",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "New York, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.exlservice.com/careers",
+    "locations": [
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "New York",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "analytics",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Analytics and digital operations firm with large India footprint; AEM/CMS delivery roles appear periodically.",
+    "evidence": [
+      "https://www.exlservice.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.exlservice.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "ltts",
+    "name": "L&T Technology Services",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Vadodara, India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.ltts.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Mysuru",
+        "country": "India"
+      },
+      {
+        "city": "Vadodara",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "L&T engineering services; AEM/CMS digital experience roles for enterprise clients.",
+    "evidence": [
+      "https://www.ltts.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.ltts.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "cyient",
+    "name": "Cyient",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Hyderabad, India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.cyient.com/careers",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Noida",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Engineering and digital technology services; AEM/CMS roles for enterprise digital transformation.",
+    "evidence": [
+      "https://www.cyient.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.cyient.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "tavant",
+    "name": "Tavant",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Santa Clara, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.tavant.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Santa Clara",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Experience Manager Developer"
+    ],
+    "notes": "Digital products firm with India delivery; AEM implementation for lending/auto/retail clients.",
+    "evidence": [
+      "https://www.tavant.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.tavant.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "airtel",
+    "name": "Bharti Airtel",
+    "priority": 7,
+    "industry": "Telecom",
+    "companyType": "Product",
+    "hq": "New Delhi, India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.airtel.in/careers/",
+    "locations": [
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "New Delhi",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "analytics",
+      "target"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "India telecom digital properties; AEM/CMS and Adobe Marketing Cloud roles appear periodically. Monitor airtel.in/careers.",
+    "evidence": [
+      "https://www.airtel.in/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.airtel.in/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "axis-bank",
+    "name": "Axis Bank",
+    "priority": 7,
+    "industry": "Finance",
+    "companyType": "Product",
+    "hq": "Mumbai, India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.axisbank.com/careers",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "analytics"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "India private bank; AEM developer openings appear on careers and boards for digital experience teams.",
+    "evidence": [
+      "https://www.axisbank.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.axisbank.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "fidelity",
+    "name": "Fidelity Investments",
+    "priority": 7,
+    "industry": "Finance",
+    "companyType": "Product",
+    "hq": "Boston, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://jobs.fidelity.com/",
+    "jobSearchUrl": "https://jobs.fidelity.com/search-jobs/AEM",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Boston",
+        "country": "United States"
+      }
+    ],
+    "hiringActive": true,
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "Senior AEM Developer",
+      "AEM Developer"
+    ],
+    "notes": "India technology centers staff Senior AEM Developer roles. AEM stack evidenced by titled hiring on Fidelity careers; upgrade when Adobe case study found.",
+    "evidence": [
+      "https://jobs.fidelity.com/search-jobs/AEM"
+    ],
+    "hiringEvidence": [
+      "https://jobs.fidelity.com/search-jobs/AEM"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "softserve",
+    "name": "SoftServe",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Austin, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://career.softserveinc.com/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Austin",
+        "country": "United States"
+      },
+      {
+        "city": "Lviv",
+        "country": "Ukraine"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "headless"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Experience Manager Engineer"
+    ],
+    "notes": "Global digital consultancy with India presence; Adobe Experience Manager practice for enterprise programs.",
+    "evidence": [
+      "https://career.softserveinc.com/"
+    ],
+    "hiringEvidence": [
+      "https://career.softserveinc.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "innominds",
+    "name": "Innominds",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "San Jose, USA",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.innominds.com/careers",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "San Jose",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "AEM Architect"
+    ],
+    "notes": "Product engineering with Hyderabad delivery; Adobe Experience Manager implementation for ISV/enterprise clients.",
+    "evidence": [
+      "https://www.innominds.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.innominds.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "phygital-insights",
+    "name": "Phygital Insights",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Bengaluru, India",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.phygitalinsights.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Senior AEM Developer"
+    ],
+    "notes": "India digital experience consultancy with Adobe Experience Manager delivery.",
+    "evidence": [
+      "https://www.phygitalinsights.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.phygitalinsights.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "samsung-sds",
+    "name": "Samsung SDS",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Seoul, South Korea",
+    "indiaPresence": true,
+    "hiringIndia": true,
+    "careersUrl": "https://www.samsungsds.com/en/career/career.html",
+    "locations": [
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Seoul",
+        "country": "South Korea"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Samsung IT services with India delivery; Adobe Experience Manager project staffing.",
+    "evidence": [
+      "https://www.samsungsds.com/en/career/career.html"
+    ],
+    "hiringEvidence": [
+      "https://www.samsungsds.com/en/career/career.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  }
+]

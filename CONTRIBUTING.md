@@ -53,9 +53,27 @@ DR-022.
 |--------|--------|
 | Company / hiring facts | `data/companies.json` only (see `archive/` for historical research — DR-017) |
 | Chapters / copy | `data/chapters.json`, `data/site.json`, `data/owner_playbook.json`, etc. |
+| Community links (LinkedIn groups only — no public WhatsApp invites) | `data/site.json` → `community` |
 | UI / layout | `assets/js/`, `assets/css/site.css`, `index.html` |
 | Process / architecture | `.playbook/` (maintainers usually own this) |
 | Prerendered content (`index.html`'s baked sections, `sitemap.xml`, `robots.txt`) | Never hand-edit — regenerate with `npm run prerender` after a `data/*.json` change (DR-022) |
+
+### Adding or updating companies
+
+Live employer data is **only** [`data/companies.json`](data/companies.json). Do not invent a second company file.
+
+1. Read [`.playbook/11_COMPANY_SCHEMA.md`](.playbook/11_COMPANY_SCHEMA.md) for field shapes.
+2. Follow [`.playbook/07_RESEARCH_GUIDE.md`](.playbook/07_RESEARCH_GUIDE.md) for the full field pass:
+   - `careersUrl` must be **employer-owned** (not Naukri / LinkedIn Jobs / Cutshort / Foundit as the careers URL).
+   - `evidence` should prove AEM usage (Adobe case study or company practice page when possible).
+   - `notes` are **shown in the UI** — write for job seekers; no research jargon (`DR-xxx`, “Tier N BuiltWith”).
+   - Check M&A / rebrand duplicates before adding a child brand.
+3. Set `ownerVerified: false` and `verifiedAt` to today’s date on agent-added rows.
+4. Run `node scripts/verify-companies.js`, then `npm run prerender` if counts/hero stats change.
+
+### Pull requests
+
+Open PRs against **`stage`** (GitHub Pages preview). Maintainers promote `stage` → `master` (Cloudflare) separately. Never push directly to `stage` or `master`.
 
 Rules that matter most:
 

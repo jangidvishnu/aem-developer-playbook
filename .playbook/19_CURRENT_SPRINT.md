@@ -2,8 +2,8 @@
 
 ## Active objective
 
-**Branching / hosting** — `stage` (GitHub Pages) + `master` (Cloudflare); default PRs to `stage`. Apache-2.0 +
-brand notice in progress on `feat/apache-license-brand-notice`. Milestone 15 (EDS/Forms chips) is next after that.
+**Milestone 18** remains active — grow verified employers toward 500 (**320** live after truth-pass).
+**Milestone 19** accepted 2026-07-11. **Milestone 20** partial (Location filter shipped; notice/contacts still open).
 
 ## Live URLs
 
@@ -11,20 +11,12 @@ brand notice in progress on `feat/apache-license-brand-notice`. Milestone 15 (ED
 - **Staging:** https://jangidvishnu.github.io/aem-developer-playbook/ (`stage` → GitHub Pages)
 - **Repo:** https://github.com/jangidvishnu/aem-developer-playbook
 
-## Session progress (2026-07-09)
+## Next
 
-### Hosting / PRs
+1. Continue M18 batches toward 500 when owner asks ("start next milestone").
+2. Optional M20: `noticePolicy` filter / HR contacts — only when owner asks.
+3. After this PR merges to `stage`, promote to `master` only when owner requests.
 
-- Default: feature → PR → **`stage`** → verify on GitHub Pages.
-- Production: only when owner asks → promote **`stage` → `master`** → Cloudflare.
-- Agent rule: `git-push-approval.mdc` (DR-028).
-
-### Next
-
-1. Finish creating protected `stage` + point GitHub Pages at it (if not done yet).
-2. Land Apache-2.0 / NOTICE PR into **`stage`**.
-3. Milestone 15 when ready.
-
-## Milestones 1–14: accepted
+## Milestones 1–17, 19: complete
 
 See `14_ROADMAP.md` and `25_ROADMAP_ARCHIVE.md`.

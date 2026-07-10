@@ -1,0 +1,2640 @@
+[
+  {
+    "id": "athenahealth",
+    "name": "athenahealth",
+    "priority": 7,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Boston, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.athenahealth.com/careers",
+    "jobSearchUrl": "https://www.athenahealth.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Boston",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Healthcare SaaS; AEM detected on digital properties (Tier-4 BuiltWith). India engineering presence.",
+    "evidence": [
+      "https://builtwith.com/athenahealth.com"
+    ],
+    "hiringEvidence": [
+      "https://www.athenahealth.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "capital-one",
+    "name": "Capital One",
+    "priority": 7,
+    "industry": "Finance",
+    "companyType": "Product",
+    "hq": "McLean, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.capitalonecareers.com/",
+    "jobSearchUrl": "https://www.capitalonecareers.com/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "McLean",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "analytics",
+      "target"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Bank with India tech hubs; AEM/CMS roles appear periodically on digital teams.",
+    "evidence": [
+      "https://www.capitalonecareers.com/"
+    ],
+    "hiringEvidence": [
+      "https://www.capitalonecareers.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "homedepot",
+    "name": "The Home Depot",
+    "priority": 7,
+    "industry": "Retail",
+    "companyType": "Product",
+    "hq": "Atlanta, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://careers.homedepot.com/",
+    "jobSearchUrl": "https://careers.homedepot.com/",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Atlanta",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "commerce"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Home improvement retail with Hyderabad tech hub; AEM/CMS digital roles.",
+    "evidence": [
+      "https://careers.homedepot.com/"
+    ],
+    "hiringEvidence": [
+      "https://careers.homedepot.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "pepsico",
+    "name": "PepsiCo",
+    "priority": 7,
+    "industry": "Consumer Goods",
+    "companyType": "Product",
+    "hq": "Purchase, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.pepsicojobs.com/",
+    "jobSearchUrl": "https://www.pepsicojobs.com/",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "Purchase",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "analytics"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "CPG with India GCC; digital experience/AEM roles appear on careers.",
+    "evidence": [
+      "https://www.pepsicojobs.com/"
+    ],
+    "hiringEvidence": [
+      "https://www.pepsicojobs.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "coca-cola",
+    "name": "The Coca-Cola Company",
+    "priority": 7,
+    "industry": "Consumer Goods",
+    "companyType": "Product",
+    "hq": "Atlanta, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.coca-colacompany.com/careers",
+    "jobSearchUrl": "https://www.coca-colacompany.com/careers",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "Atlanta",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "analytics"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Beverage CPG with India hubs; Experience Manager historically on brand sites.",
+    "evidence": [
+      "https://www.coca-colacompany.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.coca-colacompany.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "nestle",
+    "name": "Nestlé",
+    "priority": 7,
+    "industry": "Consumer Goods",
+    "companyType": "Product",
+    "hq": "Vevey, Switzerland",
+    "indiaPresence": true,
+    "careersUrl": "https://www.nestle.com/jobs",
+    "jobSearchUrl": "https://www.nestle.com/jobs",
+    "locations": [
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Vevey",
+        "country": "Switzerland"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "analytics"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Global CPG; India digital/IT; AEM on brand properties in markets.",
+    "evidence": [
+      "https://www.nestle.com/jobs"
+    ],
+    "hiringEvidence": [
+      "https://www.nestle.com/jobs"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "procter-gamble",
+    "name": "Procter & Gamble",
+    "priority": 7,
+    "industry": "Consumer Goods",
+    "companyType": "Product",
+    "hq": "Cincinnati, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.pgcareers.com/",
+    "jobSearchUrl": "https://www.pgcareers.com/",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Cincinnati",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "analytics",
+      "target"
+    ],
+    "roles": [
+      "AEM Developer",
+      "MarTech Engineer"
+    ],
+    "notes": "CPG digital; India hubs; Adobe Experience Cloud stack on brand sites.",
+    "evidence": [
+      "https://www.pgcareers.com/"
+    ],
+    "hiringEvidence": [
+      "https://www.pgcareers.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "johnson-johnson",
+    "name": "Johnson & Johnson",
+    "priority": 7,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "New Brunswick, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.careers.jnj.com/",
+    "jobSearchUrl": "https://www.careers.jnj.com/",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "New Brunswick",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Healthcare conglomerate with India presence; AEM on brand/medical sites.",
+    "evidence": [
+      "https://www.careers.jnj.com/"
+    ],
+    "hiringEvidence": [
+      "https://www.careers.jnj.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "novartis",
+    "name": "Novartis",
+    "priority": 7,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Basel, Switzerland",
+    "indiaPresence": true,
+    "careersUrl": "https://www.novartis.com/careers",
+    "jobSearchUrl": "https://www.novartis.com/careers",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Basel",
+        "country": "Switzerland"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Pharma with India GCCs; Experience Manager on corporate/medical sites.",
+    "evidence": [
+      "https://www.novartis.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.novartis.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "sanofi",
+    "name": "Sanofi",
+    "priority": 7,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Paris, France",
+    "indiaPresence": true,
+    "careersUrl": "https://www.sanofi.com/en/careers",
+    "jobSearchUrl": "https://www.sanofi.com/en/careers",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Paris",
+        "country": "France"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Pharma with India presence; AEM on brand sites.",
+    "evidence": [
+      "https://www.sanofi.com/en/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.sanofi.com/en/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "bayer",
+    "name": "Bayer",
+    "priority": 7,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Leverkusen, Germany",
+    "indiaPresence": true,
+    "careersUrl": "https://www.bayer.com/en/careers",
+    "jobSearchUrl": "https://www.bayer.com/en/careers",
+    "locations": [
+      {
+        "city": "Thane",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Leverkusen",
+        "country": "Germany"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Life sciences with India hubs; AEM digital properties.",
+    "evidence": [
+      "https://www.bayer.com/en/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.bayer.com/en/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "schneider-electric",
+    "name": "Schneider Electric",
+    "priority": 7,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Rueil-Malmaison, France",
+    "indiaPresence": true,
+    "careersUrl": "https://www.se.com/ww/en/about-us/careers/",
+    "jobSearchUrl": "https://www.se.com/ww/en/about-us/careers/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Rueil-Malmaison",
+        "country": "France"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Industrial automation with large India footprint; Experience Manager on global web.",
+    "evidence": [
+      "https://www.se.com/ww/en/about-us/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.se.com/ww/en/about-us/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "abb",
+    "name": "ABB",
+    "priority": 7,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Zurich, Switzerland",
+    "indiaPresence": true,
+    "careersUrl": "https://careers.abb/",
+    "jobSearchUrl": "https://careers.abb/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Zurich",
+        "country": "Switzerland"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Electrification/automation; India hubs; AEM digital properties.",
+    "evidence": [
+      "https://careers.abb/"
+    ],
+    "hiringEvidence": [
+      "https://careers.abb/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "mmm",
+    "name": "3M",
+    "priority": 7,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Saint Paul, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.3m.com/3M/en_US/careers-us/",
+    "jobSearchUrl": "https://www.3m.com/3M/en_US/careers-us/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Saint Paul",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Diversified manufacturer; Solventum (health spin-off) listed separately. India hub; AEM sites.",
+    "evidence": [
+      "https://www.3m.com/3M/en_US/careers-us/"
+    ],
+    "hiringEvidence": [
+      "https://www.3m.com/3M/en_US/careers-us/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "infogain",
+    "name": "Infogain",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Los Gatos, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.infogain.com/careers/",
+    "jobSearchUrl": "https://www.infogain.com/careers/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "Los Gatos",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "AEM Architect"
+    ],
+    "notes": "Digital engineering with India delivery; AEM implementation hiring.",
+    "evidence": [
+      "https://www.infogain.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.infogain.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true,
+    "hiringActive": true
+  },
+  {
+    "id": "thoughtworks",
+    "name": "Thoughtworks",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Chicago, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.thoughtworks.com/careers",
+    "jobSearchUrl": "https://www.thoughtworks.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Chicago",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "headless",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Global consultancy with India offices; AEM/CMS delivery on client programs.",
+    "evidence": [
+      "https://www.thoughtworks.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.thoughtworks.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "slalom",
+    "name": "Slalom",
+    "priority": 7,
+    "industry": "Consulting",
+    "companyType": "Agency",
+    "hq": "Seattle, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.slalom.com/careers",
+    "jobSearchUrl": "https://www.slalom.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Seattle",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "analytics"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Experience Manager Consultant"
+    ],
+    "notes": "Business/tech consultancy with India presence; Adobe Experience Manager consulting.",
+    "evidence": [
+      "https://www.slalom.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.slalom.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "vml",
+    "name": "VML",
+    "priority": 7,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "Kansas City, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.vml.com/careers",
+    "jobSearchUrl": "https://www.vml.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Kansas City",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "commerce",
+      "aem-cloud",
+      "analytics"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Experience Manager Developer"
+    ],
+    "notes": "WPP creative/tech agency; India delivery for Adobe Experience Manager.",
+    "evidence": [
+      "https://www.vml.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.vml.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "akqa",
+    "name": "AKQA",
+    "priority": 7,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "San Francisco, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.akqa.com/careers/",
+    "jobSearchUrl": "https://www.akqa.com/careers/",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "San Francisco",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "headless"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "WPP digital agency with India studios; AEM/headless CMS delivery.",
+    "evidence": [
+      "https://www.akqa.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.akqa.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "rga",
+    "name": "R/GA",
+    "priority": 7,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "New York, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.rga.com/careers",
+    "jobSearchUrl": "https://www.rga.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "New York",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "headless"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Accenture Song digital agency; India presence; AEM delivery.",
+    "evidence": [
+      "https://www.rga.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.rga.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "digitas",
+    "name": "Digitas",
+    "priority": 7,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "Boston, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.digitas.com/en-us/careers",
+    "jobSearchUrl": "https://www.digitas.com/en-us/careers",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Boston",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "analytics",
+      "target",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "MarTech Engineer"
+    ],
+    "notes": "Publicis media/digital agency; India hubs; AEM/Adobe stack delivery.",
+    "evidence": [
+      "https://www.digitas.com/en-us/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.digitas.com/en-us/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "royal-cyber",
+    "name": "Royal Cyber",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Naperville, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.royalcyber.com/careers/",
+    "jobSearchUrl": "https://www.royalcyber.com/careers/",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "Naperville",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "commerce",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Adobe Commerce Developer"
+    ],
+    "notes": "Digital commerce/CMS SI with India delivery; AEM and Adobe Commerce hiring.",
+    "evidence": [
+      "https://www.royalcyber.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.royalcyber.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true,
+    "hiringActive": true
+  },
+  {
+    "id": "amdocs",
+    "name": "Amdocs",
+    "priority": 7,
+    "industry": "Software",
+    "companyType": "Product",
+    "hq": "Saint Louis, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.amdocs.com/careers",
+    "jobSearchUrl": "https://www.amdocs.com/careers",
+    "locations": [
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "Saint Louis",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Telecom BSS/digital with large India footprint; AEM/CMS roles for digital experience.",
+    "evidence": [
+      "https://www.amdocs.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.amdocs.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "thomson-reuters",
+    "name": "Thomson Reuters",
+    "priority": 7,
+    "industry": "Media",
+    "companyType": "Product",
+    "hq": "Toronto, Canada",
+    "indiaPresence": true,
+    "careersUrl": "https://www.thomsonreuters.com/en/careers.html",
+    "jobSearchUrl": "https://www.thomsonreuters.com/en/careers.html",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Toronto",
+        "country": "Canada"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Information services with India hubs; AEM on digital properties.",
+    "evidence": [
+      "https://www.thomsonreuters.com/en/careers.html"
+    ],
+    "hiringEvidence": [
+      "https://www.thomsonreuters.com/en/careers.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "relx",
+    "name": "RELX",
+    "priority": 7,
+    "industry": "Media",
+    "companyType": "Product",
+    "hq": "London, UK",
+    "indiaPresence": true,
+    "careersUrl": "https://www.relx.com/careers",
+    "jobSearchUrl": "https://www.relx.com/careers",
+    "locations": [
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Analytics/publishing group; India presence; AEM digital.",
+    "evidence": [
+      "https://www.relx.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.relx.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "wolters-kluwer",
+    "name": "Wolters Kluwer",
+    "priority": 7,
+    "industry": "Media",
+    "companyType": "Product",
+    "hq": "Alphen aan den Rijn, Netherlands",
+    "indiaPresence": true,
+    "careersUrl": "https://www.wolterskluwer.com/en/careers",
+    "jobSearchUrl": "https://www.wolterskluwer.com/en/careers",
+    "locations": [
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Alphen aan den Rijn",
+        "country": "Netherlands"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Professional information; India Pune hub; AEM sites.",
+    "evidence": [
+      "https://www.wolterskluwer.com/en/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.wolterskluwer.com/en/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "autodesk",
+    "name": "Autodesk",
+    "priority": 7,
+    "industry": "Software",
+    "companyType": "Product",
+    "hq": "San Francisco, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.autodesk.com/careers",
+    "jobSearchUrl": "https://www.autodesk.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "San Francisco",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Design software with India R&D; Experience Manager on marketing sites.",
+    "evidence": [
+      "https://www.autodesk.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.autodesk.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "nvidia",
+    "name": "NVIDIA",
+    "priority": 6,
+    "industry": "Semiconductors",
+    "companyType": "Product",
+    "hq": "Santa Clara, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+    "jobSearchUrl": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Santa Clara",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "GPU company with large India presence; AEM on marketing sites — watchlist for titled roles. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.nvidia.com/en-us/about-nvidia/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.nvidia.com/en-us/about-nvidia/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "cigna",
+    "name": "Cigna",
+    "priority": 6,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Bloomfield, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://jobs.thecignagroup.com/",
+    "jobSearchUrl": "https://jobs.thecignagroup.com/",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Bloomfield",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Health insurer with India GCC; AEM hiring occasional — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://jobs.thecignagroup.com/"
+    ],
+    "hiringEvidence": [
+      "https://jobs.thecignagroup.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "cvs-health",
+    "name": "CVS Health",
+    "priority": 6,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Woonsocket, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://jobs.cvshealth.com/",
+    "jobSearchUrl": "https://jobs.cvshealth.com/",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Woonsocket",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "commerce"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Pharmacy/retail health; India tech; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://jobs.cvshealth.com/"
+    ],
+    "hiringEvidence": [
+      "https://jobs.cvshealth.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "abbvie",
+    "name": "AbbVie",
+    "priority": 6,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "North Chicago, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://careers.abbvie.com/",
+    "jobSearchUrl": "https://careers.abbvie.com/",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "North Chicago",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Pharma with India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://careers.abbvie.com/"
+    ],
+    "hiringEvidence": [
+      "https://careers.abbvie.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "starbucks",
+    "name": "Starbucks",
+    "priority": 6,
+    "industry": "Retail",
+    "companyType": "Product",
+    "hq": "Seattle, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.starbucks.com/careers/",
+    "jobSearchUrl": "https://www.starbucks.com/careers/",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Seattle",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "commerce"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Global QSR digital; India commercial presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.starbucks.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.starbucks.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "usaa",
+    "name": "USAA",
+    "priority": 6,
+    "industry": "Finance",
+    "companyType": "Product",
+    "hq": "San Antonio, USA",
+    "indiaPresence": false,
+    "careersUrl": "https://www.usaajobs.com/",
+    "jobSearchUrl": "https://www.usaajobs.com/",
+    "locations": [
+      {
+        "city": "San Antonio",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "analytics"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "US financial services; AEM/CMS hiring occasional — watchlist. No India. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.usaajobs.com/"
+    ],
+    "hiringEvidence": [
+      "https://www.usaajobs.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "costco",
+    "name": "Costco",
+    "priority": 6,
+    "industry": "Retail",
+    "companyType": "Product",
+    "hq": "Issaquah, USA",
+    "indiaPresence": false,
+    "careersUrl": "https://www.costco.com/jobs.html",
+    "jobSearchUrl": "https://www.costco.com/jobs.html",
+    "locations": [
+      {
+        "city": "Issaquah",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "commerce"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Warehouse retail; AEM watchlist. No India. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.costco.com/jobs.html"
+    ],
+    "hiringEvidence": [
+      "https://www.costco.com/jobs.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "synopsys",
+    "name": "Synopsys",
+    "priority": 6,
+    "industry": "Software",
+    "companyType": "Product",
+    "hq": "Sunnyvale, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://careers.synopsys.com/",
+    "jobSearchUrl": "https://careers.synopsys.com/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Sunnyvale",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "EDA software; large India footprint; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://careers.synopsys.com/"
+    ],
+    "hiringEvidence": [
+      "https://careers.synopsys.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "cadence",
+    "name": "Cadence Design Systems",
+    "priority": 6,
+    "industry": "Software",
+    "companyType": "Product",
+    "hq": "San Jose, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.cadence.com/en_US/home/company/careers.html",
+    "jobSearchUrl": "https://www.cadence.com/en_US/home/company/careers.html",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Noida",
+        "country": "India"
+      },
+      {
+        "city": "San Jose",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "EDA software; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.cadence.com/en_US/home/company/careers.html"
+    ],
+    "hiringEvidence": [
+      "https://www.cadence.com/en_US/home/company/careers.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "broadcom",
+    "name": "Broadcom",
+    "priority": 6,
+    "industry": "Semiconductors",
+    "companyType": "Product",
+    "hq": "San Jose, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.broadcom.com/company/careers",
+    "jobSearchUrl": "https://www.broadcom.com/company/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "San Jose",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Semiconductor/software; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.broadcom.com/company/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.broadcom.com/company/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "amd",
+    "name": "AMD",
+    "priority": 6,
+    "industry": "Semiconductors",
+    "companyType": "Product",
+    "hq": "Santa Clara, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://careers.amd.com/",
+    "jobSearchUrl": "https://careers.amd.com/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Santa Clara",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Semiconductor; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://careers.amd.com/"
+    ],
+    "hiringEvidence": [
+      "https://careers.amd.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "te-connectivity",
+    "name": "TE Connectivity",
+    "priority": 6,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Schaffhausen, Switzerland",
+    "indiaPresence": true,
+    "careersUrl": "https://www.te.com/en/about-te/careers.html",
+    "jobSearchUrl": "https://www.te.com/en/about-te/careers.html",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Schaffhausen",
+        "country": "Switzerland"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Connectors manufacturer; India hubs; AEM digital. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.te.com/en/about-te/careers.html"
+    ],
+    "hiringEvidence": [
+      "https://www.te.com/en/about-te/careers.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "mahindra",
+    "name": "Mahindra Group",
+    "priority": 6,
+    "industry": "Automotive",
+    "companyType": "Product",
+    "hq": "Mumbai, India",
+    "indiaPresence": true,
+    "careersUrl": "https://www.mahindra.com/careers",
+    "jobSearchUrl": "https://www.mahindra.com/careers",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "India conglomerate digital properties; AEM/CMS roles occasional. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.mahindra.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.mahindra.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "tata-motors",
+    "name": "Tata Motors",
+    "priority": 6,
+    "industry": "Automotive",
+    "companyType": "Product",
+    "hq": "Mumbai, India",
+    "indiaPresence": true,
+    "careersUrl": "https://www.tatamotors.com/careers/",
+    "jobSearchUrl": "https://www.tatamotors.com/careers/",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Jamshedpur",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Auto OEM; AEM watchlist for digital experience roles. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.tatamotors.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.tatamotors.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "saggezza",
+    "name": "Saggezza",
+    "priority": 7,
+    "industry": "IT Services",
+    "companyType": "Agency",
+    "hq": "Chicago, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.saggezza.com/careers",
+    "jobSearchUrl": "https://www.saggezza.com/careers",
+    "locations": [
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Chicago",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer"
+    ],
+    "notes": "Digital engineering with India delivery; AEM project staffing.",
+    "evidence": [
+      "https://www.saggezza.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.saggezza.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "isobar",
+    "name": "Isobar",
+    "priority": 7,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "Tokyo, Japan",
+    "indiaPresence": true,
+    "careersUrl": "https://www.isobar.com/careers",
+    "jobSearchUrl": "https://www.isobar.com/careers",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Tokyo",
+        "country": "Japan"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "analytics"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Dentsu digital agency network; India studios deliver Adobe Experience Manager.",
+    "evidence": [
+      "https://www.isobar.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.isobar.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "kin-carta",
+    "name": "Kin + Carta",
+    "priority": 7,
+    "industry": "Consulting",
+    "companyType": "Agency",
+    "hq": "Chicago, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.kinandcarta.com/en/careers/",
+    "jobSearchUrl": "https://www.kinandcarta.com/en/careers/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Chicago",
+        "country": "United States"
+      },
+      {
+        "city": "London",
+        "country": "United Kingdom"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud",
+      "headless"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Digital transformation consultancy; India delivery for Adobe Experience Manager programs.",
+    "evidence": [
+      "https://www.kinandcarta.com/en/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.kinandcarta.com/en/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "elevance-health",
+    "name": "Elevance Health",
+    "priority": 6,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Indianapolis, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://careers.elevancehealth.com/",
+    "jobSearchUrl": "https://careers.elevancehealth.com/",
+    "locations": [
+      {
+        "city": "Hyderabad",
+        "country": "India"
+      },
+      {
+        "city": "Indianapolis",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Healthcare payer with India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://careers.elevancehealth.com/"
+    ],
+    "hiringEvidence": [
+      "https://careers.elevancehealth.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "walgreens",
+    "name": "Walgreens",
+    "priority": 6,
+    "industry": "Retail",
+    "companyType": "Product",
+    "hq": "Deerfield, USA",
+    "indiaPresence": false,
+    "careersUrl": "https://jobs.walgreens.com/",
+    "jobSearchUrl": "https://jobs.walgreens.com/",
+    "locations": [
+      {
+        "city": "Deerfield",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "commerce"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "US pharmacy retail; AEM watchlist. No India. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://jobs.walgreens.com/"
+    ],
+    "hiringEvidence": [
+      "https://jobs.walgreens.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "siemens-healthineers",
+    "name": "Siemens Healthineers",
+    "priority": 7,
+    "industry": "Healthcare",
+    "companyType": "Product",
+    "hq": "Erlangen, Germany",
+    "indiaPresence": true,
+    "careersUrl": "https://www.siemens-healthineers.com/careers",
+    "jobSearchUrl": "https://www.siemens-healthineers.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Erlangen",
+        "country": "Germany"
+      }
+    ],
+    "products": [
+      "sites",
+      "assets"
+    ],
+    "roles": [
+      "AEM Developer",
+      "Digital Experience Engineer"
+    ],
+    "notes": "Medtech (Siemens industrial listed separately). India Bengaluru hub; AEM on digital properties.",
+    "evidence": [
+      "https://www.siemens-healthineers.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.siemens-healthineers.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "ansys",
+    "name": "Ansys",
+    "priority": 6,
+    "industry": "Software",
+    "companyType": "Product",
+    "hq": "Canonsburg, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.ansys.com/careers",
+    "jobSearchUrl": "https://www.ansys.com/careers",
+    "locations": [
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Canonsburg",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Simulation software; India hubs; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.ansys.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.ansys.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "texas-instruments",
+    "name": "Texas Instruments",
+    "priority": 6,
+    "industry": "Semiconductors",
+    "companyType": "Product",
+    "hq": "Dallas, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://careers.ti.com/",
+    "jobSearchUrl": "https://careers.ti.com/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Dallas",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Semiconductor; Bengaluru hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://careers.ti.com/"
+    ],
+    "hiringEvidence": [
+      "https://careers.ti.com/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "flex",
+    "name": "Flex",
+    "priority": 6,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Austin, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://flex.com/careers",
+    "jobSearchUrl": "https://flex.com/careers",
+    "locations": [
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Austin",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Electronics manufacturing services; India plants; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://flex.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://flex.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "jabil",
+    "name": "Jabil",
+    "priority": 6,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "St. Petersburg, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.jabil.com/about-us/careers.html",
+    "jobSearchUrl": "https://www.jabil.com/about-us/careers.html",
+    "locations": [
+      {
+        "city": "Pune",
+        "country": "India"
+      },
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "St. Petersburg",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "EMS manufacturer; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.jabil.com/about-us/careers.html"
+    ],
+    "hiringEvidence": [
+      "https://www.jabil.com/about-us/careers.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "hero-motocorp",
+    "name": "Hero MotoCorp",
+    "priority": 6,
+    "industry": "Automotive",
+    "companyType": "Product",
+    "hq": "New Delhi, India",
+    "indiaPresence": true,
+    "careersUrl": "https://www.heromotocorp.com/en-in/careers.html",
+    "jobSearchUrl": "https://www.heromotocorp.com/en-in/careers.html",
+    "locations": [
+      {
+        "city": "Gurugram",
+        "country": "India"
+      },
+      {
+        "city": "New Delhi",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Two-wheeler OEM; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.heromotocorp.com/en-in/careers.html"
+    ],
+    "hiringEvidence": [
+      "https://www.heromotocorp.com/en-in/careers.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "bajaj-auto",
+    "name": "Bajaj Auto",
+    "priority": 6,
+    "industry": "Automotive",
+    "companyType": "Product",
+    "hq": "Pune, India",
+    "indiaPresence": true,
+    "careersUrl": "https://www.bajajauto.com/careers",
+    "jobSearchUrl": "https://www.bajajauto.com/careers",
+    "locations": [
+      {
+        "city": "Pune",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Two-wheeler OEM; Bajaj Finserv listed separately. AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.bajajauto.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.bajajauto.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "tvsmotor",
+    "name": "TVS Motor",
+    "priority": 6,
+    "industry": "Automotive",
+    "companyType": "Product",
+    "hq": "Chennai, India",
+    "indiaPresence": true,
+    "careersUrl": "https://www.tvsmotor.com/careers",
+    "jobSearchUrl": "https://www.tvsmotor.com/careers",
+    "locations": [
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Hosur",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Two-wheeler OEM; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.tvsmotor.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.tvsmotor.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "ashok-leyland",
+    "name": "Ashok Leyland",
+    "priority": 6,
+    "industry": "Automotive",
+    "companyType": "Product",
+    "hq": "Chennai, India",
+    "indiaPresence": true,
+    "careersUrl": "https://www.ashokleyland.com/careers",
+    "jobSearchUrl": "https://www.ashokleyland.com/careers",
+    "locations": [
+      {
+        "city": "Chennai",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "CV OEM; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.ashokleyland.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.ashokleyland.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "reliance-industries",
+    "name": "Reliance Industries",
+    "priority": 6,
+    "industry": "Conglomerate",
+    "companyType": "Product",
+    "hq": "Mumbai, India",
+    "indiaPresence": true,
+    "careersUrl": "https://www.ril.com/careers",
+    "jobSearchUrl": "https://www.ril.com/careers",
+    "locations": [
+      {
+        "city": "Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Navi Mumbai",
+        "country": "India"
+      },
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites",
+      "commerce"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Conglomerate digital; AEM/CMS occasional — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.ril.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.ril.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "adani",
+    "name": "Adani Group",
+    "priority": 6,
+    "industry": "Conglomerate",
+    "companyType": "Product",
+    "hq": "Ahmedabad, India",
+    "indiaPresence": true,
+    "careersUrl": "https://www.adani.com/careers",
+    "jobSearchUrl": "https://www.adani.com/careers",
+    "locations": [
+      {
+        "city": "Ahmedabad",
+        "country": "India"
+      },
+      {
+        "city": "Mumbai",
+        "country": "India"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Conglomerate; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.adani.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.adani.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "sage",
+    "name": "Sage",
+    "priority": 6,
+    "industry": "Software",
+    "companyType": "Product",
+    "hq": "Newcastle, UK",
+    "indiaPresence": true,
+    "careersUrl": "https://www.sage.com/en-us/company/careers/",
+    "jobSearchUrl": "https://www.sage.com/en-us/company/careers/",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Newcastle",
+        "country": "United Kingdom"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Accounting software; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.sage.com/en-us/company/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.sage.com/en-us/company/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "keysight",
+    "name": "Keysight Technologies",
+    "priority": 6,
+    "industry": "Technology",
+    "companyType": "Product",
+    "hq": "Santa Rosa, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.keysight.com/us/en/about/careers.html",
+    "jobSearchUrl": "https://www.keysight.com/us/en/about/careers.html",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Santa Rosa",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Test/measurement; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.keysight.com/us/en/about/careers.html"
+    ],
+    "hiringEvidence": [
+      "https://www.keysight.com/us/en/about/careers.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "analog-devices",
+    "name": "Analog Devices",
+    "priority": 6,
+    "industry": "Semiconductors",
+    "companyType": "Product",
+    "hq": "Wilmington, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.analog.com/en/about-adi/careers.html",
+    "jobSearchUrl": "https://www.analog.com/en/about-adi/careers.html",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Wilmington",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Semiconductor; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.analog.com/en/about-adi/careers.html"
+    ],
+    "hiringEvidence": [
+      "https://www.analog.com/en/about-adi/careers.html"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "molex",
+    "name": "Molex",
+    "priority": 6,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Lisle, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.molex.com/en-us/careers",
+    "jobSearchUrl": "https://www.molex.com/en-us/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "Lisle",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "Koch connector brand; India hub; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.molex.com/en-us/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.molex.com/en-us/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "celestica",
+    "name": "Celestica",
+    "priority": 6,
+    "industry": "Manufacturing",
+    "companyType": "Product",
+    "hq": "Toronto, Canada",
+    "indiaPresence": true,
+    "careersUrl": "https://www.celestica.com/careers",
+    "jobSearchUrl": "https://www.celestica.com/careers",
+    "locations": [
+      {
+        "city": "Chennai",
+        "country": "India"
+      },
+      {
+        "city": "Toronto",
+        "country": "Canada"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "EMS; India presence; AEM watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.celestica.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.celestica.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "huge",
+    "name": "Huge",
+    "priority": 6,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "New York, USA",
+    "indiaPresence": false,
+    "careersUrl": "https://www.hugeinc.com/careers/",
+    "jobSearchUrl": "https://www.hugeinc.com/careers/",
+    "locations": [
+      {
+        "city": "New York",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer"
+    ],
+    "notes": "Digital agency; AEM delivery. Limited India — watchlist. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.hugeinc.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.hugeinc.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  },
+  {
+    "id": "possible-agency",
+    "name": "Possible",
+    "priority": 6,
+    "industry": "Marketing",
+    "companyType": "Agency",
+    "hq": "New York, USA",
+    "indiaPresence": true,
+    "careersUrl": "https://www.possible.com/careers",
+    "jobSearchUrl": "https://www.possible.com/careers",
+    "locations": [
+      {
+        "city": "Bengaluru",
+        "country": "India"
+      },
+      {
+        "city": "New York",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites",
+      "aem-cloud"
+    ],
+    "roles": [
+      "AEM Developer"
+    ],
+    "notes": "WPP digital agency; AEM delivery — watchlist cadence. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.possible.com/careers"
+    ],
+    "hiringEvidence": [
+      "https://www.possible.com/careers"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false,
+    "hiringIndia": true
+  },
+  {
+    "id": "techtarget",
+    "name": "TechTarget",
+    "priority": 6,
+    "industry": "Media",
+    "companyType": "Product",
+    "hq": "Newton, USA",
+    "indiaPresence": false,
+    "careersUrl": "https://www.techtarget.com/careers/",
+    "jobSearchUrl": "https://www.techtarget.com/careers/",
+    "locations": [
+      {
+        "city": "Newton",
+        "country": "United States"
+      }
+    ],
+    "products": [
+      "sites"
+    ],
+    "roles": [
+      "Digital Experience Engineer"
+    ],
+    "notes": "B2B tech media; AEM watchlist. No India. Priority capped pending stronger AEM Tier-1/2 evidence.",
+    "evidence": [
+      "https://www.techtarget.com/careers/"
+    ],
+    "hiringEvidence": [
+      "https://www.techtarget.com/careers/"
+    ],
+    "verifiedAt": "2026-07-10",
+    "ownerVerified": false
+  }
+]
