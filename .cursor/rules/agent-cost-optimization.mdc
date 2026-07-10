@@ -1,0 +1,54 @@
+---
+description: Pick cheaper models for simple work; soft nudge before heavy steps; save tokens
+alwaysApply: true
+---
+
+# Agent cost / model optimization
+
+Owner goal: **don’t waste tokens**. Match effort (and any subagent model) to the request.
+
+## Main chat model (owner picker)
+
+- Prefer **Auto** for day-to-day work.
+- **MAX Mode** uses more capacity/tokens — leave it on for hard multi-file work; turn it **off** for
+  simple Q&A (“what is `.mjs`?”).
+- This rule **cannot** change the picker. Use a **soft nudge** instead (below).
+
+## Soft model nudge (not a hard gate)
+
+When the next step would clearly benefit from a different chat model (or MAX on/off), **notify once** in a
+short line, then continue unless the owner stops you:
+
+- Format: `Model tip: switch to <name> for this — or keep Auto/current and reply to continue.`
+- Examples:
+  - Simple Q&A while on a High/MAX model → tip Composer 2.5 / Fast, MAX off.
+  - Hard architecture/debug on a Fast model → tip Sonnet 5 / GPT-5.5 / Grok High, MAX on if needed.
+- If the owner does **not** switch and still asks you to proceed (or approves the pending step), **continue**.
+  Do not block on model choice. Do not nag every turn — at most once per distinct heavy/light phase
+  (e.g. before opening PRs, before a large refactor).
+
+## When the request is simple (Q&A, definitions, “where is X”)
+
+- Answer in a few sentences. Do **not** spawn Task/explore agents.
+- Do **not** run broad greps, full-file reads, or verify/smoke unless needed to answer.
+- Prefer one targeted lookup over “explore the whole repo.”
+
+## When launching Task subagents (model pick)
+
+Use the **cheapest model that can do the job**:
+
+| Work | Prefer `model` |
+|---|---|
+| Quick file find, narrow grep | `composer-2.5-fast` |
+| Routine implement / small PR-sized coding | `composer-2.5-fast` or `gpt-5.5-medium` |
+| Hard debug, architecture, security/review | `claude-sonnet-5-thinking-high` (stronger only if needed) |
+| Shell/git mechanics only | `composer-2.5-fast` |
+
+- Do **not** launch Opus/high-thinking subagents for copy tweaks or one-line questions.
+- If the owner named a model for a subagent, use only an allowed slug from the Task tool list.
+
+## Token hygiene
+
+- Prefer tools only when the answer depends on repo state.
+- Don’t expand scope unless the owner asked.
+- Keep final replies short.

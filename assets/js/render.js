@@ -177,6 +177,12 @@ const Render = {
         `<a href="mailto:${Render.escapeHtml(content.contactEmail)}" class="site-disclaimer__link">${Render.escapeHtml(content.contactEmail)}</a>`
       );
     }
+    if (content.linkedinUrl) {
+      const label = content.linkedinLabel || 'LinkedIn';
+      links.push(
+        `<a href="${Render.escapeHtml(content.linkedinUrl)}" class="site-disclaimer__link" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(label)}</a>`
+      );
+    }
 
     let ctaHtml = '';
     if (content.contributingLead && links.length) {

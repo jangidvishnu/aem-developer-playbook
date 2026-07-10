@@ -45,6 +45,15 @@ independently loadable and has one clear owner topic.
   "sidebar": { "contentsLabel": "string" },
   "dashboard": { "title": "string", "items": ["string", "..."] },
   "search": { "placeholder": "string", "ariaLabel": "string", "clearLabel": "string" },
+  "disclaimer": {
+    "lines": ["string", "..."],
+    "contributingLead": "string (optional)",
+    "contributing": "string (optional)",
+    "contributingUrl": "string (optional)",
+    "contactEmail": "string (optional)",
+    "linkedinUrl": "string (optional)",
+    "linkedinLabel": "string (optional, default LinkedIn)"
+  },
   "footer": { "text": "string", "copyright": "string (optional © / license line)" },
   "seo": {
     "siteUrl": "string — canonical origin (trailing slash)",

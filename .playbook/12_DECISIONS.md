@@ -14,10 +14,12 @@ required checks on both branches. Day-to-day PRs should land on staging first; p
 explicitly requested.
 **Decision:** Add a protected **`stage`** branch (same rules as `master` per DR-018: PR-only, `enforce_admins`,
 required checks `Verify scripts` + `UI smoke (Playwright search)`). Point GitHub Pages source at **`stage`**.
-Cloudflare Pages production continues to track **`master`** / `aemplaybook.pages.dev`. Agents default
-`gh pr create --base stage`; open/merge to `master` only when the owner explicitly asks. CI `on.push.branches`
-includes `stage`. Documented in `21_PUBLISHING.md` and `.cursor/rules/git-push-approval.mdc`.
-**Trade-off accepted:** Two protected branches and an extra promote step (stage → master) before production.
+Cloudflare Pages production continues to track **`master`** / `aemplaybook.pages.dev`. **Two-phase PR flow:**
+(1) feature → `stage` after commit + local CI; agent stops — owner merges and verifies GitHub Pages;
+(2) promote `stage` → `master` only when the owner explicitly asks in a new message (after stage is merged).
+Agents do not open both PRs at once and do not poll/wait for merges in chat. CI `on.push.branches` includes
+`stage`. Documented in `21_PUBLISHING.md` and `.cursor/rules/git-push-approval.mdc`.
+**Trade-off accepted:** Two protected branches; promote is a deliberate second step after staging is verified.
 **Follow-up:** Ensure Cloudflare production branch setting is `master`; keep CF deploy manual if desired.
 
 ---

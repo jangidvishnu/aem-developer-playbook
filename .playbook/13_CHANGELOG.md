@@ -4,6 +4,15 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — workflow, LinkedIn, agent cost rules
+
+### Changed
+
+- Two-phase PR flow: feature → `stage` first; promote `stage` → `master` only when owner asks after stage merge
+  (`git-push-approval.mdc`, `21_PUBLISHING.md`, DR-028).
+- Agent cost optimization rule: soft model tips, less tooling on simple Q&A (`agent-cost-optimization.mdc`).
+- Disclaimer contact links: LinkedIn profile (`data/site.json`, `render.js`).
+
 ## Unreleased — stage / master dual deploy (DR-028)
 
 ### Changed
