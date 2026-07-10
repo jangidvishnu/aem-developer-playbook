@@ -60,6 +60,15 @@
     "body": "<p>This guide is for staying <strong>job-ready</strong>, not only active job search. Practical steps for Indian job portals and notice periods — plus learning from every interview. Templates are in <strong>Professional Branding</strong>.</p>"
   },
   {
+    "id": "community",
+    "title": "Community",
+    "summary": "Independent LinkedIn groups for AEM developers (discovery only).",
+    "reading": "1 min",
+    "tags": ["Community"],
+    "communityEmbed": true,
+    "body": "<p>Peer LinkedIn groups for openings, tips, and questions. These are <strong>independent</strong> communities — not run by this playbook, Adobe, or listed employers. Follow each group’s rules; be polite and don’t spam resumes. Combine group leads with <a href=\"#target-companies\">Target Companies</a> and your own LinkedIn/Naukri search.</p>"
+  },
+  {
     "id": "career-command-center",
     "title": "Career Command Center",
     "summary": "Planned tracking modules.",
@@ -84,6 +93,15 @@
     "tags": ["Interview"],
     "interviewEmbed": true,
     "body": "<p>Interview outcomes depend on your knowledge, how the interviewer runs the loop, what is on your resume and projects, and fundamentals (JCR, Java, Sling, OSGi, Dispatcher, HTL, ResourceResolver). Guidance below is a coach checklist — adapt it to your experience; it is not a script and not a guarantee of exact questions. Honest AEM project work (without relying only on AI-generated answers) is the strongest prep; still study the basics so you can explain what you built.</p>"
+  },
+  {
+    "id": "about-data",
+    "title": "About this data",
+    "summary": "How to read this playbook — what is researched, what to confirm yourself.",
+    "reading": "2 min",
+    "tags": ["About"],
+    "disclaimerEmbed": true,
+    "body": "<p>This playbook is personal research shared to help AEM developers. Use it as a starting point — always confirm openings on employer careers pages and job boards.</p>"
   },
   {
     "id": "living-roadmap",

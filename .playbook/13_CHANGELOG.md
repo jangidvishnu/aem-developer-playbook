@@ -4,6 +4,28 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — M19 accepted + M20 Location + truth-pass (320)
+
+### Added
+
+- Apply guide depth: agencies, LinkedIn feed training, careers vs boards, community (`owner_playbook.json`).
+- Community chapter: LinkedIn groups only; independent-group disclaimer; WhatsApp invites archived
+  (`archive/community/`).
+- Location multi-select filter (country groups + cities), URL `cf_loc`, company search clear.
+- About this data chapter; one-line top disclaimer links there.
+- Company truth-pass tooling/manifests; link checker (`scripts/verify-links.js`).
+
+### Changed
+
+- Live employers **320** after truth-pass (93 archived in `archive/companies/manifests/truth-pass-2026-07-10.json`).
+- Company expand UX (grouped locations, quieter detail); hierarchical Location dropdown; Preferred chip hidden.
+- Scroll-spy / in-page anchors for short sections; sticky-offset split for apply subnav.
+- Milestone 19 marked **Complete** (owner accepted 2026-07-11); M20 remains partial.
+
+### Fixed
+
+- Double search clear icon; location option indent cascade; About nav highlight near page end.
+
 ## Unreleased — workflow, LinkedIn, agent cost rules
 
 ### Changed

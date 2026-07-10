@@ -28,9 +28,36 @@
         "LinkedIn posts: Search AEM (or your role keyword), filter type to Posts. First pass — wider time window; after that — last 1 day only. Look for HR or hiring posts for your role. Often an email is in the post — send your application there. This works well because your profile goes directly to HR.",
         "Gmail cover-letter template: For LinkedIn or Naukri invites, keep a reusable Gmail template — short cover letter with skills, experience, LWD if applicable, contact details, and resume attached. Reuse for every invite-style apply. Send these emails only when you are within about 30 days of joining — not earlier in a long notice period.",
         "Referral before direct apply: When you see a job on LinkedIn or Naukri, do not apply immediately. Search that company on LinkedIn, find people in the same role (or a related AEM role), and send a connection request. After they accept, ask for a referral politely — not bluntly (\"could you refer me?\"). Use a ChatGPT-drafted message that mentions your role, experience, and why you fit. Wait for their reply. If referral works, great; if not, you can still apply later.",
-        "Recruiter direct: If the post lists a recruiter email or contact info, reaching out there often works better than a generic portal apply."
+        "Recruiter direct: If the post lists a recruiter email or contact info, reaching out there often works better than a generic portal apply.",
+        "Staffing / HR agencies: Sometimes an agency is hiring for the employer. Prefer applying through that agency when you find one — agencies often chase responses harder and can get you a reply faster than a blind careers-portal apply."
       ],
-      "body": "Treat outreach as higher signal than one-click apply. Keep templates in Gmail; refine referral and HR-post wording with ChatGPT once, then reuse."
+      "body": "Treat outreach as higher signal than one-click apply. Keep templates in Gmail; refine referral and HR-post wording with ChatGPT once, then reuse. Use staffing agencies when they are the hiring channel for a role."
+    },
+    {
+      "id": "linkedin-feed",
+      "title": "Train your LinkedIn feed",
+      "audience": "owner",
+      "summary": "Shape LinkedIn so AEM jobs and hiring posts show up near the top when you open the app.",
+      "steps": [
+        "Join AEM-focused LinkedIn groups (see Community links on this page) and turn on notifications for the most active ones.",
+        "Follow AEM recruiters, hiring managers, and delivery leads who regularly post openings. Connect with people already in AEM roles at your target companies.",
+        "Engage lightly every day: like or comment on AEM hiring posts and group discussions. LinkedIn learns from what you open — stay on AEM topics and skip unrelated noise.",
+        "Search AEM (Posts + Jobs) daily with a last-1-day filter once your notice window is open. The more you open AEM results, the more the home feed surfaces similar posts first."
+      ],
+      "body": "A trained feed means the first posts you see are often AEM hiring — less time hunting, more time applying."
+    },
+    {
+      "id": "careers-vs-boards",
+      "title": "Careers sites vs job boards",
+      "audience": "owner",
+      "summary": "Many employers hire through Naukri or LinkedIn profiles and may never post the same role on their careers page.",
+      "steps": [
+        "Do not rely only on the Careers button. Recruiters often message you on Naukri or LinkedIn, or post on Foundit, Cutshort, and similar boards.",
+        "In Target Companies, open each employer’s detail panel and check AEM evidence and Hiring evidence links — those often point to board posts or searches that prove recent AEM hiring.",
+        "Keep Naukri and LinkedIn profiles complete and active so inbound outreach can find you even when the careers site is quiet.",
+        "Still use the employer careers URL when it exists — it is the official apply path — but treat boards and profile outreach as equal channels for India AEM hiring."
+      ],
+      "body": "Careers pages are useful, not complete. Evidence and hiring-evidence links in this playbook help you find where roles actually appear."
     },
     {
       "id": "learning-sources",
@@ -75,6 +102,18 @@
         "This playbook — Target Companies, filters, and interview prep once conversations start."
       ],
       "body": "No apply bots. Every application should use the same polished resume and aligned profiles."
+    },
+    {
+      "id": "community",
+      "title": "Community",
+      "audience": "owner",
+      "summary": "Independent LinkedIn groups for AEM developers — discovery only; not run by this playbook.",
+      "steps": [
+        "Open the Community section (sidebar → Community) for LinkedIn group links. These are independent peer groups — not administered here and not affiliated with Adobe.",
+        "Join only if the group’s rules fit you. Share openings and ask questions politely — do not spam resumes into discussions.",
+        "Combine group leads with the Target Companies list and your own LinkedIn/Naukri search."
+      ],
+      "body": "Community links live in the Community chapter so they stay in one place (also linked from How to Apply)."
     }
   ]
 }

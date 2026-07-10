@@ -1,0 +1,14 @@
+{
+  "removedAt": "2026-07-11",
+  "reason": "Public WhatsApp invite URLs removed — playbook owner does not administer these groups; invite links risk unauthorized redistribution and admin complaints. LinkedIn public group pages kept with independent-community disclaimer.",
+  "whatsapp": [
+    {
+      "label": "AEM Developers Group",
+      "url": "https://chat.whatsapp.com/C2hBI8xU1OHKyIxDQK7QvF"
+    },
+    {
+      "label": "Adobe Endless Possibilities Community",
+      "url": "https://chat.whatsapp.com/KlKfK0uRcyOIoqsAAysOUw"
+    }
+  ]
+}

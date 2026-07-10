@@ -17,10 +17,13 @@ store redundant `usesAEM` / `HiringAEM` flags on every row.
 | `priority` | number (0–10) | yes | Job-search usefulness (hiring cadence weighted) — rubric in `07_RESEARCH_GUIDE.md` |
 | `industry` | string | yes | e.g. Finance, Retail, Healthcare |
 | `companyType` | string | yes | `Product` / `GCC` / `Agency` / `Enterprise` |
-| `hq` | string | no | City, country — omit when unknown |
+| `hq` | string | no | City, country — omit when unknown (display string; `locations` is the filterable source) |
+| `locations` | array of `{city?, country}` | no | Offices that actually hire — powers the (future) city + country filter. `country` required, `city` optional. Omit when unknown rather than guessing. |
+| `remote` | boolean | no | Employer hires remote (India-eligible remote) — omit when unknown |
+| `noticePolicy` | enum string | no | Accepted notice period: `immediate` \| `30d` \| `60d` \| `90d` \| `flexible-long`. Set **only when evidenced** (posting/careers text); omit otherwise |
 | `indiaPresence` | boolean | no | Has India office/ops — omit when unknown |
 | `hiringIndia` | boolean | no | Actively hiring in India — omit when unknown; used by the India filter |
-| `hiringActive` | boolean | no | Frequent/general AEM/DXP hiring pattern (openings often) — **not** “hiring right now”; omit until owner-confirmed |
+| `hiringActive` | boolean | no | Set `true` when there is evidence the employer posts AEM/DXP roles **frequently (roughly monthly or more)** — **not** “hiring right now”. Omit when hiring looks occasional/one-off or is unknown |
 | `ownerPreferred` | boolean | no | Owner recommends as a strong company (pay / growth / quality of work) — opinion, not evidence; omit when not preferred |
 | `careersUrl` | string (URL) | yes | Official careers page (`http`/`https`) |
 | `jobSearchUrl` | string (URL) | no | Deep link to AEM/relevant search — omit when identical to `careersUrl` |
@@ -38,7 +41,7 @@ store redundant `usesAEM` / `HiringAEM` flags on every row.
 | Flag | Who sets it | Meaning |
 |---|---|---|
 | `ownerVerified` | Project owner (required on every row) | Owner has manually reviewed this company's fields. Agents adding or materially rewriting a row must set **`false`** and leave it for the owner. Do not set `true` on the owner's behalf unless the owner explicitly said this batch is verified. |
-| `hiringActive` | Project owner (optional) | Employer **generally** posts AEM/DXP roles frequently (ongoing cadence). It does **not** mean there is an open req today — always check `careersUrl` / `jobSearchUrl`. Omit when unknown. Owner confirms manually; agents must not invent it. |
+| `hiringActive` | Agent (evidenced) or owner | Employer posts AEM/DXP roles **frequently — roughly monthly or more** (recurring cadence). Set `true` only from evidence (multiple distinct recent postings, or a careers page consistently showing AEM reqs). It does **not** mean there is an open req today — always check `careersUrl` / `jobSearchUrl`. Omit when hiring looks occasional/one-off or is unknown. Never guess. |
 | `ownerPreferred` | Project owner (optional) | Owner **recommends** the company (compensation, career growth, delivery quality, etc.). Subjective — not the same as `hiringActive` or `priority`. Put a short “why” in `notes` when set. Omit when not preferred (do not store `false` for every non-pick). Agents must not invent this flag. |
 
 `verifiedAt` ≠ `ownerVerified`. `verifiedAt` is the last research check date; `ownerVerified` is the owner's sign-off.
@@ -98,6 +101,33 @@ etc.) — scraping is out of scope until an explicit decision says otherwise.
 
 `priority` stays separate: job-search relevance for AEM roles. `signals` is candidate-experience signal from reviews.
 
+### Locations, remote, notice period (filter data)
+
+These three optional fields back upcoming filters (location by country **or** city, remote-friendly, notice
+period). Data-only for now — no UI is wired to them yet. Accuracy rules (owner hard rule: filter data must be
+correct):
+
+```json
+"locations": [
+  { "city": "Bengaluru", "country": "India" },
+  { "city": "Pune", "country": "India" },
+  { "country": "United States" }
+],
+"remote": true,
+"noticePolicy": "flexible-long"
+```
+
+- **`locations`** — cover **all countries the employer hires in + the major city hub(s) per country** (keep India
+  cities complete since the audience is India-based; list main global hubs elsewhere). Not India-only, but also not
+  every tiny satellite office. `country` is required per entry; `city` is optional. This is the filterable source
+  of truth (country **and** city filters); `hq` remains a human-readable display string and may differ.
+- **`remote`** — `true` only when there is evidence they hire remote roles relevant to India-based candidates.
+  Omit when unknown (do not store `false` everywhere).
+- **`noticePolicy`** — one of `immediate`, `30d`, `60d`, `90d`, `flexible-long`. Set **only when a posting or
+  careers page states/implies it**. `flexible-long` = employer accepts long notice (e.g. 90d+) or the exact range
+  is unclear but they are not immediate-only. Omit entirely when there is no evidence — never guess from company
+  type.
+
 ## Rules
 
 - Omit optional keys when unknown — do **not** write `"Unknown"` placeholders for dropped fields.
@@ -112,7 +142,7 @@ etc.) — scraping is out of scope until an explicit decision says otherwise.
 - New or rewritten public rows: set `ownerVerified: false` until the owner signs off. Do not flip existing
   `ownerVerified: true` to false for trivial typo fixes; do flip to `false` after material field rewrites so the
   owner re-checks.
-- Omit `hiringActive` until the owner confirms ongoing hiring cadence (DR-025).
+- Set `hiringActive: true` when evidence shows a frequent (~monthly or more) AEM/DXP hiring cadence; omit when hiring is occasional/one-off or unknown (updates DR-025 per owner: agents may now set it from evidence, not owner-only).
 - Omit `ownerPreferred` unless the owner explicitly recommends the company; put a short why in `notes`.
 
 ## Relationship to archived research

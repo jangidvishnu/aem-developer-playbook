@@ -21,10 +21,25 @@ const REQUIRED_KEYS = [
   'ownerVerified'
 ];
 
-const OPTIONAL_KEYS = ['hq', 'indiaPresence', 'hiringIndia', 'jobSearchUrl', 'hiringActive', 'ownerPreferred', 'signals'];
+const OPTIONAL_KEYS = [
+  'hq',
+  'indiaPresence',
+  'hiringIndia',
+  'jobSearchUrl',
+  'hiringActive',
+  'ownerPreferred',
+  'signals',
+  'locations',
+  'remote',
+  'noticePolicy'
+];
 
 const SIGNAL_SCORE_KEYS = ['overall', 'hiring', 'culture', 'benefits', 'workLife'];
 const SIGNAL_SOURCES = ['glassdoor', 'ambitionbox', 'levels', 'blind', 'owner', 'other'];
+
+// Notice-period buckets for the (data-only for now) notice filter. `flexible-long` covers
+// "employer allows long notice" or "range unknown but not immediate-only".
+const NOTICE_POLICIES = ['immediate', '30d', '60d', '90d', 'flexible-long'];
 
 function emptyCompany(overrides = {}) {
   const base = {
@@ -136,6 +151,35 @@ function validateCompany(co, index) {
     errors.push(`${label}: ownerPreferred must be boolean when present`);
   }
 
+  if ('remote' in co && co.remote !== true && co.remote !== false) {
+    errors.push(`${label}: remote must be boolean when present`);
+  }
+
+  if ('noticePolicy' in co && co.noticePolicy != null && co.noticePolicy !== '') {
+    if (!NOTICE_POLICIES.includes(co.noticePolicy)) {
+      errors.push(`${label}: noticePolicy must be one of ${NOTICE_POLICIES.join(', ')}`);
+    }
+  }
+
+  if ('locations' in co) {
+    if (!Array.isArray(co.locations)) {
+      errors.push(`${label}: locations must be an array when present`);
+    } else {
+      co.locations.forEach((loc, i) => {
+        if (!loc || typeof loc !== 'object' || Array.isArray(loc)) {
+          errors.push(`${label}: locations[${i}] must be an object { city?, country }`);
+          return;
+        }
+        if (!loc.country || typeof loc.country !== 'string') {
+          errors.push(`${label}: locations[${i}].country is required (string)`);
+        }
+        if (loc.city != null && typeof loc.city !== 'string') {
+          errors.push(`${label}: locations[${i}].city must be a string when present`);
+        }
+      });
+    }
+  }
+
   if ('signals' in co) {
     errors.push(...validateSignals(co.signals, label));
   }
@@ -150,6 +194,7 @@ module.exports = {
   OPTIONAL_KEYS,
   SIGNAL_SCORE_KEYS,
   SIGNAL_SOURCES,
+  NOTICE_POLICIES,
   emptyCompany,
   validateCompany,
   validateSignals,

@@ -162,7 +162,15 @@ const Render = {
     return `<button type="button" class="icon-btn icon-btn--header" id="themeToggle" aria-label="Toggle theme">${Render.icon('moon')}</button>`;
   },
 
-  disclaimer(content, header) {
+  disclaimer(content) {
+    if (!content) return '';
+    const summary =
+      content.summaryLine ||
+      'Personal research — useful, but not official or guaranteed. Data can be incomplete; always confirm openings yourself.';
+    return `<aside class="site-disclaimer" role="note" aria-label="Data disclaimer"><div class="site-disclaimer__inner"><p class="site-disclaimer__one-line"><span class="site-disclaimer__summary-text">${Render.escapeHtml(summary)}</span> <a href="#about-data" class="site-disclaimer__more-link">Read more</a></p></div></aside>`;
+  },
+
+  disclaimerSection(content, header) {
     if (!content) return '';
     const lines =
       Array.isArray(content.lines) && content.lines.length ? content.lines.filter(Boolean) : content.message ? [content.message] : [];
@@ -194,8 +202,40 @@ const Render = {
     }
 
     const messageHtml = lines.map(line => `<p class="site-disclaimer__text">${Render.escapeHtml(line)}</p>`).join('');
+    return `<div class="about-data" role="note">${messageHtml}${ctaHtml}</div>`;
+  },
 
-    return `<aside class="site-disclaimer" role="note" aria-label="Data disclaimer"><div class="site-disclaimer__inner">${messageHtml}${ctaHtml}</div></aside>`;
+  communitySection(community) {
+    if (!community || typeof community !== 'object') return '';
+    const links = Render.communityLinks({ ...community, heading: '' });
+    if (!links) return '';
+    const note =
+      community.note || 'Independent peer groups — not run by this playbook or Adobe. Follow each group’s rules; don’t spam resumes.';
+    return `<div class="community-panel">${links}<p class="community-panel__note">${Render.escapeHtml(note)}</p></div>`;
+  },
+
+  communityLinks(community) {
+    if (!community || typeof community !== 'object') return '';
+    const items = [];
+    (community.whatsapp || []).forEach(item => {
+      if (item && item.url && item.label) {
+        items.push(
+          `<a href="${Render.escapeHtml(item.url)}" class="community-chip community-chip--whatsapp" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(item.label)}</a>`
+        );
+      }
+    });
+    (community.linkedinGroups || []).forEach(item => {
+      if (item && item.url && item.label) {
+        items.push(
+          `<a href="${Render.escapeHtml(item.url)}" class="community-chip community-chip--linkedin" target="_blank" rel="noopener noreferrer">${Render.escapeHtml(item.label)}</a>`
+        );
+      }
+    });
+    if (!items.length) return '';
+    const heading = community.heading;
+    const headingHtml =
+      heading !== '' && heading != null ? `<p class="community-panel__heading">${Render.escapeHtml(heading || 'Community')}</p>` : '';
+    return `<div class="community-panel__block">${headingHtml}<div class="community-panel__links">${items.join('')}</div></div>`;
   },
 
   search(config, wrapId, idSuffix) {
@@ -410,30 +450,71 @@ const Render = {
 
   uiSelect(filterKey, label, options, current, extraClass) {
     const isRail = /\bui-select--rail\b/.test(extraClass || '');
-    const hasValue = !!(current && String(current).length);
+    const isMulti = /\bui-select--multi\b/.test(extraClass || '');
+    const selected = isMulti
+      ? Array.isArray(current)
+        ? current.filter(Boolean)
+        : String(current || '')
+            .split(',')
+            .map(s => s.trim())
+            .filter(Boolean)
+      : [];
+    const hasValue = isMulti ? selected.length > 0 : !!(current && String(current).length);
     // Rail filters: category label is display-only (not a selectable "All …" row). Clear via ×.
-    const listOptions = isRail ? options.filter(o => o.id !== '') : options;
+    const listOptions = isRail || isMulti ? options.filter(o => o.id !== '') : options;
+    const hasGroups = listOptions.some(o => o.group);
+    let lastGroup = null;
     const opts = listOptions
       .map(o => {
-        const sel = o.id === current ? ' ui-select__option--active' : '';
-        const aria = o.id === current ? 'true' : 'false';
-        return `<li role="option" class="ui-select__option${sel}" data-value="${Render.escapeHtml(o.id)}" data-label="${Render.escapeHtml(o.label)}" aria-selected="${aria}">${Render.escapeHtml(o.label)}</li>`;
+        let groupHtml = '';
+        // Country options are the selectable group headers — skip a separate non-interactive header.
+        if (hasGroups && o.group && o.group !== lastGroup) {
+          lastGroup = o.group;
+          if (o.kind !== 'country') {
+            groupHtml = `<li class="ui-select__group" role="presentation" data-group="${Render.escapeHtml(o.group)}">${Render.escapeHtml(o.group)}</li>`;
+          }
+        }
+        const on = isMulti ? selected.includes(o.id) : o.id === current;
+        const sel = on ? ' ui-select__option--active' : '';
+        const aria = on ? 'true' : 'false';
+        const kindClass = o.kind === 'city' ? ' ui-select__option--nested' : o.kind === 'country' ? ' ui-select__option--group' : '';
+        const check = isMulti
+          ? `<span class="ui-select__check" aria-hidden="true">${on ? Render.icon('check', 'icon icon--sm') : ''}</span>`
+          : '';
+        const labelHtml = `<span class="ui-select__option-label">${Render.escapeHtml(o.label)}</span>`;
+        const inner = isMulti ? `${labelHtml}${check}` : `${check}${labelHtml}`;
+        return `${groupHtml}<li role="option" class="ui-select__option${kindClass}${sel}" data-value="${Render.escapeHtml(o.id)}" data-label="${Render.escapeHtml(o.label)}" data-group="${Render.escapeHtml(o.group || '')}" data-kind="${Render.escapeHtml(o.kind || '')}" aria-selected="${aria}">${inner}</li>`;
       })
       .join('');
-    const cur = options.find(o => o.id === current) || options.find(o => o.id === '') || options[0];
-    const displayLabel = hasValue && cur ? cur.label : label;
+    let displayLabel = label;
+    if (isMulti && selected.length) {
+      const labels = selected.map(id => {
+        const opt = listOptions.find(o => o.id === id);
+        if (!opt) return id;
+        if (opt.kind === 'country') return opt.group || opt.label;
+        if (opt.kind === 'city' && opt.group) return `${opt.label}, ${opt.group}`;
+        return opt.label || id;
+      });
+      displayLabel = labels.length <= 2 ? labels.join(', ') : `${labels[0]} +${labels.length - 1}`;
+    } else if (!isMulti && hasValue) {
+      const cur = options.find(o => o.id === current) || options.find(o => o.id === '') || options[0];
+      displayLabel = cur ? cur.label : label;
+    }
     const cls = extraClass ? `ui-select ${extraClass}` : 'ui-select';
     const searchable = listOptions.length > 5;
     const search = searchable
       ? `<div class="ui-select__search"><span class="ui-select__search-icon" aria-hidden="true">${Render.icon('search', 'icon icon--sm')}</span><input type="search" class="ui-select__search-input" placeholder="Search ${Render.escapeHtml(label.toLowerCase())}…" autocomplete="off" aria-label="Search ${Render.escapeHtml(label)}" /></div>`
       : '';
     const searchableAttr = searchable ? ' data-ui-searchable="true"' : '';
-    const clearableAttr = isRail ? ' data-ui-clearable="true"' : '';
+    const multiAttr = isMulti ? ' data-ui-multi="true"' : '';
+    const clearableAttr = isRail || isMulti ? ' data-ui-clearable="true"' : '';
     const clearHidden = hasValue ? '' : ' hidden';
-    const clearBtn = isRail
-      ? `<button type="button" class="ui-select__clear${clearHidden}" data-ui-select-clear aria-label="Clear ${Render.escapeHtml(label)}">${Render.icon('x', 'icon icon--sm')}</button>`
-      : '';
-    return `<div class="${cls}" data-ui-select${searchableAttr}${clearableAttr} data-ui-placeholder="${Render.escapeHtml(label)}"><span class="ui-select__label">${Render.escapeHtml(label)}</span><div class="ui-select__control"><button type="button" class="ui-select__trigger" aria-haspopup="listbox" aria-expanded="false"><span class="ui-select__value">${Render.escapeHtml(displayLabel)}</span>${Render.icon('chevronDown')}</button>${clearBtn}</div><div class="ui-select__dropdown hidden">${search}<ul class="ui-select__list" role="listbox">${opts}</ul><p class="ui-select__empty hidden" role="status">No matches</p></div><input type="hidden" data-company-filter="${Render.escapeHtml(filterKey)}" value="${Render.escapeHtml(current || '')}" /></div>`;
+    const clearBtn =
+      isRail || isMulti
+        ? `<button type="button" class="ui-select__clear${clearHidden}" data-ui-select-clear aria-label="Clear ${Render.escapeHtml(label)}">${Render.icon('x', 'icon icon--sm')}</button>`
+        : '';
+    const hiddenVal = isMulti ? selected.join(',') : current || '';
+    return `<div class="${cls}" data-ui-select${searchableAttr}${multiAttr}${clearableAttr} data-ui-placeholder="${Render.escapeHtml(label)}"><span class="ui-select__label">${Render.escapeHtml(label)}</span><div class="ui-select__control"><button type="button" class="ui-select__trigger" aria-haspopup="listbox" aria-expanded="false"><span class="ui-select__value">${Render.escapeHtml(displayLabel)}</span>${Render.icon('chevronDown')}</button>${clearBtn}</div><div class="ui-select__dropdown hidden">${search}<ul class="ui-select__list" role="listbox"${isMulti ? ' aria-multiselectable="true"' : ''}>${opts}</ul><p class="ui-select__empty hidden" role="status">No matches</p></div><input type="hidden" data-company-filter="${Render.escapeHtml(filterKey)}" value="${Render.escapeHtml(hiddenVal)}" /></div>`;
   },
 
   /** Shared Prev/Next bar — Target Companies and learning tables use the same control. */
@@ -528,11 +609,7 @@ const Render = {
   companyBadges(x) {
     const filters = Render._companyFilters();
     const badges = [];
-    if (filters.isOwnerPreferred(x)) {
-      badges.push(
-        `<span class="company-mark company-mark--preferred" title="Owner recommendation (pay, growth, quality)">${Render.icon('star', 'icon icon--sm')} Preferred</span>`
-      );
-    }
+    // Preferred mark hidden for now (data still in companies.json; filter chip also off).
     if (filters.isHiringActive(x)) {
       badges.push(
         `<span class="company-mark company-mark--hiring" title="Generally posts AEM/DXP roles often — not a live vacancy guarantee">${Render.icon('activity', 'icon icon--sm')} Frequent</span>`
@@ -555,36 +632,99 @@ const Render = {
 
   companyDetailPanel(x) {
     const filters = Render._companyFilters();
-    const productChips = (x.products || [])
-      .map(code => `<span class="company-detail__chip">${Render.escapeHtml(filters.productLabel(code))}</span>`)
+    const india = filters.indiaLabel(x);
+    const noticeLabels = {
+      immediate: 'Immediate joiners',
+      '30d': '~30 days notice',
+      '60d': '~60 days notice',
+      '90d': '~90 days notice',
+      'flexible-long': 'Flexible / longer notice'
+    };
+
+    const metaBits = [];
+    if (x.companyType) metaBits.push(Render.escapeHtml(x.companyType));
+    if (x.industry) metaBits.push(Render.escapeHtml(x.industry));
+    if (x.priority != null) metaBits.push(`Priority ${Render.escapeHtml(String(x.priority))}`);
+    if (india && india !== '—') metaBits.push(`India: ${Render.escapeHtml(india)}`);
+    if (x.hiringActive === true) metaBits.push('Frequent AEM hiring');
+    if (x.remote === true) metaBits.push('Remote (evidenced)');
+    if (x.noticePolicy && noticeLabels[x.noticePolicy]) metaBits.push(noticeLabels[x.noticePolicy]);
+
+    const hq = x.hq
+      ? `<p class="company-detail__hq"><span class="company-detail__hq-label">Headquarters</span> ${Render.escapeHtml(x.hq)}</p>`
+      : '';
+    const meta = metaBits.length ? `<p class="company-detail__meta-line">${metaBits.join('<span aria-hidden="true"> · </span>')}</p>` : '';
+
+    const byCountry = new Map();
+    (x.locations || []).forEach(l => {
+      if (!l || (!l.city && !l.country)) return;
+      const country = l.country || 'Other';
+      if (!byCountry.has(country)) byCountry.set(country, []);
+      if (l.city) byCountry.get(country).push(l.city);
+      else if (!byCountry.get(country).length) byCountry.get(country).push(country);
+    });
+    const locGroups = [...byCountry.entries()]
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([country, cities]) => {
+        const unique = [...new Set(cities)];
+        const cityLine = unique.length ? Render.escapeHtml(unique.join(', ')) : '—';
+        return `<div class="company-detail__loc"><strong>${Render.escapeHtml(country)}</strong><span>${cityLine}</span></div>`;
+      })
       .join('');
+    const locationsHtml = locGroups
+      ? `<section class="company-detail__section"><h4 class="company-detail__h">Locations</h4><p class="company-detail__hint">Major hubs from research — may be incomplete; confirm on careers pages.</p><div class="company-detail__locs">${locGroups}</div></section>`
+      : '';
+
+    const products = (x.products || []).map(code => filters.productLabel(code)).filter(Boolean);
+    const productsHtml = products.length
+      ? `<section class="company-detail__section"><h4 class="company-detail__h">Products</h4><p class="company-detail__prose">${Render.escapeHtml(products.join(' · '))}</p></section>`
+      : '';
+
     const roles = (x.roles || []).filter(Boolean);
     const rolesHtml = roles.length
-      ? `<div class="company-detail__block"><h4 class="company-detail__label">Typical roles</h4><ul class="company-detail__list">${roles
-          .map(r => `<li>${Render.escapeHtml(r)}</li>`)
-          .join('')}</ul></div>`
+      ? `<section class="company-detail__section"><h4 class="company-detail__h">Typical roles</h4><p class="company-detail__prose">${Render.escapeHtml(roles.join(' · '))}</p></section>`
       : '';
-    const metaParts = [];
-    if (x.hq) metaParts.push(`<span>HQ</span> ${Render.escapeHtml(x.hq)}`);
-    const india = filters.indiaLabel(x);
-    if (india && india !== '—') metaParts.push(`<span>India</span> ${Render.escapeHtml(india)}`);
-    const meta = metaParts.length
-      ? `<div class="company-detail__meta">${metaParts.join('<span class="company-detail__meta-sep" aria-hidden="true"> · </span>')}</div>`
-      : '';
+
     const notes = String(x.notes || '').trim()
-      ? `<div class="company-detail__block"><h4 class="company-detail__label">Notes</h4><p class="company-detail__notes">${Render.escapeHtml(x.notes)}</p></div>`
+      ? `<section class="company-detail__section"><h4 class="company-detail__h">Notes</h4><p class="company-detail__prose">${Render.escapeHtml(x.notes)}</p></section>`
       : '';
-    const productsHtml = productChips
-      ? `<div class="company-detail__block"><h4 class="company-detail__label">Products</h4><div class="company-detail__chips">${productChips}</div></div>`
+
+    const careers = Render.companyCareersLink(x);
+    const jobSearch = x.jobSearchUrl && String(x.jobSearchUrl).startsWith('http') && x.jobSearchUrl !== careers ? x.jobSearchUrl : '';
+    const actions = [];
+    if (careers) {
+      actions.push(
+        `<a class="company-detail__action" href="${Render.escapeHtml(careers)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link', 'icon icon--sm')} Careers</a>`
+      );
+    }
+    if (jobSearch) {
+      actions.push(
+        `<a class="company-detail__action" href="${Render.escapeHtml(jobSearch)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link', 'icon icon--sm')} Jobs search</a>`
+      );
+    }
+    (x.evidence || [])
+      .filter(u => String(u || '').startsWith('http'))
+      .forEach((u, i, arr) => {
+        actions.push(
+          `<a class="company-detail__action company-detail__action--quiet" href="${Render.escapeHtml(u)}" target="_blank" rel="noopener noreferrer">Evidence${arr.length > 1 ? ` ${i + 1}` : ''}</a>`
+        );
+      });
+    (x.hiringEvidence || [])
+      .filter(u => String(u || '').startsWith('http'))
+      .forEach((u, i, arr) => {
+        actions.push(
+          `<a class="company-detail__action company-detail__action--quiet" href="${Render.escapeHtml(u)}" target="_blank" rel="noopener noreferrer">Hiring proof${arr.length > 1 ? ` ${i + 1}` : ''}</a>`
+        );
+      });
+    const actionsHtml = actions.length
+      ? `<div class="company-detail__actions" role="group" aria-label="Links">${actions.join('')}</div>`
       : '';
-    const evidence = Render.companyEvidenceLinks(x.evidence, 'AEM evidence');
-    const hiringEvidence = Render.companyEvidenceLinks(x.hiringEvidence, 'Hiring evidence');
+
     const verified = x.verifiedAt
-      ? `<p class="company-detail__verified">Verified ${Render.escapeHtml(x.verifiedAt)}${x.ownerVerified ? ' · Owner checked' : ''}</p>`
-      : '';
-    const linkNote =
-      '<p class="company-detail__link-note">Tip: careers and evidence links are snapshots from the verified date. If a link fails, open the employer careers site and search for AEM / Adobe Experience Manager.</p>';
-    return `<div class="company-detail">${meta}${productsHtml}${rolesHtml}${notes}${evidence}${hiringEvidence}${verified}${linkNote}</div>`;
+      ? `<p class="company-detail__verified">Verified ${Render.escapeHtml(x.verifiedAt)}${x.ownerVerified ? ' · Owner checked' : ''} · Snapshot only — also check Naukri / LinkedIn / boards</p>`
+      : `<p class="company-detail__verified">Snapshot only — also check Naukri / LinkedIn / boards</p>`;
+
+    return `<div class="company-detail">${hq}${meta}${locationsHtml}${productsHtml}${rolesHtml}${notes}${actionsHtml}${verified}</div>`;
   },
 
   companyRow(x, options) {
@@ -632,7 +772,11 @@ const Render = {
 
   careersTipMarkup(id) {
     const text = Render.careersSearchTipText();
-    return `<span class="table-tip"><button type="button" class="table-tip__trigger" data-table-tip aria-controls="${id}" aria-expanded="false" aria-label="How to search on careers sites">${Render.icon('info', 'icon icon--sm')}</button><span id="${id}" role="tooltip" class="table-tip__panel">${Render.escapeHtml(text)}</span></span>`;
+    return Render.filterTipMarkup(id, text, 'How to search on careers sites');
+  },
+
+  filterTipMarkup(id, text, ariaLabel) {
+    return `<span class="table-tip"><button type="button" class="table-tip__trigger" data-table-tip aria-controls="${Render.escapeHtml(id)}" aria-expanded="false" aria-label="${Render.escapeHtml(ariaLabel || 'More info')}">${Render.icon('info', 'icon icon--sm')}</button><span id="${Render.escapeHtml(id)}" role="tooltip" class="table-tip__panel">${Render.escapeHtml(text)}</span></span>`;
   },
 
   /** aria-sort + a clickable header button for columns with a CompanyFilters.COLUMN_SORTS entry
@@ -729,35 +873,43 @@ const Render = {
     };
     // Cloud is Product → AEM Cloud Service only (no separate Cloud chip — same filter).
     const quickChips = productMode
-      ? `<div class="filter-chips" role="group" aria-label="Quick filters">${chip('hiringIndia', 'India', 'mapPin')}${chip('hiringActive', 'Frequent', 'activity')}${chip('ownerPreferred', 'Preferred', 'star')}</div>`
-      : `<div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('hiringActive', 'Frequent hiring')}${chk('ownerPreferred', 'Preferred')}</div>`;
+      ? `<div class="filter-chips" role="group" aria-label="Quick filters">${chip('hiringIndia', 'India', 'mapPin')}${chip('hiringActive', 'Frequent', 'activity')}</div>`
+      : `<div class="flex flex-wrap gap-4">${chk('hiringIndia', 'Hiring India')}${chk('hiringActive', 'Frequent hiring')}</div>`;
     const clearBtnHidden = Render.companyFilterActive(state) ? '' : ' hidden';
     const clearBtn = `<button type="button" class="filter-clear-btn${clearBtnHidden}" data-company-clear-filters>${Render.icon('x', 'icon icon--sm')} Clear filters</button>`;
+    const queryVal = state.query || '';
+    const searchClearHidden = queryVal.trim() ? '' : ' hidden';
     const searchField = `<div class="company-filters__search">
           <span class="company-filters__field-label">Search</span>
           <div class="company-filters__search-field company-filters__search-field--icon">
             <span class="company-filters__search-icon" aria-hidden="true">${Render.icon('search')}</span>
-            <input type="search" data-company-filter="query" value="${Render.escapeHtml(state.query || '')}" placeholder="Search companies…" autocomplete="off" aria-label="Search companies" />
+            <input type="text" data-company-filter="query" value="${Render.escapeHtml(queryVal)}" placeholder="Search companies…" autocomplete="off" aria-label="Search companies" />
+            <button type="button" class="company-filters__search-clear${searchClearHidden}" data-company-search-clear aria-label="Clear search">${Render.icon('x')}</button>
           </div>
         </div>`;
     const sortField = Render.uiSelect('sort', 'Sort', sortOptions, state.sort || 'priority-desc', 'ui-select--sort');
     const typeRailClass = `ui-select--rail${state.companyType ? ' ui-select--rail-active' : ''}`;
     const industryRailClass = `ui-select--rail${state.industry ? ' ui-select--rail-active' : ''}`;
     const productRailClass = `ui-select--rail${state.product ? ' ui-select--rail-active' : ''}`;
+    const locationList = options.locations || filtersApi.locationsFrom(options.allCompanies || []);
+    const selectedLocations = Array.isArray(state.locations) ? state.locations : [];
+    const locationRailClass = `ui-select--rail ui-select--multi${selectedLocations.length ? ' ui-select--rail-active' : ''}`;
     const typeField = Render.uiSelect('companyType', 'Type', typeOptions, state.companyType || '', typeRailClass);
     const industryField = Render.uiSelect('industry', 'Industry', industryOptions, state.industry || '', industryRailClass);
     const productField = Render.uiSelect('product', 'Product', productOptions, state.product || '', productRailClass);
-    const advancedCount = [state.companyType, state.industry, state.product].filter(Boolean).length;
+    const locationField = Render.uiSelect('locations', 'Location', locationList, selectedLocations, locationRailClass);
+    const locationWrap = locationField;
+    const advancedCount = [state.companyType, state.industry, state.product].filter(Boolean).length + (selectedLocations.length ? 1 : 0);
     const panelOpen = !!(options && options.filtersPanelOpen);
     const filtersBtn = `<button type="button" class="company-filters__filters-btn${panelOpen ? ' is-open' : ''}${advancedCount ? ' has-active' : ''}" data-company-filters-toggle aria-expanded="${panelOpen ? 'true' : 'false'}" aria-controls="company-filters-panel">${Render.icon('filter', 'icon icon--sm')}<span data-filters-label>Filters</span>${advancedCount ? `<span class="company-filters__filters-count" data-filters-count>${advancedCount}</span>` : '<span class="company-filters__filters-count hidden" data-filters-count></span>'}${Render.icon('chevronDown', 'icon icon--sm company-filters__filters-chevron')}</button>`;
-    // Mobile: Filters + chips wrap; panel stacks Type/Industry/Product (no horizontal scroll).
+    // Mobile: Filters + chips wrap; panel stacks Type/Industry/Product/Location (no horizontal scroll).
     // Desktop (≥640px): Filters button hidden; dropdowns sit inline before chips.
     return `<div class="company-explorer__toolbar" role="search" aria-label="Filter companies">
       <div class="company-filters company-filters--compact">
         <div class="company-filters__primary">${searchField}<div class="company-filters__sort">${sortField}</div></div>
         <div class="company-filters__advanced" role="group" aria-label="Company filters">
           ${filtersBtn}
-          <div id="company-filters-panel" class="company-filters__panel${panelOpen ? ' is-open' : ''}">${typeField}${industryField}${productField}</div>
+          <div id="company-filters-panel" class="company-filters__panel${panelOpen ? ' is-open' : ''}">${typeField}${industryField}${productField}${locationWrap}</div>
           ${quickChips}
           ${clearBtn}
         </div>
@@ -774,7 +926,12 @@ const Render = {
     const metrics = Render.isProductMode(options)
       ? ''
       : `<div class="company-explorer__metrics"><span><strong>${stats.total}</strong> employers</span><span><strong>${stats.india}</strong> India hiring</span><span><strong>${stats.cloud}</strong> AEM Cloud</span></div>`;
-    const toolbar = options.showFilters ? Render.companyFilterBar(state, total, filtered, options.industries, options) : '';
+    const toolbar = options.showFilters
+      ? Render.companyFilterBar(state, total, filtered, options.industries, {
+          ...options,
+          locations: options.locations || Render._companyFilters().locationsFrom(options.allCompanies || companies)
+        })
+      : '';
     const body = Render.companyDataBody(companies, options);
     const pagination = Render.companyPagination(page, filtered, 'company');
     const countLabel = Render.companyCountLabel(page, filtered, total, COMPANY_PAGE_SIZE);
@@ -869,7 +1026,11 @@ const Render = {
                 .join('')}</ol>`
             : '';
         const body = sec.body ? `<p class="mt-3 text-slate-600 text-sm">${Render.escapeHtml(sec.body)}</p>` : '';
-        return `<article id="owner-${Render.escapeHtml(sec.id)}" class="owner-section"><div class="flex flex-wrap items-center gap-2"><h3 class="font-bold text-lg">${Render.escapeHtml(sec.title)}</h3>${badge}</div><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(sec.summary)}</p>${steps}${body}</article>`;
+        const community =
+          sec.id === 'community'
+            ? `<p class="mt-3 text-sm"><a class="text-blue-600 underline" href="#community">Open the Community section</a> for independent LinkedIn group links (discovery only).</p>`
+            : '';
+        return `<article id="owner-${Render.escapeHtml(sec.id)}" class="owner-section"><div class="flex flex-wrap items-center gap-2"><h3 class="font-bold text-lg">${Render.escapeHtml(sec.title)}</h3>${badge}</div><p class="text-slate-600 text-sm mt-1">${Render.escapeHtml(sec.summary)}</p>${steps}${body}${community}</article>`;
       })
       .join('');
     const productClass = product ? ' owner-playbook--product' : '';
@@ -889,7 +1050,10 @@ const Render = {
     const id = chapter.id || 'ch' + index;
     const companies = ctx.companies || [];
     const learning = ctx.learning || {};
-    const renderOpts = { productMode: ctx.productMode };
+    const renderOpts = {
+      productMode: ctx.productMode,
+      community: ctx.site && ctx.site.community
+    };
     const productApply = ctx.productMode && chapter.ownerPlaybookEmbed;
     let body = productApply ? '' : chapter.body || '';
     if (chapter.companyTable) {
@@ -901,10 +1065,15 @@ const Render = {
         allCompanies: companies,
         industries: Render._companyFilters().industriesFrom(companies),
         products: Render._companyFilters().productsFrom(companies),
+        locations: Render._companyFilters().locationsFrom(companies),
         productMode: ctx.productMode
       })}</div>`;
     } else if (chapter.ownerPlaybookEmbed && ctx.ownerPlaybook) {
       body += `<div class="owner-playbook-wrap">${Render.ownerPlaybook(ctx.ownerPlaybook, renderOpts)}</div>`;
+    } else if (chapter.communityEmbed && ctx.site && ctx.site.community) {
+      body += Render.communitySection(ctx.site.community);
+    } else if (chapter.disclaimerEmbed && ctx.site) {
+      body += Render.disclaimerSection(ctx.site.disclaimer, ctx.site.header);
     } else if (chapter.glossaryEmbed && learning.glossary) {
       body += `<div id="glossary-table-container" class="mt-4">${Render.glossaryTable(learning.glossary, { page: 1 })}</div>`;
     } else if (chapter.technologyEmbed && learning.technologies) {

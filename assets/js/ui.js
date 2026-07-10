@@ -18,7 +18,8 @@ const UI = {
 
   stickyHeaderOffset() {
     const header = document.querySelector('.doc-header');
-    return (header ? header.getBoundingClientRect().height : 56) + 8;
+    // Extra gap so section titles aren’t flush under the sticky header
+    return (header ? header.getBoundingClientRect().height : 56) + 24;
   },
 
   scrollToSection(el) {
@@ -65,26 +66,73 @@ const UI = {
   },
 
   wireScrollSpy() {
-    const links = document.querySelectorAll('.doc-nav__link[data-nav-id]');
+    const links = [...document.querySelectorAll('.doc-nav__link[data-nav-id]')];
     if (!links.length) return;
-    const sections = [...links].map(a => document.getElementById(a.getAttribute('data-nav-id'))).filter(Boolean);
+    const sections = links.map(a => document.getElementById(a.getAttribute('data-nav-id'))).filter(Boolean);
     if (!sections.length) return;
-    const obs = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          const id = entry.target.id;
-          links.forEach(a => {
-            const on = a.getAttribute('data-nav-id') === id;
-            a.classList.toggle('doc-nav__link--active', on);
-            if (on) a.setAttribute('aria-current', 'true');
-            else a.removeAttribute('aria-current');
-          });
+
+    function setActive(id) {
+      if (!id) return;
+      links.forEach(a => {
+        const on = a.getAttribute('data-nav-id') === id;
+        a.classList.toggle('doc-nav__link--active', on);
+        if (on) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+      const activeLink = links.find(a => a.getAttribute('data-nav-id') === id);
+      const group = activeLink && activeLink.closest('.doc-nav__group');
+      if (group && !group.open) group.open = true;
+    }
+
+    function headerOffset() {
+      const header = document.querySelector('.doc-header');
+      return (header ? header.getBoundingClientRect().height : 56) + 20;
+    }
+
+    function syncFromScroll() {
+      const offset = headerOffset();
+      const hashId = (location.hash || '').replace(/^#/, '');
+      if (hashId) {
+        const hashEl = document.getElementById(hashId);
+        if (hashEl && sections.includes(hashEl)) {
+          const rect = hashEl.getBoundingClientRect();
+          // Hash target in view (Read more → #about-data, sidebar clicks)
+          if (rect.top <= offset + 120 && rect.bottom > offset) {
+            setActive(hashId);
+            return;
+          }
+        }
+      }
+
+      // Last section whose top has crossed the sticky header line
+      let current = sections[0] && sections[0].id;
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i].getBoundingClientRect().top <= offset + 8) current = sections[i].id;
+      }
+
+      // Short last section (About this data): when near page bottom, prefer it
+      const doc = document.documentElement;
+      const nearBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 64;
+      if (nearBottom) current = sections[sections.length - 1].id;
+
+      setActive(current);
+    }
+
+    let ticking = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          syncFromScroll();
+          ticking = false;
         });
       },
-      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+      { passive: true }
     );
-    sections.forEach(s => obs.observe(s));
+    window.addEventListener('hashchange', syncFromScroll);
+    syncFromScroll();
   },
 
   wireCompanyExpand(root) {
@@ -186,6 +234,7 @@ const UI = {
       const emptyEl = wrap.querySelector('.ui-select__empty');
       const clearBtn = wrap.querySelector('[data-ui-select-clear]');
       const placeholder = wrap.getAttribute('data-ui-placeholder') || '';
+      const isMulti = wrap.getAttribute('data-ui-multi') === 'true';
       if (!trigger || !dropdown || !list || !hidden) return;
 
       function close() {
@@ -215,19 +264,75 @@ const UI = {
           .trim()
           .toLowerCase();
         let visible = 0;
+        const visibleGroups = new Set();
         list.querySelectorAll('[role="option"]').forEach(opt => {
           const label = (opt.getAttribute('data-label') || opt.textContent || '').toLowerCase();
-          const show = !q || label.includes(q);
+          const group = (opt.getAttribute('data-group') || '').toLowerCase();
+          const show = !q || label.includes(q) || group.includes(q);
           opt.classList.toggle('hidden', !show);
-          if (show) visible += 1;
+          if (show) {
+            visible += 1;
+            const g = opt.getAttribute('data-group');
+            if (g) visibleGroups.add(g);
+          }
+        });
+        list.querySelectorAll('.ui-select__group').forEach(g => {
+          const name = g.getAttribute('data-group') || '';
+          g.classList.toggle('hidden', !visibleGroups.has(name));
         });
         if (emptyEl) emptyEl.classList.toggle('hidden', visible > 0);
       }
-      function syncClearUi(val) {
-        const on = !!val;
+      function selectedValues() {
+        return String(hidden.value || '')
+          .split(',')
+          .map(s => s.trim())
+          .filter(Boolean);
+      }
+      function syncClearUi(hasVal) {
+        const on = !!hasVal;
         wrap.classList.toggle('ui-select--rail-active', wrap.classList.contains('ui-select--rail') && on);
         if (clearBtn) clearBtn.classList.toggle('hidden', !on);
         if (!on && valueEl && placeholder) valueEl.textContent = placeholder;
+      }
+      function syncMultiOptions(vals) {
+        const set = new Set(vals);
+        list.querySelectorAll('[role="option"]').forEach(opt => {
+          const on = set.has(opt.getAttribute('data-value'));
+          opt.setAttribute('aria-selected', on ? 'true' : 'false');
+          opt.classList.toggle('ui-select__option--active', on);
+          const check = opt.querySelector('.ui-select__check');
+          if (check) {
+            check.innerHTML = on && typeof Icons !== 'undefined' ? Icons.svg('check', 'icon icon--sm') : '';
+          }
+        });
+      }
+      function setMultiValues(vals) {
+        const next = [...new Set(vals.filter(Boolean))];
+        hidden.value = next.join(',');
+        if (valueEl) {
+          if (!next.length) valueEl.textContent = placeholder;
+          else {
+            const labels = next.map(id => {
+              let found = '';
+              let kind = '';
+              let group = '';
+              list.querySelectorAll('[role="option"]').forEach(opt => {
+                if (opt.getAttribute('data-value') === id) {
+                  found = (opt.getAttribute('data-label') || id).trim();
+                  kind = (opt.getAttribute('data-kind') || '').trim();
+                  group = (opt.getAttribute('data-group') || '').trim();
+                }
+              });
+              if (kind === 'country') return group || found;
+              if (kind === 'city' && group) return `${found}, ${group}`;
+              return found || id;
+            });
+            valueEl.textContent = labels.length <= 2 ? labels.join(', ') : `${labels[0]} +${labels.length - 1}`;
+          }
+        }
+        syncMultiOptions(next);
+        syncClearUi(next.length > 0);
+        hidden.dispatchEvent(new Event('change', { bubbles: true }));
       }
       function setValue(val, label) {
         hidden.value = val;
@@ -250,14 +355,25 @@ const UI = {
         clearBtn.addEventListener('click', e => {
           e.preventDefault();
           e.stopPropagation();
-          setValue('', placeholder);
+          if (isMulti) setMultiValues([]);
+          else setValue('', placeholder);
           close();
         });
       }
       list.querySelectorAll('[role="option"]').forEach(opt => {
         opt.addEventListener('click', e => {
           e.stopPropagation();
-          setValue(opt.getAttribute('data-value'), (opt.getAttribute('data-label') || opt.textContent || '').trim());
+          const id = opt.getAttribute('data-value');
+          const label = (opt.getAttribute('data-label') || opt.textContent || '').trim();
+          if (isMulti) {
+            const cur = selectedValues();
+            const idx = cur.indexOf(id);
+            if (idx >= 0) cur.splice(idx, 1);
+            else cur.push(id);
+            setMultiValues(cur);
+            return;
+          }
+          setValue(id, label);
           close();
         });
       });
@@ -657,21 +773,26 @@ const UI = {
   },
 
   wireInPageAnchors() {
-    function headerOffset() {
-      const header = document.querySelector('.doc-header');
-      return (header ? header.getBoundingClientRect().height : 56) + 8;
-    }
-
     function scrollToTarget(el, hash) {
-      const y = el.getBoundingClientRect().top + window.scrollY - headerOffset();
-      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      UI.scrollToSection(el);
       if (hash) history.replaceState(null, '', hash);
     }
 
-    document.querySelectorAll('a.doc-wordmark[href^="#"], .doc-hero a.hero-cta[href^="#"], a.doc-nav__link[href^="#"]').forEach(a => {
+    const selector = [
+      'a.doc-wordmark[href^="#"]',
+      '.doc-hero a.hero-cta[href^="#"]',
+      'a.doc-nav__link[href^="#"]',
+      'main a[href^="#"]',
+      '.site-disclaimer a[href^="#"]'
+    ].join(', ');
+
+    document.querySelectorAll(selector).forEach(a => {
+      if (a.dataset.inPageWired) return;
+      a.dataset.inPageWired = '1';
       a.addEventListener('click', e => {
         const href = a.getAttribute('href');
-        if (!href || href === '#') return;
+        if (!href || href === '#' || !href.startsWith('#')) return;
+        // External-looking hashes only (section ids) — skip empty
         const el = document.querySelector(href);
         if (!el) return;
         e.preventDefault();

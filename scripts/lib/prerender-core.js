@@ -65,7 +65,7 @@ function buildFragments(Render, data) {
   const productMode = Render.resolveProductMode(site);
   const chapters = Render.chaptersForMode(allChapters, site);
   const renderOpts = { productMode };
-  const ctx = { companies, learning, ownerPlaybook, productMode, roadmaps };
+  const ctx = { companies, learning, ownerPlaybook, productMode, roadmaps, site };
   const stats = Render.companyStats(companies);
   const groups = site.navigation && site.navigation.groups;
   const seo = site.seo || {};
@@ -116,7 +116,9 @@ function buildFragments(Render, data) {
 
   return {
     siteUrl,
-    'document-title': title,
+    // Full <title> element (markers wrap the tag in index.html, not comment nodes inside it —
+    // otherwise browsers show a blank tab until JS runs applyHeadMeta).
+    'document-title': `<title>${title}</title>`,
     'seo-meta': seoMeta,
     canonical: `<link rel="canonical" href="${siteUrl || './'}" />`,
     'json-ld': siteUrl ? `<script type="application/ld+json" id="site-json-ld">${jsonLdJson}</script>` : '',
@@ -125,7 +127,7 @@ function buildFragments(Render, data) {
     'header-theme': Render.headerThemeToggle(),
     'search-desktop': Render.search(site.search, 'search-wrap', '-desktop'),
     'search-header': Render.search(site.search, 'search-wrap-header-inner', '-mobile'),
-    'site-disclaimer': Render.disclaimer(site.disclaimer, site.header),
+    'site-disclaimer': Render.disclaimer(site.disclaimer, site.header, site.community),
     'sidebar-label': Render.escapeHtml(site.sidebar.contentsLabel),
     toc: groups ? Render.sidebarGrouped(chapters, groups) : Render.sidebar(chapters),
     main: Render.hero(site.hero, renderOpts, stats) + roadmapsHtml + chaptersHtml,

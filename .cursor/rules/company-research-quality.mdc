@@ -1,0 +1,52 @@
+---
+description: Company batch research — M&A dedup and employer-owned careers URLs
+alwaysApply: true
+---
+
+# Company research quality (owner preference)
+
+When adding or refreshing rows in `data/companies.json`, follow `.playbook/07_RESEARCH_GUIDE.md`
+(**Careers URL rules** and **M&A, rebrand, and duplicate employers**).
+
+## Hard rules
+
+1. **`careersUrl`** — employer-owned only (company careers/jobs page or their ATS). Never Cutshort,
+   Foundit, Naukri, Shine, Indeed, LinkedIn `/jobs`, or other job boards.
+2. **Job boards** — OK in `hiringEvidence` / `jobSearchUrl` only.
+3. **M&A / rebrand** — do not add a child brand if the parent is already listed (e.g. Zorang→GSPANN,
+   Lister Digital→Bounteous). Update or keep the surviving row; note the former name in `notes` if useful.
+4. **No careers page** — do not publish the row; park the candidate for owner review instead of using a
+   board URL as `careersUrl`.
+
+## Filter data (accuracy is a hard rule — double-check existing + new)
+
+5. **`locations`** — array of `{city?, country}` covering **all countries the employer hires in + the major city
+   hub(s) per country** (not India-only, not every tiny office). `hq` is the global HQ and is often NOT the India
+   hiring city — research real offices, do not copy `hq`. `country` required per entry; `city` optional. Keep
+   India cities complete (audience is India-based) and list the main global hubs elsewhere.
+   **Anti-pattern:** do not ship India-only `locations` for a global SI/agency/GCC (Infosys, TCS, Wipro, Globant,
+   Dentsu, etc.) — always add HQ country + 1–2 other major hubs when evidenced. India-only is OK only for
+   India-HQ product companies / India-only agencies (CEAT, Maruti, Air India, Happiest Minds, TO THE NEW).
+6. **`remote`** — `true` only with evidence of remote hiring relevant to India candidates.
+7. **`noticePolicy`** — one of `immediate` / `30d` / `60d` / `90d` / `flexible-long`; set **only when a
+   posting/careers page states or implies it**, else omit (`flexible-long` = long notice ok or range unclear).
+8. **`hiringActive`** — set `true` when evidence shows a **frequent (~monthly or more)** AEM/DXP hiring cadence
+   (multiple distinct recent postings, or a careers page consistently showing AEM reqs). Not "open now"; omit
+   when occasional/one-off or unknown. Never guess.
+9. **`products`** — must match what the employer actually works on. Verify against case studies / postings and
+   **expand to every evidenced Adobe product + remove any tag with no evidence**. Wrong/understated product tags
+   irritate users.
+10. **`notes`** — shown in the company detail UI. Write for job seekers only. Never put research jargon in
+    `notes` (`DR-xxx`, “Tier N BuiltWith”, “upgrade Evidence”, agent TODO language). Put internal research
+    labels in session notes or archive manifests, not in published `notes`.
+
+## Link validity
+
+- Every `careersUrl` must resolve (2xx, redirects that still land on the employer are OK). Run
+  `npm run check-links` (or `node scripts/verify-links.js`) after batches; fix `dead` (404/DNS) links,
+  keep `blocked` (anti-bot) after a manual browser check.
+
+## Before batch append
+
+- Scan existing `companies.json` ids/names for parent brands.
+- After edits: `node scripts/verify-companies.js`; run `npm run prerender` when counts or hero stats change.

@@ -97,6 +97,30 @@ assert('hasActiveFilters false by default', !CompanyFilters.hasActiveFilters(Com
 assert('hasActiveFilters true with query', CompanyFilters.hasActiveFilters({ ...CompanyFilters.defaultState(), query: 'adobe' }));
 assert('resetFilters clears query', CompanyFilters.resetFilters().query === '');
 
+const locOpts = CompanyFilters.locationsFrom(companies);
+assert('locationsFrom returns options', locOpts.length >= 1);
+const indiaTok = locOpts.find(o => o.id === 'country:India');
+assert('locationsFrom includes India country', !!indiaTok);
+assert('locationsFrom India is grouped', indiaTok && indiaTok.group === 'India' && indiaTok.kind === 'country');
+const nestedCity = locOpts.find(o => o.kind === 'city' && o.group === 'India');
+assert('locationsFrom has nested India city', !!nestedCity);
+const byIndiaLoc = CompanyFilters.filter(companies, {
+  ...CompanyFilters.defaultState(),
+  locations: ['country:India']
+});
+assert('location country filter', byIndiaLoc.length >= 1 && byIndiaLoc.every(c => (c.locations || []).some(l => l.country === 'India')));
+const cityTok = locOpts.find(o => o.id.startsWith('city:') && o.id.includes('Bengaluru'));
+if (cityTok) {
+  const byCity = CompanyFilters.filter(companies, { ...CompanyFilters.defaultState(), locations: [cityTok.id] });
+  assert('location city filter', byCity.length >= 1);
+}
+const locState = { ...CompanyFilters.defaultState(), locations: ['country:India', 'city:Bengaluru|India'] };
+const locSerialized = CompanyFilters.serializeUrlState(locState, '');
+const locParsed = CompanyFilters.parseUrlState(locSerialized);
+assert('URL round-trip locations', JSON.stringify(locParsed.state.locations) === JSON.stringify(locState.locations));
+assert('hasActiveFilters true with locations', CompanyFilters.hasActiveFilters(locState));
+assert('resetFilters clears locations', (CompanyFilters.resetFilters().locations || []).length === 0);
+
 const mockResults = [
   { source: 'company', id: 'adobe', title: 'Adobe' },
   { source: 'chapter', id: 'mission', title: 'Mission' },

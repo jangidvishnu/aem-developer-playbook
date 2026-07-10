@@ -32,6 +32,7 @@ time (e.g. "every time you open a PR, switch to master").
 | PowerShell heredoc / slow git gotchas | `windows-powershell-shell.mdc` |
 | Terminal / dev-server cleanup | `terminal-hygiene.mdc` |
 | Every design/UI change must cover desktop + mobile | `desktop-mobile-design.mdc` |
+| Company batch research — M&A dedup, employer-owned `careersUrl`, user-facing `notes` | `company-research-quality.mdc` |
 | Cheap model / less tooling for simple Q&A; stronger only when needed | `agent-cost-optimization.mdc` |
 
 ## What not to persist here
