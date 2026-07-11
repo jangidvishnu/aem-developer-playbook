@@ -4,27 +4,23 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
-## Unreleased — M19 accepted + M20 Location + truth-pass (320)
+## Unreleased — M18–M20 close-out + agent context slim
 
 ### Added
 
-- Apply guide depth: agencies, LinkedIn feed training, careers vs boards, community (`owner_playbook.json`).
-- Community chapter: LinkedIn groups only; independent-group disclaimer; WhatsApp invites archived
-  (`archive/community/`).
-- Location multi-select filter (country groups + cities), URL `cf_loc`, company search clear.
-- About this data chapter; one-line top disclaimer links there.
-- Company truth-pass tooling/manifests; link checker (`scripts/verify-links.js`).
+- (Prior PR) Apply guide, Community chapter, Location filter, truth-pass tooling — see merged history.
 
 ### Changed
 
-- Live employers **320** after truth-pass (93 archived in `archive/companies/manifests/truth-pass-2026-07-10.json`).
-- Company expand UX (grouped locations, quieter detail); hierarchical Location dropdown; Preferred chip hidden.
-- Scroll-spy / in-page anchors for short sections; sticky-offset split for apply subnav.
-- Milestone 19 marked **Complete** (owner accepted 2026-07-11); M20 remains partial.
+- Milestones **18–20** marked **Complete** / owner-accepted 2026-07-11; no active milestone (`14_ROADMAP.md`,
+  `19_CURRENT_SPRINT.md`, `25_ROADMAP_ARCHIVE.md`). M18 closed at **320** live; M20 Location scope accepted;
+  notice/contacts deferred.
+- Always-on Cursor rules slimmed (~25KB → ~9KB); company research merged into `company-data.mdc`;
+  desktop-mobile + company rules glob-scoped.
 
 ### Fixed
 
-- Double search clear icon; location option indent cascade; About nav highlight near page end.
+- Sticky apply-nav: auto-scroll active tab into view on mobile horizontal strip (`assets/js/ui.js`).
 
 ## Unreleased — workflow, LinkedIn, agent cost rules
 

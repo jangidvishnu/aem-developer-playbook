@@ -3,101 +3,61 @@ description: Never commit without explicit owner approval; feature PR to stage; 
 alwaysApply: true
 ---
 
-# Git commit, push, PR, and merge approval gate
+# Git / PR approval gate
 
-## Hard rule
+## Hard rules
 
-Do **not** run `git commit` unless the project owner has **explicitly approved that specific commit** in the
-current message. Do **not** merge a pull request, or push directly to `master`/`main`/`stage` (or any other
-protected branch), unless the project owner has **explicitly approved that specific merge**.
+- **No `git commit`** unless the owner explicitly approved **that** commit in the current message.
+  "Looks good" / "proceed" / finishing todos ≠ commit approval.
+- **No merge** and **no push to `master`/`main`/`stage`** unless explicitly approved for that action.
+  Commit approval ≠ PR-open ≠ merge. Always push a **feature branch**.
+- After opening a PR: report the URL and **stop**. Do not poll GitHub or wait in chat for merge.
 
-- "Looks good", "proceed", "implement the plan", or completing a todo list are **not** approval to commit.
-- Direct push to `master`/`main`/`stage` is never done regardless of approval wording — always push a feature
-  branch (also enforced server-side by branch protection; see `12_DECISIONS.md` DR-018 / DR-028).
-- Merge approval is always its **own** explicit go-ahead (e.g. "merge it", "approve and merge") — commit approval
-  never implies merge approval. Opening a PR is not merge approval.
-- **Do not poll GitHub, wait in chat, or keep a session open** for the owner to merge a PR. After opening a PR,
-  report the URL and **stop**. The owner merges on GitHub and starts a **new message** when ready for the next step.
+## Branches
 
-## Branch targets (owner preference)
-
-| Branch | Host | When agents open a PR |
+| Branch | Host | Agent PRs |
 |---|---|---|
-| **`stage`** (default) | GitHub Pages preview | Feature branch → `stage` after commit + local CI |
-| **`master`** | Cloudflare Pages (canonical) | **`stage` → `master` promote only** when the owner explicitly asks (after `stage` is merged) |
+| **`stage`** (default) | GitHub Pages | Feature → `stage` after commit + local CI |
+| **`master`** | Cloudflare (canonical) | **`stage` → `master` promote only** when owner asks |
 
-Never open a feature branch PR directly to `master`.
+Never open a feature PR directly to `master`. Default checkout after PR/merge work is always **`stage`**.
 
-## Phase 1 — Feature → `stage` (default after commit)
+## Phase 1 — Feature → `stage` (after commit approval)
 
-After the owner approves a commit (or says **"commit and open stage PR"** in one message), proceed:
+1. Commit the approved change.
+2. Local CI must pass before push/PR: `npm run verify` then `npm run ui-smoke` (fix and re-run until green).
+3. Push the feature branch.
+4. If PR-open was not bundled in the approval, ask once; then `gh pr create --base stage`.
+5. `git checkout stage` && `git pull origin stage`. Leave the feature branch on remote only.
+6. Report stage PR URL + check status; **stop**. No promote PR in this phase.
 
-1. `git commit` the approved change.
-2. **Run the same checks CI runs, locally, and wait for both to pass before any push/PR:**
-   - `npm run verify`
-   - `npm run ui-smoke`
-   If either fails, **fix it and re-run until green**. Do **not** push or open a PR with failing local checks.
-3. Push the feature branch (never `master`/`main`/`stage` directly).
-4. If commit approval did **not** already include opening the PR, **stop once** and ask to open the **`stage`** PR
-   (short message: local CI green, ready to open feature → `stage`). Optional soft model nudge per
-   `agent-cost-optimization.mdc` — not a hard block.
-5. After PR-open approval (or if bundled in the commit message): open/update the feature PR targeting **`stage`**
-   (`gh pr create --base stage`), with summary + test plan.
-6. Switch local repo back to **`stage`** and fast-forward: `git checkout stage` then `git pull origin stage`.
-   Leave feature branches on the remote only.
+## After stage PR merge
 
-Report the **stage** PR URL and required-check status, then **stop**. Do **not** open a promote PR in this phase.
+Immediately: `git checkout stage` && `git pull origin stage`. New work from updated `stage` (`git checkout -b feat/...`). Do not keep working on the old feature branch.
 
-**Owner next (off-agent):** merge the stage PR on GitHub when checks are green, verify GitHub Pages, then message
-the agent when ready for production (Phase 2).
+## Phase 2 — Promote `stage` → `master` (owner-initiated only)
 
-## Phase 2 — Promote `stage` → `master` (separate, owner-initiated)
+Only when owner asks in a new message ("open promote PR", "promote to master", etc.):
 
-Open or update a promote PR **only** when the owner explicitly asks in a **new message**, e.g.:
+1. Confirm `stage` is ahead of `master` (or report nothing to promote).
+2. Reuse open `stage`→`master` PR, or `gh pr create --base master --head stage`.
+3. Report URL; **stop**. Do not merge without separate approval. Cloudflare deploy may be manual after merge.
 
-- "open promote PR"
-- "stage merged, promote to master"
-- "raise stage → master MR"
+## Changelog
 
-Prerequisites: feature work is already on **`stage`** (stage PR merged). Then:
-
-1. Confirm `stage` is ahead of `master` (or report if nothing to promote).
-2. If an open PR `stage` → `master` exists, update its body if needed and report its URL.
-3. If none exists, `gh pr create --base master --head stage` with a clear title/body (what is pending for
-   production; link the merged stage/feature PR; note Cloudflare may need a manual deploy after merge to `master`).
-4. Do **not** merge unless the owner separately approves that merge.
-
-Report the promote PR URL, then **stop**. Do not poll for merge.
-
-## Changelog timing (owner preference)
-
-Do **not** edit `.playbook/13_CHANGELOG.md` on every implementation turn or mid-feature tweak.
-
-- During normal coding: leave the changelog alone (or keep notes only in the session summary for the owner).
-- Update `13_CHANGELOG.md` **once**, as part of preparing the approved commit / opening the PR — a single
-  Unreleased (or milestone) entry that covers the whole PR, not a drip of micro-entries after each small change.
+Do **not** edit `.playbook/13_CHANGELOG.md` mid-feature. Update **once** when preparing the approved commit/PR (one Unreleased entry for the whole PR).
 
 ## Before asking to commit
 
-1. Summarize what changed (files + why) and that it is uncommitted / staged only.
-2. Tell the owner how to verify locally (HTTP serve + hard refresh; for print CSS use **Print Preview** Ctrl/Cmd+P).
-   Note that after commit approval you will run `npm run verify` + `npm run ui-smoke`, then open **feature → `stage`**
-   only (or ask once if PR-open was not bundled in their approval).
-3. If the PR-bound changelog entry is not yet written, add it now (one consolidated entry for the PR).
-4. Wait for explicit approval to commit.
-5. Only then run `git commit`, then **local CI gate** + push + **stage PR** per Phase 1.
+1. Summarize files + why (uncommitted).
+2. How to verify locally (HTTP serve + hard refresh; print CSS → Print Preview).
+3. Add the PR changelog entry if missing.
+4. Wait for explicit commit approval → then Phase 1.
 
 ## Before merging
 
-1. Confirm both required checks (`Verify scripts`, `UI smoke (Playwright search)`) are green on the PR.
-2. Wait for the owner's explicit approval to merge, separate from commit approval and from PR-open approval.
-3. Only then merge (or let the owner merge via GitHub directly).
-4. Reminder: merging to `stage` updates GitHub Pages only. Promote to `master` (then Cloudflare deploy) is a
-   separate owner-initiated step — each merge needs its own explicit approval.
+Required checks green (`Verify scripts`, `UI smoke`). Separate explicit merge approval. Merge to `stage` = GitHub Pages only; promote is a later owner step.
 
-## If you commit, push to a protected branch, or merge without approval
+## If you committed/pushed/merged without approval
 
-Stop immediately, tell the owner what happened, and ask whether to undo (`git reset --soft` for an unpushed commit;
-branch protection already blocks direct pushes/merges, but if bypassed, revert) or leave it and hold all further
-git writes until told otherwise. Do not proceed with more changes on top of an unapproved commit/push/merge without
-the owner's direction.
+Stop, tell the owner, ask undo vs leave; hold further git writes until directed.

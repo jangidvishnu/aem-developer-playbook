@@ -47,9 +47,9 @@ review before the next one starts.
 | 15 | Company capability filters | EDS and AEM Forms via **Product** dropdown (no duplicate chips) | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 16 | Table layout + sticky sidebar | Fixed column widths (no filter flicker); sidebar stays put at page end | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
 | 17 | Learning & career content | Interview framing + fundamentals; wire official resources; career/glossary depth | **Complete** — see `25_ROADMAP_ARCHIVE.md` |
-| 18 | Company database expansion (123 → 500) | Strict, verified, India-first batches (B1–B8) growing `data/companies.json` to 500 AEM employers | **Active** — 320 live after truth-pass (see below) |
+| 18 | Company database expansion (123 → 500) | Strict, verified, India-first batches; truth-pass to **320** live | **Complete** — owner accepted 2026-07-11 (further adds ad-hoc) |
 | 19 | Job search playbook & contributor docs | Agency apply, boards vs careers, community links, CONTRIBUTING depth | **Complete** — owner accepted 2026-07-11 |
-| 20 | Company discovery at scale | `locations` filter (partial), `noticePolicy`, optional `contacts`, search | **Partial** — Location multi-select + search clear shipped; notice/contacts still planned |
+| 20 | Company discovery at scale | Location filter + search UX; notice/contacts deferred | **Complete** — owner accepted 2026-07-11 |
 
 **Sequencing note:** Milestone 14 was implemented before Milestone 13 received explicit owner acceptance, at the
 owner's explicit direction ("go" immediately following a full M14 plan) — a deliberate, acknowledged exception to
@@ -162,61 +162,16 @@ Product-mode prerender (`scripts/prerender.js` / `verify-prerender.js`), sitemap
 DR-023 Lighthouse follow-up (loader-vs-prerender CLS, `defer` scripts, font `display=optional`, combobox role,
 contrast token). Accepted by the project owner 2026-07-08. **Full detail:** `25_ROADMAP_ARCHIVE.md`.
 
-## Milestones 1–17: complete
+## Milestones 1–20: complete
 
-Milestones **1–17** are accepted and complete. Summary table above; full detail for 1–14 and 16 in
-`25_ROADMAP_ARCHIVE.md`. **M15** — filter EDS / AEM Forms via the **Product** dropdown (`cf_product=eds` or
-`cf_product=forms`); no separate quick-filter chips (duplicates Product). **M17** — learning/career content depth,
-`resourceIds`, interview framing.
+All milestones **1–20** are accepted and complete. Summary table above; full detail in `25_ROADMAP_ARCHIVE.md`
+(M15–M20 summaries appended with M18–M20).
 
-## Milestone 18 — Company database expansion (123 → 500) (active)
-
-**Goal:** Grow `data/companies.json` from **123** to **500** AEM/Adobe-partner employers, India-first, with **zero
-false or unverified data**. Every added row completes the `07_RESEARCH_GUIDE.md` field pass: ≥1 working Tier-1/2
-`evidence` URL proving AEM usage, ≥1 `hiringEvidence` URL, employer-accurate `roles`, `priority` from the
-hiring-cadence rubric, `verifiedAt` set, and **`ownerVerified: false`** on every agent-added row.
-
-**Method (per batch):** gather candidate names → dedupe against live rows → verify AEM usage + hiring intent via
-web → fill complete field pass → `node scripts/verify-companies.js` green → report adds (names + evidence links) for
-owner spot-check → commit only on explicit owner approval (feature branch → PR to `stage`, per `git-push-approval.mdc`).
-Anything that cannot clear the evidence bar is parked in a "needs owner review" note, **not** published.
-
-**Sub-milestones (batches).** Say "start next milestone" (or "start Batch N") to run the next one:
-
-| Batch | Target range | Focus | Est. net-new | Status |
-|---|---|---|---|---|
-| B1 | 123 → 165 | `comapnies-to-add.txt` names + top India Adobe SIs/partners | 42 | **Done (pending owner spot-check)** — 42 verified adds; schema + hiring gate pass. Parked: L'Oréal (Sitecore, not AEM), Tavant, Westcon-Comstor, Physical Insights, 7N, Material/iCrossing, Iksula, Apple |
-| B2 | ~165 → ~212 | Remaining India Adobe partners + India product/GCC employers | 47 | **Done (pending owner spot-check)** — 47 verified adds; schema + hiring gate pass. Skipped (already live): JPMorgan Chase, Rockwell Automation, Xeliumtech, IndusInd Bank. Parked: Cybage, Apexon, Innominds, Flipkart, Axis Bank, Airtel, HUL, Kotak, R Systems, SLK/Altimetrik, Atos, PhonePe, Bosch, Dell, Intel, Fidelity, UBS, EXL, LTTS, Tata Elxsi, Langoor, Samsung SDS, Phygital Insights, Sonata Software, staffing-only Cutshort agencies (Wroots, Scaling Theory, XpertOntime, People First) |
-| B3 | ~212 → ~233 | India job-board employers (Foundit/Shine/Cutshort "AEM"), verified | 21 | **Done (pending owner spot-check)** — 21 net adds in live file (233 total); **Ele1 Consultant** parked — HR staffing boutique, no employer-owned careers URL. Cutshort `careersUrl` fixes applied (Quest, Ekloud, Appriffy, BigStep, NLB). M&A dedup: Zorang/Lister not listed (`gspann`, `bounteous` only). Short of ~50 target — parked for follow-up: Marlabs, Pi Square, Orbion, Bosch/DXC/Sasken/Grid Dynamics/Luxoft/SoftServe/Nielsen/Cyient/HPE, Albertsons, WillWare/SWITS, EXL/LTTS/Tata Elxsi/Phygital, staffing-only (Wroots, Staffice, Scaling Theory, XpertOntime, People First, **Ele1**) |
-| B4 | ~265 → ~315 | Adobe customer success-story directory (global, India presence) | ~50 | Not started |
-| B5 | ~315 → ~365 | Adobe case-study directory, continued | ~50 | Not started |
-| B6 | ~365 → ~415 | Global enterprises + archived candidate manifest re-verify | ~50 | Not started |
-| B7 | ~415 → ~460 | Global + watchlist (BuiltWith Tier-4, priority capped ≤6, flagged in notes) | ~45 | Not started |
-| B8 | ~460 → 500 | Fill, reconcile duplicates, normalize priorities | ~40 | Not started |
-
-**Candidate sources (India-first):** Adobe Solution Partner Directory (India filter), `comapnies-to-add.txt`,
-India job boards, Adobe customer success stories (Tier-2 backbone), archived manifests
-(`archive/companies/manifests/`), BuiltWith seeds (Tier-4 watchlist only).
-
-**Acceptance (per batch):** all new rows pass the field pass and `verify-companies.js`; no duplicate of an existing
-row; inference-only rows labelled in `notes` and capped at priority 6; owner spot-checks before commit.
-**Acceptance (milestone):** 500 rows, `npm run verify` + `npm run ui-smoke` green, one consolidated changelog entry.
-
-## Milestone 19 — Job search playbook & contributor docs: complete
-
-**Accepted:** 2026-07-11 (owner).
-
-**Shipped:** Apply guide depth (agencies, LinkedIn feed training, careers vs boards, community);
-Community chapter with LinkedIn groups only (WhatsApp invites archived — independent-group disclaimer);
-`CONTRIBUTING.md` company-row + PR-to-`stage` guide; collapsible top disclaimer → About this data;
-company expand UX + Location hierarchy UI polish.
-
-## Milestone 20 — Company discovery at scale (partial)
-
-**Goal:** Filter and search employers by location and notice fit; optional owner HR contacts.
-
-**Shipped:** multi-select Location filter (country groups + cities), URL `cf_loc`, company search clear ×,
-locations grouped in company detail. **Still planned:** `noticePolicy` filter, optional HR contacts.
+- **M15** — EDS / AEM Forms via **Product** dropdown.
+- **M17** — learning/career content depth, `resourceIds`, interview framing.
+- **M18** — verified expansion + truth-pass to **320** live; further employer adds are ad-hoc (not a pending milestone).
+- **M19** — apply guide, community, CONTRIBUTING, disclaimer → About this data.
+- **M20** — Location multi-select + company search clear; `noticePolicy` / HR contacts **deferred** (out of scope).
 
 ### Order rationale (revised per DR-009 / DR-017 / DR-022 / DR-026)
 
@@ -228,9 +183,9 @@ locations grouped in company detail. **Still planned:** `noticePolicy` filter, o
 | 14 SEO Prerendering | Crawlers/no-JS clients see real content |
 | 16 Table layout + sticky sidebar | Layout stability before more filter chips |
 | 17 Learning & career content | Depth for non-company sections after companies UX is solid |
-| 18 Company database expansion | Grow verified employer list to 500 in batches (320 live after truth-pass) |
-| 19 Job search playbook | **Complete** — apply guide + community + CONTRIBUTING |
-| 20 Company discovery | Partial — Location multi-select shipped; notice/contacts still planned |
+| 18 Company database expansion | Verified growth + truth-pass (320 live; owner closed) |
+| 19 Job search playbook | Apply guide + community + CONTRIBUTING |
+| 20 Company discovery | Location filter + search UX (notice/contacts deferred) |
 | 15 Capability filters | EDS + AEM Forms via Product dropdown |
 
-**Immediate next step:** Continue M18 toward 500 on demand ("start next milestone" / next batch), or finish M20 notice/contacts when owner asks.
+**Immediate next step:** No active milestone. Optional ad-hoc employer adds or deferred M20 notice/contacts only when the owner asks.

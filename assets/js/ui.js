@@ -820,12 +820,32 @@ const UI = {
       return headerH + nav.getBoundingClientRect().height + 8;
     }
 
+    function ensureActiveTabVisible(activeLink) {
+      if (!activeLink) return;
+      // Keep the selected tab in the horizontal sticky strip (mobile overflow-x)
+      activeLink.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+
+    function setActive(id) {
+      let activeLink = null;
+      links.forEach(a => {
+        const on = (a.getAttribute('href') || '') === '#' + id;
+        a.classList.toggle('is-active', on);
+        if (on) {
+          a.setAttribute('aria-current', 'true');
+          activeLink = a;
+        } else a.removeAttribute('aria-current');
+      });
+      if (activeLink) ensureActiveTabVisible(activeLink);
+    }
+
     links.forEach(a => {
       a.addEventListener('click', e => {
         const id = (a.getAttribute('href') || '').slice(1);
         const el = document.getElementById(id);
         if (!el) return;
         e.preventDefault();
+        setActive(id);
         const y = el.getBoundingClientRect().top + window.scrollY - scrollOffset();
         window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
         history.replaceState(null, '', '#' + id);
@@ -838,13 +858,7 @@ const UI = {
         entries => {
           entries.forEach(entry => {
             if (!entry.isIntersecting) return;
-            const id = entry.target.id;
-            links.forEach(a => {
-              const on = (a.getAttribute('href') || '') === '#' + id;
-              a.classList.toggle('is-active', on);
-              if (on) a.setAttribute('aria-current', 'true');
-              else a.removeAttribute('aria-current');
-            });
+            setActive(entry.target.id);
           });
         },
         { rootMargin: `-${scrollOffset()}px 0px -55% 0px`, threshold: 0 }

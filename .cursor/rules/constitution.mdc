@@ -1,41 +1,33 @@
 ---
-description: Core non-negotiable rules for this repository — always loaded so they don't need to be re-read from a file every session
+description: Core non-negotiable rules for this repository
 alwaysApply: true
 ---
 
-# Constitution (Enterprise Digital Experience Engineering Playbook)
+# Constitution
 
-Full detail: `.playbook/00_PROJECT_OVERVIEW.md` (read it before any non-trivial change). This rule is the compact,
-always-loaded version.
+Full detail: `.playbook/00_PROJECT_OVERVIEW.md` (read before non-trivial change).
 
-## Non-negotiable rules
+## Non-negotiable
 
-1. Never delete information — archive it instead (`.playbook/12_DECISIONS.md`).
-2. Preserve backwards compatibility. Never rewrite working content without a stated reason.
-3. Never hardcode company/content data inside HTML — use `data/*.json` (`.playbook/09_DATA_MODEL.md`).
-4. Keep content separate from rendering.
-5. Vanilla JavaScript + hand-written CSS (`assets/css/site.css`) only — no frameworks, no CSS framework/CDN, no
-   unnecessary dependencies. No build step **for what ships to the browser at request time** — one narrow,
-   documented exception: `npm run prerender` (Milestone 14, `12_DECISIONS.md` DR-022) bakes `data/*.json` into
-   static HTML committed to `index.html`/`sitemap.xml`/`robots.txt` ahead of time for SEO/first-paint; nothing is
-   built during deployment or on page load, and `npm run verify` fails if the baked files drift from the data.
-6. Every change stays GitHub Pages compatible, offline compatible, responsive, accessible, print-friendly.
-7. Prefer evidence over assumption; mark opinion vs. verified fact.
-8. Never duplicate information — one topic, one authoritative home.
-9. Use reusable render functions, not copy-pasted markup.
-10. Maintain publication quality — no placeholder content presented as finished.
+1. Never delete information — archive it (`.playbook/12_DECISIONS.md`).
+2. Preserve backwards compatibility; no silent rewrites of working content.
+3. Never hardcode company/content in HTML — use `data/*.json`.
+4. Content separate from rendering.
+5. Vanilla JS + hand-written CSS (`assets/css/site.css`) only — no frameworks/CSS CDN. No request-time build; exception: `npm run prerender` bakes `data/*.json` into committed `index.html`/`sitemap.xml`/`robots.txt` (DR-022); `verify` fails on drift.
+6. GitHub Pages + offline + responsive + accessible + print-friendly.
+7. Evidence over assumption; mark opinion vs fact.
+8. One topic, one authoritative home — no duplication.
+9. Reusable render functions, not copy-pasted markup.
+10. Publication quality — no placeholders as finished.
 
 ## Process
 
-- One milestone/release at a time. Never start the next until the current one is explicitly reviewed and accepted.
-- Architectural changes follow: Analyze → Plan → Synchronize docs → Review technical debt → Implement →
-  Self-review → PR summary → Commit message.
-- Only commit when the user explicitly asks for a commit.
-- When a milestone's implementation is complete, publish its test plan in `17_TESTING_GUIDE.md` and share the steps
-  with the project owner (see `15_RELEASE_PROCESS.md`).
-- If the repository is in an unexpected state (missing files, conflicting content, signs of concurrent edits) —
-  stop and report before continuing. Do not silently fix or overwrite.
+- One milestone at a time; next only after explicit owner accept.
+- Architecture: Analyze → Plan → Sync docs → Debt review → Implement → Self-review → PR summary → Commit msg.
+- Commit only when the user explicitly asks.
+- Milestone done → test plan in `17_TESTING_GUIDE.md` + share with owner (`15_RELEASE_PROCESS.md`).
+- Unexpected repo state → stop and report; don’t silently overwrite.
 
 ## Escalation
 
-If uncertain, or a decision is irreversible/architecturally significant, ask before proceeding.
+If uncertain, or irreversible/architecturally significant — ask first.
