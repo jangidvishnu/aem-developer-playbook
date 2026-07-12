@@ -121,6 +121,15 @@ const CompanyFilters = {
     return '—';
   },
 
+  /** Plain-language India line for company detail panels and mobile cards. */
+  indiaDetailLabel(co) {
+    if (co.hiringIndia === true) return 'Hires in India';
+    if (co.indiaPresence === true) return 'India offices';
+    if (co.hiringIndia === false) return 'No India hiring signal';
+    if (co.indiaPresence === false) return 'No India offices listed';
+    return '';
+  },
+
   indiaRank(co) {
     if (co.hiringIndia === true) return 3;
     if (co.indiaPresence === true) return 2;

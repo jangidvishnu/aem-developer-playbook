@@ -1,12 +1,12 @@
 [
   {
     "id": "aem-ic-engineer",
-    "title": "Individual Contributor — AEM Engineer",
-    "summary": "Progress from component developer to senior platform engineer owning delivery pipelines and non-functional requirements.",
+    "title": "AEM engineer (individual contributor)",
+    "summary": "From building components to owning Dispatcher, Cloud Manager, and performance.",
     "milestones": [
       {
         "title": "Foundation",
-        "description": "HTL, Core Components, basic Sling Models, author/publish topology.",
+        "description": "HTL, Core Components, basic Sling Models, author/publish setup.",
         "technologyIds": [
           "htl",
           "core-components",
@@ -24,7 +24,7 @@
       },
       {
         "title": "Senior scope",
-        "description": "Headless fragments, GraphQL, performance budgets, cross-team technical leadership.",
+        "description": "Headless fragments, GraphQL, performance tuning, helping other teams on technical calls.",
         "technologyIds": [
           "content-fragments",
           "graphql-aem",
@@ -35,28 +35,28 @@
   },
   {
     "id": "aem-solution-architect",
-    "title": "Solution / Platform Architect",
-    "summary": "Shape multi-brand rollouts, integration patterns, and Experience Cloud alignment for enterprise programs.",
+    "title": "Solution / platform architect",
+    "summary": "Plan big AEM rollouts across brands and connect AEM to Analytics, Target, and AEP.",
     "milestones": [
       {
         "title": "Integration patterns",
-        "description": "AEM ↔ Analytics, Target, AEP; identity and consent architecture.",
+        "description": "AEM with Analytics, Target, AEP; identity and consent setup.",
         "technologyIds": [
           "aep",
           "aem-sites"
         ]
       },
       {
-        "title": "Scale & governance",
-        "description": "MSM blueprints, content supply chain, CI/CD and environment strategy.",
+        "title": "Scale and MSM",
+        "description": "MSM blueprints, content workflows, CI/CD and environment planning.",
         "technologyIds": [
           "aem-cloud",
           "dispatcher"
         ]
       },
       {
-        "title": "Modern experience stack",
-        "description": "EDS, Universal Editor, composable commerce and personalization at edge.",
+        "title": "Modern stack",
+        "description": "Edge Delivery, Universal Editor, headless and personalization at the edge.",
         "technologyIds": [
           "edge-delivery",
           "universal-editor",
