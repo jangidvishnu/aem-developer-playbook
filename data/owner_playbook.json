@@ -53,7 +53,7 @@
       "summary": "Many employers hire through Naukri or LinkedIn profiles and may never post the same role on their careers page.",
       "steps": [
         "Do not rely only on the Careers button. Recruiters often message you on Naukri or LinkedIn, or post on Foundit, Cutshort, and similar boards.",
-        "In Target Companies, open each employer’s detail panel and check AEM evidence and Hiring evidence links — those often point to board posts or searches that prove recent AEM hiring.",
+        "In Companies, open each employer’s detail panel and check AEM evidence and Hiring evidence links — those often point to board posts or searches that prove recent AEM hiring.",
         "Keep Naukri and LinkedIn profiles complete and active so inbound outreach can find you even when the careers site is quiet.",
         "Still use the employer careers URL when it exists — it is the official apply path — but treat boards and profile outreach as equal channels for India AEM hiring."
       ],
@@ -67,7 +67,7 @@
       "steps": [
         "Job-search content (resume, LinkedIn, Naukri, referral messages): ChatGPT or any agent — paste your real experience only, never invented bullets.",
         "AEM technical depth: This playbook's roadmaps, glossary, and interview prep — plus Adobe Experience League when you need to verify a topic before an interview.",
-        "Employer research: Use the Target Companies table and company evidence before you interview or message someone at that employer.",
+        "Employer research: Use the Companies table and company evidence before you interview or message someone at that employer.",
         "Do not list tools or platforms on your resume or profiles unless you use them actively."
       ],
       "body": "ChatGPT helps you present your profile clearly; this playbook helps you defend AEM topics in a technical interview."
@@ -99,7 +99,7 @@
         "LinkedIn — profile, job search (30-day then 1-day filter), Posts search for HR hiring, company people search for referrals.",
         "Naukri — profile aligned with LinkedIn, job search with the same time-filter strategy, availability updates every ~15 days.",
         "Gmail — saved template for cover letter and resume when applying via invite or email from a post.",
-        "This playbook — Target Companies, filters, and interview prep once conversations start."
+        "This playbook — Companies, filters, and interview prep once conversations start."
       ],
       "body": "No apply bots. Every application should use the same polished resume and aligned profiles."
     },
@@ -111,7 +111,7 @@
       "steps": [
         "Open the Community section (sidebar → Community) for LinkedIn group links. These are independent peer groups — not administered here and not affiliated with Adobe.",
         "Join only if the group’s rules fit you. Share openings and ask questions politely — do not spam resumes into discussions.",
-        "Combine group leads with the Target Companies list and your own LinkedIn/Naukri search."
+        "Combine group leads with the Companies list and your own LinkedIn/Naukri search."
       ],
       "body": "Community links live in the Community chapter so they stay in one place (also linked from How to Apply)."
     }

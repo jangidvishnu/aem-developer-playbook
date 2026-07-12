@@ -1,0 +1,642 @@
+{
+  "updatedAt": "2026-07-11",
+  "summary": {
+    "ownerVerifiedFalse": 72,
+    "withJobUrl": 16,
+    "emptyHiringEvidence": 56,
+    "batchSize": 11,
+    "batchCount": 6,
+    "pass2": {
+      "lastSearched": "2026-07-11",
+      "portalsChecked": [
+        "hirist.tech",
+        "instahyre.com",
+        "shine.com",
+        "cutshort.io",
+        "indeed.com/viewjob"
+      ],
+      "scope": "56 empty hiringEvidence companies",
+      "newUrlsAdded": 0,
+      "notes": "Pass 1 missed hirist (batches 2–6) and never checked instahyre/shine/cutshort/indeed. Pass 2: no gate-approved AEM developer URL for any of the 56."
+    }
+  },
+  "statusLegend": {
+    "found": "Specific AEM job URL in hiringEvidence",
+    "searched_no_url": "Searched; no qualifying job URL — hiringEvidence stays []",
+    "pending": "Not yet searched in current batch pass"
+  },
+  "withUrls": [
+    {
+      "id": "capital-one",
+      "name": "Capital One",
+      "hiringEvidence": [
+        "https://builtin.com/job/lead-software-engineer-fullstack-enterprise-platforms-technology/9006201"
+      ]
+    },
+    {
+      "id": "cyient",
+      "name": "Cyient",
+      "hiringEvidence": [
+        "https://www.foundit.in/job/web-content-analyst-cyient-pune-51727512"
+      ]
+    },
+    {
+      "id": "digitas",
+      "name": "Digitas",
+      "hiringEvidence": [
+        "https://builtin.com/job/aem-architect-adobe-experience-manager/4698443",
+        "https://www.foundit.in/job/senior-aem-developer-backend-dentsu-pune-36340969"
+      ]
+    },
+    {
+      "id": "fidelity",
+      "name": "Fidelity Investments",
+      "hiringEvidence": [
+        "https://builtin.com/job/director-full-stack-engineering-lead-adobe-cms-and-java/4721622"
+      ]
+    },
+    {
+      "id": "havas",
+      "name": "Havas",
+      "hiringEvidence": [
+        "https://builtin.com/job/senior-software-engineer/7704438"
+      ]
+    },
+    {
+      "id": "isobar",
+      "name": "Isobar",
+      "hiringEvidence": [
+        "https://www.foundit.in/job/senior-aem-developer-backend-dentsu-pune-36340969"
+      ]
+    },
+    {
+      "id": "johnson-johnson",
+      "name": "Johnson & Johnson",
+      "hiringEvidence": [
+        "https://www.careers.jnj.com/en/jobs/r-080474/associate-director-content-capabilities-innovation-dam-metadata-and-content-intelligence/"
+      ]
+    },
+    {
+      "id": "navitas",
+      "name": "Navitas Business Consulting",
+      "hiringEvidence": [
+        "https://navitas.applytojob.com/apply/HfjPdG2EEG/262248-AEM-Website-Developer-HyderabadVijayawada"
+      ]
+    },
+    {
+      "id": "phygital-insights",
+      "name": "Phygital Insights",
+      "hiringEvidence": [
+        "https://www.foundit.in/job/aem-developer-phygital-insights-bengaluru-bangalore-35871774"
+      ]
+    },
+    {
+      "id": "pi-square",
+      "name": "Pi Square Technologies",
+      "hiringEvidence": [
+        "https://www.linkedin.com/jobs/view/aem-developer-at-pi-square-technologies-4214418963"
+      ]
+    },
+    {
+      "id": "stryker",
+      "name": "Stryker",
+      "hiringEvidence": [
+        "https://builtin.com/job/aem-front-end-developer-remote/3185429"
+      ]
+    },
+    {
+      "id": "coca-cola",
+      "name": "The Coca-Cola Company",
+      "hiringEvidence": [
+        "https://builtin.com/job/consumer-engagement-adtech-platforms-intern/3934916"
+      ]
+    },
+    {
+      "id": "the-scalers",
+      "name": "The Scalers",
+      "hiringEvidence": [
+        "https://careers.thescalers.com/positions/senior-aem-developer-418"
+      ]
+    },
+    {
+      "id": "thomson-reuters",
+      "name": "Thomson Reuters",
+      "hiringEvidence": [
+        "https://www.foundit.in/job/senior-software-engineer-aem-thomson-reuters-bengaluru-bangalore-31426712",
+        "https://builtin.com/job/senior-software-engineer-aem/4123318"
+      ]
+    },
+    {
+      "id": "kloudportal",
+      "name": "KloudPortal Technology Solutions",
+      "hiringEvidence": [
+        "https://www.foundit.in/job/aem-developer-kloudportal-technology-solutions-pvt-ltd-pune-40074885"
+      ]
+    },
+    {
+      "id": "webologix",
+      "name": "Webologix",
+      "hiringEvidence": [
+        "https://www.hirist.tech/j/aem-consultant-osgi-1473225",
+        "https://www.foundit.in/job/aem-developer-webologix-ltd-inc-bengaluru-bangalore-48102053"
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "batch": 1,
+      "count": 11,
+      "status": "searched_no_url",
+      "lastSearched": "2026-07-11",
+      "searchPass": 2,
+      "portalsChecked": [
+        "foundit.in",
+        "builtin.com",
+        "linkedin.com/jobs",
+        "naukri.com",
+        "hirist.tech",
+        "company careers (official)",
+        "workday/oracle/greenhouse/csod"
+      ],
+      "companies": [
+        {
+          "id": "airtel",
+          "name": "Bharti Airtel",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit/LinkedIn/Naukri: ML/SDE roles only; no AEM posting. careers.airtel.com → Darwinbox portal; no AEM job URL."
+        },
+        {
+          "id": "akamai",
+          "name": "Akamai Technologies",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "BuiltIn: SRE/platform/backend only. akamai.com/careers search: no AEM developer requisition."
+        },
+        {
+          "id": "albertsons",
+          "name": "Albertsons",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Oracle CX careers: no AEM keyword hits. LinkedIn/Shine: AEM producer/tech-lead roles (not developer JD); no gate-approved /job/ URL."
+        },
+        {
+          "id": "ariel",
+          "name": "Ariel Corporation",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "arielcorp.csod.com ATS: IT/manufacturing only; no AEM listing. BuiltIn: none."
+        },
+        {
+          "id": "bayer",
+          "name": "Bayer",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.bayer.com AEM search: no open req. Foundit/Naukri: no Bayer AEM posting (only staffing-firm roles)."
+        },
+        {
+          "id": "coditas",
+          "name": "Coditas",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit: .NET/DevOps open; no AEM. hirist.tech/coditas: .NET only. Naukri job-listings: no Coditas AEM."
+        },
+        {
+          "id": "daffodil-software",
+          "name": "Daffodil Software",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "daffodilsw.com/career: no AEM role listed. Foundit/Naukri/hirist: no Daffodil AEM posting."
+        },
+        {
+          "id": "dxc",
+          "name": "DXC Technology",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.dxc.com: SharePoint/SAP/UX only; no AEM job. Foundit: Java/Azure/ServiceNow; no AEM. BuiltIn: no AEM."
+        },
+        {
+          "id": "exl",
+          "name": "EXL",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit: Java full-stack/Optimizely CRO; AEM not in title/JD. exlservice.com/careers: AI/analytics focus; no AEM req."
+        },
+        {
+          "id": "ftd",
+          "name": "FTD",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Greenhouse/Workday: no FTD AEM posting. Active reqs are IBM i/JDE admin — not AEM."
+        },
+        {
+          "id": "genting-malaysia",
+          "name": "Genting Malaysia",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.rwgenting.com: C#/ASP.NET web roles; Adobe Commerce optional, not AEM developer. gentingmalaysia.com careers: no AEM req."
+        }
+      ]
+    },
+    {
+      "batch": 2,
+      "count": 11,
+      "status": "searched_no_url",
+      "lastSearched": "2026-07-11",
+      "searchPass": 1,
+      "portalsChecked": [
+        "foundit.in",
+        "builtin.com",
+        "linkedin.com/jobs",
+        "naukri.com",
+        "hirist.tech",
+        "company careers (official)",
+        "workday/oracle/greenhouse"
+      ],
+      "companies": [
+        {
+          "id": "grid-dynamics",
+          "name": "Grid Dynamics",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit: Python/Java/full-stack; no AEM posting. griddynamics.com does AEM delivery but careers has no AEM developer req."
+        },
+        {
+          "id": "henkel",
+          "name": "Henkel",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "henkel.com/careers: digital marketing (CMS familiarity only). Foundit India: SAP API-M, app engineer — no AEM developer."
+        },
+        {
+          "id": "homedepot",
+          "name": "The Home Depot",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.homedepot.com/job/*: Java/Python/React/.NET; Adobe Analytics in data roles — no AEM developer JD."
+        },
+        {
+          "id": "hp",
+          "name": "HP Inc.",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "jobs.hp.com / apply.hp.com AEM keyword search: no AEM developer requisition."
+        },
+        {
+          "id": "hpe",
+          "name": "Hewlett Packard Enterprise",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.hpe.com AEM search: empty. Engineering/networking/software only."
+        },
+        {
+          "id": "infogain",
+          "name": "Infogain",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit: QA role with basic AEM understanding (rejected — not AEM developer). Java/React dev roles open."
+        },
+        {
+          "id": "innominds",
+          "name": "Innominds",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.innominds.com: Java/Spring/Angular, QA — no AEM listing."
+        },
+        {
+          "id": "intuit",
+          "name": "Intuit",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "jobs.intuit.com + LinkedIn: no Intuit AEM developer posting."
+        },
+        {
+          "id": "iqvia",
+          "name": "IQVIA",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "jobs.iqvia.com: enterprise architect/digital marketing mention Adobe — no AEM developer req."
+        },
+        {
+          "id": "ltts",
+          "name": "L&T Technology Services",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit: Java/full-stack; no LTTS AEM posting. ltts.com/careers: no AEM job URL."
+        },
+        {
+          "id": "luxoft",
+          "name": "Luxoft",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "career.luxoft.com + Foundit: Java/React/Scala — no Luxoft AEM developer posting."
+        }
+      ]
+    },
+    {
+      "batch": 3,
+      "count": 11,
+      "status": "searched_no_url",
+      "lastSearched": "2026-07-11",
+      "searchPass": 1,
+      "portalsChecked": [
+        "foundit.in",
+        "builtin.com",
+        "linkedin.com/jobs",
+        "naukri.com",
+        "company careers (official)",
+        "workday/smartrecruiters/globant"
+      ],
+      "companies": [
+        {
+          "id": "national-bank-of-canada",
+          "name": "National Bank of Canada",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "emplois.bnc.ca: ECM Full Stack (Python/Java/React/AWS) — not AEM. Digital marketing roles mention Adobe familiarity only."
+        },
+        {
+          "id": "nestdigital",
+          "name": "Nest Digital",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit: Java/AWS roles; nestdigital.com/career — no AEM developer posting."
+        },
+        {
+          "id": "nestle",
+          "name": "Nestlé",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "jobdetails.nestle.com: Adobe Commerce/Magento, Creative Suite, Campaign — no AEM developer req."
+        },
+        {
+          "id": "novartis",
+          "name": "Novartis",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "novartis.com/careers: MarTech/content workflow (Aprimo/Veeva/Adobe platforms) — not AEM developer JD."
+        },
+        {
+          "id": "oracle",
+          "name": "Oracle",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.oracle.com + Foundit: Java/cloud/database — no Oracle AEM developer posting."
+        },
+        {
+          "id": "pepsico",
+          "name": "PepsiCo",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "pepsicojobs.com + Foundit: Digital Designer/UX — no AEM developer."
+        },
+        {
+          "id": "pethealth",
+          "name": "Pethealth",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "trupanion.com/careers + smartrecruiters — no AEM listing (Adobe case study only)."
+        },
+        {
+          "id": "procter-gamble",
+          "name": "Procter & Gamble",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "pgcareers.com AEM search: Software Engineer/DevOps/MarTech — no AEM developer req."
+        },
+        {
+          "id": "qentelli",
+          "name": "Qentelli",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "qentelli.com/careers + Foundit: Java full-stack, automation — no AEM posting."
+        },
+        {
+          "id": "r-systems",
+          "name": "R Systems",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.rsystems.com + Foundit: no R Systems AEM developer job URL."
+        },
+        {
+          "id": "real-madrid",
+          "name": "Real Madrid",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "realmadrid.com — no careers AEM req. Globant Madrid AEM roles are partner/consultant, not Real Madrid employer."
+        }
+      ]
+    },
+    {
+      "batch": 4,
+      "count": 11,
+      "status": "searched_no_url",
+      "lastSearched": "2026-07-11",
+      "searchPass": 1,
+      "portalsChecked": [
+        "foundit.in",
+        "builtin.com",
+        "linkedin.com/jobs",
+        "naukri.com",
+        "company careers (official)",
+        "workday/smartrecruiters/jobs.slalom.com"
+      ],
+      "companies": [
+        {
+          "id": "relx",
+          "name": "RELX",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "relx.wd3.myworkdayjobs.com + Foundit: software/document/visual roles — no RELX AEM developer posting."
+        },
+        {
+          "id": "rga",
+          "name": "R/GA",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "builtin.com/rga: Senior Product/Visual Designer only — no R/GA AEM developer req."
+        },
+        {
+          "id": "royal-cyber",
+          "name": "Royal Cyber",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit: ServiceNow/MDM/EDI; LinkedIn Senior AEM Backend 404 — no active Royal Cyber AEM `/job/`."
+        },
+        {
+          "id": "saggezza",
+          "name": "Saggezza",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "saggezza.com + Naukri/Foundit — no Saggezza AEM developer posting."
+        },
+        {
+          "id": "samsung-sds",
+          "name": "Samsung SDS",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "samsungsds.com careers: email-based hiring; no Samsung SDS AEM job URL on boards."
+        },
+        {
+          "id": "sanofi",
+          "name": "Sanofi",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "jobs.sanofi.com: SharePoint/CMS familiarity lists AEM — not AEM developer JD."
+        },
+        {
+          "id": "sasken",
+          "name": "Sasken Technologies",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.sasken.com + Foundit: full-stack/DevOps/UX — no Sasken AEM posting."
+        },
+        {
+          "id": "schneider-electric",
+          "name": "Schneider Electric",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.se.com: Magento lead/FE/edge dev; Foundit EAE = EcoStruxure automation — no AEM dev."
+        },
+        {
+          "id": "siemens-healthineers",
+          "name": "Siemens Healthineers",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "jobs.siemens-healthineers.com: .NET/Angular/PHP eCommerce — no AEM developer req."
+        },
+        {
+          "id": "sika",
+          "name": "Sika",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "sika.com Tech Lead Web — AEM desirable not mandatory; `/job-posting-page/` URL fails gate."
+        },
+        {
+          "id": "slalom",
+          "name": "Slalom",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "jobs.slalom.com: Workfront/Salesforce/GTM Adobe — no Slalom AEM developer posting."
+        }
+      ]
+    },
+    {
+      "batch": 5,
+      "count": 11,
+      "status": "searched_no_url",
+      "lastSearched": "2026-07-11",
+      "searchPass": 1,
+      "portalsChecked": [
+        "foundit.in",
+        "builtin.com",
+        "linkedin.com/jobs",
+        "naukri.com",
+        "company careers (official)",
+        "workday/thoughtworks.com/careers"
+      ],
+      "companies": [
+        {
+          "id": "softserve",
+          "name": "SoftServe",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "career.softserveinc.com: DXP AI Orchestration cites Adobe Experience Cloud — not AEM developer; `/vacancies/` fails gate."
+        },
+        {
+          "id": "softtek",
+          "name": "Softtek",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Foundit: React/frontend (closed); jobs.softtek.com — no Softtek AEM `/job/`."
+        },
+        {
+          "id": "srijan",
+          "name": "Srijan Technologies",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "Now Material (materialplus.io); Drupal/Acquia practice — no Srijan/Material AEM developer posting."
+        },
+        {
+          "id": "tata-elxsi",
+          "name": "Tata Elxsi",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "tataelxsi.com + Foundit: embedded/Python/Java — no Tata Elxsi AEM job URL."
+        },
+        {
+          "id": "tavant",
+          "name": "Tavant",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.tavant.com + tavant.com/open-positions — TPM/QA/data science only; no AEM `/job/`."
+        },
+        {
+          "id": "thoughtworks",
+          "name": "Thoughtworks",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "thoughtworks.com/careers: Content Publishing Program Manager uses AEM — not AEM developer; `/careers/jobs/` fails gate."
+        },
+        {
+          "id": "tsb",
+          "name": "TSB Bank",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "tsbcareers.co.uk — IT/digital product roles; no TSB AEM developer listing."
+        },
+        {
+          "id": "ubs",
+          "name": "UBS",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "jobs.ubs.com + Foundit: Java/React/cloud — no UBS AEM developer posting."
+        },
+        {
+          "id": "unilever",
+          "name": "Unilever",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.unilever.com: design/MarTech PM roles — AEM familiarity only, not AEM developer JD."
+        },
+        {
+          "id": "us-bank",
+          "name": "U.S. Bank",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.usbank.com: digital/Salesforce roles — no AEM developer (MarTech case study only)."
+        },
+        {
+          "id": "valuebound",
+          "name": "ValueBound",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "valuebound.com Drupal-focused; Foundit Java/AI only — no ValueBound AEM posting."
+        }
+      ]
+    },
+    {
+      "batch": 6,
+      "count": 1,
+      "status": "searched_no_url",
+      "lastSearched": "2026-07-11",
+      "searchPass": 1,
+      "portalsChecked": [
+        "foundit.in",
+        "builtin.com",
+        "linkedin.com/jobs",
+        "careers.wolterskluwer.com",
+        "wolterskluwer.com/careers"
+      ],
+      "companies": [
+        {
+          "id": "wolters-kluwer",
+          "name": "Wolters Kluwer",
+          "status": "searched_no_url",
+          "lastSearched": "2026-07-11",
+          "notes": "careers.wolterskluwer.com + BuiltIn: Java/Angular/.NET/PHP full-stack; Foundit eCommerce marketing (Adobe Analytics) — no Wolters Kluwer AEM developer `/job/`."
+        }
+      ]
+    }
+  ]
+}

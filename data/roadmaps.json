@@ -2,7 +2,7 @@
   {
     "id": "aem-foundation",
     "title": "AEM foundation path",
-    "summary": "Core AEM skills — architecture through component development.",
+    "summary": "Core AEM — architecture through building components.",
     "steps": [
       {
         "id": "aem-architecture",
@@ -16,7 +16,7 @@
         "id": "sling-htl",
         "title": "Sling, HTL, and component development",
         "status": "planned",
-        "description": "Sling Models, HTL, Core Components extension.",
+        "description": "Sling Models, HTL, extending Core Components.",
         "technologyIds": ["sling", "htl", "core-components"],
         "resourceIds": ["adobe-sling", "adobe-htl-spec", "adobe-core-components"]
       },
@@ -33,7 +33,7 @@
   {
     "id": "cloud-eds",
     "title": "Cloud Service & Edge path",
-    "summary": "Modern AEM delivery: Cloud Manager, headless fragments, GraphQL, and Edge Delivery Services.",
+    "summary": "AEM Cloud, Cloud Manager, headless, GraphQL, and Edge Delivery.",
     "steps": [
       {
         "id": "cloud-manager",
@@ -55,7 +55,7 @@
         "id": "edge-delivery",
         "title": "Edge Delivery Services",
         "status": "planned",
-        "description": "Document-based authoring and edge performance patterns.",
+        "description": "Document-based authoring and edge performance.",
         "technologyIds": ["edge-delivery", "universal-editor"],
         "resourceIds": ["adobe-eds", "adobe-universal-editor"]
       }
@@ -63,8 +63,8 @@
   },
   {
     "id": "experience-platform",
-    "title": "Experience Platform integration path",
-    "summary": "Connect AEM to analytics, personalization, and customer data for measurable experience programs.",
+    "title": "Experience Platform path",
+    "summary": "Hook AEM up to Analytics, Target, and customer data when you need personalization.",
     "steps": [
       {
         "id": "analytics-target",
@@ -78,7 +78,7 @@
         "id": "aep-basics",
         "title": "Adobe Experience Platform overview",
         "status": "planned",
-        "description": "Profiles, schemas, and activation concepts.",
+        "description": "Profiles, schemas, and activation basics.",
         "technologyIds": ["aep"],
         "resourceIds": ["adobe-aep"]
       },
@@ -86,7 +86,7 @@
         "id": "personalization-scale",
         "title": "Personalization at scale",
         "status": "planned",
-        "description": "Content Fragments + segments; governance and performance.",
+        "description": "Content Fragments with segments; keep performance in mind.",
         "technologyIds": ["content-fragments", "aep"],
         "resourceIds": ["adobe-aep", "adobe-aem-docs"]
       }

@@ -612,7 +612,7 @@ const Render = {
     // Preferred mark hidden for now (data still in companies.json; filter chip also off).
     if (filters.isHiringActive(x)) {
       badges.push(
-        `<span class="company-mark company-mark--hiring" title="Generally posts AEM/DXP roles often — not a live vacancy guarantee">${Render.icon('activity', 'icon icon--sm')} Frequent</span>`
+        `<span class="company-mark company-mark--hiring" title="Often posts AEM roles — doesn't mean they're hiring right now">${Render.icon('activity', 'icon icon--sm')} Frequent</span>`
       );
     }
     return badges.length ? ` <span class="company-badges">${badges.join('')}</span>` : '';
@@ -632,7 +632,7 @@ const Render = {
 
   companyDetailPanel(x) {
     const filters = Render._companyFilters();
-    const india = filters.indiaLabel(x);
+    const indiaDetail = filters.indiaDetailLabel(x);
     const noticeLabels = {
       immediate: 'Immediate joiners',
       '30d': '~30 days notice',
@@ -644,9 +644,8 @@ const Render = {
     const metaBits = [];
     if (x.companyType) metaBits.push(Render.escapeHtml(x.companyType));
     if (x.industry) metaBits.push(Render.escapeHtml(x.industry));
-    if (x.priority != null) metaBits.push(`Priority ${Render.escapeHtml(String(x.priority))}`);
-    if (india && india !== '—') metaBits.push(`India: ${Render.escapeHtml(india)}`);
-    if (x.hiringActive === true) metaBits.push('Frequent AEM hiring');
+    if (indiaDetail) metaBits.push(Render.escapeHtml(indiaDetail));
+    if (x.hiringActive === true) metaBits.push('Often posts AEM roles');
     if (x.remote === true) metaBits.push('Remote (evidenced)');
     if (x.noticePolicy && noticeLabels[x.noticePolicy]) metaBits.push(noticeLabels[x.noticePolicy]);
 
@@ -672,7 +671,7 @@ const Render = {
       })
       .join('');
     const locationsHtml = locGroups
-      ? `<section class="company-detail__section"><h4 class="company-detail__h">Locations</h4><p class="company-detail__hint">Major hubs from research — may be incomplete; confirm on careers pages.</p><div class="company-detail__locs">${locGroups}</div></section>`
+      ? `<section class="company-detail__section"><h4 class="company-detail__h">Locations</h4><p class="company-detail__hint">Offices listed here — may be incomplete; check their careers page.</p><div class="company-detail__locs">${locGroups}</div></section>`
       : '';
 
     const products = (x.products || []).map(code => filters.productLabel(code)).filter(Boolean);
@@ -713,7 +712,7 @@ const Render = {
       .filter(u => String(u || '').startsWith('http'))
       .forEach((u, i, arr) => {
         actions.push(
-          `<a class="company-detail__action company-detail__action--quiet" href="${Render.escapeHtml(u)}" target="_blank" rel="noopener noreferrer">Hiring proof${arr.length > 1 ? ` ${i + 1}` : ''}</a>`
+          `<a class="company-detail__action company-detail__action--quiet" href="${Render.escapeHtml(u)}" target="_blank" rel="noopener noreferrer">Proof they hire AEM${arr.length > 1 ? ` ${i + 1}` : ''}</a>`
         );
       });
     const actionsHtml = actions.length
@@ -721,8 +720,8 @@ const Render = {
       : '';
 
     const verified = x.verifiedAt
-      ? `<p class="company-detail__verified">Verified ${Render.escapeHtml(x.verifiedAt)}${x.ownerVerified ? ' · Owner checked' : ''} · Snapshot only — also check Naukri / LinkedIn / boards</p>`
-      : `<p class="company-detail__verified">Snapshot only — also check Naukri / LinkedIn / boards</p>`;
+      ? `<p class="company-detail__verified">Checked ${Render.escapeHtml(x.verifiedAt)}${x.ownerVerified ? ' · Double-checked' : ''} · Snapshot — also check Naukri / LinkedIn / job boards</p>`
+      : `<p class="company-detail__verified">Snapshot — also check Naukri / LinkedIn / job boards</p>`;
 
     return `<div class="company-detail">${hq}${meta}${locationsHtml}${productsHtml}${rolesHtml}${notes}${actionsHtml}${verified}</div>`;
   },
@@ -754,8 +753,7 @@ const Render = {
     const filters = Render._companyFilters();
     const name = Render.companyName(x);
     const type = x.companyType || x.type || 'Unknown';
-    const india = filters.indiaLabel(x);
-    const priority = x.priority != null ? x.priority : '';
+    const indiaDetail = filters.indiaDetailLabel(x);
     const badges = Render.companyBadges(x);
     const careers = Render.companyCareersLink(x);
     const id = Render.escapeHtml(x.id || name);
@@ -763,7 +761,9 @@ const Render = {
       ? `<a class="company-card__btn" href="${Render.escapeHtml(careers)}" target="_blank" rel="noopener noreferrer">${Render.icon('external-link')} Careers</a>`
       : '';
     const detailsBtn = `<button type="button" class="company-card__btn company-card__btn--secondary" data-company-expand aria-expanded="false" aria-controls="company-card-detail-${id}">Details</button>`;
-    return `<article class="company-card" data-company-id="${id}"><div class="company-card__header"><div class="company-card__title"><span class="company-card__name">${Render.escapeHtml(name)}</span>${badges}</div></div><div class="company-card__meta"><span>Priority ${Render.escapeHtml(priority)}</span><span>${Render.escapeHtml(type)}</span><span>India: ${Render.escapeHtml(india)}</span></div><div class="company-card__actions">${detailsBtn}${careersBtn}</div><div class="company-card__detail" id="company-card-detail-${id}" hidden>${Render.companyDetailPanel(x)}</div></article>`;
+    const metaParts = [type, indiaDetail, x.hiringActive === true ? 'Often posts AEM roles' : ''].filter(Boolean);
+    const meta = metaParts.map(p => `<span>${Render.escapeHtml(p)}</span>`).join('');
+    return `<article class="company-card" data-company-id="${id}"><div class="company-card__header"><div class="company-card__title"><span class="company-card__name">${Render.escapeHtml(name)}</span>${badges}</div></div><div class="company-card__meta">${meta}</div><div class="company-card__actions">${detailsBtn}${careersBtn}</div><div class="company-card__detail" id="company-card-detail-${id}" hidden>${Render.companyDetailPanel(x)}</div></article>`;
   },
 
   careersSearchTipText() {
@@ -1055,9 +1055,10 @@ const Render = {
       community: ctx.site && ctx.site.community
     };
     const productApply = ctx.productMode && chapter.ownerPlaybookEmbed;
-    let body = productApply ? '' : chapter.body || '';
+    const chapterIntro = productApply ? '' : chapter.body || '';
+    let body = chapterIntro;
     if (chapter.companyTable) {
-      body = `<div id="company-table-container">${Render.companySection(companies, {
+      body += `<div id="company-table-container">${Render.companySection(companies, {
         page: 1,
         showFilters: true,
         filterState: {},

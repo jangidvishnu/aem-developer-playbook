@@ -4,7 +4,25 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
-## Unreleased — M18–M20 close-out + agent context slim
+## Unreleased — company data cleanup, BuiltWith discovery, tone pass
+
+### Added
+
+- BuiltWith AEM discovery links above the Companies table ([websitelist](https://trends.builtwith.com/websitelist/Adobe-Experience-Manager), [trends](https://trends.builtwith.com/joins/Adobe-Experience-Manager-using-Adobe-CQ)).
+- Employers: Nissan (Adobe case study + nissan.nl), Align Techne, Espire Infolabs.
+- Hiring-evidence batch tracker and cleanup/audit scripts under `scripts/data/`.
+
+### Changed
+
+- Company list deduped and hiring-evidence URLs tightened to gate-approved job postings; 32 rows without hiring proof set `ownerVerified: false`.
+- Tone pass on `site.json`, chapters, career paths, roadmaps, and company notes.
+- `hiring-gate.js`: allow empty `hiringEvidence` when `ownerVerified: false`.
+
+### Fixed
+
+- Companies chapter intro (BuiltWith blurb) now renders above the table (`render.js`).
+- BuiltWith intro link color uses `--accent` (`site.css`).
+
 
 ### Added
 

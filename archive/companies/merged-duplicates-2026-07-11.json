@@ -1,0 +1,190 @@
+{
+  "mergedAt": "2026-07-11",
+  "reason": "Duplicate or child-brand rows merged into parent per 11_COMPANY_SCHEMA / M&A rule",
+  "removed": [
+    {
+      "id": "vml-enterprise-solutions",
+      "name": "VML Enterprise Solutions",
+      "priority": 8,
+      "industry": "Marketing Services",
+      "companyType": "Agency",
+      "hq": "New York, USA",
+      "indiaPresence": true,
+      "hiringIndia": true,
+      "careersUrl": "https://job-boards.greenhouse.io/vmlenterprisesolutions",
+      "locations": [
+        {
+          "city": "New Delhi",
+          "country": "India"
+        },
+        {
+          "city": "New York",
+          "country": "United States"
+        }
+      ],
+      "hiringActive": true,
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud",
+        "headless"
+      ],
+      "roles": [
+        "AEM Developer",
+        "AEM Frontend Developer"
+      ],
+      "notes": "Enterprise digital agency with New Delhi AEM frontend developer hiring on Adobe AEM Cloud; works with Bosch and other global brands.",
+      "evidence": [
+        "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8161768002"
+      ],
+      "hiringEvidence": [
+        "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8161768002"
+      ],
+      "verifiedAt": "2026-07-10",
+      "jobSearchUrl": "https://job-boards.greenhouse.io/vmlenterprisesolutions",
+      "ownerVerified": false
+    },
+    {
+      "id": "merkle",
+      "name": "Merkle (dentsu)",
+      "priority": 8,
+      "industry": "IT Services",
+      "companyType": "Agency",
+      "hq": "Columbia, USA",
+      "indiaPresence": true,
+      "hiringIndia": true,
+      "careersUrl": "https://www.merkle.com/en/careers.html",
+      "locations": [
+        {
+          "city": "Bengaluru",
+          "country": "India"
+        },
+        {
+          "city": "Noida",
+          "country": "India"
+        },
+        {
+          "city": "Pune",
+          "country": "India"
+        },
+        {
+          "city": "Mumbai",
+          "country": "India"
+        },
+        {
+          "city": "Columbia",
+          "country": "United States"
+        }
+      ],
+      "hiringActive": true,
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "roles": [
+        "AEM Developer",
+        "Senior AEM Developer (Backend)",
+        "AEM Architect"
+      ],
+      "notes": "dentsu's CXM company running AEM (6.x / AEMaaCS) delivery via Dentsu Global Services India. Active AEM hiring in Bengaluru, Noida, Pune, Mumbai.",
+      "evidence": [
+        "https://cutshort.io/job/AEM-Developer-Bengaluru-Bangalore-Noida-Merkle-rYLCaQzO"
+      ],
+      "hiringEvidence": [
+        "https://www.foundit.in/job/senior-aem-developer-backend-dentsu-pune-36340969"
+      ],
+      "verifiedAt": "2026-07-10",
+      "jobSearchUrl": "https://www.merkle.com/en/careers.html",
+      "ownerVerified": true
+    },
+    {
+      "id": "pall",
+      "name": "Pall Corporation (Danaher)",
+      "priority": 7,
+      "industry": "Manufacturing",
+      "companyType": "Enterprise",
+      "hq": "Port Washington, USA",
+      "indiaPresence": true,
+      "hiringIndia": true,
+      "careersUrl": "https://jobs.danaher.com/global/en/pall",
+      "products": [
+        "sites",
+        "aem-cloud",
+        "eds",
+        "headless"
+      ],
+      "roles": [
+        "Sr Developer - Frontend (AEM, Java, EDS)",
+        "Sr. AEM Developer"
+      ],
+      "notes": "Danaher life-sciences company running AEM (migrated 6.5 to AEMaaCS, EDS, headless/GraphQL). AEM developer hiring in Pune/Kolkata (LSIG team).",
+      "evidence": [
+        "https://builtin.com/job/sr-developer-frontend-aem-java-eds/9875067"
+      ],
+      "hiringEvidence": [
+        "https://www.shine.com/jobs/sr-developer-frontend-aem-java-eds-kolkata/pall/19166202"
+      ],
+      "verifiedAt": "2026-07-10",
+      "jobSearchUrl": "https://jobs.danaher.com/global/en/pall",
+      "ownerVerified": true,
+      "locations": [
+        {
+          "city": "Pune",
+          "country": "India"
+        },
+        {
+          "city": "Bengaluru",
+          "country": "India"
+        },
+        {
+          "city": "Port Washington",
+          "country": "United States"
+        }
+      ]
+    },
+    {
+      "id": "hul",
+      "name": "Hindustan Unilever",
+      "priority": 7,
+      "industry": "Consumer Goods",
+      "companyType": "Product",
+      "hq": "Mumbai, India",
+      "indiaPresence": true,
+      "hiringIndia": true,
+      "careersUrl": "https://careers.unilever.com/en/india",
+      "locations": [
+        {
+          "city": "Mumbai",
+          "country": "India"
+        },
+        {
+          "city": "Bengaluru",
+          "country": "India"
+        },
+        {
+          "city": "Gurugram",
+          "country": "India"
+        }
+      ],
+      "products": [
+        "sites",
+        "commerce",
+        "analytics"
+      ],
+      "roles": [
+        "Digital Experience Engineer",
+        "MarTech Engineer"
+      ],
+      "notes": "Unilever India operating company; parent Unilever also listed for global Adobe Commerce story. India careers via hul.co.in.",
+      "evidence": [
+        "https://business.adobe.com/summit/2024/sessions/how-unilever-digitized-its-distributive-trade-rout-s430.html"
+      ],
+      "hiringEvidence": [
+        "https://www.hul.co.in/careers/"
+      ],
+      "verifiedAt": "2026-07-10",
+      "ownerVerified": false
+    }
+  ]
+}
