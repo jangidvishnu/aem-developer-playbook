@@ -2,96 +2,115 @@
   {
     "id": "mission",
     "title": "Mission",
-    "summary": "Purpose and principles.",
+    "summary": "Why this exists and how content stays honest.",
     "reading": "2 min",
     "tags": ["Governance"],
-    "body": "<div class='callout bg-blue-50 p-4 rounded'><p><strong>Mission</strong><br>Create the definitive career guide for AEM developers.</p></div><ul class='list-disc ml-6 mt-4'><li>Evidence over assumptions</li><li>Long-term value</li><li>Publication quality</li><li>Continuous improvement</li></ul>"
+    "body": "<div class='callout bg-blue-50 p-4 rounded'><p><strong>Why this exists</strong><br>One place for AEM job search in India — companies, apply steps, and interview prep.</p></div><ul class='list-disc ml-6 mt-4'><li>Only add what can be backed up with a link</li><li>Keep it useful long-term, not just for one job hunt</li><li>Write clearly — no filler</li><li>Fix and improve as more is learned</li></ul>"
   },
   {
     "id": "career-strategy",
     "title": "Career Strategy",
-    "summary": "Long-term direction for AEM developers in India.",
+    "summary": "Where AEM jobs show up in India and how to pick companies.",
     "reading": "4 min",
     "tags": ["Career"],
     "careerPathEmbed": true,
-    "body": "<p>In India, AEM roles show up across <strong>product companies</strong>, <strong>GCCs</strong>, and <strong>agencies / SIs</strong> — each has different pace, ownership, and interview style. Use <a href=\"#target-companies\">Target Companies</a> to build a list; use <a href=\"#how-to-apply\">How to Apply</a> for the workflow. Prefer depth in AEM (Sites, Cloud Service, Dispatcher, integrations) over shallow “full-stack everything.” Stay interview-ready even when you are not switching: keep LinkedIn/Naukri current, do a calm market-check interview every few months, and close gaps interviews expose. This is personal research — not a ranking of employers; every organisation has pros and cons.</p>"
+    "body": "<p>In India, AEM roles show up at <strong>product companies</strong>, <strong>GCCs</strong>, and <strong>agencies / SIs</strong> — each is different in pace, ownership, and interviews. Use <a href=\"#target-companies\">Companies</a> to shortlist, then <a href=\"#professional-branding\">Resume &amp; LinkedIn templates</a> to prep your profile, then <a href=\"#how-to-apply\">How to Apply</a> for day-to-day steps. Go deep on AEM (Sites, Cloud Service, Dispatcher, integrations) instead of claiming \"full-stack everything.\" Even when you're not switching jobs, stay ready: keep LinkedIn/Naukri updated, do a low-pressure interview every few months, and fix whatever gaps show up. This isn't a ranking — every company has trade-offs.</p>"
   },
   {
     "id": "professional-branding",
-    "title": "Professional Branding",
-    "summary": "Positioning and reusable messaging for AEM roles.",
+    "title": "Resume & LinkedIn templates",
+    "summary": "Copy-paste patterns for resume, LinkedIn, Naukri, and outreach.",
     "reading": "3 min",
     "tags": ["Branding"],
     "templateEmbed": true,
-    "body": "<p>Present yourself as an <strong>AEM Developer</strong> with clear skills in Sites, Cloud Service, Dispatcher, and integrations. Fill placeholders with your real metrics and projects — never invent impact. Use the templates below for LinkedIn, Naukri, outreach, and resume bullets.</p>"
+    "body": "<p>Present yourself as an <strong>AEM Developer</strong> with clear skills in Sites, Cloud Service, Dispatcher, and integrations. Fill in your real projects and numbers — don't make up impact. Templates below are for LinkedIn, Naukri, outreach messages, and resume bullets.</p>"
   },
   {
     "id": "core-skills",
     "title": "Core Skills",
-    "summary": "Priority technologies for AEM developers.",
+    "summary": "AEM technologies worth knowing, with doc links.",
     "reading": "5 min",
     "tags": ["Skills"],
     "technologyEmbed": true,
-    "body": "<p>Build from platform basics (Sites, Sling, HTL, OSGi, Dispatcher, Java for AEM) into Cloud Service, headless, and Experience Platform integrations. The table below includes official Adobe / Apache docs where available — use them as the source of truth, not random blog posts.</p>"
+    "body": "<p>Start with the basics (Sites, Sling, HTL, OSGi, Dispatcher, Java for AEM), then move to Cloud Service, headless, and Experience Platform hooks. The table links to official Adobe and Apache docs — use those instead of random blog posts when you're studying.</p>"
   },
   {
     "id": "learning-roadmap",
     "title": "Learning Roadmap",
-    "summary": "Structured AEM learning paths.",
+    "summary": "Step-by-step AEM topics with doc links.",
     "reading": "3 min",
     "tags": ["Learning"],
-    "body": "<p><strong>Start here if you are new or rusty:</strong> AEM foundation (architecture → Sling/HTL → Dispatcher). <strong>Then:</strong> Cloud Service &amp; Edge. <strong>When you need personalization / data:</strong> Experience Platform integration. Each step lists curated official Adobe / Apache docs — go at your own pace.</p>"
+    "body": "<p><strong>New or rusty?</strong> Start with AEM basics (architecture → Sling/HTL → Dispatcher). <strong>Next:</strong> Cloud Service and Edge. <strong>When you need personalization / data:</strong> Experience Platform. Each step has Adobe / Apache doc links — go at your own speed.</p>"
   },
   {
     "id": "target-companies",
-    "title": "Target Companies",
-    "summary": "AEM employers for your target list.",
+    "title": "Companies",
+    "summary": "~298 employers that hires for AEM — filter by India, cloud, and more.",
     "reading": "8 min",
     "tags": ["Companies"],
-    "companyTable": true
+    "companyTable": true,
+    "body": "<p class=\"company-section-intro\">Looking for employers not listed here? BuiltWith lists sites detected on AEM — <a href=\"https://trends.builtwith.com/websitelist/Adobe-Experience-Manager\" target=\"_blank\" rel=\"noopener noreferrer\">AEM websitelist</a> or <a href=\"https://trends.builtwith.com/joins/Adobe-Experience-Manager-using-Adobe-CQ\" target=\"_blank\" rel=\"noopener noreferrer\">AEM trends</a>. Use as a discovery hint, then confirm hiring on careers pages and job boards.</p>"
   },
   {
     "id": "how-to-apply",
     "title": "How to Apply",
-    "summary": "Step-by-step apply workflow for AEM roles — resume, LinkedIn, Naukri, outreach, and tools.",
+    "summary": "Resume, LinkedIn, Naukri, referrals, and notice period — step by step.",
     "reading": "5 min",
     "tags": ["Apply"],
     "ownerPlaybookEmbed": true,
-    "body": "<p>This guide is for staying <strong>job-ready</strong>, not only active job search. Practical steps for Indian job portals and notice periods — plus learning from every interview. Templates are in <strong>Professional Branding</strong>.</p>"
+    "body": "<p>Practical steps for staying <strong>job-ready</strong> on Indian portals — not only during active search. Covers notice period, outreach, and learning from every interview. Resume templates are in <strong>Resume &amp; LinkedIn templates</strong> above.</p>"
+  },
+  {
+    "id": "community",
+    "title": "Community",
+    "summary": "LinkedIn groups for AEM openings and tips.",
+    "reading": "1 min",
+    "tags": ["Community"],
+    "communityEmbed": true,
+    "body": "<p>LinkedIn groups where people share openings and tips. They're <strong>independent</strong> — not run by this site, Adobe, or employers listed here. Follow each group's rules; don't spam resumes. Use alongside <a href=\"#target-companies\">Companies</a> and your own LinkedIn/Naukri search.</p>"
   },
   {
     "id": "career-command-center",
-    "title": "Career Command Center",
-    "summary": "Planned tracking modules.",
+    "title": "Career tracker (planned)",
+    "summary": "Possible future trackers for applications and interviews.",
     "reading": "3 min",
     "tags": ["Planning"],
-    "body": "<ul class='list-disc ml-6'><li>Master Company Database ✓</li><li>Recruiter CRM (planned)</li><li>Application Tracker (planned)</li><li>Interview Tracker (planned)</li><li>Learning Tracker (roadmaps + glossary live)</li><li>Decision Log</li></ul>"
+    "body": "<ul class='list-disc ml-6'><li>Company list ✓</li><li>Recruiter tracker (planned)</li><li>Application tracker (planned)</li><li>Interview tracker (planned)</li><li>Learning tracker (roadmaps + glossary live)</li><li>Decision log</li></ul>"
   },
   {
     "id": "glossary",
     "title": "Glossary",
-    "summary": "AEM and DXP terms used throughout this playbook.",
+    "summary": "Short definitions for AEM and DXP terms used here.",
     "reading": "6 min",
     "tags": ["Reference"],
     "glossaryEmbed": true,
-    "body": "<p>Short definitions of AEM, DXP, and related terms used in interviews and roadmaps. Prefer Adobe Experience League and Apache docs when you need full detail.</p>"
+    "body": "<p>Quick definitions for terms you'll see in interviews and roadmaps. For full detail, use Adobe Experience League and Apache docs.</p>"
   },
   {
     "id": "interview-prep",
     "title": "Interview Prep",
-    "summary": "Technical and behavioural questions for AEM roles.",
+    "summary": "Technical and behavioural questions to practice.",
     "reading": "10 min",
     "tags": ["Interview"],
     "interviewEmbed": true,
-    "body": "<p>Interview outcomes depend on your knowledge, how the interviewer runs the loop, what is on your resume and projects, and fundamentals (JCR, Java, Sling, OSGi, Dispatcher, HTL, ResourceResolver). Guidance below is a coach checklist — adapt it to your experience; it is not a script and not a guarantee of exact questions. Honest AEM project work (without relying only on AI-generated answers) is the strongest prep; still study the basics so you can explain what you built.</p>"
+    "body": "<p>Interviews depend on what you know, what's on your resume, and how the interviewer runs the loop — basics like JCR, Java, Sling, OSGi, Dispatcher, HTL, and ResourceResolver come up a lot. Use the list below as a checklist, not a script; adapt to your experience. Real project work you can explain beats memorising AI-generated answers — but still know the fundamentals.</p>"
+  },
+  {
+    "id": "about-data",
+    "title": "About this data",
+    "summary": "What's researched here and what you should double-check yourself.",
+    "reading": "2 min",
+    "tags": ["About"],
+    "disclaimerEmbed": true,
+    "body": "<p>Research notes shared with other AEM developers. Use as a starting point — always confirm openings on employer careers pages and job boards.</p>"
   },
   {
     "id": "living-roadmap",
-    "title": "Living Roadmap",
-    "summary": "Curated resources and future work.",
+    "title": "Doc links",
+    "summary": "Official Adobe docs and courses referenced across the site.",
     "reading": "3 min",
     "tags": ["Roadmap"],
     "resourceEmbed": true,
-    "body": "<p>Official Adobe documentation and courses referenced across this playbook (also linked from Learning Roadmap and Core Skills in product mode).</p>"
+    "body": "<p>Adobe documentation and courses linked from Learning Roadmap and Core Skills.</p>"
   }
 ]

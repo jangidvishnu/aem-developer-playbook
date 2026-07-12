@@ -1,39 +1,18 @@
 ---
-description: Persist recurring owner workflow preferences into .cursor/rules instead of one-off memory
+description: Persist recurring owner workflow preferences into .cursor/rules
 alwaysApply: true
 ---
 
-# Owner workflow preferences (persist, don't forget)
+# Owner workflow preferences
 
-When the project owner states a **recurring** preference about how agents should work — git/PR flow, terminal
-habits, commit steps, branch hygiene, review gates, or similar process instructions — **encode it in this repo's
-instructions**, not only apply it for the current turn.
+When the owner states a **recurring** process preference (git/PR, terminals, review gates, etc.):
 
-## What to do
+1. Apply it in this session.
+2. Persist in `.cursor/rules/`: update the existing topic file, or add a focused `.mdc`. Prefer **`globs` + `alwaysApply: false`** when the rule only matters for certain files; use `alwaysApply: true` only for gates that apply every turn.
+3. Tell the owner which rule file changed (one line).
 
-1. **Apply it immediately** in the current session.
-2. **Persist it** in `.cursor/rules/`:
-   - **Same topic already covered?** Update the existing rule (e.g. git flow → `git-push-approval.mdc`).
-   - **New topic?** Add a focused `.mdc` rule with `alwaysApply: true` unless it is file-specific.
-3. **Tell the owner** which rule file was added or updated (one line — no long explanation).
+Do not wait for “add this to instructions” if it clearly applies every time.
 
-Do **not** wait for a separate "add this to instructions" message if the preference is clearly meant to apply every
-time (e.g. "every time you open a PR, switch to master").
+**Index:** git/PR → `git-push-approval.mdc`; cost → `agent-cost-optimization.mdc`; PowerShell → `windows-powershell-shell.mdc`; terminals → `terminal-hygiene.mdc`; UI responsive → `desktop-mobile-design.mdc`; company data/research → `company-data.mdc`; publish → `21_PUBLISHING.md`.
 
-## Examples already in rules
-
-| Preference | Rule file |
-|---|---|
-| Commit/PR/merge approval gate; default PRs → `stage`; `master` only when owner asks | `git-push-approval.mdc` |
-| No push/PR until `npm run verify` + `npm run ui-smoke` pass locally | `git-push-approval.mdc` |
-| Changelog only at commit/PR time (not every coding turn) | `git-push-approval.mdc` |
-| `stage` = GitHub Pages; `master` = Cloudflare (canonical); CF deploy after promote to master | `21_PUBLISHING.md` + `git-push-approval.mdc` |
-| PowerShell heredoc / slow git gotchas | `windows-powershell-shell.mdc` |
-| Terminal / dev-server cleanup | `terminal-hygiene.mdc` |
-| Every design/UI change must cover desktop + mobile | `desktop-mobile-design.mdc` |
-
-## What not to persist here
-
-- One-off task details ("fix this URL today only").
-- Product/content decisions that belong in `.playbook/` (use `12_DECISIONS.md` / `13_CHANGELOG.md` per constitution).
-- Secrets or personal data beyond what the owner explicitly asked to store.
+Do **not** persist: one-off task details; product decisions (use `.playbook/12_DECISIONS.md` / `13_CHANGELOG.md`); secrets unless the owner asked to store them.

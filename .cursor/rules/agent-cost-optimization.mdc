@@ -1,0 +1,32 @@
+---
+description: Prefer cheaper models/tools for simple work; soft nudge before heavy steps
+alwaysApply: true
+---
+
+# Agent cost / model optimization
+
+Match effort to the request. Prefer **Auto**; MAX off for simple Q&A; MAX on for hard multi-file work.
+
+## Soft model nudge (not a gate)
+
+Once per heavy/light phase, if a different model would help:  
+`Model tip: switch to <name> for this — or keep Auto/current and reply to continue.`  
+Then continue unless the owner stops you. Do not nag every turn.
+
+## Simple requests (Q&A, “where is X”)
+
+Short answer. No Task/explore agents. No broad greps/verify/smoke unless needed. One targeted lookup.
+
+## Task subagent models (cheapest that works)
+
+| Work | Prefer `model` |
+|---|---|
+| Quick find / narrow grep / shell-git | `composer-2.5-fast` |
+| Routine implement | `composer-2.5-fast` or `gpt-5.5-medium` |
+| Hard debug / architecture / security | `claude-sonnet-5-thinking-high` |
+
+No Opus/high-thinking for copy tweaks. Owner-named subagent model must be an allowed Task slug.
+
+## Token hygiene
+
+Tools only when the answer needs repo state. Don’t expand scope. Keep replies short. Prefer globs over always-on rules when adding new `.mdc` files.

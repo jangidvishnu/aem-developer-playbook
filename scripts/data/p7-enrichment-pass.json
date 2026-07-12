@@ -1,0 +1,318 @@
+{
+  "hayagreeva": {
+    "locations": [
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Pune", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "forms", "aem-cloud"]
+  },
+  "htc-global-services": {
+    "locations": [
+      { "city": "Chennai", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Troy", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud"]
+  },
+  "informatica": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Redwood City", "country": "United States" }
+    ],
+    "products": ["sites", "analytics", "target"]
+  },
+  "juniper-networks": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Sunnyvale", "country": "United States" }
+    ],
+    "products": ["sites", "analytics", "target"]
+  },
+  "malaysia-airlines": {
+    "locations": [
+      { "city": "Sepang", "country": "Malaysia" },
+      { "city": "Kuala Lumpur", "country": "Malaysia" }
+    ],
+    "products": ["sites", "analytics", "target", "campaign"]
+  },
+  "prudential-financial": {
+    "locations": [
+      { "city": "Newark", "country": "United States" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Hyderabad", "country": "India" }
+    ],
+    "products": ["sites", "assets", "workfront", "creative-cloud"]
+  },
+  "qualcomm": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Noida", "country": "India" },
+      { "city": "San Diego", "country": "United States" }
+    ],
+    "products": ["sites", "assets", "aep", "target", "workfront"],
+    "hq": "San Diego, USA"
+  },
+  "signify": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Eindhoven", "country": "Netherlands" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "commerce", "analytics", "target", "campaign", "aep", "ajo"]
+  },
+  "bridgestone": {
+    "locations": [
+      { "city": "Nashville", "country": "United States" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Chennai", "country": "India" }
+    ],
+    "products": ["sites", "assets", "aem-cloud"]
+  },
+  "bhasaka": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Kuwait City", "country": "Kuwait" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud", "eds", "aep", "ajo"]
+  },
+  "adglobal360": {
+    "locations": [
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Noida", "country": "India" },
+      { "city": "Mumbai", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "target", "analytics", "aem-cloud"]
+  },
+  "orangemantra": {
+    "locations": [
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Noida", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "commerce", "assets", "aem-cloud"]
+  },
+  "konrad": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Toronto", "country": "Canada" },
+      { "city": "New York", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "aem-cloud", "assets"]
+  },
+  "kanerika": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "aem-cloud"]
+  },
+  "commergence": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["forms", "assets", "workfront", "sites", "aem-cloud"]
+  },
+  "pall": {
+    "locations": [
+      { "city": "Pune", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Port Washington", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "aem-cloud", "eds", "headless"]
+  },
+  "rarr": {
+    "locations": [
+      { "city": "Faridabad", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Noida", "country": "India" },
+      { "city": "Bengaluru", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "forms", "guides", "aem-cloud"]
+  },
+  "xerago": {
+    "locations": [
+      { "city": "Chennai", "country": "India" },
+      { "city": "Bengaluru", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "aem-cloud", "analytics", "target"]
+  },
+  "quarks-technosoft": {
+    "locations": [
+      { "city": "Noida", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Hyderabad", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "forms", "aem-cloud"]
+  },
+  "pattem-digital": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "forms", "campaign", "aem-cloud"]
+  },
+  "visionet": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Chandigarh", "country": "India" },
+      { "city": "Lahore", "country": "Pakistan" },
+      { "city": "Bridgewater", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "remote": true,
+    "products": ["sites", "guides", "aem-cloud"]
+  },
+  "codersbrain": {
+    "locations": [
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Hyderabad", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "forms", "aem-cloud"]
+  },
+  "momentive": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Waterford", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "analytics", "aem-cloud", "target"]
+  },
+  "au-small-finance-bank": {
+    "locations": [
+      { "city": "Jaipur", "country": "India" },
+      { "city": "Mumbai", "country": "India" }
+    ],
+    "products": ["sites", "assets"]
+  },
+  "solventum": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Saint Paul", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud"]
+  },
+  "cibersites-india": {
+    "locations": [
+      { "city": "Chennai", "country": "India" },
+      { "city": "Bengaluru", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud", "headless"]
+  },
+  "peoplefy": {
+    "locations": [
+      { "city": "Pune", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud"]
+  },
+  "systechcorp": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "analytics", "target", "aem-cloud"]
+  },
+  "u2o3-infotech": {
+    "locations": [
+      { "city": "Chennai", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud"]
+  },
+  "infoyar": {
+    "locations": [
+      { "city": "Chennai", "country": "India" },
+      { "city": "Bengaluru", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "forms", "analytics", "aem-cloud"]
+  },
+  "dlux-tech": {
+    "locations": [
+      { "city": "Coimbatore", "country": "India" },
+      { "city": "Chennai", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "eds", "aem-cloud", "analytics", "target"]
+  },
+  "intraedge": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Chandler", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud"]
+  },
+  "rbm-software": {
+    "locations": [
+      { "city": "Pune", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud", "headless", "commerce"]
+  },
+  "solvative": {
+    "locations": [
+      { "city": "Ahmedabad", "country": "India" },
+      { "city": "Overland Park", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud"]
+  },
+  "sutherland-global": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Pittsford", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "remote": true,
+    "products": ["sites", "assets", "analytics", "target", "campaign", "aem-cloud"]
+  },
+  "aurumdata": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "San Jose", "country": "United States" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "forms", "aem-cloud"]
+  },
+  "the-scalers": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Paris", "country": "France" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "aem-cloud"]
+  }
+}

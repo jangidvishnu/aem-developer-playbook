@@ -1,0 +1,570 @@
+{
+  "accion-labs": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Pittsburgh", "country": "United States" }
+    ]
+  },
+  "alliance-bernstein": {
+    "locations": [
+      { "city": "Pune", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Nashville", "country": "United States" },
+      { "city": "New York", "country": "United States" }
+    ]
+  },
+  "american-express": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "New Delhi", "country": "India" },
+      { "city": "New York", "country": "United States" }
+    ]
+  },
+  "asian-paints": {
+    "locations": [
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Hyderabad", "country": "India" }
+    ]
+  },
+  "avalara": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Seattle", "country": "United States" }
+    ]
+  },
+  "bajaj-finserv": {
+    "locations": [
+      { "city": "Pune", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Bengaluru", "country": "India" }
+    ]
+  },
+  "bank-of-america": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "New Delhi", "country": "India" },
+      { "city": "Charlotte", "country": "United States" }
+    ]
+  },
+  "bmw": {
+    "locations": [
+      { "city": "Chennai", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Munich", "country": "Germany" }
+    ]
+  },
+  "citrix": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Fort Lauderdale", "country": "United States" }
+    ]
+  },
+  "code-and-theory": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "New York", "country": "United States" },
+      { "city": "London", "country": "United Kingdom" }
+    ]
+  },
+  "colgate-palmolive": {
+    "locations": [
+      { "city": "Mumbai", "country": "India" },
+      { "city": "New York", "country": "United States" }
+    ]
+  },
+  "delta-air-lines": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Atlanta", "country": "United States" }
+    ]
+  },
+  "emids": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Nashville", "country": "United States" }
+    ]
+  },
+  "emirates": {
+    "locations": [
+      { "city": "Dubai", "country": "United Arab Emirates" }
+    ]
+  },
+  "epsilon": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Irving", "country": "United States" }
+    ]
+  },
+  "etihad-airways": {
+    "locations": [
+      { "city": "Abu Dhabi", "country": "United Arab Emirates" }
+    ]
+  },
+  "fedex": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Memphis", "country": "United States" }
+    ]
+  },
+  "ge-healthcare": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Chicago", "country": "United States" }
+    ]
+  },
+  "hilton": {
+    "locations": [
+      { "city": "Gurugram", "country": "India" },
+      { "city": "McLean", "country": "United States" }
+    ]
+  },
+  "icici-bank": {
+    "locations": [
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Gurugram", "country": "India" }
+    ]
+  },
+  "ikea": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Delft", "country": "Netherlands" }
+    ]
+  },
+  "indusind-bank": {
+    "locations": [
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Chennai", "country": "India" }
+    ]
+  },
+  "linkedin": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Sunnyvale", "country": "United States" }
+    ]
+  },
+  "lufthansa": {
+    "locations": [
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Cologne", "country": "Germany" },
+      { "city": "Frankfurt", "country": "Germany" }
+    ]
+  },
+  "marriott": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Bethesda", "country": "United States" }
+    ]
+  },
+  "mastercard": {
+    "locations": [
+      { "city": "Pune", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Vadodara", "country": "India" },
+      { "city": "Purchase", "country": "United States" }
+    ]
+  },
+  "medtronic": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Dublin", "country": "Ireland" },
+      { "city": "Minneapolis", "country": "United States" }
+    ]
+  },
+  "mercedes-benz": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Stuttgart", "country": "Germany" }
+    ]
+  },
+  "merck": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Rahway", "country": "United States" }
+    ]
+  },
+  "micron": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Boise", "country": "United States" }
+    ],
+    "products": ["sites", "workfront", "creative-cloud", "assets"]
+  },
+  "microsoft": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Noida", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Redmond", "country": "United States" }
+    ]
+  },
+  "nike": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Beaverton", "country": "United States" }
+    ]
+  },
+  "qatar-airways": {
+    "locations": [
+      { "city": "Doha", "country": "Qatar" }
+    ]
+  },
+  "ranosys": {
+    "locations": [
+      { "city": "Jaipur", "country": "India" },
+      { "city": "Singapore", "country": "Singapore" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "assets", "commerce", "aem-cloud"]
+  },
+  "roche": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Basel", "country": "Switzerland" }
+    ]
+  },
+  "sap": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Walldorf", "country": "Germany" }
+    ]
+  },
+  "servicenow": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Santa Clara", "country": "United States" }
+    ]
+  },
+  "siemens": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Munich", "country": "Germany" }
+    ]
+  },
+  "spark-new-zealand": {
+    "locations": [
+      { "city": "Auckland", "country": "New Zealand" },
+      { "city": "Wellington", "country": "New Zealand" }
+    ]
+  },
+  "suncorp": {
+    "locations": [
+      { "city": "Brisbane", "country": "Australia" },
+      { "city": "Sydney", "country": "Australia" }
+    ]
+  },
+  "target": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Minneapolis", "country": "United States" }
+    ]
+  },
+  "telstra": {
+    "locations": [
+      { "city": "Melbourne", "country": "Australia" },
+      { "city": "Sydney", "country": "Australia" }
+    ]
+  },
+  "disney": {
+    "locations": [
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Burbank", "country": "United States" }
+    ]
+  },
+  "unicredit": {
+    "locations": [
+      { "city": "Milan", "country": "Italy" },
+      { "city": "Munich", "country": "Germany" }
+    ]
+  },
+  "united-airlines": {
+    "locations": [
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Chicago", "country": "United States" }
+    ]
+  },
+  "valuelabs": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Pune", "country": "India" }
+    ],
+    "hiringActive": true
+  },
+  "verizon": {
+    "locations": [
+      { "city": "Chennai", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "New York", "country": "United States" }
+    ]
+  },
+  "wells-fargo": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "San Francisco", "country": "United States" },
+      { "city": "Manila", "country": "Philippines" }
+    ]
+  },
+  "wissen": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Pune", "country": "India" }
+    ]
+  },
+  "itc-limited": {
+    "locations": [
+      { "city": "Kolkata", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Mumbai", "country": "India" }
+    ]
+  },
+  "vayuz": {
+    "locations": [
+      { "city": "Noida", "country": "India" },
+      { "city": "Mumbai", "country": "India" }
+    ]
+  },
+  "alt-digital": {
+    "locations": [
+      { "city": "Noida", "country": "India" },
+      { "city": "Bengaluru", "country": "India" }
+    ],
+    "hiringActive": true,
+    "products": ["sites", "forms", "aem-cloud"]
+  },
+  "taazaa": {
+    "locations": [
+      { "city": "Noida", "country": "India" },
+      { "city": "Hudson", "country": "United States" }
+    ],
+    "hiringActive": true
+  },
+  "proziod": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Thiruvananthapuram", "country": "India" }
+    ]
+  },
+  "xeliumtech": {
+    "locations": [
+      { "city": "Gurugram", "country": "India" }
+    ],
+    "hiringActive": true
+  },
+  "axis-max-life": {
+    "locations": [
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Noida", "country": "India" }
+    ]
+  },
+  "pnq-technologies": {
+    "locations": [
+      { "city": "Pune", "country": "India" }
+    ],
+    "hiringActive": true
+  },
+  "dart-innovations": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Hyderabad", "country": "India" }
+    ]
+  },
+  "krazymantra": {
+    "locations": [
+      { "city": "Ahmedabad", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Pune", "country": "India" }
+    ],
+    "hiringActive": true
+  },
+  "sonata-software": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Chennai", "country": "India" },
+      { "city": "Mumbai", "country": "India" }
+    ]
+  },
+  "zerozilla-infotech": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" }
+    ]
+  },
+  "vivantify-technology": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Pune", "country": "India" },
+      { "city": "Noida", "country": "India" }
+    ]
+  },
+  "haparz": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Pune", "country": "India" }
+    ],
+    "noticePolicy": "immediate"
+  },
+  "aes-technologies": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Chennai", "country": "India" }
+    ]
+  },
+  "gipfel-schnell": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" }
+    ],
+    "hiringActive": true
+  },
+  "mobile-programming": {
+    "locations": [
+      { "city": "Chennai", "country": "India" },
+      { "city": "Irvine", "country": "United States" }
+    ],
+    "hiringActive": true
+  },
+  "quest-business-solution": {
+    "locations": [
+      { "city": "Chandigarh", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Jamshedpur", "country": "India" }
+    ]
+  },
+  "tlc-digitech": {
+    "locations": [
+      { "city": "New Delhi", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Noida", "country": "India" }
+    ]
+  },
+  "ekloud": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" }
+    ],
+    "remote": true
+  },
+  "appriffy": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Noida", "country": "India" }
+    ],
+    "remote": true
+  },
+  "bigstep-technologies": {
+    "locations": [
+      { "city": "Noida", "country": "India" },
+      { "city": "Gurugram", "country": "India" }
+    ],
+    "remote": true
+  },
+  "nlb-services": {
+    "locations": [
+      { "city": "Noida", "country": "India" },
+      { "city": "Gurugram", "country": "India" },
+      { "city": "Bengaluru", "country": "India" },
+      { "city": "Hyderabad", "country": "India" },
+      { "city": "Pune", "country": "India" }
+    ],
+    "remote": true,
+    "hiringActive": true
+  },
+  "amk-technology": {
+    "locations": [
+      { "city": "New Delhi", "country": "India" },
+      { "city": "Mumbai", "country": "India" },
+      { "city": "Kolkata", "country": "India" },
+      { "city": "Kuala Lumpur", "country": "Malaysia" }
+    ],
+    "hiringActive": true
+  },
+  "techaivv-technologies": {
+    "locations": [
+      { "city": "Hyderabad", "country": "India" }
+    ],
+    "hiringActive": true
+  },
+  "webologix": {
+    "locations": [
+      { "city": "Bengaluru", "country": "India" }
+    ],
+    "hiringActive": true
+  },
+  "kloudportal": {
+    "locations": [
+      { "city": "Pune", "country": "India" }
+    ],
+    "hiringActive": true
+  }
+}

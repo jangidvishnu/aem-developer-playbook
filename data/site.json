@@ -1,50 +1,83 @@
 {
   "id": "site",
   "mode": "product",
-  "documentTitle": "AEM Developer Playbook — Jobs, Employers & Interview Prep (India)",
+  "documentTitle": "AEM Playbook — companies, apply tips & interview prep (India)",
   "header": {
-    "title": "AEM Developer Playbook",
+    "title": "AEM Playbook",
     "shortTitle": "AEM Playbook",
-    "versionLabel": "Publication Draft • Version 4.0.0",
+    "versionLabel": "Shared notes · Jul 2026",
     "githubUrl": "https://github.com/jangidvishnu/aem-developer-playbook"
   },
   "disclaimer": {
+    "summaryLine": "Research notes — not official. Info can be wrong or outdated; always check the company's careers page yourself.",
     "lines": [
-      "This is personal research shared to help — useful, but not a guaranteed guide and not affiliated with Adobe or listed employers. Data can be incomplete or wrong; I’ve tried my best. Always confirm openings on the employer careers page.",
-      "This is not a company ranking: every organisation has pros and cons. Frequent means they often post AEM/DXP roles (not an open job). Preferred is my opinion only. Careers and evidence links are snapshots and may move. The best path is to keep upgrading yourself and follow the methods that work for you."
+      "Built while job searching and shared to help other AEM folks. Not affiliated with Adobe or any employer listed here, and not a guarantee of openings. Data can be incomplete or wrong — always confirm on the employer careers page.",
+      "This is not a company ranking — every place has pros and cons. \"Frequent\" means they often post AEM roles, not that they're hiring right now. Links are snapshots and may move. Keep learning and use whatever approach works for you."
     ],
-    "contributingLead": "See something wrong or missing?",
-    "contributing": "Submit a pull request",
+    "contributingLead": "Spot something wrong or missing?",
+    "contributing": "Send a pull request",
     "contributingUrl": "https://github.com/jangidvishnu/aem-developer-playbook/pulls",
-    "contactEmail": "inbox.vishnujangid@gmail.com"
+    "contactEmail": "inbox.vishnujangid@gmail.com",
+    "linkedinUrl": "https://www.linkedin.com/in/jangidvishnu/",
+    "linkedinLabel": "LinkedIn"
+  },
+  "community": {
+    "heading": "Community",
+    "note": "LinkedIn groups worth checking — not run by this site, Adobe, or listed employers. Join if the rules fit you; don't spam your resume in discussions.",
+    "whatsapp": [],
+    "linkedinGroups": [
+      {
+        "label": "AEM Professionals",
+        "url": "https://www.linkedin.com/groups/4003307/"
+      },
+      {
+        "label": "AEM Community",
+        "url": "https://www.linkedin.com/groups/6988958/"
+      },
+      {
+        "label": "AEM Jobs (Adobe Experience Cloud Jobs)",
+        "url": "https://www.linkedin.com/groups/10341882/"
+      },
+      {
+        "label": "Adobe CQ5 / AEM India Group",
+        "url": "https://www.linkedin.com/groups/6625232/"
+      },
+      {
+        "label": "Adobe Experience Manager — Forms",
+        "url": "https://www.linkedin.com/groups/8550100/"
+      },
+      {
+        "label": "AEM Meetup Community",
+        "url": "https://www.linkedin.com/groups/4040509/"
+      }
+    ]
   },
   "hero": {
     "purpose": {
-      "intro": "Useful when you are applying now — and when you are simply staying sharp:",
+      "intro": "Useful when you're applying now — or just keeping sharp:",
       "points": [
         "Learn from interview gaps instead of only memorising answers.",
-        "Keep LinkedIn and Naukri current so the right role can find you.",
-        "A relaxed interview every few months helps you sense pay and market fit.",
-        "Companies, apply steps, roadmaps, and prep work best together."
+        "Keep LinkedIn and Naukri updated so recruiters can find you.",
+        "A relaxed interview every few months helps you know your market value.",
+        "Companies, apply steps, learning links, and interview prep work best together."
       ]
     },
-    "title": "AEM employers, apply guide, and learning paths",
-    "body": "Researched AEM employers — filter by India presence and AEM Cloud. Browse employers, follow the apply workflow, and use learning paths when you need them.",
+    "title": "AEM companies, apply tips, and interview prep (India)",
+    "body": "~272 AEM employers in India, apply steps for LinkedIn and Naukri, plus learning links and interview topics. Filter by India hiring and AEM Cloud — then open apply steps when you need them.",
     "ctaCompanies": "Browse companies",
     "ctaApply": "How to apply"
   },
   "sidebar": {
-    "contentsLabel": "Browse playbook"
+    "contentsLabel": "Sections"
   },
   "dashboard": {
-    "title": "Project Status",
+    "title": "What's built so far",
     "items": [
-      "Architecture ✓",
-      "Governance ✓",
-      "Company database ✓",
-      "Learning system ✓",
-      "Company pipeline (M8) — researched employers",
-      "Discovery filters (M9) ✓",
+      "Site structure ✓",
+      "Company list ✓",
+      "Learning links ✓",
+      "Company research (M8) ✓",
+      "Filters (M9) ✓",
       "Apply guide (M10) ✓"
     ]
   },
@@ -54,12 +87,12 @@
     "clearLabel": "Clear search"
   },
   "footer": {
-    "text": "AEM Developer Playbook — hiring intelligence and apply guide for Adobe Experience Manager roles in India.",
-    "copyright": "© 2026 Vishnu Jangid. Licensed under Apache-2.0 — contributions welcome via pull request."
+    "text": "AEM job-search notes for India — companies, apply steps, and interview prep.",
+    "copyright": "© 2026 Vishnu Jangid. Apache-2.0 — pull requests welcome."
   },
   "seo": {
     "siteUrl": "https://aemplaybook.pages.dev/",
-    "description": "Find AEM developer jobs in India — researched employers hiring for Adobe Experience Manager, apply steps, learning paths, AEMaaCS skills, and interview prep.",
+    "description": "AEM employers in India, apply steps (LinkedIn, Naukri, referrals), learning paths, and interview prep.",
     "keywords": [
       "AEM jobs",
       "AEM jobs India",
@@ -83,13 +116,15 @@
   "navigation": {
     "productChapterIds": [
       "target-companies",
-      "how-to-apply",
       "career-strategy",
       "professional-branding",
+      "how-to-apply",
+      "community",
       "learning-roadmap",
       "core-skills",
       "glossary",
-      "interview-prep"
+      "interview-prep",
+      "about-data"
     ],
     "devOnlyChapterIds": [
       "mission",
@@ -105,7 +140,7 @@
       {
         "id": "career",
         "label": "Career",
-        "chapterIds": ["how-to-apply", "career-strategy", "professional-branding"]
+        "chapterIds": ["career-strategy", "professional-branding", "how-to-apply", "community"]
       },
       {
         "id": "learning",
@@ -116,6 +151,11 @@
         "id": "interview",
         "label": "Interview",
         "chapterIds": ["interview-prep"]
+      },
+      {
+        "id": "about",
+        "label": "About",
+        "chapterIds": ["about-data"]
       }
     ]
   }

@@ -83,6 +83,7 @@ const CompanyFilters = {
       companyType: '',
       industry: '',
       product: '',
+      locations: [],
       hiringIndia: false,
       aemCloud: false,
       hiringActive: false,
@@ -120,6 +121,15 @@ const CompanyFilters = {
     return '—';
   },
 
+  /** Plain-language India line for company detail panels and mobile cards. */
+  indiaDetailLabel(co) {
+    if (co.hiringIndia === true) return 'Hires in India';
+    if (co.indiaPresence === true) return 'India offices';
+    if (co.hiringIndia === false) return 'No India hiring signal';
+    if (co.indiaPresence === false) return 'No India offices listed';
+    return '';
+  },
+
   indiaRank(co) {
     if (co.hiringIndia === true) return 3;
     if (co.indiaPresence === true) return 2;
@@ -134,6 +144,7 @@ const CompanyFilters = {
       s.companyType ||
       s.industry ||
       s.product ||
+      (Array.isArray(s.locations) && s.locations.length) ||
       s.hiringIndia ||
       s.aemCloud ||
       s.hiringActive ||
@@ -181,6 +192,81 @@ const CompanyFilters = {
     return CompanyFilters.PRODUCT_CODES.filter(code => set.has(code));
   },
 
+  /** Build multi-select options grouped by country (country row + cities under it). */
+  locationsFrom(companies) {
+    const byCountry = new Map();
+    (companies || []).forEach(co => {
+      (co.locations || []).forEach(loc => {
+        if (!loc || typeof loc !== 'object') return;
+        const country = String(loc.country || '').trim();
+        const city = String(loc.city || '').trim();
+        if (!country) return;
+        if (!byCountry.has(country)) byCountry.set(country, new Set());
+        if (city) byCountry.get(country).add(city);
+      });
+    });
+    const out = [];
+    [...byCountry.keys()]
+      .sort((a, b) => a.localeCompare(b))
+      .forEach(country => {
+        out.push({
+          id: `country:${country}`,
+          label: country,
+          group: country,
+          kind: 'country'
+        });
+        [...byCountry.get(country)]
+          .sort((a, b) => a.localeCompare(b))
+          .forEach(city => {
+            out.push({
+              id: `city:${city}|${country}`,
+              label: city,
+              group: country,
+              kind: 'city'
+            });
+          });
+      });
+    return out;
+  },
+
+  locationLabel(token) {
+    if (!token) return '';
+    if (token.startsWith('country:')) return token.slice('country:'.length);
+    if (token.startsWith('city:')) {
+      const rest = token.slice('city:'.length);
+      const pipe = rest.indexOf('|');
+      if (pipe === -1) return rest;
+      return `${rest.slice(0, pipe)}, ${rest.slice(pipe + 1)}`;
+    }
+    return token;
+  },
+
+  matchesLocationToken(co, token) {
+    const locs = Array.isArray(co.locations) ? co.locations : [];
+    if (!token || !locs.length) return false;
+    if (token.startsWith('country:')) {
+      const country = token.slice('country:'.length);
+      return locs.some(l => l && l.country === country);
+    }
+    if (token.startsWith('city:')) {
+      const rest = token.slice('city:'.length);
+      const pipe = rest.indexOf('|');
+      const city = pipe === -1 ? rest : rest.slice(0, pipe);
+      const country = pipe === -1 ? '' : rest.slice(pipe + 1);
+      return locs.some(l => l && l.city === city && (!country || l.country === country));
+    }
+    return false;
+  },
+
+  parseLocationTokens(raw) {
+    if (Array.isArray(raw)) return raw.map(String).filter(Boolean);
+    if (!raw) return [];
+    return String(raw)
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
+  },
+
   productLabel(code) {
     return CompanyFilters.PRODUCT_LABELS[code] || code;
   },
@@ -192,6 +278,8 @@ const CompanyFilters = {
     if (s.companyType && (co.companyType || 'Unknown') !== s.companyType) return false;
     if (s.industry && (co.industry || 'Unknown') !== s.industry) return false;
     if (s.product && !CompanyFilters.hasProduct(co, s.product)) return false;
+    const locTokens = Array.isArray(s.locations) ? s.locations : CompanyFilters.parseLocationTokens(s.locations);
+    if (locTokens.length && !locTokens.some(t => CompanyFilters.matchesLocationToken(co, t))) return false;
     if (s.hiringIndia && !CompanyFilters.isHiringIndia(co)) return false;
     if (s.aemCloud && !CompanyFilters.isAemCloud(co)) return false;
     if (s.hiringActive && !CompanyFilters.isHiringActive(co)) return false;
@@ -320,6 +408,7 @@ const CompanyFilters = {
     if (params.get('cf_cloud') === '1') state.aemCloud = true;
     if (params.get('cf_active') === '1') state.hiringActive = true;
     if (params.get('cf_preferred') === '1') state.ownerPreferred = true;
+    if (params.has('cf_loc')) state.locations = CompanyFilters.parseLocationTokens(params.get('cf_loc'));
     // Legacy: old migration / aemaaCS / hiringAEM / verified URL keys
     if (params.get('cf_migration') === 'cloud') state.aemCloud = true;
     if (params.get('cf_aem') === '1') {
@@ -344,6 +433,8 @@ const CompanyFilters = {
     if (s.aemCloud || s.aemaaCS) params.set('cf_cloud', '1');
     if (s.hiringActive) params.set('cf_active', '1');
     if (s.ownerPreferred) params.set('cf_preferred', '1');
+    const locs = Array.isArray(s.locations) ? s.locations.filter(Boolean) : [];
+    if (locs.length) params.set('cf_loc', locs.join(','));
     const qs = params.toString();
     return qs ? '?' + qs : '';
   },

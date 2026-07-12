@@ -43,26 +43,65 @@ Work top-to-bottom. Omit optional keys when unknown — never invent. Schema: `1
 | 1 | `id` / `name` | Stable id; correct legal/brand name |
 | 2 | `industry` / `companyType` | Accurate; `Product` / `GCC` / `Agency` / `Enterprise` |
 | 3 | `hq` | City, country if known |
+| 3a | `locations` | `{city?, country}` for **all countries they hire in + major city hubs per country** (India cities complete; main global hubs elsewhere; skip tiny offices). country required, city when known. Omit when unknown |
+| 3b | `remote` | `true` only with evidence of remote hiring relevant to India candidates; omit otherwise |
 | 4 | `indiaPresence` / `hiringIndia` | Booleans only when known; omit otherwise |
-| 5 | `careersUrl` | Official careers page loads |
+| 5 | `careersUrl` | **Employer-owned** careers page loads (see **Careers URL rules** below) |
 | 6 | `jobSearchUrl` | AEM/DXP deep link if useful; omit if same as `careersUrl` |
-| 7 | `products` | Every evidenced Adobe/AEM code — not just `sites` when the case study lists more |
+| 7 | `products` | Every evidenced Adobe/AEM code — not just `sites` when the case study lists more. **Expand to all evidenced products; remove any tag with no evidence** |
 | 8 | `roles` | Titles **this employer** uses (AEM Engineer, DXP, Sr Software, …) — no shared boilerplate |
 | 9 | `evidence` | Tier 1–2 AEM usage URLs (working links) |
 | 10 | `hiringEvidence` | Job or careers search proving hire intent |
 | 11 | `priority` | Hiring-cadence rubric below — not brand awards |
-| 12 | `hiringActive` | Frequent/general hiring pattern only — not “open now”; omit unless owner confirms |
+| 12 | `hiringActive` | Set `true` when evidence shows **frequent (~monthly or more)** AEM/DXP hiring; not “open now”. Omit when occasional/one-off or unknown — never guess |
 | 13 | `ownerPreferred` | Owner recommendation (pay/growth/quality) — omit unless owner explicitly marks; why in `notes` |
-| 14 | `notes` | Cadence caveats, India hubs, inference labels, preferred why |
+| 14 | `notes` | Cadence caveats, India hubs, inference labels, preferred why. **Shown in the UI** — write for job seekers, not agents. No `DR-xxx`, “Tier N BuiltWith”, “upgrade Evidence”, or other research jargon |
+| 14a | `noticePolicy` | `immediate`/`30d`/`60d`/`90d`/`flexible-long` — **only when a posting/careers page states or implies it**; omit otherwise (never guess from company type) |
 | 15 | `verifiedAt` | Today's ISO date when this pass finished |
 | 16 | `ownerVerified` | **`false`** for agent-added/rewritten rows until the owner manually checks |
 | 17 | `signals` | Omit unless sourced ratings exist |
 
 After the pass: `node scripts/verify-companies.js`.
 
+## Careers URL rules (`careersUrl`)
+
+`careersUrl` must be a page the **employer controls** — where candidates apply or browse that company's own
+openings. It is **not** a third-party job board, aggregator, or recruiter profile.
+
+| Allowed | Not allowed as `careersUrl` |
+|---|---|
+| Company site `/careers`, `/jobs`, contact/resume page when no ATS exists | Cutshort, Foundit, Naukri, Shine, Indeed, LinkedIn `/jobs`, Glassdoor |
+| Employer ATS/HRIS the company owns or brands (Workday, Greenhouse, Freshteam, SmartRecruiters, Lever, …) | `cutshort.io/company/…`, `foundit.in/…`, generic board search URLs |
+| Staffing firm's **own** careers portal when they hire for internal delivery roles | A board listing where the firm only posts **client** requisitions |
+
+**Job boards are fine in `hiringEvidence` and `jobSearchUrl`** when they surface a specific AEM posting or search —
+never substitute them for `careersUrl`.
+
+Before publishing, open the URL in a browser (or fetch) and confirm it loads and belongs to the employer.
+
+## M&A, rebrand, and duplicate employers
+
+Before adding a candidate, check whether it is the **same organization** as a row already in `companies.json`
+under a different name — acquired, merged, or rebranded.
+
+| Do | Don't |
+|---|---|
+| Keep the **current parent / surviving brand** (update its row if needed) | Add both acquirer and acquired as separate rows |
+| Note the former name in `notes` on the surviving row when useful | Publish a defunct brand whose careers funnel redirects to the parent |
+| Skip the child when the parent is already listed with equivalent AEM hiring | Treat a staffing post for a **client** as evidence the staffing firm "uses AEM" |
+
+**Examples (India AEM batch research):**
+
+- **Zorang → GSPANN** (acquired Sep 2024) — list `gspann` only; do not add `zorang`.
+- **Lister Digital → Bounteous** (acquired 2021; Bounteous × Accolite) — list `bounteous` only; do not add
+  `lister-technologies`.
+
+When in doubt, search `"[old name] acquired"` / `"now part of"` and check the surviving company's careers site.
+
 ## Verification workflow
 
 1. For each candidate company, run the **complete field pass** (table above) — not a partial careers-only edit.
+1a. **Dedup pass** — M&A/rebrand check (section above); skip child if parent exists.
 2. Confirm **hiring** — careers search or job URL with AEM/DXP keywords; record in `hiringEvidence`.
 3. If found, record source URLs in `evidence` / `hiringEvidence` (`11_COMPANY_SCHEMA.md`) and add/update the row in
    `data/companies.json` with `ownerVerified: false`.
@@ -118,6 +157,8 @@ candidates for `hiringActive: true` after owner confirmation.
 
 ## Anti-patterns
 
+- Using Cutshort, Foundit, Naukri, or LinkedIn job search as `careersUrl`.
+- Adding an acquired or rebranded company when the parent brand is already in `companies.json`.
 - Treating a research report's own confidence language ("Priority: 9/10") as if it were sourced fact.
 - Maintaining a second company JSON or rebuilding `companies.json` from archived seeds as the default workflow.
 - Citing a source that no longer resolves (link rot) without noting the retrieval date.
@@ -130,7 +171,8 @@ candidates for `hiringActive: true` after owner confirmation.
 
 - [ ] **Complete field pass** finished (table above) — every required field intentional, optionals omitted if unknown.
 - [ ] At least one Tier 1 or Tier 2 source for AEM usage (`evidence`).
-- [ ] Official `careersUrl` (http).
+- [ ] Official **employer-owned** `careersUrl` (http) — not a job board (see Careers URL rules).
+- [ ] M&A/rebrand dedup — no duplicate row when parent/surviving brand already exists.
 - [ ] Non-empty `hiringEvidence` URL(s).
 - [ ] Non-empty `products` codes (all evidenced codes, not a lazy `sites`-only default).
 - [ ] `roles` reflect titles this employer actually uses (AEM / DXP / Software / Sr …) — not a shared

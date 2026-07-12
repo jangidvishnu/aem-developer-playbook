@@ -1,0 +1,4276 @@
+{
+  "checkedAt": "2026-07-10T17:37:10.506Z",
+  "fields": [
+    "careersUrl",
+    "evidence"
+  ],
+  "total": 426,
+  "summary": {
+    "ok": 149,
+    "redirect": 17,
+    "blocked": 16,
+    "dead": 244
+  },
+  "results": [
+    {
+      "id": "solventum",
+      "name": "Solventum",
+      "field": "careersUrl",
+      "url": "https://www.solventum.com/en-us/home/our-company/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.solventum.com/en-us/home/our-company/careers/"
+    },
+    {
+      "id": "solventum",
+      "name": "Solventum",
+      "field": "evidence",
+      "url": [
+        "https://builtin.com/job/aem-senior-backend-developer/9411062"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "danaher",
+      "name": "Danaher",
+      "field": "careersUrl",
+      "url": "https://jobs.danaher.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.danaher.com/global/en"
+    },
+    {
+      "id": "danaher",
+      "name": "Danaher",
+      "field": "evidence",
+      "url": [
+        "https://builtin.com/job/aem-adobe-experience-manager-senior-solution-architect/8337540"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bristol-myers-squibb",
+      "name": "Bristol Myers Squibb",
+      "field": "careersUrl",
+      "url": "https://careers.bms.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.bms.com/"
+    },
+    {
+      "id": "bristol-myers-squibb",
+      "name": "Bristol Myers Squibb",
+      "field": "evidence",
+      "url": [
+        "https://builtin.com/job/software-engineer-i-aem-developer-front-end/4138971"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "honeywell",
+      "name": "Honeywell",
+      "field": "careersUrl",
+      "url": "https://careers.honeywell.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.honeywell.com/en/sites/Honeywell"
+    },
+    {
+      "id": "honeywell",
+      "name": "Honeywell",
+      "field": "evidence",
+      "url": [
+        "https://www.foundit.in/job/sr-it-engineer-honeywell-bengaluru-bangalore-47561166"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "synechron",
+      "name": "Synechron",
+      "field": "careersUrl",
+      "url": "https://www.synechron.com/en-in/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.synechron.com/en-in/careers"
+    },
+    {
+      "id": "synechron",
+      "name": "Synechron",
+      "field": "evidence",
+      "url": [
+        "https://www.synechron.com/what-we-do/digital"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "cibersites-india",
+      "name": "Cibersites India",
+      "field": "careersUrl",
+      "url": "https://www.cibersites.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: UND_ERR_CONNECT_TIMEOUT"
+    },
+    {
+      "id": "cibersites-india",
+      "name": "Cibersites India",
+      "field": "evidence",
+      "url": [
+        "https://www.cibersites.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "peoplefy",
+      "name": "Peoplefy",
+      "field": "careersUrl",
+      "url": "https://www.peoplefy.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.peoplefy.com/"
+    },
+    {
+      "id": "peoplefy",
+      "name": "Peoplefy",
+      "field": "evidence",
+      "url": [
+        "https://www.peoplefy.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "systechcorp",
+      "name": "SysTechCorp",
+      "field": "careersUrl",
+      "url": "https://www.systechcorp.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.systechcorp.com/"
+    },
+    {
+      "id": "systechcorp",
+      "name": "SysTechCorp",
+      "field": "evidence",
+      "url": [
+        "https://www.systechcorp.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "u2o3-infotech",
+      "name": "U2O3 Infotech",
+      "field": "careersUrl",
+      "url": "https://u2o3tech.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://u2o3tech.com/careers/"
+    },
+    {
+      "id": "u2o3-infotech",
+      "name": "U2O3 Infotech",
+      "field": "evidence",
+      "url": [
+        "https://u2o3tech.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "thermo-fisher-scientific",
+      "name": "Thermo Fisher Scientific",
+      "field": "careersUrl",
+      "url": "https://jobs.thermofisher.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.thermofisher.com/global/en"
+    },
+    {
+      "id": "thermo-fisher-scientific",
+      "name": "Thermo Fisher Scientific",
+      "field": "evidence",
+      "url": [
+        "https://jobs.thermofisher.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "infoyar",
+      "name": "Infoyar",
+      "field": "careersUrl",
+      "url": "https://www.infoyar.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: ECONNRESET"
+    },
+    {
+      "id": "infoyar",
+      "name": "Infoyar",
+      "field": "evidence",
+      "url": [
+        "https://www.infoyar.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "amk-technology",
+      "name": "AMK Technology",
+      "field": "careersUrl",
+      "url": "https://www.amk-group.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://amk-group.com/de/"
+    },
+    {
+      "id": "amk-technology",
+      "name": "AMK Technology",
+      "field": "evidence",
+      "url": [
+        "https://www.amk-group.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "dlux-tech",
+      "name": "DLUX Tech",
+      "field": "careersUrl",
+      "url": "https://www.dluxtech.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.dluxtech.com/"
+    },
+    {
+      "id": "dlux-tech",
+      "name": "DLUX Tech",
+      "field": "evidence",
+      "url": [
+        "https://www.dluxtech.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "assa-abloy",
+      "name": "ASSA ABLOY",
+      "field": "careersUrl",
+      "url": "https://www.assaabloy.com/career/en/open-positions",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.assaabloy.com/career/en/open-positions"
+    },
+    {
+      "id": "assa-abloy",
+      "name": "ASSA ABLOY",
+      "field": "evidence",
+      "url": [
+        "https://www.assaabloy.com/career/en/open-positions"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "russell-investments",
+      "name": "Russell Investments",
+      "field": "careersUrl",
+      "url": "https://russell.wd5.myworkdayjobs.com/russellinvestments",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://russell.wd5.myworkdayjobs.com/russellinvestments"
+    },
+    {
+      "id": "russell-investments",
+      "name": "Russell Investments",
+      "field": "evidence",
+      "url": [
+        "https://russell.wd5.myworkdayjobs.com/russellinvestments"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "techaivv-technologies",
+      "name": "TechAIVV Technologies",
+      "field": "careersUrl",
+      "url": "https://techaivv.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://techaivv.com/"
+    },
+    {
+      "id": "techaivv-technologies",
+      "name": "TechAIVV Technologies",
+      "field": "evidence",
+      "url": [
+        "https://techaivv.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "intraedge",
+      "name": "IntraEdge",
+      "field": "careersUrl",
+      "url": "https://jobs.intraedge.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.intraedge.com/"
+    },
+    {
+      "id": "intraedge",
+      "name": "IntraEdge",
+      "field": "evidence",
+      "url": [
+        "https://intraedge.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "rbm-software",
+      "name": "RBM Software",
+      "field": "careersUrl",
+      "url": "https://www.rbmsoft.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://rbmsoft.com/"
+    },
+    {
+      "id": "rbm-software",
+      "name": "RBM Software",
+      "field": "evidence",
+      "url": [
+        "https://www.rbmsoft.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "solvative",
+      "name": "Solvative",
+      "field": "careersUrl",
+      "url": "https://solvative.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://solvative.com/careers"
+    },
+    {
+      "id": "solvative",
+      "name": "Solvative",
+      "field": "evidence",
+      "url": [
+        "https://solvative.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "sp-global-market-intelligence",
+      "name": "S&P Global Market Intelligence",
+      "field": "careersUrl",
+      "url": "https://www.spglobal.com/marketintelligence/en/careers",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.spglobal.com/market-intelligence/en"
+    },
+    {
+      "id": "sp-global-market-intelligence",
+      "name": "S&P Global Market Intelligence",
+      "field": "evidence",
+      "url": [
+        "https://www.spglobal.com/marketintelligence/en/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "arrow-electronics",
+      "name": "Arrow Electronics",
+      "field": "careersUrl",
+      "url": "https://careers.arrow.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.arrow.com/us/en"
+    },
+    {
+      "id": "arrow-electronics",
+      "name": "Arrow Electronics",
+      "field": "evidence",
+      "url": [
+        "https://careers.arrow.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "boston-scientific",
+      "name": "Boston Scientific",
+      "field": "careersUrl",
+      "url": "https://jobs.bostonscientific.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.bostonscientific.com/"
+    },
+    {
+      "id": "boston-scientific",
+      "name": "Boston Scientific",
+      "field": "evidence",
+      "url": [
+        "https://jobs.bostonscientific.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "macquarie-group",
+      "name": "Macquarie Group",
+      "field": "careersUrl",
+      "url": "https://www.macquarie.com/in/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.macquarie.com/in/en/careers.html"
+    },
+    {
+      "id": "macquarie-group",
+      "name": "Macquarie Group",
+      "field": "evidence",
+      "url": [
+        "https://medium.com/macquarie-engineering-blog/how-to-enable-continuous-delivery-for-adobe-experience-manager-aem-e4c212de9eab"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "sutherland-global",
+      "name": "Sutherland Global",
+      "field": "careersUrl",
+      "url": "https://www.jobs.sutherlandglobal.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.jobs.sutherlandglobal.com/"
+    },
+    {
+      "id": "sutherland-global",
+      "name": "Sutherland Global",
+      "field": "evidence",
+      "url": [
+        "https://www.sutherlandglobal.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "aurumdata",
+      "name": "Aurumdata Solutions",
+      "field": "careersUrl",
+      "url": "https://www.aurumdata.com/",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://brandsly.com/name/aurumdata.com"
+    },
+    {
+      "id": "aurumdata",
+      "name": "Aurumdata Solutions",
+      "field": "evidence",
+      "url": [
+        "https://www.aurumdata.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "globallogic",
+      "name": "GlobalLogic",
+      "field": "careersUrl",
+      "url": "https://www.globallogic.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.globallogic.com/careers/"
+    },
+    {
+      "id": "globallogic",
+      "name": "GlobalLogic",
+      "field": "evidence",
+      "url": [
+        "https://www.globallogic.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "dentsu",
+      "name": "Dentsu",
+      "field": "careersUrl",
+      "url": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL"
+    },
+    {
+      "id": "dentsu",
+      "name": "Dentsu",
+      "field": "evidence",
+      "url": [
+        "https://dentsuaegis.wd3.myworkdayjobs.com/DAN_GLOBAL"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "vml-enterprise-solutions",
+      "name": "VML Enterprise Solutions",
+      "field": "careersUrl",
+      "url": "https://job-boards.greenhouse.io/vmlenterprisesolutions",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://job-boards.greenhouse.io/vmlenterprisesolutions"
+    },
+    {
+      "id": "vml-enterprise-solutions",
+      "name": "VML Enterprise Solutions",
+      "field": "evidence",
+      "url": [
+        "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8161768002"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "the-scalers",
+      "name": "The Scalers",
+      "field": "careersUrl",
+      "url": "https://careers.thescalers.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.thescalers.com/"
+    },
+    {
+      "id": "the-scalers",
+      "name": "The Scalers",
+      "field": "evidence",
+      "url": [
+        "https://careers.thescalers.com/positions/senior-aem-developer-418"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "webologix",
+      "name": "Webologix",
+      "field": "careersUrl",
+      "url": "https://webologix.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://webologix.com/"
+    },
+    {
+      "id": "webologix",
+      "name": "Webologix",
+      "field": "evidence",
+      "url": [
+        "https://webologix.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "astrazeneca",
+      "name": "AstraZeneca",
+      "field": "careersUrl",
+      "url": "https://careers.astrazeneca.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.astrazeneca.com/"
+    },
+    {
+      "id": "astrazeneca",
+      "name": "AstraZeneca",
+      "field": "evidence",
+      "url": [
+        "https://careers.astrazeneca.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "kloudportal",
+      "name": "KloudPortal Technology Solutions",
+      "field": "careersUrl",
+      "url": "https://www.kloudportal.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://kloudportal.com/"
+    },
+    {
+      "id": "kloudportal",
+      "name": "KloudPortal Technology Solutions",
+      "field": "evidence",
+      "url": [
+        "https://www.kloudportal.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "henkel",
+      "name": "Henkel",
+      "field": "careersUrl",
+      "url": "https://www.henkel.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.henkel.com/careers"
+    },
+    {
+      "id": "henkel",
+      "name": "Henkel",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/henkel-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "sika",
+      "name": "Sika",
+      "field": "careersUrl",
+      "url": "https://www.sika.com/en/about-us/careers.html",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.sika.com/en/about-us/careers.html"
+    },
+    {
+      "id": "sika",
+      "name": "Sika",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/sika-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "dell",
+      "name": "Dell Technologies",
+      "field": "careersUrl",
+      "url": "https://jobs.dell.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://iawmqy.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/careers"
+    },
+    {
+      "id": "dell",
+      "name": "Dell Technologies",
+      "field": "evidence",
+      "url": [
+        "https://www.casestudies.com/company/adobe-experience-manager/case-study/top-tech-company-unlocks-employees-potential-for-making-a-measureable-impact-on-customer-experiences"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "genting-malaysia",
+      "name": "Genting Malaysia",
+      "field": "careersUrl",
+      "url": "https://www.gentingmalaysia.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.gentingmalaysia.com/careers/"
+    },
+    {
+      "id": "genting-malaysia",
+      "name": "Genting Malaysia",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/genting-malaysia-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "ftd",
+      "name": "FTD",
+      "field": "careersUrl",
+      "url": "https://www.ftd.com/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.ftd.com/careers"
+    },
+    {
+      "id": "ftd",
+      "name": "FTD",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/ftd-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "havas",
+      "name": "Havas",
+      "field": "careersUrl",
+      "url": "https://www.havas.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.havas.com/careers/"
+    },
+    {
+      "id": "havas",
+      "name": "Havas",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/havas-pop.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "ubs",
+      "name": "UBS",
+      "field": "careersUrl",
+      "url": "https://www.ubs.com/global/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ubs.com/global/en/careers.html"
+    },
+    {
+      "id": "ubs",
+      "name": "UBS",
+      "field": "evidence",
+      "url": [
+        "https://www.casestudies.com/company/adobe-experience-cloud/case-study/ubs-delivering-superb-customer-and-employee-experiences-online"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "cybage",
+      "name": "Cybage",
+      "field": "careersUrl",
+      "url": "https://www.cybage.com/careers/open-positions",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.cybage.com/careers/open-positions"
+    },
+    {
+      "id": "cybage",
+      "name": "Cybage",
+      "field": "evidence",
+      "url": [
+        "https://www.cybage.com/services/platform-integrations/enterprise-content-management-ecm/adobe-experience-manager"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "unilever",
+      "name": "Unilever",
+      "field": "careersUrl",
+      "url": "https://careers.unilever.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.unilever.com/en"
+    },
+    {
+      "id": "unilever",
+      "name": "Unilever",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/summit/2024/sessions/how-unilever-digitized-its-distributive-trade-rout-s430.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "us-bank",
+      "name": "U.S. Bank",
+      "field": "careersUrl",
+      "url": "https://careers.usbank.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.usbank.com/global/en"
+    },
+    {
+      "id": "us-bank",
+      "name": "U.S. Bank",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/us-bank-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "national-bank-of-canada",
+      "name": "National Bank of Canada",
+      "field": "careersUrl",
+      "url": "https://www.nbc.ca/about-us/careers.html",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.nbc.ca/about-us/careers.html"
+    },
+    {
+      "id": "national-bank-of-canada",
+      "name": "National Bank of Canada",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/national-bank-of-canada-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bosch",
+      "name": "Bosch",
+      "field": "careersUrl",
+      "url": "https://www.bosch.in/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bosch.in/careers/"
+    },
+    {
+      "id": "bosch",
+      "name": "Bosch",
+      "field": "evidence",
+      "url": [
+        "https://builtwith.com/bosch.com"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "pethealth",
+      "name": "Pethealth",
+      "field": "careersUrl",
+      "url": "https://www.pethealthinc.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.pethealthinc.com/careers/"
+    },
+    {
+      "id": "pethealth",
+      "name": "Pethealth",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/pethealth-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "codelattice",
+      "name": "Codelattice",
+      "field": "careersUrl",
+      "url": "https://www.codelattice.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.codelattice.com/jobs"
+    },
+    {
+      "id": "codelattice",
+      "name": "Codelattice",
+      "field": "evidence",
+      "url": [
+        "https://www.codelattice.com/adobe-experience-manager-partner-india"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "apexon",
+      "name": "Apexon",
+      "field": "careersUrl",
+      "url": "https://www.apexon.com/careers/",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.apexon.com/careers/"
+    },
+    {
+      "id": "apexon",
+      "name": "Apexon",
+      "field": "evidence",
+      "url": [
+        "https://www.apexon.com/blog/transforming-digital-experiences-how-adobe-experience-manager-powers-modern-business/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "marlabs",
+      "name": "Marlabs",
+      "field": "careersUrl",
+      "url": "https://www.marlabs.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.marlabs.com/careers"
+    },
+    {
+      "id": "marlabs",
+      "name": "Marlabs",
+      "field": "evidence",
+      "url": [
+        "https://www.marlabs.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "real-madrid",
+      "name": "Real Madrid",
+      "field": "careersUrl",
+      "url": "https://www.realmadrid.com/en-US/the-club/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.realmadrid.com/en-US/the-club/careers"
+    },
+    {
+      "id": "real-madrid",
+      "name": "Real Madrid",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/real-madrid.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "tsb",
+      "name": "TSB Bank",
+      "field": "careersUrl",
+      "url": "https://www.tsb.co.uk/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.tsb.co.uk/careers.html"
+    },
+    {
+      "id": "tsb",
+      "name": "TSB Bank",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/tsb-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "langoor",
+      "name": "Langoor",
+      "field": "careersUrl",
+      "url": "https://www.langoor.com/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.langoor.com/careers"
+    },
+    {
+      "id": "langoor",
+      "name": "Langoor",
+      "field": "evidence",
+      "url": [
+        "https://www.langoor.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "altimetrik",
+      "name": "Altimetrik",
+      "field": "careersUrl",
+      "url": "https://www.altimetrik.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.altimetrik.com/careers/"
+    },
+    {
+      "id": "altimetrik",
+      "name": "Altimetrik",
+      "field": "evidence",
+      "url": [
+        "https://www.altimetrik.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "r-systems",
+      "name": "R Systems",
+      "field": "careersUrl",
+      "url": "https://www.rsystems.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.rsystems.com/careers/"
+    },
+    {
+      "id": "r-systems",
+      "name": "R Systems",
+      "field": "evidence",
+      "url": [
+        "https://www.rsystems.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "tata-elxsi",
+      "name": "Tata Elxsi",
+      "field": "careersUrl",
+      "url": "https://www.tataelxsi.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tataelxsi.com/careers"
+    },
+    {
+      "id": "tata-elxsi",
+      "name": "Tata Elxsi",
+      "field": "evidence",
+      "url": [
+        "https://www.tataelxsi.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "grid-dynamics",
+      "name": "Grid Dynamics",
+      "field": "careersUrl",
+      "url": "https://www.griddynamics.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.griddynamics.com/careers"
+    },
+    {
+      "id": "grid-dynamics",
+      "name": "Grid Dynamics",
+      "field": "evidence",
+      "url": [
+        "https://www.griddynamics.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "dxc",
+      "name": "DXC Technology",
+      "field": "careersUrl",
+      "url": "https://careers.dxc.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.dxc.com/"
+    },
+    {
+      "id": "dxc",
+      "name": "DXC Technology",
+      "field": "evidence",
+      "url": [
+        "https://careers.dxc.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "atos",
+      "name": "Atos",
+      "field": "careersUrl",
+      "url": "https://jobs.atos.net/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.atos.net/"
+    },
+    {
+      "id": "atos",
+      "name": "Atos",
+      "field": "evidence",
+      "url": [
+        "https://jobs.atos.net/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "exl",
+      "name": "EXL",
+      "field": "careersUrl",
+      "url": "https://www.exlservice.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.exlservice.com/careers"
+    },
+    {
+      "id": "exl",
+      "name": "EXL",
+      "field": "evidence",
+      "url": [
+        "https://www.exlservice.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "ltts",
+      "name": "L&T Technology Services",
+      "field": "careersUrl",
+      "url": "https://www.ltts.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ltts.com/careers"
+    },
+    {
+      "id": "ltts",
+      "name": "L&T Technology Services",
+      "field": "evidence",
+      "url": [
+        "https://www.ltts.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "cyient",
+      "name": "Cyient",
+      "field": "careersUrl",
+      "url": "https://www.cyient.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.cyient.careers/"
+    },
+    {
+      "id": "cyient",
+      "name": "Cyient",
+      "field": "evidence",
+      "url": [
+        "https://www.cyient.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "tavant",
+      "name": "Tavant",
+      "field": "careersUrl",
+      "url": "https://www.tavant.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://tavant.com/careers/"
+    },
+    {
+      "id": "tavant",
+      "name": "Tavant",
+      "field": "evidence",
+      "url": [
+        "https://www.tavant.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "airtel",
+      "name": "Bharti Airtel",
+      "field": "careersUrl",
+      "url": "https://www.airtel.in/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.airtel.com/"
+    },
+    {
+      "id": "airtel",
+      "name": "Bharti Airtel",
+      "field": "evidence",
+      "url": [
+        "https://www.airtel.in/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "axis-bank",
+      "name": "Axis Bank",
+      "field": "careersUrl",
+      "url": "https://www.axisbank.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.axis.bank.in/careers"
+    },
+    {
+      "id": "axis-bank",
+      "name": "Axis Bank",
+      "field": "evidence",
+      "url": [
+        "https://www.axisbank.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "fidelity",
+      "name": "Fidelity Investments",
+      "field": "careersUrl",
+      "url": "https://jobs.fidelity.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.fidelity.com/en/"
+    },
+    {
+      "id": "fidelity",
+      "name": "Fidelity Investments",
+      "field": "evidence",
+      "url": [
+        "https://jobs.fidelity.com/search-jobs/AEM"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "softserve",
+      "name": "SoftServe",
+      "field": "careersUrl",
+      "url": "https://career.softserveinc.com/",
+      "category": "blocked",
+      "status": 0,
+      "note": "error: TypeError"
+    },
+    {
+      "id": "softserve",
+      "name": "SoftServe",
+      "field": "evidence",
+      "url": [
+        "https://career.softserveinc.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "innominds",
+      "name": "Innominds",
+      "field": "careersUrl",
+      "url": "https://www.innominds.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.innominds.com/"
+    },
+    {
+      "id": "innominds",
+      "name": "Innominds",
+      "field": "evidence",
+      "url": [
+        "https://www.innominds.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "phygital-insights",
+      "name": "Phygital Insights",
+      "field": "careersUrl",
+      "url": "https://www.phygitalinsights.com/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.phygitalinsights.com/careers"
+    },
+    {
+      "id": "phygital-insights",
+      "name": "Phygital Insights",
+      "field": "evidence",
+      "url": [
+        "https://www.phygitalinsights.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "samsung-sds",
+      "name": "Samsung SDS",
+      "field": "careersUrl",
+      "url": "https://www.samsungsds.com/en/career/career.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "http://www.samsungsds.com/us/etc/error/error.html"
+    },
+    {
+      "id": "samsung-sds",
+      "name": "Samsung SDS",
+      "field": "evidence",
+      "url": [
+        "https://www.samsungsds.com/en/career/career.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "ariel",
+      "name": "Ariel Corporation",
+      "field": "careersUrl",
+      "url": "https://www.arielcorp.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.arielcorp.com/careers/"
+    },
+    {
+      "id": "ariel",
+      "name": "Ariel Corporation",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/customer-success-stories/ariel-case-study.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "navitas",
+      "name": "Navitas Business Consulting",
+      "field": "careersUrl",
+      "url": "https://navitas.applytojob.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://navitas.applytojob.com/"
+    },
+    {
+      "id": "navitas",
+      "name": "Navitas Business Consulting",
+      "field": "evidence",
+      "url": [
+        "https://navitas.applytojob.com/apply/HfjPdG2EEG/262248-AEM-Website-Developer-HyderabadVijayawada"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "coditas",
+      "name": "Coditas",
+      "field": "careersUrl",
+      "url": "https://www.coditas.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.coditas.com/careers"
+    },
+    {
+      "id": "coditas",
+      "name": "Coditas",
+      "field": "evidence",
+      "url": [
+        "https://www.coditas.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "daffodil-software",
+      "name": "Daffodil Software",
+      "field": "careersUrl",
+      "url": "https://www.daffodilsw.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.daffodilsw.com/career/"
+    },
+    {
+      "id": "daffodil-software",
+      "name": "Daffodil Software",
+      "field": "evidence",
+      "url": [
+        "https://www.daffodilsw.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "sasken",
+      "name": "Sasken Technologies",
+      "field": "careersUrl",
+      "url": "https://www.sasken.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.sasken.com/tb/saskenjobs/"
+    },
+    {
+      "id": "sasken",
+      "name": "Sasken Technologies",
+      "field": "evidence",
+      "url": [
+        "https://www.sasken.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "kotak",
+      "name": "Kotak Mahindra Bank",
+      "field": "careersUrl",
+      "url": "https://www.kotak.com/en/careers.html",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.kotak.bank.in/en/careers.html"
+    },
+    {
+      "id": "kotak",
+      "name": "Kotak Mahindra Bank",
+      "field": "evidence",
+      "url": [
+        "https://www.kotak.com/en/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "lowes",
+      "name": "Lowe's",
+      "field": "careersUrl",
+      "url": "https://talent.lowes.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://talent.lowes.com/us/en"
+    },
+    {
+      "id": "lowes",
+      "name": "Lowe's",
+      "field": "evidence",
+      "url": [
+        "https://talent.lowes.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "hp",
+      "name": "HP Inc.",
+      "field": "careersUrl",
+      "url": "https://jobs.hp.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.hp.com/"
+    },
+    {
+      "id": "hp",
+      "name": "HP Inc.",
+      "field": "evidence",
+      "url": [
+        "https://jobs.hp.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "field": "careersUrl",
+      "url": "https://www.oracle.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.oracle.com/careers/"
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "field": "evidence",
+      "url": [
+        "https://www.oracle.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "field": "careersUrl",
+      "url": "https://careers.salesforce.com/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.salesforce.com/company/careers/"
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "field": "evidence",
+      "url": [
+        "https://careers.salesforce.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "intuit",
+      "name": "Intuit",
+      "field": "careersUrl",
+      "url": "https://jobs.intuit.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.intuit.com/"
+    },
+    {
+      "id": "intuit",
+      "name": "Intuit",
+      "field": "evidence",
+      "url": [
+        "https://jobs.intuit.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "field": "careersUrl",
+      "url": "https://www.atlassian.com/company/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.atlassian.com/company/careers"
+    },
+    {
+      "id": "atlassian",
+      "name": "Atlassian",
+      "field": "evidence",
+      "url": [
+        "https://www.atlassian.com/company/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai Technologies",
+      "field": "careersUrl",
+      "url": "https://www.akamai.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.akamai.com/careers"
+    },
+    {
+      "id": "akamai",
+      "name": "Akamai Technologies",
+      "field": "evidence",
+      "url": [
+        "https://www.akamai.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "red-hat",
+      "name": "Red Hat",
+      "field": "careersUrl",
+      "url": "https://www.redhat.com/en/jobs",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.redhat.com/en/jobs"
+    },
+    {
+      "id": "red-hat",
+      "name": "Red Hat",
+      "field": "evidence",
+      "url": [
+        "https://www.redhat.com/en/jobs"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "flipkart",
+      "name": "Flipkart",
+      "field": "careersUrl",
+      "url": "https://www.flipkartcareers.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.flipkartcareers.com/"
+    },
+    {
+      "id": "flipkart",
+      "name": "Flipkart",
+      "field": "evidence",
+      "url": [
+        "https://www.flipkartcareers.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "phonepe",
+      "name": "PhonePe",
+      "field": "careersUrl",
+      "url": "https://www.phonepe.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.phonepe.com/careers/"
+    },
+    {
+      "id": "phonepe",
+      "name": "PhonePe",
+      "field": "evidence",
+      "url": [
+        "https://www.phonepe.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "luxoft",
+      "name": "Luxoft",
+      "field": "careersUrl",
+      "url": "https://career.luxoft.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://career.luxoft.com/"
+    },
+    {
+      "id": "luxoft",
+      "name": "Luxoft",
+      "field": "evidence",
+      "url": [
+        "https://career.luxoft.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "willware",
+      "name": "WillWare Technologies",
+      "field": "careersUrl",
+      "url": "https://www.willware.com/careers",
+      "category": "dead",
+      "status": 0,
+      "note": "dns: ENOTFOUND"
+    },
+    {
+      "id": "willware",
+      "name": "WillWare Technologies",
+      "field": "evidence",
+      "url": [
+        "https://www.willware.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "pi-square",
+      "name": "Pi Square Technologies",
+      "field": "careersUrl",
+      "url": "https://www.pisquaretech.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.pisquaretech.com/careers"
+    },
+    {
+      "id": "pi-square",
+      "name": "Pi Square Technologies",
+      "field": "evidence",
+      "url": [
+        "https://www.pisquaretech.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "orbion",
+      "name": "Orbion Consulting",
+      "field": "careersUrl",
+      "url": "https://www.orbionconsulting.com/careers",
+      "category": "dead",
+      "status": 0,
+      "note": "dns: EAI_AGAIN"
+    },
+    {
+      "id": "orbion",
+      "name": "Orbion Consulting",
+      "field": "evidence",
+      "url": [
+        "https://www.orbionconsulting.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "westcon-comstor",
+      "name": "Westcon-Comstor",
+      "field": "careersUrl",
+      "url": "https://www.westconcomstor.com/global/en/about/careers.html",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.westconcomstor.com/global/en/about/careers.html"
+    },
+    {
+      "id": "westcon-comstor",
+      "name": "Westcon-Comstor",
+      "field": "evidence",
+      "url": [
+        "https://www.westconcomstor.com/global/en/about/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "hul",
+      "name": "Hindustan Unilever",
+      "field": "careersUrl",
+      "url": "https://www.hul.co.in/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.unilever.com/en/india"
+    },
+    {
+      "id": "hul",
+      "name": "Hindustan Unilever",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/summit/2024/sessions/how-unilever-digitized-its-distributive-trade-rout-s430.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "albertsons",
+      "name": "Albertsons",
+      "field": "careersUrl",
+      "url": "https://www.albertsonscompanies.com/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://eofd.fa.us6.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001"
+    },
+    {
+      "id": "albertsons",
+      "name": "Albertsons",
+      "field": "evidence",
+      "url": [
+        "https://business.adobe.com/blog/the-latest/how-albertsons-created-a-pioneering-grocery-experience"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "hpe",
+      "name": "Hewlett Packard Enterprise",
+      "field": "careersUrl",
+      "url": "https://careers.hpe.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.hpe.com/us/en"
+    },
+    {
+      "id": "hpe",
+      "name": "Hewlett Packard Enterprise",
+      "field": "evidence",
+      "url": [
+        "https://careers.hpe.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "nielsen",
+      "name": "Nielsen",
+      "field": "careersUrl",
+      "url": "https://www.nielsen.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.nielsen.com/careers/"
+    },
+    {
+      "id": "nielsen",
+      "name": "Nielsen",
+      "field": "evidence",
+      "url": [
+        "https://www.nielsen.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "softtek",
+      "name": "Softtek",
+      "field": "careersUrl",
+      "url": "https://www.softtek.com/en/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.softtek.com/en/careers"
+    },
+    {
+      "id": "softtek",
+      "name": "Softtek",
+      "field": "evidence",
+      "url": [
+        "https://www.softtek.com/en/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "nestdigital",
+      "name": "Nest Digital",
+      "field": "careersUrl",
+      "url": "https://www.nestdigital.com/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://nestdigital.com/careers"
+    },
+    {
+      "id": "nestdigital",
+      "name": "Nest Digital",
+      "field": "evidence",
+      "url": [
+        "https://www.nestdigital.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "qentelli",
+      "name": "Qentelli",
+      "field": "careersUrl",
+      "url": "https://www.qentelli.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://qentelli.com/career/"
+    },
+    {
+      "id": "qentelli",
+      "name": "Qentelli",
+      "field": "evidence",
+      "url": [
+        "https://www.qentelli.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "valuebound",
+      "name": "ValueBound",
+      "field": "careersUrl",
+      "url": "https://www.valuebound.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.valuebound.com/career"
+    },
+    {
+      "id": "valuebound",
+      "name": "ValueBound",
+      "field": "evidence",
+      "url": [
+        "https://www.valuebound.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "srijan",
+      "name": "Srijan Technologies",
+      "field": "careersUrl",
+      "url": "https://www.srijan.net/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.materialplus.io/careers/job-openings-apac"
+    },
+    {
+      "id": "srijan",
+      "name": "Srijan Technologies",
+      "field": "evidence",
+      "url": [
+        "https://www.srijan.net/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "axelerant",
+      "name": "Axelerant",
+      "field": "careersUrl",
+      "url": "https://www.axelerant.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.axelerant.com/careers"
+    },
+    {
+      "id": "axelerant",
+      "name": "Axelerant",
+      "field": "evidence",
+      "url": [
+        "https://www.axelerant.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "agileengine",
+      "name": "AgileEngine",
+      "field": "careersUrl",
+      "url": "https://agileengine.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://agileengine.com/careers/"
+    },
+    {
+      "id": "agileengine",
+      "name": "AgileEngine",
+      "field": "evidence",
+      "url": [
+        "https://agileengine.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "athenahealth",
+      "name": "athenahealth",
+      "field": "careersUrl",
+      "url": "https://www.athenahealth.com/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.athenahealth.com/us/en/"
+    },
+    {
+      "id": "athenahealth",
+      "name": "athenahealth",
+      "field": "evidence",
+      "url": [
+        "https://builtwith.com/athenahealth.com"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "capital-one",
+      "name": "Capital One",
+      "field": "careersUrl",
+      "url": "https://www.capitalonecareers.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.capitalonecareers.com/"
+    },
+    {
+      "id": "capital-one",
+      "name": "Capital One",
+      "field": "evidence",
+      "url": [
+        "https://www.capitalonecareers.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "homedepot",
+      "name": "The Home Depot",
+      "field": "careersUrl",
+      "url": "https://careers.homedepot.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.homedepot.com/"
+    },
+    {
+      "id": "homedepot",
+      "name": "The Home Depot",
+      "field": "evidence",
+      "url": [
+        "https://careers.homedepot.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "pepsico",
+      "name": "PepsiCo",
+      "field": "careersUrl",
+      "url": "https://www.pepsicojobs.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.pepsicojobs.com/main/"
+    },
+    {
+      "id": "pepsico",
+      "name": "PepsiCo",
+      "field": "evidence",
+      "url": [
+        "https://www.pepsicojobs.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "coca-cola",
+      "name": "The Coca-Cola Company",
+      "field": "careersUrl",
+      "url": "https://www.coca-colacompany.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.coca-colacompany.com/careers"
+    },
+    {
+      "id": "coca-cola",
+      "name": "The Coca-Cola Company",
+      "field": "evidence",
+      "url": [
+        "https://www.coca-colacompany.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "nestle",
+      "name": "Nestlé",
+      "field": "careersUrl",
+      "url": "https://www.nestle.com/jobs",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.nestle.com/jobs"
+    },
+    {
+      "id": "nestle",
+      "name": "Nestlé",
+      "field": "evidence",
+      "url": [
+        "https://www.nestle.com/jobs"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "procter-gamble",
+      "name": "Procter & Gamble",
+      "field": "careersUrl",
+      "url": "https://www.pgcareers.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.pgcareers.com/in/en"
+    },
+    {
+      "id": "procter-gamble",
+      "name": "Procter & Gamble",
+      "field": "evidence",
+      "url": [
+        "https://www.pgcareers.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "johnson-johnson",
+      "name": "Johnson & Johnson",
+      "field": "careersUrl",
+      "url": "https://www.careers.jnj.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.careers.jnj.com/en/"
+    },
+    {
+      "id": "johnson-johnson",
+      "name": "Johnson & Johnson",
+      "field": "evidence",
+      "url": [
+        "https://www.careers.jnj.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "novartis",
+      "name": "Novartis",
+      "field": "careersUrl",
+      "url": "https://www.novartis.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.novartis.com/careers"
+    },
+    {
+      "id": "novartis",
+      "name": "Novartis",
+      "field": "evidence",
+      "url": [
+        "https://www.novartis.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "sanofi",
+      "name": "Sanofi",
+      "field": "careersUrl",
+      "url": "https://www.sanofi.com/en/careers",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://jobs.sanofi.com/en"
+    },
+    {
+      "id": "sanofi",
+      "name": "Sanofi",
+      "field": "evidence",
+      "url": [
+        "https://www.sanofi.com/en/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bayer",
+      "name": "Bayer",
+      "field": "careersUrl",
+      "url": "https://www.bayer.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bayer.com/en/career"
+    },
+    {
+      "id": "bayer",
+      "name": "Bayer",
+      "field": "evidence",
+      "url": [
+        "https://www.bayer.com/en/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "schneider-electric",
+      "name": "Schneider Electric",
+      "field": "careersUrl",
+      "url": "https://www.se.com/ww/en/about-us/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.se.com/ww/en/about-us/careers/"
+    },
+    {
+      "id": "schneider-electric",
+      "name": "Schneider Electric",
+      "field": "evidence",
+      "url": [
+        "https://www.se.com/ww/en/about-us/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "abb",
+      "name": "ABB",
+      "field": "careersUrl",
+      "url": "https://careers.abb/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.abb/global/en"
+    },
+    {
+      "id": "abb",
+      "name": "ABB",
+      "field": "evidence",
+      "url": [
+        "https://careers.abb/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "mmm",
+      "name": "3M",
+      "field": "careersUrl",
+      "url": "https://www.3m.com/3M/en_US/careers-us/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.3m.com/3M/en_US/careers-us/"
+    },
+    {
+      "id": "mmm",
+      "name": "3M",
+      "field": "evidence",
+      "url": [
+        "https://www.3m.com/3M/en_US/careers-us/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "infogain",
+      "name": "Infogain",
+      "field": "careersUrl",
+      "url": "https://www.infogain.com/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://www.tenarai.com/"
+    },
+    {
+      "id": "infogain",
+      "name": "Infogain",
+      "field": "evidence",
+      "url": [
+        "https://www.infogain.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "thoughtworks",
+      "name": "Thoughtworks",
+      "field": "careersUrl",
+      "url": "https://www.thoughtworks.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.thoughtworks.com/careers"
+    },
+    {
+      "id": "thoughtworks",
+      "name": "Thoughtworks",
+      "field": "evidence",
+      "url": [
+        "https://www.thoughtworks.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "slalom",
+      "name": "Slalom",
+      "field": "careersUrl",
+      "url": "https://www.slalom.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.slalom.com/us/en/careers"
+    },
+    {
+      "id": "slalom",
+      "name": "Slalom",
+      "field": "evidence",
+      "url": [
+        "https://www.slalom.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "vml",
+      "name": "VML",
+      "field": "careersUrl",
+      "url": "https://www.vml.com/careers",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.vml.com/careers"
+    },
+    {
+      "id": "vml",
+      "name": "VML",
+      "field": "evidence",
+      "url": [
+        "https://www.vml.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "akqa",
+      "name": "AKQA",
+      "field": "careersUrl",
+      "url": "https://www.akqa.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.akqa.com/careers/"
+    },
+    {
+      "id": "akqa",
+      "name": "AKQA",
+      "field": "evidence",
+      "url": [
+        "https://www.akqa.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "rga",
+      "name": "R/GA",
+      "field": "careersUrl",
+      "url": "https://www.rga.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.rga.com/careers"
+    },
+    {
+      "id": "rga",
+      "name": "R/GA",
+      "field": "evidence",
+      "url": [
+        "https://www.rga.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "digitas",
+      "name": "Digitas",
+      "field": "careersUrl",
+      "url": "https://www.digitas.com/en-us/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.digitas.com/en-us/careers"
+    },
+    {
+      "id": "digitas",
+      "name": "Digitas",
+      "field": "evidence",
+      "url": [
+        "https://www.digitas.com/en-us/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "royal-cyber",
+      "name": "Royal Cyber",
+      "field": "careersUrl",
+      "url": "https://www.royalcyber.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.royalcyber.com/careers/"
+    },
+    {
+      "id": "royal-cyber",
+      "name": "Royal Cyber",
+      "field": "evidence",
+      "url": [
+        "https://www.royalcyber.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "amdocs",
+      "name": "Amdocs",
+      "field": "careersUrl",
+      "url": "https://www.amdocs.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.amdocs.com/careers/home"
+    },
+    {
+      "id": "amdocs",
+      "name": "Amdocs",
+      "field": "evidence",
+      "url": [
+        "https://www.amdocs.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "thomson-reuters",
+      "name": "Thomson Reuters",
+      "field": "careersUrl",
+      "url": "https://www.thomsonreuters.com/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.thomsonreuters.com/en/careers"
+    },
+    {
+      "id": "thomson-reuters",
+      "name": "Thomson Reuters",
+      "field": "evidence",
+      "url": [
+        "https://www.thomsonreuters.com/en/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "relx",
+      "name": "RELX",
+      "field": "careersUrl",
+      "url": "https://www.relx.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.relx.com/careers"
+    },
+    {
+      "id": "relx",
+      "name": "RELX",
+      "field": "evidence",
+      "url": [
+        "https://www.relx.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "wolters-kluwer",
+      "name": "Wolters Kluwer",
+      "field": "careersUrl",
+      "url": "https://www.wolterskluwer.com/en/careers",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.wolterskluwer.com/en/careers"
+    },
+    {
+      "id": "wolters-kluwer",
+      "name": "Wolters Kluwer",
+      "field": "evidence",
+      "url": [
+        "https://www.wolterskluwer.com/en/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "autodesk",
+      "name": "Autodesk",
+      "field": "careersUrl",
+      "url": "https://www.autodesk.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.autodesk.com/careers/overview"
+    },
+    {
+      "id": "autodesk",
+      "name": "Autodesk",
+      "field": "evidence",
+      "url": [
+        "https://www.autodesk.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "field": "careersUrl",
+      "url": "https://www.nvidia.com/en-us/about-nvidia/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.nvidia.com/en-us/about-nvidia/careers/"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "field": "evidence",
+      "url": [
+        "https://www.nvidia.com/en-us/about-nvidia/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "cigna",
+      "name": "Cigna",
+      "field": "careersUrl",
+      "url": "https://jobs.thecignagroup.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.thecignagroup.com/us/en"
+    },
+    {
+      "id": "cigna",
+      "name": "Cigna",
+      "field": "evidence",
+      "url": [
+        "https://jobs.thecignagroup.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "cvs-health",
+      "name": "CVS Health",
+      "field": "careersUrl",
+      "url": "https://jobs.cvshealth.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.cvshealth.com/us/en"
+    },
+    {
+      "id": "cvs-health",
+      "name": "CVS Health",
+      "field": "evidence",
+      "url": [
+        "https://jobs.cvshealth.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "abbvie",
+      "name": "AbbVie",
+      "field": "careersUrl",
+      "url": "https://careers.abbvie.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.abbvie.com/"
+    },
+    {
+      "id": "abbvie",
+      "name": "AbbVie",
+      "field": "evidence",
+      "url": [
+        "https://careers.abbvie.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "field": "careersUrl",
+      "url": "https://www.starbucks.com/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.starbucks.com/"
+    },
+    {
+      "id": "starbucks",
+      "name": "Starbucks",
+      "field": "evidence",
+      "url": [
+        "https://www.starbucks.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "usaa",
+      "name": "USAA",
+      "field": "careersUrl",
+      "url": "https://www.usaajobs.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.usaajobs.com/"
+    },
+    {
+      "id": "usaa",
+      "name": "USAA",
+      "field": "evidence",
+      "url": [
+        "https://www.usaajobs.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "costco",
+      "name": "Costco",
+      "field": "careersUrl",
+      "url": "https://www.costco.com/jobs.html",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.costco.com/jobs.html"
+    },
+    {
+      "id": "costco",
+      "name": "Costco",
+      "field": "evidence",
+      "url": [
+        "https://www.costco.com/jobs.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "synopsys",
+      "name": "Synopsys",
+      "field": "careersUrl",
+      "url": "https://careers.synopsys.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.synopsys.com/"
+    },
+    {
+      "id": "synopsys",
+      "name": "Synopsys",
+      "field": "evidence",
+      "url": [
+        "https://careers.synopsys.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "cadence",
+      "name": "Cadence Design Systems",
+      "field": "careersUrl",
+      "url": "https://www.cadence.com/en_US/home/company/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.cadence.com/en_US/home/company/life-at-cadence/careers.html"
+    },
+    {
+      "id": "cadence",
+      "name": "Cadence Design Systems",
+      "field": "evidence",
+      "url": [
+        "https://www.cadence.com/en_US/home/company/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "broadcom",
+      "name": "Broadcom",
+      "field": "careersUrl",
+      "url": "https://www.broadcom.com/company/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.broadcom.com/company/careers"
+    },
+    {
+      "id": "broadcom",
+      "name": "Broadcom",
+      "field": "evidence",
+      "url": [
+        "https://www.broadcom.com/company/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "amd",
+      "name": "AMD",
+      "field": "careersUrl",
+      "url": "https://careers.amd.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.amd.com/careers-home/jobs"
+    },
+    {
+      "id": "amd",
+      "name": "AMD",
+      "field": "evidence",
+      "url": [
+        "https://careers.amd.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "te-connectivity",
+      "name": "TE Connectivity",
+      "field": "careersUrl",
+      "url": "https://www.te.com/en/about-te/careers.html",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.te.com/en/about-te/careers.html"
+    },
+    {
+      "id": "te-connectivity",
+      "name": "TE Connectivity",
+      "field": "evidence",
+      "url": [
+        "https://www.te.com/en/about-te/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "mahindra",
+      "name": "Mahindra Group",
+      "field": "careersUrl",
+      "url": "https://www.mahindra.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.mahindra.com/career"
+    },
+    {
+      "id": "mahindra",
+      "name": "Mahindra Group",
+      "field": "evidence",
+      "url": [
+        "https://www.mahindra.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "tata-motors",
+      "name": "Tata Motors",
+      "field": "careersUrl",
+      "url": "https://www.tatamotors.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.tatamotors.com/careers/"
+    },
+    {
+      "id": "tata-motors",
+      "name": "Tata Motors",
+      "field": "evidence",
+      "url": [
+        "https://www.tatamotors.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "saggezza",
+      "name": "Saggezza",
+      "field": "careersUrl",
+      "url": "https://www.saggezza.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.saggezza.com/careers"
+    },
+    {
+      "id": "saggezza",
+      "name": "Saggezza",
+      "field": "evidence",
+      "url": [
+        "https://www.saggezza.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "isobar",
+      "name": "Isobar",
+      "field": "careersUrl",
+      "url": "https://www.isobar.com/careers",
+      "category": "blocked",
+      "status": 429,
+      "finalUrl": "https://www.dentsucreative.com/careers"
+    },
+    {
+      "id": "isobar",
+      "name": "Isobar",
+      "field": "evidence",
+      "url": [
+        "https://www.isobar.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "kin-carta",
+      "name": "Kin + Carta",
+      "field": "careersUrl",
+      "url": "https://www.kinandcarta.com/en/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.valtech.com/en/careers/"
+    },
+    {
+      "id": "kin-carta",
+      "name": "Kin + Carta",
+      "field": "evidence",
+      "url": [
+        "https://www.kinandcarta.com/en/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "elevance-health",
+      "name": "Elevance Health",
+      "field": "careersUrl",
+      "url": "https://careers.elevancehealth.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.elevancehealth.com/"
+    },
+    {
+      "id": "elevance-health",
+      "name": "Elevance Health",
+      "field": "evidence",
+      "url": [
+        "https://careers.elevancehealth.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "walgreens",
+      "name": "Walgreens",
+      "field": "careersUrl",
+      "url": "https://jobs.walgreens.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.walgreens.com/en"
+    },
+    {
+      "id": "walgreens",
+      "name": "Walgreens",
+      "field": "evidence",
+      "url": [
+        "https://jobs.walgreens.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "siemens-healthineers",
+      "name": "Siemens Healthineers",
+      "field": "careersUrl",
+      "url": "https://www.siemens-healthineers.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.siemens-healthineers.com/careers"
+    },
+    {
+      "id": "siemens-healthineers",
+      "name": "Siemens Healthineers",
+      "field": "evidence",
+      "url": [
+        "https://www.siemens-healthineers.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "ansys",
+      "name": "Ansys",
+      "field": "careersUrl",
+      "url": "https://www.ansys.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ansys.com/careers"
+    },
+    {
+      "id": "ansys",
+      "name": "Ansys",
+      "field": "evidence",
+      "url": [
+        "https://www.ansys.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "texas-instruments",
+      "name": "Texas Instruments",
+      "field": "careersUrl",
+      "url": "https://careers.ti.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.ti.com/en/sites/CX"
+    },
+    {
+      "id": "texas-instruments",
+      "name": "Texas Instruments",
+      "field": "evidence",
+      "url": [
+        "https://careers.ti.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "flex",
+      "name": "Flex",
+      "field": "careersUrl",
+      "url": "https://flex.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://flex.com/careers"
+    },
+    {
+      "id": "flex",
+      "name": "Flex",
+      "field": "evidence",
+      "url": [
+        "https://flex.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "jabil",
+      "name": "Jabil",
+      "field": "careersUrl",
+      "url": "https://www.jabil.com/about-us/careers.html",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.jabil.com/about-us/careers.html"
+    },
+    {
+      "id": "jabil",
+      "name": "Jabil",
+      "field": "evidence",
+      "url": [
+        "https://www.jabil.com/about-us/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "hero-motocorp",
+      "name": "Hero MotoCorp",
+      "field": "careersUrl",
+      "url": "https://www.heromotocorp.com/en-in/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.heromotocorp.com/en-in/company/careers/career-overview.html"
+    },
+    {
+      "id": "hero-motocorp",
+      "name": "Hero MotoCorp",
+      "field": "evidence",
+      "url": [
+        "https://www.heromotocorp.com/en-in/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bajaj-auto",
+      "name": "Bajaj Auto",
+      "field": "careersUrl",
+      "url": "https://www.bajajauto.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bajajauto.com/careers/why-us"
+    },
+    {
+      "id": "bajaj-auto",
+      "name": "Bajaj Auto",
+      "field": "evidence",
+      "url": [
+        "https://www.bajajauto.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "tvsmotor",
+      "name": "TVS Motor",
+      "field": "careersUrl",
+      "url": "https://www.tvsmotor.com/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.tvsmotor.com/careers"
+    },
+    {
+      "id": "tvsmotor",
+      "name": "TVS Motor",
+      "field": "evidence",
+      "url": [
+        "https://www.tvsmotor.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "ashok-leyland",
+      "name": "Ashok Leyland",
+      "field": "careersUrl",
+      "url": "https://www.ashokleyland.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ashokleyland.com/"
+    },
+    {
+      "id": "ashok-leyland",
+      "name": "Ashok Leyland",
+      "field": "evidence",
+      "url": [
+        "https://www.ashokleyland.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "reliance-industries",
+      "name": "Reliance Industries",
+      "field": "careersUrl",
+      "url": "https://www.ril.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.ril.com/careers"
+    },
+    {
+      "id": "reliance-industries",
+      "name": "Reliance Industries",
+      "field": "evidence",
+      "url": [
+        "https://www.ril.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "adani",
+      "name": "Adani Group",
+      "field": "careersUrl",
+      "url": "https://www.adani.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.adani.com/careers"
+    },
+    {
+      "id": "adani",
+      "name": "Adani Group",
+      "field": "evidence",
+      "url": [
+        "https://www.adani.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "sage",
+      "name": "Sage",
+      "field": "careersUrl",
+      "url": "https://www.sage.com/en-us/company/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.sage.com/en-us/company/careers/"
+    },
+    {
+      "id": "sage",
+      "name": "Sage",
+      "field": "evidence",
+      "url": [
+        "https://www.sage.com/en-us/company/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "keysight",
+      "name": "Keysight Technologies",
+      "field": "careersUrl",
+      "url": "https://www.keysight.com/us/en/about/careers.html",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.keysight.com/us/en/about/careers.html"
+    },
+    {
+      "id": "keysight",
+      "name": "Keysight Technologies",
+      "field": "evidence",
+      "url": [
+        "https://www.keysight.com/us/en/about/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "analog-devices",
+      "name": "Analog Devices",
+      "field": "careersUrl",
+      "url": "https://www.analog.com/en/about-adi/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.analog.com/en/careers.html"
+    },
+    {
+      "id": "analog-devices",
+      "name": "Analog Devices",
+      "field": "evidence",
+      "url": [
+        "https://www.analog.com/en/about-adi/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "molex",
+      "name": "Molex",
+      "field": "careersUrl",
+      "url": "https://www.molex.com/en-us/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.molex.com/en-us/careers"
+    },
+    {
+      "id": "molex",
+      "name": "Molex",
+      "field": "evidence",
+      "url": [
+        "https://www.molex.com/en-us/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "celestica",
+      "name": "Celestica",
+      "field": "careersUrl",
+      "url": "https://www.celestica.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.celestica.com/careers/working-at-celestica"
+    },
+    {
+      "id": "celestica",
+      "name": "Celestica",
+      "field": "evidence",
+      "url": [
+        "https://www.celestica.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "huge",
+      "name": "Huge",
+      "field": "careersUrl",
+      "url": "https://www.hugeinc.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.hugeinc.com/careers/"
+    },
+    {
+      "id": "huge",
+      "name": "Huge",
+      "field": "evidence",
+      "url": [
+        "https://www.hugeinc.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "possible-agency",
+      "name": "Possible",
+      "field": "careersUrl",
+      "url": "https://www.possible.com/careers",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.vml.com/careers"
+    },
+    {
+      "id": "possible-agency",
+      "name": "Possible",
+      "field": "evidence",
+      "url": [
+        "https://www.possible.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "techtarget",
+      "name": "TechTarget",
+      "field": "careersUrl",
+      "url": "https://www.techtarget.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.techtarget.com/careers/"
+    },
+    {
+      "id": "techtarget",
+      "name": "TechTarget",
+      "field": "evidence",
+      "url": [
+        "https://www.techtarget.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bcg-x",
+      "name": "BCG X",
+      "field": "careersUrl",
+      "url": "https://careers.bcg.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.bcg.com/global/en/"
+    },
+    {
+      "id": "bcg-x",
+      "name": "BCG X",
+      "field": "evidence",
+      "url": [
+        "https://careers.bcg.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "boeing",
+      "name": "Boeing",
+      "field": "careersUrl",
+      "url": "https://jobs.boeing.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.boeing.com/"
+    },
+    {
+      "id": "boeing",
+      "name": "Boeing",
+      "field": "evidence",
+      "url": [
+        "https://jobs.boeing.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "airbus",
+      "name": "Airbus",
+      "field": "careersUrl",
+      "url": "https://www.airbus.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.airbus.com/en/careers"
+    },
+    {
+      "id": "airbus",
+      "name": "Airbus",
+      "field": "evidence",
+      "url": [
+        "https://www.airbus.com/en/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "stryker",
+      "name": "Stryker",
+      "field": "careersUrl",
+      "url": "https://careers.stryker.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.stryker.com/"
+    },
+    {
+      "id": "stryker",
+      "name": "Stryker",
+      "field": "evidence",
+      "url": [
+        "https://careers.stryker.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bd",
+      "name": "BD (Becton Dickinson)",
+      "field": "careersUrl",
+      "url": "https://jobs.bd.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.bd.com/en"
+    },
+    {
+      "id": "bd",
+      "name": "BD (Becton Dickinson)",
+      "field": "evidence",
+      "url": [
+        "https://jobs.bd.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "iqvia",
+      "name": "IQVIA",
+      "field": "careersUrl",
+      "url": "https://jobs.iqvia.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.iqvia.com/en"
+    },
+    {
+      "id": "iqvia",
+      "name": "IQVIA",
+      "field": "evidence",
+      "url": [
+        "https://jobs.iqvia.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "eaton",
+      "name": "Eaton",
+      "field": "careersUrl",
+      "url": "https://www.eaton.com/us/en-us/company/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.eaton.com/us/en-us/company/careers.html"
+    },
+    {
+      "id": "eaton",
+      "name": "Eaton",
+      "field": "evidence",
+      "url": [
+        "https://www.eaton.com/us/en-us/company/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "emerson",
+      "name": "Emerson",
+      "field": "careersUrl",
+      "url": "https://www.emerson.com/en-us/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.emerson.com/en/corporate/careers"
+    },
+    {
+      "id": "emerson",
+      "name": "Emerson",
+      "field": "evidence",
+      "url": [
+        "https://www.emerson.com/en-us/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "parker-hannifin",
+      "name": "Parker Hannifin",
+      "field": "careersUrl",
+      "url": "https://www.parker.com/us/en/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.parker.com/us/en/careers.html"
+    },
+    {
+      "id": "parker-hannifin",
+      "name": "Parker Hannifin",
+      "field": "evidence",
+      "url": [
+        "https://www.parker.com/us/en/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "zeiss",
+      "name": "ZEISS",
+      "field": "careersUrl",
+      "url": "https://www.zeiss.com/corporate/en/careers.html",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.zeiss.com/corporate/en/careers.html"
+    },
+    {
+      "id": "zeiss",
+      "name": "ZEISS",
+      "field": "evidence",
+      "url": [
+        "https://www.zeiss.com/corporate/en/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "agilent",
+      "name": "Agilent Technologies",
+      "field": "careersUrl",
+      "url": "https://www.agilent.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.agilent.com/careers/"
+    },
+    {
+      "id": "agilent",
+      "name": "Agilent Technologies",
+      "field": "evidence",
+      "url": [
+        "https://www.agilent.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "illumina",
+      "name": "Illumina",
+      "field": "careersUrl",
+      "url": "https://www.illumina.com/company/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.illumina.com/company/careers.html"
+    },
+    {
+      "id": "illumina",
+      "name": "Illumina",
+      "field": "evidence",
+      "url": [
+        "https://www.illumina.com/company/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "labcorp",
+      "name": "Labcorp",
+      "field": "careersUrl",
+      "url": "https://careers.labcorp.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.labcorp.com/global/en"
+    },
+    {
+      "id": "labcorp",
+      "name": "Labcorp",
+      "field": "evidence",
+      "url": [
+        "https://careers.labcorp.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "parexel",
+      "name": "Parexel",
+      "field": "careersUrl",
+      "url": "https://www.parexel.com/careers",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.parexel.com/careers"
+    },
+    {
+      "id": "parexel",
+      "name": "Parexel",
+      "field": "evidence",
+      "url": [
+        "https://www.parexel.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "icon-plc",
+      "name": "ICON plc",
+      "field": "careersUrl",
+      "url": "https://careers.iconplc.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.iconplc.com/"
+    },
+    {
+      "id": "icon-plc",
+      "name": "ICON plc",
+      "field": "evidence",
+      "url": [
+        "https://careers.iconplc.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "resmed",
+      "name": "ResMed",
+      "field": "careersUrl",
+      "url": "https://www.resmed.com/en-us/about-us/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.resmed.com/en-us/about-us/careers/"
+    },
+    {
+      "id": "resmed",
+      "name": "ResMed",
+      "field": "evidence",
+      "url": [
+        "https://www.resmed.com/en-us/about-us/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "align-tech",
+      "name": "Align Technology",
+      "field": "careersUrl",
+      "url": "https://jobs.aligntech.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.aligntech.com/"
+    },
+    {
+      "id": "align-tech",
+      "name": "Align Technology",
+      "field": "evidence",
+      "url": [
+        "https://jobs.aligntech.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "cardinal-health",
+      "name": "Cardinal Health",
+      "field": "careersUrl",
+      "url": "https://jobs.cardinalhealth.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.cardinalhealth.com/"
+    },
+    {
+      "id": "cardinal-health",
+      "name": "Cardinal Health",
+      "field": "evidence",
+      "url": [
+        "https://jobs.cardinalhealth.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "mckesson",
+      "name": "McKesson",
+      "field": "careersUrl",
+      "url": "https://www.mckesson.com/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.mckesson.com/en?utm_source=www.mckesson.com&utm_medium=referral&utm_campaign=redirect"
+    },
+    {
+      "id": "mckesson",
+      "name": "McKesson",
+      "field": "evidence",
+      "url": [
+        "https://www.mckesson.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "zimmer-biomet",
+      "name": "Zimmer Biomet",
+      "field": "careersUrl",
+      "url": "https://www.zimmerbiomet.com/en/careers.html",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://careers.zimmerbiomet.com/us/en"
+    },
+    {
+      "id": "zimmer-biomet",
+      "name": "Zimmer Biomet",
+      "field": "evidence",
+      "url": [
+        "https://www.zimmerbiomet.com/en/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "smith-nephew",
+      "name": "Smith+Nephew",
+      "field": "careersUrl",
+      "url": "https://www.smith-nephew.com/en/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.smith-nephew.com/en/careers"
+    },
+    {
+      "id": "smith-nephew",
+      "name": "Smith+Nephew",
+      "field": "evidence",
+      "url": [
+        "https://www.smith-nephew.com/en/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "teleflex",
+      "name": "Teleflex",
+      "field": "careersUrl",
+      "url": "https://teleflex.com/usa/en/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://teleflex.com/usa/en/careers/"
+    },
+    {
+      "id": "teleflex",
+      "name": "Teleflex",
+      "field": "evidence",
+      "url": [
+        "https://teleflex.com/usa/en/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "syneos",
+      "name": "Syneos Health",
+      "field": "careersUrl",
+      "url": "https://www.syneoshealth.com/careers",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.syneoshealth.com/careers"
+    },
+    {
+      "id": "syneos",
+      "name": "Syneos Health",
+      "field": "evidence",
+      "url": [
+        "https://www.syneoshealth.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "lonza",
+      "name": "Lonza",
+      "field": "careersUrl",
+      "url": "https://www.lonza.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.lonza.com/careers"
+    },
+    {
+      "id": "lonza",
+      "name": "Lonza",
+      "field": "evidence",
+      "url": [
+        "https://www.lonza.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "moog",
+      "name": "Moog",
+      "field": "careersUrl",
+      "url": "https://www.moog.com/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.moog.com/careers.html"
+    },
+    {
+      "id": "moog",
+      "name": "Moog",
+      "field": "evidence",
+      "url": [
+        "https://www.moog.com/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "thales",
+      "name": "Thales",
+      "field": "careersUrl",
+      "url": "https://careers.thalesgroup.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.thalesgroup.com/global/en"
+    },
+    {
+      "id": "thales",
+      "name": "Thales",
+      "field": "evidence",
+      "url": [
+        "https://careers.thalesgroup.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "rolls-royce",
+      "name": "Rolls-Royce",
+      "field": "careersUrl",
+      "url": "https://careers.rolls-royce.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.rolls-royce.com/en"
+    },
+    {
+      "id": "rolls-royce",
+      "name": "Rolls-Royce",
+      "field": "evidence",
+      "url": [
+        "https://careers.rolls-royce.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "ge-aerospace",
+      "name": "GE Aerospace",
+      "field": "careersUrl",
+      "url": "https://careers.geaerospace.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.geaerospace.com/global/en"
+    },
+    {
+      "id": "ge-aerospace",
+      "name": "GE Aerospace",
+      "field": "evidence",
+      "url": [
+        "https://careers.geaerospace.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "collins-aerospace",
+      "name": "Collins Aerospace",
+      "field": "careersUrl",
+      "url": "https://careers.rtx.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.rtx.com/global/en"
+    },
+    {
+      "id": "collins-aerospace",
+      "name": "Collins Aerospace",
+      "field": "evidence",
+      "url": [
+        "https://careers.rtx.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "waters",
+      "name": "Waters Corporation",
+      "field": "careersUrl",
+      "url": "https://www.waters.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.waters.com/nextgen/in/en/about-waters/careers.html?alias=Alias_careers_CORP"
+    },
+    {
+      "id": "waters",
+      "name": "Waters Corporation",
+      "field": "evidence",
+      "url": [
+        "https://www.waters.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bio-rad",
+      "name": "Bio-Rad Laboratories",
+      "field": "careersUrl",
+      "url": "https://careers.bio-rad.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.bio-rad.com/homepage"
+    },
+    {
+      "id": "bio-rad",
+      "name": "Bio-Rad Laboratories",
+      "field": "evidence",
+      "url": [
+        "https://careers.bio-rad.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "quest-diagnostics",
+      "name": "Quest Diagnostics",
+      "field": "careersUrl",
+      "url": "https://careers.questdiagnostics.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://careers.questdiagnostics.com/"
+    },
+    {
+      "id": "quest-diagnostics",
+      "name": "Quest Diagnostics",
+      "field": "evidence",
+      "url": [
+        "https://careers.questdiagnostics.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "olympus",
+      "name": "Olympus",
+      "field": "careersUrl",
+      "url": "https://www.olympus-global.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.olympus-global.com/careers/"
+    },
+    {
+      "id": "olympus",
+      "name": "Olympus",
+      "field": "evidence",
+      "url": [
+        "https://www.olympus-global.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "safran",
+      "name": "Safran",
+      "field": "careersUrl",
+      "url": "https://www.safran-group.com/jobs",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.safran-group.com/jobs"
+    },
+    {
+      "id": "safran",
+      "name": "Safran",
+      "field": "evidence",
+      "url": [
+        "https://www.safran-group.com/jobs"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bae-systems",
+      "name": "BAE Systems",
+      "field": "careersUrl",
+      "url": "https://jobs.baesystems.com/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://jobs.baesystems.com/global/en"
+    },
+    {
+      "id": "bae-systems",
+      "name": "BAE Systems",
+      "field": "evidence",
+      "url": [
+        "https://jobs.baesystems.com/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "mckinsey-digital",
+      "name": "McKinsey Digital",
+      "field": "careersUrl",
+      "url": "https://www.mckinsey.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.mckinsey.com/careers/home"
+    },
+    {
+      "id": "mckinsey-digital",
+      "name": "McKinsey Digital",
+      "field": "evidence",
+      "url": [
+        "https://www.mckinsey.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bain",
+      "name": "Bain & Company",
+      "field": "careersUrl",
+      "url": "https://www.bain.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.bain.com/careers/"
+    },
+    {
+      "id": "bain",
+      "name": "Bain & Company",
+      "field": "evidence",
+      "url": [
+        "https://www.bain.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "guidehouse",
+      "name": "Guidehouse",
+      "field": "careersUrl",
+      "url": "https://guidehouse.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://guidehouse.com/careers"
+    },
+    {
+      "id": "guidehouse",
+      "name": "Guidehouse",
+      "field": "evidence",
+      "url": [
+        "https://guidehouse.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "fti-consulting",
+      "name": "FTI Consulting",
+      "field": "careersUrl",
+      "url": "https://www.fticonsulting.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.fticonsulting.com/careers"
+    },
+    {
+      "id": "fti-consulting",
+      "name": "FTI Consulting",
+      "field": "evidence",
+      "url": [
+        "https://www.fticonsulting.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "kearney",
+      "name": "Kearney",
+      "field": "careersUrl",
+      "url": "https://www.kearney.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.kearney.com/careers"
+    },
+    {
+      "id": "kearney",
+      "name": "Kearney",
+      "field": "evidence",
+      "url": [
+        "https://www.kearney.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "alixpartners",
+      "name": "AlixPartners",
+      "field": "careersUrl",
+      "url": "https://www.alixpartners.com/careers/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.alixpartners.com/careers/"
+    },
+    {
+      "id": "alixpartners",
+      "name": "AlixPartners",
+      "field": "evidence",
+      "url": [
+        "https://www.alixpartners.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "oliver-wyman",
+      "name": "Oliver Wyman",
+      "field": "careersUrl",
+      "url": "https://www.oliverwyman.com/careers.html",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.oliverwyman.com/careers.html"
+    },
+    {
+      "id": "oliver-wyman",
+      "name": "Oliver Wyman",
+      "field": "evidence",
+      "url": [
+        "https://www.oliverwyman.com/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "roland-berger",
+      "name": "Roland Berger",
+      "field": "careersUrl",
+      "url": "https://www.rolandberger.com/en/Join/",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.rolandberger.com/en/Join/Join-Us/Overview/"
+    },
+    {
+      "id": "roland-berger",
+      "name": "Roland Berger",
+      "field": "evidence",
+      "url": [
+        "https://www.rolandberger.com/en/Join/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "revvity",
+      "name": "Revvity",
+      "field": "careersUrl",
+      "url": "https://www.revvity.com/careers",
+      "category": "blocked",
+      "status": 403,
+      "finalUrl": "https://www.revvity.com/careers"
+    },
+    {
+      "id": "revvity",
+      "name": "Revvity",
+      "field": "evidence",
+      "url": [
+        "https://www.revvity.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "bruker",
+      "name": "Bruker",
+      "field": "careersUrl",
+      "url": "https://www.bruker.com/en/about-us/careers.html",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.bruker.com/en/about-us/careers.html"
+    },
+    {
+      "id": "bruker",
+      "name": "Bruker",
+      "field": "evidence",
+      "url": [
+        "https://www.bruker.com/en/about-us/careers.html"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "qiagen",
+      "name": "QIAGEN",
+      "field": "careersUrl",
+      "url": "https://www.qiagen.com/careers",
+      "category": "ok",
+      "status": 200,
+      "finalUrl": "https://www.qiagen.com/in/careers"
+    },
+    {
+      "id": "qiagen",
+      "name": "QIAGEN",
+      "field": "evidence",
+      "url": [
+        "https://www.qiagen.com/careers"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "shimadzu",
+      "name": "Shimadzu",
+      "field": "careersUrl",
+      "url": "https://www.shimadzu.com/careers/",
+      "category": "dead",
+      "status": 404,
+      "finalUrl": "https://www.shimadzu.com/careers/"
+    },
+    {
+      "id": "shimadzu",
+      "name": "Shimadzu",
+      "field": "evidence",
+      "url": [
+        "https://www.shimadzu.com/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    },
+    {
+      "id": "leica-microsystems",
+      "name": "Leica Microsystems",
+      "field": "careersUrl",
+      "url": "https://www.leica-microsystems.com/company/careers/",
+      "category": "redirect",
+      "status": 200,
+      "finalUrl": "https://jobs.danaher.com/global/en/leica-microsystems"
+    },
+    {
+      "id": "leica-microsystems",
+      "name": "Leica Microsystems",
+      "field": "evidence",
+      "url": [
+        "https://www.leica-microsystems.com/company/careers/"
+      ],
+      "category": "dead",
+      "status": 0,
+      "note": "not an http(s) url"
+    }
+  ]
+}

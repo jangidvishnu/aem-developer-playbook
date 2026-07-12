@@ -544,4 +544,56 @@ Crawlers and no-JS clients see real product-mode content in `index.html` (DR-022
 
 Owner accepted 2026-07-08 together with Milestone 13. Test plan: `17_TESTING_GUIDE.md` → Milestone 14.
 
+---
+
+## Milestone 18 — Company database expansion (complete, accepted 2026-07-11)
+
+### Goal
+
+Grow a verified, India-first AEM employer list with a strict evidence bar (original stretch target 500).
+
+### Delivered
+
+- Batches B1–B3 plus later research/truth-pass work; live set stabilized at **320** after truth-pass
+  (`archive/companies/manifests/truth-pass-2026-07-10.json`).
+- Research quality rules (employer-owned `careersUrl`, M&A dedup, filter-field accuracy); link checker.
+- Owner closed the milestone at 320; remaining growth is **ad-hoc**, not a pending milestone. Unstarted B4–B8
+  targets are cancelled as milestone scope (may still inform future ad-hoc adds).
+
+### Acceptance
+
+Owner accepted 2026-07-11. Further adds only on explicit owner request.
+
+---
+
+## Milestone 19 — Job search playbook & contributor docs (complete, accepted 2026-07-11)
+
+### Delivered
+
+- Apply guide depth (agencies, LinkedIn feed training, careers vs boards, community).
+- Community chapter (LinkedIn groups; WhatsApp invites archived).
+- `CONTRIBUTING.md` company-row + PR-to-`stage` guide; collapsible disclaimer → About this data.
+- Company expand UX polish.
+
+### Acceptance
+
+Owner accepted 2026-07-11.
+
+---
+
+## Milestone 20 — Company discovery at scale (complete, accepted 2026-07-11)
+
+### Delivered
+
+- Multi-select Location filter (country groups + cities), URL `cf_loc`, company search clear ×,
+  locations grouped in company detail; sticky apply-nav mobile tab auto-scroll.
+
+### Deferred (out of milestone)
+
+- `noticePolicy` filter and optional HR contacts — not blocking acceptance.
+
+### Acceptance
+
+Owner accepted 2026-07-11 (Location + search UX as the shipped scope).
+
 

@@ -1,20 +1,14 @@
 ---
-description: Target architecture and data model, for changes touching index.html, render.js, or data files
+description: Architecture and data model for HTML/JS/data/script changes
 globs: index.html,assets/js/**,scripts/**,data/**
 alwaysApply: false
 ---
 
-# Architecture & Data Model
+# Architecture & data model
 
 Full detail: `.playbook/03_ARCHITECTURE.md`, `.playbook/09_DATA_MODEL.md`.
 
-- Target shape: `data/*.json` (structured content) → `Render` namespace in `assets/js/render.js` → `index.html`
-  (thin shell, `fetch()` + markup skeleton + event wiring only).
-- Renderer reads data; UI never owns data. Data and presentation stay separable at every layer.
-- As of Milestone 4, content lives in `data/chapters.json`, `data/companies.json`, `data/site.json`, and
-  `data/roadmaps.json`, fetched at load. `index.html` must be served over HTTP for local testing (`fetch()` against
-  `file://` is blocked by CORS — see `12_DECISIONS.md` DR-005).
-- Every `data/*.json` file has a stable `id` per record, unknown fields explicitly `null`/`"Unknown"` (never
-  omitted), and dates as ISO 8601 strings.
-- No build step — no bundler/transpiler required; the site is still plain static files, just served rather than
-  opened directly.
+- Shape: `data/*.json` → `Render` (`assets/js/render.js`) → thin `index.html` (fetch + shell + wiring).
+- UI never owns data. Serve over HTTP locally (`file://` blocks `fetch` — DR-005).
+- Stable `id` per record; unknown fields `null`/`"Unknown"`; dates ISO 8601.
+- No request-time build. Exception: `npm run prerender` bakes data into committed HTML/sitemap (DR-022); `verify` fails on drift.

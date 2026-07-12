@@ -4,6 +4,51 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — company data cleanup, BuiltWith discovery, tone pass
+
+### Added
+
+- BuiltWith AEM discovery links above the Companies table ([websitelist](https://trends.builtwith.com/websitelist/Adobe-Experience-Manager), [trends](https://trends.builtwith.com/joins/Adobe-Experience-Manager-using-Adobe-CQ)).
+- Employers: Nissan (Adobe case study + nissan.nl), Align Techne, Espire Infolabs.
+- Hiring-evidence batch tracker and cleanup/audit scripts under `scripts/data/`.
+
+### Changed
+
+- Company list deduped and hiring-evidence URLs tightened to gate-approved job postings; 32 rows without hiring proof set `ownerVerified: false`.
+- Tone pass on `site.json`, chapters, career paths, roadmaps, and company notes.
+- `hiring-gate.js`: allow empty `hiringEvidence` when `ownerVerified: false`.
+
+### Fixed
+
+- Companies chapter intro (BuiltWith blurb) now renders above the table (`render.js`).
+- BuiltWith intro link color uses `--accent` (`site.css`).
+
+
+### Added
+
+- (Prior PR) Apply guide, Community chapter, Location filter, truth-pass tooling — see merged history.
+
+### Changed
+
+- Milestones **18–20** marked **Complete** / owner-accepted 2026-07-11; no active milestone (`14_ROADMAP.md`,
+  `19_CURRENT_SPRINT.md`, `25_ROADMAP_ARCHIVE.md`). M18 closed at **320** live; M20 Location scope accepted;
+  notice/contacts deferred.
+- Always-on Cursor rules slimmed (~25KB → ~9KB); company research merged into `company-data.mdc`;
+  desktop-mobile + company rules glob-scoped.
+
+### Fixed
+
+- Sticky apply-nav: auto-scroll active tab into view on mobile horizontal strip (`assets/js/ui.js`).
+
+## Unreleased — workflow, LinkedIn, agent cost rules
+
+### Changed
+
+- Two-phase PR flow: feature → `stage` first; promote `stage` → `master` only when owner asks after stage merge
+  (`git-push-approval.mdc`, `21_PUBLISHING.md`, DR-028).
+- Agent cost optimization rule: soft model tips, less tooling on simple Q&A (`agent-cost-optimization.mdc`).
+- Disclaimer contact links: LinkedIn profile (`data/site.json`, `render.js`).
+
 ## Unreleased — stage / master dual deploy (DR-028)
 
 ### Changed
