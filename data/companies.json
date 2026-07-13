@@ -105,7 +105,7 @@
       "AEM Cloud Engineer",
       "DXP Engineer"
     ],
-    "notes": "AEM / Experience Cloud product owner; flagship employer for DXP engineers. products lists the full Adobe stack Adobe builds and hires against.",
+    "notes": "Adobe builds AEM and the Experience Cloud product stack. The products field lists Adobe technologies used for hiring research; check Adobe careers and hiring evidence for AEM-related roles.",
     "evidence": [
       "https://business.adobe.com/products/experience-manager/adobe-experience-manager.html"
     ],
@@ -212,7 +212,7 @@
       "AEM UI Developer",
       "Custom Software Engineer"
     ],
-    "notes": "Adobe implementation partner; active AEM hiring in India (Chennai, Pune, Gurugram, Bengaluru).",
+    "notes": "Adobe implementation partner; AEM-related roles found in India (Chennai, Pune, Gurugram, Bengaluru) — check careers and hiring evidence.",
     "evidence": [
       "https://www.accenture.com/us-en/services/adobe-customer-experience"
     ],
@@ -275,7 +275,7 @@
       "AEM Developer",
       "AEM Architect"
     ],
-    "notes": "Adobe Platinum Solution Partner (highest tier) with 3,000+ staff in India (Hyderabad, Bangalore, Gurugram, Chennai). Continuous AEM hiring across back-end/front-end/architect.",
+    "notes": "Adobe Platinum Solution Partner (highest tier) with 3,000+ staff in India (Hyderabad, Bangalore, Gurugram, Chennai). AEM-related roles found across backend, frontend, and architect positions in India.",
     "evidence": [
       "https://www.bounteous.com/insights/2026/04/02/bounteous-achieves-platinum-solution-partner-status-and-adobe-customer-journey/"
     ],
@@ -367,7 +367,7 @@
       "AEM Cloud Engineer",
       "Web Platform Engineer"
     ],
-    "notes": "Cisco.com replatform to AEMaaCS (Adobe case study). Strong product eng employer; AEM hiring in India comes and goes — less steady than big SIs.",
+    "notes": "Adobe's Cisco case study documents the Cisco.com replatform to AEM as a Cloud Service. AEM-related openings in India should be checked through current Cisco careers and hiring listings.",
     "evidence": [
       "https://business.adobe.com/customer-success-stories/cisco-case-study.html"
     ],
@@ -521,7 +521,7 @@
       "Adobe AEM Architect",
       "AEM Assistant Manager"
     ],
-    "notes": "I'd pick this one — good pay and growth for AEM work (my take).",
+    "notes": "Adobe alliance partner with AEM-related delivery in India (Hyderabad, Bengaluru, Chennai, and other hubs). Check careers and hiring evidence for current AEM openings.",
     "evidence": [
       "https://www.deloitte.com/global/en/alliances/adobe.html"
     ],
@@ -1598,7 +1598,7 @@
       "AEM Frontend Engineer",
       "AEM Architect"
     ],
-    "notes": "Global commercial web technology on AEM as a Cloud Service; active AEM hiring in Hyderabad.",
+    "notes": "Global commercial web technology on AEM as a Cloud Service; AEM-related roles have appeared in Hyderabad — check careers and hiring evidence.",
     "evidence": [
       "https://careers.amgen.com/en/job/hyderabad/sr-associate-aem-backend-application-logic-engineer/87/92569182688"
     ],
@@ -2051,7 +2051,7 @@
       "Senior Software Engineer - AEM",
       "Senior Digital Product Owner - AEM"
     ],
-    "notes": "Uses AEM (incl. AEMaaCS, AEM Assets + Workfront) for its eCommerce DXP. Active AEM hiring in India (Bangalore, Chennai) plus US.",
+    "notes": "Uses AEM (incl. AEMaaCS, AEM Assets + Workfront) for its eCommerce DXP. AEM-related roles have appeared in India (Bangalore, Chennai) and the US — check careers and hiring evidence for current openings.",
     "evidence": [
       "https://careers.caterpillar.com/en/jobs/r0000374350/lead-product-owner-aem-asset-workfront/"
     ],
@@ -3241,7 +3241,7 @@
       "AEM Lead",
       "AEM Solution Architect"
     ],
-    "notes": "Digital SI with India delivery; active AEM Lead/Architect and RT-CDP analyst openings on careers/LinkedIn.",
+    "notes": "Digital SI with India delivery; AEM Lead/Architect and RT-CDP analyst roles have appeared on careers/LinkedIn — check careers and hiring evidence.",
     "evidence": [
       "https://www.marlabs.com/"
     ],
@@ -3295,7 +3295,7 @@
       "Senior Staff Engineer - AEM",
       "Associate Principal Engineer (AEM)"
     ],
-    "notes": "Digital product engineering firm with a strong AEM practice (Sites/Assets/Forms, Cloud Manager, Dispatcher). Active AEM architect/engineer hiring in Delhi and across India.",
+    "notes": "Digital product engineering firm with an AEM practice (Sites/Assets/Forms, Cloud Manager, Dispatcher). AEM architect and engineer roles have appeared in Delhi and across India — check careers and hiring evidence.",
     "evidence": [
       "https://builtin.com/job/senior-staff-engineer-adobe-experience-manager-architect/4722248"
     ],
@@ -3521,7 +3521,7 @@
       "Sr AEM Full Stack Developer",
       "Staff IT Software Engineer (AEM)"
     ],
-    "notes": "Uses AEM for its global Digital Marketing web presence (HTL, Sling, OSGi + Target/Analytics/Launch). Active AEM hiring in Bengaluru, India.",
+    "notes": "Uses AEM for its global Digital Marketing web presence (HTL, Sling, OSGi + Target/Analytics/Launch). AEM-related roles have appeared in Bengaluru — check careers and hiring evidence.",
     "evidence": [
       "https://jobs.paloaltonetworks.com/en/job/bengaluru/sr-aem-front-end-developer/47263/92684900544"
     ],
@@ -3664,7 +3664,7 @@
       "AEM Architect",
       "AEP Architect"
     ],
-    "notes": "I'd pick this one — good pay and growth for AEM work (my take). AEM roles in Bengaluru cycle in and out — search regularly.",
+    "notes": "Adobe partner with AEM, AEP, and Experience Cloud delivery. AEM roles in Bengaluru appear periodically — check careers and hiring evidence regularly.",
     "evidence": [
       "https://www.publicissapient.com/company/news/epsilon-and-publicis-sapient-partner-with-adobe"
     ],
@@ -3721,7 +3721,7 @@
       "Senior Associate - AEM Developer",
       "Manager - AEM Full Stack"
     ],
-    "notes": "Adobe Solution Partner running AEM for client delivery and internal platforms. Active AEM hiring (Senior Associate / Manager) in Bengaluru and across India.",
+    "notes": "Adobe Solution Partner running AEM for client delivery and internal platforms. AEM roles (Senior Associate / Manager) have appeared in Bengaluru and across India — check careers and hiring evidence.",
     "evidence": [
       "https://www.pwc.in/consulting/technology/alliances-and-ecosystems/pwc-and-adobe.html"
     ],
@@ -5468,7 +5468,7 @@
       "AEM as a Cloud Service Architect",
       "Edge Delivery Services Developer"
     ],
-    "notes": "Adobe Silver Solution Partner focused on Adobe stack (AEM Sites/Assets, AEP, CJA, AJO). Active AEM hiring in Bangalore and other India hubs.",
+    "notes": "Adobe Silver Solution Partner focused on Adobe stack (AEM Sites/Assets, AEP, CJA, AJO). AEM-related roles have appeared in Bangalore and other India hubs — check careers and hiring evidence.",
     "evidence": [
       "https://bhasaka.com/about.html"
     ],
@@ -5682,7 +5682,7 @@
       "AEM Developer",
       "Adobe AEM & DAM Developer"
     ],
-    "notes": "Active AEM developer hiring in India (Bangalore, Noida, Pune, Hyderabad).",
+    "notes": "Adobe partner with AEM developer roles found in India (Bangalore, Noida, Pune, Hyderabad) — check careers and hiring evidence for current openings.",
     "evidence": [
       "https://www.capgemini.com/us-en/services/adobe/"
     ],
@@ -5897,7 +5897,7 @@
       "AEM Backend Developer",
       "AEM Assets Senior Consultant"
     ],
-    "notes": "IT services firm with a strong AEM practice (AEM Forms/Adaptive Forms, AEM Assets + Workfront/Brand Portal). ~20 open AEM positions in Bangalore/Pune.",
+    "notes": "IT services firm with an AEM practice (AEM Forms/Adaptive Forms, AEM Assets + Workfront/Brand Portal). AEM roles have been posted in Bangalore/Pune — check careers and hiring evidence.",
     "evidence": [
       "https://cutshort.io/job/AEM-Forms-Lead-Bengaluru-Bangalore-Commergence-rhSzw8ea"
     ],
@@ -6282,7 +6282,7 @@
       "AEM Engineer",
       "DXP Consultant"
     ],
-    "notes": "Sitecore Gold partner with AEM in DXP delivery practice (Gurugram HQ); monitor careers and Naukri for AEM engineer openings.",
+    "notes": "Sitecore Gold partner with AEM in DXP delivery practice (Gurugram HQ); check careers and Naukri hiring evidence for AEM engineer openings.",
     "evidence": [
       "https://www.espire.com/careers",
       "https://www.espire.com/services/digital-experience-platforms",
@@ -6526,7 +6526,7 @@
       "AEM Developer",
       "Software Engineer (AEM)"
     ],
-    "notes": "Digital engineering firm (Bengaluru HQ) with an AEM practice (AEM Sites/Forms/DAM, Dispatcher, MSM). AEM roles often posted under generic Software Engineer titles — monitor careers.",
+    "notes": "Digital engineering firm (Bengaluru HQ) with an AEM practice (AEM Sites/Forms/DAM, Dispatcher, MSM). AEM roles often posted under generic Software Engineer titles — check careers and hiring evidence.",
     "evidence": [
       "https://www.happiestminds.com/"
     ],
@@ -6573,7 +6573,7 @@
       "AEM Architect",
       "AEM Developer"
     ],
-    "notes": "Good pay and growth for AEM work (my take). Adobe partner (Bengaluru). Products from Hashout Adobe Expertise list (Sites, Assets, Forms, Commerce, Target, Guides, Analytics, CJA, AEP).",
+    "notes": "Adobe partner (Bengaluru). Products from Hashout Adobe Expertise list (Sites, Assets, Forms, Commerce, Target, Guides, Analytics, CJA, AEP). Check careers and hiring evidence for AEM openings.",
     "evidence": [
       "https://hashouttech.com/",
       "https://in.linkedin.com/company/hashout-technologies"
@@ -6660,7 +6660,7 @@
       "AEM Sr Developer",
       "Technical Architect (AEM)"
     ],
-    "notes": "Mumbai WCM/DXM consultancy with standing AEM developer, senior, lead, and architect openings on careers — often posts AEM roles (I marked as frequent hiring).",
+    "notes": "Mumbai WCM/DXM consultancy with AEM developer, senior, lead, and architect roles on careers. Often posts AEM roles — check careers and hiring evidence for current openings.",
     "evidence": [
       "https://www.hayagreeva.co.in/careers/technical-architects-aem/",
       "https://in.linkedin.com/company/hayagreeva-consulting"
@@ -6791,7 +6791,7 @@
       "Web Platform Engineer",
       "AEM Developer"
     ],
-    "notes": "RAQN platform on AEM Sites/Assets as a Cloud Service plus Campaign, Analytics, RT-CDP, Journey Orchestration (Adobe case study). India IT hub Bengaluru; AEM-titled hiring intermittent — monitor careers.",
+    "notes": "RAQN platform on AEM Sites/Assets as a Cloud Service plus Campaign, Analytics, RT-CDP, Journey Orchestration (Adobe case study). India IT hub Bengaluru; AEM-titled roles appear periodically — check careers and hiring evidence.",
     "evidence": [
       "https://business.adobe.com/customer-success-stories/henkel-case-study.html"
     ],
@@ -9186,7 +9186,7 @@
       "Digital Content Engineer",
       "Adobe Experience Manager Developer"
     ],
-    "notes": "Strong Asia presence; AEM and Workfront in digital marketing operations.",
+    "notes": "Asia offices including India; AEM and Workfront in digital marketing operations. Check careers and hiring evidence for AEM-related roles.",
     "evidence": [
       "https://business.adobe.com/summit/2025/sessions/standard-chartered-banks-breakthrough-s945.html"
     ],
@@ -9790,7 +9790,7 @@
       "Digital Experience Engineer",
       "Web Platform Engineer"
     ],
-    "notes": "Public site and intranet on AEM with Analytics, Target, Campaign (Adobe case study). India GCCs Pune/Hyderabad; AEM-titled hiring intermittent.",
+    "notes": "Public site and intranet on AEM with Analytics, Target, Campaign (Adobe case study). India GCCs Pune/Hyderabad; AEM-titled roles appear periodically — check careers and hiring evidence.",
     "evidence": [
       "https://www.casestudies.com/company/adobe-experience-cloud/case-study/ubs-delivering-superb-customer-and-employee-experiences-online"
     ],
@@ -10203,7 +10203,7 @@
       "AEM Solution Architect",
       "AEM Practice Lead"
     ],
-    "notes": "Pune-headquartered IT services firm with an AEM Practice Lead and multiple Adobe-certified AEM architects/developers (e.g. Mastercard AEM engagements). AEM roles appear via job boards; monitor careers portal for live reqs.",
+    "notes": "Pune-headquartered IT services firm with an AEM Practice Lead and multiple Adobe-certified AEM architects/developers (e.g. Mastercard AEM engagements). AEM roles appear via job boards — check careers and hiring evidence for current openings.",
     "evidence": [
       "https://itcampus.in/zensar-technologies-is-hiring-java-full-stack-developer/"
     ],
@@ -10329,7 +10329,7 @@
       "Digital Experience Engineer",
       "Web Platform Engineer"
     ],
-    "notes": "CDN/security firm with India engineering. Corporate site CMS may include AEM historically — watchlist. Priority capped.",
+    "notes": "CDN/security firm with India engineering. Corporate site may include AEM historically — limited AEM hiring evidence in published sources. Check careers for AEM-related roles.",
     "evidence": [
       "https://www.linkedin.com/search/results/people/?keywords=aem&origin=FACETED_SEARCH&currentCompany=%5B%223925%22%5D"
     ],
@@ -10360,7 +10360,7 @@
       "Digital Experience Engineer",
       "Ecommerce Engineer"
     ],
-    "notes": "Grocery marketplace historically on Magento/Adobe Commerce (Adobe blog) — not strong AEM Sites evidence. Watchlist; no India hiring.",
+    "notes": "Grocery marketplace historically on Magento/Adobe Commerce (Adobe blog) — limited AEM Sites evidence in published sources. No India AEM hiring signal in this database.",
     "evidence": [
       "https://business.adobe.com/blog/the-latest/how-albertsons-created-a-pioneering-grocery-experience"
     ],
@@ -11751,7 +11751,7 @@
       "Digital Experience Engineer",
       "Web Platform Engineer"
     ],
-    "notes": "Fintech with Bengaluru tech center. AEM/CMS hiring rare — watchlist. Priority capped.",
+    "notes": "Fintech with Bengaluru tech center. AEM/CMS-related roles are rare in published hiring evidence — check careers for current openings.",
     "evidence": [
       "https://jobs.intuit.com/"
     ],
@@ -12449,7 +12449,7 @@
       "Frontend Developer",
       "Digital Platform Engineer"
     ],
-    "notes": "Global AMIEO digital commerce platform on AEM headless (Adobe case study); nissan.nl is Netherlands market site. Nissan Digital India (Thiruvananthapuram) — monitor careers for AEM/digital roles.",
+    "notes": "Global AMIEO digital commerce platform on AEM headless (Adobe case study); nissan.nl is Netherlands market site. Nissan Digital India (Thiruvananthapuram) — check careers and hiring evidence for AEM/digital roles.",
     "evidence": [
       "https://www.nissan.nl/",
       "https://business.adobe.com/customer-success-stories/nissan-case-study.html",
@@ -13005,7 +13005,7 @@
       "Senior Digital Engineer (AEM)",
       "AEM QA / Functional Tester"
     ],
-    "notes": "Modernization engineering firm (Bengaluru HQ) with AEM delivery staff (AEM/CMS, AEM Forms, functional QA). AEM roles typically posted under digital-engineering titles — monitor careers.",
+    "notes": "Modernization engineering firm (Bengaluru HQ) with AEM delivery staff (AEM/CMS, AEM Forms, functional QA). AEM roles typically posted under digital-engineering titles — check careers and hiring evidence.",
     "evidence": [
       "https://linkedin.com/in/chandrashekhar-kalashetti"
     ],
@@ -13424,7 +13424,7 @@
       "Digital Experience Engineer",
       "MarTech Engineer"
     ],
-    "notes": "Adobe Real-Time CDP, Journey Optimizer, Analytics, Target (Adobe case study). AEM Sites not primary in published story — watchlist for MarTech/DXP roles. No India hiring signal.",
+    "notes": "Adobe Real-Time CDP, Journey Optimizer, Analytics, Target (Adobe case study). AEM Sites not primary in published story — included for MarTech/DXP stack connection. No India hiring signal in this database.",
     "evidence": [
       "https://business.adobe.com/customer-success-stories/us-bank-case-study.html"
     ],

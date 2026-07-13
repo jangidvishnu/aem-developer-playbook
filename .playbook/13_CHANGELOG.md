@@ -4,6 +4,13 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — final humanisation pass (public copy)
+
+### Changed
+
+- Final humanisation pass on public copy in `owner_playbook.json`, `chapters.json`, `roadmaps.json`, `site.json`, and 29 company notes in `companies.json` — plainer Indian developer voice; removed consultant phrasing and unsupported hiring claims.
+- Prerendered `index.html` and Milestone 3 render golden updated for chapter and hero copy changes.
+
 ## Unreleased — editorial tone and AEM Career Playbook title
 
 ### Added
