@@ -14,7 +14,7 @@
     "reading": "4 min",
     "tags": ["Career"],
     "careerPathEmbed": true,
-    "body": "<p>In India, AEM roles show up at <strong>product companies</strong>, <strong>GCCs</strong>, and <strong>agencies / SIs</strong> — each is different in pace, ownership, and interviews. Use <a href=\"#target-companies\">Companies</a> to shortlist, then <a href=\"#professional-branding\">Resume &amp; LinkedIn templates</a> to prep your profile, then <a href=\"#how-to-apply\">How to Apply</a> for day-to-day steps. Go deep on AEM (Sites, Cloud Service, Dispatcher, integrations) instead of claiming \"full-stack everything.\" Even when you're not switching jobs, stay ready: keep LinkedIn/Naukri updated, do a low-pressure interview every few months, and fix whatever gaps show up. This isn't a ranking — every company has trade-offs.</p>"
+    "body": "<p>In India, AEM roles show up at <strong>product companies</strong>, <strong>GCCs</strong>, and <strong>agencies / SIs</strong> — each is different in pace, ownership, and interviews. Use <a href=\"#target-companies\">Companies</a> to shortlist, then <a href=\"#professional-branding\">Resume &amp; LinkedIn templates</a> to prep your profile, then <a href=\"#how-to-apply\">How to Apply</a> for day-to-day steps.</p><p>Build strong knowledge in the AEM areas you actually work with, such as Sites, Cloud Service, Dispatcher, Forms, or integrations. You do not need to present yourself as an expert in every frontend, backend, cloud, and Adobe technology.</p><p>Even when you're not switching jobs, stay ready: keep LinkedIn/Naukri current, periodically review interview questions or take an interview when you are genuinely open to exploring a role, and fix whatever gaps show up. This isn't a ranking — every company has trade-offs.</p>"
   },
   {
     "id": "professional-branding",
@@ -23,7 +23,7 @@
     "reading": "3 min",
     "tags": ["Branding"],
     "templateEmbed": true,
-    "body": "<p>Present yourself as an <strong>AEM Developer</strong> with clear skills in Sites, Cloud Service, Dispatcher, and integrations. Fill in your real projects and numbers — don't make up impact. Templates below are for LinkedIn, Naukri, outreach messages, and resume bullets.</p>"
+    "body": "<p>Present yourself as an <strong>AEM Developer</strong> with clear skills in Sites, Cloud Service, Dispatcher, and integrations. Fill in your real projects and numbers — don't make up impact. Use these as writing patterns, not ready-made experience claims. Replace every placeholder with work you actually performed and can explain properly in an interview. Templates below are for LinkedIn, Naukri, outreach messages, and resume bullets.</p>"
   },
   {
     "id": "core-skills",
@@ -45,7 +45,7 @@
   {
     "id": "target-companies",
     "title": "Companies",
-    "summary": "~298 employers that hires for AEM — filter by India, cloud, and more.",
+    "summary": "~298 employers that hire for AEM — filter by India, cloud, and more.",
     "reading": "8 min",
     "tags": ["Companies"],
     "companyTable": true,
@@ -93,7 +93,7 @@
     "reading": "10 min",
     "tags": ["Interview"],
     "interviewEmbed": true,
-    "body": "<p>Interviews depend on what you know, what's on your resume, and how the interviewer runs the loop — basics like JCR, Java, Sling, OSGi, Dispatcher, HTL, and ResourceResolver come up a lot. Use the list below as a checklist, not a script; adapt to your experience. Real project work you can explain beats memorising AI-generated answers — but still know the fundamentals.</p>"
+    "body": "<p>AEM interview questions usually depend on your experience and the skills mentioned in your resume. If you have Dispatcher, AEM Forms, Solr, or Cloud Service in your resume, be ready for questions from those areas.</p><p>Use the questions below to check your preparation. Do not memorise answers word by word. Try to explain each topic using work you have actually done in a project. If you have not worked on a topic directly, understand the basics and be clear about your level of experience.</p><p>AI tools can help you revise a topic or compare your answer with a better explanation, but do not memorise wording that you cannot explain when the interviewer asks a follow-up question.</p>"
   },
   {
     "id": "about-data",
@@ -102,7 +102,7 @@
     "reading": "2 min",
     "tags": ["About"],
     "disclaimerEmbed": true,
-    "body": "<p>Research notes shared with other AEM developers. Use as a starting point — always confirm openings on employer careers pages and job boards.</p>"
+    "body": "<p>Research notes shared with other AEM developers. Use as a starting point — always confirm openings on employer careers pages and job boards.</p><blockquote><p>Career guidance in this playbook reflects practical strategies and research, not guaranteed hiring outcomes. Hiring processes vary by employer, recruiter, role, location, and candidate. Use the guidance as a starting point and adapt it to your situation.</p></blockquote>"
   },
   {
     "id": "living-roadmap",

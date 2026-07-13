@@ -8,7 +8,7 @@
         "id": "aem-architecture",
         "title": "AEM architecture fundamentals",
         "status": "in progress",
-        "description": "Author/publish, JCR basics, replication, environments.",
+        "description": "Understand how AEM Author and Publish work, where content is stored in JCR, and how content moves between environments.",
         "technologyIds": ["aem-sites"],
         "resourceIds": ["adobe-aem-docs", "wknd-tutorial", "adobe-osgi-intro"]
       },
@@ -24,7 +24,7 @@
         "id": "dispatcher-basics",
         "title": "Dispatcher and caching",
         "status": "planned",
-        "description": "Filter rules, cache invalidation, troubleshooting.",
+        "description": "Learn the basic Dispatcher filter and cache rules, how cache invalidation works, and how to debug common caching issues.",
         "technologyIds": ["dispatcher"],
         "resourceIds": ["adobe-dispatcher"]
       }

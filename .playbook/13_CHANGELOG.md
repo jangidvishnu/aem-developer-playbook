@@ -4,7 +4,26 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
-## Unreleased — company data cleanup, BuiltWith discovery, tone pass
+## Unreleased — final humanisation pass (public copy)
+
+### Changed
+
+- Final humanisation pass on public copy in `owner_playbook.json`, `chapters.json`, `roadmaps.json`, `site.json`, and 29 company notes in `companies.json` — plainer Indian developer voice; removed consultant phrasing and unsupported hiring claims.
+- Prerendered `index.html` and Milestone 3 render golden updated for chapter and hero copy changes.
+
+## Unreleased — editorial tone and AEM Career Playbook title
+
+### Added
+
+- `.playbook/EDITORIAL_REVIEW.md` — editorial tone spec for public copy.
+
+### Changed
+
+- Site brand renamed to **AEM Career Playbook** (`data/site.json`, prerendered `index.html`).
+- Editorial tone pass on `site.json`, `chapters.json`, `owner_playbook.json`, and `templates.json` (evidence-based wording; fewer subjective claims).
+- Hero employer count copy and search golden updated to **~298** employers (total list, not India-only) (`verify-search.js`).
+
+## Unreleased — company data cleanup, BuiltWith discovery, tone pass (merged PR #15)
 
 ### Added
 

@@ -1,10 +1,10 @@
 {
   "id": "site",
   "mode": "product",
-  "documentTitle": "AEM Playbook — companies, apply tips & interview prep (India)",
+  "documentTitle": "AEM Career Playbook — companies, apply tips & interview prep (India)",
   "header": {
-    "title": "AEM Playbook",
-    "shortTitle": "AEM Playbook",
+    "title": "AEM Career Playbook",
+    "shortTitle": "AEM Career Playbook",
     "versionLabel": "Shared notes · Jul 2026",
     "githubUrl": "https://github.com/jangidvishnu/aem-developer-playbook"
   },
@@ -54,16 +54,16 @@
   },
   "hero": {
     "purpose": {
-      "intro": "Useful when you're applying now — or just keeping sharp:",
+      "intro": "Useful whether you are applying now or staying ready for the next role:",
       "points": [
-        "Learn from interview gaps instead of only memorising answers.",
-        "Keep LinkedIn and Naukri updated so recruiters can find you.",
-        "A relaxed interview every few months helps you know your market value.",
+        "Use interview questions to check your preparation. Explain topics with real project work — do not memorise answers word by word.",
+        "Keep LinkedIn and Naukri in sync with your resume: notice period, last working day, skills, and location.",
+        "When you find a role, check the expected joining date before you apply.",
         "Companies, apply steps, learning links, and interview prep work best together."
       ]
     },
     "title": "AEM companies, apply tips, and interview prep (India)",
-    "body": "~272 AEM employers in India, apply steps for LinkedIn and Naukri, plus learning links and interview topics. Filter by India hiring and AEM Cloud — then open apply steps when you need them.",
+    "body": "~298 AEM employers, apply steps for LinkedIn and Naukri, plus learning links and interview topics. Filter by India hiring and AEM Cloud — then open apply steps when you need them.",
     "ctaCompanies": "Browse companies",
     "ctaApply": "How to apply"
   },

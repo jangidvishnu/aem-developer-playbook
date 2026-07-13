@@ -7,57 +7,57 @@
       "id": "apply-workflow",
       "title": "Apply workflow",
       "audience": "owner",
-      "summary": "Prepare your resume and profiles first — apply only when your join date matches the role.",
+      "summary": "Start with your resume and profiles before you begin applying. When you find a role, check the expected joining date first. If the company needs someone immediately and you still have two or three months of notice period left, focus on other openings unless the recruiter says they can wait.",
       "steps": [
-        "Build your resume (ChatGPT or any agent): Share your full experience — companies, technologies, education, projects, and employment history. State the AEM role you want (backend, frontend, campaign, full-stack, etc.) and the type of companies you are targeting. List your skills clearly. Ask for a tailored resume with ATS keywords for those roles.",
-        "Do not use the export as-is. Open Overleaf, pick a simple one-column resume template. Copy-paste content from the draft into LaTeX manually — auto-generated LaTeX often has errors. Fix any section that does not read well. Do not add GitHub, HackerRank, or other profile links unless you actively use them.",
-        "Upload the Overleaf PDF to ChatGPT and a few free ATS checker sites. A score above 70 is good enough to proceed.",
-        "Ask ChatGPT for steps to update LinkedIn and Naukri so they match your resume. Recruiters search by keywords — skills and headline matter most. Share screenshots of each profile section and ask what to fill in (especially skills). Get your LinkedIn profile reviewed. Spend real time on both profiles — they are essential for India hiring. Use the same resume details on other job portals. Keep LWD (last working day), location, CTC, and notice period accurate.",
-        "Notice period — do not apply to immediate roles: If you have not resigned yet, or you have resigned but still have a long notice (for example 90 days) and cannot join immediately or within about 30 days, do not apply to companies hiring for immediate joiners. Applying when you are not available often leads to rejection — and that can hurt your chances at the same company later, when you are actually ready to join.",
-        "Notice period — where you can apply: During a long notice, you can still apply to MNCs and product companies that accept standard Indian notice (often 60 or 90 days). Many large employers are flexible if your last working day is stated clearly. Match each posting to your real join date — skip immediate roles, but do not sit idle if the employer explicitly allows your notice length.",
-        "Use early notice time well: Prepare your resume, LinkedIn, Naukri, company shortlist, and AEM interview prep. For roles that need you sooner, start portal applies, emails, and referral outreach when you are within about 30 days of your last working day."
+        "Draft your resume with an AI assistant if useful: Share your actual experience — companies, projects, technologies, education, and employment history. Clearly mention the AEM role you are targeting, such as backend, full-stack, Forms, or platform-focused roles. Also mention the type of companies you want to target. If you use an AI assistant, ask it to prepare a role-focused draft and include relevant ATS keywords only where they match your real experience. Review every bullet yourself. Remove anything you did not actually do or cannot explain properly in an interview.",
+        "Do not publish an AI-generated resume draft as-is. If you use Overleaf, start with a simple one-column template and move the reviewed content into it carefully. Check formatting, dates, links, section order, and every bullet before exporting the PDF. Do not add GitHub, HackerRank, or other profile links unless you actively use them.",
+        "Upload the final PDF to an AI assistant and check it with one or two ATS checker tools. Do not focus only on the score because different tools can give different results. Use the report mainly to check whether your skills are being read correctly, important AEM keywords are missing, or any section is not parsed properly.",
+        "Once the resume is ready, update LinkedIn and Naukri section by section. Your job title, company dates, skills, notice period, and experience should match the information in your resume. Keep your last working day, current location, preferred locations, CTC, and availability accurate. Use clear AEM skill names that match the work you actually do and the roles you are applying for. Do not add a skill only because it appears in a job description.",
+        "Notice period — focus on roles that match your joining date: If you are serving a long notice period and a job clearly asks for an immediate joiner, check whether the recruiter or company can wait. If they cannot, it is usually better to skip that opening and spend your time on roles that match your joining date.",
+        "A long notice period does not mean you should stop applying. Some companies have longer interview and approval processes, while others need people quickly. Read the job post, ask the recruiter about the expected joining date, and clearly mention your last working day.",
+        "As your last working day gets closer, increase your daily job search. More immediate-joiner and early-joiner roles may now match your availability. Use early notice time to prepare your resume, LinkedIn, Naukri, company shortlist, and AEM interview prep."
       ],
-      "body": "Skip immediate-hiring roles if you cannot join soon — an early rejection can hurt you later. You can still apply to MNCs and product companies that accept long notice when your LWD matches. For most other roles, apply actively in the last ~30 days of notice."
+      "body": "Before applying, check the expected joining date. If the company needs an immediate joiner and you still have a long notice period, focus on other roles unless they mention notice-period flexibility."
     },
     {
       "id": "outreach",
       "title": "Outreach",
       "audience": "owner",
-      "summary": "Use referrals, HR posts, and connection requests — avoid blind apply when you can reach a person.",
+      "summary": "Do not depend only on job portals. If you find the recruiter who posted the role, an HR email in the job post, or someone who can refer you, contact them as well.",
       "steps": [
-        "LinkedIn posts: Search AEM (or your role keyword), filter type to Posts. First pass — wider time window; after that — last 1 day only. Look for HR or hiring posts for your role. Often an email is in the post — send your application there. This works well because your profile goes directly to HR.",
-        "Gmail cover-letter template: For LinkedIn or Naukri invites, keep a reusable Gmail template — short cover letter with skills, experience, LWD if applicable, contact details, and resume attached. Reuse for every invite-style apply. Send these emails only when you are within about 30 days of joining — not earlier in a long notice period.",
-        "Referral before direct apply: When you see a job on LinkedIn or Naukri, do not apply immediately. Search that company on LinkedIn, find people in the same role (or a related AEM role), and send a connection request. After they accept, ask for a referral politely — not bluntly (\"could you refer me?\"). Use a ChatGPT-drafted message that mentions your role, experience, and why you fit. Wait for their reply. If referral works, great; if not, you can still apply later.",
-        "Recruiter direct: If the post lists a recruiter email or contact info, reaching out there often works better than a generic portal apply.",
-        "Staffing / HR agencies: Sometimes an agency is hiring for the employer. Prefer applying through that agency when you find one — agencies often chase responses harder and can get you a reply faster than a blind careers-portal apply."
+        "LinkedIn posts: Search AEM (or your role keyword), filter type to Posts. First pass — wider time window; after that — last 1 day only. Look for HR or hiring posts for your role. If the recruiter has shared an email address in the post, send your resume there as well. Mention the role, your AEM experience, current location, and joining availability clearly. Keep the message short.",
+        "Gmail cover-letter template: For LinkedIn or Naukri invites, keep a reusable Gmail template — short cover letter with skills, experience, LWD if applicable, contact details, and resume attached. Reuse for every invite-style apply. State your last working day clearly when the role has specific joining expectations.",
+        "Referral before direct apply: When you see a job on LinkedIn or Naukri, do not apply immediately. Search that company on LinkedIn, find people in the same role (or a related AEM role), and send a connection request. If you know someone in the company, or find an AEM developer from that company on LinkedIn, you can politely ask whether they are comfortable referring you. Share the job link and a short summary of your experience. If they do not reply, continue with the official application instead of waiting.",
+        "Recruiter direct: If the post lists a recruiter email or contact info, send your resume there as well alongside any portal application.",
+        "Staffing / HR agencies: If a staffing agency is officially handling the role, follow the process shared by the recruiter. Before sending personal documents, check the recruiter, agency, company, and job details. Also check whether the same role is available on the company's careers site."
       ],
-      "body": "Treat outreach as higher signal than one-click apply. Keep templates in Gmail; refine referral and HR-post wording with ChatGPT once, then reuse. Use staffing agencies when they are the hiring channel for a role."
+      "body": "Do not depend only on job portals. If you find the recruiter who posted the role, an HR email in the job post, or someone who can refer you, contact them as well. Still use the company's official application process where required. Keep templates in Gmail; refine referral and HR-post wording with an AI assistant once, then reuse."
     },
     {
       "id": "linkedin-feed",
       "title": "Train your LinkedIn feed",
       "audience": "owner",
-      "summary": "Shape LinkedIn so AEM jobs and hiring posts show up near the top when you open the app.",
+      "summary": "Keep your LinkedIn activity focused on AEM so it becomes easier to find relevant recruiters, hiring posts, groups, and job discussions.",
       "steps": [
         "Join AEM-focused LinkedIn groups (see Community links on this page) and turn on notifications for the most active ones.",
-        "Follow AEM recruiters, hiring managers, and delivery leads who regularly post openings. Connect with people already in AEM roles at your target companies.",
-        "Engage lightly every day: like or comment on AEM hiring posts and group discussions. LinkedIn learns from what you open — stay on AEM topics and skip unrelated noise.",
-        "Search AEM (Posts + Jobs) daily with a last-1-day filter once your notice window is open. The more you open AEM results, the more the home feed surfaces similar posts first."
+        "Follow AEM recruiters, Adobe Experience Cloud professionals, AEM developers, architects, and companies you want to work for. When you find useful AEM job posts, save the search terms and check them regularly.",
+        "Do not depend only on the LinkedIn home feed. Search for terms such as AEM Developer, Adobe Experience Manager, AEM Cloud Service, AEM Forms, and Adobe Experience Cloud. Try location-specific searches as well.",
+        "Search AEM (Posts + Jobs) daily with a last-1-day filter once your notice window is open. Save useful searches and repeat them regularly instead of relying only on the home feed."
       ],
-      "body": "A trained feed means the first posts you see are often AEM hiring — less time hunting, more time applying."
+      "body": "The goal is simple: when you open LinkedIn for job search, you should know where to look instead of scrolling through unrelated posts."
     },
     {
       "id": "careers-vs-boards",
       "title": "Careers sites vs job boards",
       "audience": "owner",
-      "summary": "Many employers hire through Naukri or LinkedIn profiles and may never post the same role on their careers page.",
+      "summary": "AEM openings can appear across employer careers sites, LinkedIn, Naukri, recruiter posts, and other job boards. The same opening may not be equally visible on every channel.",
       "steps": [
-        "Do not rely only on the Careers button. Recruiters often message you on Naukri or LinkedIn, or post on Foundit, Cutshort, and similar boards.",
-        "In Companies, open each employer’s detail panel and check AEM evidence and Hiring evidence links — those often point to board posts or searches that prove recent AEM hiring.",
-        "Keep Naukri and LinkedIn profiles complete and active so inbound outreach can find you even when the careers site is quiet.",
-        "Still use the employer careers URL when it exists — it is the official apply path — but treat boards and profile outreach as equal channels for India AEM hiring."
+        "Do not check only the company careers page. AEM openings can also appear on LinkedIn, Naukri, recruiter posts, and other job boards. The same role may not be easy to find on every platform.",
+        "In the Companies section, open the company details and check the AEM evidence and Hiring evidence links. These links explain why the company is included in the database and may also help you find recent AEM-related openings.",
+        "Keep Naukri and LinkedIn profiles complete and current so inbound outreach can find you when the careers site is quiet.",
+        "Check the official careers page for the role details, but also search LinkedIn, Naukri, and relevant recruiter posts."
       ],
-      "body": "Careers pages are useful, not complete. Evidence and hiring-evidence links in this playbook help you find where roles actually appear."
+      "body": "Check the official careers page for the role details, but also search LinkedIn, Naukri, and relevant recruiter posts. Use the evidence links in this playbook to understand why a company is listed and where AEM-related hiring was found."
     },
     {
       "id": "learning-sources",
@@ -65,27 +65,26 @@
       "audience": "owner",
       "summary": "Keep job-search prep and AEM technical prep separate.",
       "steps": [
-        "Job-search content (resume, LinkedIn, Naukri, referral messages): ChatGPT or any agent — paste your real experience only, never invented bullets.",
+        "Job-search content: An AI assistant can help draft resume bullets, profile copy, and outreach messages. Provide only your real experience and remove any claim you cannot verify or explain.",
         "AEM technical depth: This playbook's roadmaps, glossary, and interview prep — plus Adobe Experience League when you need to verify a topic before an interview.",
         "Employer research: Use the Companies table and company evidence before you interview or message someone at that employer.",
         "Do not list tools or platforms on your resume or profiles unless you use them actively."
       ],
-      "body": "ChatGPT helps you present your profile clearly; this playbook helps you defend AEM topics in a technical interview."
+      "body": "AI tools can help structure and review your profile. This playbook focuses on AEM career research, learning paths, and interview preparation."
     },
     {
       "id": "weekly-rhythm",
-      "title": "Weekly rhythm",
+      "title": "Daily and weekly job search routine",
       "audience": "owner",
       "summary": "How to search and apply on LinkedIn and Naukri after your profiles are ready.",
       "steps": [
-        "Before the last 30 days of notice: Focus on resume, profiles, company shortlists, and AEM interview prep. You may apply to MNCs and product companies that accept 60–90 day notice if your LWD matches — but avoid immediate-joiner roles if you cannot start that soon.",
-        "Last 30 days of notice: On LinkedIn and Naukri, search your AEM role, set the time filter to last 30 days for a first pass, then switch to last 1 day for daily new listings. Apply only where the role fits your skills and your LWD — skip immediate-joiner posts if you could not actually start that soon.",
-        "Ongoing daily search: After the backlog is cleared, search the same role with last 1 day only — apply daily to new listings while you are within your availability window.",
-        "LinkedIn posts: Search AEM (or your keyword), type Posts, wider window first then last 1 day on repeat visits. Check HR hiring posts and email applications (see Outreach) — again, only when you can join within about 30 days.",
-        "Platform hygiene: Use the same search strategy on LinkedIn and Naukri. Update your availability on Naukri at least every 15 days. Refresh or update the Naukri profile regularly — activity improves visibility to recruiters.",
-        "Stay patient: Do not lose hope if responses are slow in the first half of your notice. Many offers in India come in the last 30 days — keep preparing so you are ready when that window opens."
+        "Check new roles regularly: Check your saved AEM searches on LinkedIn, Naukri, and the company pages you are actively tracking. You do not need to apply to every opening. First check the skills, location, experience range, and expected joining date.",
+        "Keep your profiles updated: Review LinkedIn and Naukri whenever your notice period, last working day, location, skills, or resume changes. The information across your resume and profiles should remain consistent.",
+        "Follow up without waiting forever: If you contacted a recruiter or asked for a referral, keep track of it. Follow up once when appropriate, but continue applying to other roles instead of waiting for one company.",
+        "Prepare while applying: Keep revising AEM topics and interview questions while you apply. If your resume mentions Dispatcher, AEM Forms, Solr, Cloud Service, or another specialised area, prepare those topics properly because interviewers may ask about your real project work.",
+        "Increase applications as your joining date gets closer: Start preparing early. As your last working day gets closer, spend more time applying to new roles and contacting recruiters for openings that match your joining date."
       ],
-      "body": "Prepare early; apply and outreach actively only when you are close to your LWD. Most serious offers tend to land in the final month of notice."
+      "body": "Start preparing early. As your last working day gets closer, spend more time applying to new roles and contacting recruiters for openings that match your joining date."
     },
     {
       "id": "tools",
@@ -93,15 +92,15 @@
       "audience": "owner",
       "summary": "Common tools for resume, profiles, and applications in India.",
       "steps": [
-        "ChatGPT (or any LLM) — resume draft, ATS feedback, LinkedIn/Naukri optimization prompts, referral message templates.",
+        "ChatGPT or another AI assistant can help you draft and review resume content, LinkedIn or Naukri sections, and recruiter messages. Always check the final text against your real experience before publishing or sending it.",
         "Overleaf — one-column LaTeX resume template; manual paste from the draft, export PDF.",
-        "Free ATS checker sites — sanity check before you publish the resume (target 70+).",
+        "ATS checker tools can help you find parsing problems, missing keywords, or badly structured sections. Different tools may give different scores, so do not treat one score as a hiring result.",
         "LinkedIn — profile, job search (30-day then 1-day filter), Posts search for HR hiring, company people search for referrals.",
-        "Naukri — profile aligned with LinkedIn, job search with the same time-filter strategy, availability updates every ~15 days.",
+        "Keep your Naukri profile consistent with your resume and LinkedIn. Update your notice period, last working day, preferred locations, skills, and availability when these details change.",
         "Gmail — saved template for cover letter and resume when applying via invite or email from a post.",
         "This playbook — Companies, filters, and interview prep once conversations start."
       ],
-      "body": "No apply bots. Every application should use the same polished resume and aligned profiles."
+      "body": "Avoid automated mass-application workflows. Use a reviewed base resume and consistent profile information, then adjust role-specific keywords or emphasis only when the changes accurately reflect your experience."
     },
     {
       "id": "community",
@@ -110,7 +109,7 @@
       "summary": "Independent LinkedIn groups for AEM developers — discovery only; not run by this playbook.",
       "steps": [
         "Open the Community section (sidebar → Community) for LinkedIn group links. These are independent peer groups — not administered here and not affiliated with Adobe.",
-        "Join only if the group’s rules fit you. Share openings and ask questions politely — do not spam resumes into discussions.",
+        "Join only if the group's rules fit you. Share openings and ask questions politely — do not spam resumes into discussions.",
         "Combine group leads with the Companies list and your own LinkedIn/Naukri search."
       ],
       "body": "Community links live in the Community chapter so they stay in one place (also linked from How to Apply)."
