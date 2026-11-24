@@ -4,6 +4,24 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — company data refresh, batch 1
+
+### Changed
+
+- Rechecked dead careers URLs, rebrand/M&A rows and all 27 priority 9–10 rows in `companies.json` against
+  employer job boards (2026-11-24).
+- LTIMindtree → "LTM (formerly LTIMindtree)": careers moved to `careers.ltm.com`; evidence now LTM's Adobe partner
+  page. RARR careers URL fixed (`/job-opening/`); Srijan careers/evidence point at Material's APAC openings.
+- Live AEM postings swapped in for dead or closed hiring links, `verifiedAt` bumped to 2026-11-24 only where a
+  current AEM role was confirmed: Adobe, Bounteous, Deloitte, EY, Ford, Genpact, Goldman Sachs, Lenovo, Macquarie,
+  NTT DATA, RARR.
+- Broken search/redirecting links repointed (no date bump): Deloitte and Lenovo search param (`?search=`), Cisco,
+  HDFC Bank, Maruti Suzuki, Morgan Stanley `jobSearchUrl`.
+- `ownerVerified: false` on rows whose `careersUrl` changed (LTM, RARR, Srijan).
+- Not changed by design: rows with no current AEM opening keep their priority and `hiringActive`; no rows removed;
+  M&A merges (Juniper → HPE, Rightpoint → Genpact, HanesBrands → Gildan, Informatica → Salesforce) held.
+- Prerendered `index.html` and M3 render golden refreshed (Adobe "Checked" date).
+
 ## Unreleased — industry cleanup, footer credit, repeated copy, AEM Forms questions, Claude Code rules
 
 ### Added
