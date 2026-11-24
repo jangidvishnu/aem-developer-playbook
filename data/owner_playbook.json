@@ -16,8 +16,7 @@
         "Notice period — focus on roles that match your joining date: If you are serving a long notice period and a job clearly asks for an immediate joiner, check whether the recruiter or company can wait. If they cannot, it is usually better to skip that opening and spend your time on roles that match your joining date.",
         "A long notice period does not mean you should stop applying. Some companies have longer interview and approval processes, while others need people quickly. Read the job post, ask the recruiter about the expected joining date, and clearly mention your last working day.",
         "As your last working day gets closer, increase your daily job search. More immediate-joiner and early-joiner roles may now match your availability. Use early notice time to prepare your resume, LinkedIn, Naukri, company shortlist, and AEM interview prep."
-      ],
-      "body": "Before applying, check the expected joining date. If the company needs an immediate joiner and you still have a long notice period, focus on other roles unless they mention notice-period flexibility."
+      ]
     },
     {
       "id": "outreach",
@@ -31,7 +30,7 @@
         "Recruiter direct: If the post lists a recruiter email or contact info, send your resume there as well alongside any portal application.",
         "Staffing / HR agencies: If a staffing agency is officially handling the role, follow the process shared by the recruiter. Before sending personal documents, check the recruiter, agency, company, and job details. Also check whether the same role is available on the company's careers site."
       ],
-      "body": "Do not depend only on job portals. If you find the recruiter who posted the role, an HR email in the job post, or someone who can refer you, contact them as well. Still use the company's official application process where required. Keep templates in Gmail; refine referral and HR-post wording with an AI assistant once, then reuse."
+      "body": "Still use the company's official application process where required. Keep templates in Gmail; refine referral and HR-post wording with an AI assistant once, then reuse."
     },
     {
       "id": "linkedin-feed",
@@ -52,12 +51,10 @@
       "audience": "owner",
       "summary": "AEM openings can appear across employer careers sites, LinkedIn, Naukri, recruiter posts, and other job boards. The same opening may not be equally visible on every channel.",
       "steps": [
-        "Do not check only the company careers page. AEM openings can also appear on LinkedIn, Naukri, recruiter posts, and other job boards. The same role may not be easy to find on every platform.",
         "In the Companies section, open the company details and check the AEM evidence and Hiring evidence links. These links explain why the company is included in the database and may also help you find recent AEM-related openings.",
-        "Keep Naukri and LinkedIn profiles complete and current so inbound outreach can find you when the careers site is quiet.",
-        "Check the official careers page for the role details, but also search LinkedIn, Naukri, and relevant recruiter posts."
+        "Keep Naukri and LinkedIn profiles complete and current so inbound outreach can find you when the careers site is quiet."
       ],
-      "body": "Check the official careers page for the role details, but also search LinkedIn, Naukri, and relevant recruiter posts. Use the evidence links in this playbook to understand why a company is listed and where AEM-related hiring was found."
+      "body": "Check the official careers page for the role details, but also search LinkedIn, Naukri, and relevant recruiter posts."
     },
     {
       "id": "learning-sources",
@@ -83,8 +80,7 @@
         "Follow up without waiting forever: If you contacted a recruiter or asked for a referral, keep track of it. Follow up once when appropriate, but continue applying to other roles instead of waiting for one company.",
         "Prepare while applying: Keep revising AEM topics and interview questions while you apply. If your resume mentions Dispatcher, AEM Forms, Solr, Cloud Service, or another specialised area, prepare those topics properly because interviewers may ask about your real project work.",
         "Increase applications as your joining date gets closer: Start preparing early. As your last working day gets closer, spend more time applying to new roles and contacting recruiters for openings that match your joining date."
-      ],
-      "body": "Start preparing early. As your last working day gets closer, spend more time applying to new roles and contacting recruiters for openings that match your joining date."
+      ]
     },
     {
       "id": "tools",
@@ -111,8 +107,7 @@
         "Open the Community section (sidebar → Community) for LinkedIn group links. These are independent peer groups — not administered here and not affiliated with Adobe.",
         "Join only if the group's rules fit you. Share openings and ask questions politely — do not spam resumes into discussions.",
         "Combine group leads with the Companies list and your own LinkedIn/Naukri search."
-      ],
-      "body": "Community links live in the Community chapter so they stay in one place (also linked from How to Apply)."
+      ]
     }
   ]
 }

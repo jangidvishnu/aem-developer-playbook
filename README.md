@@ -58,7 +58,8 @@ scripts/            Dev verify / prerender / UI smoke (not loaded by the site)
 archive/            Historical research + legacy company pipeline (not fetched)
 .playbook/          Governance and milestone docs
 .github/            CI, PR/issue templates
-.cursor/rules/      Cursor agent rules
+CLAUDE.md           Claude Code entry point (auto-loaded)
+.claude/rules/      Claude Code project rules
 ```
 
 Published company DB: **`data/companies.json` only**. Historical seeds and research: [`archive/README.md`](archive/README.md).

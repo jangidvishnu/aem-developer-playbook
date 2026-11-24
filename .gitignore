@@ -22,3 +22,6 @@ scripts/.ui-smoke-artifacts/
 
 # Logs
 *.log
+
+# Claude Code personal settings (shared settings + rules in .claude/ are committed)
+.claude/settings.local.json

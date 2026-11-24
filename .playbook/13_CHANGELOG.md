@@ -4,6 +4,66 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — company data refresh, batch 1
+
+### Changed
+
+- Rechecked dead careers URLs, rebrand/M&A rows and all 27 priority 9–10 rows in `companies.json` against
+  employer job boards (2026-11-24).
+- LTIMindtree → "LTM (formerly LTIMindtree)": careers moved to `careers.ltm.com`; evidence now LTM's Adobe partner
+  page. RARR careers URL fixed (`/job-opening/`); Srijan careers/evidence point at Material's APAC openings.
+- Live AEM postings swapped in for dead or closed hiring links, `verifiedAt` bumped to 2026-11-24 only where a
+  current AEM role was confirmed: Adobe, Bounteous, Deloitte, EY, Ford, Genpact, Goldman Sachs, Lenovo, Macquarie,
+  NTT DATA, RARR.
+- Broken search/redirecting links repointed (no date bump): Deloitte and Lenovo search param (`?search=`), Cisco,
+  HDFC Bank, Maruti Suzuki, Morgan Stanley `jobSearchUrl`.
+- `ownerVerified: false` on rows whose `careersUrl` changed (LTM, RARR, Srijan).
+- Not changed by design: rows with no current AEM opening keep their priority and `hiringActive`; no rows removed;
+  M&A merges (Juniper → HPE, Rightpoint → Genpact, HanesBrands → Gildan, Informatica → Salesforce) held.
+- Prerendered `index.html` and M3 render golden refreshed (Adobe "Checked" date).
+
+## Unreleased — industry cleanup, footer credit, repeated copy, AEM Forms questions, Claude Code rules
+
+### Added
+
+- Footer credit line with a LinkedIn link (`site.json` `footer.credit`; `Render.footer(footer, profile)` reuses
+  `disclaimer.linkedinUrl` so the URL keeps one home). New `.site-footer__credit` / `.site-footer__link` styles;
+  checked at desktop and 390px mobile (no horizontal scroll, 24px link target).
+- Five AEM Forms interview questions in `interviews.json` (Core Components vs foundation forms, rule editor and
+  validation, Form Data Model prefill/submit, submit actions, keeping large form sets maintainable) — 26 → 31.
+
+### Changed
+
+- Merged duplicate industry values in `companies.json` (17 rows): Telecommunications → Telecom, Financial
+  Services → Finance, Marketing Services → Marketing, FMCG → Consumer Goods. Old shared `cf_industry` links map to
+  the merged value via `CompanyFilters.normalizeIndustry()`.
+- How to Apply (`owner_playbook.json`): removed closing paragraphs and steps that repeated the section summary or
+  another step (Apply workflow, Outreach, Careers sites vs job boards, Daily and weekly routine). Unique advice kept —
+  Outreach `body` now holds only its Gmail/AI-template tip. No guidance removed, only repeats.
+- Community chapter intro no longer repeats the community panel note (`chapters.json`); the note stays the one home
+  for the "independent groups, don't spam" disclaimer.
+- About this data: dropped the opening paragraph that repeated the disclaimer lines below it.
+- Interview Prep summary spelling now matches the `behavioral` category labels; "memorise" → "memorize" in the
+  hero and Interview Prep so public copy uses one (US) spelling.
+- Interview table shows capitalized category labels (Technical, Behavioral, System design) via
+  `Render.interviewCategoryLabel()`; category ids stay lowercase for search and filters.
+- Hero and Companies summary say "298" instead of "~298" (the count is exact).
+- Prerendered `index.html` and Milestone 3 render golden updated (only the removed filter options, renamed row
+  labels, removed repeats, interview page count, and the copy fixes above differ).
+- Agent rules now in `.claude/rules/*.md` (DR-029) and deduplicated: 12 files → 8,
+  always-loaded text ~1,460 → ~830 words, each gate in one file (`constitution`, `git-push-approval`, `shell`,
+  `agent-workflow`; path-scoped `architecture`, `company-data`, `desktop-mobile-design`, `editorial-style`).
+  Model slugs, tool names, and shell notes written for Claude Code. New root `CLAUDE.md`
+  (project summary, live URLs, state-doc pointers, npm commands). `README.md`, `CONTRIBUTING.md`,
+  `.github/copilot-instructions.md`, and the release/testing guides point to `.claude/rules/` and VS Code Live Preview;
+  `.gitignore` ignores `.claude/settings.local.json`.
+
+### Fixed
+
+- Removed an internal maintenance note shown to visitors in How to Apply → Community ("Community links live in the
+  Community chapter…").
+- `.github/copilot-instructions.md` no longer says Tailwind CSS (removed in Milestone 11, DR-015).
+
 ## Unreleased — final humanisation pass (public copy)
 
 ### Changed
@@ -52,7 +112,7 @@ entry noting the reversal.
 - Milestones **18–20** marked **Complete** / owner-accepted 2026-07-11; no active milestone (`14_ROADMAP.md`,
   `19_CURRENT_SPRINT.md`, `25_ROADMAP_ARCHIVE.md`). M18 closed at **320** live; M20 Location scope accepted;
   notice/contacts deferred.
-- Always-on Cursor rules slimmed (~25KB → ~9KB); company research merged into `company-data.mdc`;
+- Always-on agent rules slimmed (~25KB → ~9KB); company research merged into the company-data rule;
   desktop-mobile + company rules glob-scoped.
 
 ### Fixed
@@ -64,8 +124,8 @@ entry noting the reversal.
 ### Changed
 
 - Two-phase PR flow: feature → `stage` first; promote `stage` → `master` only when owner asks after stage merge
-  (`git-push-approval.mdc`, `21_PUBLISHING.md`, DR-028).
-- Agent cost optimization rule: soft model tips, less tooling on simple Q&A (`agent-cost-optimization.mdc`).
+  (`.claude/rules/git-push-approval.md`, `21_PUBLISHING.md`, DR-028).
+- Agent cost optimization rule: soft model tips, less tooling on simple Q&A (now `.claude/rules/agent-workflow.md`).
 - Disclaimer contact links: LinkedIn profile (`data/site.json`, `render.js`).
 
 ## Unreleased — stage / master dual deploy (DR-028)
@@ -73,7 +133,7 @@ entry noting the reversal.
 ### Changed
 
 - Default PR target is **`stage`** (GitHub Pages). **`master`** is production (Cloudflare); promote only when the
-  owner asks. Both branches use the same required CI checks (`21_PUBLISHING.md`, `git-push-approval.mdc`).
+  owner asks. Both branches use the same required CI checks (`21_PUBLISHING.md`, `.claude/rules/git-push-approval.md`).
 
 ## Unreleased — SEO title / description / keywords
 
@@ -297,7 +357,7 @@ that don't execute JavaScript. See `12_DECISIONS.md` DR-022 for the full context
   Prerendering is a static first-paint/SEO baseline, not hydration; see DR-022 for why true hydration was considered
   and deferred. (A small, targeted follow-up fix to `App.boot()`'s *loading-state* handling — not its render logic —
   landed shortly after ship; see "Follow-up" below and DR-023.)
-- `00_PROJECT_OVERVIEW.md` rule 6 and `.cursor/rules/constitution.mdc` rule 5 ("no build step") both updated to
+- `00_PROJECT_OVERVIEW.md` rule 6 and the constitution agent rule ("no build step") both updated to
   name this one narrow, documented exception: the *output* of `npm run prerender` is a committed static file, so
   GitHub Pages still serves everything with zero build step on its side.
 - `14_ROADMAP.md`: the original Milestone 14 ("Company capability filters," DR-017) renumbered to Milestone 15 to
@@ -530,7 +590,7 @@ Documentation, Accessibility, and Performance reviews, not retrofitted afterward
 - `scripts/verify-render.js` now reads the real `data/*.json` files from disk instead of a hardcoded copy, so it
   proves those files are correct, not just that a copy of them is self-consistent.
 - `17_TESTING_GUIDE.md`'s smoke test now requires serving `index.html` over HTTP rather than opening it directly.
-- `03_ARCHITECTURE.md`, `09_DATA_MODEL.md`, `.cursor/rules/architecture.mdc` updated to reflect the new data flow.
+- `03_ARCHITECTURE.md`, `09_DATA_MODEL.md`, the architecture agent rule updated to reflect the new data flow.
 
 ### Reviewed
 
@@ -567,11 +627,11 @@ Documentation, Accessibility, and Performance reviews, not retrofitted afterward
 
 ### Added
 
-- `.cursor/rules/constitution.mdc` and `.cursor/rules/current-state.mdc` (`alwaysApply: true`) — the core
+- Always-loaded constitution and current-state agent rules (now in `.claude/rules/`) — the core
   non-negotiable rules and state pointers, loaded automatically instead of via a manual "read these files"
   instruction.
-- `.cursor/rules/coding-standard.mdc`, `architecture.mdc`, `company-data.mdc`, `editorial-style.mdc` — glob-scoped
-  rules that auto-attach only when relevant files (`index.html`, `scripts/**`, `data/**`, `md/**`, `.playbook/**`)
+- Coding-standard, architecture, company-data, and editorial-style agent rules — path-scoped rules that load
+  only when relevant files (`index.html`, `scripts/**`, `data/**`, `md/**`, `.playbook/**`)
   are open, rather than being force-read on every task regardless of relevance.
 - `12_DECISIONS.md` DR-004, documenting the measured token costs and the reasoning behind this restructuring.
 

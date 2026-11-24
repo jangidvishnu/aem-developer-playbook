@@ -3723,6 +3723,24 @@ body.search-platform-mac .search-wrap__shortcut-meta {
   margin: 0 0 var(--space-2);
 }
 
+.site-footer__credit {
+  margin: 0 0 var(--space-2);
+  color: var(--text-secondary);
+}
+
+.site-footer__link {
+  display: inline-block;
+  min-height: 1.5rem;
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.site-footer__link:hover {
+  color: var(--accent-hover);
+}
+
 .site-footer__legal {
   margin: 0.35rem 0 0;
   font-size: 0.75rem;

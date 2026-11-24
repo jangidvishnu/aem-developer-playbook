@@ -112,7 +112,7 @@
     "hiringEvidence": [
       "https://careers.adobe.com/us/en/search-results?keywords=AEM"
     ],
-    "verifiedAt": "2026-07-09",
+    "verifiedAt": "2026-11-24",
     "jobSearchUrl": "https://careers.adobe.com/us/en/search-results?keywords=AEM",
     "ownerVerified": true
   },
@@ -280,10 +280,10 @@
       "https://www.bounteous.com/insights/2026/04/02/bounteous-achieves-platinum-solution-partner-status-and-adobe-customer-journey/"
     ],
     "hiringEvidence": [
-      "https://builtinchennai.in/job/senior-aem-back-end-developer/2523451"
+      "https://www.bounteous.com/careers/job/t__8713400b-66d1-4e50-b698-16967dbc132b"
     ],
-    "verifiedAt": "2026-07-10",
-    "jobSearchUrl": "https://www.bounteous.com/careers/",
+    "verifiedAt": "2026-11-24",
+    "jobSearchUrl": "https://www.bounteous.com/careers/search-results?q=AEM",
     "ownerVerified": true
   },
   {
@@ -372,17 +372,17 @@
       "https://business.adobe.com/customer-success-stories/cisco-case-study.html"
     ],
     "hiringEvidence": [
-      "https://jobs.cisco.com/jobs/SearchJobs/?keyword=experience%20manager"
+      "https://careers.cisco.com/global/en/search-results?keywords=AEM"
     ],
     "verifiedAt": "2026-07-09",
-    "jobSearchUrl": "https://jobs.cisco.com/jobs/SearchJobs/?keyword=experience%20manager",
+    "jobSearchUrl": "https://careers.cisco.com/global/en/search-results?keywords=AEM",
     "ownerVerified": true
   },
   {
     "id": "citi",
     "name": "Citi",
     "priority": 9,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "New York, USA",
     "indiaPresence": true,
@@ -526,11 +526,11 @@
       "https://www.deloitte.com/global/en/alliances/adobe.html"
     ],
     "hiringEvidence": [
-      "https://usijobs.deloitte.com/en_US/careersUSI/SearchJobs/?keyword=AEM",
-      "https://usijobs.deloitte.com/en_US/careersUSI/JobDetail/USI-EH27-DT-GDAS-O2E-AEM-AM-Hyderabad/351524"
+      "https://usijobs.deloitte.com/en_US/careersUSI/SearchJobs/?search=AEM&listFilterMode=1",
+      "https://usijobs.deloitte.com/en_US/careersUSI/JobDetail/USI-EH27-CS-G-Full-Stack-Web-Developer-Specialist-Deputy-Manager-Hyderabad-Bengaluru/361026"
     ],
-    "verifiedAt": "2026-07-09",
-    "jobSearchUrl": "https://usijobs.deloitte.com/en_US/careersUSI/SearchJobs/?keyword=AEM",
+    "verifiedAt": "2026-11-24",
+    "jobSearchUrl": "https://usijobs.deloitte.com/en_US/careersUSI/SearchJobs/?search=AEM&listFilterMode=1",
     "ownerVerified": true,
     "hiringActive": true,
     "ownerPreferred": true
@@ -539,7 +539,7 @@
     "id": "deutsche-bank",
     "name": "Deutsche Bank",
     "priority": 9,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "Frankfurt, Germany",
     "indiaPresence": true,
@@ -677,13 +677,13 @@
     ],
     "notes": "Large Adobe 'Customer Tech' practice within EY GDS. High-volume AEM hiring (architect/front-end/back-end) in Bengaluru, Chennai, Hyderabad.",
     "evidence": [
-      "https://careers.ey.com/ey/job/Bengaluru-Customer-Tech-Adobe-AEM-Architect-GDS02-KA-560016/1210338301/"
+      "https://careers.ey.com/ey/job/Hyderabad-GIG-Customer-tech-Adobe-AEM-Developer-Senior-TG-500081/1443121133/"
     ],
     "hiringEvidence": [
-      "https://www.foundit.in/job/customer-tech-adobe-aem-fe-developer-senior-ey-chennai-50073462"
+      "https://careers.ey.com/ey/job/Hyderabad-GIG-Customer-tech-Adobe-AEM-Developer-Senior-TG-500081/1443121133/"
     ],
-    "verifiedAt": "2026-07-10",
-    "jobSearchUrl": "https://careers.ey.com/",
+    "verifiedAt": "2026-11-24",
+    "jobSearchUrl": "https://careers.ey.com/search/?q=AEM",
     "ownerVerified": true
   },
   {
@@ -724,18 +724,17 @@
       "https://business.adobe.com/customer-success-stories/ford-motor-company.html"
     ],
     "hiringEvidence": [
-      "https://www.careers.ford.com/job/chennai/technical-anchor/48560/96556391584",
-      "https://www.careers.ford.com/job/dearborn/adobe-experience-engineering-manager/48560/93449159056"
+      "https://www.careers.ford.com/en/job/dearborn/aem-software-developer/48560/103258181760"
     ],
-    "verifiedAt": "2026-07-09",
-    "jobSearchUrl": "https://www.careers.ford.com/search-results?keywords=Adobe%20Experience%20Manager",
+    "verifiedAt": "2026-11-24",
+    "jobSearchUrl": "https://www.careers.ford.com/en/search-jobs/AEM",
     "ownerVerified": true
   },
   {
     "id": "goldman-sachs",
     "name": "Goldman Sachs",
     "priority": 9,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "New York, USA",
     "indiaPresence": true,
@@ -776,10 +775,10 @@
       "https://www.goldmansachs.com/what-we-do/digital-transformation/"
     ],
     "hiringEvidence": [
-      "https://unstop.com/jobs/aem-engineer-consumer-engineering-goldman-sachs-249144"
+      "https://higher.gs.com/roles/189159"
     ],
-    "verifiedAt": "2026-07-10",
-    "jobSearchUrl": "https://www.goldmansachs.com/careers/",
+    "verifiedAt": "2026-11-24",
+    "jobSearchUrl": "https://higher.gs.com/results?search=AEM",
     "ownerVerified": true
   },
   {
@@ -863,18 +862,18 @@
       "https://business.adobe.com/summit/2025/sessions/from-online-to-onground-hdfc-banks-blueprint-s944.html"
     ],
     "hiringEvidence": [
-      "https://www.hdfcbank.com/personal/about-us/careers",
+      "https://www.hdfc.bank.in/careers",
       "https://business.adobe.com/summit/2025/sessions/from-online-to-onground-hdfc-banks-blueprint-s944.html"
     ],
     "verifiedAt": "2026-07-07",
     "ownerVerified": true,
-    "jobSearchUrl": "https://www.hdfcbank.com/personal/about-us/careers"
+    "jobSearchUrl": "https://www.hdfc.bank.in/careers"
   },
   {
     "id": "hsbc",
     "name": "HSBC",
     "priority": 9,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "London, UK",
     "indiaPresence": true,
@@ -978,18 +977,18 @@
       "https://business.adobe.com/customer-success-stories/lenovo-case-study"
     ],
     "hiringEvidence": [
-      "https://jobs.lenovo.com/en_US/careers/SearchJobs/?keyword=Adobe%20Experience%20Manager",
-      "https://jobs.lenovo.com/en_US/careers/JobDetail/Web-Product-Specialist/77735"
+      "https://jobs.lenovo.com/en_US/careers/SearchJobs/?search=AEM&listFilterMode=1",
+      "https://jobs.lenovo.com/en_US/careers/JobDetail/Sr-Manager-Web-Content-Operations/82352"
     ],
-    "verifiedAt": "2026-07-07",
-    "jobSearchUrl": "https://jobs.lenovo.com/en_US/careers/SearchJobs/?keyword=Adobe%20Experience%20Manager",
+    "verifiedAt": "2026-11-24",
+    "jobSearchUrl": "https://jobs.lenovo.com/en_US/careers/SearchJobs/?search=AEM&listFilterMode=1",
     "ownerVerified": true
   },
   {
     "id": "macquarie-group",
     "name": "Macquarie Group",
     "priority": 9,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "Sydney, Australia",
     "indiaPresence": true,
@@ -1027,10 +1026,10 @@
       "https://medium.com/macquarie-engineering-blog/how-to-enable-continuous-delivery-for-adobe-experience-manager-aem-e4c212de9eab"
     ],
     "hiringEvidence": [
-      "https://www.foundit.in/job/assistant-manager-digital-producer-macquarie-group-gurugram-50066713"
+      "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24045"
     ],
-    "verifiedAt": "2026-07-10",
-    "jobSearchUrl": "https://www.macquarie.com/in/en/careers.html",
+    "verifiedAt": "2026-11-24",
+    "jobSearchUrl": "https://recruitment.macquarie.com/en_US/careers/SearchJobs/?search=AEM&listFilterMode=1",
     "ownerVerified": true
   },
   {
@@ -1074,7 +1073,7 @@
       "https://business.adobe.com/blog/announcing-the-2026-adobe-experience-maker-awards-winners"
     ],
     "hiringEvidence": [
-      "https://www.marutisuzuki.com/corporate/about-us/careers"
+      "https://www.marutisuzuki.com/corporate/careers"
     ],
     "verifiedAt": "2026-07-07",
     "ownerVerified": true,
@@ -1124,7 +1123,7 @@
     "id": "morgan-stanley",
     "name": "Morgan Stanley",
     "priority": 9,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "New York, USA",
     "indiaPresence": true,
@@ -1165,7 +1164,7 @@
       "https://www.efinancialcareers.com/jobs-India-Mumbai-AEM_Java_Resource_Manager_Vice_President_Software_Engineering.id24021479"
     ],
     "verifiedAt": "2026-07-10",
-    "jobSearchUrl": "https://morganstanley.tal.net/",
+    "jobSearchUrl": "https://ms.wd5.myworkdayjobs.com/External?q=AEM",
     "ownerVerified": true
   },
   {
@@ -1233,10 +1232,10 @@
       "https://careers-inc.nttdata.com/job/Bangalore-AEM-Dev-KA/1401112700/"
     ],
     "hiringEvidence": [
-      "https://www.foundit.in/job/aem-dev-ntt-data-bengaluru-bangalore-49939934"
+      "https://careers-inc.nttdata.com/job/Bangalore-Front-end-Engineer-Sols-2-KA/1391671700/"
     ],
-    "verifiedAt": "2026-07-10",
-    "jobSearchUrl": "https://careers-inc.nttdata.com/",
+    "verifiedAt": "2026-11-24",
+    "jobSearchUrl": "https://careers-inc.nttdata.com/search/?q=AEM",
     "ownerVerified": true
   },
   {
@@ -1333,7 +1332,7 @@
     "id": "visa",
     "name": "Visa",
     "priority": 9,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "San Francisco, USA",
     "indiaPresence": true,
@@ -1793,7 +1792,7 @@
     "id": "barclays",
     "name": "Barclays",
     "priority": 8,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "Enterprise",
     "hq": "London, UK",
     "indiaPresence": true,
@@ -2279,7 +2278,7 @@
     "id": "cox-communications",
     "name": "Cox Communications",
     "priority": 8,
-    "industry": "Telecommunications",
+    "industry": "Telecom",
     "companyType": "Enterprise",
     "hq": "Atlanta, USA",
     "indiaPresence": false,
@@ -2475,7 +2474,7 @@
     "id": "dentsu",
     "name": "Dentsu",
     "priority": 8,
-    "industry": "Marketing Services",
+    "industry": "Marketing",
     "companyType": "Agency",
     "hq": "Tokyo, Japan",
     "indiaPresence": true,
@@ -2642,9 +2641,9 @@
       "https://jobs.jobvite.com/genpactexperience"
     ],
     "hiringEvidence": [
-      "https://jobs.jobvite.com/genpactexperience/job/oLTXzfwU"
+      "https://jobs.jobvite.com/genpactexperience/job/oPQPAfwO"
     ],
-    "verifiedAt": "2026-07-10",
+    "verifiedAt": "2026-11-24",
     "jobSearchUrl": "https://jobs.jobvite.com/genpactexperience",
     "ownerVerified": true
   },
@@ -3041,7 +3040,7 @@
     "id": "invesco",
     "name": "Invesco",
     "priority": 8,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "Atlanta, USA",
     "indiaPresence": true,
@@ -3140,14 +3139,14 @@
   },
   {
     "id": "ltimindtree",
-    "name": "LTIMindtree",
+    "name": "LTM (formerly LTIMindtree)",
     "priority": 8,
     "industry": "Consulting",
     "companyType": "GCC",
     "hq": "Mumbai, India",
     "indiaPresence": true,
     "hiringIndia": true,
-    "careersUrl": "https://careers.ltimindtree.com/",
+    "careersUrl": "https://careers.ltm.com/",
     "locations": [
       {
         "city": "Mumbai",
@@ -3190,16 +3189,14 @@
       "AEM Backend Developer",
       "AEM Forms Developer"
     ],
-    "notes": "Front-end practice lists AEM; pan-India AEM cloud and forms hiring.",
+    "notes": "LTIMindtree rebranded as LTM. Its Adobe partner page lists AEM Sites, Assets and Forms work; pan-India AEM cloud and forms hiring.",
     "evidence": [
-      "https://www.ltimindtree.com/user-experience-design/front-end-development/"
+      "https://www.ltm.com/about-us/partners/adobe"
     ],
-    "hiringEvidence": [
-      "https://careers.ltimindtree.com/job-listing?keywords=AEM"
-    ],
+    "hiringEvidence": [],
     "verifiedAt": "2026-07-07",
-    "jobSearchUrl": "https://careers.ltimindtree.com/job-listing?keywords=AEM",
-    "ownerVerified": true
+    "jobSearchUrl": "https://careers.ltm.com/search/?q=AEM",
+    "ownerVerified": false
   },
   {
     "id": "marlabs",
@@ -3310,7 +3307,7 @@
     "id": "natwest-group",
     "name": "NatWest Group",
     "priority": 8,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "Edinburgh, UK",
     "indiaPresence": true,
@@ -3791,7 +3788,7 @@
     "id": "russell-investments",
     "name": "Russell Investments",
     "priority": 8,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "Seattle, USA",
     "indiaPresence": true,
@@ -3834,7 +3831,7 @@
     "id": "sp-global-market-intelligence",
     "name": "S&P Global Market Intelligence",
     "priority": 8,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "New York, USA",
     "indiaPresence": true,
@@ -4223,7 +4220,7 @@
     "id": "transunion",
     "name": "TransUnion",
     "priority": 8,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "Chicago, USA",
     "indiaPresence": true,
@@ -5152,7 +5149,7 @@
     "id": "au-small-finance-bank",
     "name": "AU Small Finance Bank",
     "priority": 7,
-    "industry": "Financial Services",
+    "industry": "Finance",
     "companyType": "GCC",
     "hq": "Jaipur, India",
     "indiaPresence": true,
@@ -8511,7 +8508,7 @@
     "hq": "Faridabad, India",
     "indiaPresence": true,
     "hiringIndia": true,
-    "careersUrl": "https://rarrtech.com/current-job-opening/",
+    "careersUrl": "https://rarrtech.com/job-opening/",
     "products": [
       "sites",
       "forms",
@@ -8525,14 +8522,12 @@
     ],
     "notes": "IT services/staffing firm hiring multiple AEM specialisations (Sites, Forms, Guides/DITA, AEMaaCS) for Tier-1 clients across Bangalore, Chennai, Hyderabad, Pune, Mumbai.",
     "evidence": [
-      "https://atsmantra.com/job-detail-rarr-technologies-aem-developer-backend-developer-multiple-locations-7-15-years-171686"
+      "https://atsmantra.com/job-detail-rarr-technologies-senior-adobe-aem-engineer-chennai-6-9-years-176230"
     ],
-    "hiringEvidence": [
-      "https://atsmantra.com/job-detail-rarr-technologies-aem-guides-senior-developer-multiple-locations-5-13-years-173583"
-    ],
-    "verifiedAt": "2026-07-10",
+    "hiringEvidence": [],
+    "verifiedAt": "2026-11-24",
     "jobSearchUrl": "https://atsmantra.com/",
-    "ownerVerified": true,
+    "ownerVerified": false,
     "locations": [
       {
         "city": "Faridabad",
@@ -9111,7 +9106,7 @@
     "hq": "New Delhi, India",
     "indiaPresence": true,
     "hiringIndia": true,
-    "careersUrl": "https://www.materialplus.io/careers/job-openings-apac",
+    "careersUrl": "https://www.materialgrowth.com/careers/job-openings-apac",
     "locations": [
       {
         "city": "New Delhi",
@@ -9135,9 +9130,9 @@
       "AEM Developer",
       "Adobe Experience Manager Developer"
     ],
-    "notes": "India digital agency/SI with Adobe AEM and commerce delivery. Rebrand/M&A: careers now under Material+ (materialplus.io) — monitor as Srijan/Material.",
+    "notes": "India digital agency/SI with Adobe AEM and commerce delivery. Now part of Material (materialgrowth.com); careers are listed under Material's APAC openings.",
     "evidence": [
-      "https://www.materialplus.io/careers/job-openings-apac"
+      "https://www.materialgrowth.com/careers/job-openings-apac"
     ],
     "hiringEvidence": [],
     "verifiedAt": "2026-07-10",
@@ -11764,7 +11759,7 @@
     "id": "itc-limited",
     "name": "ITC Limited",
     "priority": 6,
-    "industry": "FMCG",
+    "industry": "Consumer Goods",
     "companyType": "Enterprise",
     "hq": "Kolkata, India",
     "indiaPresence": true,
