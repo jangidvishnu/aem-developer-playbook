@@ -4,24 +4,35 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
-## Unreleased — industry cleanup and footer credit
+## Unreleased — industry cleanup, footer credit, repeated copy, AEM Forms questions
 
 ### Added
 
 - Footer credit line with a LinkedIn link (`site.json` `footer.credit`; `Render.footer(footer, profile)` reuses
   `disclaimer.linkedinUrl` so the URL keeps one home). New `.site-footer__credit` / `.site-footer__link` styles;
   checked at desktop and 390px mobile (no horizontal scroll, 24px link target).
+- Five AEM Forms interview questions in `interviews.json` (Core Components vs foundation forms, rule editor and
+  validation, Form Data Model prefill/submit, submit actions, keeping large form sets maintainable) — 26 → 31.
 
 ### Changed
 
 - Merged duplicate industry values in `companies.json` (17 rows): Telecommunications → Telecom, Financial
   Services → Finance, Marketing Services → Marketing, FMCG → Consumer Goods. Old shared `cf_industry` links map to
   the merged value via `CompanyFilters.normalizeIndustry()`.
-- Prerendered `index.html` and Milestone 3 render golden updated (only the four removed filter options and the
-  renamed row labels differ).
+- How to Apply (`owner_playbook.json`): removed closing paragraphs and steps that repeated the section summary or
+  another step (Apply workflow, Outreach, Careers sites vs job boards, Daily and weekly routine). Unique advice kept —
+  Outreach `body` now holds only its Gmail/AI-template tip. No guidance removed, only repeats.
+- Community chapter intro no longer repeats the community panel note (`chapters.json`); the note stays the one home
+  for the "independent groups, don't spam" disclaimer.
+- About this data: dropped the opening paragraph that repeated the disclaimer lines below it.
+- Interview Prep summary spelling now matches the `behavioral` category labels.
+- Prerendered `index.html` and Milestone 3 render golden updated (only the removed filter options, renamed row
+  labels, removed repeats, and interview page count differ).
 
 ### Fixed
 
+- Removed an internal maintenance note shown to visitors in How to Apply → Community ("Community links live in the
+  Community chapter…").
 - `.github/copilot-instructions.md` no longer says Tailwind CSS (removed in Milestone 11, DR-015).
 
 ## Unreleased — final humanisation pass (public copy)

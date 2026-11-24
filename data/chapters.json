@@ -67,7 +67,7 @@
     "reading": "1 min",
     "tags": ["Community"],
     "communityEmbed": true,
-    "body": "<p>LinkedIn groups where people share openings and tips. They're <strong>independent</strong> — not run by this site, Adobe, or employers listed here. Follow each group's rules; don't spam resumes. Use alongside <a href=\"#target-companies\">Companies</a> and your own LinkedIn/Naukri search.</p>"
+    "body": "<p>LinkedIn groups where people share openings and tips. Use them alongside <a href=\"#target-companies\">Companies</a> and your own LinkedIn/Naukri search.</p>"
   },
   {
     "id": "career-command-center",
@@ -89,7 +89,7 @@
   {
     "id": "interview-prep",
     "title": "Interview Prep",
-    "summary": "Technical and behavioural questions to practice.",
+    "summary": "Technical and behavioral questions to practice.",
     "reading": "10 min",
     "tags": ["Interview"],
     "interviewEmbed": true,
@@ -102,7 +102,7 @@
     "reading": "2 min",
     "tags": ["About"],
     "disclaimerEmbed": true,
-    "body": "<p>Research notes shared with other AEM developers. Use as a starting point — always confirm openings on employer careers pages and job boards.</p><blockquote><p>Career guidance in this playbook reflects practical strategies and research, not guaranteed hiring outcomes. Hiring processes vary by employer, recruiter, role, location, and candidate. Use the guidance as a starting point and adapt it to your situation.</p></blockquote>"
+    "body": "<blockquote><p>Career guidance in this playbook reflects practical strategies and research, not guaranteed hiring outcomes. Hiring processes vary by employer, recruiter, role, location, and candidate. Use the guidance as a starting point and adapt it to your situation.</p></blockquote>"
   },
   {
     "id": "living-roadmap",
