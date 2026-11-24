@@ -983,13 +983,19 @@ const Render = {
       .join('');
   },
 
+  /** Display label for an interview category id (ids stay lowercase for search/filters). */
+  interviewCategoryLabel(category) {
+    const labels = { technical: 'Technical', behavioral: 'Behavioral', 'system-design': 'System design' };
+    return labels[category] || category;
+  },
+
   interviewList(items, options = {}) {
     const sorted = Render.sortByDifficulty(items, 'question');
     return Render.paginatedTable(
       sorted,
       { pageSize: LEARNING_PAGE_SIZE, ...options },
       q =>
-        `<tr data-item-id="${Render.escapeHtml(q.id)}"><td class="data-table__col--category">${Render.escapeHtml(q.category)}</td><td class="data-table__col--level">${Render.escapeHtml(q.difficulty)}</td><td class="data-table__col--question font-semibold">${Render.escapeHtml(q.question)}</td><td class="data-table__col--guidance text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
+        `<tr data-item-id="${Render.escapeHtml(q.id)}"><td class="data-table__col--category">${Render.escapeHtml(Render.interviewCategoryLabel(q.category))}</td><td class="data-table__col--level">${Render.escapeHtml(q.difficulty)}</td><td class="data-table__col--question font-semibold">${Render.escapeHtml(q.question)}</td><td class="data-table__col--guidance text-secondary text-sm">${Render.escapeHtml(q.guidance)}</td></tr>`,
       ['Category', 'Level', 'Question', 'Guidance'],
       'interview'
     );

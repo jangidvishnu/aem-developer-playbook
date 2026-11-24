@@ -45,7 +45,7 @@
   {
     "id": "target-companies",
     "title": "Companies",
-    "summary": "~298 employers that hire for AEM — filter by India, cloud, and more.",
+    "summary": "298 employers that hire for AEM — filter by India, cloud, and more.",
     "reading": "8 min",
     "tags": ["Companies"],
     "companyTable": true,
@@ -93,7 +93,7 @@
     "reading": "10 min",
     "tags": ["Interview"],
     "interviewEmbed": true,
-    "body": "<p>AEM interview questions usually depend on your experience and the skills mentioned in your resume. If you have Dispatcher, AEM Forms, Solr, or Cloud Service in your resume, be ready for questions from those areas.</p><p>Use the questions below to check your preparation. Do not memorise answers word by word. Try to explain each topic using work you have actually done in a project. If you have not worked on a topic directly, understand the basics and be clear about your level of experience.</p><p>AI tools can help you revise a topic or compare your answer with a better explanation, but do not memorise wording that you cannot explain when the interviewer asks a follow-up question.</p>"
+    "body": "<p>AEM interview questions usually depend on your experience and the skills mentioned in your resume. If you have Dispatcher, AEM Forms, Solr, or Cloud Service in your resume, be ready for questions from those areas.</p><p>Use the questions below to check your preparation. Do not memorize answers word by word. Try to explain each topic using work you have actually done in a project. If you have not worked on a topic directly, understand the basics and be clear about your level of experience.</p><p>AI tools can help you revise a topic or compare your answer with a better explanation, but do not memorize wording that you cannot explain when the interviewer asks a follow-up question.</p>"
   },
   {
     "id": "about-data",

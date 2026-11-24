@@ -1,7 +1,7 @@
 ---
-description: Editorial voice for playbook docs and archive research notes
-globs: .playbook/**,archive/research/**
-alwaysApply: false
+paths:
+  - ".playbook/**"
+  - "archive/research/**"
 ---
 
 # Editorial style

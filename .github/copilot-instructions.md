@@ -5,10 +5,10 @@ for every change, however small.
 
 ## Read before making ANY change
 
-If you're working in Cursor, `.cursor/rules/` already loads the core constitution and current-state pointers
-automatically, plus topic-specific rules that auto-attach based on which files you're editing — you don't need to
-manually read the list below every time. For any other agent (including this file's primary audience, GitHub
-Copilot, which doesn't use Cursor's rule system), read in order:
+If you're working in Claude Code, `CLAUDE.md` and `.claude/rules/` already load the core constitution and
+current-state pointers automatically, plus path-scoped rules that attach based on which files you're editing — you
+don't need to manually read the list below every time. For any other agent (including this file's primary
+audience, GitHub Copilot, which doesn't read `.claude/rules/`), read in order:
 
 1. `.playbook/MASTER_BOOTSTRAP_PROMPT.md` — the operating constitution (goals, non-negotiable rules, data model).
 2. `.playbook/00_PROJECT_OVERVIEW.md` — merged Project Overview, AI Constitution, and Project Memory (current state

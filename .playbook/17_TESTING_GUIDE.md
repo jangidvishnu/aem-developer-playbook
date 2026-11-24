@@ -44,7 +44,7 @@ Serve `index.html` over HTTP — `file://` will not load `data/*.json` (see `12_
 
 **Serve options (use any one):**
 
-- Cursor / VS Code **Live Preview** (configured in this repo's `.vscode/settings.json`)
+- VS Code **Live Preview** (configured in this repo's `.vscode/settings.json`)
 - `npx serve` then open the URL shown
 - `python -m http.server 3456` then `http://localhost:3456`
 - One-line Node server: `node -e "require('http').createServer((q,r)=>{const f=require('fs'),p=require('path');let u=q.url==='/'?'/index.html':q.url;f.readFile(p.join('.',u.split('?')[0]),(e,d)=>{r.writeHead(e?404:200);r.end(e?'404':d);});}).listen(3456,()=>console.log('http://localhost:3456'))"`
