@@ -98,7 +98,7 @@ More detail: [`.playbook/06_EDITOR_GUIDE.md`](.playbook/06_EDITOR_GUIDE.md) and 
 ## Maintainer note (local agents)
 
 Do not push a branch or open a PR until the project owner has **explicitly approved** after local review
-(`.cursor/rules/git-push-approval.mdc`).
+(`.claude/rules/git-push-approval.md`).
 
 ## License and brand
 

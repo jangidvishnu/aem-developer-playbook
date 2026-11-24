@@ -5,10 +5,10 @@ for every change, however small.
 
 ## Read before making ANY change
 
-If you're working in Cursor, `.cursor/rules/` already loads the core constitution and current-state pointers
-automatically, plus topic-specific rules that auto-attach based on which files you're editing — you don't need to
-manually read the list below every time. For any other agent (including this file's primary audience, GitHub
-Copilot, which doesn't use Cursor's rule system), read in order:
+If you're working in Claude Code, `CLAUDE.md` and `.claude/rules/` already load the core constitution and
+current-state pointers automatically, plus path-scoped rules that attach based on which files you're editing — you
+don't need to manually read the list below every time. For any other agent (including this file's primary
+audience, GitHub Copilot, which doesn't read `.claude/rules/`), read in order:
 
 1. `.playbook/MASTER_BOOTSTRAP_PROMPT.md` — the operating constitution (goals, non-negotiable rules, data model).
 2. `.playbook/00_PROJECT_OVERVIEW.md` — merged Project Overview, AI Constitution, and Project Memory (current state
@@ -28,7 +28,7 @@ for why this list was shortened).
 - Implement only the requested task or milestone; do not start the next milestone without explicit approval.
 - Prefer reusable render functions over inline duplicated markup.
 - Keep content data (`data/*.json`) separate from rendering (`index.html` / `assets/js/`).
-- Use Vanilla JS + Tailwind CSS. No frameworks, no build step, no unnecessary dependencies.
+- Use vanilla JS + hand-written CSS (`assets/css/site.css`) — no frameworks or CSS framework/CDN (Tailwind removed in Milestone 11, DR-015). No request-time build step (`npm run prerender` is the committed exception, DR-022); no unnecessary dependencies.
 - Every change must keep the site GitHub Pages compatible, offline compatible, responsive, accessible, and
   print-friendly.
 

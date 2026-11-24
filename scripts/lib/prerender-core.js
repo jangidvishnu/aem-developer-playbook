@@ -131,7 +131,7 @@ function buildFragments(Render, data) {
     'sidebar-label': Render.escapeHtml(site.sidebar.contentsLabel),
     toc: groups ? Render.sidebarGrouped(chapters, groups) : Render.sidebar(chapters),
     main: Render.hero(site.hero, renderOpts, stats) + roadmapsHtml + chaptersHtml,
-    'site-footer': Render.footer(site.footer)
+    'site-footer': Render.footer(site.footer, site.disclaimer)
   };
 }
 

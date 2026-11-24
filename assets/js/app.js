@@ -441,7 +441,7 @@ const App = {
           const chaptersHtml = chapters.map((c, i) => Render.chapter(c, i, ctx)).join('');
           const roadmapsHtml = productMode ? '' : Render.roadmapList(roadmaps, renderOpts);
           main.innerHTML = Render.hero(site.hero, renderOpts, stats) + roadmapsHtml + chaptersHtml;
-          document.getElementById('site-footer').innerHTML = Render.footer(site.footer);
+          document.getElementById('site-footer').innerHTML = Render.footer(site.footer, site.disclaimer);
 
           const searchIndex = Search.buildIndex({ chapters, companies, roadmaps, site, learning, ownerPlaybook });
           const industries = CompanyFilters.industriesFrom(companies);

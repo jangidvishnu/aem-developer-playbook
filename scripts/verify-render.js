@@ -56,7 +56,7 @@ function runSiteChrome() {
     dashboard: Render.dashboard(site.dashboard),
     search: Render.search(site.search),
     roadmap: Render.roadmapList(roadmaps),
-    footer: Render.footer(site.footer)
+    footer: Render.footer(site.footer, site.disclaimer)
   };
 }
 

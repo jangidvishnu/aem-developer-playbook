@@ -242,5 +242,55 @@
     "difficulty": "Intermediate",
     "technologies": [],
     "guidance": "Own the story: problem, your role, stack (Sites/Cloud/Dispatcher/etc.), hard trade-offs, and measurable outcome. Interviewers often dig into whatever you claim — do not list work you cannot explain."
+  },
+  {
+    "id": "int-forms-core-vs-foundation",
+    "question": "What is the difference between Core Components-based Adaptive Forms and foundation-component Adaptive Forms?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "aem-forms"
+    ],
+    "guidance": "Core Components-based forms are the recommended path for new forms on AEM as a Cloud Service: standard components, themes for styling, and easier upgrades. Foundation components are the older model you still meet on existing 6.5 programs. Say which one you have built, and why a project would migrate or keep legacy forms."
+  },
+  {
+    "id": "int-forms-rule-editor",
+    "question": "How do you implement validations and conditional logic in an Adaptive Form?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "aem-forms"
+    ],
+    "guidance": "Rule editor for show/hide, set value, enable/disable, and validations; custom functions (JavaScript) for logic you reuse across fields or forms. Mention keeping rules readable, avoiding duplicate logic across panels, and always validating again on the server — client-side checks are for user experience, not security."
+  },
+  {
+    "id": "int-forms-fdm",
+    "question": "What is a Form Data Model, and how do you use it for prefill and submission?",
+    "category": "technical",
+    "difficulty": "Advanced",
+    "technologies": [
+      "aem-forms"
+    ],
+    "guidance": "A Form Data Model connects a form to data sources such as REST services (via an OpenAPI/Swagger definition), SOAP, or databases through configured data sources. Explain binding fields to model objects, prefilling from a service, and invoking a service on submit. Talk about error handling and timeouts if the backend is slow or down."
+  },
+  {
+    "id": "int-forms-submit-actions",
+    "question": "Which submit actions have you used in AEM Forms, and when would you write a custom one?",
+    "category": "technical",
+    "difficulty": "Intermediate",
+    "technologies": [
+      "aem-forms"
+    ],
+    "guidance": "Common options: submit to a REST endpoint, invoke a Form Data Model service, start an AEM workflow, send email, or generate a Document of Record. A custom submit action makes sense when you need extra server-side processing or an integration the standard actions do not cover. Stick to the actions you have actually configured."
+  },
+  {
+    "id": "int-forms-reuse",
+    "question": "How do you keep a large set of forms maintainable across many customer journeys?",
+    "category": "technical",
+    "difficulty": "Advanced",
+    "technologies": [
+      "aem-forms"
+    ],
+    "guidance": "Fragments for repeated sections, shared templates and themes, reusable custom components, and shared custom functions for rules. Mention lazy-loading fragments for long forms, naming conventions, and documentation or style guides for the team. A real example from a multi-brand or multi-product program makes this answer strong."
   }
 ]

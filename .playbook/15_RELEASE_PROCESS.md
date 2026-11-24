@@ -92,7 +92,7 @@ in `14_ROADMAP.md` — those define *what* must be true; the test plan defines *
 
 1. **Automated checks** — exact shell commands (e.g. `node scripts/verify-search.js`) and expected pass output.
 2. **How to serve locally** — HTTP only (`file://` fails after Milestone 3); list options that work on this machine
-   (Cursor Live Preview, `npx serve`, `python -m http.server`, or a one-line Node static server).
+   (VS Code Live Preview, `npx serve`, `python -m http.server`, or a one-line Node static server).
 3. **Browser checklist** — numbered steps the project owner can follow without reading the codebase, including at
    least one check per milestone-specific acceptance criterion that requires human verification.
 4. **Regression checks** — baseline items from the manual smoke test in `17_TESTING_GUIDE.md` that still apply

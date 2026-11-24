@@ -328,6 +328,17 @@ const CompanyFilters = {
     return sortId === 'hiring-desc' ? 'priority-desc' : sortId || 'priority-desc';
   },
 
+  // Legacy: industry values merged 2026-11 — keep old shared cf_industry links working.
+  normalizeIndustry(industry) {
+    const merged = {
+      Telecommunications: 'Telecom',
+      'Financial Services': 'Finance',
+      'Marketing Services': 'Marketing',
+      FMCG: 'Consumer Goods'
+    };
+    return merged[industry] || industry || '';
+  },
+
   sort(companies, sortId) {
     const list = [...companies];
     const id = CompanyFilters.normalizeSort(sortId);
@@ -401,7 +412,7 @@ const CompanyFilters = {
     const state = CompanyFilters.defaultState();
     if (params.has('cf_q')) state.query = params.get('cf_q') || '';
     if (params.has('cf_type')) state.companyType = params.get('cf_type') || '';
-    if (params.has('cf_industry')) state.industry = params.get('cf_industry') || '';
+    if (params.has('cf_industry')) state.industry = CompanyFilters.normalizeIndustry(params.get('cf_industry'));
     if (params.has('cf_product')) state.product = params.get('cf_product') || '';
     if (params.has('cf_sort')) state.sort = CompanyFilters.normalizeSort(params.get('cf_sort'));
     if (params.get('cf_india') === '1') state.hiringIndia = true;

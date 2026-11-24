@@ -6,6 +6,24 @@ mark the old one as superseded.
 
 ---
 
+## DR-029 — Agent rules in `.claude/rules/` + `CLAUDE.md` (supersedes DR-004 item 3)
+
+**Date:** 2026-11-24
+**Context:** The owner works in Claude Code. Project gates (commit approval, company-data quality bar, shell
+gotchas) must load automatically every session without wasting tokens on repeats.
+**Decision:** Rules live in `.claude/rules/*.md`. Always-on rules are plain files; file-specific rules use
+`paths:` frontmatter (loaded only when matching files are in play). A short root `CLAUDE.md` holds the project
+summary, state-doc pointers, and npm commands. Rules are deduplicated so each gate has one home (12 files → 8,
+always-loaded text ~1,460 → ~830 words): current-state pointers folded into `CLAUDE.md`; terminal and shell notes
+→ `shell.md`; cost and owner-preference notes → `agent-workflow.md`; coding standard folded into
+`architecture.md`; repeats of the commit gate and the vanilla-JS/prerender rule removed outside their home file;
+lines that restate Claude Code's built-in behavior dropped. No project rule was removed.
+`.claude/settings.local.json` is gitignored.
+**Trade-off accepted:** Agents without `.claude/rules/` support (e.g. Copilot) rely on
+`.github/copilot-instructions.md` instead.
+
+---
+
 ## DR-028 — Protected `stage` branch (GitHub Pages) + default PRs to stage
 
 **Date:** 2026-07-09
@@ -18,7 +36,7 @@ Cloudflare Pages production continues to track **`master`** / `aemplaybook.pages
 (1) feature → `stage` after commit + local CI; agent stops — owner merges and verifies GitHub Pages;
 (2) promote `stage` → `master` only when the owner explicitly asks in a new message (after stage is merged).
 Agents do not open both PRs at once and do not poll/wait for merges in chat. CI `on.push.branches` includes
-`stage`. Documented in `21_PUBLISHING.md` and `.cursor/rules/git-push-approval.mdc`.
+`stage`. Documented in `21_PUBLISHING.md` and `.claude/rules/git-push-approval.md`.
 **Trade-off accepted:** Two protected branches; promote is a deliberate second step after staging is verified.
 **Follow-up:** Ensure Cloudflare production branch setting is `master`; keep CF deploy manual if desired.
 
@@ -180,7 +198,7 @@ the added complexity.
 `index.html`/`sitemap.xml`/`robots.txt` on disk, and is the last step of `npm run verify` — so it's the same one
 enforcement path locally (pre-commit hook, `12_DECISIONS.md` DR-021) and in CI, per the project owner's explicit
 request for "one common strategy" across both.
-**Constitution note:** `00_PROJECT_OVERVIEW.md` rule 6 and `.cursor/rules/constitution.mdc` rule 5 both state "no
+**Constitution note:** `00_PROJECT_OVERVIEW.md` rule 6 and `.claude/rules/constitution.md` both state "no
 build step" as non-negotiable. `npm run prerender` is, strictly, a build step — but its *output* is a committed
 static file with no build step at request/deploy time (GitHub Pages still serves everything as-is), which is what
 the original rule was protecting (portability, offline-friendliness, zero server-side moving parts). This was
@@ -436,7 +454,7 @@ rows are visible in search/table but clearly marked and never `usesAEM: true` wi
 **Context:** Milestone 3 moves `PLAYBOOK.chapters`/`PLAYBOOK.companies` into `data/*.json`, fetched via
 `fetch()` at load time. Browsers block `fetch()` against `file://` URLs under their default CORS policy, which
 means `index.html` can no longer be viewed by double-clicking it locally — it must be served over HTTP (any static
-server: `npx serve`, `python -m http.server`, the VS Code/Cursor Live Preview extension already configured in this
+server: `npx serve`, `python -m http.server`, the VS Code Live Preview extension already configured in this
 repo's `.vscode/settings.json`, etc.). This changes a workflow that has been true since the project's first commit.
 **Decision:** Accept the trade-off rather than avoid it (e.g. via a `data/chapters.js` global-variable wrapper
 instead of `.json` + `fetch()`), because `MASTER_BOOTSTRAP_PROMPT.md` explicitly mandates JSON as the primary data
@@ -448,7 +466,7 @@ constitution's explicit JSON mandate and unlocks the same `fetch()`-based patter
 (`technologies.json`, `roadmaps.json`, etc. in later milestones).
 **Follow-up:** None open. Flagged to and accepted by the project owner before implementation began.
 
-## DR-004 — Restructure `.playbook/` for AI token efficiency: merge core docs, archive roadmap history, add Cursor rules
+## DR-004 — Restructure `.playbook/` for AI token efficiency: merge core docs, archive roadmap history, add agent rules
 
 **Date:** Post-Milestone-2
 **Context:** Measuring every `.playbook/` file directly showed the 26 governance documents total ~28,000 tokens,
@@ -464,12 +482,12 @@ detail for every completed milestone forever.
 2. Move completed milestones' full Goal/Scope/Estimates/Acceptance-Criteria/Definition-of-Done/review detail out of
    `14_ROADMAP.md` into a new `25_ROADMAP_ARCHIVE.md`. The active roadmap keeps only the milestone sequence table
    and a short summary + link per completed milestone.
-3. Add `.cursor/rules/` (`constitution.mdc`, `current-state.mdc` — both `alwaysApply: true` — plus
-   `coding-standard.mdc`, `architecture.mdc`, `company-data.mdc`, `editorial-style.mdc`, each scoped with `globs:`
-   to only auto-attach when relevant files are open) so Cursor sessions get the right context automatically instead
-   of a manual "read these N files" instruction.
-4. Update `.github/copilot-instructions.md` to reflect the new structure and note that Cursor users get most of
-   this automatically via rules.
+3. Add agent rule files (now `.claude/rules/`, see DR-029): constitution and current-state pointers always
+   loaded, plus coding-standard, architecture, company-data, and editorial-style rules scoped to load only when
+   relevant files are in play, so agent sessions get the right context automatically instead of a manual "read
+   these N files" instruction.
+4. Update `.github/copilot-instructions.md` to reflect the new structure and note that agents with rule support get
+   most of this automatically.
 **Trade-off accepted:** An extra indirection (stub files, an archive file) to navigate for anyone specifically
 looking for the old `01_AI_CONSTITUTION.md`/`02_PROJECT_MEMORY.md` files or historical milestone detail, in
 exchange for an estimated ~68% reduction in the token cost paid on every session (~10,000 → ~3,200 tokens for a
