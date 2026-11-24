@@ -4,6 +4,26 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — industry cleanup and footer credit
+
+### Added
+
+- Footer credit line with a LinkedIn link (`site.json` `footer.credit`; `Render.footer(footer, profile)` reuses
+  `disclaimer.linkedinUrl` so the URL keeps one home). New `.site-footer__credit` / `.site-footer__link` styles;
+  checked at desktop and 390px mobile (no horizontal scroll, 24px link target).
+
+### Changed
+
+- Merged duplicate industry values in `companies.json` (17 rows): Telecommunications → Telecom, Financial
+  Services → Finance, Marketing Services → Marketing, FMCG → Consumer Goods. Old shared `cf_industry` links map to
+  the merged value via `CompanyFilters.normalizeIndustry()`.
+- Prerendered `index.html` and Milestone 3 render golden updated (only the four removed filter options and the
+  renamed row labels differ).
+
+### Fixed
+
+- `.github/copilot-instructions.md` no longer says Tailwind CSS (removed in Milestone 11, DR-015).
+
 ## Unreleased — final humanisation pass (public copy)
 
 ### Changed

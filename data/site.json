@@ -88,6 +88,10 @@
   },
   "footer": {
     "text": "AEM job-search notes for India — companies, apply steps, and interview prep.",
+    "credit": {
+      "text": "Built by Vishnu Jangid, AEM developer",
+      "linkLabel": "Connect on LinkedIn"
+    },
     "copyright": "© 2026 Vishnu Jangid. Apache-2.0 — pull requests welcome."
   },
   "seo": {

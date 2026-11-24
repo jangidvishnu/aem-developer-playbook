@@ -28,7 +28,7 @@ for why this list was shortened).
 - Implement only the requested task or milestone; do not start the next milestone without explicit approval.
 - Prefer reusable render functions over inline duplicated markup.
 - Keep content data (`data/*.json`) separate from rendering (`index.html` / `assets/js/`).
-- Use Vanilla JS + Tailwind CSS. No frameworks, no build step, no unnecessary dependencies.
+- Use vanilla JS + hand-written CSS (`assets/css/site.css`) — no frameworks or CSS framework/CDN (Tailwind removed in Milestone 11, DR-015). No request-time build step (`npm run prerender` is the committed exception, DR-022); no unnecessary dependencies.
 - Every change must keep the site GitHub Pages compatible, offline compatible, responsive, accessible, and
   print-friendly.
 
