@@ -69,7 +69,7 @@ const nodeEsmGlobals = {
   console: 'readonly'
 };
 
-// scripts/ui-smoke-*.mjs run in Node but pass callbacks into Playwright's page.evaluate(), which
+// scripts/ui-smoke-*.mjs and build-og-image.mjs run in Node but pass callbacks into Playwright's page.evaluate(), which
 // executes them in the *browser* page, not Node — so `document`/`window` are legitimately in
 // scope there even though the surrounding file is a Node ESM script.
 const playwrightPageEvaluateGlobals = {
@@ -125,7 +125,7 @@ module.exports = [
     rules: correctnessRules
   },
   {
-    files: ['scripts/ui-smoke-*.mjs'],
+    files: ['scripts/ui-smoke-*.mjs', 'scripts/build-og-image.mjs'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'module',
