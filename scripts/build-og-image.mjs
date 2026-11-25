@@ -25,7 +25,7 @@ const companies = readJson('companies.json');
 
 const title = (site.header && site.header.title) || 'AEM Career Playbook';
 const host = new URL(site.seo.siteUrl).host;
-const tagline = `${companies.length} AEM employers · apply steps · interview prep (India)`;
+const tagline = `${companies.length} AEM employers · apply steps · interview prep`;
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 
