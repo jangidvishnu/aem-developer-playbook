@@ -6,6 +6,21 @@ mark the old one as superseded.
 
 ---
 
+## DR-030 — Company list scope and removal bar
+
+**Date:** 2026-11-25
+**Context:** The all-priority company refresh found 21 rows with no India presence or India hiring (AEM customers
+such as airlines, banks and retailers that hire locally), and a few rows whose sites no longer show any AEM work.
+**Decision:** (1) The employer list is not restricted to India — non-India AEM employers stay; the "298 employers"
+count stays the whole list. (2) A row is removed only when there is no AEM evidence left **and** every cited page
+(`careersUrl`, `evidence`, `hiringEvidence`) is dead or shows no AEM. Removed rows are archived, never deleted
+(`archive/companies/removed-*.json`). A row with no current AEM opening is **not** removed or downgraded — it may
+hire later.
+**Trade-off accepted:** The list keeps some employers that rarely hire AEM developers in India; job seekers filter
+by location/India hiring instead.
+
+---
+
 ## DR-029 — Agent rules in `.claude/rules/` + `CLAUDE.md` (supersedes DR-004 item 3)
 
 **Date:** 2026-11-24
