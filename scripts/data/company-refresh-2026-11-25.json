@@ -1,0 +1,3535 @@
+{
+ "checkedAt": "2026-11-25",
+ "method": "scripts/link probe + ATS APIs (Workday, Greenhouse, Lever, SmartRecruiters, Ashby, Workable, Jobvite, Phenom, SuccessFactors RMK, Radancy, Avature) + careers-page crawl + Chrome + LinkedIn company-filtered job search (owner session)",
+ "rule": "verifiedAt bumped only when a live AEM role was confirmed; job-board postings must be dated on/after 2026-05-25",
+ "summary": {
+  "confirmed-earlier-batch": 26,
+  "confirmed": 15,
+  "checked-no-aem-roles": 221,
+  "unchecked": 12,
+  "aem-in-description": 14,
+  "careers-page-listing": 8,
+  "removed": 2
+ },
+ "rows": [
+  {
+   "id": "adobe",
+   "priority": 10,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.adobe.com/us/en/search-results?keywords=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "accenture",
+   "priority": 9,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "Developer - AEM",
+   "hiringEvidence": [
+    "https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Petaling-Jaya-Plaza-33/Developer---AEM_R00367915"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.accenture.com/us-en/services/adobe-customer-experience",
+    "he expired 2026-09-08: https://www.accenture.com/in-en/careers/jobdetails?id=ATCI-5041667-S1868094_en"
+   ]
+  },
+  {
+   "id": "bounteous",
+   "priority": 9,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://www.bounteous.com/careers/job/t__8713400b-66d1-4e50-b698-16967dbc132b"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ceat",
+   "priority": 9,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.ceat.com/career-landing.html"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "cisco",
+   "priority": 9,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.cisco.com/global/en/search-results?keywords=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "citi",
+   "priority": 9,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "Marketing Content Implementation Lead – AEM (Hybrid)",
+   "hiringEvidence": [
+    "https://citi.wd5.myworkdayjobs.com/en-US/2/job/Wilmington-Delaware-United-States/Marketing-Content-Implementation-Lead---Adobe-Experience-Manager--AEM---Hybrid-_24792205"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.citigroup.com/global/about-us/technology",
+    "he expired 2026-03-12: https://builtin.com/job/aem-content-author-vice-president/7826528"
+   ]
+  },
+  {
+   "id": "deloitte",
+   "priority": 9,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://usijobs.deloitte.com/en_US/careersUSI/SearchJobs/?search=AEM&listFilterMode=1",
+    "https://usijobs.deloitte.com/en_US/careersUSI/JobDetail/USI-EH27-CS-G-Full-Stack-Web-Developer-Specialist-Deputy-Manager-Hyderabad-Bengaluru/361026"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "deutsche-bank",
+   "priority": 9,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "own board searched in Chrome (batch 1)",
+   "hiringEvidence": [
+    "https://builtin.com/job/senior-developer-adobe-experience-manager/4672290"
+   ],
+   "brokenLinks": [
+    "ev 404: https://builtin.com/job/senior-developer-adobe-experience-manager/4672290",
+    "he 404: https://builtin.com/job/senior-developer-adobe-experience-manager/4672290"
+   ]
+  },
+  {
+   "id": "ey",
+   "priority": 9,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.ey.com/ey/job/Hyderabad-GIG-Customer-tech-Adobe-AEM-Developer-Senior-TG-500081/1443121133/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ford",
+   "priority": 9,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://www.careers.ford.com/en/job/dearborn/aem-software-developer/48560/103258181760"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "goldman-sachs",
+   "priority": 9,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://higher.gs.com/roles/189159"
+   ],
+   "brokenLinks": [
+    "ev closed: https://www.goldmansachs.com/what-we-do/digital-transformation/"
+   ]
+  },
+  {
+   "id": "hanesbrands",
+   "priority": 9,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "Gildan board (Dayforce): no AEM roles",
+   "hiringEvidence": [
+    "https://careers.hanes.com/search?q=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "hdfc-bank",
+   "priority": 9,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.hdfc.bank.in/careers",
+    "https://business.adobe.com/summit/2025/sessions/from-online-to-onground-hdfc-banks-blueprint-s944.html"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "hsbc",
+   "priority": 9,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://mycareer.hsbc.com/en_GB/external/PipelineDetail/GSC-Content-Management-Administrator/288376"
+   ],
+   "brokenLinks": [
+    "ev closed: https://mycareer.hsbc.com/en_GB/external/PipelineDetail/GSC-Content-Management-Administrator/288376",
+    "he closed: https://mycareer.hsbc.com/en_GB/external/PipelineDetail/GSC-Content-Management-Administrator/288376"
+   ]
+  },
+  {
+   "id": "lenovo",
+   "priority": 9,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://jobs.lenovo.com/en_US/careers/SearchJobs/?search=AEM&listFilterMode=1",
+    "https://jobs.lenovo.com/en_US/careers/JobDetail/Sr-Manager-Web-Content-Operations/82352"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "macquarie-group",
+   "priority": 9,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://recruitment.macquarie.com/en_US/careers/JobDetail?jobId=24045"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "maruti-suzuki",
+   "priority": 9,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.marutisuzuki.com/corporate/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "mg-motor",
+   "priority": 9,
+   "verifiedAt": "2026-07-09",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://www.mgmotor.co.in/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "morgan-stanley",
+   "priority": 9,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.efinancialcareers.com/jobs-India-Mumbai-AEM_Java_Resource_Manager_Vice_President_Software_Engineering.id24021479"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.efinancialcareers.com/jobs-India-Mumbai-AEM_Java_Resource_Manager_Vice_President_Software_Engineering.id24021479"
+   ]
+  },
+  {
+   "id": "ntt-data",
+   "priority": 9,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers-inc.nttdata.com/job/Bangalore-Front-end-Engineer-Sols-2-KA/1391671700/"
+   ],
+   "brokenLinks": [
+    "ev closed: https://careers-inc.nttdata.com/job/Bangalore-AEM-Dev-KA/1401112700/"
+   ]
+  },
+  {
+   "id": "philips",
+   "priority": 9,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://philips.talent-pool.com/projects/freelance-content-migration-project-manager/56490"
+   ],
+   "brokenLinks": [
+    "he closed: https://philips.talent-pool.com/projects/freelance-content-migration-project-manager/56490"
+   ]
+  },
+  {
+   "id": "ups",
+   "priority": 9,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.jobs-ups.com/global/en/search-results?keywords=AEM",
+    "https://www.jobs-ups.com/global/en/job/UPBUPSGLOBALR26015551EXTERNALENGLOBAL/Senior-Applications-Developer-AEM"
+   ],
+   "brokenLinks": [
+    "he 410: https://www.jobs-ups.com/global/en/job/UPBUPSGLOBALR26015551EXTERNALENGLOBAL/Senior-Applications-Developer-AEM"
+   ]
+  },
+  {
+   "id": "visa",
+   "priority": 9,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://getmereferred.com/job-listing/staff-sw-engineer-6-9-years-of-experience-in-aem-java-spring-boot-microservices-angular-react-visa-bengaluru-6-to-9-years-experience-00f7dab4-6656-4ab4-a830-d627947cd94d"
+   ],
+   "brokenLinks": [
+    "ev 404: https://usa.visa.com/about-visa/technology.html",
+    "he closed: https://getmereferred.com/job-listing/staff-sw-engineer-6-9-years-of-experience-in-aem-java-spring-boot-microservices-angular-react-visa-bengaluru-6-to-9-years-experience-00f7dab4-6656-4ab4-a830-d627947cd94d"
+   ]
+  },
+  {
+   "id": "volkswagen",
+   "priority": 9,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.volkswagenag.com/en/careers/jobs.html?keyword=Experience%20Manager"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.volkswagenag.com/en/careers/jobs.html?keyword=Experience%20Manager"
+   ]
+  },
+  {
+   "id": "volvo-group",
+   "priority": 9,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://jobs.volvogroup.com/search-jobs?keyword=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "walmart",
+   "priority": 9,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.walmart.com/results?q=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "workday",
+   "priority": 9,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://workday.wd5.myworkdayjobs.com/Workday?q=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "amgen",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.amgen.com/en/job/hyderabad/adobe-aem-architect/87/99747082000"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "apexon",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://www.apexon.com/career-job-detail/?id=0&jobid=7280"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "arrow-electronics",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.arrow.com/us/en/job/R243767/Senior-Adobe-Experience-Manager-AEM-Developer-Architect"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "assa-abloy",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "LinkedIn company jobs: Senior AEM Engineer, Chennai",
+   "hiringEvidence": [
+    "https://www.linkedin.com/jobs/view/4474894148/"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.assaabloy.com/career/en/open-positions/job.45062"
+   ]
+  },
+  {
+   "id": "astrazeneca",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/associate-website-delivery-astrazeneca-chennai-51712805",
+    "https://www.foundit.in/job/analyst-aem-digital-asset-management-librarian-astrazeneca-chennai-50375307"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "barclays",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Senior Product Owner",
+   "hiringEvidence": [
+    "https://barclays.wd3.myworkdayjobs.com/en-US/External_Career_Site_Barclays/job/Building-300-Whippany-Campus-Jefferson-Park/Senior-Product-Owner_JR-0000111371-1"
+   ],
+   "brokenLinks": [
+    "ev closed: https://search.jobs.barclays/en/job/pune/java-developer/13015/95037578976",
+    "he expired 2025-06-01: https://builtinpune.in/job/lead-aem-developer/6264025"
+   ]
+  },
+  {
+   "id": "bbva",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://bbva.csod.com/ux/ats/careersite/4/home?c=bbva&q=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "birlasoft",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.shine.com/jobs/aem-developer/birlasoft/19079098"
+   ],
+   "brokenLinks": [
+    "ev closed: https://apna.co/job/noida/aem-lead-developer-1421565561",
+    "he closed: https://www.shine.com/jobs/aem-developer/birlasoft/19079098",
+    "job ERR ENOTFOUND: https://careers.birlasoft.com/"
+   ]
+  },
+  {
+   "id": "boston-scientific",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/digital-producer-aem-boston-scientific-gurgaon-gurugram-51807248"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "bristol-myers-squibb",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://bristolmyerssquibb.wd5.myworkdayjobs.com/en-US/BMS/job/Otemachi-JP/Senior-Manager--Content-Strategy---Enablement_R1607690"
+   ],
+   "brokenLinks": [
+    "ev 404: https://builtin.com/job/software-engineer-i-aem-developer-front-end/4138971"
+   ]
+  },
+  {
+   "id": "caterpillar",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.caterpillar.com/en/jobs/r0000405824/manager-software-engineering-enterprise-search/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "cgi",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "njoyn board searched in Chrome",
+   "hiringEvidence": [
+    "https://builtin.com/job/senior-aem-frontend-developer-adobe-bangalore-ka-cgi-j0524-0748"
+   ],
+   "brokenLinks": [
+    "ev closed: https://www.cgi.com/en/solutions/digital-experience",
+    "he 404: https://builtin.com/job/senior-aem-frontend-developer-adobe-bangalore-ka-cgi-j0524-0748"
+   ]
+  },
+  {
+   "id": "coforge",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "LinkedIn company jobs: Senior AEM Architect, Bengaluru",
+   "hiringEvidence": [
+    "https://www.linkedin.com/jobs/view/4490463441/"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.coforge.com/what-we-do/capabilities/digital-experience/content-management-system",
+    "he 404: https://careers.coforge.com/search/?q=Adobe%20Experience%20Manager"
+   ]
+  },
+  {
+   "id": "cognizant",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.cognizant.com/global-en/jobs/00071197341/aem-backend-developer/"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.cognizant.com/us/en/services/adobe"
+   ]
+  },
+  {
+   "id": "concentrix",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Senior Front-End Developer (Svelte/SvelteKit)",
+   "hiringEvidence": [
+    "https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/USA-Seattle-1401-NW-46th-St/Senior-Front-End-Developer--Svelte-SvelteKit-_R1773919-1"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "cox-communications",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://jobs.coxenterprises.com/en/search-jobs?k=aem"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "cybage",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "open-positions page read in Chrome",
+   "hiringEvidence": [
+    "https://www.cybage.com/careers/open-positions"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "danaher",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://builtin.com/job/aem-adobe-experience-manager-senior-solution-architect/8337540",
+    "https://www.shine.com/jobs/sr-developer-frontend-aem-java-eds-kolkata/pall/19166202",
+    "https://jobs.danaher.com/global/en/pall"
+   ],
+   "brokenLinks": [
+    "ev expired 2026-03-04: https://builtin.com/job/aem-adobe-experience-manager-senior-solution-architect/8337540",
+    "ev expired 2026-08-11: https://builtin.com/job/sr-developer-frontend-aem-java-eds/9875067",
+    "he expired 2026-03-04: https://builtin.com/job/aem-adobe-experience-manager-senior-solution-architect/8337540",
+    "he closed: https://www.shine.com/jobs/sr-developer-frontend-aem-java-eds-kolkata/pall/19166202"
+   ]
+  },
+  {
+   "id": "dell",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "Oracle board searched in Chrome",
+   "hiringEvidence": [
+    "https://jobs.dell.com/en/india-jobs"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "dentsu",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://dentsuaegis.wd3.myworkdayjobs.com/en-US/DAN_GLOBAL/job/Kolkata/AEM-Developer_R1133635",
+    "https://dentsuaegis.wd3.myworkdayjobs.com/en-US/DAN_GLOBAL/job/IND-DGS-Office-Pune-Indiqube-Orchid/AEM-Technical-Architect_R1132401"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ericsson-vonage",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://job-boards.greenhouse.io/vonage?keyword=AEM",
+    "https://www.vonage.com/careers/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "genpact",
+   "priority": 8,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://jobs.jobvite.com/genpactexperience/job/oPQPAfwO"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "globallogic",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "own board: no open AEM positions",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/senior-engineer-product-support-aem-irc292999-globallogic-india-gurgaon-gurugram-51035065"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "globant",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://career.globant.com/job/Pune-AEM-Frontend-Developer-Maha/571277717/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "gspann",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.gspann.com/jobs/open-positions/technical-architect-adobe-experience-manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "hdfc-ltd",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "14 openings listed, none AEM",
+   "hiringEvidence": [
+    "https://www.hdfc.com/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "honeywell",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.honeywell.com/en/sites/Honeywell/job/156731/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ibm",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.ibm.com/en_US/careers/JobDetail?jobId=143590",
+    "https://www.ibm.com/careers/search?keyword=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "infosys",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "LinkedIn company jobs: Senior AEM UI Architect, Hyderabad",
+   "hiringEvidence": [
+    "https://www.linkedin.com/jobs/view/4492521217/"
+   ],
+   "brokenLinks": [
+    "he 404: https://digitalcareers.infosys.com/global-careers/company-job/description/reqid/145921BR",
+    "job 404: https://digitalcareers.infosys.com/global-careers?keyword=Adobe%20Experience%20Manager"
+   ]
+  },
+  {
+   "id": "invesco",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Principal Architect - Digital Platforms",
+   "hiringEvidence": [
+    "https://invesco.wd1.myworkdayjobs.com/en-US/IVZ/job/Henley-on-Thames-Oxfordshire/Principal-Architect---Digital-Platforms_R-15743-1"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "itc-infotech",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "own board read in Chrome",
+   "hiringEvidence": [
+    "https://www.itcinfotech.com/careers/"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.itcinfotech.com/careers/",
+    "job 404: https://www.itcinfotech.com/careers/"
+   ]
+  },
+  {
+   "id": "ltimindtree",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "marlabs",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "Breezy board: no AEM roles",
+   "hiringEvidence": [
+    "https://onebridge.breezy.hr/p/7187f7445ecc-adobe-experience-platform-aep-administrator"
+   ],
+   "brokenLinks": [
+    "he 404: https://onebridge.breezy.hr/p/7187f7445ecc-adobe-experience-platform-aep-administrator"
+   ]
+  },
+  {
+   "id": "nagarro",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "own board: no AEM offers",
+   "hiringEvidence": [
+    "https://www.drjobpro.com/india/jobs/associate-principal-engineer-aem-delhi-nagarro-MPRWWGMG08KIJIO"
+   ],
+   "brokenLinks": [
+    "ev 404: https://builtin.com/job/senior-staff-engineer-adobe-experience-manager-architect/4722248",
+    "he closed: https://www.drjobpro.com/india/jobs/associate-principal-engineer-aem-delhi-nagarro-MPRWWGMG08KIJIO"
+   ]
+  },
+  {
+   "id": "natwest-group",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://bebee.com/in/jobs/software-engineer-vp-aem-natwest-group-bengaluru-karnataka--theirstack-689965103"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "okta",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "Greenhouse board: no AEM roles",
+   "hiringEvidence": [
+    "https://jobsbyculture.com/jobs/okta/senior-aem-engineer"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.okta.com/company/careers/business-technology/senior-adobe-experience-manager-devops-engineer-aem-devops/",
+    "he 404: https://jobsbyculture.com/jobs/okta/senior-aem-engineer"
+   ]
+  },
+  {
+   "id": "onetrust",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Web Developer — React & Next.js",
+   "hiringEvidence": [
+    "https://job-boards.greenhouse.io/onetrust/jobs/8244284"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "optum",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.unitedhealthgroup.com/job-search-results/?keyword=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "palo-alto-networks",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Sr Front End Developer",
+   "hiringEvidence": [
+    "https://paloaltonetworks.wd5.myworkdayjobs.com/en-US/panwexternalcareers/job/Office---India---Bangalore-Bagmane-Tech-Park/Sr-Front-End-Developer_JR-015619"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "panasonic",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "iCIMS board: no AEM roles",
+   "hiringEvidence": [
+    "https://careers.na.panasonic.com/en/search-results?keywords=AEM"
+   ],
+   "brokenLinks": [
+    "he closed: https://careers.na.panasonic.com/en/search-results?keywords=AEM",
+    "job closed: https://careers.na.panasonic.com/en/search-results?keywords=AEM"
+   ]
+  },
+  {
+   "id": "persistent",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "own board: 0 AEM openings",
+   "hiringEvidence": [
+    "https://careers.persistent.com/search?q=Adobe%20Experience%20Manager",
+    "https://www.persistent.com/partner-ecosystem/adobe/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "publicis-sapient",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "LinkedIn company jobs: AEM Senior Associate, Bengaluru",
+   "hiringEvidence": [
+    "https://www.linkedin.com/jobs/view/4450486034/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "pwc",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.shine.com/jobs/senior-associate-aem-developer/pwc/19053025"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.shine.com/jobs/senior-associate-aem-developer/pwc/19053025"
+   ]
+  },
+  {
+   "id": "rockwell-automation",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "IAM UI Engineer",
+   "hiringEvidence": [
+    "https://rockwellautomation.wd1.myworkdayjobs.com/en-US/External_Rockwell_Automation/job/Bogota-Colombia/IAM-UI-Engineer_R26-4057"
+   ],
+   "brokenLinks": [
+    "ev expired 2025-05-29: https://builtin.com/job/aem-full-stack-developer/4757243",
+    "he expired 2025-05-29: https://builtin.com/job/aem-full-stack-developer/4757243"
+   ]
+  },
+  {
+   "id": "russell-investments",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Regional Marketing Operations Lead (APAC)",
+   "hiringEvidence": [
+    "https://russell.wd5.myworkdayjobs.com/en-US/russellinvestments/job/Mumbai/Regional-Marketing-Operations-Lead--APAC-_R-04291"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.shine.com/jobs/principal-developer/russell-investments/19129178"
+   ]
+  },
+  {
+   "id": "sony",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.sony.com/en/search-jobs?k=experience%20manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "sp-global-market-intelligence",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://careers.spglobal.com/jobs/333033"
+   ],
+   "brokenLinks": [
+    "he closed: https://careers.spglobal.com/jobs/333033",
+    "job closed: https://careers.spglobal.com/jobs?keywords=AEM"
+   ]
+  },
+  {
+   "id": "synechron",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/aem-developer-synechron-mumbai-52449508"
+   ],
+   "brokenLinks": [
+    "ev ERR TypeError: https://www.synechron.com/what-we-do/digital"
+   ]
+  },
+  {
+   "id": "t-mobile",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.t-mobile.com/search-results?keywords=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": [
+    "he 404: https://careers.t-mobile.com/search-results?keywords=Adobe%20Experience%20Manager",
+    "job 404: https://careers.t-mobile.com/search-results?keywords=Adobe%20Experience%20Manager"
+   ]
+  },
+  {
+   "id": "ta-digital",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read in Chrome",
+   "hiringEvidence": [
+    "https://www.career.com/job/ta-digital/adobe-multi-solution-architect-ajo-jo-campaign-aep/j202305250841555034260"
+   ],
+   "brokenLinks": [
+    "job ERR ENOTFOUND: https://www.tadigital.com/company/careers"
+   ]
+  },
+  {
+   "id": "tcs",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://ibegin.tcsapps.com/candidate/jobs/search?query=AEM"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.tcs.com/what-we-do/services/adobe"
+   ]
+  },
+  {
+   "id": "thermo-fisher-scientific",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/aem-platform-lead-thermo-fisher-scientific-bengaluru-bangalore-51712963"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "transunion",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/lead-developer-aem-java-transunion-chennai-47169610"
+   ],
+   "brokenLinks": [
+    "ev 404: https://builtin.com/job/consultant-aem-development/4433419"
+   ]
+  },
+  {
+   "id": "under-armour",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.underarmour.com/job/Baltimore-Sr_-Manager,-Content-Supply-Chain-Technology-MD-21230/1351668200/"
+   ],
+   "brokenLinks": [
+    "he closed: https://careers.underarmour.com/job/Baltimore-Sr_-Manager,-Content-Supply-Chain-Technology-MD-21230/1351668200/"
+   ]
+  },
+  {
+   "id": "valtech",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://www.valtech.com/career/jobs/5001679101/"
+   ],
+   "brokenLinks": [
+    "job closed: https://www.valtech.com/careers/jobs/"
+   ]
+  },
+  {
+   "id": "vanguard",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://www.vanguardjobs.com/job/24002998/senior-manager-technology-delivery-digital-platforms-aem-hyderabad-in/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "virtusa",
+   "priority": 8,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://virtusapolaris.referrals.selectminds.com/jobs/aem-developer-61568",
+    "https://www.virtusa.com/careers/in/hyderabad/customer-experience/senior-consultant/creq250454"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "vml",
+   "priority": 8,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [
+    "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8706811002"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "vodafone-idea",
+   "priority": 8,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.vodafoneidea.com/careers",
+    "https://business.adobe.com/in/customer-success-stories/vodafone-idea-case-study.html"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "yash",
+   "priority": 8,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/sr-software-engineer-aem-job-yash-technologies-bengaluru-bangalore-48064937"
+   ],
+   "brokenLinks": [
+    "ev 410: https://jobs.weekday.works/sr-software-engineer-aem-job-at-yash-technologies-middle-east-4397872158"
+   ]
+  },
+  {
+   "id": "abb",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.abb/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "adglobal360",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.adglobal360.com/career/sr-aem-developer/132"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "agileengine",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://agileengine.com/careers/"
+   ],
+   "brokenLinks": [
+    "ev 404: https://agileengine.com/careers/",
+    "he 404: https://agileengine.com/careers/"
+   ]
+  },
+  {
+   "id": "air-india",
+   "priority": 7,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.airindia.com/go/Information-Technology/668444/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "akqa",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.akqa.com/careers/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "akzonobel",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.akzonobel.com/en/careers/search?q=AEM"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.akzonobel.com/en/careers/search?q=AEM",
+    "job 404: https://www.akzonobel.com/en/careers/search?q=AEM"
+   ]
+  },
+  {
+   "id": "align-techne",
+   "priority": 7,
+   "verifiedAt": "2026-07-11",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.aligntechne.com/career.php?job_id=z5G7h3l6a1kMvyS65NP3c1sM-KiTKOy2Kctp1NgsFVM="
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "altimetrik",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://altimetrik.ripplehire.com/candidate/?token=SWCslMw2ct8eSm7LyqVb&source=CAREERSITE#detail/job/858117"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "amdocs",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.amdocs.com/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "athenahealth",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.athenahealth.com/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "atos",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://jobs.atos.net/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "au-small-finance-bank",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read in Chrome",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/aem-developer-au-small-finance-bank-jaipur-50473841"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "aurumdata",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read in Chrome",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/aem-developer-with-forms-aurumdata-solutions-india-private-limited-bengaluru-bangalore-33738268"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "autodesk",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.autodesk.com/careers"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.autodesk.com/careers",
+    "job closed: https://www.autodesk.com/careers"
+   ]
+  },
+  {
+   "id": "axis-bank",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.axisbank.com/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "bayer",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job 404: https://careers.bayer.com/en/search-results?keywords=AEM"
+   ]
+  },
+  {
+   "id": "bd",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Senior Manager, eCommerce Platforms",
+   "hiringEvidence": [
+    "https://bdx.wd1.myworkdayjobs.com/en-US/EXTERNAL_CAREER_SITE_USA/job/USA-NJ---Franklin-Lakes/Senior-Manager--eCommerce-Platforms_R-549681-1"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "best-buy",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "own board searched in Chrome",
+   "hiringEvidence": [
+    "https://jobs.bestbuy.com/bby?q=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "bhasaka",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "careers-page-listing",
+   "note": "AEM role listed on own careers page",
+   "hiringEvidence": [
+    "https://bhasaka.com/careers.html"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "boots",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://www.boots.jobs/search-jobs?keywords=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "bridgestone",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.bebridgestone.com/en/jobs/2026_05366/manager-development-delivery/"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.bebridgestone.com/en/jobs/2026_05366/manager-development-delivery/"
+   ]
+  },
+  {
+   "id": "brillio",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://builtin.com/job/aem-product-owner-r01546958/4234551"
+   ],
+   "brokenLinks": [
+    "ev 404: https://builtin.com/job/aem-adobe-experience-manager-architect-r01546298/4033303",
+    "he 404: https://builtin.com/job/aem-product-owner-r01546958/4234551"
+   ]
+  },
+  {
+   "id": "capgemini",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.capgemini.com/in-en/careers/join-capgemini/job-search/?keyword=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.capgemini.com/us-en/services/adobe/"
+   ]
+  },
+  {
+   "id": "capital-one",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://builtin.com/job/lead-software-engineer-fullstack-enterprise-platforms-technology/9006201"
+   ],
+   "brokenLinks": [
+    "he expired 2026-05-06: https://builtin.com/job/lead-software-engineer-fullstack-enterprise-platforms-technology/9006201"
+   ]
+  },
+  {
+   "id": "coca-cola",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://builtin.com/job/consumer-engagement-adtech-platforms-intern/3934916"
+   ],
+   "brokenLinks": [
+    "he 404: https://builtin.com/job/consumer-engagement-adtech-platforms-intern/3934916"
+   ]
+  },
+  {
+   "id": "codelattice",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.codelattice.com/careers"
+   ],
+   "brokenLinks": [
+    "he expired 2021-08-13: https://www.codelattice.com/careers"
+   ]
+  },
+  {
+   "id": "codersbrain",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read in Chrome",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Forms-Designer-Bengaluru-Bangalore-Chennai-codersbrain-yYWIEcAS"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "collabera",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "AEM Developer",
+   "hiringEvidence": [
+    "https://jobs.smartrecruiters.com/Collabera2/92575768"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.collabera.com/solutions/digital-experience"
+   ]
+  },
+  {
+   "id": "commergence",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "LinkedIn company jobs: AEM Guides Developer, India (remote)",
+   "hiringEvidence": [
+    "https://www.linkedin.com/jobs/view/4474685694/"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.shine.com/jobs/aem-assets-senior-consultant/commergence/19083844"
+   ]
+  },
+  {
+   "id": "cyient",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/web-content-analyst-cyient-pune-51727512"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "dicks-sporting-goods",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.dickssportinggoods.jobs/job/engineering-manager-martech-remote/remote/202601525/"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.dickssportinggoods.jobs/job/engineering-manager-martech-remote/remote/202601525/",
+    "job 404: https://www.dickssportinggoods.jobs/job-listing?q=AEM"
+   ]
+  },
+  {
+   "id": "dlux-tech",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.dluxtech.com/jobs/Careers/26655000005636017/Sr-AEM-Developer?source=CareerSite"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "dow",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://jobs.dow.com/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "dxc",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://builtin.com/job/digital-content-manager/8274428"
+   ],
+   "brokenLinks": [
+    "he expired 2026-02-23: https://builtin.com/job/digital-content-manager/8274428"
+   ]
+  },
+  {
+   "id": "e-on",
+   "priority": 7,
+   "verifiedAt": "2026-07-09",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://www.eon.com/en/careers.html"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "epam",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "own board searched in Chrome",
+   "hiringEvidence": [
+    "https://careers.epam.com/en/vacancy/senior-contentstack-developer-blt96e7ce3abbb10a5a"
+   ],
+   "brokenLinks": [
+    "he closed: https://careers.epam.com/en/vacancy/senior-contentstack-developer-blt96e7ce3abbb10a5a",
+    "job closed: https://careers.epam.com/en/jobs?query=Adobe%20Experience%20Manager"
+   ]
+  },
+  {
+   "id": "espire",
+   "priority": 7,
+   "verifiedAt": "2026-07-11",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.naukri.com/job-listings-100726016886"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "exl",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://builtin.com/job/martech-project-manager/9923828"
+   ],
+   "brokenLinks": [
+    "he expired 2026-09-15: https://builtin.com/job/martech-project-manager/9923828"
+   ]
+  },
+  {
+   "id": "fidelity",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://builtin.com/job/director-full-stack-engineering-lead-adobe-cms-and-java/4721622"
+   ],
+   "brokenLinks": [
+    "he expired 2025-06-14: https://builtin.com/job/director-full-stack-engineering-lead-adobe-cms-and-java/4721622"
+   ]
+  },
+  {
+   "id": "grid-dynamics",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "grundfos",
+   "priority": 7,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://jobs.grundfos.com/search/?q=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "happiest-minds",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://jobs.happiestminds.com/happiestminds/jobview/senior-software-engineer-developer-bengaluru-2025081410514569"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "hashout",
+   "priority": 7,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "Keka jobs mention AEM only in company blurb",
+   "hiringEvidence": [
+    "https://hashouttech.com/careers/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "havas",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job 404: https://www.havas.com/careers/"
+   ]
+  },
+  {
+   "id": "hayagreeva",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.hayagreeva.co.in/careers/",
+    "https://www.hayagreeva.co.in/careers/aem-sr-developers/"
+   ],
+   "brokenLinks": [
+    "ev closed: https://www.hayagreeva.co.in/careers/technical-architects-aem/",
+    "he closed: https://www.hayagreeva.co.in/careers/aem-sr-developers/"
+   ]
+  },
+  {
+   "id": "hcltech",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "LinkedIn company jobs: AEM Developer, Noida",
+   "hiringEvidence": [
+    "https://www.linkedin.com/jobs/view/4487432972/"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.hcltech.com/alliances/adobe",
+    "he 404: https://www.hcltech.com/careers/job-search?keyword=AEM",
+    "job 404: https://www.hcltech.com/careers/job-search?keyword=AEM"
+   ]
+  },
+  {
+   "id": "henkel",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "hexaware",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.hexaware.com/search?q=AEM"
+   ],
+   "brokenLinks": [
+    "he ERR ENOTFOUND: https://careers.hexaware.com/search?q=AEM",
+    "job 404: https://jobs.hexaware.com/search?q=AEM"
+   ]
+  },
+  {
+   "id": "homedepot",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Senior Analyst, Creative Solutions",
+   "hiringEvidence": [
+    "https://homedepot.wd5.myworkdayjobs.com/en-US/CareerDepot/job/STORE-SUPPORT-CENTER-ATLANTA---9090/Senior-Analyst--Creative-Solutions_Req197034-1"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "hp",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "hpe",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "htc-global-services",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.htcinc.com/careers/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "infogain",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "LinkedIn company jobs: AEM Architect, Bengaluru",
+   "hiringEvidence": [
+    "https://www.linkedin.com/jobs/view/4491134057/"
+   ],
+   "brokenLinks": [
+    "careersUrl dead (404)",
+    "job 404: https://www.tenarai.com/careers"
+   ]
+  },
+  {
+   "id": "informatica",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.informatica.com/search-jobs?keywords=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "infoyar",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/senior-aem-developer-fullstack-infoyar-chennai-48702989"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "innominds",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "ev ERR UNABLE_TO_VERIFY_LEAF_SIGNATURE: https://www.innominds.com/careers",
+    "job ERR UNABLE_TO_VERIFY_LEAF_SIGNATURE: https://www.innominds.com/careers"
+   ]
+  },
+  {
+   "id": "intraedge",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://jobs.intraedge.com/jobdetails.asp?jo_num=16991&apply=yes&jobTitle=AEM&"
+   ],
+   "brokenLinks": [
+    "he expired 2023-7-2T0: https://jobs.intraedge.com/jobdetails.asp?jo_num=16991&apply=yes&jobTitle=AEM&"
+   ]
+  },
+  {
+   "id": "johnson-johnson",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "jpmorgan-chase",
+   "priority": 7,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://careers.jpmorgan.com/us/en/search?search=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "juniper-networks",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.juniper.net/us/en/search-results?keywords=AEM"
+   ],
+   "brokenLinks": [
+    "he 404: https://careers.juniper.net/us/en/search-results?keywords=AEM",
+    "job 404: https://careers.juniper.net/us/en/search-results?keywords=AEM"
+   ]
+  },
+  {
+   "id": "kanerika",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "Zoho board: no AEM roles",
+   "hiringEvidence": [
+    "https://www.expertia.ai/kanerika/job/hiring-aem-frontend-developer-684031142db4f83c185a3655"
+   ],
+   "brokenLinks": [
+    "ev ERR ENOTFOUND: https://www.expertia.ai/kanerika/job/hiring-aem-backend-developer-68341c4f568bc28ea3562ec5",
+    "he ERR ENOTFOUND: https://www.expertia.ai/kanerika/job/hiring-aem-frontend-developer-684031142db4f83c185a3655",
+    "job ERR ENOTFOUND: https://www.expertia.ai/kanerika/job"
+   ]
+  },
+  {
+   "id": "konrad",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "careers-page-listing",
+   "note": "AEM role listed on own careers page",
+   "hiringEvidence": [
+    "https://www.konrad.com/careers"
+   ],
+   "brokenLinks": [
+    "he expired 2026-08-30: https://builtin.com/job/senior-aem-developer/7515976"
+   ]
+  },
+  {
+   "id": "kpmg",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/jobs?keyword=AEM"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.kpmg.com/in/en/home/services/advisory/management-consulting/digital.html"
+   ]
+  },
+  {
+   "id": "ltts",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job 404: https://www.ltts.com/careers/job-search?keyword=AEM"
+   ]
+  },
+  {
+   "id": "luxoft",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "own board searched in Chrome",
+   "hiringEvidence": [
+    "https://career.luxoft.com/jobs/senior-application-support-engineer-react-25623"
+   ],
+   "brokenLinks": [
+    "ev 404: https://career.luxoft.com/jobs/senior-application-support-engineer-react-25623",
+    "he 404: https://career.luxoft.com/jobs/senior-application-support-engineer-react-25623"
+   ]
+  },
+  {
+   "id": "malaysia-airlines",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://careers.malaysiaairlines.com/search?q=Adobe"
+   ],
+   "brokenLinks": [
+    "he ERR ENOTFOUND: https://careers.malaysiaairlines.com/search?q=Adobe"
+   ]
+  },
+  {
+   "id": "mmm",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.3m.com/3M/en_US/careers-us/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "momentive",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/sr-developer-i-it-cms-digital-marketing-aem-momentive-bengaluru-bangalore-47029519"
+   ],
+   "brokenLinks": [
+    "ev expired 2026-07-10: https://builtin.com/job/sr-developer-i-it-cms-digital-marketing-aem/8675291"
+   ]
+  },
+  {
+   "id": "mphasis",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.mphasis.com/home/search-results.html?keyword=AEM"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.mphasis.com/home/digital-experience.html",
+    "he 404: https://careers.mphasis.com/home/search-results.html?keyword=AEM",
+    "job 404: https://careers.mphasis.com/home/search-results.html?keyword=AEM"
+   ]
+  },
+  {
+   "id": "navitas",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://navitas.applytojob.com/apply/HfjPdG2EEG/262248-AEM-Website-Developer-HyderabadVijayawada"
+   ],
+   "brokenLinks": [
+    "ev 410: https://navitas.applytojob.com/apply/HfjPdG2EEG/262248-AEM-Website-Developer-HyderabadVijayawada",
+    "he 410: https://navitas.applytojob.com/apply/HfjPdG2EEG/262248-AEM-Website-Developer-HyderabadVijayawada"
+   ]
+  },
+  {
+   "id": "nestle",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "novartis",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/manager-business-analysis-martech-product-management-novartis-india-hyderabad-secunderabad-telangana-37313801"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "orangemantra",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.orangemantra.com/career/jobs.php"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.orangemantra.com/career/jobs.php",
+    "job closed: https://www.orangemantra.com/career/jobs.php"
+   ]
+  },
+  {
+   "id": "pattem-digital",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Developer-Architect-Bengaluru-Bangalore-Noida-Pune-Chennai-Coimbatore-Kochi-Cochin-Pattem-Digital-xpCPO49p"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "peoplefy",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/aem-developer-peoplefy-pune-52441587"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "pepsico",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "iCIMS board: no AEM roles",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "ev closed: https://www.pepsicojobs.com/",
+    "job closed: https://www.pepsicojobs.com/main/jobs?keywords=AEM"
+   ]
+  },
+  {
+   "id": "perficient",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.perficient.com/us/en/search-results?keywords=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "photon",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://careers.photon.com/search?q=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": [
+    "he ERR ENOTFOUND: https://careers.photon.com/search?q=Adobe%20Experience%20Manager"
+   ]
+  },
+  {
+   "id": "phygital-insights",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/aem-developer-phygital-insights-bengaluru-bangalore-35871774"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.phygitalinsights.com/careers",
+    "job closed: https://www.phygital-insights.com/careers"
+   ]
+  },
+  {
+   "id": "pi-square",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.linkedin.com/jobs/view/aem-developer-at-pi-square-technologies-4214418963"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "procter-gamble",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "prudential-financial",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://jobs.prudential.com/en/search-jobs?k=Adobe"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "qualcomm",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://careers.qualcomm.com/careers?query=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "quarks-technosoft",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Fullstack-Developer-Bengaluru-Bangalore-Delhi-Gurugram-Noida-Pune-Hyderabad-Jaipur-Quarks-Technosoft-Pvt-Ltd-B3DLezjJ"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "r-systems",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "rarr",
+   "priority": 7,
+   "verifiedAt": "2026-11-24",
+   "status": "confirmed-earlier-batch",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "rbm-software",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.shine.com/jobs/aem-backend-platform-developer-in/rbm-software/19148676"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.shine.com/jobs/aem-backend-platform-developer-in/rbm-software/19148676"
+   ]
+  },
+  {
+   "id": "rga",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "rightpoint",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://www.rightpoint.com/careers?search=AEM"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.rightpoint.com/capabilities/adobe"
+   ]
+  },
+  {
+   "id": "royal-cyber",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.royalcyber.com/technologies/adobe-aem/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "samsung-sds",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "sanofi",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job 404: https://jobs.sanofi.com/en/search?q=AEM"
+   ]
+  },
+  {
+   "id": "schneider-electric",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "iCIMS board: no AEM roles",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job closed: https://careers.se.com/jobs?keywords=AEM"
+   ]
+  },
+  {
+   "id": "siemens-healthineers",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://business.adobe.com/summit/2025/sessions/unlocking-audiencebased-marketing-for-b2b-s935.html"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "signify",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.careers.signify.com/search-jobs?keywords=Adobe"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "sika",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "slalom",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://jobs.slalom.com/en_US/careersmarketplace/JobDetail?jobId=2053"
+   ],
+   "brokenLinks": [
+    "he 404: https://jobs.slalom.com/en_US/careersmarketplace/JobDetail?jobId=2053"
+   ]
+  },
+  {
+   "id": "softtek",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "existing posting live",
+   "hiringEvidence": [
+    "https://jobs.softtek.com/careers/job/893393150705-soporte-aem-digital-commerce--mexico?domain=softtek.com"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.softtek.com/en/careers"
+   ]
+  },
+  {
+   "id": "solvative",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://solvative.breezy.hr/p/e54c7ee619c4-sr-aem-devsecops-engineer"
+   ],
+   "brokenLinks": [
+    "he closed: https://solvative.breezy.hr/p/e54c7ee619c4-sr-aem-devsecops-engineer"
+   ]
+  },
+  {
+   "id": "solventum",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://builtin.com/job/aem-senior-backend-developer/9411062"
+   ],
+   "brokenLinks": [
+    "ev expired 2026-07-01: https://builtin.com/job/aem-senior-backend-developer/9411062",
+    "he expired 2026-07-01: https://builtin.com/job/aem-senior-backend-developer/9411062"
+   ]
+  },
+  {
+   "id": "srijan",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "standard-chartered",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://jobs.standardchartered.com/search-jobs?keywords=Adobe"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "stryker",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Digital Marketing Operations Manager (Remote)",
+   "hiringEvidence": [
+    "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Portage-Michigan/Digital-Marketing-Operations-Manager--Remote-_R576245"
+   ],
+   "brokenLinks": [
+    "he 404: https://builtin.com/job/aem-front-end-developer-remote/3185429"
+   ]
+  },
+  {
+   "id": "sutherland-global",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://remotive.com/remote-jobs/software-dev/sr-aem-developer-2029913"
+   ],
+   "brokenLinks": [
+    "he 410: https://remotive.com/remote-jobs/software-dev/sr-aem-developer-2029913"
+   ]
+  },
+  {
+   "id": "systechcorp",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://systechus.com/contract-positions/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "tavant",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "tech-mahindra",
+   "priority": 7,
+   "verifiedAt": "2026-07-09",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.techmahindra.com/JobDetails.aspx?IndustryType=SQAAAFQAAAA%3D-cu6HGbNv01o%3D&JobCode=OAAAADgAAAA5AAAAOQAAADIAAAA%3D-830j4du3yLw%3D"
+   ],
+   "brokenLinks": [
+    "job closed: https://careers.techmahindra.com/SearchJobs.aspx?k=AEM"
+   ]
+  },
+  {
+   "id": "the-scalers",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "existing posting live",
+   "hiringEvidence": [
+    "https://careers.thescalers.com/positions/senior-aem-developer-418"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "thomson-reuters",
+   "priority": 7,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "AI Editorial Senior Program Manager– AEM",
+   "hiringEvidence": [
+    "https://thomsonreuters.wd5.myworkdayjobs.com/en-US/External_Career_Site/job/Australia-Pyrmont-New-South-Wales/AI-Editorial-Senior-Program-Manager--AEM_JREQ204281"
+   ],
+   "brokenLinks": [
+    "he 404: https://builtin.com/job/senior-software-engineer-aem/4123318"
+   ]
+  },
+  {
+   "id": "thoughtworks",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "to-the-new",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.tothenew.com/careers?search=AEM"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.tothenew.com/digital-experience"
+   ]
+  },
+  {
+   "id": "u2o3-infotech",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/java-aem-u2o3-infotech-u2o3-infotech-chennai-35387258"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ubs",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://unstop.com/jobs/adobe-experience-manager-ubs-800499"
+   ],
+   "brokenLinks": [
+    "job closed: https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=searchResults&SearchType=linkquery&LinkID=15231#keyWordSearch=AEM&locationSearch="
+   ]
+  },
+  {
+   "id": "unilever",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job 404: https://careers.unilever.com/en/search-results?keywords=AEM"
+   ]
+  },
+  {
+   "id": "ust",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.ust.com/en/careers/search?query=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "visionet",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://cutshort.io/job/Sr-AEM-Guides-Developer-Visionet-info-solution-private-limited--7kcunT3G"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.visionet.com/solutions/adobe-experience-manager/"
+   ]
+  },
+  {
+   "id": "wipro",
+   "priority": 7,
+   "verifiedAt": "2026-07-07",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://careers.wipro.com/search/?q=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "wns",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/web-content-aem-cms-exp-10-yrs-gurgaon-immediate-joiners-wns-gurgaon-gurugram-48102276"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.wns.com/solutions/digital"
+   ]
+  },
+  {
+   "id": "xebia",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.shine.com/jobs/content-management-system-developer/xebia/18997784"
+   ],
+   "brokenLinks": [
+    "ev closed: https://www.shine.com/jobs/content-management-system-developer/xebia/18997784",
+    "he closed: https://www.shine.com/jobs/content-management-system-developer/xebia/18997784"
+   ]
+  },
+  {
+   "id": "xerago",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Architect-Chennai-Navi-Mumbai-Xerago-Qg2keA3h"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "zensar",
+   "priority": 7,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://itcampus.in/zensar-technologies-is-hiring-java-full-stack-developer/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "accion-labs",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://accionlabs.com/careers?search=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "aes-technologies",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Consultant-AES-Technologies-India-pvt-0xx49dXQ"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "akamai",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "albertsons",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://www.shine.com/jobs/technical-leader-project-manager/albertsons-companies-india/19113802"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.shine.com/jobs/technical-leader-project-manager/albertsons-companies-india/19113802"
+   ]
+  },
+  {
+   "id": "alliance-bernstein",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.alliancebernstein.com/corporate/en/careers.html"
+   ],
+   "brokenLinks": [
+    "careersUrl dead (ERR UND_ERR_HEADERS_OVERFLOW)",
+    "he ERR UND_ERR_HEADERS_OVERFLOW: https://www.alliancebernstein.com/corporate/en/careers.html",
+    "job ERR UND_ERR_HEADERS_OVERFLOW: https://www.alliancebernstein.com/corporate/en/careers.html"
+   ]
+  },
+  {
+   "id": "alt-digital",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "careers-page-listing",
+   "note": "AEM role listed on own careers page",
+   "hiringEvidence": [
+    "https://www.altdigital.tech/about-us/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "american-express",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://aexp.eightfold.ai/careers?query=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": [
+    "careersUrl dead (ERR UND_ERR_HEADERS_OVERFLOW)",
+    "he 404: https://aexp.eightfold.ai/careers?query=Adobe%20Experience%20Manager",
+    "job 404: https://aexp.eightfold.ai/careers?query=Adobe%20Experience%20Manager"
+   ]
+  },
+  {
+   "id": "appriffy",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Developer-Appriffy-m2tDX672"
+   ],
+   "brokenLinks": [
+    "careersUrl dead (ERR CERT_HAS_EXPIRED)",
+    "ev ERR CERT_HAS_EXPIRED: https://www.appriffy.com/careers.php"
+   ]
+  },
+  {
+   "id": "ariel",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "asian-paints",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.asianpaints.com/careers.html"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.asianpaints.com/careers.html"
+   ]
+  },
+  {
+   "id": "avalara",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.avalara.com/us/en/about/careers.html"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.avalara.com/us/en/about/careers.html",
+    "job closed: https://careers.avalara.com/"
+   ]
+  },
+  {
+   "id": "axis-max-life",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.iimjobs.com/j/max-life-insurance-assistant-manager-digital-marketing-3-4-yrs-672775"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "bajaj-finserv",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.bajajfinserv.in/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "bank-of-america",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.bankofamerica.com/en-us/search-jobs?keywords=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": [
+    "he 404: https://careers.bankofamerica.com/en-us/search-jobs?keywords=Adobe%20Experience%20Manager",
+    "job 404: https://careers.bankofamerica.com/en-us/search-jobs?keywords=Adobe%20Experience%20Manager"
+   ]
+  },
+  {
+   "id": "bigstep-technologies",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Lead-BigStep-Technologies-h4fp8sbz"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "bmw",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.bmwgroup.jobs/us/en/search-results.html?keywords=Experience%20Manager"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.bmwgroup.jobs/us/en/search-results.html?keywords=Experience%20Manager",
+    "job 404: https://www.bmwgroup.jobs/us/en/search-results.html?keywords=Experience%20Manager"
+   ]
+  },
+  {
+   "id": "citrix",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.cloud.com/search?q=AEM"
+   ],
+   "brokenLinks": [
+    "he 404: https://careers.cloud.com/search?q=AEM",
+    "job 404: https://careers.cloud.com/search?q=AEM"
+   ]
+  },
+  {
+   "id": "code-and-theory",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.codeandtheory.com/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "colgate-palmolive",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.colgatepalmolive.com/en-us/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "dart-innovations",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "removed",
+   "note": "Archived per DR-030 (archive/companies/removed-2026-11-25.json)",
+   "hiringEvidence": [
+    "https://dartinnovations.com/careers/"
+   ],
+   "brokenLinks": [
+    "careersUrl dead (404)",
+    "ev 404: https://dartinnovations.com/content-management-system/adobe-experience-manager/",
+    "he 404: https://dartinnovations.com/careers/",
+    "job 404: https://dartinnovations.com/careers/"
+   ]
+  },
+  {
+   "id": "delta-air-lines",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://delta.com/us/en/careers/search?keyword=Adobe"
+   ],
+   "brokenLinks": [
+    "he ERR ECONNREFUSED: https://delta.com/us/en/careers/search?keyword=Adobe"
+   ]
+  },
+  {
+   "id": "disney",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://jobs.disneycareers.com/search-jobs?k=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ekloud",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "careers-page-listing",
+   "note": "AEM role listed on own careers page",
+   "hiringEvidence": [
+    "https://ekloudservices.com/career"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "emids",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.emids.com/careers/?search=AEM"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.emids.com/solutions/digital-experience"
+   ]
+  },
+  {
+   "id": "emirates",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.emirates.com/careers/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "epsilon",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.epsilon.com/us/about-us/careers"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.epsilon.com/us/about-us/careers"
+   ]
+  },
+  {
+   "id": "etihad-airways",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.etihad.com/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "fedex",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.fedex.com/fedex/jobs?keywords=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ge-healthcare",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Staff Software Engineer",
+   "hiringEvidence": [
+    "https://gehc.wd5.myworkdayjobs.com/en-US/GEHC_ExternalSite/job/Bengaluru/Staff-Software-Engineer_R4048337-1"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "genting-malaysia",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job 404: https://www.gentingmalaysia.com/careers/search?keyword=AEM"
+   ]
+  },
+  {
+   "id": "gipfel-schnell",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://cutshort.io/job/Adobe-Experience-Manager-AEM-Forms-Developer-Bengaluru-Bangalore-Gipfel-Schnell-Consultings-Pvt-Ltd-zfpdRzkT"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "haparz",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.shine.com/jobs/aep-developer/haparz/19129564"
+   ],
+   "brokenLinks": [
+    "he closed: https://www.shine.com/jobs/aep-developer/haparz/19129564"
+   ]
+  },
+  {
+   "id": "hilton",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://jobs.hilton.com/us/en/search-results?keywords=AEM"
+   ],
+   "brokenLinks": [
+    "he 404: https://jobs.hilton.com/us/en/search-results?keywords=AEM",
+    "job 404: https://jobs.hilton.com/us/en/search-results?keywords=AEM"
+   ]
+  },
+  {
+   "id": "icici-bank",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.icicicareers.com/CareerApplicant/Career/Home"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ikea",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.ikea.com/global/en/jobs/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "indusind-bank",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.indusind.com/in/en/career.html"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "intuit",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "itc-limited",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/it-manager-for-adobe-experience-manager-aem-web-presence-itc-limited-bengaluru-bangalore-48128376"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "kloudportal",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.foundit.in/job/aem-developer-kloudportal-technology-solutions-pvt-ltd-pune-40074885"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "krazymantra",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "careers-page-listing",
+   "note": "AEM role listed on own careers page",
+   "hiringEvidence": [
+    "https://www.krazymantra.com/career.php"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "linkedin",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.linkedin.com/jobs/search?keywords=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": [
+    "he 404: https://careers.linkedin.com/jobs/search?keywords=Adobe%20Experience%20Manager",
+    "job 404: https://careers.linkedin.com/jobs/search?keywords=Adobe%20Experience%20Manager"
+   ]
+  },
+  {
+   "id": "lufthansa",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.lufthansagroup.com/"
+   ],
+   "brokenLinks": [
+    "he ERR ENOTFOUND: https://careers.lufthansagroup.com/"
+   ]
+  },
+  {
+   "id": "marriott",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.marriott.com/search-jobs?keywords=Adobe"
+   ],
+   "brokenLinks": [
+    "he 404: https://careers.marriott.com/search-jobs?keywords=Adobe",
+    "job 404: https://careers.marriott.com/search-jobs?keywords=Adobe"
+   ]
+  },
+  {
+   "id": "mastercard",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.mastercard.com/us/en/search-results?keywords=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "medtronic",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Digital Marketing Specialist",
+   "hiringEvidence": [
+    "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Sydney-New-South-Wales-Australia/Digital-Marketing-Specialist_R78463-1"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "mercedes-benz",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.mercedes-benz.com/en/career/"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.mercedes-benz.com/en/career/"
+   ]
+  },
+  {
+   "id": "merck",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://jobs.merck.com/us/en/search-results?keywords=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "micron",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://micron.eightfold.ai/careers?query=Adobe"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "microsoft",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://careers.microsoft.com/us/en/search-results?keywords=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "mobile-programming",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Backend-Senior-Chennai-Mobile-Programming-LLC-ljjBzrac"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "national-bank-of-canada",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "nike",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.nike.com/search-jobs?keywords=AEM"
+   ],
+   "brokenLinks": [
+    "he 404: https://careers.nike.com/search-jobs?keywords=AEM",
+    "job 404: https://careers.nike.com/search-jobs?keywords=AEM"
+   ]
+  },
+  {
+   "id": "nissan",
+   "priority": 6,
+   "verifiedAt": "2026-07-12",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [],
+   "brokenLinks": []
+  },
+  {
+   "id": "nlb-services",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Developer-India-Nlb-Services-2rx83p57"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "pnq-technologies",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "careers-page-listing",
+   "note": "AEM role listed on own careers page",
+   "hiringEvidence": [
+    "https://pnqtechnologies.in/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "proziod",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.proziod.com/aem-front-end-developer-158273"
+   ],
+   "brokenLinks": [
+    "ev expired 2024-05-21: https://careers.proziod.com/aem-front-end-developer-158273",
+    "he expired 2024-05-21: https://careers.proziod.com/aem-front-end-developer-158273"
+   ]
+  },
+  {
+   "id": "qatar-airways",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.qatarairways.com/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "quest-business-solution",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Developer-Chandigarh-QUEST-BUSINESS-SOLUTION-Ma7SP42w"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ranosys",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.ranosys.com/global/about-us/career/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "real-madrid",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job closed: https://www.realmadrid.com/en-US/the-club/careers"
+   ]
+  },
+  {
+   "id": "roche",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "DAM Technical Product Owner",
+   "hiringEvidence": [
+    "https://roche.wd3.myworkdayjobs.com/en-US/roche-ext/job/Warsaw/DAM-Technical-Product-Owner_202606-116839"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "sap",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://jobs.sap.com/search/?q=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "servicenow",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.servicenow.com/jobs?keywords=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "siemens",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://jobs.siemens.com/careers?query=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "sonata-software",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.sonata-software.com/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "spark-new-zealand",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://www.spark.co.nz/about-spark/careers/"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.spark.co.nz/about-spark/careers/"
+   ]
+  },
+  {
+   "id": "suncorp",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "unchecked",
+   "note": "JS-only, bot-blocked or no searchable board — needs a manual browser check — LinkedIn company page not resolved or non-India row",
+   "hiringEvidence": [
+    "https://www.suncorpgroup.com.au/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "taazaa",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "Keka board: no AEM roles",
+   "hiringEvidence": [
+    "https://www.crawljobs.com/o/senior-software-engineer-aem/6cec8aa20a07ab7"
+   ],
+   "brokenLinks": [
+    "job 404: https://taazaa.com/career/"
+   ]
+  },
+  {
+   "id": "target",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://corporate.target.com/careers/search?query=Adobe"
+   ],
+   "brokenLinks": [
+    "he 404: https://corporate.target.com/careers/search?query=Adobe",
+    "job 404: https://corporate.target.com/careers/search?query=Adobe"
+   ]
+  },
+  {
+   "id": "techaivv-technologies",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "removed",
+   "note": "Archived per DR-030 (archive/companies/removed-2026-11-25.json)",
+   "hiringEvidence": [
+    "https://www.shine.com/jobs/aem-developer/techaivv-technologies/19101851"
+   ],
+   "brokenLinks": [
+    "careersUrl dead (404)",
+    "he closed: https://www.shine.com/jobs/aem-developer/techaivv-technologies/19101851"
+   ]
+  },
+  {
+   "id": "telstra",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.telstra.com/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "tlc-digitech",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Developer-Delhi-Gurugram-Noida-Ghaziabad-Faridabad-TLC-DigiTech-Pvt-Ltd-Formerly-TLC-Relationship-Management-P-Ltd--nBYrBJ0o"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "tsb",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [],
+   "brokenLinks": [
+    "job 404: https://www.tsb.co.uk/careers/"
+   ]
+  },
+  {
+   "id": "unicredit",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.unicreditgroup.eu/en/careers.html"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "united-airlines",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "employer job board searched",
+   "hiringEvidence": [
+    "https://careers.united.com/us/en/search-results?keywords=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "us-bank",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "aem-in-description",
+   "note": "Sr. Technical Product Manager (Digital Asset Management)",
+   "hiringEvidence": [
+    "https://usbank.wd1.myworkdayjobs.com/en-US/US_Bank_Careers/job/Hopkins-MN/Sr-Technical-Product-Manager--Digital-Asset-Management-_2026-0034218"
+   ],
+   "brokenLinks": [
+    "he 410: https://careers.usbank.com/global/en/job/2026-0017264/Software-Engineer"
+   ]
+  },
+  {
+   "id": "valuelabs",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.valuelabs.com/careers/?keyword=AEM"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.valuelabs.com/digital-experience"
+   ]
+  },
+  {
+   "id": "vayuz",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "AEM Developer",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Developer-Bengaluru-Bangalore-VY-SYSTEMS-PRIVATE-LIMITED-Si9Or0ky"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "verizon",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://mycareer.verizon.com/search-jobs?keywords=Adobe%20Experience%20Manager"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "vivantify-technology",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.careers-page.com/vivantify-technology-solutions/job/4RXY6787"
+   ],
+   "brokenLinks": [
+    "he 404: https://www.careers-page.com/vivantify-technology-solutions/job/4RXY6787"
+   ]
+  },
+  {
+   "id": "webologix",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "confirmed",
+   "note": "existing posting live",
+   "hiringEvidence": [
+    "https://www.hirist.tech/j/aem-consultant-osgi-1473225",
+    "https://www.foundit.in/job/aem-developer-webologix-ltd-inc-bengaluru-bangalore-48102053"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "wells-fargo",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://www.wellsfargo.com/about/careers/"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "wissen",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "LinkedIn company jobs (India, last 6 months): no AEM-titled role",
+   "hiringEvidence": [
+    "https://careers.wissen.com/jobs/Careers"
+   ],
+   "brokenLinks": [
+    "ev 404: https://www.wissen.com/solutions/digital-experience"
+   ]
+  },
+  {
+   "id": "xeliumtech",
+   "priority": 6,
+   "verifiedAt": "2026-11-25",
+   "status": "careers-page-listing",
+   "note": "AEM role listed on own careers page",
+   "hiringEvidence": [
+    "https://www.xeliumtech.com/careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "zerozilla-infotech",
+   "priority": 6,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://cutshort.io/job/AEM-Developer-Bengaluru-Bangalore-Zerozilla-Infotech-Pvt-Ltd-T8iLfPqY"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "beansbit",
+   "priority": 5,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.hirist.tech/beansbit-careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "ezest",
+   "priority": 5,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://www.ezest.com/careers"
+   ],
+   "brokenLinks": [
+    "he ERR ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR: https://www.ezest.com/careers"
+   ]
+  },
+  {
+   "id": "insight-global",
+   "priority": 5,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "careers page read, no AEM role listed",
+   "hiringEvidence": [
+    "https://insightglobal.com/jobs/?search=AEM"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "techcarrot",
+   "priority": 5,
+   "verifiedAt": "2026-07-10",
+   "status": "checked-no-aem-roles",
+   "note": "Zoho board: no AEM roles",
+   "hiringEvidence": [
+    "https://techcarrot.zohorecruit.com/jobs/Careers"
+   ],
+   "brokenLinks": []
+  },
+  {
+   "id": "tekbon",
+   "priority": 5,
+   "verifiedAt": "2026-11-25",
+   "status": "careers-page-listing",
+   "note": "AEM role listed on own careers page",
+   "hiringEvidence": [
+    "https://tekbon.com/Careers/"
+   ],
+   "brokenLinks": []
+  }
+ ]
+}

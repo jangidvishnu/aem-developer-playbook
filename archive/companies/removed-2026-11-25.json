@@ -1,0 +1,88 @@
+{
+  "removedAt": "2026-11-25",
+  "reason": "DR-030: no AEM evidence left and every cited page dead or showing no AEM (checked 2026-11-25)",
+  "checks": {
+    "dart-innovations": "careersUrl, evidence (AEM services page) and hiringEvidence all 404; site replaced by a one-page product site with no AEM work",
+    "techaivv-technologies": "careersUrl /career 404, Shine hiringEvidence 404; homepage (evidence) loads but no longer mentions AEM — company now does GTM/MarTech"
+  },
+  "removed": [
+    {
+      "id": "dart-innovations",
+      "name": "Dart Innovations",
+      "priority": 6,
+      "industry": "IT Services",
+      "companyType": "Agency",
+      "hq": "India",
+      "indiaPresence": true,
+      "hiringIndia": true,
+      "careersUrl": "https://dartinnovations.com/careers/",
+      "products": [
+        "sites"
+      ],
+      "roles": [
+        "AEM Developer"
+      ],
+      "notes": "IT services firm with a dedicated AEM services line (consulting, website dev, migration, workflow customisation). Lists AEM Developer roles (3+ yrs, ACE preferred) on its careers page.",
+      "evidence": [
+        "https://dartinnovations.com/content-management-system/adobe-experience-manager/"
+      ],
+      "hiringEvidence": [
+        "https://dartinnovations.com/careers/"
+      ],
+      "verifiedAt": "2026-07-10",
+      "jobSearchUrl": "https://dartinnovations.com/careers/",
+      "ownerVerified": true,
+      "locations": [
+        {
+          "city": "Bengaluru",
+          "country": "India"
+        },
+        {
+          "city": "Chennai",
+          "country": "India"
+        },
+        {
+          "city": "Hyderabad",
+          "country": "India"
+        }
+      ]
+    },
+    {
+      "id": "techaivv-technologies",
+      "name": "TechAIVV Technologies",
+      "priority": 6,
+      "industry": "IT Services",
+      "companyType": "Agency",
+      "hq": "Hyderabad, India",
+      "indiaPresence": true,
+      "hiringIndia": true,
+      "careersUrl": "https://techaivv.com/career",
+      "products": [
+        "sites",
+        "assets",
+        "aem-cloud"
+      ],
+      "roles": [
+        "AEM Developer",
+        "AEM Backend Developer"
+      ],
+      "notes": "Hyderabad IT services provider recruiting AEM developers for component, template, and workflow development across the full SDLC.",
+      "evidence": [
+        "https://techaivv.com/"
+      ],
+      "hiringEvidence": [
+        "https://www.shine.com/jobs/aem-developer/techaivv-technologies/19101851"
+      ],
+      "verifiedAt": "2026-07-10",
+      "jobSearchUrl": "https://techaivv.com/",
+      "ownerVerified": true,
+      "locations": [
+        {
+          "city": "Hyderabad",
+          "country": "India"
+        }
+      ],
+      "hiringActive": true
+    }
+  ]
+}

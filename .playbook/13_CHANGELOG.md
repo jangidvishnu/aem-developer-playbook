@@ -4,6 +4,37 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — company data refresh, all priorities
+
+### Changed
+
+- Rechecked every row still dated July 2026 (272) against employer job boards (2026-11-25), highest priority first:
+  link probe on every `careersUrl`/`jobSearchUrl`/`evidence`/`hiringEvidence`, job-board search APIs (Workday,
+  Greenhouse, Lever, SmartRecruiters, Ashby, Workable, Jobvite, Phenom, SuccessFactors, Radancy, Avature), a
+  one-level careers-page crawl, Chrome tabs in parallel for client-rendered boards, and LinkedIn job search
+  filtered to each employer (company filter, last 6 months) for boards that could not be read. Per-row result:
+  `scripts/data/company-refresh-2026-11-25.json`.
+- `verifiedAt` bumped to 2026-11-25 only where a live AEM role was confirmed, and `hiringEvidence` swapped to that
+  posting: 52 rows (15 priority-8 rows checked by hand, 22 from job-board APIs or still-live postings, 8 from AEM
+  roles listed on the employer's own careers page, 7 from LinkedIn — ASSA ABLOY, Coforge, Infosys, HCLTech,
+  Publicis Sapient, Infogain/Tenarai, Commergence). 14 of these are roles that list AEM in the description rather
+  than the title (for example Barclays, Concentrix, Invesco, Palo Alto Networks).
+- Job-board postings only count if posted on or after 2026-05-25; several Cutshort links were years old but still
+  live, so they no longer confirm hiring.
+- `hiringEvidence` that pointed at a LinkedIn profile or a generic search replaced with a real posting or the
+  employer's careers listing (Valtech, ALT Digital, Tekbon).
+- 15 broken `jobSearchUrl` links repointed to the employer's own board (Amgen, Arrow, Cognizant, S&P Global,
+  T-Mobile, Dick's, HCLTech, HPE/Juniper, Sanofi, Unilever, Cloud Software Group/Citrix, Genting, Nike, Target,
+  Santander/TSB).
+- Removed and archived (DR-030) two rows with no AEM evidence left and every cited page dead: Dart Innovations and
+  TechAIVV Technologies (`archive/companies/removed-2026-11-25.json`). Employer count 298 → 296 in the hero,
+  Companies chapter summary, share-image text/alt and search test; share image regenerated.
+- DR-030 recorded: the list stays global (non-India employers kept); removal only when no AEM evidence remains and
+  all cited pages are dead.
+- Not changed by design: 221 rows checked with no current AEM role and 12 rows that could not be checked (5
+  non-India employers, 2 M&A rows on hold, 5 without a resolvable LinkedIn company page) keep their date, priority
+  and `hiringActive`; no merges; `ownerVerified` unchanged (no `careersUrl` changes).
+
 ## Unreleased — link-preview image (og:image)
 
 ### Added
