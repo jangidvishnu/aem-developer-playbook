@@ -96,7 +96,10 @@ function buildFragments(Render, data) {
   const themeColor = Render.escapeHtml(seo.themeColor || '#2563eb');
   const ogType = Render.escapeHtml(seo.ogType || 'website');
   const ogLocale = Render.escapeHtml(seo.ogLocale || 'en_US');
-  const twitterCard = Render.escapeHtml(seo.twitterCard || 'summary');
+  const twitterCard = Render.escapeHtml(Render.twitterCardFor(seo));
+  const imageMeta = Render.socialImageMeta(seo).map(
+    ([attr, name, content]) => `<meta ${attr}="${Render.escapeHtml(name)}" content="${Render.escapeHtml(content)}" />`
+  );
   const seoMeta = [
     `<meta name="description" content="${desc}" />`,
     keywords ? `<meta name="keywords" content="${keywords}" />` : '',
@@ -106,10 +109,10 @@ function buildFragments(Render, data) {
     `<meta property="og:type" content="${ogType}" />`,
     `<meta property="og:locale" content="${ogLocale}" />`,
     siteUrl ? `<meta property="og:url" content="${Render.escapeHtml(siteUrl)}" />` : '',
-    seo.ogImage ? `<meta property="og:image" content="${Render.escapeHtml(seo.ogImage)}" />` : '',
     `<meta name="twitter:card" content="${twitterCard}" />`,
     `<meta name="twitter:title" content="${title}" />`,
-    `<meta name="twitter:description" content="${desc}" />`
+    `<meta name="twitter:description" content="${desc}" />`,
+    ...imageMeta
   ]
     .filter(Boolean)
     .join('\n  ');

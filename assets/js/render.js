@@ -88,6 +88,34 @@ const Render = {
     el.setAttribute('content', content);
   },
 
+  /** Pixel size of assets/og/og-image.png (scripts/build-og-image.mjs renders at this size). */
+  OG_IMAGE_WIDTH: 1200,
+  OG_IMAGE_HEIGHT: 627,
+
+  /** Large card when a share image exists, else the configured (or default) card type. */
+  twitterCardFor(seo) {
+    const s = seo || {};
+    return s.ogImage ? 'summary_large_image' : s.twitterCard || 'summary';
+  },
+
+  /**
+   * Link-preview image tags as [attr, name, content] triples — one source for both
+   * applyHeadMeta (browser) and scripts/lib/prerender-core.js (baked index.html).
+   */
+  socialImageMeta(seo) {
+    const s = seo || {};
+    if (!s.ogImage) return [];
+    const alt = s.ogImageAlt || '';
+    return [
+      ['property', 'og:image', s.ogImage],
+      ['property', 'og:image:width', String(Render.OG_IMAGE_WIDTH)],
+      ['property', 'og:image:height', String(Render.OG_IMAGE_HEIGHT)],
+      alt ? ['property', 'og:image:alt', alt] : null,
+      ['name', 'twitter:image', s.ogImage],
+      alt ? ['name', 'twitter:image:alt', alt] : null
+    ].filter(Boolean);
+  },
+
   applyHeadMeta(site) {
     if (typeof document === 'undefined' || !site) return;
     const title = site.documentTitle || '';
@@ -105,11 +133,11 @@ const Render = {
     if (typeof location !== 'undefined' && location.href) {
       Render.setMetaTag('og:url', location.href.split('#')[0], 'property');
     }
-    Render.setMetaTag('twitter:card', seo.twitterCard || 'summary');
+    Render.setMetaTag('twitter:card', Render.twitterCardFor(seo));
     Render.setMetaTag('twitter:title', title);
     Render.setMetaTag('twitter:description', desc);
     if (seo.themeColor) Render.setMetaTag('theme-color', seo.themeColor);
-    if (seo.ogImage) Render.setMetaTag('og:image', seo.ogImage, 'property');
+    Render.socialImageMeta(seo).forEach(([attr, name, content]) => Render.setMetaTag(name, content, attr));
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
