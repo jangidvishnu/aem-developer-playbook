@@ -4,6 +4,13 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Entries 
 by version number while the project is pre-release. Never delete an entry — if something is reversed, add a new
 entry noting the reversal.
 
+## Unreleased — share card wording
+
+### Changed
+
+- Link-preview card (og:image) and its alt text no longer say "(India)" / "for India", since the playbook covers
+  employers outside India too. Image regenerated with `node scripts/build-og-image.mjs`.
+
 ## Unreleased — company data refresh, all priorities
 
 ### Changed
